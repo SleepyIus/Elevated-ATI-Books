@@ -1158,8 +1158,13 @@ body.modal-open{overflow:hidden}
 }
 .exercise-q{
   padding:20px 24px;cursor:pointer;
-  display:flex;justify-content:space-between;align-items:flex-start;gap:12px;
+  display:flex;flex-wrap:wrap;align-items:flex-start;
+  gap:10px 14px;
 }
+.exercise-q > .q-num{flex-shrink:0}
+.exercise-q > p{flex:1;min-width:200px;margin:0}
+.exercise-q > .q-options{flex-basis:100%;margin:6px 0 0;padding-left:34px}
+.exercise-q > .q-toggle{margin-left:auto}
 @media(max-width:600px){.exercise-q{padding:18px 20px}}
 .exercise-q:hover{background:var(--surface2)}
 .q-num{
@@ -1177,13 +1182,30 @@ body.modal-open{overflow:hidden}
   display:inline-flex;align-items:center;justify-content:center;
 }
 .q-toggle{
-  flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  flex-shrink:0;
+  display:inline-flex;align-items:center;gap:6px;
   background:var(--surface2);color:var(--text2);
-  border:none;font-family:inherit;font-size:14px;
-  display:inline-flex;align-items:center;justify-content:center;
-  cursor:pointer;transition:transform 0.2s;
+  border:1px solid var(--border);
+  border-radius:8px;padding:8px 14px;
+  font-family:'DM Sans',sans-serif;
+  font-size:11px;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.08em;
+  cursor:pointer;transition:all 0.15s ease;
+  white-space:nowrap;
+  align-self:center;
 }
-.exercise.open .q-toggle{transform:rotate(45deg);background:var(--accent);color:#fff}
+.exercise-q:hover .q-toggle{
+  background:var(--accent-soft);color:var(--accent);border-color:var(--accent);
+}
+.exercise.open .q-toggle{
+  background:var(--accent);color:var(--bg);border-color:var(--accent);
+  font-size:0;
+}
+.exercise.open .q-toggle::before{
+  content:"Hide rationale ▴";
+  font-size:11px;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.08em;
+}
 .exercise-a{
   display:none;padding:0 24px 22px;border-top:1px solid var(--border-soft);
   font-size:14.5px;line-height:1.6;
@@ -1322,6 +1344,96 @@ button:focus-visible,a:focus-visible{
 .mid-prompt-rated{display:none;margin-top:12px;font-size:12px;color:var(--text3);font-style:italic}
 .mid-prompt.rated .mid-prompt-rating{display:none}
 .mid-prompt.rated .mid-prompt-rated{display:block}
+
+/* ===== SUBTOPIC BOXES — condition-block and kb-card visual containers ===== */
+.condition-block,
+.kb-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:20px 22px;
+  margin:0 0 18px;
+  position:relative;
+  transition:border-color .15s ease;
+}
+.condition-block:hover,
+.kb-card:hover{border-color:var(--text3)}
+
+.condition-head{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 14px;
+  margin:0 0 12px;padding-bottom:10px;
+  border-bottom:1px solid var(--border-soft);
+}
+.condition-name{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:20px;line-height:1.25;color:var(--text);
+  margin:0;flex:1;min-width:200px;
+}
+@media(max-width:600px){.condition-name{font-size:17px}}
+.condition-tag{
+  font-size:11px;font-weight:600;color:var(--accent2);
+  background:var(--accent-soft);padding:4px 10px;border-radius:6px;
+  text-transform:uppercase;letter-spacing:0.08em;
+  white-space:nowrap;
+}
+
+/* Body content within the box */
+.condition-block > p,
+.kb-card > p{
+  margin:0 0 12px;color:var(--text);font-size:14.5px;line-height:1.6;
+}
+.condition-block > p:last-child,
+.kb-card > p:last-child{margin-bottom:0}
+
+/* Sub-boxes within the main box (finding-grid + finding-card) */
+.finding-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap:12px;
+  margin:14px 0 0;
+}
+.finding-card{
+  background:var(--surface2);
+  border:1px solid var(--border-soft);
+  border-radius:10px;
+  padding:14px 16px;
+}
+.finding-card h4{
+  font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.12em;
+  color:var(--accent2);margin:0 0 8px;
+}
+.finding-card p,
+.finding-card ul,
+.finding-card ol{
+  margin:0;font-size:13.5px;color:var(--text2);line-height:1.55;
+}
+.finding-card ul,
+.finding-card ol{padding-left:18px}
+.finding-card li{margin-bottom:4px}
+.finding-card li:last-child{margin-bottom:0}
+.finding-card strong{color:var(--text)}
+
+/* Flag for high-priority/red-flag headings */
+.condition-name.flag,
+.kb-card h3.flag,
+.kb-card h4.flag{
+  position:relative;padding-left:14px;
+}
+.condition-name.flag::before,
+.kb-card h3.flag::before,
+.kb-card h4.flag::before{
+  content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:4px;height:70%;background:var(--nonreassuring);border-radius:2px;
+}
+
+/* Spacing for content inside tab panels */
+.tab-panel > h2{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:24px;color:var(--text);
+  margin:0 0 18px;padding-bottom:10px;
+  border-bottom:2px solid var(--accent);
+}
 </style>
 </head>
 <body>
@@ -2035,13 +2147,103 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch1-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 1 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is teaching a client about combined oral contraceptives. Which of the following statements by the client indicates an understanding of the teaching?</p>
+          <ol class="q-options">
+              <li>A. "I should take the pill at the same time each day to maximize effectiveness."</li>
+              <li>B. "I can skip pills as long as I take two the next day."</li>
+              <li>C. "The pill protects me from sexually transmitted infections."</li>
+              <li>D. "I should stop the pill if I notice any breast tenderness."</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Taking COCs at the same time daily maintains stable hormone levels and maximizes contraceptive effectiveness.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Skipping pills risks ovulation and pregnancy. Two pills the next day is not the recommended catch-up.</p>
+          <p class="answer "><span class="ans-letter">C.</span> COCs do <strong>NOT</strong> protect against STIs — barrier methods like condoms are required.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Breast tenderness is a common, expected side effect that typically resolves; it is not a reason to stop the pill.</p>
+          <span class="nclex-tag">NCLEX · Pharmacological &amp; Parenteral Therapies · Expected Actions/Outcomes</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is reviewing contraception options with a client. Which of the following are absolute contraindications to combined oral contraceptives? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. History of deep-vein thrombosis</li>
+              <li>B. Smoker over age 35</li>
+              <li>C. Mild headaches</li>
+              <li>D. History of breast cancer</li>
+              <li>E. Liver tumor</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> History of DVT/PE is an absolute contraindication — estrogen increases clotting risk.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Smoking after age 35 with COCs sharply increases cardiovascular risk.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Mild headaches alone are not a contraindication. Migraine with aura IS contraindicated.</p>
+          <p class="answer correct"><span class="ans-letter">D.</span> <strong>CORRECT.</strong> Estrogen-receptor positive cancers can be stimulated by COCs.</p>
+          <p class="answer correct"><span class="ans-letter">E.</span> <strong>CORRECT.</strong> Active liver disease/tumor is contraindicated since estrogen is hepatically metabolized.</p>
+          <span class="nclex-tag">NCLEX · Pharmacological &amp; Parenteral Therapies · Adverse Effects/Contraindications</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A client asks the nurse about the typical effectiveness of emergency contraception. Which of the following responses is most accurate?</p>
+          <ol class="q-options">
+              <li>A. "It is most effective when taken within 24 hours of unprotected intercourse."</li>
+              <li>B. "It works by causing an abortion of a fertilized egg."</li>
+              <li>C. "It can be used as your primary form of contraception."</li>
+              <li>D. "It must be prescribed by a healthcare provider."</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Emergency contraception is most effective within 24 hours, decreasing in efficacy up to 120 hours (5 days).</p>
+          <p class="answer "><span class="ans-letter">B.</span> Emergency contraception prevents/delays ovulation; it is NOT an abortifacient. It will not terminate an established pregnancy.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Emergency contraception is for occasional use only — not for regular contraception (less effective, more side effects).</p>
+          <p class="answer "><span class="ans-letter">D.</span> Levonorgestrel (Plan B) is available over-the-counter without prescription in the U.S.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Health Promotion / Disease Prevention</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is teaching a client who is breastfeeding about contraception options at 6 weeks postpartum. Which of the following methods should the nurse recommend as most appropriate?</p>
+          <ol class="q-options">
+              <li>A. Combined oral contraceptives</li>
+              <li>B. Progestin-only mini-pill</li>
+              <li>C. Estrogen patch</li>
+              <li>D. Vaginal ring containing estrogen</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Combined hormonal contraceptives contain estrogen, which can <strong>decrease milk supply</strong> — not recommended in lactating clients.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Progestin-only methods (mini-pill, IUD, implant, DMPA) do NOT affect milk supply.</p>
+          <p class="answer "><span class="ans-letter">C.</span> The estrogen patch is a combined hormonal method, contraindicated due to milk-supply effects.</p>
+          <p class="answer "><span class="ans-letter">D.</span> The vaginal ring also contains estrogen and is contraindicated.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Antepartum/Postpartum Care</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch1-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch1-cocs" target="_blank" rel="noopener">Combined Oral Contraceptives (COCs)</a></li>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch1-vasectomy" target="_blank" rel="noopener">Vasectomy</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch1 -->
 
   </section><!-- /ch1 -->
@@ -2405,13 +2607,103 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch2-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 2 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is caring for a client who is scheduled for hysterosalpingography (HSG). The client asks why the procedure is performed in the follicular phase of her cycle. Which response by the nurse is most appropriate?</p>
+          <ol class="q-options">
+              <li>A. "It improves imaging clarity and reduces the risk of disrupting an early pregnancy."</li>
+              <li>B. "The cervix is more dilated during the follicular phase, making it easier to insert the catheter."</li>
+              <li>C. "Hormonal levels are highest during this time, improving visualization."</li>
+              <li>D. "It minimizes pain because the uterus is less sensitive then."</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Performing HSG in the follicular phase (before ovulation) avoids the chance of a pregnancy being present and provides clearer imaging due to thinner endometrium.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Cervical dilation does not significantly change with cycle phase.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Estrogen rises during the follicular phase, but this is not the rationale for HSG timing.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Pain level isn't tied to cycle phase for HSG.</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · Diagnostic Tests</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is reviewing risk factors for infertility with a client. Which of the following findings increase infertility risk? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Polycystic ovary syndrome (PCOS)</li>
+              <li>B. History of pelvic inflammatory disease</li>
+              <li>C. Age over 35</li>
+              <li>D. Maintaining a healthy BMI</li>
+              <li>E. Endometriosis</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> PCOS causes anovulation and is a leading cause of female infertility.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> PID causes scarring of fallopian tubes, blocking ova transit.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Female fertility declines significantly after age 35 due to decreased oocyte quality.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Healthy BMI is protective. Both underweight (BMI < 18.5) and obesity (BMI > 30) impair fertility.</p>
+          <p class="answer correct"><span class="ans-letter">E.</span> <strong>CORRECT.</strong> Endometriosis can cause adhesions and tubal obstruction.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Health Promotion / Disease Prevention</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is teaching a couple about basal body temperature (BBT) tracking. Which finding indicates that ovulation has occurred?</p>
+          <ol class="q-options">
+              <li>A. Drop in temperature of 0.5°F sustained for one day</li>
+              <li>B. Sustained rise of 0.4–1.0°F above baseline for 3+ days</li>
+              <li>C. Fluctuating temperatures within the normal range</li>
+              <li>D. Single morning reading above 99°F</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> A single-day drop is the pre-ovulatory dip, not confirmation of ovulation.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Progesterone after ovulation raises body temperature 0.4–1.0°F, and this rise must be sustained for at least 3 consecutive days to confirm ovulation occurred.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Random fluctuations do not indicate ovulation.</p>
+          <p class="answer "><span class="ans-letter">D.</span> A single high reading is not sufficient — sustained rise is required.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Health Promotion / Disease Prevention</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is preparing a client for in vitro fertilization (IVF). The client asks what to expect. Which statement should the nurse include in teaching?</p>
+          <ol class="q-options">
+              <li>A. "Ovulation will be suppressed first, then induced with hormones."</li>
+              <li>B. "The embryo will develop in the fallopian tube before implantation."</li>
+              <li>C. "You will need general anesthesia for embryo transfer."</li>
+              <li>D. "IVF is approximately 90% successful per cycle."</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> IVF protocols suppress natural ovulation, then stimulate the ovaries to produce multiple oocytes for retrieval.</p>
+          <p class="answer "><span class="ans-letter">B.</span> In IVF, fertilization occurs in vitro (lab); embryos are then transferred directly to the uterus, bypassing the tubes.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Embryo transfer is typically done with no anesthesia or light sedation, similar to a pelvic exam.</p>
+          <p class="answer "><span class="ans-letter">D.</span> IVF success per cycle averages 20–40% depending on age, much lower than 90%.</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · Therapeutic Procedures</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch2-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch2-hsg" target="_blank" rel="noopener">Hysterosalpingography (HSG)</a></li>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch2-infertility" target="_blank" rel="noopener">Infertility</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch2 -->
 
   </section><!-- /ch2 -->
@@ -2874,12 +3166,102 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch3-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 3 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is performing a fundal height measurement at 24 weeks of gestation. Where should the nurse expect to palpate the fundus?</p>
+          <ol class="q-options">
+              <li>A. Just above the symphysis pubis</li>
+              <li>B. At the level of the umbilicus</li>
+              <li>C. Between the symphysis pubis and umbilicus</li>
+              <li>D. At the xiphoid process</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> At 12 weeks, fundus is at the symphysis pubis.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> At 20 weeks, the fundus reaches the umbilicus; at 24 weeks, fundal height is approximately at or just above the umbilicus (24 cm).</p>
+          <p class="answer "><span class="ans-letter">C.</span> At 16 weeks, fundus is midway between symphysis pubis and umbilicus.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Fundus reaches the xiphoid at 36 weeks, then drops with lightening before delivery.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Antepartum/Postpartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is classifying signs of pregnancy. Which of the following are positive (diagnostic) signs of pregnancy? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Auscultation of fetal heart tones</li>
+              <li>B. Positive home pregnancy test</li>
+              <li>C. Visualization of fetus on ultrasound</li>
+              <li>D. Examiner palpation of fetal movement</li>
+              <li>E. Maternal report of quickening</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Audible fetal heart tones are a positive (diagnostic) sign — only a fetus can produce them.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Positive hCG is a <em>probable</em> sign; rare false positives exist (e.g., trophoblastic disease).</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Ultrasound visualization of the fetus is a positive (diagnostic) sign.</p>
+          <p class="answer correct"><span class="ans-letter">D.</span> <strong>CORRECT.</strong> Fetal movement palpated by examiner is a positive sign (cannot be confused with other conditions).</p>
+          <p class="answer "><span class="ans-letter">E.</span> Quickening (mother's perception of movement) is a <em>presumptive</em> sign — subjective and can be misinterpreted.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Antepartum/Postpartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is teaching a pregnant client about expected skin changes. Which finding should the nurse identify as a normal physiologic change?</p>
+          <ol class="q-options">
+              <li>A. Sudden bright red rash on the abdomen</li>
+              <li>B. Linea nigra and chloasma</li>
+              <li>C. Yellow-tinged sclera</li>
+              <li>D. Petechiae on the lower extremities</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Sudden bright red rash can indicate herpes gestationis or other pathology — not normal.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Linea nigra (dark vertical line on abdomen) and chloasma (mask of pregnancy on face) are expected from increased melanocyte-stimulating hormone.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Yellow sclera suggests jaundice/cholestasis — abnormal in pregnancy.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Petechiae suggest a clotting disorder or platelet abnormality — abnormal.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Antepartum/Postpartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is reviewing expected hematologic changes in pregnancy. Which finding is consistent with physiologic anemia of pregnancy?</p>
+          <ol class="q-options">
+              <li>A. Hgb 10.5 g/dL in the second trimester</li>
+              <li>B. Hgb 8.0 g/dL in any trimester</li>
+              <li>C. Hct 50% in the third trimester</li>
+              <li>D. WBC 4,000/mm³ in the first trimester</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Hgb 10.5 g/dL in the second trimester is consistent with <em>physiologic</em> anemia (plasma volume expanding faster than RBC mass). Thresholds: < 11 g/dL in 1st/3rd trimesters, < 10.5 in 2nd.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Hgb 8.0 g/dL is true anemia, not physiologic — needs evaluation and supplementation.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Hct 50% in pregnancy is elevated — could indicate hemoconcentration from dehydration or preeclampsia.</p>
+          <p class="answer "><span class="ans-letter">D.</span> WBC 4,000 is low; pregnancy normally shows mild leukocytosis (up to 15,000).</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · Laboratory Values</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch3-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch3-skin-breast" target="_blank" rel="noopener">Skin and Breast Changes During Pregnancy</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch3 -->
 
   </section><!-- /ch3 -->
@@ -3434,12 +3816,104 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch4-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 4 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A client at 32 weeks of gestation is scheduled for a routine prenatal visit. Based on standard prenatal care guidelines, when is the client expected to return next?</p>
+          <ol class="q-options">
+              <li>A. In 4 weeks</li>
+              <li>B. In 2 weeks</li>
+              <li>C. In 1 week</li>
+              <li>D. As needed only</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Monthly visits are standard until 28 weeks.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> From 28 to 36 weeks gestation, prenatal visits occur every 2 weeks.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Weekly visits begin at 36 weeks until delivery.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Regular scheduled visits are essential — "as needed" is not standard prenatal care.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Antepartum/Postpartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is reviewing danger signs of pregnancy with a client. Which of the following findings should the client report immediately? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Vaginal bleeding</li>
+              <li>B. Mild ankle swelling at end of day</li>
+              <li>C. Severe headache with visual changes</li>
+              <li>D. Decreased fetal movement</li>
+              <li>E. Persistent vomiting</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Any vaginal bleeding requires evaluation — could indicate previa, abruption, or pregnancy loss.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Mild dependent edema at end of day is expected from increased venous pressure — not a danger sign unless sudden, severe, or in the face.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Severe headache with visual changes is classic for severe preeclampsia.</p>
+          <p class="answer correct"><span class="ans-letter">D.</span> <strong>CORRECT.</strong> Decreased fetal movement may indicate fetal distress — kick counts and NST needed.</p>
+          <p class="answer correct"><span class="ans-letter">E.</span> <strong>CORRECT.</strong> Persistent vomiting can lead to hyperemesis gravidarum with dehydration and electrolyte imbalance.</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · Potential for Complications</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is teaching a client at 8 weeks of gestation about common discomforts of pregnancy. Which intervention should the nurse recommend for morning sickness?</p>
+          <ol class="q-options">
+              <li>A. Eat large, fatty meals to coat the stomach</li>
+              <li>B. Take antacids before each meal</li>
+              <li>C. Eat dry crackers before getting out of bed</li>
+              <li>D. Drink large amounts of water with meals</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Large fatty meals worsen nausea due to delayed gastric emptying.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Antacids may help reflux but should not be used routinely without provider input.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Dry carbohydrates (crackers) before rising help raise blood sugar slowly and minimize nausea triggered by an empty stomach.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Large fluid volumes with meals distend the stomach and worsen nausea — fluids between meals are preferred.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Antepartum/Postpartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is reviewing initial prenatal laboratory tests. Which of the following tests are routinely included? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Blood type and Rh factor</li>
+              <li>B. Hemoglobin and hematocrit</li>
+              <li>C. Rubella titer</li>
+              <li>D. Karyotype</li>
+              <li>E. Urine culture</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Determines need for Rho(D) immune globulin if Rh-negative.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Establishes baseline; identifies pre-existing anemia.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Identifies non-immune clients who need post-delivery vaccination (live vaccine; cannot give during pregnancy).</p>
+          <p class="answer "><span class="ans-letter">D.</span> Karyotype is not routine — only ordered if specific genetic risk factors are identified.</p>
+          <p class="answer correct"><span class="ans-letter">E.</span> <strong>CORRECT.</strong> Asymptomatic bacteriuria is common in pregnancy and increases pyelonephritis risk if untreated.</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · Laboratory Values</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch4-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch4-uti" target="_blank" rel="noopener">UTI Prevention During Pregnancy</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch4 -->
 
   </section><!-- /ch4 -->
@@ -3880,12 +4354,102 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch5-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 5 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is teaching a client who is planning a pregnancy about folic acid intake. Which daily amount should the nurse recommend?</p>
+          <ol class="q-options">
+              <li>A. 100 mcg</li>
+              <li>B. 400 mcg</li>
+              <li>C. 1,000 mcg</li>
+              <li>D. 4,000 mcg</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> 100 mcg is insufficient to prevent neural tube defects.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> 400 mcg/day is recommended for women of childbearing age before and during early pregnancy to prevent NTDs. The dose increases to 600 mcg during pregnancy.</p>
+          <p class="answer "><span class="ans-letter">C.</span> 1,000 mcg is sometimes used during pregnancy but not the baseline preconception dose.</p>
+          <p class="answer "><span class="ans-letter">D.</span> 4,000 mcg (4 mg) is reserved for women with a previous NTD-affected pregnancy.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Antepartum/Postpartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is teaching a client of normal pre-pregnancy BMI about expected weight gain during pregnancy. Which total weight gain should the nurse recommend?</p>
+          <ol class="q-options">
+              <li>A. 5–10 lb</li>
+              <li>B. 11–20 lb</li>
+              <li>C. 25–35 lb</li>
+              <li>D. 40–50 lb</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> 5–10 lb is insufficient and risks low birth weight.</p>
+          <p class="answer "><span class="ans-letter">B.</span> 11–20 lb is the recommended range for clients with obese pre-pregnancy BMI (≥ 30).</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> 25–35 lb total is recommended for women with normal pre-pregnancy BMI (18.5–24.9).</p>
+          <p class="answer "><span class="ans-letter">D.</span> 40–50 lb exceeds the recommendation for any BMI category in singleton pregnancy.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Antepartum/Postpartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is counseling a pregnant client who follows a strict vegan diet. Which nutrient deficiency should the nurse identify as the most urgent concern?</p>
+          <ol class="q-options">
+              <li>A. Vitamin C</li>
+              <li>B. Vitamin B12</li>
+              <li>C. Magnesium</li>
+              <li>D. Sodium</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Vitamin C is abundant in plant-based diets; not a typical deficiency.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Vitamin B12 occurs naturally only in animal products. Deficiency in pregnancy can cause irreversible neurologic damage to the fetus. Supplementation is essential.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Magnesium is widely available in nuts, seeds, and leafy greens.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Sodium deficiency is rare in modern diets.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Antepartum/Postpartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is teaching about nutrients important during pregnancy. Which of the following recommendations should the nurse include? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Increase caloric intake by 340 kcal/day in the 2nd trimester</li>
+              <li>B. Increase protein intake to 71 g/day during pregnancy</li>
+              <li>C. Consume 1,000 mg of calcium daily</li>
+              <li>D. Avoid all fish during pregnancy</li>
+              <li>E. Limit caffeine to less than 200 mg/day</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> 340 kcal/day in 2nd trimester, 452 kcal/day in 3rd trimester (singleton).</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Protein increase from ~46 g to 71 g/day supports fetal growth.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> 1,000 mg calcium daily (1,300 mg if under 19) supports fetal bone development.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Fish low in mercury (salmon, sardines) provides essential omega-3s. Avoid only high-mercury fish (shark, swordfish, tilefish, king mackerel).</p>
+          <p class="answer correct"><span class="ans-letter">E.</span> <strong>CORRECT.</strong> Caffeine over 200 mg/day is linked to miscarriage and low birth weight.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Antepartum/Postpartum Care</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch5-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch5-nutrition" target="_blank" rel="noopener">Inadequate Nutrition Risk Factors During Pregnancy</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch5 -->
 
   </section><!-- /ch5 -->
@@ -4571,15 +5135,105 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch6-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 6 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is performing a nonstress test (NST) on a client at 36 weeks of gestation. After 20 minutes, the tracing shows 2 accelerations of 15 bpm above baseline lasting 15 seconds each. How should the nurse interpret this result?</p>
+          <ol class="q-options">
+              <li>A. Reactive NST — reassuring</li>
+              <li>B. Nonreactive NST — requires further testing</li>
+              <li>C. Positive CST — fetal distress</li>
+              <li>D. Equivocal — repeat in 1 week</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> A reactive NST at ≥ 32 weeks requires ≥ 2 accelerations of 15 bpm × 15 seconds within 20 minutes. This is reassuring.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Nonreactive would mean fewer than 2 qualifying accelerations within 20 minutes (or extended testing).</p>
+          <p class="answer "><span class="ans-letter">C.</span> CST (contraction stress test) is a different test; "positive" CST means late decelerations with contractions.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Equivocal is for CST, not NST.</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · Diagnostic Tests</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is reviewing a biophysical profile (BPP) result of 4. Which action should the nurse anticipate?</p>
+          <ol class="q-options">
+              <li>A. Schedule follow-up BPP in 1 week</li>
+              <li>B. Continue routine prenatal care</li>
+              <li>C. Prepare for immediate delivery</li>
+              <li>D. Order an amniocentesis</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> BPP score ≥ 8 typically allows continued monitoring.</p>
+          <p class="answer "><span class="ans-letter">B.</span> BPP ≤ 4 indicates fetal compromise and is not consistent with routine care.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> BPP ≤ 4 is highly suggestive of fetal asphyxia — prompt delivery is indicated.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Amniocentesis is for genetic, lung maturity, or infection workup — not the priority for a BPP of 4.</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · Diagnostic Tests</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is preparing a client for amniocentesis. Which of the following statements should be included in teaching? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. "Empty your bladder before the procedure if more than 20 weeks pregnant."</li>
+              <li>B. "You may feel pressure and slight cramping."</li>
+              <li>C. "Notify the provider of leakage of fluid or contractions afterward."</li>
+              <li>D. "You will need general anesthesia."</li>
+              <li>E. "Rh-negative clients require Rho(D) immune globulin after the procedure."</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> A full bladder helps before 20 weeks (lifts the uterus); after 20 weeks an empty bladder is preferred to avoid puncturing it.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Pressure and mild cramping are expected during needle insertion.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Fluid leakage, contractions, fever, or decreased fetal movement should be reported immediately.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Local anesthesia at the insertion site is used; general anesthesia is not required.</p>
+          <p class="answer correct"><span class="ans-letter">E.</span> <strong>CORRECT.</strong> The needle can cause fetal-maternal blood mixing; Rho(D) is given to Rh-negative clients.</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · Diagnostic Tests</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is performing a contraction stress test (CST). The fetus shows late decelerations with more than 50% of contractions. How should the nurse interpret this result?</p>
+          <ol class="q-options">
+              <li>A. Negative — normal placental function</li>
+              <li>B. Positive — uteroplacental insufficiency</li>
+              <li>C. Equivocal-suspicious — requires repeat</li>
+              <li>D. Reactive — fetal well-being confirmed</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Negative CST = no late decels with contractions; this is opposite.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Positive CST = late decels with > 50% of contractions, indicating uteroplacental insufficiency. Delivery is usually indicated.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Equivocal-suspicious is late decels with < 50% of contractions.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Reactive refers to NST acceleration patterns, not CST.</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · Diagnostic Tests</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch6-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch6-nst" target="_blank" rel="noopener">Nonstress Test (NST)</a></li>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch6-bpp" target="_blank" rel="noopener">Biophysical Profile (BPP)</a></li>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch6-ultrasound" target="_blank" rel="noopener">Ultrasound (Abdominal & Transvaginal)</a></li>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch6-amnio" target="_blank" rel="noopener">Amniocentesis</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch6 -->
 
   </section><!-- /ch6 -->
@@ -5209,8 +5863,8 @@ button:focus-visible,a:focus-visible{
       </article>
     </section>
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch7-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch7-methotrexate" target="_blank" rel="noopener">Methotrexate (Trexall)</a></li>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch7-betamethasone" target="_blank" rel="noopener">Betamethasone (Celestone)</a></li>
@@ -5223,7 +5877,7 @@ button:focus-visible,a:focus-visible{
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch7-vasa-previa" target="_blank" rel="noopener">Vasa Previa</a></li>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch7-dc" target="_blank" rel="noopener">Dilation & Curettage (D&C)</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch7 -->
 
   </section><!-- /ch7 -->
@@ -5936,6 +6590,97 @@ button:focus-visible,a:focus-visible{
       </article>
     </section>
 
+  
+    <section id="ch8-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 8 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is reviewing the timing of routine prenatal screenings. When is Group B Streptococcus (GBS) screening typically performed?</p>
+          <ol class="q-options">
+              <li>A. At the initial prenatal visit</li>
+              <li>B. 24–28 weeks of gestation</li>
+              <li>C. 36 0/7 to 37 6/7 weeks of gestation</li>
+              <li>D. On admission in labor</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> First-visit labs include initial cultures but not specifically the GBS screen.</p>
+          <p class="answer "><span class="ans-letter">B.</span> 24–28 weeks is when the 1-hour GCT for gestational diabetes is performed.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> GBS screening is performed via vaginal-rectal swab at 36 0/7 to 37 6/7 weeks. If positive, intrapartum IV penicillin prophylaxis is given.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Admission tests may include rapid GBS in some facilities, but routine screening is at 36–37 weeks.</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · Diagnostic Tests</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is caring for an HIV-positive client in active labor with a viral load of 2,500 copies/mL. Which of the following interventions should the nurse anticipate? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Schedule cesarean delivery</li>
+              <li>B. Initiate IV zidovudine infusion</li>
+              <li>C. Apply internal fetal scalp electrode</li>
+              <li>D. Continue current antiretroviral therapy</li>
+              <li>E. Avoid artificial rupture of membranes</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Cesarean delivery is recommended if viral load > 1,000 copies/mL to reduce vertical transmission.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> IV zidovudine during labor reduces vertical transmission to less than 2%.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Internal fetal monitoring (scalp electrode) creates a portal of entry for HIV and is contraindicated.</p>
+          <p class="answer correct"><span class="ans-letter">D.</span> <strong>CORRECT.</strong> Continue ART; interruption causes viral rebound and increases transmission.</p>
+          <p class="answer correct"><span class="ans-letter">E.</span> <strong>CORRECT.</strong> AROM may increase exposure; avoid prolonged ROM.</p>
+          <span class="nclex-tag">NCLEX · Safety &amp; Infection Control · Standard Precautions/Transmission-Based Precautions</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is reviewing the TORCH infections. Which of the following is NOT typically included in TORCH?</p>
+          <ol class="q-options">
+              <li>A. Toxoplasmosis</li>
+              <li>B. Rubella</li>
+              <li>C. Hepatitis B</li>
+              <li>D. Cytomegalovirus</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Toxoplasmosis is the "T" in TORCH.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Rubella is the "R" in TORCH.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Hepatitis B is NOT one of the classical TORCH infections. TORCH = Toxoplasmosis, Other (syphilis, varicella, parvovirus), Rubella, Cytomegalovirus, Herpes.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Cytomegalovirus is the "C" in TORCH.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Antepartum/Postpartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is teaching a client diagnosed with chlamydia during pregnancy. Which medication should the nurse expect to be prescribed?</p>
+          <ol class="q-options">
+              <li>A. Doxycycline</li>
+              <li>B. Azithromycin</li>
+              <li>C. Ciprofloxacin</li>
+              <li>D. Tetracycline</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Doxycycline is contraindicated in pregnancy (affects fetal bone/tooth development).</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Azithromycin is safe in pregnancy and is the recommended treatment for chlamydia. Single 1-g dose.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Ciprofloxacin is contraindicated in pregnancy (cartilage damage).</p>
+          <p class="answer "><span class="ans-letter">D.</span> Tetracycline is contraindicated in pregnancy.</p>
+          <span class="nclex-tag">NCLEX · Pharmacological &amp; Parenteral Therapies · Expected Actions/Outcomes</span>
+        </div>
+      </article>
+    </section>
   </section><!-- /ch8 -->
 
   <section class="chapter" id="ch9">
@@ -6609,14 +7354,104 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch9-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 9 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is caring for a client receiving magnesium sulfate infusion. Which of the following findings indicates magnesium toxicity? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Absent deep tendon reflexes</li>
+              <li>B. Respiratory rate of 10/min</li>
+              <li>C. Urine output of 25 mL/hr</li>
+              <li>D. Serum magnesium of 5 mEq/L</li>
+              <li>E. Blood pressure 140/90 mm Hg</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Loss of DTRs is the FIRST sign of toxicity — stop infusion immediately.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> RR < 12/min indicates respiratory depression — toxic.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Urine output < 30 mL/hr risks toxicity since magnesium is renally excreted.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Therapeutic range is 4–7 mEq/L; toxicity begins > 7 mEq/L.</p>
+          <p class="answer "><span class="ans-letter">E.</span> Elevated BP is the reason magnesium was given (in preeclampsia) — not a sign of toxicity itself.</p>
+          <span class="nclex-tag">NCLEX · Pharmacological &amp; Parenteral Therapies · Adverse Effects/Contraindications</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is caring for a client with gestational diabetes. Which of the following dietary recommendations should be included in teaching?</p>
+          <ol class="q-options">
+              <li>A. Eat three large meals daily</li>
+              <li>B. Include 175 g of carbohydrates daily in 3 meals and 2–3 snacks</li>
+              <li>C. Eliminate all carbohydrates from the diet</li>
+              <li>D. Replace fruit with fruit juice for natural sugars</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Three large meals cause glucose spikes — small frequent meals are preferred.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> 175 g of complex carbohydrates spread across 3 meals + 2–3 snacks prevents glucose excursions and maintains fetal glucose needs.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Eliminating carbs is unsafe; the fetus requires carbohydrate for brain development.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Fruit juice raises glucose more rapidly than whole fruit — whole fruit is preferred.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Antepartum/Postpartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is caring for a client diagnosed with hyperemesis gravidarum. Which of the following lab findings should the nurse anticipate?</p>
+          <ol class="q-options">
+              <li>A. Increased ketones in urine</li>
+              <li>B. Hypoglycemia</li>
+              <li>C. Elevated potassium</li>
+              <li>D. Decreased hematocrit</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Hyperemesis causes starvation ketosis from prolonged inability to keep food down.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Hyperemesis can cause hypoglycemia, but ketonuria is the more specific finding.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Persistent vomiting causes <em>hypokalemia</em> (low potassium), not elevated.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Dehydration causes <em>increased</em> (not decreased) hematocrit from hemoconcentration.</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · Laboratory Values</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is providing post-procedure care to a client following cervical cerclage placement. Which finding should the nurse report to the provider?</p>
+          <ol class="q-options">
+              <li>A. Mild lower-abdominal discomfort</li>
+              <li>B. Pinkish vaginal discharge</li>
+              <li>C. Regular uterine contractions</li>
+              <li>D. Slight spotting for 24 hours</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Mild discomfort is expected post-procedure and usually resolves within 1–2 days.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Light pink discharge is expected.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Regular contractions suggest impending preterm labor — the cerclage may need urgent removal to prevent uterine rupture or fetal injury.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Light spotting within 24 hours is expected and usually resolves.</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · Potential for Complications</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch9-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch9-magsulfate" target="_blank" rel="noopener">Magnesium Sulfate</a></li>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch9-nifedipine" target="_blank" rel="noopener">Nifedipine</a></li>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch9-cerclage" target="_blank" rel="noopener">Cervical Cerclage</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch9 -->
 
   </section><!-- /ch9 -->
@@ -7113,12 +7948,102 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch10-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 10 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is assessing a client at 32 weeks of gestation. Which of the following findings would indicate preterm labor?</p>
+          <ol class="q-options">
+              <li>A. Irregular contractions that resolve with hydration</li>
+              <li>B. Regular contractions causing cervical change</li>
+              <li>C. Lower back ache that improves with rest</li>
+              <li>D. Braxton-Hicks contractions</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Irregular contractions resolving with hydration are typically Braxton-Hicks — not preterm labor.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Preterm labor is defined as regular contractions with cervical change between 20 0/7 and 36 6/7 weeks of gestation.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Back ache that improves with rest is a common discomfort, not labor.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Braxton-Hicks contractions are irregular, not associated with cervical change.</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · Potential for Complications</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is administering betamethasone to a client at 30 weeks of gestation in preterm labor. Which is the primary purpose of this medication?</p>
+          <ol class="q-options">
+              <li>A. To stop uterine contractions</li>
+              <li>B. To prevent maternal infection</li>
+              <li>C. To accelerate fetal lung maturity</li>
+              <li>D. To improve maternal cardiac function</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Tocolytics (terbutaline, nifedipine, indomethacin) stop contractions — not betamethasone.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Antibiotics prevent infection.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Betamethasone (corticosteroid) is given between 24–34 weeks to accelerate fetal lung surfactant production and reduce RDS risk. Maximum benefit occurs 24 hr after first dose.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Betamethasone does not improve maternal cardiac function.</p>
+          <span class="nclex-tag">NCLEX · Pharmacological &amp; Parenteral Therapies · Expected Actions/Outcomes</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is caring for a client at 30 weeks of gestation with confirmed preterm premature rupture of membranes (PPROM). Which interventions should the nurse anticipate? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Strict bed rest</li>
+              <li>B. Vaginal exams every 2 hours</li>
+              <li>C. Administration of corticosteroids</li>
+              <li>D. Prophylactic antibiotics</li>
+              <li>E. Continuous fetal heart rate monitoring</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Bed rest reduces leaking of amniotic fluid and stress on the cervix.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Vaginal exams should be MINIMIZED in PPROM to reduce infection risk; sterile speculum exam only when necessary.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Corticosteroids accelerate fetal lung maturity before potential preterm delivery.</p>
+          <p class="answer correct"><span class="ans-letter">D.</span> <strong>CORRECT.</strong> Prophylactic antibiotics prolong latency and reduce neonatal infection.</p>
+          <p class="answer correct"><span class="ans-letter">E.</span> <strong>CORRECT.</strong> Continuous FHR monitoring detects fetal compromise from cord compression or infection.</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · Potential for Complications</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is administering terbutaline 0.25 mg subcutaneously for tocolysis. Which finding should the nurse report immediately?</p>
+          <ol class="q-options">
+              <li>A. Maternal heart rate of 110/min</li>
+              <li>B. Maternal heart rate of 140/min</li>
+              <li>C. Mild tremors</li>
+              <li>D. Headache</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> HR 110 may be expected with beta-agonist tocolytics.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> HR > 130/min is excessive and increases risk of maternal cardiac complications. Terbutaline should be held if HR exceeds this threshold.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Mild tremors are common, expected adverse effects.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Headache is a common adverse effect, generally manageable.</p>
+          <span class="nclex-tag">NCLEX · Pharmacological &amp; Parenteral Therapies · Adverse Effects/Contraindications</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch10-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch10-preterm-labor" target="_blank" rel="noopener">Preterm Labor</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch10 -->
 
   </section><!-- /ch10 -->
@@ -7601,12 +8526,102 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch11-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 11 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is teaching about the 5 P's affecting labor. Which combination correctly lists the 5 P's?</p>
+          <ol class="q-options">
+              <li>A. Powers, Passage, Passenger, Position, Psyche</li>
+              <li>B. Pelvis, Pain, Passage, Pushing, Pulse</li>
+              <li>C. Pregnancy, Pelvis, Pushing, Psyche, Position</li>
+              <li>D. Powers, Pain, Pelvis, Passage, Passenger</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> The 5 P's are: Powers (contractions + maternal effort), Passage (pelvic bones + soft tissue), Passenger (fetus), Position (maternal positioning), Psyche (psychological response).</p>
+          <p class="answer "><span class="ans-letter">B.</span> Pelvis is part of Passage; Pulse is not one of the P's.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Pregnancy is not one of the 5 P's.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Pain is a manifestation, not one of the 5 P's.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Intrapartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is performing Leopold maneuvers on a client in labor. The fetal back is palpated on the left side of the maternal abdomen and the buttocks are at the fundus. Which position is the fetus in?</p>
+          <ol class="q-options">
+              <li>A. Left occiput anterior (LOA)</li>
+              <li>B. Left sacrum anterior (LSA)</li>
+              <li>C. Right occiput posterior (ROP)</li>
+              <li>D. Cephalic, transverse</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> LOA = head is the presenting part, occiput on left side, anteriorly.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Buttocks at the fundus = breech presentation. Sacrum is the reference point in breech; on the left and anterior = Left Sacrum Anterior (LSA).</p>
+          <p class="answer "><span class="ans-letter">C.</span> ROP = head presenting (occiput); positioning differs.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Transverse means fetal long axis is perpendicular to maternal long axis.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Intrapartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is differentiating true labor from false labor. Which of the following findings indicate true labor? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Contractions that intensify with walking</li>
+              <li>B. Bloody show</li>
+              <li>C. Contractions that resolve with rest</li>
+              <li>D. Progressive cervical effacement and dilation</li>
+              <li>E. Discomfort located mainly in the lower abdomen</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> True labor intensifies with activity; false labor resolves with activity or rest.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Bloody show (blood-tinged mucus) is a sign of cervical change.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Contractions that stop with rest are typical of false labor (Braxton-Hicks).</p>
+          <p class="answer correct"><span class="ans-letter">D.</span> <strong>CORRECT.</strong> Progressive cervical change is the defining feature of true labor.</p>
+          <p class="answer "><span class="ans-letter">E.</span> True labor pain typically starts in the lower back and radiates around to the abdomen; false labor pain is mainly anterior abdominal.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Intrapartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is assessing a client after rupture of membranes. Which finding should be reported immediately?</p>
+          <ol class="q-options">
+              <li>A. Clear, odorless fluid</li>
+              <li>B. Greenish-yellow fluid</li>
+              <li>C. Fluid temperature of 98°F</li>
+              <li>D. Small fluid volume (less than 1 L)</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Clear, odorless fluid is expected for normal amniotic fluid.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Green-yellow fluid indicates meconium staining — possible fetal distress or post-term gestation. Notify provider; prepare for monitoring and possible suction at delivery.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Fluid is normally body temperature.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Volume varies but small leakage can occur with high-leak ROM and is not necessarily concerning.</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · Potential for Complications</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch11-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch11-vagexam" target="_blank" rel="noopener">Vaginal Examination (Intrapartum)</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch11 -->
 
   </section><!-- /ch11 -->
@@ -8135,13 +9150,103 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch12-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 12 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is monitoring a client 10 minutes after epidural placement. Maternal BP drops from 124/82 to 88/55. Which is the priority action?</p>
+          <ol class="q-options">
+              <li>A. Position the client supine and elevate the head</li>
+              <li>B. Position the client in left lateral and bolus IV fluids</li>
+              <li>C. Discontinue the epidural infusion immediately</li>
+              <li>D. Notify anesthesia and prepare to give vasopressor</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Supine position worsens aortocaval compression and hypotension.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Left lateral position relieves aortocaval compression and IV fluid bolus increases preload. These are the FIRST actions before pharmacologic intervention.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Discontinuing the epidural is not the first action; positioning and fluids are.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Notifying anesthesia and giving vasopressor are appropriate next steps if positioning and fluids don't correct BP.</p>
+          <span class="nclex-tag">NCLEX · Pharmacological &amp; Parenteral Therapies · Adverse Effects/Contraindications</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is teaching a client about non-pharmacologic pain management for labor. Which of the following techniques should be included? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Deep breathing and patterned breathing</li>
+              <li>B. Effleurage (light abdominal massage)</li>
+              <li>C. Hydrotherapy (warm shower or tub)</li>
+              <li>D. Position changes</li>
+              <li>E. Continuous bed rest in supine position</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Breathing techniques reduce pain perception and prevent hyperventilation.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Effleurage stimulates gate-control pain inhibition.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Hydrotherapy reduces pain perception and may facilitate labor progress.</p>
+          <p class="answer correct"><span class="ans-letter">D.</span> <strong>CORRECT.</strong> Position changes (especially upright) use gravity, relieve back pain, and aid descent.</p>
+          <p class="answer "><span class="ans-letter">E.</span> Continuous supine bed rest causes aortocaval compression and may slow labor — not recommended.</p>
+          <span class="nclex-tag">NCLEX · Basic Care &amp; Comfort · Non-Pharmacological Comfort Interventions</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is administering butorphanol IV to a laboring client. Which assessment is most important after administration?</p>
+          <ol class="q-options">
+              <li>A. Maternal blood pressure</li>
+              <li>B. Maternal and fetal respiratory status</li>
+              <li>C. Cervical dilation</li>
+              <li>D. Maternal hydration status</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> BP is monitored but is not the most important.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Butorphanol (opioid agonist-antagonist) can cause maternal and fetal respiratory depression — close monitoring of both is essential. Have naloxone available.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Cervical dilation is part of routine labor assessment but not specifically tied to butorphanol effects.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Hydration is important but not the priority post-medication.</p>
+          <span class="nclex-tag">NCLEX · Pharmacological &amp; Parenteral Therapies · Adverse Effects/Contraindications</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is comparing spinal anesthesia and epidural anesthesia. Which characteristic is unique to spinal anesthesia?</p>
+          <ol class="q-options">
+              <li>A. Used primarily for cesarean delivery</li>
+              <li>B. Single injection into the subarachnoid space</li>
+              <li>C. Risk of post-dural-puncture headache</li>
+              <li>D. All of the above</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Spinal is used for cesarean and some operative vaginal deliveries — true but not unique alone.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Single injection into subarachnoid space (vs continuous catheter in epidural space) is unique to spinal.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Risk of post-dural-puncture headache is much higher with spinal than epidural.</p>
+          <p class="answer correct"><span class="ans-letter">D.</span> <strong>CORRECT.</strong> All three characteristics are features unique to spinal anesthesia compared with epidural.</p>
+          <span class="nclex-tag">NCLEX · Pharmacological &amp; Parenteral Therapies · Expected Actions/Outcomes</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch12-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch12-nonpharm-pain" target="_blank" rel="noopener">Nonpharmacological Pain Management in Labor</a></li>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch12-epidural" target="_blank" rel="noopener">Epidural Block (Anesthesia/Analgesia)</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch12 -->
 
   </section><!-- /ch12 -->
@@ -9096,12 +10201,12 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch13-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch13-leopold" target="_blank" rel="noopener">Leopold Maneuvers</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch13 -->
 
   </section><!-- /ch13 -->
@@ -9529,12 +10634,102 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch14-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 14 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is providing care during the 4th stage of labor. Which assessment is the priority?</p>
+          <ol class="q-options">
+              <li>A. Cervical dilation</li>
+              <li>B. Fundal tone and position</li>
+              <li>C. Fetal heart rate</li>
+              <li>D. Maternal temperature</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Cervical dilation is assessed during 1st stage, not 4th.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Fundal tone is the priority — uterine atony is the leading cause of postpartum hemorrhage in the immediate post-delivery period. Fundus should be firm, midline, at or just below umbilicus.</p>
+          <p class="answer "><span class="ans-letter">C.</span> FHR is not relevant after delivery.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Temperature is monitored but is not the priority in the immediate post-delivery hour.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Postpartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is documenting a third-degree perineal laceration. Which structures are involved?</p>
+          <ol class="q-options">
+              <li>A. Skin only</li>
+              <li>B. Skin and perineal muscle</li>
+              <li>C. Skin, perineal muscle, and external anal sphincter</li>
+              <li>D. Skin, muscle, anal sphincter, and rectal mucosa</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> 1st degree = skin and vaginal mucosa only.</p>
+          <p class="answer "><span class="ans-letter">B.</span> 2nd degree = + perineal muscle.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> 3rd degree extends through skin, muscle, AND external anal sphincter.</p>
+          <p class="answer "><span class="ans-letter">D.</span> 4th degree extends THROUGH the anal sphincter into the rectal mucosa.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Intrapartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is monitoring a primigravida in active first-stage labor. The client is 7 cm dilated, contractions are 3 min apart lasting 60 seconds. Which interventions should the nurse implement? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Encourage frequent position changes</li>
+              <li>B. Encourage forceful pushing with each contraction</li>
+              <li>C. Offer ice chips or sips of clear liquids per orders</li>
+              <li>D. Assist with breathing techniques</li>
+              <li>E. Monitor FHR every 30 minutes per AAP/ACOG guidelines</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Position changes (upright, side-lying, hands and knees) aid fetal descent and reduce pain.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Pushing is contraindicated at 7 cm — full dilation (10 cm) is required to avoid cervical injury.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Hydration is important; offer per provider orders.</p>
+          <p class="answer correct"><span class="ans-letter">D.</span> <strong>CORRECT.</strong> Patterned breathing helps cope with intensifying contractions.</p>
+          <p class="answer correct"><span class="ans-letter">E.</span> <strong>CORRECT.</strong> AAP/ACOG: FHR assessment every 30 min in 1st-stage active labor for low-risk; every 15 min for high-risk.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Intrapartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is performing the immediate newborn assessment. Which is the priority intervention?</p>
+          <ol class="q-options">
+              <li>A. Administer vitamin K injection</li>
+              <li>B. Establish a patent airway</li>
+              <li>C. Apply the umbilical cord clamp</li>
+              <li>D. Obtain Apgar score</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Vitamin K is given within the first hour but is not the priority immediate after birth.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Airway/breathing is always the priority. Suction mouth then nose with bulb syringe if needed; dry the newborn.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Cord clamping has shifted to delayed clamping (30–60 seconds) for term newborns to improve iron stores.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Apgar is calculated at 1 and 5 minutes but is not the priority intervention.</p>
+          <span class="nclex-tag">NCLEX · Physiological Adaptation · Medical Emergencies</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch14-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch14-fourth-stage" target="_blank" rel="noopener">Fourth Stage of Labor Care</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch14 -->
 
   </section><!-- /ch14 -->
@@ -10256,12 +11451,102 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch15-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 15 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is reviewing a Bishop score for a client being considered for labor induction. The score is 4. Which interpretation is most accurate?</p>
+          <ol class="q-options">
+              <li>A. Cervix is favorable; induction likely to succeed</li>
+              <li>B. Cervix is unfavorable; cervical ripening agent indicated</li>
+              <li>C. Cervix is at term ripeness; proceed with oxytocin</li>
+              <li>D. Score is normal; no intervention needed</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Score < 6 = unfavorable, not favorable.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Bishop < 6 indicates unfavorable cervix — cervical ripening (misoprostol or dinoprostone) should be used before oxytocin to reduce induction failure and cesarean rate.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Cervix is unfavorable — proceeding directly to oxytocin would have a high failure rate.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Bishop score is not assessed as "normal"; it predicts induction outcomes.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Intrapartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is monitoring a client receiving oxytocin induction. The contraction pattern shows 6 contractions in 10 minutes lasting 60 seconds with Category II FHR. Which is the priority action?</p>
+          <ol class="q-options">
+              <li>A. Increase the oxytocin infusion rate</li>
+              <li>B. Stop the oxytocin infusion</li>
+              <li>C. Apply continuous internal fetal monitoring</li>
+              <li>D. Notify anesthesia</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Increasing oxytocin would worsen tachysystole — the opposite of what's needed.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Tachysystole (> 5 contractions in 10 min averaged over 30 min) with Category II FHR requires immediate cessation of oxytocin. Position left lateral, IV fluids, O₂, consider terbutaline.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Internal monitoring is not the priority; resolving tachysystole is.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Notifying provider is appropriate but stopping oxytocin is the priority FIRST action.</p>
+          <span class="nclex-tag">NCLEX · Pharmacological &amp; Parenteral Therapies · Adverse Effects/Contraindications</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is preparing a client for a cesarean delivery. Which of the following are appropriate preoperative interventions? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Insert indwelling urinary catheter</li>
+              <li>B. Administer antibiotic prophylaxis within 60 minutes of incision</li>
+              <li>C. Place sequential compression devices</li>
+              <li>D. Position supine without left tilt</li>
+              <li>E. NPO status per surgical protocol</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Indwelling catheter empties the bladder and keeps it out of the surgical field.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Antibiotics within 60 minutes of incision reduce surgical site infection rates.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> SCDs reduce DVT risk perioperatively.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Supine flat causes aortocaval compression. Use a 15° left lateral tilt under right hip.</p>
+          <p class="answer correct"><span class="ans-letter">E.</span> <strong>CORRECT.</strong> NPO reduces aspiration risk.</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · System-Specific Assessments</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is providing teaching to a client about vaginal birth after cesarean (VBAC). Which of the following is an absolute contraindication to VBAC?</p>
+          <ol class="q-options">
+              <li>A. Prior low-transverse cesarean</li>
+              <li>B. Prior classical (vertical) uterine incision</li>
+              <li>C. Adequate maternal pelvis</li>
+              <li>D. Singleton pregnancy</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Low-transverse incision is generally a favorable indicator for VBAC.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Classical (vertical) uterine incision carries a high risk (4–9%) of uterine rupture during labor — absolute contraindication.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Adequate pelvis is supportive of VBAC success.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Singleton pregnancies are generally favorable VBAC candidates.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Intrapartum Care</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch15-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch15-cesarean" target="_blank" rel="noopener">Cesarean Birth</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch15 -->
 
   </section><!-- /ch15 -->
@@ -10857,12 +12142,102 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch16-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 16 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse performs an artificial rupture of membranes (AROM) and immediately notes the fetal heart rate drops to 80/min with severe variable decelerations. Which action is the priority?</p>
+          <ol class="q-options">
+              <li>A. Increase the oxytocin infusion</li>
+              <li>B. Perform a sterile vaginal exam to assess for cord prolapse</li>
+              <li>C. Continue routine monitoring</li>
+              <li>D. Reposition the client in the high Fowler position</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Increasing oxytocin would worsen the situation — contractions further compress the cord.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Sudden severe variable decels post-AROM strongly suggest cord prolapse. Perform sterile VE — if cord is palpable, manually elevate the presenting part OFF the cord and call for emergent cesarean.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Continuing routine monitoring delays a life-threatening emergency.</p>
+          <p class="answer "><span class="ans-letter">D.</span> High Fowler position would worsen cord compression. Knee-chest or Trendelenburg is correct positioning.</p>
+          <span class="nclex-tag">NCLEX · Physiological Adaptation · Medical Emergencies</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is managing a client with postpartum hemorrhage from uterine atony. Place the following interventions in priority order:</p>
+          <ol class="q-options">
+              <li>A. Massage the fundus</li>
+              <li>B. Administer IV oxytocin</li>
+              <li>C. Empty the bladder</li>
+              <li>D. Prepare for surgical intervention</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer"><span class="ans-letter">A.</span> <strong>FIRST.</strong> Fundal massage to firm the uterus stops atonic bleeding most quickly.</p>
+          <p class="answer"><span class="ans-letter">B.</span> <strong>THIRD.</strong> Pharmacologic uterotonic if massage is insufficient.</p>
+          <p class="answer"><span class="ans-letter">C.</span> <strong>SECOND.</strong> Full bladder displaces uterus and prevents adequate contraction.</p>
+          <p class="answer"><span class="ans-letter">D.</span> <strong>LAST.</strong> Surgical management if medical measures fail (e.g., uterine artery ligation, hysterectomy).</p>
+          <span class="nclex-tag">NCLEX · Physiological Adaptation · Medical Emergencies</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is assessing for shoulder dystocia after the fetal head delivers but the anterior shoulder does not. Which interventions should the nurse anticipate? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Apply suprapubic pressure</li>
+              <li>B. Apply fundal pressure</li>
+              <li>C. McRoberts maneuver</li>
+              <li>D. Document time of head delivery and notify team</li>
+              <li>E. Encourage the client to push harder</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Suprapubic pressure dislodges the anterior shoulder from above the symphysis.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Fundal pressure is CONTRAINDICATED — it can cause uterine rupture and worsen impaction.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> McRoberts maneuver (hyperflex maternal hips toward chest) widens the pelvic outlet.</p>
+          <p class="answer correct"><span class="ans-letter">D.</span> <strong>CORRECT.</strong> Time tracking is critical because of risk of cord compression and hypoxia.</p>
+          <p class="answer "><span class="ans-letter">E.</span> Encouraging pushing may worsen impaction. Maneuvers are done by the team, not relying on harder pushing.</p>
+          <span class="nclex-tag">NCLEX · Physiological Adaptation · Medical Emergencies</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is caring for a client who develops sudden respiratory distress, hypotension, and seizures during labor. The provider suspects amniotic fluid embolism. Which intervention is the priority?</p>
+          <ol class="q-options">
+              <li>A. Administer IV magnesium sulfate</li>
+              <li>B. Establish and maintain a patent airway with high-flow oxygen</li>
+              <li>C. Place the client in semi-Fowler position</li>
+              <li>D. Encourage deep breathing exercises</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Magnesium is not indicated for AFE; it's used for preeclampsia/eclampsia.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> AFE causes cardiopulmonary collapse — airway, breathing, and circulation are immediate priorities. Intubation and 100% O₂ are typically required; prepare for emergent cesarean.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Position should be supine with left lateral tilt for resuscitation, not semi-Fowler.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Encouraging deep breathing is inadequate in this emergency.</p>
+          <span class="nclex-tag">NCLEX · Physiological Adaptation · Medical Emergencies</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch16-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch16-meconium" target="_blank" rel="noopener">Meconium-Stained Amniotic Fluid</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch16 -->
 
   </section><!-- /ch16 -->
@@ -11493,12 +12868,102 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch17-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 17 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is assessing a postpartum client 24 hours after vaginal delivery. The fundus is firm, 2 cm above the umbilicus, and deviated to the right. Which is the priority action?</p>
+          <ol class="q-options">
+              <li>A. Massage the fundus</li>
+              <li>B. Encourage the client to ambulate</li>
+              <li>C. Have the client void and reassess</li>
+              <li>D. Administer methylergonovine</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Fundus is already firm — massage is not indicated.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Ambulation is beneficial but doesn't address the immediate issue.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Bladder distention displaces the uterus and is the #1 cause of fundal deviation and uterine atony. Have the client void (or catheterize if unable), then reassess.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Methylergonovine is for atony — fundus is firm here, so it's not needed.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Postpartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is teaching a postpartum client about expected lochia. Which of the following statements indicates correct understanding? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. "Lochia rubra is dark red and lasts about 3 days."</li>
+              <li>B. "Lochia serosa is pinkish-brown and lasts up to 10 days."</li>
+              <li>C. "Saturating a pad in 15 minutes is normal at any stage."</li>
+              <li>D. "Lochia alba is yellowish-white and can last up to 6 weeks."</li>
+              <li>E. "Foul-smelling lochia at any stage should be reported."</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Lochia rubra: days 1–3, dark red.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Lochia serosa: days 4–10, pinkish to brown.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Saturating a pad within 15 minutes indicates EXCESSIVE bleeding — not normal at any stage.</p>
+          <p class="answer correct"><span class="ans-letter">D.</span> <strong>CORRECT.</strong> Lochia alba: days 11–14 up to 6 weeks, yellowish-white.</p>
+          <p class="answer correct"><span class="ans-letter">E.</span> <strong>CORRECT.</strong> Foul odor suggests endometritis — must be reported.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Postpartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is teaching an Rh-negative postpartum client whose newborn is Rh-positive. Which statement reflects correct understanding of Rho(D) immune globulin administration?</p>
+          <ol class="q-options">
+              <li>A. "I will receive the injection within 72 hours of delivery."</li>
+              <li>B. "The injection is given orally each day for one week."</li>
+              <li>C. "I only need this injection during my first pregnancy."</li>
+              <li>D. "The injection protects me from getting Rh-positive blood reactions in the future."</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Rho(D) immune globulin is given IM within 72 hours of delivery to prevent maternal sensitization from any Rh-positive fetal RBCs that crossed during birth.</p>
+          <p class="answer "><span class="ans-letter">B.</span> It is given IM, not orally, and is a single injection (not daily).</p>
+          <p class="answer "><span class="ans-letter">C.</span> Required after every pregnancy (delivery, miscarriage, abortion, amniocentesis) if fetal Rh status is positive or unknown.</p>
+          <p class="answer "><span class="ans-letter">D.</span> It protects FUTURE fetuses from hemolytic disease — it does not protect the mother from reactions.</p>
+          <span class="nclex-tag">NCLEX · Pharmacological &amp; Parenteral Therapies · Expected Actions/Outcomes</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is teaching a postpartum client about postpartum diuresis. Which expected finding should the nurse describe?</p>
+          <ol class="q-options">
+              <li>A. Decreased urinary output in the first 24 hours</li>
+              <li>B. Production of up to 3,000 mL of urine per day during postpartum days 2–5</li>
+              <li>C. Brown-colored urine indicating dehydration</li>
+              <li>D. Increased thirst with no increase in voiding</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Postpartum diuresis INCREASES urine output, not decreases.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Postpartum diuresis produces up to 3,000 mL/day during days 2–5 as the body excretes excess fluid accumulated during pregnancy.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Brown urine indicates dehydration or pathology — not expected in postpartum diuresis.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Postpartum diaphoresis (night sweats) and diuresis are both expected, working together.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Postpartum Care</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch17-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch17-perineal" target="_blank" rel="noopener">Postpartum Perineal Care</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch17 -->
 
   </section><!-- /ch17 -->
@@ -11867,12 +13332,102 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch18-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 18 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is caring for a postpartum client in the first 24 hours after delivery. The client is talkative about her labor experience and asks to be cared for. Which phase of maternal adaptation is the client experiencing?</p>
+          <ol class="q-options">
+              <li>A. Taking-in</li>
+              <li>B. Taking-hold</li>
+              <li>C. Letting-go</li>
+              <li>D. Maternal-attachment</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Taking-in (1–2 days postpartum): mother is dependent, passive, focused on her own needs, and frequently talks about the labor experience.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Taking-hold (day 2–3 onward): mother is more independent, learning newborn care.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Letting-go (later): adjustment to new role and integration of newborn into family life.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Maternal-attachment is not a phase but an ongoing process.</p>
+          <span class="nclex-tag">NCLEX · Psychosocial Integrity · Family Dynamics</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is observing for bonding cues between a postpartum mother and newborn. Which of the following findings indicate POSITIVE bonding? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Mother holds infant in en face position</li>
+              <li>B. Mother speaks to newborn in a high-pitched, soft voice</li>
+              <li>C. Mother does not maintain eye contact with newborn</li>
+              <li>D. Mother calls newborn by name</li>
+              <li>E. Mother appears disinterested in feeding</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> En face position (mother and infant faces parallel and 30 cm/12 in apart) facilitates eye contact and bonding.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Higher-pitched, gentle voice ("parentese") is a healthy bonding behavior.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Lack of eye contact may indicate impaired bonding — requires further assessment.</p>
+          <p class="answer correct"><span class="ans-letter">D.</span> <strong>CORRECT.</strong> Using the newborn's name personalizes the relationship and indicates bonding.</p>
+          <p class="answer "><span class="ans-letter">E.</span> Disinterest in feeding/caring suggests impaired bonding — requires intervention.</p>
+          <span class="nclex-tag">NCLEX · Psychosocial Integrity · Family Dynamics</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is teaching parents about helping a 4-year-old sibling adjust to a new baby. Which intervention should the nurse recommend?</p>
+          <ol class="q-options">
+              <li>A. Tell the sibling not to talk about feelings</li>
+              <li>B. Spend one-on-one time with the older child each day</li>
+              <li>C. Discourage the older child from helping with newborn care</li>
+              <li>D. Move the sibling to a new room immediately after birth</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Suppressing feelings increases adjustment difficulties.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Dedicated one-on-one time reassures the older sibling of their continued importance and reduces rivalry.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Encouraging age-appropriate helping (fetching diapers, etc.) builds connection and confidence.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Major changes (room moves, school start) should occur BEFORE the baby's arrival, not at the same time.</p>
+          <span class="nclex-tag">NCLEX · Psychosocial Integrity · Family Dynamics</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is teaching a new father about adjustment to the parental role. Which is one of the four engrossment behaviors a father may exhibit?</p>
+          <ol class="q-options">
+              <li>A. Detached from newborn</li>
+              <li>B. Intense visual and physical attention to the newborn</li>
+              <li>C. Resentment of the newborn</li>
+              <li>D. Withdrawal from the family</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Detachment indicates impaired bonding — opposite of engrossment.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Engrossment is the father's intense preoccupation with the newborn — characterized by visual awareness, tactile awareness, recognition of distinct features, awareness of emotional response, sense of elation, and increased self-esteem.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Resentment is not typical and may indicate impaired adjustment.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Withdrawal indicates impaired adjustment, not engrossment.</p>
+          <span class="nclex-tag">NCLEX · Psychosocial Integrity · Family Dynamics</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch18-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch18-paternal" target="_blank" rel="noopener">Paternal Adaptation to Parenthood</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch18 -->
 
   </section><!-- /ch18 -->
@@ -12201,12 +13756,104 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch19-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 19 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is teaching a non-lactating postpartum client about breast care. Which of the following recommendations should be included? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Apply cold compresses 15 min on, 45 min off</li>
+              <li>B. Wear a supportive bra continuously</li>
+              <li>C. Apply warm compresses to encourage milk flow</li>
+              <li>D. Avoid breast stimulation</li>
+              <li>E. Use cabbage leaves to relieve engorgement</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Cold compresses reduce engorgement without stimulating milk production.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> A supportive bra reduces discomfort. (For non-lactating clients, a tight bra was once recommended but a supportive bra is current best practice.)</p>
+          <p class="answer "><span class="ans-letter">C.</span> Warm compresses INCREASE milk production — opposite of the goal for non-lactating clients.</p>
+          <p class="answer correct"><span class="ans-letter">D.</span> <strong>CORRECT.</strong> Stimulation triggers milk production via prolactin.</p>
+          <p class="answer correct"><span class="ans-letter">E.</span> <strong>CORRECT.</strong> Cabbage leaves applied to the breasts have been shown to reduce engorgement.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Postpartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is teaching a postpartum client about timing of postpartum follow-up. The client had a vaginal delivery with no complications. When should the routine postpartum visit be scheduled?</p>
+          <ol class="q-options">
+              <li>A. 1 week postpartum</li>
+              <li>B. 2 weeks postpartum</li>
+              <li>C. 4–6 weeks postpartum</li>
+              <li>D. 12 weeks postpartum</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Earlier follow-up (1 week) is reserved for hypertensive disorders of pregnancy.</p>
+          <p class="answer "><span class="ans-letter">B.</span> 2-week visit is for cesarean clients (incision check).</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Routine vaginal delivery follow-up is at 4–6 weeks postpartum.</p>
+          <p class="answer "><span class="ans-letter">D.</span> 12 weeks is too long to wait for a routine check.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Postpartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is reviewing postpartum warning signs with a client at discharge. Which of the following should be reported to the provider? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Fever above 38°C (100.4°F)</li>
+              <li>B. Foul-smelling lochia</li>
+              <li>C. Pain or redness in calf</li>
+              <li>D. Lochia rubra on day 2</li>
+              <li>E. Saturating a pad in less than 15 minutes</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Fever > 100.4°F suggests infection (endometritis, mastitis, UTI, wound).</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Foul lochia suggests endometritis.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Calf pain or redness suggests DVT — high-risk in postpartum due to hypercoagulability.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Lochia rubra on day 2 is expected (days 1–3).</p>
+          <p class="answer correct"><span class="ans-letter">E.</span> <strong>CORRECT.</strong> Saturating a pad in < 15 min is excessive bleeding — possible hemorrhage.</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · Potential for Complications</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is teaching a postpartum client about resuming sexual activity. Which recommendation is most appropriate?</p>
+          <ol class="q-options">
+              <li>A. "Wait at least 6 weeks before resuming intercourse."</li>
+              <li>B. "Wait until bleeding has stopped and the perineum is healed, typically 2–4 weeks postpartum."</li>
+              <li>C. "You may resume sexual activity immediately after discharge."</li>
+              <li>D. "Contraception is not needed while breastfeeding."</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> 6 weeks is a common guideline but updated recommendations focus on physical readiness (bleeding stopped, perineum healed) which often occurs at 2–4 weeks.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Resume intercourse once bleeding has stopped and any perineal repair has healed (usually 2–4 weeks). Discuss contraception before resumption — ovulation can return as early as 3 weeks postpartum in non-lactating clients.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Resuming immediately risks infection and bleeding.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Lactation does NOT reliably prevent pregnancy — ovulation can occur before menses return.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Postpartum Care</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch19-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch19-discharge" target="_blank" rel="noopener">Discharge Teaching — Nonlactating Postpartum Client</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch19 -->
 
   </section><!-- /ch19 -->
@@ -12919,12 +14566,102 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch20-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 20 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is caring for a client 30 minutes postpartum. Vital signs show BP 90/50, pulse 122, fundus is boggy, and lochia is saturating a pad in 10 minutes. Which is the priority intervention?</p>
+          <ol class="q-options">
+              <li>A. Massage the fundus</li>
+              <li>B. Start a second IV line</li>
+              <li>C. Administer methylergonovine IM</li>
+              <li>D. Notify the provider</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Fundal massage is the FIRST action for atony-related hemorrhage — firming the uterus mechanically stops the bleeding. Then notify provider, ensure IV access, administer uterotonics per protocol.</p>
+          <p class="answer "><span class="ans-letter">B.</span> IV access is needed but is not the first action — fundal massage is.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Pharmacologic uterotonics follow fundal massage and oxytocin.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Notify provider concurrently, but fundal massage is the immediate priority.</p>
+          <span class="nclex-tag">NCLEX · Physiological Adaptation · Medical Emergencies</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is preparing to administer methylergonovine to a client with postpartum hemorrhage. Which assessment finding is a contraindication?</p>
+          <ol class="q-options">
+              <li>A. Pulse 100/min</li>
+              <li>B. Hemoglobin 9 g/dL</li>
+              <li>C. Blood pressure 160/110 mm Hg</li>
+              <li>D. Temperature 37.8°C (100°F)</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Tachycardia is expected with hemorrhage and is not a contraindication.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Low Hgb is expected with hemorrhage; it does not contraindicate the medication.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Methylergonovine causes vasoconstriction — CONTRAINDICATED in hypertension. Risk of severe HTN, stroke, MI. Use misoprostol PR instead.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Mild temperature elevation is not a contraindication.</p>
+          <span class="nclex-tag">NCLEX · Pharmacological &amp; Parenteral Therapies · Adverse Effects/Contraindications</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is assessing a postpartum client for deep-vein thrombosis (DVT). Which findings should be reported to the provider? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Unilateral leg swelling</li>
+              <li>B. Calf pain with dorsiflexion of the foot</li>
+              <li>C. Bilateral mild ankle edema</li>
+              <li>D. Warmth and erythema of the calf</li>
+              <li>E. Symmetric leg cramping</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Unilateral swelling suggests DVT.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Positive Homan sign (calf pain with dorsiflexion) was historically associated with DVT but is now considered unreliable; calf pain at rest or with palpation should be reported regardless.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Bilateral mild ankle edema is common postpartum and usually resolves with mobility — not specifically concerning.</p>
+          <p class="answer correct"><span class="ans-letter">D.</span> <strong>CORRECT.</strong> Warmth and erythema of the affected calf suggest DVT.</p>
+          <p class="answer "><span class="ans-letter">E.</span> Bilateral symmetric cramping is more typical of musculoskeletal causes or electrolyte imbalance.</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · Potential for Complications</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is differentiating perineal hematoma from laceration. Which finding is most characteristic of a hematoma?</p>
+          <ol class="q-options">
+              <li>A. Bright red bleeding visible externally</li>
+              <li>B. Severe perineal pain disproportionate to visible signs</li>
+              <li>C. Foul-smelling vaginal discharge</li>
+              <li>D. Boggy uterus</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Lacerations cause visible external bleeding; hematomas are concealed.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Severe perineal pain without visible bleeding is the hallmark of hematoma — blood accumulates in tissue. The key finding: PAIN = HEMATOMA.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Foul-smelling discharge suggests infection (endometritis), not hematoma.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Boggy uterus suggests atony, not hematoma.</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · Potential for Complications</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch20-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch20-dvt" target="_blank" rel="noopener">Deep-Vein Thrombosis (Postpartum)</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch20 -->
 
   </section><!-- /ch20 -->
@@ -13325,12 +15062,104 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch21-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 21 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is caring for a postpartum client on day 3 with a fever of 38.6°C (101.5°F), uterine tenderness, and foul-smelling lochia. Which condition is most likely?</p>
+          <ol class="q-options">
+              <li>A. Mastitis</li>
+              <li>B. Endometritis</li>
+              <li>C. Urinary tract infection</li>
+              <li>D. Wound infection</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Mastitis presents on day 7+ with breast tenderness, redness, and warmth in a localized breast area.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Endometritis presents on day 3–4 with fever, uterine tenderness, and foul-smelling/dark/profuse lochia. Treatment: IV broad-spectrum antibiotics until afebrile × 48 hours.</p>
+          <p class="answer "><span class="ans-letter">C.</span> UTI presents with dysuria, frequency, suprapubic pain, not uterine tenderness.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Wound infection presents with localized incisional pain, redness, drainage.</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · Potential for Complications</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is teaching a breastfeeding client diagnosed with mastitis. Which of the following should the nurse include? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Continue breastfeeding, starting with the affected breast</li>
+              <li>B. Wean immediately to allow healing</li>
+              <li>C. Apply warm compresses before feeding</li>
+              <li>D. Increase fluid intake to 3,000 mL/day</li>
+              <li>E. Wear a tight bra to prevent further engorgement</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Continuing BF, starting on the affected breast, helps drain the infected milk and resolve infection more quickly.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Weaning during mastitis worsens engorgement and can lead to abscess formation.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Warm compresses before feeding facilitate let-down and drainage.</p>
+          <p class="answer correct"><span class="ans-letter">D.</span> <strong>CORRECT.</strong> Adequate hydration (3,000 mL/day) supports milk production and infection clearance.</p>
+          <p class="answer "><span class="ans-letter">E.</span> Tight or underwire bras can worsen mastitis. A loose-fitting, supportive bra is best.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Postpartum Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is assessing a postpartum cesarean client on day 5 for signs of wound infection. Which findings should be reported? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Erythema and warmth at the incision</li>
+              <li>B. Purulent drainage from the incision</li>
+              <li>C. Edges of the wound well-approximated</li>
+              <li>D. Increasing pain at the incision site</li>
+              <li>E. Mild ecchymosis around the incision</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Erythema and warmth indicate inflammation/infection.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Purulent drainage indicates infection.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Well-approximated edges are expected healing.</p>
+          <p class="answer correct"><span class="ans-letter">D.</span> <strong>CORRECT.</strong> Increasing (rather than decreasing) pain suggests complication.</p>
+          <p class="answer "><span class="ans-letter">E.</span> Mild ecchymosis is expected and not concerning.</p>
+          <span class="nclex-tag">NCLEX · Reduction of Risk Potential · Potential for Complications</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is teaching a postpartum client about preventing urinary tract infection. Which instruction should be included?</p>
+          <ol class="q-options">
+              <li>A. "Hold urine until you feel a strong urge to void."</li>
+              <li>B. "Wipe from back to front after voiding."</li>
+              <li>C. "Void every 2–3 hours and after intercourse."</li>
+              <li>D. "Limit fluid intake to reduce urination frequency."</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Holding urine allows bacteria to multiply — frequent voiding is preferred.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Wipe FRONT TO BACK to avoid spreading rectal bacteria to the urethra.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Frequent voiding (q 2–3 hr) and voiding after intercourse reduces UTI risk.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Increased fluid intake (not decreased) helps flush the urinary tract.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Postpartum Care</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch21-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch21-endometritis" target="_blank" rel="noopener">Endometritis (Postpartum)</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch21 -->
 
   </section><!-- /ch21 -->
@@ -13672,12 +15501,102 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch22-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 22 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is differentiating postpartum blues, depression, and psychosis. Which finding is characteristic of postpartum PSYCHOSIS?</p>
+          <ol class="q-options">
+              <li>A. Self-limiting sadness resolving within 10 days</li>
+              <li>B. Persistent sadness over 2 weeks but with intact reality</li>
+              <li>C. Hallucinations and delusions involving the newborn</li>
+              <li>D. Mild irritability and crying spells</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Postpartum BLUES (85% of women): self-limiting sadness within 10 days, no functional impairment.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Postpartum DEPRESSION (10–15%): persistent symptoms over 2+ weeks within first year, but NO break with reality.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Postpartum PSYCHOSIS (1–2/1000): onset 2–3 weeks postpartum with hallucinations, delusions, paranoia. Often linked to bipolar history. High risk of harm to self/infant. Hospitalization required.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Mild irritability is more consistent with blues, not psychosis.</p>
+          <span class="nclex-tag">NCLEX · Psychosocial Integrity · Mental Health Concepts</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is caring for a postpartum client at 3 weeks who reports thoughts of harming her infant. Which is the priority nursing action?</p>
+          <ol class="q-options">
+              <li>A. Reassure the client that intrusive thoughts are normal</li>
+              <li>B. Notify the provider and ensure the infant's safety</li>
+              <li>C. Refer the client to a support group</li>
+              <li>D. Encourage the client to take a break and rest</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Reassurance minimizes a potentially life-threatening situation.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Thoughts of harming the infant are a safety emergency. Do not leave the mother alone with the infant. Notify provider immediately for psychiatric evaluation. Assess for specific plan, means, and timing.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Support groups are appropriate later but not the immediate priority.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Rest may help fatigue but does not address the safety risk.</p>
+          <span class="nclex-tag">NCLEX · Safety &amp; Infection Control · Use of Restraints/Safety Devices</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is reviewing risk factors for postpartum depression. Which of the following increase risk? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. History of depression or anxiety</li>
+              <li>B. Inadequate social support</li>
+              <li>C. Recent stressful life events</li>
+              <li>D. Multiparity with prior easy postpartum recoveries</li>
+              <li>E. Unplanned pregnancy</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Previous psychiatric history is the strongest risk factor.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Lack of support increases stress and risk.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Stressful events (financial, relationship, loss) increase risk.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Previous uncomplicated postpartum experiences are protective, not a risk factor.</p>
+          <p class="answer correct"><span class="ans-letter">E.</span> <strong>CORRECT.</strong> Unplanned/unwanted pregnancy increases risk.</p>
+          <span class="nclex-tag">NCLEX · Psychosocial Integrity · Mental Health Concepts</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is teaching a breastfeeding mother who has been prescribed sertraline (Zoloft) for postpartum depression. Which statement requires further teaching?</p>
+          <ol class="q-options">
+              <li>A. "I should expect to feel better within 4–6 weeks."</li>
+              <li>B. "I should stop breastfeeding immediately while on this medication."</li>
+              <li>C. "I should not abruptly stop taking this medication."</li>
+              <li>D. "I should monitor my infant for sedation or irritability."</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Accurate — SSRIs take 4–6 weeks for therapeutic effect.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>INCORRECT — requires teaching.</strong> Sertraline is the preferred SSRI in breastfeeding because of very low transfer into breast milk. Most BF clients can continue safely. Stopping BF could worsen depressive symptoms.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Accurate — abrupt cessation can cause discontinuation syndrome.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Accurate — monitor infant for unusual sedation, irritability, or poor feeding.</p>
+          <span class="nclex-tag">NCLEX · Pharmacological &amp; Parenteral Therapies · Expected Actions/Outcomes</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch22-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch22-depression" target="_blank" rel="noopener">Postpartum Depression</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch22 -->
 
   </section><!-- /ch22 -->
@@ -14303,12 +16222,102 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch23-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 23 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is calculating an Apgar score on a newborn at 1 minute. Heart rate 130, respirations strong cry, muscle tone well-flexed, reflex irritability cry, color pink body with blue extremities. What is the Apgar score?</p>
+          <ol class="q-options">
+              <li>A. 7</li>
+              <li>B. 8</li>
+              <li>C. 9</li>
+              <li>D. 10</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Score 7 would reflect more deficits than seen here.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Score 8 would reflect 2 areas lacking a point.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> HR > 100 (2) + good cry (2) + well-flexed (2) + cry (2) + acrocyanosis (1) = 9. Score 7–10 = minimal/no difficulty.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Score 10 requires completely pink body and extremities — acrocyanosis is normal in newborns.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Newborn Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is performing newborn head assessment. Which finding distinguishes a CEPHALOHEMATOMA from caput succedaneum?</p>
+          <ol class="q-options">
+              <li>A. Crosses suture lines</li>
+              <li>B. Does not cross suture lines</li>
+              <li>C. Resolves in 3–4 days</li>
+              <li>D. Present at birth</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Caput succedaneum (scalp edema) DOES cross suture lines.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Cephalohematoma (subperiosteal blood) is bounded by sutures and does NOT cross them. Caput crosses sutures. Cephalohematoma resolves in 2–8 weeks; carries higher hyperbilirubinemia risk.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Caput resolves in 3–4 days; cephalohematoma takes weeks.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Caput is present at birth; cephalohematoma may not be apparent until day 1–2.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Newborn Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is teaching parents about normal newborn skin findings. Which of the following are EXPECTED findings? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Milia (small white spots on nose and chin)</li>
+              <li>B. Mongolian spots (bluish-gray patches on back/buttocks)</li>
+              <li>C. Port wine stain (flat purple-red mark on face)</li>
+              <li>D. Erythema toxicum (newborn rash)</li>
+              <li>E. Telangiectatic nevi (stork bites)</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Milia are blocked sebaceous glands — resolve spontaneously. Do NOT squeeze.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Mongolian spots are common in newborns with darker skin tones — pigmentation, not bruising.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Port wine stain (nevus flammeus) is NOT a normal variant — capillary malformation that persists.</p>
+          <p class="answer correct"><span class="ans-letter">D.</span> <strong>CORRECT.</strong> Erythema toxicum appears in first 3 weeks and resolves without treatment.</p>
+          <p class="answer correct"><span class="ans-letter">E.</span> <strong>CORRECT.</strong> Stork bites (telangiectatic nevi) on nape of neck, eyelids, forehead — fade by age 2.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Newborn Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is assessing newborn reflexes. Which technique correctly elicits the Moro reflex?</p>
+          <ol class="q-options">
+              <li>A. Stroke the cheek toward the mouth</li>
+              <li>B. Place a finger in the palm and apply pressure</li>
+              <li>C. Allow the newborn's head and trunk to drop backward in a semi-sitting position</li>
+              <li>D. Stroke the outer edge of the foot from heel to toes</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> This elicits the ROOTING reflex (turns head toward stroke).</p>
+          <p class="answer "><span class="ans-letter">B.</span> This elicits the PALMAR GRASP reflex (fingers curl around).</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Moro is elicited by simulating loss of support — newborn arms symmetrically extend then abduct at elbows, fingers spread forming a 'C'. Disappears by 3–6 months.</p>
+          <p class="answer "><span class="ans-letter">D.</span> This elicits the BABINSKI reflex (toes fan upward and out).</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Newborn Care</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch23-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch23-physical" target="_blank" rel="noopener">Newborn Physical Development</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch23 -->
 
   </section><!-- /ch23 -->
@@ -14927,12 +16936,102 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch24-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 24 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is teaching parents to use a bulb syringe to suction a newborn's airway. Which technique is correct?</p>
+          <ol class="q-options">
+              <li>A. Insert bulb, then compress to suction</li>
+              <li>B. Compress the bulb before insertion, then release inside the mouth</li>
+              <li>C. Suction the nose first, then the mouth</li>
+              <li>D. Insert into the center of the mouth</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Inserting without compressing first pushes air into the airway.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Compress the bulb BEFORE inserting, then release inside to draw out secretions. Suction MOUTH FIRST, then nose (mouth-before-nose prevents aspiration if nose suction triggers a gasp).</p>
+          <p class="answer "><span class="ans-letter">C.</span> Reverse order — mouth first, then nose.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Avoid the center of the mouth (stimulates gag reflex); suction the sides of the cheeks.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Newborn Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is preventing heat loss in a newborn after birth. Which interventions address EACH heat-loss mechanism? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Pre-warm the radiant warmer (conduction)</li>
+              <li>B. Place crib away from windows (radiation)</li>
+              <li>C. Dry the newborn immediately (evaporation)</li>
+              <li>D. Place crib near an open door (convection)</li>
+              <li>E. Use a hat (radiation and convection)</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Pre-warming surfaces (warmer, blankets, scale, hands, stethoscope) prevents conduction heat loss.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Distance from cold surfaces (windows, walls, drafts) prevents radiation heat loss.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Drying prevents evaporative heat loss from moisture on the skin.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Open doors create drafts that INCREASE convection heat loss — keep the room draft-free.</p>
+          <p class="answer correct"><span class="ans-letter">E.</span> <strong>CORRECT.</strong> A hat covers a large surface area (head = ~25% of body in newborns), reducing radiation and convection loss.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Newborn Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is performing a heel stick on a newborn. Which technique is correct?</p>
+          <ol class="q-options">
+              <li>A. Puncture the center of the heel up to 4 mm deep</li>
+              <li>B. Puncture the outer aspect of the heel no deeper than 2.4 mm</li>
+              <li>C. Use the inside of the heel near the arch</li>
+              <li>D. Wipe with alcohol after puncture to stop bleeding</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Center of heel can hit bone and cause necrotizing osteochondritis. Depth > 2.4 mm risks bone injury.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Outer aspect of the heel, no deeper than 2.4 mm, avoids bone penetration and the medial arch (where major vessels and nerves run).</p>
+          <p class="answer "><span class="ans-letter">C.</span> Inside (medial) of the heel risks vascular and nerve injury.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Apply pressure with dry gauze (NOT alcohol — alcohol can cause continued bleeding and increases pain).</p>
+          <span class="nclex-tag">NCLEX · Safety &amp; Infection Control · Safe Use of Equipment</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is providing post-circumcision care for a newborn with a Plastibell device. Which client teaching is correct?</p>
+          <ol class="q-options">
+              <li>A. "Apply petroleum jelly with each diaper change for the first 24 hours."</li>
+              <li>B. "The plastic ring will fall off in 5–7 days on its own."</li>
+              <li>C. "A small amount of bleeding is concerning and requires immediate care."</li>
+              <li>D. "Avoid bathing the newborn for 2 weeks."</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Petroleum jelly is used with Gomco/Yellen/Mogen clamps, NOT Plastibell. Petroleum can interfere with Plastibell drying.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Plastibell drops off in 5–7 days, leaving a clean healed excision. No petroleum is used.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Small amount of bleeding/oozing is expected. Frank bleeding (blood-soaked diaper, persistent dripping) requires evaluation.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Sponge baths until cord falls off; tub bathing after circumcision is healed.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Newborn Care</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch24-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch24-bulb" target="_blank" rel="noopener">Newborn Airway Clearance & Bulb Syringe</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch24 -->
 
   </section><!-- /ch24 -->
@@ -15515,12 +17614,104 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch25-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 25 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is teaching a new breastfeeding mother about expected output indicating adequate intake. Which finding suggests effective breastfeeding in a 1-week-old infant?</p>
+          <ol class="q-options">
+              <li>A. 2–3 wet diapers per day</li>
+              <li>B. 6 or more wet diapers per day</li>
+              <li>C. Pale white stools</li>
+              <li>D. Sleeping for 6 hours between feeds</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> 2–3 wet diapers is inadequate — suggests insufficient intake.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> ≥ 6 wet diapers/24 hr after day 4 indicates adequate hydration. Additional indicators: 3+ yellow seedy stools/day, weight gain ≥ 110 g/week (after initial 5–10% loss regained by 10–14 days), audible swallowing, content between feeds.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Pale white stools indicate biliary obstruction — abnormal. BF stools are yellow and seedy.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Newborns feed every 2–3 hours; 6-hour sleeps without feeding may indicate inadequate intake.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Newborn Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is teaching about breast milk storage. Which of the following statements indicate correct understanding? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. "Fresh milk can stay at room temperature for 8 hours."</li>
+              <li>B. "Milk can be refrigerated for up to 8 days."</li>
+              <li>C. "I can thaw milk in the microwave for quick use."</li>
+              <li>D. "Frozen milk lasts 6 months in the freezer compartment."</li>
+              <li>E. "Thawed milk can be refrozen if not used."</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Fresh expressed milk: 8 hours at room temperature.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Refrigerated: 8 days in sterile container.</p>
+          <p class="answer "><span class="ans-letter">C.</span> NEVER microwave — destroys immunoglobulins and creates hot spots that can burn the infant.</p>
+          <p class="answer correct"><span class="ans-letter">D.</span> <strong>CORRECT.</strong> Freezer compartment: 6 months. Deep freezer: 12 months.</p>
+          <p class="answer "><span class="ans-letter">E.</span> Thawed milk should NOT be refrozen. Use within 24 hours of thawing.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Newborn Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is teaching a parent about formula preparation. Which of the following are correct guidelines? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Mix concentrated or powder formula with tap water</li>
+              <li>B. Refrigerate prepared formula for up to 48 hours</li>
+              <li>C. Microwave bottles to warm formula</li>
+              <li>D. Discard any unused formula remaining in the bottle after feeding</li>
+              <li>E. Prop the bottle for hands-free feeding</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Tap water is acceptable (boil first if water source is questionable).</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Prepared formula stored in refrigerator: max 48 hours.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Microwaving creates hot spots that can burn the infant. Warm by placing bottle in warm water.</p>
+          <p class="answer correct"><span class="ans-letter">D.</span> <strong>CORRECT.</strong> Discard leftover formula — bacterial contamination from infant's mouth.</p>
+          <p class="answer "><span class="ans-letter">E.</span> NEVER prop a bottle — risk of choking, aspiration, and dental caries. Always hold the infant.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Newborn Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is teaching parents about introducing solid foods. When should the first solid food be introduced?</p>
+          <ol class="q-options">
+              <li>A. At 2 months of age</li>
+              <li>B. At 4 months of age</li>
+              <li>C. At 6 months of age</li>
+              <li>D. At 9 months of age</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Too early — digestive enzymes immature; increases allergy and obesity risk.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Some pediatricians may introduce at 4 months if infant shows readiness, but 6 months is the AAP recommendation for most infants.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> AAP recommends introducing solid foods at 6 months — exclusive breastfeeding (or formula) until then. Infant should be able to sit with support and show interest in food.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Waiting too long delays exposure to varied foods and texture progression.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Newborn Care</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch25-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch25-pump" target="_blank" rel="noopener">Breast Pump Use & Milk Storage</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch25 -->
 
   </section><!-- /ch25 -->
@@ -16038,12 +18229,102 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch26-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 26 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is teaching parents about umbilical cord care. Which instruction is correct?</p>
+          <ol class="q-options">
+              <li>A. "Apply alcohol to the cord with each diaper change."</li>
+              <li>B. "Cover the cord with gauze to keep it clean."</li>
+              <li>C. "Keep the cord dry; fold the diaper below the cord."</li>
+              <li>D. "The cord typically falls off in 2 days."</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Alcohol is no longer recommended — current evidence shows dry cord care promotes faster healing.</p>
+          <p class="answer "><span class="ans-letter">B.</span> Covering the cord traps moisture and increases infection risk.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Keep the cord dry; fold the diaper down/below the cord to prevent urine contamination and promote drying. Cord typically falls off in 10–14 days.</p>
+          <p class="answer "><span class="ans-letter">D.</span> 2 days is too soon. Average 10–14 days.</p>
+          <span class="nclex-tag">NCLEX · Health Promotion &amp; Maintenance · Newborn Care</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is teaching parents about safe bathing of a newborn. Which is the correct water temperature?</p>
+          <ol class="q-options">
+              <li>A. 32°C (90°F)</li>
+              <li>B. 38°C (100.4°F)</li>
+              <li>C. 41°C (105°F)</li>
+              <li>D. 49°C (120°F)</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Too cool — risk of cold stress.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Bath water 38°C (100.4°F). Test with elbow or inner wrist before bathing. Hot water heater should be set max 49°C (120.2°F).</p>
+          <p class="answer "><span class="ans-letter">C.</span> Too hot — risk of burns.</p>
+          <p class="answer "><span class="ans-letter">D.</span> 49°C is the hot water heater maximum — NOT bath water temperature.</p>
+          <span class="nclex-tag">NCLEX · Safety &amp; Infection Control · Safe Use of Equipment</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is reviewing safe sleep practices with new parents. Which of the following recommendations should be included? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. Place newborn on back to sleep</li>
+              <li>B. Use a firm sleep surface</li>
+              <li>C. Keep crib free of pillows, blankets, and toys</li>
+              <li>D. Co-sleep in the parents' bed for the first 6 months</li>
+              <li>E. Avoid overheating the newborn</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> Supine (back) sleeping reduces SIDS risk.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Firm mattress in a safety-approved crib.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> No soft objects, bumpers, blankets, or toys in the sleep area.</p>
+          <p class="answer "><span class="ans-letter">D.</span> AAP recommends ROOM-sharing (not BED-sharing) for the first 6 months. Bed-sharing significantly increases SIDS and suffocation risk.</p>
+          <p class="answer correct"><span class="ans-letter">E.</span> <strong>CORRECT.</strong> Avoid overdressing — room temperature 68–72°F (20–22°C); no more than one extra layer.</p>
+          <span class="nclex-tag">NCLEX · Safety &amp; Infection Control · Accident/Error/Injury Prevention</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is teaching new parents about car seat safety. Which is the correct positioning for a newborn?</p>
+          <ol class="q-options">
+              <li>A. Forward-facing in the back seat</li>
+              <li>B. Rear-facing in the front seat</li>
+              <li>C. Rear-facing in the back seat, away from active airbags</li>
+              <li>D. Forward-facing in the middle of the back seat</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Forward-facing is for older children (typically 2+ years).</p>
+          <p class="answer "><span class="ans-letter">B.</span> Front seat with active airbag is dangerous — airbag deployment can be fatal to infants.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Rear-facing in the back seat is safest. Keep infants rear-facing as long as possible — at least until age 2 or until they exceed seat weight/height limits.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Newborns must be REAR-facing, not forward-facing.</p>
+          <span class="nclex-tag">NCLEX · Safety &amp; Infection Control · Accident/Error/Injury Prevention</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch26-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch26-bathing" target="_blank" rel="noopener">Newborn Bathing</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch26 -->
 
   </section><!-- /ch26 -->
@@ -17381,12 +19662,102 @@ button:focus-visible,a:focus-visible{
     </section>
 
   
-    <div class="tpl-bridge">
-      <h3>ATI Templates · this chapter</h3>
+    <section id="ch27-exercises" class="content-section">
+      <h2>Practice · Application Exercises</h2>
+      <p class="section-lead">4 NCLEX-style questions covering Ch 27 core content. Click each exercise to reveal rationales and NCLEX category.</p>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q1</span>
+          <p>A nurse is caring for a newborn at 3 hours of life with a blood glucose of 35 mg/dL. The newborn is jittery and feeding poorly. Which is the priority intervention?</p>
+          <ol class="q-options">
+              <li>A. Continue to observe and recheck in 2 hours</li>
+              <li>B. Initiate early feeding with breast milk or formula</li>
+              <li>C. Wrap the newborn in additional blankets</li>
+              <li>D. Stimulate the newborn with skin-to-skin contact only</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Observation is inadequate — symptomatic hypoglycemia requires treatment.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Newborn glucose < 40–45 mg/dL beyond 2 hours of life with symptoms requires intervention. Initiate feeding (breast or formula). If unstable or unable to feed: IV glucose. Recheck in 30 minutes.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Warming addresses hypothermia, which can WORSEN hypoglycemia, but feeding is the priority intervention.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Skin-to-skin alone is insufficient when symptomatic.</p>
+          <span class="nclex-tag">NCLEX · Physiological Adaptation · Medical Emergencies</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q2</span>
+          <p>A nurse is using the Neonatal Abstinence Scoring System (NAS) to assess a newborn whose mother had opioid use during pregnancy. Which CNS findings indicate withdrawal? <strong>(Select all that apply.)</strong></p>
+          <ol class="q-options">
+              <li>A. High-pitched shrill cry</li>
+              <li>B. Hypertonicity and tremors</li>
+              <li>C. Hyperactive Moro reflex</li>
+              <li>D. Loose stools and excessive sucking</li>
+              <li>E. Convulsions</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer correct"><span class="ans-letter">A.</span> <strong>CORRECT.</strong> High-pitched/shrill/inconsolable cry is a classic NAS sign.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Hypertonicity and tremors are key CNS findings.</p>
+          <p class="answer correct"><span class="ans-letter">C.</span> <strong>CORRECT.</strong> Hyperactive Moro and increased DTRs are typical.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Loose stools and excessive sucking are GI/autonomic findings of NAS — not CNS findings.</p>
+          <p class="answer correct"><span class="ans-letter">E.</span> <strong>CORRECT.</strong> Convulsions occur in severe NAS.</p>
+          <span class="nclex-tag">NCLEX · Physiological Adaptation · Pathophysiology</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q3</span>
+          <p>A nurse is assessing a preterm newborn for respiratory distress syndrome. Which finding indicates worsening RDS?</p>
+          <ol class="q-options">
+              <li>A. Respiratory rate 50/min</li>
+              <li>B. Cyanosis with apnea and flaccidity</li>
+              <li>C. Mild nasal flaring resolving with stimulation</li>
+              <li>D. Acrocyanosis</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> RR 50 is at upper-normal range for a newborn (normal 30–60).</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Worsened RDS: unresponsiveness, flaccidity, and apnea with decreased breath sounds. This indicates progression to respiratory failure.</p>
+          <p class="answer "><span class="ans-letter">C.</span> Mild flaring resolving with stimulation suggests transient or mild distress — not worsening.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Acrocyanosis (bluish hands and feet) is normal in newborns.</p>
+          <span class="nclex-tag">NCLEX · Physiological Adaptation · Medical Emergencies</span>
+        </div>
+      </article>
+
+      <article class="exercise">
+        <header class="exercise-q" data-toggle>
+          <span class="q-num">Q4</span>
+          <p>A nurse is caring for a newborn receiving phototherapy for hyperbilirubinemia. Which intervention is correct?</p>
+          <ol class="q-options">
+              <li>A. Apply lotion to the newborn's skin every 4 hours</li>
+              <li>B. Maintain eye covers at all times under the lights</li>
+              <li>C. Dress the newborn fully to prevent heat loss</li>
+              <li>D. Discontinue phototherapy when feeding</li>
+          </ol>
+          <span class="q-toggle">Show rationale ▾</span>
+        </header>
+        <div class="exercise-a">
+          <p class="answer "><span class="ans-letter">A.</span> Lotions absorb heat and can cause burns under phototherapy — avoid.</p>
+          <p class="answer correct"><span class="ans-letter">B.</span> <strong>CORRECT.</strong> Eye covers protect corneas and retinas from light damage. Remove every 4 hours to check eyes. Keep newborn undressed (cover male genitalia with bikini mask, removing metal strip).</p>
+          <p class="answer "><span class="ans-letter">C.</span> Newborn must be UNDRESSED to maximize skin exposure to light. Cover only the genitalia for male newborns.</p>
+          <p class="answer "><span class="ans-letter">D.</span> Brief breaks for feeding and bonding are encouraged, but the goal is maximum light exposure — keep on lights as much as possible while ensuring safety.</p>
+          <span class="nclex-tag">NCLEX · Physiological Adaptation · Illness Management</span>
+        </div>
+      </article>
+    </section>
+    <section id="ch27-templates" class="content-section tpl-bridge">
+      <h2>ATI Templates · this chapter</h2>
       <ul>
         <li><a href="Elevated%20ATI%20MN%20Templates.html#ex-ch27-hyperbili" target="_blank" rel="noopener">Hyperbilirubinemia</a></li>
       </ul>
-    </div>
+    </section>
     <!-- tpl-bridge-ch27 -->
 
   </section><!-- /ch27 -->
@@ -17635,6 +20006,8 @@ button:focus-visible,a:focus-visible{
 
   function buildTabLabel(section, index) {
     if (section.classList.contains('brief-card')) return 'TL;DR';
+    if (section.classList.contains('tpl-bridge')) return 'Templates';
+    if (section.id && /-exercises$/.test(section.id)) return 'Practice';
     var h2 = section.querySelector('h2');
     var label = h2 ? h2.textContent.trim() : ('Section ' + (index+1));
     if (label.length > 28) label = label.substring(0, 26) + '…';
