@@ -254,6 +254,26 @@ button{font-family:'DM Sans',sans-serif}
 .footer{text-align:center;padding-top:24px;margin-top:36px;
   border-top:1px solid var(--border-soft);font-size:12px;color:var(--text3)}
 .footer p{margin:4px 0}
+
+.load-starter-btn{
+  display: block;
+  margin: 18px auto;
+  padding: 14px 28px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.load-starter-btn:hover{
+  background: var(--accent2);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
 </style>
 </head>
 <body>
@@ -348,6 +368,150 @@ button{font-family:'DM Sans',sans-serif}
   function saveSchedule(s){
     try { localStorage.setItem(FC_KEY, JSON.stringify(s)); } catch(e){}
   }
+
+  // === STARTER DECK (from book mid-read prompts) ===
+  var STARTER_DECK = [
+{ id: 'fc-ch1-naegele', ch: 'ch1', type: 'calc', anchor: 'ch1-natural', q: 'How is the fertile period calculated in the calendar rhythm method?', a: '<strong>Start</strong> = shortest cycle length − <strong>18 days</strong><br><strong>End</strong> = longest cycle length − <strong>11 days</strong><br><em>Example:</em> 26-day shortest, 30-day longest → fertile days 8 through 19.' },
+{ id: 'fc-ch1-spinnbarkeit', ch: 'ch1', type: 'concept', anchor: 'ch1-natural', q: 'What is the spinnbarkeit sign?', a: 'The ability of cervical mucus to <strong>stretch between the fingers</strong>. Greatest stretch occurs at <strong>ovulation</strong> (thin, slippery, clear, stretchable mucus indicates fertile window).' },
+{ id: 'fc-ch1-aches', ch: 'ch1', type: 'warning', anchor: 'ch1-hormonal', q: 'What does the ACHES mnemonic warn about for combined oral contraceptives?', a: '<strong>A</strong>bdominal pain (severe) · <strong>C</strong>hest pain · <strong>H</strong>eadaches (severe) · <strong>E</strong>ye problems (vision changes) · <strong>S</strong>evere leg pain (DVT)' },
+{ id: 'fc-ch1-pains', ch: 'ch1', type: 'warning', anchor: 'ch1-iud', q: 'What does the PAINS mnemonic warn about for IUDs?', a: '<strong>P</strong>eriod late/pregnancy · <strong>A</strong>bdominal pain · <strong>I</strong>nfection (abnormal discharge) · <strong>N</strong>ot feeling well/fever · <strong>S</strong>trings missing/changed length' },
+{ id: 'fc-ch1-ec', ch: 'ch1', type: 'concept', anchor: 'ch1-iud', q: 'What are the 3 forms of emergency contraception and their effectiveness windows?', a: '<strong>Plan B (levonorgestrel 1.5 mg):</strong> within 72 hr · <strong>Ella (ulipristal 30 mg):</strong> within 120 hr · <strong>Copper IUD:</strong> within 5 days — <em>most effective</em>' },
+{ id: 'fc-ch2-semen', ch: 'ch2', type: 'concept', anchor: 'ch2-assessment', q: 'What is the FIRST test in an infertility workup and why?', a: '<strong>Semen analysis</strong> — least expensive and least invasive. <strong>40% of infertile couples</strong> have male factor infertility.' },
+{ id: 'fc-ch2-hsg', ch: 'ch2', type: 'warning', anchor: 'ch2-assessment', q: 'What allergy must be assessed before hysterosalpingography (HSG)?', a: '<strong>Iodine and seafood</strong> allergies — HSG uses iodine-containing contrast dye to assess fallopian tube patency.' },
+{ id: 'fc-ch2-art', ch: 'ch2', type: 'concept', anchor: 'ch2-treatment', q: 'What is the multifetal pregnancy risk with female infertility medications?', a: '<strong>Increased by more than 25%</strong> with medications like clomiphene and gonadotropins.' },
+{ id: 'fc-ch3-naegele', ch: 'ch3', type: 'calc', anchor: 'ch3-dating', q: 'How do you calculate EDB using Naegele\'s rule?', a: '<strong>LMP − 3 months + 7 days + 1 year</strong><br><em>Example:</em> LMP April 1, 2024 → April − 3 mo = January → +7 days = Jan 8 → +1 year = <strong>EDB Jan 8, 2025</strong>' },
+{ id: 'fc-ch3-presumptive', ch: 'ch3', type: 'concept', anchor: 'ch3-signs', q: 'List 3 PRESUMPTIVE signs of pregnancy.', a: '<strong>Subjective</strong>, can have other causes: amenorrhea, fatigue, N/V, urinary frequency, breast changes (darkened areolae, Montgomery\'s glands), <strong>quickening (16–20 wk)</strong>' },
+{ id: 'fc-ch3-probable', ch: 'ch3', type: 'concept', anchor: 'ch3-signs', q: 'Name 4 probable signs of pregnancy.', a: '<strong>Hegar\'s sign</strong> (lower uterine softening) · <strong>Chadwick\'s sign</strong> (violet cervix) · <strong>Goodell\'s sign</strong> (cervical tip softening) · <strong>Ballottement</strong> (fetal rebound)' },
+{ id: 'fc-ch3-positive', ch: 'ch3', type: 'concept', anchor: 'ch3-signs', q: 'What are the 3 POSITIVE signs of pregnancy?', a: '1. <strong>Fetal heart sounds</strong> heard by examiner · 2. <strong>Visualization of fetus by ultrasound</strong> · 3. <strong>Fetal movement palpated by experienced examiner</strong> (not the client)' },
+{ id: 'fc-ch3-hcg', ch: 'ch3', type: 'concept', anchor: 'ch3-verify', q: 'When does hCG peak in pregnancy?', a: '<strong>Peaks at 60–70 days</strong> of gestation, then declines until ~100–130 days, after which it remains low. <em>Elevated hCG suggests multifetal, ectopic, mole, or Down syndrome.</em>' },
+{ id: 'fc-ch3-fundal', ch: 'ch3', type: 'concept', anchor: 'ch3-dating', q: 'What\'s the rule for estimating gestational age by fundal height?', a: '<strong>Between 18 and 30 weeks, fundal height in cm = gestational age in weeks (± 2 weeks).</strong> Measured from symphysis pubis to top of uterine fundus.' },
+{ id: 'fc-ch4-schedule', ch: 'ch4', type: 'concept', anchor: 'ch4-schedule', q: 'What is the prenatal visit schedule for an uncomplicated pregnancy?', a: '<strong>Monthly</strong> weeks 16–28 · <strong>Every 2 weeks</strong> weeks 29–36 · <strong>Weekly</strong> from 36 weeks until birth' },
+{ id: 'fc-ch4-organogenesis', ch: 'ch4', type: 'concept', anchor: 'ch4-schedule', q: 'During which weeks of gestation do most birth defects occur?', a: '<strong>Weeks 2–8 (organogenesis).</strong> This is why preconception counseling and avoiding teratogens early is critical.' },
+{ id: 'fc-ch4-labs', ch: 'ch4', type: 'concept', anchor: 'ch4-labs', q: 'List 5 essential initial prenatal labs.', a: '<strong>CBC (H&amp;H), blood type and Rh, rubella titer, HIV antibody, HBsAg, RPR/VDRL, UA + culture, cervical cultures (GC/CT)</strong>' },
+{ id: 'fc-ch5-calories', ch: 'ch5', type: 'concept', anchor: 'ch5-education', q: 'What are the caloric increase recommendations by trimester?', a: '<strong>1st tri:</strong> no increase needed · <strong>2nd tri:</strong> +340 cal/day · <strong>3rd tri:</strong> +452 cal/day · <strong>Lactation:</strong> +450–500 cal/day' },
+{ id: 'fc-ch5-folate', ch: 'ch5', type: 'concept', anchor: 'ch5-education', q: 'What is the folic acid recommendation pre-conception and during pregnancy?', a: '<strong>400 mcg/day</strong> for clients of childbearing age (pre-conception) · <strong>600 mcg/day</strong> during pregnancy. Prevents neural tube defects.' },
+{ id: 'fc-ch5-iron', ch: 'ch5', type: 'concept', anchor: 'ch5-education', q: 'What enhances iron absorption and what inhibits it?', a: '<strong>Enhances:</strong> vitamin C (orange juice), empty stomach<br><strong>Inhibits:</strong> milk, calcium, caffeine, antacids — separate by 1–2 hours' },
+{ id: 'fc-ch5-pku', ch: 'ch5', type: 'concept', anchor: 'ch5-risk', q: 'What is the critical timing for resuming PKU diet in pregnancy?', a: '<strong>Resume at least 3 months PRIOR to pregnancy</strong> and continue throughout. Avoid high-protein foods and <strong>aspartame</strong> (contains phenylalanine).' },
+{ id: 'fc-ch5-caffeine', ch: 'ch5', type: 'concept', anchor: 'ch5-education', q: 'What is the recommended daily caffeine limit during pregnancy?', a: '<strong>No more than 200 mg/day</strong> (~1 cup of coffee) per ACOG and March of Dimes. Excessive caffeine: infertility, miscarriage, IUGR.' },
+{ id: 'fc-ch6-bpp', ch: 'ch6', type: 'concept', anchor: 'ch6-bpp', q: 'What are the 5 variables of the Biophysical Profile (BPP)?', a: '1. <strong>FHR</strong> (reactive NST = 2) · 2. <strong>Fetal breathing</strong> (≥1 episode &gt;30 sec in 30 min) · 3. <strong>Gross body movements</strong> (≥3 in 30 min) · 4. <strong>Fetal tone</strong> (≥1 flexion/extension) · 5. <strong>Amniotic fluid</strong> (≥1 pocket ≥2 cm). Each scored 0 or 2; max 10.' },
+{ id: 'fc-ch6-bpp-score', ch: 'ch6', type: 'concept', anchor: 'ch6-bpp', q: 'How are BPP scores interpreted?', a: '<strong>8–10:</strong> Normal — repeat weekly · <strong>6:</strong> Equivocal — repeat in 24 hr OR deliver if &gt;36 wk · <strong>≤4:</strong> Abnormal — deliver' },
+{ id: 'fc-ch6-ultrasound', ch: 'ch6', type: 'concept', anchor: 'ch6-ultrasound', q: 'What is the bladder prep difference between abdominal and transvaginal ultrasound?', a: '<strong>Abdominal:</strong> drink 1 quart of water, FULL bladder<br><strong>Transvaginal:</strong> EMPTY bladder' },
+{ id: 'fc-ch6-msafp', ch: 'ch6', type: 'concept', anchor: 'ch6-labs', q: 'What does MSAFP screen for and when is it performed?', a: '<strong>Performed 15–22 weeks</strong> (ideally 16–18). <strong>Elevated:</strong> neural tube defects, abdominal wall defects, multifetal · <strong>Decreased:</strong> Down syndrome, trisomy 18' },
+{ id: 'fc-ch6-ls', ch: 'ch6', type: 'concept', anchor: 'ch6-amnio', q: 'What L/S ratio indicates fetal lung maturity?', a: '<strong>L/S ratio ≥ 2:1</strong> = lung mature. Presence of <strong>phosphatidylglycerol (PG)</strong> is also a positive sign. Lamellar body count ≥ 50,000.' },
+{ id: 'fc-ch7-ectopic', ch: 'ch7', type: 'concept', anchor: 'ch7-ectopic', q: 'Why does shoulder pain occur in ectopic pregnancy?', a: '<strong>Referred pain from blood in the peritoneal cavity</strong> irritating the diaphragm/phrenic nerve after tubal rupture. Indicates a surgical emergency.' },
+{ id: 'fc-ch7-sab', ch: 'ch7', type: 'concept', anchor: 'ch7-spontaneous-abortion', q: 'How do you differentiate threatened vs inevitable abortion?', a: '<strong>Threatened:</strong> cervix CLOSED, slight bleeding, no tissue passed → bedrest, observation<br><strong>Inevitable:</strong> cervix OPEN (dilation), moderate bleeding → D&amp;C likely' },
+{ id: 'fc-ch7-mole', ch: 'ch7', type: 'concept', anchor: 'ch7-gtd', q: 'What are 4 classic findings of hydatidiform mole?', a: '1. <strong>Vaginal bleeding</strong> ("prune juice") · 2. <strong>Uterus larger than dates</strong> · 3. <strong>Markedly elevated hCG</strong> · 4. <strong>Severe N/V (hyperemesis)</strong>. US shows <em>snowstorm pattern</em>; NO fetal parts.' },
+{ id: 'fc-ch7-mole-fu', ch: 'ch7', type: 'warning', anchor: 'ch7-gtd', q: 'How long must pregnancy be prevented after molar pregnancy?', a: '<strong>At least 1 year (12 months)</strong> with reliable contraception (NOT an IUD — perforation risk). Pregnancy obscures the hCG trend used to detect choriocarcinoma.' },
+{ id: 'fc-ch8-hiv-delivery', ch: 'ch8', type: 'concept', anchor: 'ch8-hiv', q: 'What viral load threshold determines cesarean vs vaginal delivery in HIV+ pregnancy?', a: '<strong>Viral load &gt; 1,000 copies/mL at 36 weeks</strong> → scheduled cesarean at 38 weeks<br><strong>Viral load &lt; 1,000 copies/mL</strong> → vaginal birth acceptable' },
+{ id: 'fc-ch8-torch', ch: 'ch8', type: 'concept', anchor: 'ch8-torch', q: 'What does TORCH stand for?', a: '<strong>T</strong>oxoplasmosis · <strong>O</strong>ther (HBV, HIV, syphilis, parvovirus, varicella) · <strong>R</strong>ubella · <strong>C</strong>ytomegalovirus · <strong>H</strong>erpes simplex virus' },
+{ id: 'fc-ch8-syphilis', ch: 'ch8', type: 'concept', anchor: 'ch8-syphilis', q: 'What\'s the only effective treatment for syphilis in pregnancy?', a: '<strong>Benzathine penicillin G IM.</strong> Penicillin-allergic clients <strong>must be desensitized</strong> and treated with penicillin (doxycycline contraindicated in pregnancy).' },
+{ id: 'fc-ch8-cmv', ch: 'ch8', type: 'concept', anchor: 'ch8-torch', q: 'What is the most common sequela of congenital CMV?', a: '<strong>Hearing loss (sensorineural).</strong> CMV is the most common congenital infection. No vaccine or effective treatment; prevent via good hand hygiene around young children.' },
+{ id: 'fc-ch9-cerclage', ch: 'ch9', type: 'concept', anchor: 'ch9-cervical', q: 'When is cervical cerclage placed and when is it removed?', a: '<strong>Placed:</strong> 12–14 wk (history-indicated) to 23 wk (US-indicated)<br><strong>Removed:</strong> 36–37 weeks (to allow vaginal delivery) OR any time labor/PROM occurs' },
+{ id: 'fc-ch9-hyperemesis', ch: 'ch9', type: 'concept', anchor: 'ch9-hyperemesis', q: 'What lab findings define hyperemesis gravidarum?', a: '<strong>Weight loss &gt;5% pre-pregnancy weight</strong>, ketonuria, dehydration, hypokalemia, metabolic alkalosis (from vomiting HCl)' },
+{ id: 'fc-ch9-anemia', ch: 'ch9', type: 'concept', anchor: 'ch9-anemia', q: 'What Hgb defines anemia in pregnancy?', a: '<strong>1st/3rd trimester:</strong> Hgb &lt; 11 g/dL (Hct &lt; 33%)<br><strong>2nd trimester:</strong> Hgb &lt; 10.5 g/dL (Hct &lt; 32%)' },
+{ id: 'fc-ch9-sickle', ch: 'ch9', type: 'concept', anchor: 'ch9-anemia', q: 'What is the folic acid dose for pregnant clients with sickle cell disease?', a: '<strong>1 mg/day</strong> (higher than the usual 0.6 mg). Avoid hypoxia, dehydration, infection, stress — all precipitate crisis.' },
+{ id: 'fc-ch10-ffn', ch: 'ch10', type: 'concept', anchor: 'ch10-preterm', q: 'What\'s the clinical value of a negative fetal fibronectin (fFN) test?', a: '<strong>High negative predictive value</strong> — preterm birth is unlikely in the next 2 weeks. Sample BEFORE digital exam (contamination disrupts test).' },
+{ id: 'fc-ch10-betameth', ch: 'ch10', type: 'calc', anchor: 'ch10-betamethasone', q: 'What is the betamethasone protocol for fetal lung maturity?', a: '<strong>12 mg IM × 2 doses, 24 hours apart.</strong> Given 24 0/7 to 33 6/7 weeks (consider down to 23 wk; up to 34 6/7 wk for late preterm).' },
+{ id: 'fc-ch10-mag-cutoff', ch: 'ch10', type: 'concept', anchor: 'ch10-betamethasone', q: 'At what gestational age is magnesium sulfate given for fetal neuroprotection?', a: '<strong>Before 32 weeks.</strong> Reduces risk of cerebral palsy. Load 4–6 g IV over 20–30 min, then 1–2 g/hr maintenance until delivery.' },
+{ id: 'fc-ch10-indomethacin', ch: 'ch10', type: 'warning', anchor: 'ch10-tocolytics', q: 'At what gestational age must indomethacin be discontinued and why?', a: '<strong>Discontinue after 32 weeks</strong> — causes premature closure of fetal ductus arteriosus and oligohydramnios.' },
+{ id: 'fc-ch10-tocolytic-combo', ch: 'ch10', type: 'warning', anchor: 'ch10-tocolytics', q: 'Which two tocolytics must NEVER be given together?', a: '<strong>Nifedipine + Magnesium sulfate</strong> — both cause maternal hypotension; combined effect can cause cardiac arrest and fetal compromise.' },
+{ id: 'fc-ch10-pprom-abx', ch: 'ch10', type: 'warning', anchor: 'ch10-prom', q: 'Which antibiotic must be AVOIDED in PPROM and why?', a: '<strong>Amoxicillin-clavulanate (Augmentin)</strong> — increased risk of necrotizing enterocolitis (NEC) in newborns. Use ampicillin + erythromycin instead.' },
+{ id: 'fc-ch10-chorio', ch: 'ch10', type: 'concept', anchor: 'ch10-prom', q: 'What are the Gibbs criteria for chorioamnionitis?', a: '<strong>Temp ≥ 38°C PLUS ≥1 of:</strong> maternal tachycardia, <strong>fetal tachycardia (earliest sign)</strong>, uterine tenderness, foul amniotic fluid, WBC &gt; 15,000' },
+{ id: 'fc-ch11-fivePs', ch: 'ch11', type: 'concept', anchor: 'ch11-fivePs', q: 'What are the 5 P\'s of labor?', a: '1. <strong>P</strong>assenger (fetus) · 2. <strong>P</strong>assageway (pelvis/soft tissues) · 3. <strong>P</strong>owers (contractions/pushing) · 4. <strong>P</strong>osition (maternal) · 5. <strong>P</strong>syche' },
+{ id: 'fc-ch11-true-labor', ch: 'ch11', type: 'concept', anchor: 'ch11-truefalse', q: 'What distinguishes true labor from false labor?', a: 'True labor: <strong>cervical change</strong>, contractions regular and intensifying, pain starts in back radiates to abdomen, intensifies with walking<br>False labor: NO cervical change, irregular, resolves with rest' },
+{ id: 'fc-ch11-rom', ch: 'ch11', type: 'concept', anchor: 'ch11-rom', q: 'What does nitrazine paper turn when exposed to amniotic fluid?', a: '<strong>Blue</strong> — amniotic fluid is alkaline (pH 7.0–7.5); vaginal pH is normally acidic (4.5–5.5). False positives: blood, semen, BV.' },
+{ id: 'fc-ch11-bishop', ch: 'ch11', type: 'concept', anchor: 'ch11-truefalse', q: 'What Bishop score is considered favorable for induction?', a: '<strong>≥ 8</strong> = favorable; induction likely successful<br>6–7 = intermediate · &lt; 6 = unfavorable (ripening recommended)' },
+{ id: 'fc-ch12-epidural-hypo', ch: 'ch12', type: 'warning', anchor: 'ch12-anesthesia', q: 'What\'s the most common complication of epidural anesthesia and its first-line treatment?', a: '<strong>Maternal hypotension</strong> → <strong>left lateral position</strong>, IV fluid bolus, oxygen 10 L/min; if persistent, IV <strong>ephedrine 5–10 mg</strong>' },
+{ id: 'fc-ch12-spinal-vs-epi', ch: 'ch12', type: 'concept', anchor: 'ch12-anesthesia', q: 'What\'s the key difference between spinal and epidural anesthesia?', a: '<strong>Spinal:</strong> single injection into subarachnoid space (CSF); rapid onset; <strong>used for cesarean</strong><br><strong>Epidural:</strong> catheter in epidural space; continuous infusion; <strong>used for labor</strong>' },
+{ id: 'fc-ch12-pdph', ch: 'ch12', type: 'concept', anchor: 'ch12-anesthesia', q: 'How is post-dural puncture headache (spinal headache) treated?', a: 'Bed rest, hydration, caffeine, NSAIDs. If persistent → <strong>epidural blood patch</strong> (15–20 mL of mother\'s blood injected into epidural space; &gt;90% effective).' },
+{ id: 'fc-ch12-pudendal', ch: 'ch12', type: 'concept', anchor: 'ch12-anesthesia', q: 'What does a pudendal block anesthetize, and what does it NOT relieve?', a: '<strong>Anesthetizes:</strong> perineum, vulva, vagina, distal rectum (S2-S4 nerve roots)<br><strong>Does NOT relieve:</strong> labor contraction pain. Used for 2nd stage, episiotomy, forceps/vacuum.' },
+{ id: 'fc-ch13-variability', ch: 'ch13', type: 'concept', anchor: 'ch13-interpretation', q: 'What is moderate (normal) FHR variability?', a: '<strong>Amplitude range 6–25 bpm</strong> — REASSURING. Best indicator of fetal oxygenation and CNS integrity. Absent/minimal is concerning.' },
+{ id: 'fc-ch13-veal', ch: 'ch13', type: 'concept', anchor: 'ch13-interpretation', q: 'What does VEAL CHOP MINE stand for?', a: '<strong>V</strong>ariable → <strong>C</strong>ord compression → <strong>M</strong>oves (reposition)<br><strong>E</strong>arly → <strong>H</strong>ead compression → <strong>I</strong>dentify labor stage<br><strong>A</strong>cceleration → <strong>O</strong>kay → <strong>N</strong>othing<br><strong>L</strong>ate → <strong>P</strong>lacental insufficiency → <strong>E</strong>xecute interventions' },
+{ id: 'fc-ch13-leopold', ch: 'ch13', type: 'concept', anchor: 'ch13-leopold', q: 'What does the 1st Leopold maneuver assess?', a: '<strong>What is in the fundus?</strong> Determines whether the buttocks (firm, irregular) or head (hard, round, ballottable) is in the fundus.' },
+{ id: 'fc-ch13-efm-toco', ch: 'ch13', type: 'concept', anchor: 'ch13-external-efm', q: 'What two transducers are used in external EFM, and where are they placed?', a: '<strong>Ultrasound transducer:</strong> over fetal back (FHR detection)<br><strong>Tocodynamometer (toco):</strong> over fundus (contraction frequency/duration). External toco cannot measure contraction intensity.' },
+{ id: 'fc-ch14-stages', ch: 'ch14', type: 'concept', anchor: 'ch14-first', q: 'What defines the 1st stage of labor and its phases?', a: '<strong>1st stage = onset of labor to 10 cm dilation.</strong><br>Latent: 0–6 cm · Active: 6–10 cm · Transition: 8–10 cm (most intense)' },
+{ id: 'fc-ch14-2nd-duration', ch: 'ch14', type: 'concept', anchor: 'ch14-second', q: 'How long should 2nd stage of labor last in a nulliparous client with an epidural?', a: '<strong>Up to 3 hours</strong> with epidural; 2 hours without. Beyond limits = arrest of descent → consider operative delivery.' },
+{ id: 'fc-ch14-pushing', ch: 'ch14', type: 'concept', anchor: 'ch14-second', q: 'What is the preferred pushing technique in the 2nd stage and why?', a: '<strong>Open glottis pushing</strong> — spontaneous bearing down with contractions, breathing out during push. Causes less pelvic floor injury and better placental perfusion than closed-glottis (Valsalva).' },
+{ id: 'fc-ch14-transition', ch: 'ch14', type: 'concept', anchor: 'ch14-first', q: 'What are signs of transition phase of labor?', a: 'Contractions q1–2 min, 60–90 sec, strong intensity; <strong>N/V, irritability, sense of \'I can\'t do this anymore\', tremors, increased bloody show, urge to push.</strong> Shortest but most intense phase.' },
+{ id: 'fc-ch15-ecv', ch: 'ch15', type: 'concept', anchor: 'ch15-version', q: 'When is external cephalic version (ECV) typically performed?', a: '<strong>36–37 weeks gestation.</strong> Requires reassuring fetal status, adequate amniotic fluid. Tocolytic (terbutaline 0.25 mg SC) given. RhoGAM if Rh-negative. ~50–60% success rate.' },
+{ id: 'fc-ch15-bishop-ripening', ch: 'ch15', type: 'concept', anchor: 'ch15-bishop-ripening', q: 'Which cervical ripening agent is CONTRAINDICATED in clients with prior cesarean?', a: '<strong>Misoprostol (Cytotec)</strong> — prostaglandin E1; risk of uterine rupture in scarred uterus. Dinoprostone (Cervidil) and Foley balloon are safer alternatives.' },
+{ id: 'fc-ch15-cesarean-reeda', ch: 'ch15', type: 'concept', anchor: 'ch15-cesarean', q: 'What does REEDA assess in postoperative wound healing?', a: '<strong>R</strong>edness · <strong>E</strong>dema · <strong>E</strong>cchymosis · <strong>D</strong>ischarge · <strong>A</strong>pproximation of wound edges' },
+{ id: 'fc-ch15-vacuum', ch: 'ch15', type: 'concept', anchor: 'ch15-operative', q: 'What is the vacuum extraction \'3-3-3 rule\'?', a: 'Discontinue if: <strong>3 pop-offs</strong> · <strong>3 traction pulls without progress</strong> · <strong>30 minutes total cup attachment time</strong>' },
+{ id: 'fc-ch15-vbac', ch: 'ch15', type: 'warning', anchor: 'ch15-vbac', q: 'What\'s the most common sign of uterine rupture during TOLAC?', a: '<strong>Sudden fetal bradycardia or prolonged deceleration.</strong> Other signs: sudden severe abdominal pain, loss of fetal station, hypotension, vaginal bleeding.' },
+{ id: 'fc-ch16-lion', ch: 'ch16', type: 'concept', anchor: 'ch16-distress', q: 'What does the LION protocol stand for in intrauterine resuscitation?', a: '<strong>L</strong>ateral position (left first) · <strong>I</strong>V fluids (500-1,000 mL LR bolus) · <strong>O</strong>xygen (10 L/min non-rebreather) · <strong>N</strong>otify provider, discontinue oxytocin' },
+{ id: 'fc-ch16-afe-triad', ch: 'ch16', type: 'concept', anchor: 'ch16-afe', q: 'What is the classic triad of amniotic fluid embolism (AFE)?', a: '1. <strong>Hypoxia</strong> (sudden dyspnea, cyanosis) · 2. <strong>Hemodynamic collapse</strong> (hypotension, shock) · 3. <strong>Coagulopathy</strong> (DIC, bleeding)' },
+{ id: 'fc-ch16-perimortem', ch: 'ch16', type: 'warning', anchor: 'ch16-afe', q: 'How quickly should perimortem cesarean be performed after maternal cardiac arrest?', a: '<strong>Within 4 minutes</strong> of cardiac arrest if no return of spontaneous circulation. Use <strong>left uterine displacement</strong> during CPR to improve cardiac return.' },
+{ id: 'fc-ch16-precipitous', ch: 'ch16', type: 'concept', anchor: 'ch16-precipitous', q: 'How is precipitous labor defined?', a: '<strong>Labor lasting &lt; 3 hours</strong> from onset of contractions to delivery. Increased risk of lacerations, hemorrhage, fetal hypoxia, intracranial hemorrhage.' },
+{ id: 'fc-ch17-fundal-descent', ch: 'ch17', type: 'concept', anchor: 'ch17-uterus', q: 'What\'s the expected rate of fundal descent postpartum?', a: '<strong>1–2 cm per day</strong> (~1 fingerbreadth daily). Halfway between symphysis and umbilicus by day 6. Non-palpable abdominally by day 10–14.' },
+{ id: 'fc-ch17-lochia-scale', ch: 'ch17', type: 'concept', anchor: 'ch17-lochia', q: 'What\'s the lochia quantification scale by saturation?', a: '<strong>Scant:</strong> &lt; 2.5 cm (1 inch) · <strong>Light:</strong> 2.5–10 cm · <strong>Moderate:</strong> &gt; 10 cm, less than full pad · <strong>Heavy:</strong> full pad in 2 hr · <strong>Excessive:</strong> pad in 15 min OR constant bright red trickle' },
+{ id: 'fc-ch17-lochia-progression', ch: 'ch17', type: 'concept', anchor: 'ch17-lochia', q: 'What\'s the normal progression of lochia colors?', a: '<strong>Rubra</strong> (dark red, days 1–3) → <strong>Serosa</strong> (pinkish-brown, days 4–10) → <strong>Alba</strong> (yellow-white, days 11–21+)' },
+{ id: 'fc-ch17-ovulation', ch: 'ch17', type: 'concept', anchor: 'ch17-cardio-gi-gu', q: 'When does ovulation return postpartum?', a: '<strong>Non-lactating:</strong> 7–9 weeks postpartum<br><strong>Lactating:</strong> variable, delayed (6+ months if exclusive). <em>Can occur BEFORE first menses — contraception needed.</em>' },
+{ id: 'fc-ch17-mastitis', ch: 'ch17', type: 'concept', anchor: 'ch17-breasts', q: 'What\'s the most common organism in mastitis and first-line treatment?', a: '<strong>Staphylococcus aureus.</strong> Treatment: <strong>Dicloxacillin 500 mg PO QID × 10–14 days</strong>. CONTINUE breastfeeding from affected side (emptying breast is therapeutic).' },
+{ id: 'fc-ch18-enface', ch: 'ch18', type: 'concept', anchor: 'ch18-maternal-phases', q: 'What is the en face position and why is the 8-inch distance important?', a: '<strong>En face:</strong> face-to-face eye contact with newborn at ~8 inches. This is the <strong>newborn\'s optimal focal distance</strong> (matches feeding position naturally).' },
+{ id: 'fc-ch18-rubin', ch: 'ch18', type: 'concept', anchor: 'ch18-maternal-phases', q: 'What are Rubin\'s 3 phases of maternal role attainment?', a: '1. <strong>Taking-In (days 1-2):</strong> passive, dependent, focused on own recovery<br>2. <strong>Taking-Hold (days 2-10):</strong> autonomous, eager to learn — OPTIMAL TEACHING TIME<br>3. <strong>Letting-Go (1+ weeks):</strong> integration of newborn into family' },
+{ id: 'fc-ch18-attachment-warning', ch: 'ch18', type: 'warning', anchor: 'ch18-maternal-phases', q: 'What are 3 warning signs of impaired maternal-infant attachment?', a: '1. Negative comments about newborn · 2. Avoiding eye contact or refusing to hold · 3. Calling newborn \'it\' or refusing to name. Document objectively; don\'t label as \'good\' or \'poor.\'' },
+{ id: 'fc-ch19-perineal', ch: 'ch19', type: 'concept', anchor: 'ch19-perineal-breast', q: 'What are the key perineal care instructions postpartum?', a: '<strong>Wipe front to back</strong> · Peri-bottle with warm water after voiding · <strong>Ice × first 12 hr; sitz baths 2–4×/day × 20 min after 12 hr</strong> · Kegels (10 reps, 3×/day)' },
+{ id: 'fc-ch19-suppress', ch: 'ch19', type: 'concept', anchor: 'ch19-perineal-breast', q: 'How do you suppress lactation in non-breastfeeding clients?', a: '<strong>Tight supportive bra 24/7</strong>, cold packs/ice, cabbage leaves, NSAIDs for pain. <strong>AVOID:</strong> breast stimulation, pumping, expressing milk, warm showers on breasts. Resolves in 5-7 days.' },
+{ id: 'fc-ch19-activity', ch: 'ch19', type: 'concept', anchor: 'ch19-activity-nutrition', q: 'When can postpartum clients resume sexual activity?', a: '<strong>When bleeding has stopped, perineum healed, and client is comfortable</strong> — typically 4–6 weeks. Discuss contraception (ovulation can return before menses).' },
+{ id: 'fc-ch20-4ts', ch: 'ch20', type: 'concept', anchor: 'ch20-hemorrhage-meds', q: 'What are the 4 T\'s of postpartum hemorrhage causes?', a: '<strong>T</strong>one (atony — most common) · <strong>T</strong>rauma (lacerations) · <strong>T</strong>issue (retained placenta) · <strong>T</strong>hrombin (coagulopathy)' },
+{ id: 'fc-ch20-methergine', ch: 'ch20', type: 'warning', anchor: 'ch20-hemorrhage-meds', q: 'What is the main contraindication for methylergonovine (Methergine)?', a: '<strong>Hypertension</strong> (including preeclampsia). Never give IV (causes severe HTN). Cardiac disease is also a contraindication. Use carefully — IM 0.2 mg q2-4hr.' },
+{ id: 'fc-ch20-carboprost', ch: 'ch20', type: 'warning', anchor: 'ch20-hemorrhage-meds', q: 'What is the main contraindication for carboprost (Hemabate)?', a: '<strong>Asthma</strong> — causes bronchospasm. Dose: 250 mcg IM q15-90 min (max 8 doses / 2 mg). Used for refractory uterine atony.' },
+{ id: 'fc-ch20-vte', ch: 'ch20', type: 'concept', anchor: 'ch20-thromboembolic', q: 'How much is VTE risk increased in immediate postpartum vs non-pregnant?', a: '<strong>20× higher in immediate postpartum</strong> (5× higher during pregnancy). Highest risk first 6 weeks postpartum. Cesarean increases risk 2–4× more.' },
+{ id: 'fc-ch20-dic-labs', ch: 'ch20', type: 'concept', anchor: 'ch20-coagulopathies', q: 'What are 4 key lab findings in DIC?', a: '1. <strong>Decreased platelets &lt;100,000</strong> · 2. <strong>Prolonged PT/aPTT/INR</strong> · 3. <strong>Decreased fibrinogen &lt;150 mg/dL</strong> · 4. <strong>Elevated D-dimer and FDPs</strong>. Schistocytes on smear.' },
+{ id: 'fc-ch20-laceration', ch: 'ch20', type: 'concept', anchor: 'ch20-retained-lacerations', q: 'How are perineal lacerations classified?', a: '<strong>1st:</strong> skin/mucosa only · <strong>2nd:</strong> + perineal muscle (NOT sphincter) · <strong>3rd:</strong> + anal sphincter (3a, 3b, 3c) · <strong>4th:</strong> + rectal mucosa' },
+{ id: 'fc-ch21-fever', ch: 'ch21', type: 'concept', anchor: 'ch21-overview', q: 'What defines postpartum fever?', a: '<strong>Temperature ≥ 38°C (100.4°F)</strong> on any 2 of the first 10 days postpartum, <strong>excluding the first 24 hours</strong>. Triggers infection workup.' },
+{ id: 'fc-ch21-uti', ch: 'ch21', type: 'warning', anchor: 'ch21-uti', q: 'Why should TMP-SMX be avoided in the first month of breastfeeding?', a: '<strong>Bilirubin displacement</strong> in newborns — risk of kernicterus. Use nitrofurantoin (Macrobid) or cephalexin instead for postpartum UTI.' },
+{ id: 'fc-ch21-endometritis', ch: 'ch21', type: 'concept', anchor: 'ch21-uti', q: 'What are the classic signs of endometritis?', a: 'Fever &gt; 38°C, <strong>uterine tenderness</strong>, foul-smelling lochia, tachycardia, malaise. Treatment: IV clindamycin + gentamicin until afebrile 24-48 hr, then oral.' },
+{ id: 'fc-ch22-edinburgh', ch: 'ch22', type: 'concept', anchor: 'ch22-depression', q: 'What Edinburgh Postnatal Depression Scale (EPDS) score suggests probable depression, and what is Item #10?', a: '<strong>Score ≥ 12</strong> = probable depression. <strong>Item #10 asks about thoughts of self-harm</strong> — ANY positive response requires immediate evaluation.' },
+{ id: 'fc-ch22-sertraline', ch: 'ch22', type: 'concept', anchor: 'ch22-depression', q: 'Which SSRI is preferred in breastfeeding clients with PPD?', a: '<strong>Sertraline (Zoloft)</strong> — lowest milk transfer levels. Paroxetine also acceptable. <strong>Avoid fluoxetine</strong> (Prozac) — long half-life accumulates in milk.' },
+{ id: 'fc-ch22-brexanolone', ch: 'ch22', type: 'concept', anchor: 'ch22-depression', q: 'What is brexanolone (Zulresso) and how is it used?', a: '<strong>IV neuroactive steroid</strong> — first FDA-approved drug specifically for PPD. Given as <strong>60-hour continuous IV infusion</strong>. Requires inpatient monitoring.' },
+{ id: 'fc-ch22-988', ch: 'ch22', type: 'concept', anchor: 'ch22-care', q: 'What is the national crisis hotline number for mental health emergencies?', a: '<strong>988 — Suicide &amp; Crisis Lifeline</strong> (call or text, US). Also: Postpartum Support International 1-800-944-4773; Maternal Mental Health Hotline 1-833-9-HELP4MOMS.' },
+{ id: 'fc-ch23-late-preterm', ch: 'ch23', type: 'concept', anchor: 'ch23-classification', q: 'What gestational age range defines late preterm?', a: '<strong>34 0/7 – 36 6/7 weeks</strong>. Most common preterm category; increased morbidity vs term (jaundice, hypoglycemia, respiratory issues, feeding difficulties).' },
+{ id: 'fc-ch23-sucrose', ch: 'ch23', type: 'concept', anchor: 'ch23-senses-pain', q: 'What\'s the protocol for oral sucrose for newborn procedural pain?', a: '<strong>Oral sucrose 24%, 0.1–0.5 mL on tongue</strong>, given <strong>2 minutes before</strong> procedure. Max effect 5–10 min. Combined with non-nutritive sucking, swaddling.' },
+{ id: 'fc-ch23-fontanelles', ch: 'ch23', type: 'concept', anchor: 'ch23-physical', q: 'What are the size and closure times of the anterior and posterior fontanelles?', a: '<strong>Anterior:</strong> diamond, 3–4 cm, closes 12–18 months<br><strong>Posterior:</strong> triangular, 0.5–1 cm, closes 2–3 months<br>Bulging = ↑ ICP · Sunken = dehydration' },
+{ id: 'fc-ch23-caput-vs-ceph', ch: 'ch23', type: 'concept', anchor: 'ch23-labs-complications', q: 'How do caput succedaneum and cephalohematoma differ?', a: '<strong>Caput:</strong> edema CROSSING suture lines, resolves in days<br><strong>Cephalohematoma:</strong> blood between skull and periosteum, DOES NOT cross suture lines, takes weeks-months, hyperbilirubinemia risk' },
+{ id: 'fc-ch23-ortolani', ch: 'ch23', type: 'concept', anchor: 'ch23-physical', q: 'What do Ortolani and Barlow maneuvers screen for?', a: '<strong>Developmental Dysplasia of the Hip (DDH).</strong> Audible click or shift = abnormal. Ortolani reduces a dislocated hip; Barlow dislocates an unstable hip.' },
+{ id: 'fc-ch24-vitk', ch: 'ch24', type: 'calc', anchor: 'ch24-medications', q: 'What is the vitamin K dose, route, and timing for term newborns?', a: '<strong>0.5–1 mg IM</strong> (typically 1 mg term, 0.5 mg preterm/&lt;1.5 kg) into <strong>vastus lateralis</strong> (25-gauge, 5/8 inch needle), within <strong>1 hour of birth</strong>' },
+{ id: 'fc-ch24-erythro', ch: 'ch24', type: 'concept', anchor: 'ch24-medications', q: 'How is erythromycin eye ointment applied to a newborn?', a: '<strong>0.5% ointment, 1 cm ribbon</strong> in lower conjunctival sac of each eye, <strong>inner to outer canthus</strong>, within 1 hour of birth. Prevents ophthalmia neonatorum (gonorrhea/chlamydia).' },
+{ id: 'fc-ch24-hep-b', ch: 'ch24', type: 'concept', anchor: 'ch24-medications', q: 'What is the Hep B vaccine timing if mother is HBsAg-positive?', a: '<strong>Hep B vaccine + HBIG within 12 hours of birth</strong> (vs within 24 hr for routine). Newborn series completed at 1–2 months and 6 months.' },
+{ id: 'fc-ch24-heat-loss', ch: 'ch24', type: 'concept', anchor: 'ch24-resp-id-thermo', q: 'What are the 4 mechanisms of newborn heat loss?', a: '1. <strong>Convection</strong> (air) → warm room · 2. <strong>Conduction</strong> (cold surfaces) → pre-warm scales · 3. <strong>Radiation</strong> (cold objects nearby) → away from windows · 4. <strong>Evaporation</strong> (moisture) → dry immediately' },
+{ id: 'fc-ch24-circ-petroleum', ch: 'ch24', type: 'warning', anchor: 'ch24-circumcision', q: 'When is petroleum jelly NOT used after circumcision?', a: '<strong>After Plastibell technique</strong> — petroleum jelly prevents the ring from falling off (expected in 5–8 days). For Gomco and Mogen, apply petroleum jelly with every diaper change × 24 hr.' },
+{ id: 'fc-ch25-colostrum', ch: 'ch25', type: 'concept', anchor: 'ch25-breastfeeding', q: 'What is colostrum and when is it produced?', a: '<strong>Days 1–5 postpartum</strong>: thick, yellow milk ("liquid gold"). High in protein, IgA antibodies, fat-soluble vitamins. <strong>Laxative effect</strong> helps pass meconium. ~40 cal/dL. Small volumes.' },
+{ id: 'fc-ch25-frequency', ch: 'ch25', type: 'concept', anchor: 'ch25-breastfeeding', q: 'What\'s the recommended breastfeeding frequency for newborns?', a: '<strong>8–12 feedings per 24 hours</strong>, on demand. Don\'t go more than 3–4 hr between feeds during day (wake if needed). Cluster feeds in evening are normal.' },
+{ id: 'fc-ch25-weight', ch: 'ch25', type: 'concept', anchor: 'ch25-breastfeeding', q: 'What\'s the expected newborn weight loss and recovery timeline?', a: '<strong>5–7% weight loss in first 5 days</strong>; regain birth weight by <strong>day 10–14</strong>; then ~1 oz/day gain. &gt; 7% loss is concerning.' },
+{ id: 'fc-ch25-formula-water', ch: 'ch25', type: 'warning', anchor: 'ch25-formula', q: 'What special water requirement exists for newborns under 2 months on powdered formula?', a: '<strong>Use sterile water</strong> (boil tap water 1 min, cool to body temp). Powdered formula is NOT sterile. Required for &lt; 2 months OR immunocompromised infants.' },
+{ id: 'fc-ch25-microwave', ch: 'ch25', type: 'warning', anchor: 'ch25-formula', q: 'Why is microwaving formula or breast milk dangerous?', a: '<strong>Creates hot spots</strong> that can burn the newborn\'s mouth/throat. <strong>Microwaving also destroys breast milk antibodies.</strong> Warm in warm water bath instead; test on inner wrist.' },
+{ id: 'fc-ch25-milk-storage', ch: 'ch25', type: 'concept', anchor: 'ch25-milk-storage', q: 'How long can fresh breast milk be stored at room temperature, refrigerator, and deep freezer?', a: '<strong>Room temp (≤ 77°F):</strong> 4 hours<br><strong>Refrigerator (≤ 40°F):</strong> 4 days<br><strong>Deep freezer (≤ 0°F):</strong> 12 months<br><em>NEVER refreeze thawed milk</em>' },
+{ id: 'fc-ch26-safe-sleep', ch: 'ch26', type: 'concept', anchor: 'ch26-positioning-handling', q: 'What are 4 elements of AAP safe sleep guidelines?', a: '1. <strong>Back is best</strong> (always supine for sleep) · 2. <strong>Firm flat sleep surface</strong>, fitted sheet only · 3. <strong>Room-share without bed-share</strong> (≥ 6 mo) · 4. <strong>No soft objects</strong> (blankets, pillows, bumpers, toys)' },
+{ id: 'fc-ch26-rear-facing', ch: 'ch26', type: 'concept', anchor: 'ch26-clothing-safety', q: 'What\'s the AAP recommendation for rear-facing car seats?', a: '<strong>Rear-facing until at least age 2</strong> OR maximum weight/height for the seat. NEVER in front seat with active airbag. In back seat.' },
+{ id: 'fc-ch26-chest-clip', ch: 'ch26', type: 'concept', anchor: 'ch26-clothing-safety', q: 'Where should the chest clip be positioned on a car seat?', a: '<strong>At armpit level</strong> (level with armpits, over the collarbones). Harness should be snug — should NOT be able to pinch a fold of webbing at the shoulder.' },
+{ id: 'fc-ch26-redflag-fever', ch: 'ch26', type: 'warning', anchor: 'ch26-checkups-illness', q: 'What temperature in a newborn requires immediate medical evaluation?', a: '<strong>Rectal temperature ≥ 100.4°F (38°C) in newborns &lt; 3 months</strong> = medical emergency. Newborns can\'t mount typical immune response — sepsis risk.' },
+{ id: 'fc-ch26-screening', ch: 'ch26', type: 'concept', anchor: 'ch26-checkups-illness', q: 'What 4 newborn screening tests are performed before discharge?', a: '1. <strong>Metabolic screen (heel stick)</strong> at 24–48 hr · 2. <strong>Hearing screen</strong> (OAE or ABR) · 3. <strong>CCHD screen</strong> (pre/post-ductal SpO₂ at ≥ 24 hr) · 4. <strong>Bilirubin screen</strong> (TcB or serum)' },
+{ id: 'fc-ch27-hypoglycemia-tx', ch: 'ch27', type: 'warning', anchor: 'ch27-hypoglycemia', q: 'What concentration of dextrose is used for symptomatic neonatal hypoglycemia?', a: '<strong>D10W 2 mL/kg IV bolus over 1 min</strong>, then continuous infusion 6–8 mg/kg/min. <strong>NEVER use D50W in newborns</strong> — causes rebound hypoglycemia and vessel sclerosis.' },
+{ id: 'fc-ch27-sepsis-empiric', ch: 'ch27', type: 'concept', anchor: 'ch27-sepsis-trauma', q: 'What is the empiric antibiotic regimen for early-onset neonatal sepsis?', a: '<strong>Ampicillin + gentamicin</strong> — covers the 3 most common pathogens: GBS, <em>E. coli</em>, <em>Listeria</em>. Duration 7–10 days for sepsis; 14–21 days with meningitis.' },
+{ id: 'fc-ch27-physio-vs-patho', ch: 'ch27', type: 'concept', anchor: 'ch27-hyperbilirubinemia', q: 'How do you differentiate physiologic from pathologic jaundice?', a: '<strong>Physiologic:</strong> appears AFTER 24 hr, peaks day 3–5, &lt; 12 mg/dL, resolves by 1 week<br><strong>Pathologic:</strong> appears within FIRST 24 HR, rapid rise (&gt; 5 mg/dL/day), &gt; 15 mg/dL, or persists' },
+{ id: 'fc-ch27-phototherapy', ch: 'ch27', type: 'concept', anchor: 'ch27-hyperbilirubinemia', q: 'What 3 key precautions apply during phototherapy?', a: '1. <strong>Cover eyes</strong> with opaque shields (retinal damage) · 2. <strong>Cover genitals</strong> (males) · 3. <strong>Increase fluids by 25%</strong> (insensible water loss). Turn q2hr; monitor temperature; reassess bilirubin q12-24hr.' },
+{ id: 'fc-ch27-kernicterus', ch: 'ch27', type: 'warning', anchor: 'ch27-hyperbilirubinemia', q: 'What is kernicterus and at what bilirubin level does risk significantly increase?', a: '<strong>Acute bilirubin encephalopathy</strong> — bilirubin crosses BBB → basal ganglia → permanent neurologic damage. <strong>Risk increases significantly &gt; 20 mg/dL.</strong> Causes CP, hearing loss, intellectual disability.' },
+{ id: 'fc-ch27-apgar', ch: 'ch27', type: 'concept', anchor: 'ch27-rds-asphyxia', q: 'What is normal Apgar score range at 5 minutes and the components?', a: '<strong>Normal: 7–10 at 5 min.</strong> Components (HR, Resp, Tone, Reflex, Color), each 0–2. &lt; 7 at 5 min: continue resuscitation, repeat q5 min. Components: <em>A</em>ppearance, <em>P</em>ulse, <em>G</em>rimace, <em>A</em>ctivity, <em>R</em>espirations.' }
+  ];
+  function loadStarterDeck(){
+    var s = loadSchedule();
+    var now = new Date().toISOString();
+    var added = 0;
+    STARTER_DECK.forEach(function(c){
+      if (!s[c.id]) {
+        s[c.id] = {
+          q: c.q, a: c.a, ch: c.ch, type: c.type, anchor: c.anchor,
+          easeFactor: 2.5, interval: 0, repetitions: 0,
+          nextReview: now, lastRated: null
+        };
+        added++;
+      }
+    });
+    saveSchedule(s);
+    return added;
+  }
+
 
   // ===== SM-2 =====
   function rateCard(cardId, rating){
@@ -451,7 +615,7 @@ button{font-family:'DM Sans',sans-serif}
           '<button class="flashcard-rate flashcard-rate-easy" type="button" data-action="rate" data-value="5">Easy<span class="flashcard-rate-small">boost</span></button>' +
         '</div>' +
         '<div class="flashcard-footer">' +
-          '<a class="flashcard-open" href="Elevated%20ATI%20MN%20Book.html#' + anchor + '" target="_blank">Open in chapter ↗</a>' +
+          '<a class="flashcard-open" href="Elevated%20ATI%20MN%20Book.html#' + anchor + '">Open in chapter ↗</a>' +
           '<button class="flashcard-skip" type="button" data-action="skip">Skip →</button>' +
         '</div>' +
       '</div>' +
@@ -474,7 +638,7 @@ button{font-family:'DM Sans',sans-serif}
           '<div class="empty-state-icon">' + icon + '</div>' +
           '<h2>' + heading + '</h2>' +
           '<p>' + desc + '</p>' +
-          (deck.length === 0 ? '<a class="start-link" href="Elevated%20ATI%20MN%20Book.html">Open chapter book →</a>' : '') +
+          (deck.length === 0 ? '<button class="load-starter-btn" type="button" data-action="load-starter">📥 Load starter deck (' + STARTER_DECK.length + ' cards)</button>' + '<a class="start-link" href="Elevated%20ATI%20MN%20Book.html">Open chapter book →</a>' : '') +
         '</div>';
       return;
     }
@@ -519,7 +683,7 @@ button{font-family:'DM Sans',sans-serif}
           '<div class="empty-state-icon">📚</div>' +
           '<h2>No flashcards yet</h2>' +
           '<p>Open the chapter book and answer the mid-read prompts. Rated cards will appear here.</p>' +
-          '<a class="start-link" href="Elevated%20ATI%20MN%20Book.html">Open chapter book →</a>' +
+          '<button class="load-starter-btn" type="button" data-action="load-starter">📥 Load starter deck (' + STARTER_DECK.length + ' cards)</button>' + '<a class="start-link" href="Elevated%20ATI%20MN%20Book.html">Open chapter book →</a>' +
         '</div>';
       return;
     }
@@ -649,6 +813,382 @@ button{font-family:'DM Sans',sans-serif}
   setTab('review');
 
 })();
+
+
+  // ===== ABBREVIATION DICTIONARY (auto-injected) =====
+  const ABBR_DICT = {
+  "HR": "Heart Rate",
+  "BP": "Blood Pressure",
+  "RR": "Respiratory Rate",
+  "VS": "Vital Signs",
+  "SpO2": "Oxygen Saturation",
+  "I&O": "Intake and Output",
+  "BMI": "Body Mass Index",
+  "DTRs": "Deep Tendon Reflexes",
+  "LOC": "Level of Consciousness",
+  "GCS": "Glasgow Coma Scale",
+  "FHR": "Fetal Heart Rate",
+  "FHT": "Fetal Heart Tones",
+  "EFM": "Electronic Fetal Monitoring",
+  "NST": "Non-Stress Test",
+  "CST": "Contraction Stress Test",
+  "BPP": "Biophysical Profile",
+  "AFI": "Amniotic Fluid Index",
+  "AFV": "Amniotic Fluid Volume",
+  "SVE": "Sterile Vaginal Exam",
+  "SBP": "Systolic Blood Pressure",
+  "DBP": "Diastolic Blood Pressure",
+  "MAP": "Mean Arterial Pressure",
+  "CBC": "Complete Blood Count",
+  "BMP": "Basic Metabolic Panel",
+  "CMP": "Comprehensive Metabolic Panel",
+  "BUN": "Blood Urea Nitrogen",
+  "LFTs": "Liver Function Tests",
+  "ABGs": "Arterial Blood Gases",
+  "ABG": "Arterial Blood Gas",
+  "INR": "International Normalized Ratio",
+  "PT/PTT": "Prothrombin Time / Partial Thromboplastin Time",
+  "aPTT": "Activated Partial Thromboplastin Time",
+  "PTT": "Partial Thromboplastin Time",
+  "H&H": "Hemoglobin and Hematocrit",
+  "Hgb": "Hemoglobin",
+  "Hct": "Hematocrit",
+  "WBC": "White Blood Cell Count",
+  "RBC": "Red Blood Cell",
+  "RBCs": "Red Blood Cells",
+  "ANC": "Absolute Neutrophil Count",
+  "hCG": "Human Chorionic Gonadotropin",
+  "TSH": "Thyroid-Stimulating Hormone",
+  "HbA1c": "Glycosylated Hemoglobin",
+  "HgbA1c": "Glycosylated Hemoglobin",
+  "UA": "Urinalysis",
+  "C&S": "Culture and Sensitivity",
+  "ECG": "Electrocardiogram",
+  "EKG": "Electrocardiogram",
+  "EEG": "Electroencephalogram",
+  "AFP": "Alpha-Fetoprotein",
+  "LDH": "Lactate Dehydrogenase",
+  "AST": "Aspartate Aminotransferase",
+  "ALT": "Alanine Aminotransferase",
+  "ESR": "Erythrocyte Sedimentation Rate",
+  "CRP": "C-Reactive Protein",
+  "P/C ratio": "Protein to Creatinine Ratio",
+  "GCT": "Glucose Challenge Test",
+  "OGTT": "Oral Glucose Tolerance Test",
+  "TORCH": "Toxoplasmosis, Other, Rubella, CMV, Herpes",
+  "CMV": "Cytomegalovirus",
+  "MRI": "Magnetic Resonance Imaging",
+  "CT": "Computed Tomography",
+  "US": "Ultrasound",
+  "IV": "Intravenous",
+  "IM": "Intramuscular",
+  "SC": "Subcutaneous",
+  "SubQ": "Subcutaneous",
+  "PO": "By Mouth (Per Os)",
+  "PR": "Per Rectum",
+  "SL": "Sublingual",
+  "ETT": "Endotracheal Tube",
+  "NG": "Nasogastric",
+  "PICC": "Peripherally Inserted Central Catheter",
+  "BID": "Twice Daily",
+  "TID": "Three Times Daily",
+  "QID": "Four Times Daily",
+  "PRN": "As Needed",
+  "STAT": "Immediately (statim)",
+  "NPO": "Nothing By Mouth",
+  "mg/dL": "Milligrams Per Deciliter",
+  "mEq/L": "Milliequivalents Per Liter",
+  "mU/min": "Milliunits Per Minute",
+  "mcg": "Micrograms",
+  "mL": "Milliliters",
+  "mEq": "Milliequivalents",
+  "IU": "International Units",
+  "LMP": "Last Menstrual Period",
+  "EDD": "Estimated Date of Delivery",
+  "EDC": "Estimated Date of Confinement",
+  "EGA": "Estimated Gestational Age",
+  "GA": "Gestational Age",
+  "GTPAL": "Gravida, Term, Preterm, Abortion, Living children",
+  "GDM": "Gestational Diabetes Mellitus",
+  "PIH": "Pregnancy-Induced Hypertension",
+  "HELLP": "Hemolysis, Elevated Liver enzymes, Low Platelets",
+  "PROM": "Premature Rupture of Membranes",
+  "PPROM": "Preterm Premature Rupture of Membranes",
+  "AROM": "Artificial Rupture of Membranes",
+  "SROM": "Spontaneous Rupture of Membranes",
+  "ROM": "Rupture of Membranes",
+  "TOR": "Time of Rupture",
+  "PPH": "Postpartum Hemorrhage",
+  "SVD": "Spontaneous Vaginal Delivery",
+  "VBAC": "Vaginal Birth After Cesarean",
+  "TOLAC": "Trial of Labor After Cesarean",
+  "C/S": "Cesarean Section",
+  "GBS": "Group B Streptococcus",
+  "NTD": "Neural Tube Defect",
+  "NTDs": "Neural Tube Defects",
+  "IUGR": "Intrauterine Growth Restriction",
+  "IUFD": "Intrauterine Fetal Demise",
+  "SGA": "Small for Gestational Age",
+  "LGA": "Large for Gestational Age",
+  "AGA": "Appropriate for Gestational Age",
+  "LBW": "Low Birth Weight",
+  "VLBW": "Very Low Birth Weight",
+  "ELBW": "Extremely Low Birth Weight",
+  "DIC": "Disseminated Intravascular Coagulation",
+  "ECV": "External Cephalic Version",
+  "FSE": "Fetal Scalp Electrode",
+  "IUPC": "Intrauterine Pressure Catheter",
+  "MVU": "Montevideo Units",
+  "MVUs": "Montevideo Units",
+  "OA": "Occiput Anterior",
+  "OP": "Occiput Posterior",
+  "CPD": "Cephalopelvic Disproportion",
+  "NAS": "Neonatal Abstinence Syndrome",
+  "RDS": "Respiratory Distress Syndrome",
+  "TTN": "Transient Tachypnea of the Newborn",
+  "MAS": "Meconium Aspiration Syndrome",
+  "HDN": "Hemorrhagic Disease of the Newborn",
+  "VKDB": "Vitamin K Deficiency Bleeding",
+  "PPHN": "Persistent Pulmonary Hypertension of the Newborn",
+  "PDA": "Patent Ductus Arteriosus",
+  "ASD": "Atrial Septal Defect",
+  "VSD": "Ventricular Septal Defect",
+  "TOF": "Tetralogy of Fallot",
+  "CHD": "Congenital Heart Disease",
+  "NEC": "Necrotizing Enterocolitis",
+  "HIE": "Hypoxic-Ischemic Encephalopathy",
+  "IVH": "Intraventricular Hemorrhage",
+  "BPD": "Bronchopulmonary Dysplasia",
+  "ROP": "Retinopathy of Prematurity",
+  "NICU": "Neonatal Intensive Care Unit",
+  "L&D": "Labor and Delivery",
+  "OB": "Obstetrics",
+  "OBGYN": "Obstetrics and Gynecology",
+  "OCP": "Oral Contraceptive Pill",
+  "COCs": "Combined Oral Contraceptives",
+  "IUD": "Intrauterine Device",
+  "LARC": "Long-Acting Reversible Contraception",
+  "DPNB": "Dorsal Penile Nerve Block",
+  "PKU": "Phenylketonuria",
+  "PCOS": "Polycystic Ovary Syndrome",
+  "ART": "Assisted Reproductive Technology",
+  "IVF": "In Vitro Fertilization",
+  "GIFT": "Gamete Intrafallopian Transfer",
+  "ZIFT": "Zygote Intrafallopian Transfer",
+  "ICSI": "Intracytoplasmic Sperm Injection",
+  "GTD": "Gestational Trophoblastic Disease",
+  "BV": "Bacterial Vaginosis",
+  "HIV": "Human Immunodeficiency Virus",
+  "HSV": "Herpes Simplex Virus",
+  "HPV": "Human Papillomavirus",
+  "HBV": "Hepatitis B Virus",
+  "HBIG": "Hepatitis B Immune Globulin",
+  "STI": "Sexually Transmitted Infection",
+  "STIs": "Sexually Transmitted Infections",
+  "RSV": "Respiratory Syncytial Virus",
+  "GERD": "Gastroesophageal Reflux Disease",
+  "UTI": "Urinary Tract Infection",
+  "HTN": "Hypertension",
+  "DM": "Diabetes Mellitus",
+  "T1DM": "Type 1 Diabetes Mellitus",
+  "T2DM": "Type 2 Diabetes Mellitus",
+  "IDA": "Iron Deficiency Anemia",
+  "SCD": "Sickle Cell Disease",
+  "ITP": "Immune Thrombocytopenic Purpura",
+  "SLE": "Systemic Lupus Erythematosus",
+  "CHF": "Congestive Heart Failure",
+  "HF": "Heart Failure",
+  "CAD": "Coronary Artery Disease",
+  "MI": "Myocardial Infarction",
+  "CVA": "Cerebrovascular Accident (Stroke)",
+  "DVT": "Deep Vein Thrombosis",
+  "PE": "Pulmonary Embolism",
+  "VTE": "Venous Thromboembolism",
+  "ARDS": "Acute Respiratory Distress Syndrome",
+  "COPD": "Chronic Obstructive Pulmonary Disease",
+  "CPAP": "Continuous Positive Airway Pressure",
+  "BiPAP": "Bilevel Positive Airway Pressure",
+  "PEEP": "Positive End-Expiratory Pressure",
+  "HFOV": "High-Frequency Oscillatory Ventilation",
+  "ECMO": "Extracorporeal Membrane Oxygenation",
+  "SIDS": "Sudden Infant Death Syndrome",
+  "PPD": "Postpartum Depression",
+  "FTT": "Failure to Thrive",
+  "NSAID": "Nonsteroidal Anti-Inflammatory Drug",
+  "NSAIDs": "Nonsteroidal Anti-Inflammatory Drugs",
+  "SSRI": "Selective Serotonin Reuptake Inhibitor",
+  "SSRIs": "Selective Serotonin Reuptake Inhibitors",
+  "MAOI": "Monoamine Oxidase Inhibitor",
+  "MAOIs": "Monoamine Oxidase Inhibitors",
+  "ACE": "Angiotensin-Converting Enzyme",
+  "ARB": "Angiotensin Receptor Blocker",
+  "PPI": "Proton Pump Inhibitor",
+  "OTC": "Over The Counter",
+  "PCN": "Penicillin",
+  "FDA": "Food and Drug Administration",
+  "CDC": "Centers for Disease Control and Prevention",
+  "AAP": "American Academy of Pediatrics",
+  "ACOG": "American College of Obstetricians and Gynecologists",
+  "WIC": "Women, Infants, and Children program",
+  "HCP": "Healthcare Provider",
+  "RN": "Registered Nurse",
+  "LPN": "Licensed Practical Nurse",
+  "UAP": "Unlicensed Assistive Personnel",
+  "PPE": "Personal Protective Equipment",
+  "CPR": "Cardiopulmonary Resuscitation",
+  "AED": "Automated External Defibrillator",
+  "AMA": "Against Medical Advice",
+  "DNR": "Do Not Resuscitate",
+  "ADLs": "Activities of Daily Living",
+  "NRP": "Neonatal Resuscitation Program",
+  "PPV": "Positive Pressure Ventilation",
+  "SBAR": "Situation, Background, Assessment, Recommendation",
+  "CNS": "Central Nervous System",
+  "GI": "Gastrointestinal",
+  "GU": "Genitourinary",
+  "MSK": "Musculoskeletal",
+  "ICP": "Intracranial Pressure",
+  "CSF": "Cerebrospinal Fluid",
+  "RUQ": "Right Upper Quadrant",
+  "LUQ": "Left Upper Quadrant",
+  "RLQ": "Right Lower Quadrant",
+  "LLQ": "Left Lower Quadrant",
+  "WNL": "Within Normal Limits",
+  "HOB": "Head of Bed",
+  "ROM ": "Range of Motion",
+  "BUBBLE-HE": "Breasts, Uterus, Bladder, Bowel, Lochia, Episiotomy, Homans, Emotional",
+  "VEAL CHOP": "Variable-Cord, Early-Head, Accelerations-OK, Late-Placenta",
+  "APGAR": "Appearance, Pulse, Grimace, Activity, Respiration",
+  "ACHES": "Abdominal pain, Chest pain, Headache, Eye changes, Severe leg pain",
+  "DTAP": "Diphtheria, Tetanus, Pertussis Vaccine",
+  "Tdap": "Tetanus, Diphtheria, Pertussis Booster",
+  "MMR": "Measles, Mumps, Rubella Vaccine",
+  "IPV": "Inactivated Polio Vaccine",
+  "IVIG": "Intravenous Immunoglobulin",
+  "LP": "Lumbar Puncture",
+  "FSH": "Follicle-Stimulating Hormone",
+  "LH": "Luteinizing Hormone",
+  "hPL": "Human Placental Lactogen",
+  "ADH": "Antidiuretic Hormone",
+  "SIADH": "Syndrome of Inappropriate ADH",
+  "OHSS": "Ovarian Hyperstimulation Syndrome",
+  "HSG": "Hysterosalpingography",
+  "D&C": "Dilation and Curettage",
+  "SAB": "Spontaneous Abortion",
+  "TAB": "Therapeutic Abortion",
+  "TXA": "Tranexamic Acid",
+  "MTX": "Methotrexate",
+  "PRBC": "Packed Red Blood Cells",
+  "FFP": "Fresh Frozen Plasma",
+  "AFE": "Amniotic Fluid Embolism",
+  "FiO2": "Fraction of Inspired Oxygen",
+  "PaO2": "Partial Pressure of Oxygen",
+  "PaCO2": "Partial Pressure of Carbon Dioxide",
+  "TPN": "Total Parenteral Nutrition",
+  "iNO": "Inhaled Nitric Oxide",
+  "DPT": "Diphtheria, Pertussis, Tetanus",
+  "EFW": "Estimated Fetal Weight",
+  "FAS": "Fetal Alcohol Syndrome",
+  "FASD": "Fetal Alcohol Spectrum Disorder",
+  "Rh": "Rhesus factor",
+  "RhoGAM": "Rh Immune Globulin",
+  "BFA": "Baby-Friendly Hospital",
+  "TPAL": "Term, Preterm, Abortion, Living"
+};
+  
+  function autoWrapAbbreviations(root) {
+    if (!root) return;
+    // Build single regex pattern for all abbreviations, longest first
+    var abbrs = Object.keys(ABBR_DICT).sort(function(a,b){ return b.length - a.length; });
+    var escaped = abbrs.map(function(a){ return a.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'); });
+    var pattern = new RegExp('\\b(' + escaped.join('|') + ')\\b', 'g');
+    
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(node) {
+        var p = node.parentElement;
+        if (!p) return NodeFilter.FILTER_REJECT;
+        while (p && p !== root.parentElement) {
+          var tag = p.tagName;
+          if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'TEXTAREA' ||
+              tag === 'INPUT' || tag === 'CODE' || tag === 'PRE' ||
+              tag === 'OPTION' || tag === 'TITLE') {
+            return NodeFilter.FILTER_REJECT;
+          }
+          if (p.classList && (
+              p.classList.contains('abbr') ||
+              p.classList.contains('no-abbr') ||
+              p.classList.contains('search-input') ||
+              p.classList.contains('search-results-list') ||
+              p.classList.contains('sb-tpl-example') ||
+              p.classList.contains('sb-tpl-header') ||
+              p.classList.contains('unit-title') ||
+              p.classList.contains('part-print-btn') ||
+              p.classList.contains('master-print-btn') ||
+              p.classList.contains('modal-print') ||
+              p.classList.contains('modal-close') ||
+              p.classList.contains('hero-cta') ||
+              p.classList.contains('main-title') ||
+              p.classList.contains('tool-card-name') ||
+              p.classList.contains('breadcrumb')
+            )) {
+            return NodeFilter.FILTER_REJECT;
+          }
+          p = p.parentElement;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    
+    var nodes = [];
+    var n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    
+    nodes.forEach(function(textNode) {
+      var text = textNode.nodeValue;
+      pattern.lastIndex = 0;
+      if (!pattern.test(text)) return;
+      pattern.lastIndex = 0;
+      
+      var fragment = document.createDocumentFragment();
+      var lastIndex = 0;
+      var match;
+      while ((match = pattern.exec(text)) !== null) {
+        if (match.index > lastIndex) {
+          fragment.appendChild(document.createTextNode(text.substring(lastIndex, match.index)));
+        }
+        var span = document.createElement('span');
+        span.className = 'abbr';
+        span.setAttribute('data-tip', ABBR_DICT[match[1]]);
+        span.textContent = match[1];
+        fragment.appendChild(span);
+        lastIndex = match.index + match[0].length;
+      }
+      if (lastIndex < text.length) {
+        fragment.appendChild(document.createTextNode(text.substring(lastIndex)));
+      }
+      if (textNode.parentNode) {
+        textNode.parentNode.replaceChild(fragment, textNode);
+      }
+    });
+  }
+  
+  // Run auto-wrap once on page load
+  autoWrapAbbreviations(document.body);
+
+<script>
+  // load-starter-handler
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('[data-action="load-starter"]');
+    if (!btn) return;
+    var added = loadStarterDeck();
+    if (added > 0) {
+      alert('Added ' + added + ' starter cards to your deck!');
+      window.location.reload();
+    } else {
+      alert('Starter cards already in your deck.');
+    }
+  });
+</script>
 </script>
 </body>
 </html>
