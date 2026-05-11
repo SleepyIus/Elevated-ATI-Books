@@ -1585,6 +1585,221 @@ body.modal-open{overflow:hidden}
   }
 }
 
+
+/* === TEMPLATE FILTERS === */
+.tpl-filter-panel{
+  margin: 0 0 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.tpl-filter-toggle{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+.tpl-filter-toggle:hover{ background: var(--surface2) }
+.tpl-filter-chevron{
+  margin-left: auto;
+  transition: transform 0.15s;
+  color: var(--text2);
+}
+.tpl-filter-toggle[aria-expanded="true"] .tpl-filter-chevron{ transform: rotate(180deg) }
+.tpl-filter-active-count{
+  background: var(--accent);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  min-width: 20px;
+  text-align: center;
+}
+.tpl-filter-active-count:empty{ display: none }
+.tpl-filter-body{
+  padding: 14px 16px 16px;
+  border-top: 1px solid var(--border);
+}
+.tpl-filter-row{ margin: 12px 0 }
+.tpl-filter-row:first-child{ margin-top: 0 }
+.tpl-filter-label{
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text2);
+  margin: 0 0 8px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.tpl-filter-search{
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.tpl-filter-search:focus{
+  outline: none;
+  border-color: var(--accent);
+}
+.tpl-filter-search::placeholder{ color: var(--text3) }
+.tpl-filter-chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tpl-filter-chip{
+  padding: 6px 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--text2);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.12s;
+  font-family: inherit;
+}
+.tpl-filter-chip:hover{
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.tpl-filter-chip.active{
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+.tpl-filter-chips-numeric .tpl-filter-chip{
+  min-width: 34px;
+  text-align: center;
+  padding: 6px 8px;
+}
+.tpl-filter-actions{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.tpl-filter-clear-btn{
+  padding: 6px 12px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text2);
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.tpl-filter-clear-btn:hover{
+  border-color: #ef4444;
+  color: #ef4444;
+}
+.tpl-filter-result-count{
+  font-size: 12px;
+  color: var(--text2);
+}
+.tpl-filter-result-count strong{ color: var(--text) }
+
+/* hide cards that don't match filter */
+.example-card.tpl-filtered-out{ display: none !important }
+.template-section.tpl-section-empty{ display: none }
+@media (max-width: 600px){
+  .tpl-filter-chip{ font-size: 12px; padding: 5px 10px }
+  .tpl-filter-chips-numeric .tpl-filter-chip{ min-width: 28px }
+}
+
+
+/* === PRINT INDIVIDUAL TEMPLATE === */
+.tpl-print-btn{
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text2);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: auto;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.tpl-print-btn:hover{
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.example-header{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* When printing one template, hide everything else */
+@media print {
+  body.printing-one-tpl > *:not(#print-template-host),
+  body.printing-one-tpl > nav,
+  body.printing-one-tpl .tpl-filter-panel,
+  body.printing-one-tpl .template-section,
+  body.printing-one-tpl .modal-overlay,
+  body.printing-one-tpl footer,
+  body.printing-one-tpl header,
+  body.printing-one-tpl .sidebar,
+  body.printing-one-tpl .planner-row { 
+    display: none !important; 
+  }
+  body.printing-one-tpl #print-template-host {
+    display: block !important;
+    position: static !important;
+    padding: 20px !important;
+  }
+  body.printing-one-tpl .example-card { 
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #999 !important;
+  }
+  body.printing-one-tpl .tpl-print-btn,
+  body.printing-one-tpl .mode-toggle,
+  body.printing-one-tpl .ex-jump { display: none !important }
+}
+
+@media (max-width: 900px) and (min-width: 601px) {
+  /* Tablet polish */
+  .tpl-print-btn{ font-size: 11px; padding: 5px 10px }
+}
+
+
+/* === BATCH 4: TABLET POLISH === */
+@media (max-width: 900px) and (min-width: 601px){
+  .tpl-filter-chips-numeric .tpl-filter-chip{
+    min-width: 30px !important;
+    padding: 5px 7px !important;
+  }
+  .example-card{ padding: 18px !important }
+  .sd-top-row, .sd-middle, .tp-grid, .bc-grid, .dp-grid, .med-grid, .ns-grid{
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .example-header{ flex-wrap: wrap; gap: 8px }
+  .tpl-print-btn{ order: 99 }
+}
+
 </style>
 </head>
 <body>
@@ -1944,6 +2159,40 @@ body.modal-open{overflow:hidden}
 
   <!-- Hidden template pool — content is moved into accordions on page load -->
   <div class="template-pool" id="templatePool">
+
+<div class="tpl-filter-panel" id="tplFilterPanel">
+  <button class="tpl-filter-toggle" type="button" id="tplFilterToggle" aria-expanded="false">
+    <span>🔍 Filter templates</span>
+    <span class="tpl-filter-active-count" id="tplFilterActiveCount"></span>
+    <span class="tpl-filter-chevron">▾</span>
+  </button>
+  <div class="tpl-filter-body" id="tplFilterBody" hidden>
+    <div class="tpl-filter-row">
+      <input type="text" class="tpl-filter-search" id="tplFilterSearch" placeholder="Search template name or chapter…" aria-label="Search templates">
+    </div>
+    <div class="tpl-filter-row">
+      <div class="tpl-filter-label">Type</div>
+      <div class="tpl-filter-chips" data-filter-group="type" data-multi="true"><button class="tpl-filter-chip" data-value="basic-concept" type="button">Basic Concept</button><button class="tpl-filter-chip" data-value="diagnostic-procedure" type="button">Diagnostic Procedure</button><button class="tpl-filter-chip" data-value="growth-development" type="button">Growth & Development</button><button class="tpl-filter-chip" data-value="medication" type="button">Medication</button><button class="tpl-filter-chip" data-value="nursing-skill" type="button">Nursing Skill</button><button class="tpl-filter-chip" data-value="system-disorder" type="button">System Disorder</button><button class="tpl-filter-chip" data-value="therapeutic-procedure" type="button">Therapeutic Procedure</button><button class="tpl-filter-chip" data-value="concept-analysis" type="button">Concept Analysis</button></div>
+    </div>
+    <div class="tpl-filter-row">
+      <div class="tpl-filter-label">Chapter</div>
+      <div class="tpl-filter-chips tpl-filter-chips-numeric" data-filter-group="chapter" data-multi="true"><button class="tpl-filter-chip" data-value="1" type="button">1</button><button class="tpl-filter-chip" data-value="2" type="button">2</button><button class="tpl-filter-chip" data-value="3" type="button">3</button><button class="tpl-filter-chip" data-value="4" type="button">4</button><button class="tpl-filter-chip" data-value="5" type="button">5</button><button class="tpl-filter-chip" data-value="6" type="button">6</button><button class="tpl-filter-chip" data-value="7" type="button">7</button><button class="tpl-filter-chip" data-value="8" type="button">8</button><button class="tpl-filter-chip" data-value="9" type="button">9</button><button class="tpl-filter-chip" data-value="10" type="button">10</button><button class="tpl-filter-chip" data-value="11" type="button">11</button><button class="tpl-filter-chip" data-value="12" type="button">12</button><button class="tpl-filter-chip" data-value="13" type="button">13</button><button class="tpl-filter-chip" data-value="14" type="button">14</button><button class="tpl-filter-chip" data-value="15" type="button">15</button><button class="tpl-filter-chip" data-value="16" type="button">16</button><button class="tpl-filter-chip" data-value="17" type="button">17</button><button class="tpl-filter-chip" data-value="18" type="button">18</button><button class="tpl-filter-chip" data-value="19" type="button">19</button><button class="tpl-filter-chip" data-value="20" type="button">20</button><button class="tpl-filter-chip" data-value="21" type="button">21</button><button class="tpl-filter-chip" data-value="22" type="button">22</button><button class="tpl-filter-chip" data-value="23" type="button">23</button><button class="tpl-filter-chip" data-value="24" type="button">24</button><button class="tpl-filter-chip" data-value="25" type="button">25</button><button class="tpl-filter-chip" data-value="26" type="button">26</button><button class="tpl-filter-chip" data-value="27" type="button">27</button></div>
+    </div>
+    <div class="tpl-filter-row">
+      <div class="tpl-filter-label">Status</div>
+      <div class="tpl-filter-chips" data-filter-group="status" data-multi="false">
+        <button class="tpl-filter-chip active" data-value="all" type="button">All</button>
+        <button class="tpl-filter-chip" data-value="studied" type="button">Studied</button>
+        <button class="tpl-filter-chip" data-value="unstudied" type="button">Not studied</button>
+      </div>
+    </div>
+    <div class="tpl-filter-row tpl-filter-actions">
+      <button class="tpl-filter-clear-btn" type="button" id="tplFilterClear" hidden>Clear all filters</button>
+      <span class="tpl-filter-result-count" id="tplFilterResultCount"></span>
+    </div>
+  </div>
+</div>
+
 
     <!-- ============= 1. BASIC CONCEPT (Ch 3 unlocks) ============= -->
     <section id="basic-concept" class="template-section">
@@ -11639,6 +11888,303 @@ body.modal-open{overflow:hidden}
     }
   }
 
+})();
+</script>
+
+
+<script>
+(function(){
+  var TPL_FILTER_KEY = 'nur2460_tpl_filters';
+  var STUDIED_KEY = 'nur2460_atimnTemplates_progress';
+  
+  var tplFilterState = {
+    search: '',
+    types: [],
+    chapters: [],
+    status: 'all'
+  };
+  
+  function loadTplFilterState(){
+    try {
+      var raw = localStorage.getItem(TPL_FILTER_KEY);
+      if (raw){
+        var parsed = JSON.parse(raw);
+        tplFilterState = Object.assign(tplFilterState, parsed);
+      }
+    } catch(e){}
+  }
+  function saveTplFilterState(){
+    try { localStorage.setItem(TPL_FILTER_KEY, JSON.stringify(tplFilterState)); } catch(e){}
+  }
+  
+  function getStudiedSet(){
+    try {
+      var raw = localStorage.getItem(STUDIED_KEY);
+      if (!raw) return new Set();
+      var obj = JSON.parse(raw);
+      return new Set(Object.keys(obj).filter(function(k){ return obj[k] === true || obj[k] === 1; }));
+    } catch(e){ return new Set(); }
+  }
+  
+  function tplCountActive(){
+    var n = 0;
+    if (tplFilterState.search) n++;
+    if (tplFilterState.types.length > 0) n++;
+    if (tplFilterState.chapters.length > 0) n++;
+    if (tplFilterState.status !== 'all') n++;
+    return n;
+  }
+  
+  function applyTplFilters(){
+    var q = (tplFilterState.search || '').toLowerCase().trim();
+    var studied = getStudiedSet();
+    var totalCount = 0;
+    var visibleCount = 0;
+    
+    document.querySelectorAll('.template-section').forEach(function(section){
+      var sectionType = section.id;
+      section.classList.remove('tpl-section-empty');
+      
+      var sectionVisibleCount = 0;
+      section.querySelectorAll('.example-card').forEach(function(card){
+        totalCount++;
+        var cardId = card.id || '';
+        var name = (card.querySelector('.example-name') || {}).textContent || '';
+        var source = (card.querySelector('.example-source') || {}).textContent || '';
+        var chMatch = source.match(/Ch\s*(\d+)/i);
+        var chNum = chMatch ? chMatch[1] : '';
+        
+        var visible = true;
+        
+        // Search
+        if (q){
+          var hay = (name + ' ' + source).toLowerCase();
+          if (hay.indexOf(q) === -1) visible = false;
+        }
+        // Type
+        if (visible && tplFilterState.types.length > 0){
+          if (tplFilterState.types.indexOf(sectionType) === -1) visible = false;
+        }
+        // Chapter
+        if (visible && tplFilterState.chapters.length > 0){
+          if (tplFilterState.chapters.indexOf(chNum) === -1) visible = false;
+        }
+        // Status
+        if (visible && tplFilterState.status !== 'all'){
+          var isStudied = studied.has(cardId);
+          if (tplFilterState.status === 'studied' && !isStudied) visible = false;
+          if (tplFilterState.status === 'unstudied' && isStudied) visible = false;
+        }
+        
+        card.classList.toggle('tpl-filtered-out', !visible);
+        if (visible) {
+          visibleCount++;
+          sectionVisibleCount++;
+        }
+      });
+      
+      // Hide whole section if no visible cards
+      if (sectionVisibleCount === 0 && tplCountActive() > 0){
+        section.classList.add('tpl-section-empty');
+      }
+    });
+    
+    // Update result count
+    var countEl = document.getElementById('tplFilterResultCount');
+    if (countEl){
+      if (tplCountActive() > 0){
+        countEl.innerHTML = '<strong>' + visibleCount + '</strong> of <strong>' + totalCount + '</strong> templates match';
+      } else {
+        countEl.innerHTML = '<strong>' + totalCount + '</strong> total templates';
+      }
+    }
+    
+    var active = tplCountActive();
+    var badge = document.getElementById('tplFilterActiveCount');
+    if (badge) badge.textContent = active > 0 ? active : '';
+    var clearBtn = document.getElementById('tplFilterClear');
+    if (clearBtn) clearBtn.hidden = (active === 0);
+  }
+  
+  function applyTplFilterUI(){
+    document.querySelectorAll('.tpl-filter-chips').forEach(function(group){
+      var groupName = group.getAttribute('data-filter-group');
+      group.querySelectorAll('.tpl-filter-chip').forEach(function(chip){
+        var val = chip.getAttribute('data-value');
+        var active = false;
+        if (groupName === 'status') active = (tplFilterState.status === val);
+        else if (groupName === 'type') active = tplFilterState.types.indexOf(val) !== -1;
+        else if (groupName === 'chapter') active = tplFilterState.chapters.indexOf(val) !== -1;
+        chip.classList.toggle('active', active);
+      });
+    });
+    var searchInput = document.getElementById('tplFilterSearch');
+    if (searchInput) searchInput.value = tplFilterState.search;
+  }
+  
+  function initTplFilters(){
+    loadTplFilterState();
+    
+    var toggle = document.getElementById('tplFilterToggle');
+    var body = document.getElementById('tplFilterBody');
+    if (toggle && body){
+      toggle.addEventListener('click', function(){
+        var expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        body.hidden = expanded;
+      });
+    }
+    
+    document.querySelectorAll('.tpl-filter-chips').forEach(function(group){
+      var groupName = group.getAttribute('data-filter-group');
+      var multi = group.getAttribute('data-multi') === 'true';
+      group.querySelectorAll('.tpl-filter-chip').forEach(function(chip){
+        chip.addEventListener('click', function(){
+          var val = chip.getAttribute('data-value');
+          if (!multi){
+            tplFilterState[groupName] = val;
+          } else {
+            var arr;
+            if (groupName === 'type') arr = tplFilterState.types;
+            else if (groupName === 'chapter') arr = tplFilterState.chapters;
+            else arr = [];
+            var idx = arr.indexOf(val);
+            if (idx === -1) arr.push(val);
+            else arr.splice(idx, 1);
+          }
+          saveTplFilterState();
+          applyTplFilterUI();
+          applyTplFilters();
+        });
+      });
+    });
+    
+    var searchInput = document.getElementById('tplFilterSearch');
+    if (searchInput){
+      var timer;
+      searchInput.addEventListener('input', function(){
+        clearTimeout(timer);
+        timer = setTimeout(function(){
+          tplFilterState.search = searchInput.value;
+          saveTplFilterState();
+          applyTplFilters();
+        }, 200);
+      });
+    }
+    
+    var clearBtn = document.getElementById('tplFilterClear');
+    if (clearBtn){
+      clearBtn.addEventListener('click', function(){
+        tplFilterState = { search: '', types: [], chapters: [], status: 'all' };
+        saveTplFilterState();
+        applyTplFilterUI();
+        applyTplFilters();
+      });
+    }
+    
+    applyTplFilterUI();
+    applyTplFilters();
+  }
+  
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initTplFilters);
+  } else {
+    initTplFilters();
+  }
+})();
+</script>
+
+
+<script>
+(function(){
+  var LAST_TPL_KEY = 'nur2460_last_template';
+  function recordLastTemplate(tplId, tplName){
+    try {
+      var data = { id: tplId, name: tplName, ts: Date.now() };
+      localStorage.setItem(LAST_TPL_KEY, JSON.stringify(data));
+    } catch(e){}
+  }
+  // Record when user clicks into a template (toggles mode, scrolls to it from sidebar)
+  document.addEventListener('click', function(e){
+    var card = e.target.closest('.example-card');
+    if (!card) return;
+    var name = (card.querySelector('.example-name') || {}).textContent || '';
+    recordLastTemplate(card.id, name);
+  });
+  // Also on hash change (clicking sidebar links)
+  function handleHashFocus(){
+    var hash = (window.location.hash || '').slice(1);
+    if (!hash) return;
+    var card = document.getElementById(hash);
+    if (card && card.classList.contains('example-card')){
+      var name = (card.querySelector('.example-name') || {}).textContent || '';
+      recordLastTemplate(card.id, name);
+    }
+  }
+  window.addEventListener('hashchange', handleHashFocus);
+  // Run on load too (might land via deep link)
+  if (document.readyState !== 'loading') handleHashFocus();
+  else document.addEventListener('DOMContentLoaded', handleHashFocus);
+})();
+</script>
+
+<div id="print-template-host" hidden></div>
+
+<script>
+(function(){
+  // Inject print button into each example-card header
+  function injectPrintButtons(){
+    document.querySelectorAll('.example-card').forEach(function(card){
+      var header = card.querySelector('.example-header');
+      if (!header || header.querySelector('.tpl-print-btn')) return;
+      var btn = document.createElement('button');
+      btn.className = 'tpl-print-btn';
+      btn.type = 'button';
+      btn.title = 'Print this template';
+      btn.innerHTML = '🖨️ Print';
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        printOneTemplate(card);
+      });
+      // Insert into example-info area, after the modeToggle  
+      var modeToggle = header.querySelector('.mode-toggle');
+      if (modeToggle){
+        modeToggle.parentNode.insertBefore(btn, modeToggle);
+      } else {
+        header.appendChild(btn);
+      }
+    });
+  }
+  
+  function printOneTemplate(card){
+    var host = document.getElementById('print-template-host');
+    if (!host) return;
+    // Clone the card into host
+    var clone = card.cloneNode(true);
+    // Force filled mode for print
+    clone.setAttribute('data-mode', 'filled');
+    host.innerHTML = '';
+    host.appendChild(clone);
+    host.hidden = false;
+    document.body.classList.add('printing-one-tpl');
+    
+    // Trigger print
+    setTimeout(function(){
+      window.print();
+      // Cleanup after print dialog closes
+      setTimeout(function(){
+        document.body.classList.remove('printing-one-tpl');
+        host.hidden = true;
+        host.innerHTML = '';
+      }, 100);
+    }, 100);
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', injectPrintButtons);
+  } else {
+    injectPrintButtons();
+  }
 })();
 </script>
 

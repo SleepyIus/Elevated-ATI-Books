@@ -274,6 +274,408 @@ button{font-family:'DM Sans',sans-serif}
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
+
+.deck-actions{
+  display: flex;
+  gap: 10px;
+  margin: 0 0 20px;
+  flex-wrap: wrap;
+}
+.deck-action-btn{
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 18px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.deck-action-btn:hover{
+  background: var(--accent2);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.deck-action-btn.deck-action-secondary{
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text2);
+}
+.deck-action-btn.deck-action-secondary:hover{
+  background: var(--surface2);
+  color: var(--text);
+  border-color: var(--text2);
+}
+@media (max-width: 600px){
+  .deck-action-btn{
+    min-width: 100%;
+    font-size: 13px;
+  }
+}
+
+
+/* === FLASHCARD FILTERS === */
+.filter-panel{
+  margin: 0 0 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.filter-toggle{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+}
+.filter-toggle:hover{ background: var(--surface2) }
+.filter-toggle .filter-chevron{
+  margin-left: auto;
+  transition: transform 0.15s;
+  color: var(--text2);
+}
+.filter-toggle[aria-expanded="true"] .filter-chevron{ transform: rotate(180deg) }
+.filter-active-count{
+  background: var(--accent);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  min-width: 20px;
+  text-align: center;
+}
+.filter-active-count:empty{ display: none }
+.filter-body{
+  padding: 14px 16px 16px;
+  border-top: 1px solid var(--border);
+}
+.filter-row{ margin: 12px 0 }
+.filter-row:first-child{ margin-top: 0 }
+.filter-label{
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text2);
+  margin: 0 0 8px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.filter-search{
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.filter-search:focus{
+  outline: none;
+  border-color: var(--accent);
+}
+.filter-search::placeholder{ color: var(--text3) }
+.filter-chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.filter-chip{
+  padding: 6px 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--text2);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.12s;
+  font-family: inherit;
+}
+.filter-chip:hover{
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.filter-chip.active{
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+.filter-chip.active:hover{
+  background: var(--accent2);
+  border-color: var(--accent2);
+  color: white;
+}
+.filter-chips-numeric .filter-chip{
+  min-width: 34px;
+  text-align: center;
+  padding: 6px 8px;
+}
+.filter-actions{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.filter-clear-btn{
+  padding: 6px 12px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text2);
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.filter-clear-btn:hover{
+  border-color: #ef4444;
+  color: #ef4444;
+}
+.filter-result-count{
+  font-size: 12px;
+  color: var(--text2);
+}
+.filter-result-count strong{ color: var(--text) }
+@media (max-width: 600px){
+  .filter-chip{ font-size: 12px; padding: 5px 10px }
+  .filter-chips-numeric .filter-chip{ min-width: 28px }
+}
+
+
+/* === KEYBOARD HINTS + SESSION TIMER === */
+.kbd-hint{
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  background: rgba(0,0,0,0.15);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 4px;
+  font-size: 10px;
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  color: inherit;
+  opacity: 0.7;
+  vertical-align: middle;
+  line-height: 1.4;
+}
+[data-theme="light"] .kbd-hint{
+  background: rgba(255,255,255,0.5);
+  border-color: rgba(0,0,0,0.15);
+}
+.flashcard-reveal .kbd-hint,
+.flashcard-rate .kbd-hint{
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.25);
+  color: white;
+}
+
+/* Session timer panel */
+.session-panel{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+.session-stat{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text2);
+}
+.session-stat strong{
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+.session-stat-icon{
+  font-size: 14px;
+  opacity: 0.8;
+}
+.session-help-btn{
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  color: var(--text2);
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.session-help-btn:hover{
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Keyboard help overlay */
+.kbd-help-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+.kbd-help-overlay.show{ display: flex }
+.kbd-help-panel{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 26px;
+  max-width: 460px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.kbd-help-panel h2{
+  margin: 0 0 6px;
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--text);
+}
+.kbd-help-sub{
+  font-size: 13px;
+  color: var(--text2);
+  margin: 0 0 18px;
+}
+.kbd-help-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text);
+}
+.kbd-help-row:last-child{ border-bottom: none }
+.kbd-help-keys{
+  display: flex;
+  gap: 4px;
+}
+.kbd-help-key{
+  display: inline-block;
+  padding: 3px 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-size: 11px;
+  color: var(--text);
+  min-width: 14px;
+  text-align: center;
+}
+.kbd-help-close{
+  margin: 18px 0 0;
+  padding: 10px 20px;
+  width: 100%;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+}
+@media (max-width: 600px){
+  .session-panel{ font-size: 12px; padding: 8px 12px }
+  .kbd-hint{ display: none }  /* hide on mobile - no keyboard */
+}
+
+
+/* Cross-tool linking banner */
+.cross-tool-banner{
+  position: sticky; top: 0; z-index: 100;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: white;
+  font-size: 13px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display:flex; align-items:center; justify-content:center; gap:12px;
+}
+.cross-tool-banner strong{font-weight:600}
+.cross-tool-clear{
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family:inherit;
+}
+.cross-tool-clear:hover{ background:rgba(255,255,255,0.3) }
+
+
+.flashcard-source-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  margin: 10px 0 6px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text2);
+  font-size: 12px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+.flashcard-source-link:hover{
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+
+/* === BATCH 4: TABLET POLISH === */
+@media (max-width: 900px) and (min-width: 601px){
+  .deck-stats{
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  .filter-chips-numeric .filter-chip{
+    min-width: 30px !important;
+    padding: 5px 7px !important;
+  }
+  .session-panel{
+    gap: 8px !important;
+    font-size: 12px !important;
+  }
+  .flashcard{ padding: 22px !important }
+  .flashcard-q{ font-size: 17px !important }
+}
+
 </style>
 </head>
 <body>
@@ -299,6 +701,109 @@ button{font-family:'DM Sans',sans-serif}
     <p class="hero-sub">Review cards on the SM-2 schedule. Hard returns next day, Good extends the interval, Easy boosts further.</p>
   </section>
 
+    <div class="deck-actions">
+    <button class="deck-action-btn" type="button" data-action="load-starter" title="Add the 122 starter cards (curated from the book) to your review deck.">
+      📥 <span>Load 122 starter cards</span>
+    </button>
+        <button class="deck-action-btn deck-action-secondary" type="button" data-action="export-csv" title="Download your deck as a CSV file (importable into Anki).">
+      📤 <span>Export to CSV</span>
+    </button>
+    <button class="deck-action-btn deck-action-secondary" type="button" data-action="reset-deck" title="Clear all cards and progress.">
+      🗑️ <span>Reset deck</span>
+    </button>
+  </div>
+
+  <div class="filter-panel" id="filterPanel">
+    <button class="filter-toggle" type="button" id="filterToggle" aria-expanded="false">
+      <span>🔍 Filters</span>
+      <span class="filter-active-count" id="filterActiveCount"></span>
+      <span class="filter-chevron">▾</span>
+    </button>
+    <div class="filter-body" id="filterBody" hidden>
+      <div class="filter-row">
+        <input type="text" class="filter-search" id="filterSearch" placeholder="Search question text…" aria-label="Search flashcards">
+      </div>
+      <div class="filter-row">
+        <div class="filter-label">Unit</div>
+        <div class="filter-chips" data-filter-group="unit" data-multi="false">
+          <button class="filter-chip active" data-value="all" type="button">All</button>
+          <button class="filter-chip" data-value="antepartum" type="button">Antepartum (1–9)</button>
+          <button class="filter-chip" data-value="intrapartum" type="button">Intrapartum (10–16)</button>
+          <button class="filter-chip" data-value="postpartum" type="button">Postpartum (17–22)</button>
+          <button class="filter-chip" data-value="newborn" type="button">Newborn (23–27)</button>
+        </div>
+      </div>
+      <div class="filter-row">
+        <div class="filter-label">Chapter</div>
+        <div class="filter-chips filter-chips-numeric" data-filter-group="chapter" data-multi="true">
+          <button class="filter-chip" data-value="1" type="button">1</button>
+          <button class="filter-chip" data-value="2" type="button">2</button>
+          <button class="filter-chip" data-value="3" type="button">3</button>
+          <button class="filter-chip" data-value="4" type="button">4</button>
+          <button class="filter-chip" data-value="5" type="button">5</button>
+          <button class="filter-chip" data-value="6" type="button">6</button>
+          <button class="filter-chip" data-value="7" type="button">7</button>
+          <button class="filter-chip" data-value="8" type="button">8</button>
+          <button class="filter-chip" data-value="9" type="button">9</button>
+          <button class="filter-chip" data-value="10" type="button">10</button>
+          <button class="filter-chip" data-value="11" type="button">11</button>
+          <button class="filter-chip" data-value="12" type="button">12</button>
+          <button class="filter-chip" data-value="13" type="button">13</button>
+          <button class="filter-chip" data-value="14" type="button">14</button>
+          <button class="filter-chip" data-value="15" type="button">15</button>
+          <button class="filter-chip" data-value="16" type="button">16</button>
+          <button class="filter-chip" data-value="17" type="button">17</button>
+          <button class="filter-chip" data-value="18" type="button">18</button>
+          <button class="filter-chip" data-value="19" type="button">19</button>
+          <button class="filter-chip" data-value="20" type="button">20</button>
+          <button class="filter-chip" data-value="21" type="button">21</button>
+          <button class="filter-chip" data-value="22" type="button">22</button>
+          <button class="filter-chip" data-value="23" type="button">23</button>
+          <button class="filter-chip" data-value="24" type="button">24</button>
+          <button class="filter-chip" data-value="25" type="button">25</button>
+          <button class="filter-chip" data-value="26" type="button">26</button>
+          <button class="filter-chip" data-value="27" type="button">27</button>
+        </div>
+      </div>
+      <div class="filter-row">
+        <div class="filter-label">Type</div>
+        <div class="filter-chips" data-filter-group="type" data-multi="true">
+          <button class="filter-chip" data-value="concept" type="button">Concept</button>
+          <button class="filter-chip" data-value="calc" type="button">Calculation</button>
+          <button class="filter-chip" data-value="warning" type="button">Warning</button>
+        </div>
+      </div>
+      <div class="filter-row">
+        <div class="filter-label">Status</div>
+        <div class="filter-chips" data-filter-group="status" data-multi="false">
+          <button class="filter-chip active" data-value="all" type="button">All</button>
+          <button class="filter-chip" data-value="new" type="button">New (never rated)</button>
+          <button class="filter-chip" data-value="learning" type="button">Learning (reps &lt; 3)</button>
+          <button class="filter-chip" data-value="mature" type="button">Mature (reps ≥ 3)</button>
+          <button class="filter-chip" data-value="due" type="button">Due now</button>
+        </div>
+      </div>
+      <div class="filter-row filter-actions">
+        <button class="filter-clear-btn" type="button" id="filterClear" hidden>Clear all filters</button>
+        <span class="filter-result-count" id="filterResultCount"></span>
+      </div>
+    </div>
+  </div>
+<div class="session-panel" id="sessionPanel">
+    <div class="session-stat" title="Time elapsed in this study session">
+      <span class="session-stat-icon">⏱</span>
+      <span><strong id="sessionTime">0:00</strong></span>
+    </div>
+    <div class="session-stat" title="Cards reviewed this session">
+      <span class="session-stat-icon">📊</span>
+      <span><strong id="sessionReviewed">0</strong> reviewed</span>
+    </div>
+    <div class="session-stat" title="Average seconds per card">
+      <span class="session-stat-icon">⚡</span>
+      <span><strong id="sessionAvg">—</strong>/card</span>
+    </div>
+    <button class="session-help-btn" type="button" id="kbdHelpBtn" title="Keyboard shortcuts (press ? anytime)">⌨ Shortcuts</button>
+  </div>
   <div class="deck-stats">
     <div class="deck-stat">
       <div class="deck-stat-value due" id="statDue">0</div>
@@ -555,9 +1060,10 @@ button{font-family:'DM Sans',sans-serif}
 
   function getDueCards(){
     var now = Date.now();
-    return getDeck().filter(function(c){
+    var due = getDeck().filter(function(c){
       return new Date(c.nextReview).getTime() <= now;
     });
+    return applyFilters(due);
   }
 
   function getReviewedToday(){
@@ -569,15 +1075,17 @@ button{font-family:'DM Sans',sans-serif}
 
   function updateStats(){
     var deck = getDeck();
+    var filtered = applyFilters(deck);
     var due = getDueCards();
     document.getElementById('statDue').textContent = due.length;
     document.getElementById('statDue').className = 'deck-stat-value ' + (due.length > 0 ? 'due' : 'zero');
-    document.getElementById('statDeck').textContent = deck.length;
-    document.getElementById('statDeck').className = 'deck-stat-value ' + (deck.length > 0 ? '' : 'zero');
+    document.getElementById('statDeck').textContent = filtered.length;
+    document.getElementById('statDeck').className = 'deck-stat-value ' + (filtered.length > 0 ? '' : 'zero');
     document.getElementById('statDone').textContent = getReviewedToday();
     document.getElementById('statDone').className = 'deck-stat-value ' + (getReviewedToday() > 0 ? 'zero' : 'zero');
     document.getElementById('tabCountDue').textContent = due.length;
-    document.getElementById('tabCountAll').textContent = deck.length;
+    document.getElementById('tabCountAll').textContent = filtered.length;
+    if (typeof updateFilterCounters === 'function') updateFilterCounters();
   }
 
   // ===== Render =====
@@ -607,12 +1115,13 @@ button{font-family:'DM Sans',sans-serif}
           '<span class="flashcard-due">' + dueLabel(card) + '</span>' +
         '</div>' +
         '<div class="flashcard-q">' + (card.q || '(question not stored — re-rate in chapter book)') + '</div>' +
-        '<button class="flashcard-reveal" type="button" data-action="reveal">Reveal answer</button>' +
+        '<button class="flashcard-reveal" type="button" data-action="reveal">Reveal answer<span class="kbd-hint">Space</span></button>' +
         '<div class="flashcard-a">' + (card.a || '(answer not stored)') + '</div>' +
+        '<a class="flashcard-source-link" href="Elevated%20ATI%20MN%20Book.html#' + (card.anchor || '') + '" target="_self">📖 Open in book</a>' +
         '<div class="flashcard-rating">' +
-          '<button class="flashcard-rate flashcard-rate-hard" type="button" data-action="rate" data-value="0">Hard<span class="flashcard-rate-small">+1 day</span></button>' +
-          '<button class="flashcard-rate flashcard-rate-good" type="button" data-action="rate" data-value="3">Good<span class="flashcard-rate-small">extend</span></button>' +
-          '<button class="flashcard-rate flashcard-rate-easy" type="button" data-action="rate" data-value="5">Easy<span class="flashcard-rate-small">boost</span></button>' +
+          '<button class="flashcard-rate flashcard-rate-hard" type="button" data-action="rate" data-value="0">Hard<span class="flashcard-rate-small">+1 day</span><span class="kbd-hint">1</span></button>' +
+          '<button class="flashcard-rate flashcard-rate-good" type="button" data-action="rate" data-value="3">Good<span class="flashcard-rate-small">extend</span><span class="kbd-hint">2</span></button>' +
+          '<button class="flashcard-rate flashcard-rate-easy" type="button" data-action="rate" data-value="5">Easy<span class="flashcard-rate-small">boost</span><span class="kbd-hint">3</span></button>' +
         '</div>' +
         '<div class="flashcard-footer">' +
           '<a class="flashcard-open" href="Elevated%20ATI%20MN%20Book.html#' + anchor + '">Open in chapter ↗</a>' +
@@ -676,7 +1185,7 @@ button{font-family:'DM Sans',sans-serif}
 
   function renderBrowse(){
     var stage = document.getElementById('stage');
-    var deck = getDeck();
+    var deck = applyFilters(getDeck());
     if (deck.length === 0){
       stage.innerHTML =
         '<div class="empty-state">' +
@@ -808,11 +1317,520 @@ button{font-family:'DM Sans',sans-serif}
     }
   });
 
+  // ===== FILTERS =====
+  var FILTER_STATE_KEY = 'nur2460_fc_filters';
+  var filterState = {
+    search: '',
+    unit: 'all',
+    chapters: [],   // array of chapter numbers as strings
+    types: [],      // array: ['concept', 'calc', 'warning']
+    status: 'all'   // 'all' | 'new' | 'learning' | 'mature' | 'due'
+  };
+  
+  function loadFilterState(){
+    try {
+      var raw = localStorage.getItem(FILTER_STATE_KEY);
+      if (raw) {
+        var parsed = JSON.parse(raw);
+        filterState = Object.assign(filterState, parsed);
+      }
+    } catch(e){}
+  }
+  function saveFilterState(){
+    try { localStorage.setItem(FILTER_STATE_KEY, JSON.stringify(filterState)); } catch(e){}
+  }
+  
+  // Determine which unit a chapter belongs to
+  function chapterUnit(chNum){
+    var n = parseInt(chNum, 10);
+    if (n >= 1 && n <= 9) return 'antepartum';
+    if (n >= 10 && n <= 16) return 'intrapartum';
+    if (n >= 17 && n <= 22) return 'postpartum';
+    if (n >= 23 && n <= 27) return 'newborn';
+    return 'other';
+  }
+  
+  // Strip HTML for search matching
+  function stripHTML(s){
+    if (!s) return '';
+    var d = document.createElement('div');
+    d.innerHTML = s;
+    return (d.textContent || d.innerText || '').toLowerCase();
+  }
+  
+  // Apply filters to a deck array
+  function applyFilters(cards){
+    var q = (filterState.search || '').toLowerCase().trim();
+    var now = Date.now();
+    return cards.filter(function(c){
+      // Search
+      if (q) {
+        var hay = stripHTML((c.q || '') + ' ' + (c.a || ''));
+        if (hay.indexOf(q) === -1) return false;
+      }
+      // Chapter number (strip 'ch' prefix)
+      var chNum = (c.ch || '').replace(/^ch/i, '');
+      // Unit
+      if (filterState.unit !== 'all'){
+        if (chapterUnit(chNum) !== filterState.unit) return false;
+      }
+      // Chapters (multi)
+      if (filterState.chapters.length > 0){
+        if (filterState.chapters.indexOf(chNum) === -1) return false;
+      }
+      // Types (multi)
+      if (filterState.types.length > 0){
+        var t = (c.type || 'concept').toLowerCase();
+        if (filterState.types.indexOf(t) === -1) return false;
+      }
+      // Status
+      if (filterState.status !== 'all'){
+        var reps = c.repetitions || 0;
+        var lastRated = c.lastRated;
+        if (filterState.status === 'new' && lastRated) return false;
+        if (filterState.status === 'learning' && reps >= 3) return false;
+        if (filterState.status === 'mature' && reps < 3) return false;
+        if (filterState.status === 'due'){
+          if (new Date(c.nextReview).getTime() > now) return false;
+        }
+      }
+      return true;
+    });
+  }
+  
+  // Count active filters
+  function countActiveFilters(){
+    var n = 0;
+    if (filterState.search) n++;
+    if (filterState.unit !== 'all') n++;
+    if (filterState.chapters.length > 0) n++;
+    if (filterState.types.length > 0) n++;
+    if (filterState.status !== 'all') n++;
+    return n;
+  }
+  
+  // Apply filter state to UI chips
+  function applyFilterStateToUI(){
+    document.querySelectorAll('.filter-chips').forEach(function(group){
+      var groupName = group.getAttribute('data-filter-group');
+      var multi = group.getAttribute('data-multi') === 'true';
+      group.querySelectorAll('.filter-chip').forEach(function(chip){
+        var val = chip.getAttribute('data-value');
+        var active = false;
+        if (groupName === 'unit') active = (filterState.unit === val);
+        else if (groupName === 'status') active = (filterState.status === val);
+        else if (groupName === 'chapter') active = filterState.chapters.indexOf(val) !== -1;
+        else if (groupName === 'type') active = filterState.types.indexOf(val) !== -1;
+        chip.classList.toggle('active', active);
+      });
+    });
+    var searchInput = document.getElementById('filterSearch');
+    if (searchInput) searchInput.value = filterState.search;
+    updateFilterCounters();
+  }
+  
+  function updateFilterCounters(){
+    var count = countActiveFilters();
+    var countEl = document.getElementById('filterActiveCount');
+    if (countEl) countEl.textContent = count > 0 ? count : '';
+    
+    var clearBtn = document.getElementById('filterClear');
+    if (clearBtn) clearBtn.hidden = (count === 0);
+    
+    var resultEl = document.getElementById('filterResultCount');
+    if (resultEl) {
+      var filtered = applyFilters(getDeck()).length;
+      var total = getDeck().length;
+      if (count > 0) {
+        resultEl.innerHTML = '<strong>' + filtered + '</strong> of <strong>' + total + '</strong> cards match';
+      } else {
+        resultEl.innerHTML = '<strong>' + total + '</strong> total cards';
+      }
+    }
+  }
+  
+  // Filter chip click handler
+  function initFilterHandlers(){
+    var toggle = document.getElementById('filterToggle');
+    var body = document.getElementById('filterBody');
+    if (toggle && body){
+      toggle.addEventListener('click', function(){
+        var expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        body.hidden = expanded;
+      });
+    }
+    
+    document.querySelectorAll('.filter-chips').forEach(function(group){
+      var groupName = group.getAttribute('data-filter-group');
+      var multi = group.getAttribute('data-multi') === 'true';
+      group.querySelectorAll('.filter-chip').forEach(function(chip){
+        chip.addEventListener('click', function(){
+          var val = chip.getAttribute('data-value');
+          if (!multi){
+            // Single select — set value
+            filterState[groupName] = val;
+          } else {
+            // Multi select — toggle
+            var arr;
+            if (groupName === 'chapter') arr = filterState.chapters;
+            else if (groupName === 'type') arr = filterState.types;
+            else arr = [];
+            var idx = arr.indexOf(val);
+            if (idx === -1) arr.push(val);
+            else arr.splice(idx, 1);
+          }
+          saveFilterState();
+          applyFilterStateToUI();
+          reviewIndex = 0;
+          renderReview();
+          renderBrowse();
+          updateStats();
+        });
+      });
+    });
+    
+    var searchInput = document.getElementById('filterSearch');
+    if (searchInput){
+      var searchTimer;
+      searchInput.addEventListener('input', function(){
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(function(){
+          filterState.search = searchInput.value;
+          saveFilterState();
+          updateFilterCounters();
+          reviewIndex = 0;
+          renderReview();
+          renderBrowse();
+          updateStats();
+        }, 200);
+      });
+    }
+    
+    var clearBtn = document.getElementById('filterClear');
+    if (clearBtn){
+      clearBtn.addEventListener('click', function(){
+        filterState = { search: '', unit: 'all', chapters: [], types: [], status: 'all' };
+        saveFilterState();
+        applyFilterStateToUI();
+        reviewIndex = 0;
+        renderReview();
+        renderBrowse();
+        updateStats();
+      });
+    }
+  }
+  
+  // Init filters on load
+  loadFilterState();
+
   // ===== Init =====
+  initFilterHandlers();
+  applyFilterStateToUI();
   updateStats();
   setTab('review');
 
-})();
+
+
+
+
+  
+  // ===== Action button handlers (load starter / reset) =====
+  document.addEventListener('click', function(e){
+    var loadBtn = e.target.closest('[data-action="load-starter"]');
+    if (loadBtn){
+      var added = loadStarterDeck();
+      if (added > 0){
+        alert('Added ' + added + ' starter cards to your deck!');
+        window.location.reload();
+      } else {
+        alert('All starter cards are already in your deck.');
+      }
+      return;
+    }
+    var resetBtn = e.target.closest('[data-action="reset-deck"]');
+    if (resetBtn){
+      if (confirm('Reset deck? This will remove ALL cards and progress. This cannot be undone.')){
+        try { localStorage.removeItem(FC_KEY); } catch(err){}
+        try { localStorage.removeItem(FILTER_STATE_KEY); } catch(err){}
+        window.location.reload();
+      }
+      return;
+    }
+  });
+
+  
+  // ===== SESSION TIMER =====
+  var sessionStartTime = Date.now();
+  var sessionActiveTime = 0;
+  var sessionLastActive = Date.now();
+  var sessionTimerInterval = null;
+  
+  function formatSessionTime(ms){
+    var s = Math.floor(ms / 1000);
+    var m = Math.floor(s / 60);
+    s = s % 60;
+    return m + ':' + (s < 10 ? '0' : '') + s;
+  }
+  
+  function updateSessionDisplay(){
+    var now = Date.now();
+    if (!document.hidden){
+      sessionActiveTime += (now - sessionLastActive);
+    }
+    sessionLastActive = now;
+    
+    var timeEl = document.getElementById('sessionTime');
+    var reviewedEl = document.getElementById('sessionReviewed');
+    var avgEl = document.getElementById('sessionAvg');
+    if (timeEl) timeEl.textContent = formatSessionTime(sessionActiveTime);
+    if (reviewedEl) reviewedEl.textContent = sessionRated || 0;
+    if (avgEl){
+      if (sessionRated > 0){
+        var avgMs = sessionActiveTime / sessionRated;
+        avgEl.textContent = Math.round(avgMs / 1000) + 's';
+      } else {
+        avgEl.textContent = '—';
+      }
+    }
+  }
+  
+  function startSessionTimer(){
+    if (sessionTimerInterval) return;
+    sessionLastActive = Date.now();
+    sessionTimerInterval = setInterval(updateSessionDisplay, 1000);
+  }
+  
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden){
+      var now = Date.now();
+      sessionActiveTime += (now - sessionLastActive);
+    }
+    sessionLastActive = Date.now();
+  });
+  
+  // ===== KEYBOARD SHORTCUTS =====
+  function isTypingInInput(){
+    var el = document.activeElement;
+    if (!el) return false;
+    var tag = (el.tagName || '').toUpperCase();
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return true;
+    if (el.isContentEditable) return true;
+    return false;
+  }
+  
+  function showKbdHelp(){
+    var o = document.getElementById('kbdHelpOverlay');
+    if (o) o.classList.add('show');
+  }
+  function hideKbdHelp(){
+    var o = document.getElementById('kbdHelpOverlay');
+    if (o) o.classList.remove('show');
+  }
+  
+  document.addEventListener('keydown', function(e){
+    var overlay = document.getElementById('kbdHelpOverlay');
+    var overlayOpen = overlay && overlay.classList.contains('show');
+    
+    if (e.key === 'Escape' && overlayOpen){ e.preventDefault(); hideKbdHelp(); return; }
+    if (e.key === '?' || (e.shiftKey && e.key === '/')){
+      e.preventDefault();
+      if (overlayOpen) hideKbdHelp(); else showKbdHelp();
+      return;
+    }
+    
+    if (overlayOpen) return;
+    if (isTypingInInput()){
+      if (e.key === 'Escape'){ document.activeElement.blur(); e.preventDefault(); }
+      return;
+    }
+    
+    var stage = document.getElementById('stage');
+    var card = stage ? stage.querySelector('.flashcard') : null;
+    var revealed = card && card.classList.contains('revealed');
+    var key = e.key.toLowerCase();
+    
+    if (e.key === ' ' || e.key === 'Enter'){
+      if (currentTab !== 'review') return;
+      if (!card) return;
+      if (!revealed){
+        e.preventDefault();
+        card.classList.add('revealed');
+      } else {
+        e.preventDefault();
+        var goodBtn = card.querySelector('[data-action="rate"][data-value="3"]');
+        if (goodBtn) goodBtn.click();
+      }
+      return;
+    }
+    
+    if (currentTab === 'review' && card && revealed){
+      var ratingMap = { '1': 0, 'h': 0, '2': 3, 'g': 3, '3': 5, 'e': 5 };
+      if (key in ratingMap){
+        var btn = card.querySelector('[data-action="rate"][data-value="' + ratingMap[key] + '"]');
+        if (btn){ e.preventDefault(); btn.click(); return; }
+      }
+    }
+    
+    if (currentTab === 'review'){
+      if (e.key === 'ArrowRight' || key === 'n'){
+        e.preventDefault();
+        if (reviewQueue.length > 0){
+          reviewIndex = (reviewIndex + 1) % reviewQueue.length;
+          renderReview();
+        }
+        return;
+      }
+      if (e.key === 'ArrowLeft' || key === 'p'){
+        e.preventDefault();
+        if (reviewQueue.length > 0){
+          reviewIndex = (reviewIndex - 1 + reviewQueue.length) % reviewQueue.length;
+          renderReview();
+        }
+        return;
+      }
+    }
+    
+    if (key === 'f' && !e.metaKey && !e.ctrlKey && !e.altKey){
+      e.preventDefault();
+      var toggle = document.getElementById('filterToggle');
+      if (toggle) toggle.click();
+      return;
+    }
+    
+    if (e.key === '/'){
+      e.preventDefault();
+      var search = document.getElementById('filterSearch');
+      if (search){
+        var body = document.getElementById('filterBody');
+        if (body && body.hidden){
+          var toggle = document.getElementById('filterToggle');
+          if (toggle) toggle.click();
+        }
+        search.focus();
+        search.select();
+      }
+      return;
+    }
+  });
+  
+  var helpBtn = document.getElementById('kbdHelpBtn');
+  if (helpBtn) helpBtn.addEventListener('click', showKbdHelp);
+  var helpClose = document.getElementById('kbdHelpClose');
+  if (helpClose) helpClose.addEventListener('click', hideKbdHelp);
+  var helpOverlay = document.getElementById('kbdHelpOverlay');
+  if (helpOverlay) helpOverlay.addEventListener('click', function(e){
+    if (e.target === helpOverlay) hideKbdHelp();
+  });
+  
+  startSessionTimer();
+  updateSessionDisplay();
+
+  
+  // ===== BATCH 2: URL hash → filter (cross-tool linking) =====
+  function applyUrlHashFilter(){
+    var hash = window.location.hash || '';
+    if (!hash) return;
+    var m = hash.match(/ch=(\d+)/i);
+    if (m){
+      var chNum = m[1];
+      // Override chapter filter to just this chapter
+      filterState.chapters = [chNum];
+      filterState.unit = 'all';   // clear unit filter
+      filterState.status = 'all'; // clear status filter
+      saveFilterState();
+      // Show a small banner indicating the filter is active
+      var banner = document.createElement('div');
+      banner.className = 'cross-tool-banner';
+      banner.innerHTML = '🃏 Showing flashcards for <strong>Chapter ' + chNum + '</strong> · ' +
+                         '<button class="cross-tool-clear" type="button">Show all cards</button>';
+      var firstChild = document.body.firstChild;
+      document.body.insertBefore(banner, firstChild);
+      banner.querySelector('.cross-tool-clear').addEventListener('click', function(){
+        filterState.chapters = [];
+        saveFilterState();
+        window.location.hash = '';
+        banner.remove();
+        applyFilterStateToUI();
+        if (typeof reviewIndex !== 'undefined') reviewIndex = 0;
+        if (typeof renderReview === 'function') renderReview();
+        if (typeof renderBrowse === 'function') renderBrowse();
+        if (typeof updateStats === 'function') updateStats();
+      });
+      // Apply UI/render now
+      applyFilterStateToUI();
+      if (typeof reviewIndex !== 'undefined') reviewIndex = 0;
+      if (typeof renderReview === 'function') renderReview();
+      if (typeof renderBrowse === 'function') renderBrowse();
+      if (typeof updateStats === 'function') updateStats();
+    }
+  }
+
+  applyUrlHashFilter();
+  
+  // ===== BATCH 4: CSV EXPORT (Anki-compatible) =====
+  function escapeCsvField(s){
+    if (s == null) return '';
+    s = String(s);
+    // Replace HTML tags with plain text representation
+    s = s.replace(/<br\s*\/?>/gi, ' / ');
+    s = s.replace(/<\/?[^>]+>/g, '');
+    // Decode common HTML entities
+    s = s.replace(/&amp;/g, '&')
+         .replace(/&lt;/g, '<')
+         .replace(/&gt;/g, '>')
+         .replace(/&quot;/g, '"')
+         .replace(/&#39;/g, "'")
+         .replace(/&nbsp;/g, ' ');
+    // CSV-escape: wrap in quotes if contains comma, quote, or newline; double inner quotes
+    if (/[",\n\r]/.test(s)){
+      s = '"' + s.replace(/"/g, '""') + '"';
+    }
+    return s;
+  }
+  
+  function exportDeckCsv(){
+    var deck = getDeck();
+    if (deck.length === 0){
+      // Use starter deck if user hasn't loaded yet
+      deck = STARTER_DECK.map(function(c){
+        return { id: c.id, q: c.q, a: c.a, ch: c.ch, type: c.type, anchor: c.anchor };
+      });
+    }
+    if (deck.length === 0){
+      alert('No cards to export.');
+      return;
+    }
+    // Anki-compatible CSV: Front, Back, Tags
+    var lines = ['Front,Back,Tags'];
+    deck.forEach(function(c){
+      var front = escapeCsvField(c.q || '');
+      var back = escapeCsvField(c.a || '');
+      var tags = (c.ch ? c.ch + ' ' : '') + (c.type || 'concept');
+      lines.push(front + ',' + back + ',' + escapeCsvField(tags));
+    });
+    var csv = lines.join('\n');
+    
+    // Create download
+    var blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'NUR2460_flashcards_' + new Date().toISOString().slice(0,10) + '.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+  }
+  
+  // Wire export button into the existing click handler
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('[data-action="export-csv"]');
+    if (!btn) return;
+    exportDeckCsv();
+  });
+
+  })();
 
 
   // ===== ABBREVIATION DICTIONARY (auto-injected) =====
@@ -1175,20 +2193,54 @@ button{font-family:'DM Sans',sans-serif}
   // Run auto-wrap once on page load
   autoWrapAbbreviations(document.body);
 
-<script>
-  // load-starter-handler
-  document.addEventListener('click', function(e){
-    var btn = e.target.closest('[data-action="load-starter"]');
-    if (!btn) return;
-    var added = loadStarterDeck();
-    if (added > 0) {
-      alert('Added ' + added + ' starter cards to your deck!');
-      window.location.reload();
-    } else {
-      alert('Starter cards already in your deck.');
-    }
-  });
 </script>
-</script>
+<div class="kbd-help-overlay" id="kbdHelpOverlay">
+  <div class="kbd-help-panel">
+    <h2>Keyboard shortcuts</h2>
+    <p class="kbd-help-sub">Speed up reviews with the keyboard</p>
+    <div class="kbd-help-row">
+      <span>Reveal answer</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">Space</span><span class="kbd-help-key">↵</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Rate Hard</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">1</span><span class="kbd-help-key">H</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Rate Good</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">2</span><span class="kbd-help-key">G</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Rate Easy</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">3</span><span class="kbd-help-key">E</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Skip / next card</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">→</span><span class="kbd-help-key">N</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Previous card</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">←</span><span class="kbd-help-key">P</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Toggle filter panel</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">F</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Focus search</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">/</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Show this help</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">?</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Close help / overlay</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">Esc</span></div>
+    </div>
+    <button class="kbd-help-close" type="button" id="kbdHelpClose">Got it</button>
+  </div>
+</div>
+
 </body>
 </html>

@@ -1707,6 +1707,290 @@ button:focus-visible,a:focus-visible{
   .mid-read-reveal, .mid-read-rate{display: none !important}
 }
 
+
+/* Modal flashcards button */
+.modal-fc-btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 14px;
+  background:transparent;
+  border:1px solid var(--accent);
+  border-radius:8px;
+  color:var(--accent);
+  font-size:13px; font-weight:500;
+  cursor:pointer;
+  margin-bottom:10px;
+  transition:all 0.15s;
+  font-family:inherit;
+}
+.modal-fc-btn:hover{
+  background:var(--accent);
+  color:white;
+}
+.modal-fc-btn span{font-size:13px}
+.modal-controls{
+  display:flex;flex-direction:column;gap:0;
+}
+@media (max-width:600px){
+  .modal-fc-btn{ font-size:12px; padding:7px 10px }
+  .modal-fc-btn span{ font-size:12px }
+}
+
+
+/* === BOOKMARKS === */
+.bookmark-btn{
+  display: inline-flex; align-items: center; justify-content: center;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 32px; height: 32px;
+  font-size: 16px;
+  color: var(--text2);
+  cursor: pointer;
+  margin-left: 8px;
+  transition: all 0.15s;
+  flex-shrink: 0;
+  font-family: inherit;
+  padding: 0;
+}
+.bookmark-btn:hover{
+  border-color: #f59e0b;
+  color: #f59e0b;
+  transform: scale(1.05);
+}
+.bookmark-btn.bookmarked{
+  background: #fef3c7;
+  border-color: #f59e0b;
+  color: #d97706;
+}
+[data-theme="light"] .bookmark-btn.bookmarked{
+  background: #fef3c7;
+}
+:not([data-theme="light"]) .bookmark-btn.bookmarked{
+  background: rgba(245, 158, 11, 0.15);
+}
+.tab-panel-head{
+  display: flex; align-items: center;
+  margin: 0 0 18px;
+  gap: 8px;
+}
+.tab-panel-head h2{
+  margin: 0; flex: 1;
+}
+
+/* Bookmarks panel (in sidebar or overlay) */
+.bookmarks-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 9000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.bookmarks-overlay.show{display: flex}
+.bookmarks-panel{
+  background: var(--surface);
+  border-radius: 12px;
+  max-width: 560px;
+  width: 100%;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.bookmarks-head{
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bookmarks-head h2{
+  margin: 0;
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--text);
+}
+.bookmarks-close{
+  background: transparent; border: none;
+  font-size: 22px; cursor: pointer;
+  color: var(--text2);
+  width: 32px; height: 32px;
+  border-radius: 6px;
+}
+.bookmarks-close:hover{background: var(--surface2); color: var(--text)}
+.bookmarks-body{
+  padding: 12px 22px 22px;
+  overflow-y: auto;
+  flex: 1;
+}
+.bookmarks-empty{
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text2);
+}
+.bookmark-item{
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.bookmark-item:hover{
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.bookmark-item-icon{
+  font-size: 16px;
+  color: #f59e0b;
+}
+.bookmark-item-text{flex: 1; min-width: 0}
+.bookmark-item-section{
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.bookmark-item-chapter{
+  font-size: 12px;
+  color: var(--text2);
+}
+.bookmark-item-remove{
+  background: transparent; border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 28px; height: 28px;
+  cursor: pointer;
+  color: var(--text2);
+  font-size: 14px;
+  font-family: inherit;
+  padding: 0;
+}
+.bookmark-item-remove:hover{border-color: #ef4444; color: #ef4444}
+
+/* Bookmarks open button (in sidebar) */
+.bookmarks-open-btn{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  background: transparent;
+  border: none;
+  color: var(--text2);
+  font-size: 13px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  border-radius: 6px;
+}
+.bookmarks-open-btn:hover{ background: var(--surface2); color: var(--text) }
+.bookmarks-count-badge{
+  margin-left: auto;
+  background: #f59e0b;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+.bookmarks-count-badge:empty{display: none}
+
+
+/* === NCLEX FILTER (per-chapter exercises section) === */
+.nclex-filter-bar{
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 10px;
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+}
+.nclex-filter-bar-label{
+  color: var(--text2);
+  font-weight: 500;
+  margin-right: 4px;
+}
+.nclex-filter-chip{
+  padding: 5px 11px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: var(--text2);
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.12s;
+}
+.nclex-filter-chip:hover{
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.nclex-filter-chip.active{
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+.nclex-filter-stat{
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--text2);
+}
+.nclex-filter-stat strong{color: var(--text)}
+
+/* Hide filtered-out questions */
+article.exercise.nclex-hidden{ display: none !important }
+
+/* Mark-done button on each exercise */
+.exercise-mark-done{
+  display: inline-flex; align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  padding: 4px 10px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text2);
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  flex-shrink: 0;
+}
+.exercise-mark-done:hover{
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.exercise-mark-done.done{
+  background: rgba(16, 185, 129, 0.15);
+  border-color: #10b981;
+  color: #10b981;
+}
+.exercise-mark-done.done::before{ content: "✓ "; }
+
+/* Adjust q-num row to fit mark-done button */
+.exercise-q .q-num-row{
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+
+
+/* === BATCH 4: TABLET POLISH === */
+@media (max-width: 900px) and (min-width: 601px){
+  .modal{ max-width: 92vw !important }
+  .modal-tabs{ flex-wrap: wrap; gap: 4px }
+  .modal-fc-btn{ font-size: 12px !important }
+  .nclex-filter-bar{ flex-wrap: wrap; gap: 6px; font-size: 12px }
+  .nclex-filter-chip{ font-size: 11px; padding: 4px 9px }
+  .planner-row{ grid-template-columns: 1fr 1fr !important }
+}
+
 </style>
 </head>
 <body>
@@ -1782,6 +2066,12 @@ button:focus-visible,a:focus-visible{
   <div class="main-course">NUR 2460 · ATI Edition 11</div>
   <h1 class="main-title">Maternal <em>Newborn</em></h1>
   <p class="main-desc">Chapter-by-chapter chunked reference. Designed to replace the PDF for active study — every populated chapter has a TL;DR card, sectioned content, exercises, and abbreviation tooltips. Click a chapter to open it. Track your reading with the checkboxes — single tap = reviewed, double tap = complete.</p>
+
+
+        <button class="bookmarks-open-btn" id="bookmarksOpenBtn" type="button">
+          ⭐ <span>Bookmarks</span>
+          <span class="bookmarks-count-badge" id="bookmarksCountBadge"></span>
+        </button>
 
   <button class="compare-btn" id="masterPrintBtn">🖨️ Print Chapters</button>
 
@@ -24866,6 +25156,9 @@ button:focus-visible,a:focus-visible{
         <button class="modal-close" id="modalClose" type="button" aria-label="Close chapter">×</button>
       </div>
       <div class="modal-controls">
+                <button class="modal-fc-btn" id="modalFcBtn" type="button" title="Open flashcards for this chapter">
+          🃏 <span>Flashcards for this chapter</span>
+        </button>
         <div class="modal-tabs-wrap" id="modalTabsWrap">
           <nav class="modal-tabs" id="modalTabs" aria-label="Chapter sections"></nav>
         </div>
@@ -26048,7 +26341,362 @@ button:focus-visible,a:focus-visible{
   injectAllPrompts();
 
 })();
+
+
+  // ===== BATCH 2: cross-tool linking + last-chapter tracking =====
+  var LAST_CH_KEY = 'nur2460_last_chapter';
+  function recordLastChapter(chapterId, chapterName){
+    try {
+      var data = { id: chapterId, name: chapterName, ts: Date.now() };
+      localStorage.setItem(LAST_CH_KEY, JSON.stringify(data));
+    } catch(e){}
+  }
+  // Hook into openChapter: record + show flashcards button (deferred until openChapter exists)
+  function _installCrossToolHook(){
+    if (typeof openChapter !== 'function'){
+      setTimeout(_installCrossToolHook, 100);
+      return;
+    }
+    var _origOpenChapter = openChapter;
+    openChapter = function(chapterId, initialTabId){
+      _origOpenChapter(chapterId, initialTabId);
+    var chapter = document.getElementById(chapterId);
+    var name = chapter ? (chapter.querySelector('.chapter-name') || {}).textContent : '';
+    recordLastChapter(chapterId, name);
+    // Update flashcards button
+    var fcBtn = document.getElementById('modalFcBtn');
+    if (fcBtn){
+      var chNum = (chapterId.match(/\d+/) || [''])[0];
+      fcBtn.setAttribute('data-chapter-num', chNum);
+      fcBtn.onclick = function(){
+        if (chNum){
+          window.location.href = 'Elevated%20ATI%20MN%20Flashcards.html#ch=' + chNum;
+        }
+      };
+    }
+  };
+  }
+  _installCrossToolHook();
+
+
+  // ===== BATCH 3: BOOKMARKS =====
+  var BOOKMARK_KEY = 'nur2460_bookmarks';
+  function loadBookmarks(){
+    try { var r = localStorage.getItem(BOOKMARK_KEY); return r ? JSON.parse(r) : {}; }
+    catch(e){ return {}; }
+  }
+  function saveBookmarks(b){
+    try { localStorage.setItem(BOOKMARK_KEY, JSON.stringify(b)); } catch(e){}
+  }
+  function toggleBookmark(sectionId, sectionName, chapterId, chapterName){
+    var b = loadBookmarks();
+    if (b[sectionId]) {
+      delete b[sectionId];
+    } else {
+      b[sectionId] = {
+        sectionId: sectionId,
+        sectionName: sectionName,
+        chapterId: chapterId,
+        chapterName: chapterName,
+        ts: Date.now()
+      };
+    }
+    saveBookmarks(b);
+    updateBookmarkUI();
+    return !!b[sectionId];
+  }
+  function updateBookmarkUI(){
+    var b = loadBookmarks();
+    var count = Object.keys(b).length;
+    var badge = document.getElementById('bookmarksCountBadge');
+    if (badge) badge.textContent = count > 0 ? count : '';
+    
+    // Update buttons in modal (if open)
+    document.querySelectorAll('.bookmark-btn').forEach(function(btn){
+      var sectionId = btn.getAttribute('data-section-id');
+      if (sectionId && b[sectionId]) {
+        btn.classList.add('bookmarked');
+        btn.innerHTML = '★';
+        btn.title = 'Remove bookmark';
+      } else if (sectionId){
+        btn.classList.remove('bookmarked');
+        btn.innerHTML = '☆';
+        btn.title = 'Bookmark this section';
+      }
+    });
+  }
+  function injectBookmarkButtons(){
+    // Add bookmark button to each tab-panel heading
+    var panels = document.querySelectorAll('#modalBody .tab-panel');
+    panels.forEach(function(panel){
+      var h2 = panel.querySelector('h2');
+      if (!h2 || h2.parentNode.classList.contains('tab-panel-head')) return;
+      var head = document.createElement('div');
+      head.className = 'tab-panel-head';
+      var btn = document.createElement('button');
+      btn.className = 'bookmark-btn';
+      btn.type = 'button';
+      btn.innerHTML = '☆';
+      btn.setAttribute('data-section-id', panel.id);
+      btn.setAttribute('data-section-name', h2.textContent.trim());
+      h2.parentNode.insertBefore(head, h2);
+      head.appendChild(h2);
+      head.appendChild(btn);
+    });
+    updateBookmarkUI();
+  }
+  function renderBookmarksList(){
+    var b = loadBookmarks();
+    var list = document.getElementById('bookmarksList');
+    var empty = document.getElementById('bookmarksEmpty');
+    if (!list) return;
+    
+    var bookmarks = Object.values(b).sort(function(a,b){ return b.ts - a.ts; });
+    if (bookmarks.length === 0){
+      list.innerHTML = '';
+      if (empty) empty.hidden = false;
+      return;
+    }
+    if (empty) empty.hidden = true;
+    list.innerHTML = bookmarks.map(function(bm){
+      return '<div class="bookmark-item" data-section-id="' + bm.sectionId + '" data-chapter-id="' + bm.chapterId + '">' +
+        '<div class="bookmark-item-icon">★</div>' +
+        '<div class="bookmark-item-text">' +
+          '<div class="bookmark-item-section">' + (bm.sectionName || bm.sectionId) + '</div>' +
+          '<div class="bookmark-item-chapter">' + (bm.chapterName || bm.chapterId) + '</div>' +
+        '</div>' +
+        '<button class="bookmark-item-remove" type="button" title="Remove bookmark">✕</button>' +
+      '</div>';
+    }).join('');
+  }
+  
+  // Click handlers (event delegation)
+  document.addEventListener('click', function(e){
+    // Bookmark toggle button
+    var bookmarkBtn = e.target.closest('.bookmark-btn');
+    if (bookmarkBtn) {
+      var sectionId = bookmarkBtn.getAttribute('data-section-id');
+      var sectionName = bookmarkBtn.getAttribute('data-section-name');
+      var chapter = document.querySelector('#chapterModal');
+      var chapterName = '';
+      var chapterId = '';
+      var modalTitle = document.getElementById('modalTitle');
+      var modalMeta = document.getElementById('modalMeta');
+      if (modalTitle) chapterName = modalTitle.textContent;
+      // Find current chapter ID - section ID format is "chN-..."
+      var chMatch = (sectionId || '').match(/^(ch\d+)/);
+      if (chMatch) chapterId = chMatch[1];
+      toggleBookmark(sectionId, sectionName, chapterId, chapterName);
+      return;
+    }
+    
+    // Open bookmarks panel
+    var openBtn = e.target.closest('#bookmarksOpenBtn');
+    if (openBtn){
+      renderBookmarksList();
+      var overlay = document.getElementById('bookmarksOverlay');
+      if (overlay) overlay.classList.add('show');
+      return;
+    }
+    
+    // Close bookmarks panel
+    if (e.target.id === 'bookmarksClose' || (e.target.id === 'bookmarksOverlay')) {
+      var overlay = document.getElementById('bookmarksOverlay');
+      if (overlay) overlay.classList.remove('show');
+      return;
+    }
+    
+    // Jump to bookmark
+    var item = e.target.closest('.bookmark-item');
+    if (item){
+      // Check if it's the remove button
+      if (e.target.classList.contains('bookmark-item-remove')){
+        var sectionId = item.getAttribute('data-section-id');
+        var b = loadBookmarks();
+        delete b[sectionId];
+        saveBookmarks(b);
+        updateBookmarkUI();
+        renderBookmarksList();
+        return;
+      }
+      // Otherwise jump to the bookmark
+      var chapterId = item.getAttribute('data-chapter-id');
+      var sectionId = item.getAttribute('data-section-id');
+      if (chapterId && typeof openChapter === 'function'){
+        var overlay = document.getElementById('bookmarksOverlay');
+        if (overlay) overlay.classList.remove('show');
+        openChapter(chapterId, sectionId);
+      }
+    }
+  });
+  
+  // Initialize count badge on load
+  updateBookmarkUI();
+  
+  // Hook into chapter modal opening to add bookmark buttons after content renders
+  var _origOpenForBookmarks = window.openChapter || null;
+  function _withBookmarkInject(){
+    if (typeof openChapter !== 'function'){
+      setTimeout(_withBookmarkInject, 100);
+      return;
+    }
+    var orig = openChapter;
+    window.openChapter = function(chapterId, initialTabId){
+      orig(chapterId, initialTabId);
+      // Defer button injection until DOM updates
+      setTimeout(injectBookmarkButtons, 50);
+    };
+  }
+  _withBookmarkInject();
 </script>
+
+
+  // ===== BATCH 3: NCLEX FILTER + ANSWERED TRACKING =====
+  var NCLEX_DONE_KEY = 'nur2460_nclex_done';
+  function loadNclexDone(){
+    try { return JSON.parse(localStorage.getItem(NCLEX_DONE_KEY) || '{}'); }
+    catch(e){ return {}; }
+  }
+  function saveNclexDone(d){
+    try { localStorage.setItem(NCLEX_DONE_KEY, JSON.stringify(d)); } catch(e){}
+  }
+  
+  // Detect if a question is SATA based on its text
+  function isSataQuestion(article){
+    var text = article.textContent.toLowerCase();
+    return /select all that apply/i.test(text) || 
+           /which of the following/.test(text) && /\(select|\(choose/i.test(text);
+  }
+  
+  // Filter state per chapter modal
+  var nclexFilterState = { type: 'all', status: 'all' };
+  
+  function applyNclexFilter(){
+    var exercises = document.querySelectorAll('#modalBody .exercise');
+    var done = loadNclexDone();
+    var visibleCount = 0;
+    var totalCount = exercises.length;
+    
+    exercises.forEach(function(ex){
+      var qNumEl = ex.querySelector('.q-num');
+      var qNum = qNumEl ? qNumEl.textContent.trim() : '';
+      // Build a unique-ish id from chapter+q-num
+      var modalTitle = document.getElementById('modalTitle');
+      var chKey = modalTitle ? modalTitle.textContent.trim() : 'unknown';
+      var qId = chKey + '::' + qNum;
+      
+      var visible = true;
+      var isSata = isSataQuestion(ex);
+      if (nclexFilterState.type === 'sata' && !isSata) visible = false;
+      if (nclexFilterState.type === 'mc' && isSata) visible = false;
+      
+      var isDone = !!done[qId];
+      if (nclexFilterState.status === 'done' && !isDone) visible = false;
+      if (nclexFilterState.status === 'undone' && isDone) visible = false;
+      
+      ex.classList.toggle('nclex-hidden', !visible);
+      if (visible) visibleCount++;
+    });
+    
+    var stat = document.getElementById('nclexFilterStat');
+    if (stat) stat.innerHTML = '<strong>' + visibleCount + '</strong> of <strong>' + totalCount + '</strong> shown';
+  }
+  
+  function injectNclexFilterBar(){
+    // Find a tab-panel that has exercises
+    var panels = document.querySelectorAll('#modalBody .tab-panel');
+    panels.forEach(function(panel){
+      var exercises = panel.querySelectorAll('.exercise');
+      if (exercises.length === 0) return;
+      if (panel.querySelector('.nclex-filter-bar')) return;
+      
+      // Add filter bar before the first exercise
+      var bar = document.createElement('div');
+      bar.className = 'nclex-filter-bar';
+      bar.innerHTML =
+        '<span class="nclex-filter-bar-label">Type:</span>' +
+        '<button class="nclex-filter-chip active" data-nclex-filter="type" data-value="all" type="button">All</button>' +
+        '<button class="nclex-filter-chip" data-nclex-filter="type" data-value="mc" type="button">MC</button>' +
+        '<button class="nclex-filter-chip" data-nclex-filter="type" data-value="sata" type="button">SATA</button>' +
+        '<span class="nclex-filter-bar-label" style="margin-left:8px">Done:</span>' +
+        '<button class="nclex-filter-chip active" data-nclex-filter="status" data-value="all" type="button">All</button>' +
+        '<button class="nclex-filter-chip" data-nclex-filter="status" data-value="undone" type="button">Not done</button>' +
+        '<button class="nclex-filter-chip" data-nclex-filter="status" data-value="done" type="button">Done</button>' +
+        '<span class="nclex-filter-stat" id="nclexFilterStat"></span>';
+      var firstEx = exercises[0];
+      firstEx.parentNode.insertBefore(bar, firstEx);
+    });
+    
+    // Inject "mark done" button on each exercise's q-num row
+    var allExercises = document.querySelectorAll('#modalBody .exercise');
+    var done = loadNclexDone();
+    var modalTitle = document.getElementById('modalTitle');
+    var chKey = modalTitle ? modalTitle.textContent.trim() : 'unknown';
+    
+    allExercises.forEach(function(ex){
+      var qNumEl = ex.querySelector('.q-num');
+      if (!qNumEl) return;
+      if (ex.querySelector('.exercise-mark-done')) return;
+      
+      var qNum = qNumEl.textContent.trim();
+      var qId = chKey + '::' + qNum;
+      
+      // Wrap q-num + add mark-done in a row
+      var header = ex.querySelector('.exercise-q');
+      if (!header) return;
+      
+      var btn = document.createElement('button');
+      btn.className = 'exercise-mark-done' + (done[qId] ? ' done' : '');
+      btn.type = 'button';
+      btn.setAttribute('data-q-id', qId);
+      btn.textContent = done[qId] ? 'Done' : 'Mark done';
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();  // don't toggle the answer
+        var d = loadNclexDone();
+        if (d[qId]) delete d[qId]; else d[qId] = Date.now();
+        saveNclexDone(d);
+        btn.classList.toggle('done', !!d[qId]);
+        btn.textContent = d[qId] ? 'Done' : 'Mark done';
+        applyNclexFilter();
+      });
+      // Insert AFTER the q-num (next to it)
+      qNumEl.parentNode.insertBefore(btn, qNumEl.nextSibling);
+    });
+    
+    applyNclexFilter();
+  }
+  
+  // Filter chip clicks (event delegation)
+  document.addEventListener('click', function(e){
+    var chip = e.target.closest('.nclex-filter-chip');
+    if (!chip) return;
+    var group = chip.getAttribute('data-nclex-filter');
+    var value = chip.getAttribute('data-value');
+    if (!group || !value) return;
+    nclexFilterState[group] = value;
+    // Update chip active states
+    var bar = chip.closest('.nclex-filter-bar');
+    if (bar){
+      bar.querySelectorAll('[data-nclex-filter="' + group + '"]').forEach(function(c){
+        c.classList.toggle('active', c.getAttribute('data-value') === value);
+      });
+    }
+    applyNclexFilter();
+  });
+  
+  // Hook openChapter to inject the filter bar after content loads
+  function _withNclexInject(){
+    if (typeof openChapter !== 'function'){
+      setTimeout(_withNclexInject, 100);
+      return;
+    }
+    var orig = openChapter;
+    window.openChapter = function(chapterId, initialTabId){
+      orig(chapterId, initialTabId);
+      setTimeout(injectNclexFilterBar, 75);  // after the bookmark injection
+    };
+  }
+  _withNclexInject();
 
 <script>
 // === MID-READ FLASHCARD PROMPTS ===
@@ -26124,5 +26772,22 @@ button:focus-visible,a:focus-visible{
   });
 })();
 </script>
+
+<div class="bookmarks-overlay" id="bookmarksOverlay" aria-hidden="true">
+  <div class="bookmarks-panel">
+    <div class="bookmarks-head">
+      <h2>⭐ Your Bookmarks</h2>
+      <button class="bookmarks-close" id="bookmarksClose" type="button" aria-label="Close">×</button>
+    </div>
+    <div class="bookmarks-body" id="bookmarksBody">
+      <div class="bookmarks-empty" id="bookmarksEmpty" hidden>
+        <p>No bookmarks yet.</p>
+        <p style="font-size:13px;margin-top:6px;">Click the ☆ button on any chapter section to bookmark it.</p>
+      </div>
+      <div id="bookmarksList"></div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

@@ -323,6 +323,84 @@ a{color:inherit;text-decoration:none}
 /* Use same accent colors for prompt types if shown anywhere on hub */
 :root{--prompt-priority:#e05c6a}
 [data-theme="light"]{--prompt-priority:#c0384a}
+
+/* Pick up where you left off */
+.pickup-panel{
+  margin: 0 0 30px;
+  padding: 18px 20px;
+  background: linear-gradient(135deg, var(--surface), var(--surface2));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.pickup-panel[hidden]{display:none}
+.pickup-head{
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom: 14px;
+}
+.pickup-head h3{
+  margin:0;
+  font-family:'DM Serif Display', serif;
+  font-weight:400;
+  font-size:18px;
+  color:var(--text);
+}
+.pickup-dismiss{
+  background:transparent;border:none;color:var(--text2);
+  font-size:20px;cursor:pointer;padding:0;width:28px;height:28px;
+  border-radius:6px;
+}
+.pickup-dismiss:hover{background:var(--surface2);color:var(--text)}
+.pickup-cards{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.pickup-card{
+  display:flex; align-items:center; gap:12px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration:none;
+  color:var(--text);
+  transition:all 0.15s;
+}
+.pickup-card:hover{
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.pickup-card[hidden]{display:none}
+.pickup-icon{font-size:24px; line-height:1; flex-shrink:0}
+.pickup-text{flex:1;min-width:0}
+.pickup-label{
+  font-size:11px; color:var(--text2);
+  text-transform:uppercase; letter-spacing:0.04em;
+  margin-bottom:3px;
+}
+.pickup-value{
+  font-size:14px; font-weight:500; color:var(--text);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+
+
+/* === BATCH 4: TABLET POLISH === */
+@media (max-width: 900px) and (min-width: 601px){
+  .stats{
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+    gap: 10px !important;
+  }
+  .stat-value{ font-size: 28px !important }
+  .stat-label{ font-size: 12px !important }
+  .pickup-cards{
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .tool-card{ padding: 18px !important }
+}
+@media (max-width: 600px){
+  .pickup-cards{ grid-template-columns: 1fr !important }
+}
+
 </style>
 </head>
 <body>
@@ -361,14 +439,49 @@ a{color:inherit;text-decoration:none}
       <div class="stat-label">Units</div>
     </div>
     <div class="stat">
-      <div class="stat-value">85</div>
+      <div class="stat-value">105</div>
       <div class="stat-label">Worked Templates</div>
     </div>
     <div class="stat">
       <div class="stat-value">8</div>
       <div class="stat-label">Template Types</div>
     </div>
+    <div class="stat">
+      <div class="stat-value">122</div>
+      <div class="stat-label">Starter Cards</div>
+    </div>
   </section>
+
+  <section class="pickup-panel" id="pickupPanel" hidden>
+    <div class="pickup-head">
+      <h3>▶ Pick up where you left off</h3>
+      <button class="pickup-dismiss" id="pickupDismiss" type="button" title="Hide this panel">×</button>
+    </div>
+    <div class="pickup-cards">
+      <a class="pickup-card" id="pickupBook" href="#" hidden>
+        <div class="pickup-icon">📖</div>
+        <div class="pickup-text">
+          <div class="pickup-label">Continue reading</div>
+          <div class="pickup-value" id="pickupBookValue">—</div>
+        </div>
+      </a>
+      <a class="pickup-card" id="pickupFc" href="Elevated%20ATI%20MN%20Flashcards.html" hidden>
+        <div class="pickup-icon">🃏</div>
+        <div class="pickup-text">
+          <div class="pickup-label">Review queue</div>
+          <div class="pickup-value" id="pickupFcValue">—</div>
+        </div>
+      </a>
+      <a class="pickup-card" id="pickupTpl" href="#" hidden>
+        <div class="pickup-icon">📋</div>
+        <div class="pickup-text">
+          <div class="pickup-label">Last template</div>
+          <div class="pickup-value" id="pickupTplValue">—</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
 
 
   <!-- REVIEW QUEUE -->
@@ -725,6 +838,7 @@ a{color:inherit;text-decoration:none}
       label.textContent = stats.due === 1 ? 'card due today' : 'cards due today';
       sub.textContent = stats.scheduled + ' card' + (stats.scheduled === 1 ? '' : 's') + ' in your deck · review them in the chapter where they appear.';
     }
+      updatePickupPanel();
   }
 
   updateProgressUI();
@@ -822,7 +936,83 @@ a{color:inherit;text-decoration:none}
     renderKeysList();
   });
 
-})();
+
+  // ===== BATCH 2: Pick up where you left off =====
+  var LAST_CH_KEY_HUB = 'nur2460_last_chapter';
+  var LAST_TPL_KEY_HUB = 'nur2460_last_template';
+  var PICKUP_DISMISS_KEY = 'nur2460_pickup_dismissed';
+  
+  function updatePickupPanel(){
+    var panel = document.getElementById('pickupPanel');
+    if (!panel) return;
+    
+    // Honor dismissal for this session (sessionStorage so reappears on next visit)
+    try {
+      if (sessionStorage.getItem(PICKUP_DISMISS_KEY) === '1'){
+        panel.hidden = true;
+        return;
+      }
+    } catch(e){}
+    
+    var fcStats = countDueCards();
+    var lastCh = loadJson(LAST_CH_KEY_HUB);
+    var lastTpl = loadJson(LAST_TPL_KEY_HUB);
+    
+    var hasAny = false;
+    
+    // Book card
+    var bookCard = document.getElementById('pickupBook');
+    var bookValue = document.getElementById('pickupBookValue');
+    if (lastCh && lastCh.id && lastCh.name){
+      bookCard.href = 'Elevated%20ATI%20MN%20Book.html#' + lastCh.id;
+      bookValue.textContent = 'Ch ' + (lastCh.id.replace('ch','')) + ': ' + lastCh.name;
+      bookCard.hidden = false;
+      hasAny = true;
+    }
+    
+    // Flashcards card  
+    var fcCard = document.getElementById('pickupFc');
+    var fcValue = document.getElementById('pickupFcValue');
+    if (fcStats.scheduled > 0){
+      if (fcStats.due > 0){
+        fcValue.textContent = fcStats.due + ' card' + (fcStats.due === 1 ? '' : 's') + ' due now';
+      } else {
+        fcValue.textContent = 'All caught up · ' + fcStats.scheduled + ' in deck';
+      }
+      fcCard.hidden = false;
+      hasAny = true;
+    } else {
+      // Show "load starter deck" prompt
+      fcValue.textContent = 'Load starter deck →';
+      fcCard.hidden = false;
+      hasAny = true;
+    }
+    
+    // Template card
+    var tplCard = document.getElementById('pickupTpl');
+    var tplValue = document.getElementById('pickupTplValue');
+    if (lastTpl && lastTpl.id && lastTpl.name){
+      tplCard.href = 'Elevated%20ATI%20MN%20Templates.html#' + lastTpl.id;
+      tplValue.textContent = lastTpl.name;
+      tplCard.hidden = false;
+      hasAny = true;
+    }
+    
+    panel.hidden = !hasAny;
+    
+    // Wire dismiss button
+    var dismiss = document.getElementById('pickupDismiss');
+    if (dismiss && !dismiss._wired){
+      dismiss._wired = true;
+      dismiss.addEventListener('click', function(){
+        try { sessionStorage.setItem(PICKUP_DISMISS_KEY, '1'); } catch(e){}
+        panel.hidden = true;
+      });
+    }
+  }
+
+  updatePickupPanel();
+  })();
 </script>
 
 </body>
