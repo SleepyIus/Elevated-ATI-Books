@@ -532,7 +532,7 @@ body.brief-mode .brief-banner{display:block}
 
 /* ABBREVIATIONS */
 .abbr{
-  border-bottom:1px dotted #ef4444;cursor:help;
+  border-bottom:1px dotted #ef4444;cursor:pointer;
   text-decoration:none;color:inherit;
 }
 .abbr-tip{
@@ -25337,11 +25337,6 @@ article.exercise.nclex-hidden{ display: none !important }
   function bindAbbrs(scope) {
     scope.querySelectorAll('.abbr').forEach(function(el){
       el.addEventListener('click', function(e){ e.stopPropagation(); showTip(el); });
-      el.addEventListener('mouseenter', function(){ showTip(el); });
-      el.addEventListener('mouseleave', function(){
-        clearTimeout(hideTimer);
-        hideTimer = setTimeout(function(){ tip.classList.remove('show'); }, 200);
-      });
     });
   }
   document.addEventListener('click', function(){ tip.classList.remove('show'); });
