@@ -27,6 +27,125 @@
   --prompt-principle:#a78bfa; --prompt-principle-bg:rgba(167,139,250,0.10);
   --prompt-priority:#e05c6a; --prompt-priority-bg:rgba(224,92,106,0.10);
 }
+
+/* === SIDEBAR LAYOUT (matches book/templates) === */
+.layout{display:flex; min-height:100vh}
+.sidebar{
+  width:280px; min-width:280px;
+  background:var(--surface);
+  border-right:1px solid var(--border);
+  display:flex; flex-direction:column;
+  position:fixed; top:0; left:0; bottom:0;
+  overflow:hidden; z-index:10;
+  transition:transform 0.25s, background 0.2s;
+}
+.sidebar-overlay{
+  display:none; position:fixed; inset:0;
+  background:rgba(0,0,0,0.5); z-index:9;
+}
+.sidebar-overlay.show{display:block}
+.sidebar-header{
+  padding:18px 16px 14px;
+  border-bottom:1px solid var(--border);
+  flex-shrink:0;
+}
+.back-home{
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:11px; font-weight:600; color:var(--text3);
+  text-decoration:none; padding:5px 0 12px;
+  letter-spacing:.03em; transition:color .15s;
+}
+.back-home:hover{color:var(--accent)}
+.back-home-mobile{
+  display:none; position:fixed; top:14px; right:16px;
+  z-index:50; font-size:12px; font-weight:600;
+  color:var(--text2); text-decoration:none;
+  padding:6px 10px; background:var(--surface);
+  border:1px solid var(--border); border-radius:6px;
+}
+.sb-course{
+  font-size:10px; font-weight:600; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:4px;
+}
+.sb-title{
+  font-family:'DM Serif Display',serif;
+  font-size:22px; font-weight:400; line-height:1.1;
+  color:var(--text); margin-bottom:2px;
+}
+.sb-sub{font-size:11px; color:var(--text3)}
+#themeToggle{
+  margin-top:12px; background:transparent;
+  border:1px solid var(--border); color:var(--text2);
+  padding:6px 10px; border-radius:6px;
+  font-family:inherit; font-size:11px; font-weight:600;
+  cursor:pointer; display:flex; align-items:center; gap:6px;
+  width:100%; justify-content:center; transition:all .15s;
+}
+#themeToggle:hover{border-color:var(--accent); color:var(--accent)}
+.sidebar-search{padding:0 12px 12px}
+#sidebarSearchInput{
+  width:100%; background:var(--bg);
+  border:1px solid var(--border); color:var(--text);
+  padding:8px 10px; border-radius:6px;
+  font-family:inherit; font-size:12px; outline:none;
+  box-sizing:border-box;
+}
+#sidebarSearchInput:focus{border-color:var(--accent)}
+.sidebar-list{
+  flex:1; overflow-y:auto;
+  padding:8px 0;
+  scrollbar-width:thin;
+  scrollbar-color:var(--border) transparent;
+}
+.sb-nav-section{padding:6px 0; border-bottom:1px solid var(--border-soft, rgba(255,255,255,0.06))}
+.sb-nav-section:last-child{border-bottom:none}
+.sb-nav-label{
+  font-size:10px; font-weight:600; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--text3);
+  padding:8px 16px 6px;
+}
+.sb-nav-item{
+  display:block; width:100%;
+  padding:7px 16px;
+  background:transparent; border:none;
+  color:var(--text2); text-align:left;
+  font-family:inherit; font-size:12.5px;
+  cursor:pointer; transition:all .12s;
+  border-left:2px solid transparent;
+}
+.sb-nav-item:hover{
+  background:var(--surface2);
+  color:var(--text);
+}
+.sb-nav-item.active{
+  color:var(--accent);
+  background:var(--accent-soft, rgba(45,212,191,0.12));
+  border-left-color:var(--accent);
+}
+
+.main-content{
+  margin-left:280px;
+  flex:1; min-width:0;
+  padding:36px 32px 80px;
+  max-width:820px;
+}
+
+.mobile-menu-toggle{
+  display:none; position:fixed; top:12px; left:12px;
+  z-index:50; width:38px; height:38px;
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:8px; color:var(--text);
+  font-size:18px; cursor:pointer; padding:0;
+}
+
+@media (max-width:900px){
+  .sidebar{transform:translateX(-100%)}
+  .sidebar.open{transform:translateX(0)}
+  .main-content{margin-left:0; padding:64px 18px 60px}
+  .mobile-menu-toggle{display:flex; align-items:center; justify-content:center}
+  .back-home-mobile{display:inline-block}
+}
+
 [data-theme="light"]{
   --bg:#faf7f2;
   --surface:#f4f0e8;
@@ -60,31 +179,17 @@ body{
 a{color:inherit;text-decoration:none}
 button{font-family:'DM Sans',sans-serif}
 
-.page{max-width:780px;margin:0 auto;padding:24px 24px 80px}
-@media(max-width:720px){.page{padding:18px 16px 60px}}
 
-.topbar{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:24px;
-  padding:14px 18px;background:var(--surface);
-  border:1px solid var(--border);border-radius:14px;
-}
-.topbar-brand{display:flex;align-items:center;gap:12px;font-family:'DM Serif Display',serif;font-size:18px;color:var(--text)}
-.topbar-brand-mark{
-  width:36px;height:36px;border-radius:10px;background:var(--accent);color:var(--bg);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;
-}
-.topbar-links{display:flex;align-items:center;gap:8px}
-.topbar-link{font-size:13px;color:var(--text2);padding:6px 10px;border-radius:7px;transition:all .15s ease}
-.topbar-link:hover{color:var(--text);background:var(--surface2)}
-.theme-toggle{
-  background:var(--surface2);border:1px solid var(--border);color:var(--text);
-  font-size:13px;padding:8px 12px;border-radius:10px;
-  cursor:pointer;display:inline-flex;align-items:center;gap:6px;
-  transition:all .15s ease;
-}
-.theme-toggle:hover{border-color:var(--accent)}
+@media(max-width:720px){}
+
+
+
+
+
+
+
+
+
 
 /* HERO */
 .hero{padding:28px 24px;background:linear-gradient(135deg,var(--surface) 0%,var(--surface2) 100%);
@@ -680,23 +785,54 @@ button{font-family:'DM Sans',sans-serif}
 </head>
 <body>
 
-<div class="page">
 
-  <div class="topbar">
-    <div class="topbar-brand">
-      <div class="topbar-brand-mark">E</div>
-      <span>Elevated · Flashcards</span>
-    </div>
-    <div class="topbar-links">
-      <a class="topbar-link" href="index.html">⌂ Hub</a>
-      <a class="topbar-link" href="Elevated%20ATI%20MN%20Book.html">📖 Book</a>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
-        <span id="themeIcon">☀️</span>
-      </button>
-    </div>
-  </div>
+<button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Open menu">☰</button>
+<a class="back-home-mobile" href="index.html">Back to Hub</a>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-  <section class="hero">
+<div class="layout">
+
+  <aside class="sidebar" id="sidebar" aria-label="Flashcards navigation">
+    <div class="sidebar-header">
+      <a class="back-home" href="index.html">← Back to Hub</a>
+      <div class="sb-course">NUR 2460 · ATI</div>
+      <div class="sb-title">Flashcards</div>
+      <div class="sb-sub">Spaced Repetition Review</div>
+      <button id="themeToggle" type="button"><span id="themeIcon">☀️</span> <span id="themeLabel">Light Mode</span></button>
+    </div>
+
+    <div class="sidebar-search">
+      <input id="sidebarSearchInput" type="text" placeholder="Search cards…" autocomplete="off">
+    </div>
+
+    <nav class="sidebar-list" aria-label="Quick filters">
+      <div class="sb-nav-section">
+        <div class="sb-nav-label">Unit</div>
+        <button class="sb-nav-item" type="button" data-quick-filter="unit" data-value="all">All units</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="unit" data-value="antepartum">Antepartum (Ch 1–9)</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="unit" data-value="intrapartum">Intrapartum (Ch 10–16)</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="unit" data-value="postpartum">Postpartum (Ch 17–22)</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="unit" data-value="newborn">Newborn (Ch 23–27)</button>
+      </div>
+      <div class="sb-nav-section">
+        <div class="sb-nav-label">Type</div>
+        <button class="sb-nav-item" type="button" data-quick-filter="type-toggle" data-value="concept">Concept</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="type-toggle" data-value="calc">Calculation</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="type-toggle" data-value="warning">Warning</button>
+      </div>
+      <div class="sb-nav-section">
+        <div class="sb-nav-label">Status</div>
+        <button class="sb-nav-item" type="button" data-quick-filter="status" data-value="all">All cards</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="status" data-value="new">New</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="status" data-value="learning">Learning</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="status" data-value="mature">Mature</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="status" data-value="due">Due now</button>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+<section class="hero">
     <h1>Spaced <em>Repetition</em></h1>
     <p class="hero-sub">Review cards on the SM-2 schedule. Hard returns next day, Good extends the interval, Easy boosts further.</p>
   </section>
@@ -1830,6 +1966,90 @@ button{font-family:'DM Sans',sans-serif}
     exportDeckCsv();
   });
 
+  
+  // ===== LAYOUT: mobile sidebar toggle + sidebar quick-filter integration =====
+  var sidebar = document.getElementById('sidebar');
+  var sidebarOverlay = document.getElementById('sidebarOverlay');
+  var mobileToggle = document.getElementById('mobileMenuToggle');
+  if (mobileToggle){
+    mobileToggle.addEventListener('click', function(){
+      if (sidebar) sidebar.classList.add('open');
+      if (sidebarOverlay) sidebarOverlay.classList.add('show');
+    });
+  }
+  if (sidebarOverlay){
+    sidebarOverlay.addEventListener('click', function(){
+      if (sidebar) sidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('show');
+    });
+  }
+  
+  // Sidebar quick-filter buttons (mirror the in-panel filter chips)
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('[data-quick-filter]');
+    if (!btn) return;
+    var group = btn.getAttribute('data-quick-filter');
+    var value = btn.getAttribute('data-value');
+    
+    if (group === 'unit'){
+      filterState.unit = value;
+    } else if (group === 'status'){
+      filterState.status = value;
+    } else if (group === 'type-toggle'){
+      var idx = filterState.types.indexOf(value);
+      if (idx === -1) filterState.types.push(value);
+      else filterState.types.splice(idx, 1);
+    }
+    saveFilterState();
+    applyFilterStateToUI();
+    if (typeof reviewIndex !== 'undefined') reviewIndex = 0;
+    if (typeof renderReview === 'function') renderReview();
+    if (typeof renderBrowse === 'function') renderBrowse();
+    if (typeof updateStats === 'function') updateStats();
+    updateSidebarActiveStates();
+    
+    // Close sidebar on mobile after selection
+    if (window.innerWidth <= 900){
+      if (sidebar) sidebar.classList.remove('open');
+      if (sidebarOverlay) sidebarOverlay.classList.remove('show');
+    }
+  });
+  
+  function updateSidebarActiveStates(){
+    document.querySelectorAll('[data-quick-filter]').forEach(function(btn){
+      var group = btn.getAttribute('data-quick-filter');
+      var value = btn.getAttribute('data-value');
+      var active = false;
+      if (group === 'unit') active = (filterState.unit === value);
+      else if (group === 'status') active = (filterState.status === value);
+      else if (group === 'type-toggle') active = filterState.types.indexOf(value) !== -1;
+      btn.classList.toggle('active', active);
+    });
+  }
+  
+  // Sidebar search - mirror to main filter search
+  var sidebarSearch = document.getElementById('sidebarSearchInput');
+  if (sidebarSearch){
+    var sidebarSearchTimer;
+    sidebarSearch.addEventListener('input', function(){
+      clearTimeout(sidebarSearchTimer);
+      sidebarSearchTimer = setTimeout(function(){
+        filterState.search = sidebarSearch.value;
+        saveFilterState();
+        if (typeof reviewIndex !== 'undefined') reviewIndex = 0;
+        if (typeof renderReview === 'function') renderReview();
+        if (typeof renderBrowse === 'function') renderBrowse();
+        if (typeof updateStats === 'function') updateStats();
+        // Also sync the in-panel search input
+        var mainSearch = document.getElementById('filterSearch');
+        if (mainSearch) mainSearch.value = sidebarSearch.value;
+      }, 200);
+    });
+  }
+  
+  // Initial sync
+  updateSidebarActiveStates();
+
   })();
 
 
@@ -2194,6 +2414,11 @@ button{font-family:'DM Sans',sans-serif}
   autoWrapAbbreviations(document.body);
 
 </script>
+
+  </main><!-- /main-content -->
+</div><!-- /layout -->
+
+
 <div class="kbd-help-overlay" id="kbdHelpOverlay">
   <div class="kbd-help-panel">
     <h2>Keyboard shortcuts</h2>
