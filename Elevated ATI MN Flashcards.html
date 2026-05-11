@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elevated · ATI Maternal-Newborn Flashcards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital,wght@0,400;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f1117;
+  --surface:#181c27;
+  --surface2:#1e2336;
+  --surface3:#242a40;
+  --border:#2a3050;
+  --border-soft:rgba(255,255,255,0.06);
+  --accent:#2dd4bf;
+  --accent2:#5eead4;
+  --accent-soft:rgba(45,212,191,0.12);
+  --text:#e8eaf2;
+  --text2:#8b92b8;
+  --text3:#555e85;
+  --shadow:0 8px 24px rgba(0,0,0,0.3);
+  --prompt-content:#2dd4bf; --prompt-content-bg:rgba(45,212,191,0.10);
+  --prompt-judgment:#e8a838; --prompt-judgment-bg:rgba(232,168,56,0.10);
+  --prompt-principle:#a78bfa; --prompt-principle-bg:rgba(167,139,250,0.10);
+  --prompt-priority:#e05c6a; --prompt-priority-bg:rgba(224,92,106,0.10);
+}
+[data-theme="light"]{
+  --bg:#faf7f2;
+  --surface:#f4f0e8;
+  --surface2:#ece6d8;
+  --surface3:#e3dccc;
+  --border:#d6ccb8;
+  --border-soft:rgba(0,0,0,0.07);
+  --accent:#0d9488;
+  --accent2:#0f766e;
+  --accent-soft:rgba(13,148,136,0.10);
+  --text:#1e1c18;
+  --text2:#5a5448;
+  --text3:#9e9080;
+  --shadow:0 8px 24px rgba(0,0,0,0.10);
+  --prompt-content:#0d9488; --prompt-content-bg:rgba(13,148,136,0.10);
+  --prompt-judgment:#b87418; --prompt-judgment-bg:rgba(184,116,24,0.10);
+  --prompt-principle:#7c3aed; --prompt-principle-bg:rgba(124,58,237,0.10);
+  --prompt-priority:#c0384a; --prompt-priority-bg:rgba(192,56,74,0.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:'DM Sans',sans-serif;font-weight:400;
+  font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  transition:background 0.25s,color 0.25s;
+  min-height:100vh;
+}
+a{color:inherit;text-decoration:none}
+button{font-family:'DM Sans',sans-serif}
+
+.page{max-width:780px;margin:0 auto;padding:24px 24px 80px}
+@media(max-width:720px){.page{padding:18px 16px 60px}}
+
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:24px;
+  padding:14px 18px;background:var(--surface);
+  border:1px solid var(--border);border-radius:14px;
+}
+.topbar-brand{display:flex;align-items:center;gap:12px;font-family:'DM Serif Display',serif;font-size:18px;color:var(--text)}
+.topbar-brand-mark{
+  width:36px;height:36px;border-radius:10px;background:var(--accent);color:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;
+}
+.topbar-links{display:flex;align-items:center;gap:8px}
+.topbar-link{font-size:13px;color:var(--text2);padding:6px 10px;border-radius:7px;transition:all .15s ease}
+.topbar-link:hover{color:var(--text);background:var(--surface2)}
+.theme-toggle{
+  background:var(--surface2);border:1px solid var(--border);color:var(--text);
+  font-size:13px;padding:8px 12px;border-radius:10px;
+  cursor:pointer;display:inline-flex;align-items:center;gap:6px;
+  transition:all .15s ease;
+}
+.theme-toggle:hover{border-color:var(--accent)}
+
+/* HERO */
+.hero{padding:28px 24px;background:linear-gradient(135deg,var(--surface) 0%,var(--surface2) 100%);
+  border:1px solid var(--border);border-radius:18px;margin-bottom:20px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:0;right:0;bottom:0;width:40%;
+  background:radial-gradient(circle at top right,var(--accent-soft) 0%,transparent 70%);pointer-events:none}
+.hero h1{position:relative;font-family:'DM Serif Display',serif;font-weight:400;font-size:32px;line-height:1.1;margin:0 0 6px}
+.hero h1 em{font-style:italic;color:var(--accent2)}
+.hero-sub{position:relative;font-size:14px;color:var(--text2);margin:0}
+
+/* DECK STATS */
+.deck-stats{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+.deck-stat{
+  flex:1;min-width:120px;padding:14px 16px;background:var(--surface);
+  border:1px solid var(--border);border-radius:12px;
+}
+.deck-stat-value{font-family:'DM Serif Display',serif;font-size:28px;line-height:1;color:var(--accent2)}
+.deck-stat-value.due{color:var(--prompt-priority)}
+.deck-stat-value.zero{color:var(--text3)}
+.deck-stat-label{font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;font-weight:500}
+
+/* TABS */
+.tabs{display:flex;gap:6px;background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:4px;margin-bottom:18px}
+.tab{
+  flex:1;background:transparent;border:none;color:var(--text2);
+  font-size:13px;font-weight:600;padding:9px 16px;border-radius:8px;cursor:pointer;
+  transition:all .15s ease;
+}
+.tab.active{background:var(--surface2);color:var(--text)}
+.tab:hover:not(.active){color:var(--text)}
+.tab-count{display:inline-block;margin-left:6px;font-size:11px;background:var(--accent);color:var(--bg);padding:1px 7px;border-radius:9px;font-weight:700}
+.tab.active .tab-count{background:var(--accent2);color:var(--bg)}
+
+/* CARD AREA */
+.card-stage{min-height:380px}
+.empty-state{
+  text-align:center;padding:60px 30px;background:var(--surface);
+  border:1px dashed var(--border);border-radius:16px;
+}
+.empty-state-icon{font-size:48px;margin-bottom:14px;opacity:0.5}
+.empty-state h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:22px;margin:0 0 8px}
+.empty-state p{color:var(--text2);font-size:14px;margin:0 0 20px;max-width:420px;margin-left:auto;margin-right:auto}
+.empty-state .start-link{
+  display:inline-block;padding:10px 18px;background:var(--accent);color:var(--bg);
+  border-radius:10px;font-weight:600;font-size:14px;
+}
+.empty-state .start-link:hover{background:var(--accent2)}
+
+/* FLASHCARD */
+.flashcard{
+  background:var(--surface);border:1px solid var(--border);border-radius:16px;
+  padding:28px 28px 24px;position:relative;
+  border-left-width:5px;
+}
+.flashcard-content{border-left-color:var(--prompt-content)}
+.flashcard-judgment{border-left-color:var(--prompt-judgment)}
+.flashcard-principle{border-left-color:var(--prompt-principle)}
+.flashcard-priority{border-left-color:var(--prompt-priority)}
+.flashcard-head{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.flashcard-tag{
+  display:inline-block;font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.12em;
+  padding:3px 9px;border-radius:5px;color:var(--bg);
+}
+.flashcard-content .flashcard-tag{background:var(--prompt-content)}
+.flashcard-judgment .flashcard-tag{background:var(--prompt-judgment)}
+.flashcard-principle .flashcard-tag{background:var(--prompt-principle)}
+.flashcard-priority .flashcard-tag{background:var(--prompt-priority)}
+.flashcard-ch{
+  font-size:11px;color:var(--text3);font-weight:600;
+  background:var(--surface2);padding:3px 8px;border-radius:5px;
+}
+.flashcard-due{
+  font-size:11px;color:var(--text2);
+  margin-left:auto;font-style:italic;
+}
+.flashcard-q{
+  font-family:'DM Serif Display',serif;font-weight:400;font-size:19px;line-height:1.4;
+  color:var(--text);margin:0 0 18px;
+}
+.flashcard-reveal{
+  background:var(--accent);color:var(--bg);
+  border:none;font-weight:600;font-size:14px;
+  padding:11px 22px;border-radius:10px;cursor:pointer;
+  transition:all .15s ease;
+  width:100%;
+}
+.flashcard-reveal:hover{background:var(--accent2)}
+.flashcard-a{
+  display:none;margin:8px 0 16px;padding:16px 18px;
+  background:var(--surface2);border-radius:10px;
+  font-size:15px;color:var(--text);line-height:1.6;
+}
+.flashcard.revealed .flashcard-a{display:block}
+.flashcard.revealed .flashcard-reveal{display:none}
+.flashcard-rating{display:none;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap}
+.flashcard.revealed .flashcard-rating{display:flex}
+.flashcard-rate{
+  flex:1;min-width:80px;background:var(--surface2);
+  border:2px solid var(--border);color:var(--text);
+  font-weight:600;font-size:13px;
+  padding:11px 12px;border-radius:10px;cursor:pointer;
+  transition:all .15s ease;
+}
+.flashcard-rate-hard:hover{border-color:var(--prompt-priority);background:var(--prompt-priority-bg);color:var(--prompt-priority)}
+.flashcard-rate-good:hover{border-color:var(--prompt-judgment);background:var(--prompt-judgment-bg);color:var(--prompt-judgment)}
+.flashcard-rate-easy:hover{border-color:var(--prompt-content);background:var(--prompt-content-bg);color:var(--prompt-content)}
+.flashcard-rate-small{display:block;font-size:10px;font-weight:500;color:var(--text3);margin-top:3px;text-transform:uppercase;letter-spacing:0.08em}
+.flashcard-footer{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:14px;padding-top:14px;border-top:1px solid var(--border-soft);
+  gap:10px;flex-wrap:wrap;
+}
+.flashcard-open{font-size:12px;color:var(--accent);font-weight:600}
+.flashcard-open:hover{color:var(--accent2)}
+.flashcard-skip{
+  background:transparent;border:1px solid var(--border-soft);color:var(--text3);
+  font-size:12px;padding:6px 12px;border-radius:7px;cursor:pointer;
+}
+.flashcard-skip:hover{color:var(--text2);border-color:var(--text3)}
+.review-progress{
+  margin-top:18px;text-align:center;font-size:12px;color:var(--text3);
+  font-variant-numeric:tabular-nums;
+}
+
+/* BROWSE LIST */
+.browse-filters{
+  display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;align-items:center;
+}
+.filter-select{
+  background:var(--surface);border:1px solid var(--border);color:var(--text);
+  font-family:'DM Sans',sans-serif;font-size:12px;
+  padding:6px 10px;border-radius:7px;
+}
+.filter-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;font-weight:600}
+.browse-list{display:flex;flex-direction:column;gap:8px}
+.browse-item{
+  padding:14px 16px;background:var(--surface);
+  border:1px solid var(--border);border-radius:10px;
+  border-left-width:4px;
+  cursor:pointer;
+  transition:all .15s ease;
+}
+.browse-item:hover{border-color:var(--accent);transform:translateY(-1px)}
+.browse-item-head{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.browse-item-q{font-size:14px;color:var(--text);font-weight:500;line-height:1.4}
+.browse-item-due{font-size:11px;color:var(--text3);margin-left:auto}
+.browse-item-due.due-now{color:var(--prompt-priority);font-weight:600}
+.browse-content{border-left-color:var(--prompt-content)}
+.browse-judgment{border-left-color:var(--prompt-judgment)}
+.browse-principle{border-left-color:var(--prompt-principle)}
+.browse-priority{border-left-color:var(--prompt-priority)}
+
+/* COMPLETION SCREEN */
+.completion{
+  text-align:center;padding:50px 30px;
+  background:var(--accent-soft);border:1px solid var(--accent);
+  border-radius:16px;
+}
+.completion-icon{font-size:48px;margin-bottom:14px}
+.completion h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:24px;margin:0 0 8px;color:var(--accent2)}
+.completion p{color:var(--text);font-size:14px;margin:0 0 14px}
+.completion-back{font-size:13px;color:var(--accent);font-weight:600}
+
+/* FOOTER */
+.footer{text-align:center;padding-top:24px;margin-top:36px;
+  border-top:1px solid var(--border-soft);font-size:12px;color:var(--text3)}
+.footer p{margin:4px 0}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="topbar">
+    <div class="topbar-brand">
+      <div class="topbar-brand-mark">E</div>
+      <span>Elevated · Flashcards</span>
+    </div>
+    <div class="topbar-links">
+      <a class="topbar-link" href="index.html">⌂ Hub</a>
+      <a class="topbar-link" href="Elevated%20ATI%20MN%20Book.html">📖 Book</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+        <span id="themeIcon">☀️</span>
+      </button>
+    </div>
+  </div>
+
+  <section class="hero">
+    <h1>Spaced <em>Repetition</em></h1>
+    <p class="hero-sub">Review cards on the SM-2 schedule. Hard returns next day, Good extends the interval, Easy boosts further.</p>
+  </section>
+
+  <div class="deck-stats">
+    <div class="deck-stat">
+      <div class="deck-stat-value due" id="statDue">0</div>
+      <div class="deck-stat-label">Due now</div>
+    </div>
+    <div class="deck-stat">
+      <div class="deck-stat-value" id="statDeck">0</div>
+      <div class="deck-stat-label">In deck</div>
+    </div>
+    <div class="deck-stat">
+      <div class="deck-stat-value zero" id="statDone">0</div>
+      <div class="deck-stat-label">Reviewed today</div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="review" type="button">Review <span class="tab-count" id="tabCountDue">0</span></button>
+    <button class="tab" data-tab="browse" type="button">Browse <span class="tab-count" id="tabCountAll">0</span></button>
+  </div>
+
+  <div class="card-stage" id="stage"></div>
+
+  <footer class="footer">
+    <p>Elevated · Maternal-Newborn Flashcards · SM-2 spaced repetition</p>
+    <p>Cards are added when you rate prompts in the chapter book.</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+
+  var SYNC_KEYS = [
+    'nur2460_atimn_progress',
+    'nur2460_atimnTemplates_progress',
+    'nur2460_fc_schedule',
+    'nur2460_theme'
+  ];
+
+  var THEME_KEY = 'nur2460_theme';
+  var FC_KEY = 'nur2460_fc_schedule';
+
+  // ===== Theme =====
+  var themeBtn = document.getElementById('themeToggle');
+  var themeIcon = document.getElementById('themeIcon');
+  function applyThemeUI(){
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (themeIcon) themeIcon.textContent = isLight ? '🌙' : '☀️';
+  }
+  try {
+    if (localStorage.getItem(THEME_KEY) === 'light') document.documentElement.setAttribute('data-theme','light');
+  } catch(e){}
+  applyThemeUI();
+  themeBtn.addEventListener('click', function(){
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (isLight) document.documentElement.removeAttribute('data-theme');
+    else document.documentElement.setAttribute('data-theme','light');
+    try { localStorage.setItem(THEME_KEY, isLight ? 'dark' : 'light'); } catch(e){}
+    applyThemeUI();
+  });
+
+  // ===== Storage =====
+  function loadSchedule(){
+    try { var raw = localStorage.getItem(FC_KEY); return raw ? JSON.parse(raw) : {}; }
+    catch(e){ return {}; }
+  }
+  function saveSchedule(s){
+    try { localStorage.setItem(FC_KEY, JSON.stringify(s)); } catch(e){}
+  }
+
+  // ===== SM-2 =====
+  function rateCard(cardId, rating){
+    var schedule = loadSchedule();
+    var card = schedule[cardId];
+    if (!card) return null;
+    if (rating >= 3){
+      if (card.reps === 0) card.interval = 1;
+      else if (card.reps === 1) card.interval = 6;
+      else card.interval = Math.round(card.interval * card.ef);
+      card.reps = (card.reps || 0) + 1;
+    } else {
+      card.reps = 0;
+      card.interval = 1;
+    }
+    card.ef = Math.max(1.3, (card.ef || 2.5) + 0.1 - (5 - rating) * (0.08 + (5 - rating) * 0.02));
+    card.nextReview = new Date(Date.now() + card.interval * 86400000).toISOString();
+    card.lastRated = new Date().toISOString();
+    schedule[cardId] = card;
+    saveSchedule(schedule);
+    return card;
+  }
+
+  // ===== State =====
+  var currentTab = 'review';
+  var reviewQueue = [];
+  var reviewIndex = 0;
+  var sessionRated = 0;
+
+  function getDeck(){
+    var schedule = loadSchedule();
+    var cards = [];
+    for (var k in schedule){
+      if (schedule[k] && schedule[k].nextReview) {
+        var card = Object.assign({ id: k }, schedule[k]);
+        cards.push(card);
+      }
+    }
+    return cards;
+  }
+
+  function getDueCards(){
+    var now = Date.now();
+    return getDeck().filter(function(c){
+      return new Date(c.nextReview).getTime() <= now;
+    });
+  }
+
+  function getReviewedToday(){
+    var todayStart = new Date(); todayStart.setHours(0,0,0,0);
+    return getDeck().filter(function(c){
+      return c.lastRated && new Date(c.lastRated).getTime() >= todayStart.getTime();
+    }).length;
+  }
+
+  function updateStats(){
+    var deck = getDeck();
+    var due = getDueCards();
+    document.getElementById('statDue').textContent = due.length;
+    document.getElementById('statDue').className = 'deck-stat-value ' + (due.length > 0 ? 'due' : 'zero');
+    document.getElementById('statDeck').textContent = deck.length;
+    document.getElementById('statDeck').className = 'deck-stat-value ' + (deck.length > 0 ? '' : 'zero');
+    document.getElementById('statDone').textContent = getReviewedToday();
+    document.getElementById('statDone').className = 'deck-stat-value ' + (getReviewedToday() > 0 ? 'zero' : 'zero');
+    document.getElementById('tabCountDue').textContent = due.length;
+    document.getElementById('tabCountAll').textContent = deck.length;
+  }
+
+  // ===== Render =====
+  function escapeHtml(s){
+    if (!s) return '';
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function dueLabel(card){
+    var ms = new Date(card.nextReview) - new Date();
+    if (ms <= 0) return 'due now';
+    var days = Math.ceil(ms / 86400000);
+    if (days === 0) return 'due today';
+    if (days === 1) return 'due tomorrow';
+    return 'due in ' + days + ' days';
+  }
+
+  function buildFlashcardHTML(card){
+    var typeKey = (card.type || 'content').toLowerCase();
+    var chLabel = (card.ch || 'ch?').toUpperCase().replace('CH','Ch ');
+    var anchor = card.anchor || card.ch || 'ch1';
+    return '' +
+      '<div class="flashcard flashcard-' + typeKey + '" data-card-id="' + card.id + '">' +
+        '<div class="flashcard-head">' +
+          '<span class="flashcard-tag">' + escapeHtml(card.type || 'CONTENT') + '</span>' +
+          '<span class="flashcard-ch">' + chLabel + '</span>' +
+          '<span class="flashcard-due">' + dueLabel(card) + '</span>' +
+        '</div>' +
+        '<div class="flashcard-q">' + (card.q || '(question not stored — re-rate in chapter book)') + '</div>' +
+        '<button class="flashcard-reveal" type="button" data-action="reveal">Reveal answer</button>' +
+        '<div class="flashcard-a">' + (card.a || '(answer not stored)') + '</div>' +
+        '<div class="flashcard-rating">' +
+          '<button class="flashcard-rate flashcard-rate-hard" type="button" data-action="rate" data-value="0">Hard<span class="flashcard-rate-small">+1 day</span></button>' +
+          '<button class="flashcard-rate flashcard-rate-good" type="button" data-action="rate" data-value="3">Good<span class="flashcard-rate-small">extend</span></button>' +
+          '<button class="flashcard-rate flashcard-rate-easy" type="button" data-action="rate" data-value="5">Easy<span class="flashcard-rate-small">boost</span></button>' +
+        '</div>' +
+        '<div class="flashcard-footer">' +
+          '<a class="flashcard-open" href="Elevated%20ATI%20MN%20Book.html#' + anchor + '" target="_blank">Open in chapter ↗</a>' +
+          '<button class="flashcard-skip" type="button" data-action="skip">Skip →</button>' +
+        '</div>' +
+      '</div>' +
+      '<div class="review-progress">Card ' + (reviewIndex + 1) + ' of ' + reviewQueue.length + ' due today · ' + sessionRated + ' rated this session</div>';
+  }
+
+  function renderReview(){
+    var stage = document.getElementById('stage');
+    reviewQueue = getDueCards();
+
+    if (reviewQueue.length === 0){
+      var deck = getDeck();
+      var icon = deck.length === 0 ? '📚' : '✨';
+      var heading = deck.length === 0 ? 'No flashcards yet' : 'All caught up!';
+      var desc = deck.length === 0
+        ? 'Open the chapter book and answer the mid-read prompts (Reveal → Hard / Good / Easy). Rated cards automatically appear here on their schedule.'
+        : 'You have ' + deck.length + ' card' + (deck.length === 1 ? '' : 's') + ' in your deck, but none are due yet. Come back later or browse the deck.';
+      stage.innerHTML =
+        '<div class="empty-state">' +
+          '<div class="empty-state-icon">' + icon + '</div>' +
+          '<h2>' + heading + '</h2>' +
+          '<p>' + desc + '</p>' +
+          (deck.length === 0 ? '<a class="start-link" href="Elevated%20ATI%20MN%20Book.html">Open chapter book →</a>' : '') +
+        '</div>';
+      return;
+    }
+
+    // Wrap reviewIndex if out of bounds (e.g., after rate the queue may shrink)
+    if (reviewIndex >= reviewQueue.length) reviewIndex = 0;
+
+    var card = reviewQueue[reviewIndex];
+    stage.innerHTML = buildFlashcardHTML(card);
+
+    var fc = stage.querySelector('.flashcard');
+    fc.addEventListener('click', function(e){
+      var action = e.target.closest('[data-action]');
+      if (!action) return;
+      var act = action.getAttribute('data-action');
+      if (act === 'reveal'){
+        fc.classList.add('revealed');
+      } else if (act === 'rate'){
+        var value = parseInt(action.getAttribute('data-value'), 10);
+        rateCard(card.id, value);
+        sessionRated++;
+        updateStats();
+        // Advance to next due card (re-fetch queue)
+        reviewQueue = getDueCards();
+        if (reviewIndex >= reviewQueue.length) reviewIndex = reviewQueue.length - 1;
+        renderReview();
+      } else if (act === 'skip'){
+        reviewIndex = (reviewIndex + 1) % reviewQueue.length;
+        renderReview();
+      }
+    });
+  }
+
+  var browseFilter = { ch: '', type: '', sort: 'due-asc' };
+
+  function renderBrowse(){
+    var stage = document.getElementById('stage');
+    var deck = getDeck();
+    if (deck.length === 0){
+      stage.innerHTML =
+        '<div class="empty-state">' +
+          '<div class="empty-state-icon">📚</div>' +
+          '<h2>No flashcards yet</h2>' +
+          '<p>Open the chapter book and answer the mid-read prompts. Rated cards will appear here.</p>' +
+          '<a class="start-link" href="Elevated%20ATI%20MN%20Book.html">Open chapter book →</a>' +
+        '</div>';
+      return;
+    }
+
+    // Get unique chapters & types for filters
+    var chs = [...new Set(deck.map(function(c){ return c.ch; }))].filter(Boolean).sort(function(a,b){
+      var na = parseInt(a.replace('ch',''), 10);
+      var nb = parseInt(b.replace('ch',''), 10);
+      return na - nb;
+    });
+    var types = [...new Set(deck.map(function(c){ return c.type; }))].filter(Boolean);
+
+    // Filter
+    var filtered = deck.filter(function(c){
+      if (browseFilter.ch && c.ch !== browseFilter.ch) return false;
+      if (browseFilter.type && c.type !== browseFilter.type) return false;
+      return true;
+    });
+
+    // Sort
+    filtered.sort(function(a,b){
+      if (browseFilter.sort === 'due-asc') return new Date(a.nextReview) - new Date(b.nextReview);
+      if (browseFilter.sort === 'due-desc') return new Date(b.nextReview) - new Date(a.nextReview);
+      if (browseFilter.sort === 'ch-asc') return (a.ch || '').localeCompare(b.ch || '', 'en', {numeric:true});
+      return 0;
+    });
+
+    var filtersHtml =
+      '<div class="browse-filters">' +
+        '<span class="filter-label">Filter:</span>' +
+        '<select class="filter-select" id="filterCh">' +
+          '<option value="">All chapters</option>' +
+          chs.map(function(c){
+            var label = c.toUpperCase().replace('CH','Ch ');
+            return '<option value="' + c + '"' + (browseFilter.ch === c ? ' selected' : '') + '>' + label + '</option>';
+          }).join('') +
+        '</select>' +
+        '<select class="filter-select" id="filterType">' +
+          '<option value="">All types</option>' +
+          types.map(function(t){
+            return '<option value="' + t + '"' + (browseFilter.type === t ? ' selected' : '') + '>' + t + '</option>';
+          }).join('') +
+        '</select>' +
+        '<select class="filter-select" id="filterSort">' +
+          '<option value="due-asc"' + (browseFilter.sort === 'due-asc' ? ' selected' : '') + '>Due first</option>' +
+          '<option value="due-desc"' + (browseFilter.sort === 'due-desc' ? ' selected' : '') + '>Furthest due</option>' +
+          '<option value="ch-asc"' + (browseFilter.sort === 'ch-asc' ? ' selected' : '') + '>Chapter order</option>' +
+        '</select>' +
+      '</div>';
+
+    var listHtml = '<div class="browse-list">' + filtered.map(function(card){
+      var typeKey = (card.type || 'content').toLowerCase();
+      var due = new Date(card.nextReview);
+      var ms = due - new Date();
+      var dueText = dueLabel(card);
+      var dueClass = ms <= 0 ? 'due-now' : '';
+      var chLabel = (card.ch || 'ch?').toUpperCase().replace('CH','Ch ');
+      return '' +
+        '<div class="browse-item browse-' + typeKey + '" data-card-id="' + card.id + '">' +
+          '<div class="browse-item-head">' +
+            '<span class="flashcard-tag">' + escapeHtml(card.type || 'CONTENT') + '</span>' +
+            '<span class="flashcard-ch">' + chLabel + '</span>' +
+            '<span class="browse-item-due ' + dueClass + '">' + dueText + '</span>' +
+          '</div>' +
+          '<div class="browse-item-q">' + (card.q || '(question not stored)') + '</div>' +
+        '</div>';
+    }).join('') + '</div>';
+
+    stage.innerHTML = filtersHtml + listHtml;
+
+    document.getElementById('filterCh').addEventListener('change', function(e){
+      browseFilter.ch = e.target.value; renderBrowse();
+    });
+    document.getElementById('filterType').addEventListener('change', function(e){
+      browseFilter.type = e.target.value; renderBrowse();
+    });
+    document.getElementById('filterSort').addEventListener('change', function(e){
+      browseFilter.sort = e.target.value; renderBrowse();
+    });
+
+    // Click on browse item: switch to review tab and show that card
+    stage.querySelectorAll('.browse-item').forEach(function(el){
+      el.addEventListener('click', function(){
+        var cardId = el.getAttribute('data-card-id');
+        var schedule = loadSchedule();
+        var card = schedule[cardId];
+        if (!card) return;
+        // Build a synthetic queue of just this card
+        reviewQueue = [Object.assign({ id: cardId }, card)];
+        reviewIndex = 0;
+        setTab('review');
+      });
+    });
+  }
+
+  // ===== Tabs =====
+  function setTab(name){
+    currentTab = name;
+    document.querySelectorAll('.tab').forEach(function(t){
+      t.classList.toggle('active', t.getAttribute('data-tab') === name);
+    });
+    if (name === 'review') renderReview();
+    else renderBrowse();
+  }
+
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click', function(){ setTab(t.getAttribute('data-tab')); });
+  });
+
+  // ===== Cross-tab sync =====
+  window.addEventListener('storage', function(e){
+    if (e.key && SYNC_KEYS.indexOf(e.key) === -1) return;
+    updateStats();
+    if (currentTab === 'review') renderReview();
+    else renderBrowse();
+  });
+  document.addEventListener('visibilitychange', function(){
+    if (!document.hidden){
+      updateStats();
+      if (currentTab === 'review') renderReview();
+      else renderBrowse();
+    }
+  });
+
+  // ===== Init =====
+  updateStats();
+  setTab('review');
+
+})();
+</script>
+</body>
+</html>
