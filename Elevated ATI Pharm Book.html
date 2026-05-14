@@ -2034,7 +2034,23 @@ article.exercise.nclex-hidden{ display: none !important }
   border-style: dashed;
   border-color: var(--text3);
 }
-</style>
+
+        /* Mobile: prevent long body text from overflowing/clipping in narrow viewports */
+        body {
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+        }
+      
+        /* Mobile: make tables horizontally scrollable when wider than viewport */
+        @media (max-width: 600px) {
+          .data-table,
+          .ati-table {
+            display: block;
+            overflow-x: auto;
+            max-width: 100%;
+          }
+        }
+      </style>
 </head>
 <body>
 
