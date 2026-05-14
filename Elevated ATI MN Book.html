@@ -25510,6 +25510,18 @@ article.exercise.nclex-hidden{ display: none !important }
     } else {
       setTimeout(updateTabFade, 50);
     }
+
+    // Set up the "Flashcards for this chapter" button
+    var fcBtn = document.getElementById('modalFcBtn');
+    if (fcBtn){
+      var chNum = (chapterId.match(/\d+/) || [''])[0];
+      fcBtn.setAttribute('data-chapter-num', chNum);
+      fcBtn.onclick = function(){
+        if (chNum){
+          window.location.href = 'Elevated%20ATI%20MN%20Flashcards.html#ch=' + chNum;
+        }
+      };
+    }
   }
 
   function closeChapterModal(){
