@@ -16,9 +16,9 @@
   --surface3:#242a40;
   --border:#2a3050;
   --border-soft:rgba(255,255,255,0.06);
-  --accent:#fb923c;
-  --accent2:#fdba74;
-  --accent-soft:rgba(251,146,60,0.12);
+  --accent:#ea580c;
+  --accent2:#c2410c;
+  --accent-soft:rgba(234,88,12,0.15);
   --text:#e8eaf2;
   --text2:#8b92b8;
   --text3:#555e85;
@@ -155,8 +155,8 @@
   --border:#d6ccb8;
   --border-soft:rgba(0,0,0,0.07);
   --accent:#ea580c;
-  --accent2:#0f766e;
-  --accent-soft:rgba(13,148,136,0.10);
+  --accent2:#c2410c;
+  --accent-soft:rgba(234,88,12,0.10);
   --text:#1e1c18;
   --text2:#5a5448;
   --text3:#9e9080;
@@ -921,6 +921,11 @@ button{font-family:'DM Sans',sans-serif}
           <button class="filter-chip" data-value="42" type="button">42</button>
           <button class="filter-chip" data-value="43" type="button">43</button>
           <button class="filter-chip" data-value="44" type="button">44</button>
+        <button class="filter-chip" data-value="45" type="button">45</button>
+        <button class="filter-chip" data-value="46" type="button">46</button>
+        <button class="filter-chip" data-value="47" type="button">47</button>
+        <button class="filter-chip" data-value="48" type="button">48</button>
+        <button class="filter-chip" data-value="49" type="button">49</button>
         </div>
       </div>
       <div class="filter-row">
@@ -2047,12 +2052,21 @@ button{font-family:'DM Sans',sans-serif}
   
   var helpBtn = document.getElementById('kbdHelpBtn');
   if (helpBtn) helpBtn.addEventListener('click', showKbdHelp);
-  var helpClose = document.getElementById('kbdHelpClose');
-  if (helpClose) helpClose.addEventListener('click', hideKbdHelp);
-  var helpOverlay = document.getElementById('kbdHelpOverlay');
-  if (helpOverlay) helpOverlay.addEventListener('click', function(e){
-    if (e.target === helpOverlay) hideKbdHelp();
-  });
+  // Wrap in DOMContentLoaded since kbdHelpClose and kbdHelpOverlay are defined AFTER
+  // this script tag in the HTML, so they don't exist at IIFE execution time
+  function _attachKbdHelpCloseListeners(){
+    var helpClose = document.getElementById('kbdHelpClose');
+    if (helpClose) helpClose.addEventListener('click', hideKbdHelp);
+    var helpOverlay = document.getElementById('kbdHelpOverlay');
+    if (helpOverlay) helpOverlay.addEventListener('click', function(e){
+      if (e.target === helpOverlay) hideKbdHelp();
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', _attachKbdHelpCloseListeners);
+  } else {
+    _attachKbdHelpCloseListeners();
+  }
   
   startSessionTimer();
   updateSessionDisplay();
