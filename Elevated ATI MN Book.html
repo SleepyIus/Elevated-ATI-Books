@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#d97706">
 <title>Elevated · ATI Maternal-Newborn Book</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,10 +16,10 @@
   --surface3:#242a40;
   --border:#2a3050;
   --border-soft:rgba(255,255,255,0.06);
-  --accent:#fb923c;
-  --accent2:#fdba74;
-  --accent-soft:rgba(251,146,60,0.12);
-  --accent-stripe-bg:rgba(251,146,60,0.25);
+  --accent:#fbbf24;
+  --accent2:#fcd34d;
+  --accent-soft:rgba(251,191,36,0.12);
+  --accent-stripe-bg:rgba(251,191,36,0.25);
   --text:#e8eaf2;
   --text2:#8b92b8;
   --text3:#555e85;
@@ -693,14 +694,25 @@ body.brief-mode .brief-banner{display:block}
   border-color:var(--accent);color:var(--accent);
 }
 .modal-controls{
-  display:flex;align-items:center;gap:14px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:8px;
   padding:10px 0 14px;
-  flex-wrap:wrap;
 }
 .modal-tabs-wrap{
-  position:relative;flex:1;min-width:0;overflow:hidden;
+  position:relative;
+  flex:1;
+  min-width:0;
+  overflow-x:auto;
+  overflow-y:hidden;
+  -webkit-overflow-scrolling:touch;
+  touch-action:pan-x;
+  scrollbar-width:none;
   transition:box-shadow .15s ease;
+  width:100%;
 }
+.modal-tabs-wrap::-webkit-scrollbar{display:none}
 .modal-tabs-wrap.shadow-right{
   box-shadow:inset -70px 0 30px -20px rgba(0,0,0,0.45);
 }
@@ -722,9 +734,10 @@ body.brief-mode .brief-banner{display:block}
              inset 70px 0 30px -20px rgba(0,0,0,0.15);
 }
 .modal-tabs{
-  overflow-x:auto;white-space:nowrap;
-  scrollbar-width:none;
-  display:flex;gap:4px;
+  display:inline-flex;
+  gap:4px;
+  white-space:nowrap;
+  flex-wrap:nowrap;
 }
 .modal-tabs::-webkit-scrollbar{display:none}
 .tab-btn{
@@ -1288,7 +1301,7 @@ button:focus-visible,a:focus-visible{
 
 /* ===== MID-READ PROMPTS ===== */
 :root{
-  --prompt-content:#fb923c; --prompt-content-bg:rgba(251,146,60,0.08);
+  --prompt-content:#fb923c; --prompt-content-bg:rgba(251,191,36,0.08);
   --prompt-judgment:#e8a838; --prompt-judgment-bg:rgba(232,168,56,0.08);
   --prompt-principle:#a78bfa; --prompt-principle-bg:rgba(167,139,250,0.10);
   --prompt-priority:#e05c6a; --prompt-priority-bg:rgba(224,92,106,0.08);
@@ -1718,18 +1731,18 @@ button:focus-visible,a:focus-visible{
   color:var(--accent);
   font-size:13px; font-weight:500;
   cursor:pointer;
-  margin-bottom:10px;
+  margin-bottom:0;
   transition:all 0.15s;
   font-family:inherit;
+  align-self:flex-start;
+  flex-shrink:0;
 }
 .modal-fc-btn:hover{
   background:var(--accent);
   color:white;
 }
 .modal-fc-btn span{font-size:13px}
-.modal-controls{
-  display:flex;flex-direction:column;gap:0;
-}
+/* Removed broken modal-controls override */
 @media (max-width:600px){
   .modal-fc-btn{ font-size:12px; padding:7px 10px }
   .modal-fc-btn span{ font-size:12px }
@@ -1984,7 +1997,7 @@ article.exercise.nclex-hidden{ display: none !important }
 /* === BATCH 4: TABLET POLISH === */
 @media (max-width: 900px) and (min-width: 601px){
   .modal{ max-width: 92vw !important }
-  .modal-tabs{ flex-wrap: wrap; gap: 4px }
+  /* .modal-tabs wrap override removed — horizontal scroll preferred */
   .modal-fc-btn{ font-size: 12px !important }
   .nclex-filter-bar{ flex-wrap: wrap; gap: 6px; font-size: 12px }
   .nclex-filter-chip{ font-size: 11px; padding: 4px 9px }
@@ -1996,14 +2009,14 @@ article.exercise.nclex-hidden{ display: none !important }
 <body>
 
 <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Toggle navigation">☰</button>
-<a class="back-home-mobile" href="index.html">Back to Hub</a>
+<a class="back-home-mobile" href="Elevated%20ATI%20MN%20Hub.html">Back to Hub</a>
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
 <div class="layout">
 
   <aside class="sidebar" id="sidebar" aria-label="Book navigation">
     <div class="sidebar-header">
-      <a class="back-home" href="index.html">Back to Hub</a>
+      <a class="back-home" href="Elevated%20ATI%20MN%20Hub.html">Back to Hub</a>
       <div class="sb-course">NUR 2460 · ATI</div>
       <div class="sb-title">Maternal Newborn</div>
       <div class="sb-sub">Edition 11 · Chunked Reference</div>
@@ -25182,11 +25195,30 @@ article.exercise.nclex-hidden{ display: none !important }
     if (themeIcon) themeIcon.textContent = isLight ? '🌙' : '☀️';
     if (themeLabel) themeLabel.textContent = isLight ? 'Dark Mode' : 'Light Mode';
   }
+  // ===== Theme persistence (unified across suite under 'nur2460_theme') =====
+  try {
+    // Salvage from older keys (one-time per browser; no-op if target already set)
+    ['elevated_theme', 'atipd_theme', 'nur2460_pharm_theme'].forEach(function(oldKey){
+      var oldVal = localStorage.getItem(oldKey);
+      if (oldVal !== null) {
+        if (localStorage.getItem('nur2460_theme') === null) {
+          localStorage.setItem('nur2460_theme', oldVal);
+        }
+        localStorage.removeItem(oldKey);
+      }
+    });
+    // Apply saved theme on load
+    if (localStorage.getItem('nur2460_theme') === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  } catch(e){}
   if (themeBtn) {
     themeBtn.addEventListener('click', function(){
       var html = document.documentElement;
-      if (html.getAttribute('data-theme') === 'light') html.removeAttribute('data-theme');
-      else html.setAttribute('data-theme', 'light');
+      var nowLight;
+      if (html.getAttribute('data-theme') === 'light') { html.removeAttribute('data-theme'); nowLight = false; }
+      else { html.setAttribute('data-theme', 'light'); nowLight = true; }
+      try { localStorage.setItem('nur2460_theme', nowLight ? 'light' : 'dark'); } catch(e){}
       applyThemeUI();
     });
     applyThemeUI();
@@ -25362,16 +25394,17 @@ article.exercise.nclex-hidden{ display: none !important }
 
   function updateTabFade(){
     if (!modalTabs || !modalTabsWrap) return;
-    var hasOverflow = modalTabs.scrollWidth > modalTabs.clientWidth;
+    // Scroll now happens on the WRAPPER element
+    var hasOverflow = modalTabsWrap.scrollWidth > modalTabsWrap.clientWidth;
     modalTabsWrap.classList.remove('shadow-left','shadow-right','shadow-both');
     if (!hasOverflow) return;
-    var atStart = modalTabs.scrollLeft <= 4;
-    var atEnd = modalTabs.scrollLeft + modalTabs.clientWidth >= modalTabs.scrollWidth - 4;
+    var atStart = modalTabsWrap.scrollLeft <= 4;
+    var atEnd = modalTabsWrap.scrollLeft + modalTabsWrap.clientWidth >= modalTabsWrap.scrollWidth - 4;
     if (!atStart && !atEnd) modalTabsWrap.classList.add('shadow-both');
     else if (!atEnd) modalTabsWrap.classList.add('shadow-right');
     else if (!atStart) modalTabsWrap.classList.add('shadow-left');
   }
-  if (modalTabs) modalTabs.addEventListener('scroll', updateTabFade);
+  if (modalTabsWrap) modalTabsWrap.addEventListener('scroll', updateTabFade);
   window.addEventListener('resize', updateTabFade);
 
   function buildTabLabel(section, index) {
@@ -26545,7 +26578,7 @@ article.exercise.nclex-hidden{ display: none !important }
   _withBookmarkInject();
 </script>
 
-
+<script>
   // ===== BATCH 3: NCLEX FILTER + ANSWERED TRACKING =====
   var NCLEX_DONE_KEY = 'nur2460_nclex_done';
   function loadNclexDone(){
@@ -26692,6 +26725,7 @@ article.exercise.nclex-hidden{ display: none !important }
     };
   }
   _withNclexInject();
+</script>
 
 <script>
 // === MID-READ FLASHCARD PROMPTS ===

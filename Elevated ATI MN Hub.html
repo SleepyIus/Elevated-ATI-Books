@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#d97706">
+<title>Elevated · Maternal-Newborn Nursing Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital,wght@0,400;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f1117;
+  --surface:#181c27;
+  --surface2:#1e2336;
+  --surface3:#242a40;
+  --border:#2a3050;
+  --border-soft:rgba(255,255,255,0.06);
+  --accent:#fbbf24;
+  --accent2:#fcd34d;
+  --accent-soft:rgba(251,191,36,0.12);
+  --text:#e8eaf2;
+  --text2:#8b92b8;
+  --text3:#555e85;
+  --shadow:0 8px 24px rgba(0,0,0,0.3);
+}
+[data-theme="light"]{
+  --bg:#faf7f2;
+  --surface:#f4f0e8;
+  --surface2:#ece6d8;
+  --surface3:#e3dccc;
+  --border:#d6ccb8;
+  --border-soft:rgba(0,0,0,0.07);
+  --accent:#ea580c;
+  --accent2:#0f766e;
+  --accent-soft:rgba(13,148,136,0.10);
+  --text:#1e1c18;
+  --text2:#5a5448;
+  --text3:#9e9080;
+  --shadow:0 8px 24px rgba(0,0,0,0.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:'DM Sans',sans-serif;font-weight:400;
+  font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  transition:background 0.25s,color 0.25s;
+  min-height:100vh;
+}
+a{color:inherit;text-decoration:none}
+
+.page{
+  max-width:1080px;margin:0 auto;
+  padding:24px 24px 80px;
+}
+@media(max-width:720px){.page{padding:18px 16px 60px}}
+
+/* TOP BAR */
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:36px;
+  padding:14px 18px;background:var(--surface);
+  border:1px solid var(--border);border-radius:14px;
+}
+.topbar-brand{
+  display:flex;align-items:center;gap:12px;
+  font-family:'DM Serif Display',serif;font-size:18px;color:var(--text);
+}
+.topbar-brand-mark{
+  width:36px;height:36px;border-radius:10px;
+  background:var(--accent);color:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'DM Sans',sans-serif;font-weight:700;font-size:13px;
+  letter-spacing:0.02em;
+}
+.theme-toggle{
+  background:var(--surface2);border:1px solid var(--border);
+  color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;
+  padding:8px 14px;border-radius:10px;
+  cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+  transition:all .15s ease;
+}
+.theme-toggle:hover{border-color:var(--accent)}
+.theme-icon{font-size:14px}
+
+/* HERO */
+.hero{
+  padding:36px 28px 32px;
+  background:linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+  border:1px solid var(--border);border-radius:18px;
+  margin-bottom:32px;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;top:0;right:0;bottom:0;width:40%;
+  background:radial-gradient(circle at top right, var(--accent-soft) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-eyebrow{
+  position:relative;font-size:11px;text-transform:uppercase;letter-spacing:0.18em;
+  color:var(--accent2);font-weight:600;margin-bottom:10px;
+}
+.hero h1{
+  position:relative;font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:42px;line-height:1.15;color:var(--text);
+  margin:0 0 12px;
+}
+.hero h1 em{font-style:italic;color:var(--accent2)}
+.hero-sub{
+  position:relative;font-size:16px;color:var(--text2);
+  max-width:640px;line-height:1.6;margin:0;
+}
+@media(max-width:600px){.hero h1{font-size:30px}.hero{padding:28px 22px}}
+
+/* STATS ROW */
+.stats{
+  display:grid;grid-template-columns:repeat(4, 1fr);gap:14px;
+  margin-bottom:36px;
+}
+@media(max-width:720px){.stats{grid-template-columns:repeat(2, 1fr)}}
+.stat{
+  padding:18px 18px;background:var(--surface);
+  border:1px solid var(--border);border-radius:12px;
+}
+.stat-value{
+  font-family:'DM Serif Display',serif;font-size:36px;line-height:1;
+  color:var(--accent2);
+}
+.stat-label{
+  font-size:12px;color:var(--text2);text-transform:uppercase;
+  letter-spacing:0.1em;margin-top:6px;font-weight:500;
+}
+
+/* SECTION HEADERS */
+.section-title{
+  font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.14em;
+  color:var(--text3);margin:0 0 14px;
+}
+
+/* PRIMARY TOOLS — 2 large cards */
+.primary-grid{
+  display:grid;grid-template-columns:repeat(3, 1fr);gap:16px;
+  margin-bottom:36px;
+}
+@media(max-width:960px){.primary-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.primary-grid{grid-template-columns:1fr}}
+.tool-card{
+  position:relative;display:block;
+  padding:24px 24px 22px;background:var(--surface);
+  border:1px solid var(--border);border-radius:16px;
+  transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+.tool-card:hover{
+  transform:translateY(-2px);
+  border-color:var(--accent);
+  box-shadow:var(--shadow);
+}
+.tool-eyebrow{
+  font-size:10px;text-transform:uppercase;letter-spacing:0.16em;
+  color:var(--accent2);font-weight:700;margin-bottom:8px;
+}
+.tool-card h2{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:24px;line-height:1.2;margin:0 0 8px;color:var(--text);
+}
+.tool-desc{font-size:14px;color:var(--text2);margin:0 0 18px;line-height:1.55}
+.tool-meta{display:flex;gap:14px;font-size:12px;color:var(--text3);margin-bottom:16px}
+.tool-meta-item strong{color:var(--text);font-weight:600}
+.progress-row{display:flex;align-items:center;gap:10px;margin-top:auto}
+.progress-bar{flex:1;height:6px;background:var(--surface3);border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:var(--accent);border-radius:3px;transition:width .35s ease;width:0%}
+.progress-text{font-size:12px;color:var(--text2);font-weight:500;min-width:64px;text-align:right}
+.tool-cta{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:16px;font-size:13px;color:var(--accent);font-weight:600;
+}
+.tool-card:hover .tool-cta{color:var(--accent2)}
+.tool-cta::after{content:"→";transition:transform .15s ease}
+.tool-card:hover .tool-cta::after{transform:translateX(2px)}
+
+/* UNITS BREAKDOWN */
+.units-grid{
+  display:grid;grid-template-columns:repeat(4, 1fr);gap:12px;
+  margin-bottom:36px;
+}
+@media(max-width:720px){.units-grid{grid-template-columns:repeat(2, 1fr)}}
+.unit-card{
+  padding:16px 16px 18px;background:var(--surface);
+  border:1px solid var(--border);border-radius:12px;
+  transition:border-color .15s ease;
+}
+.unit-card:hover{border-color:var(--accent)}
+.unit-num{
+  font-size:10px;text-transform:uppercase;letter-spacing:0.14em;
+  color:var(--text3);font-weight:600;
+}
+.unit-card h3{
+  font-family:'DM Serif Display',serif;font-weight:400;
+  font-size:18px;margin:4px 0 8px;color:var(--text);
+}
+.unit-range{font-size:12px;color:var(--text2)}
+.unit-progress{margin-top:12px}
+.unit-progress-bar{height:4px;background:var(--surface3);border-radius:2px;overflow:hidden}
+.unit-progress-fill{height:100%;background:var(--accent);width:0%;transition:width .35s ease}
+.unit-progress-text{font-size:11px;color:var(--text3);margin-top:6px}
+
+/* TEMPLATE TYPES BREAKDOWN */
+.types-grid{
+  display:grid;grid-template-columns:repeat(2, 1fr);gap:10px;
+  margin-bottom:36px;
+}
+@media(max-width:720px){.types-grid{grid-template-columns:1fr}}
+.type-row{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 18px;background:var(--surface);
+  border:1px solid var(--border);border-radius:10px;
+  transition:border-color .15s ease;
+}
+.type-row:hover{border-color:var(--accent)}
+.type-row.pending{opacity:0.6}
+.type-page{
+  font-size:11px;color:var(--text3);font-weight:600;
+  background:var(--surface3);padding:3px 8px;border-radius:6px;
+  font-variant-numeric:tabular-nums;
+}
+.type-name{flex:1;font-size:14px;color:var(--text);font-weight:500}
+.type-count{
+  font-size:13px;color:var(--accent2);font-weight:600;
+  font-variant-numeric:tabular-nums;
+}
+.type-row.pending .type-count{color:var(--text3);font-style:italic;font-weight:400}
+
+/* FUTURE TOOLS */
+.future-card{
+  padding:20px 22px;background:var(--surface);
+  border:1px dashed var(--border);border-radius:12px;
+  margin-bottom:36px;
+}
+.future-card h3{
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.12em;color:var(--text2);
+  margin:0 0 12px;
+}
+.future-list{
+  display:flex;flex-wrap:wrap;gap:8px;
+  list-style:none;padding:0;margin:0;
+}
+.future-list li{
+  font-size:12px;color:var(--text3);
+  padding:5px 11px;background:var(--surface2);
+  border:1px solid var(--border-soft);border-radius:6px;
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;padding-top:28px;
+  border-top:1px solid var(--border-soft);
+  font-size:12px;color:var(--text3);
+}
+.footer p{margin:4px 0}
+
+
+/* REVIEW QUEUE WIDGET */
+.review-queue{
+  margin-bottom:24px;padding:18px 22px;
+  background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  display:flex;align-items:center;gap:18px;
+  transition:border-color .2s ease;
+}
+.review-queue.has-due{border-color:var(--accent);background:var(--accent-soft)}
+.review-queue.empty{opacity:0.7}
+.review-queue-icon{
+  width:46px;height:46px;border-radius:11px;background:var(--surface2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;flex-shrink:0;
+}
+.review-queue.has-due .review-queue-icon{background:var(--accent);color:var(--bg)}
+.review-queue-body{flex:1;min-width:0}
+.review-queue-title{font-family:'DM Serif Display',serif;font-size:18px;color:var(--text);margin:0 0 2px}
+.review-queue-sub{font-size:13px;color:var(--text2)}
+.review-queue-count{
+  font-family:'DM Serif Display',serif;font-size:32px;color:var(--accent2);
+  line-height:1;margin-right:6px;
+}
+.review-queue.empty .review-queue-count{color:var(--text3)}
+
+/* STORAGE TOOLS PANEL */
+.storage-panel{
+  margin-top:32px;padding:18px 22px;
+  background:var(--surface);border:1px solid var(--border-soft);border-radius:12px;
+}
+.storage-panel-head{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  cursor:pointer;user-select:none;
+}
+.storage-panel-title{
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.12em;color:var(--text2);margin:0;
+}
+.storage-panel-caret{font-size:14px;color:var(--text3);transition:transform .2s ease}
+.storage-panel.open .storage-panel-caret{transform:rotate(90deg)}
+.storage-panel-body{display:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--border-soft)}
+.storage-panel.open .storage-panel-body{display:block}
+.storage-actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+.storage-btn{
+  background:var(--surface2);border:1px solid var(--border);color:var(--text);
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;
+  padding:8px 14px;border-radius:8px;cursor:pointer;
+  transition:all .15s ease;
+}
+.storage-btn:hover{border-color:var(--accent);color:var(--accent)}
+.storage-btn.danger:hover{border-color:var(--prompt-priority, #e05c6a);color:var(--prompt-priority, #e05c6a)}
+.storage-status{font-size:12px;color:var(--text3);font-style:italic;margin-top:6px;min-height:18px}
+.storage-keys-list{
+  font-size:11px;color:var(--text3);font-family:'SF Mono', Menlo, monospace;
+  background:var(--surface2);padding:8px 12px;border-radius:6px;
+  margin-top:8px;line-height:1.6;
+}
+.storage-keys-list span{display:block}
+
+/* Use same accent colors for prompt types if shown anywhere on hub */
+:root{--prompt-priority:#e05c6a}
+[data-theme="light"]{--prompt-priority:#c0384a}
+
+/* Pick up where you left off */
+.pickup-panel{
+  margin: 0 0 30px;
+  padding: 18px 20px;
+  background: linear-gradient(135deg, var(--surface), var(--surface2));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.pickup-panel[hidden]{display:none}
+.pickup-head{
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom: 14px;
+}
+.pickup-head h3{
+  margin:0;
+  font-family:'DM Serif Display', serif;
+  font-weight:400;
+  font-size:18px;
+  color:var(--text);
+}
+.pickup-dismiss{
+  background:transparent;border:none;color:var(--text2);
+  font-size:20px;cursor:pointer;padding:0;width:28px;height:28px;
+  border-radius:6px;
+}
+.pickup-dismiss:hover{background:var(--surface2);color:var(--text)}
+.pickup-cards{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.pickup-card{
+  display:flex; align-items:center; gap:12px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration:none;
+  color:var(--text);
+  transition:all 0.15s;
+}
+.pickup-card:hover{
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.pickup-card[hidden]{display:none}
+.pickup-icon{font-size:24px; line-height:1; flex-shrink:0}
+.pickup-text{flex:1;min-width:0}
+.pickup-label{
+  font-size:11px; color:var(--text2);
+  text-transform:uppercase; letter-spacing:0.04em;
+  margin-bottom:3px;
+}
+.pickup-value{
+  font-size:14px; font-weight:500; color:var(--text);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+
+
+/* === BATCH 4: TABLET POLISH === */
+@media (max-width: 900px) and (min-width: 601px){
+  .stats{
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+    gap: 10px !important;
+  }
+  .stat-value{ font-size: 28px !important }
+  .stat-label{ font-size: 12px !important }
+  .pickup-cards{
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .tool-card{ padding: 18px !important }
+}
+@media (max-width: 600px){
+  .pickup-cards{ grid-template-columns: 1fr !important }
+}
+
+
+/* Home link in topbar */
+.topbar-left{display:flex;align-items:center;gap:14px;min-width:0}
+.topbar-home{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:12px;font-weight:600;color:var(--text3);
+  text-decoration:none;
+  padding:6px 10px;border-radius:6px;
+  border:1px solid var(--border);
+  transition:all .15s ease;
+  white-space:nowrap;
+  font-family:inherit;
+}
+.topbar-home:hover{
+  border-color:var(--accent);
+  color:var(--accent);
+}
+@media (max-width:600px){
+  .topbar-home span{display:none}
+}
+
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <a class="topbar-home" href="index.html" title="Back to all subjects">← <span>Home</span></a>
+    <div class="topbar-brand">
+      <div class="topbar-brand-mark">MN</div>
+      <span>Elevated · MN Hub</span>
+    </div>
+    </div>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+      <span class="theme-icon" id="themeIcon">☀️</span>
+      <span id="themeLabel">Light Mode</span>
+    </button>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">Elevated · ATI Maternal-Newborn Companion</div>
+    <h1>Maternal-Newborn<br><em>Nursing Care</em></h1>
+    <p class="hero-sub">
+      A chapter-by-chapter reference and worked-template companion for the ATI RN Maternal Newborn Nursing review module. Built for fast lookup, focused study, and exam preparation.
+    </p>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stat">
+      <div class="stat-value">27</div>
+      <div class="stat-label">Chapters</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">4</div>
+      <div class="stat-label">Units</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">105</div>
+      <div class="stat-label">Worked Templates</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">8</div>
+      <div class="stat-label">Template Types</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">122</div>
+      <div class="stat-label">Starter Cards</div>
+    </div>
+  </section>
+
+  <section class="pickup-panel" id="pickupPanel" hidden>
+    <div class="pickup-head">
+      <h3>▶ Pick up where you left off</h3>
+      <button class="pickup-dismiss" id="pickupDismiss" type="button" title="Hide this panel">×</button>
+    </div>
+    <div class="pickup-cards">
+      <a class="pickup-card" id="pickupBook" href="#" hidden>
+        <div class="pickup-icon">📖</div>
+        <div class="pickup-text">
+          <div class="pickup-label">Continue reading</div>
+          <div class="pickup-value" id="pickupBookValue">—</div>
+        </div>
+      </a>
+      <a class="pickup-card" id="pickupFc" href="Elevated%20ATI%20MN%20Flashcards.html" hidden>
+        <div class="pickup-icon">🃏</div>
+        <div class="pickup-text">
+          <div class="pickup-label">Review queue</div>
+          <div class="pickup-value" id="pickupFcValue">—</div>
+        </div>
+      </a>
+      <a class="pickup-card" id="pickupTpl" href="#" hidden>
+        <div class="pickup-icon">📋</div>
+        <div class="pickup-text">
+          <div class="pickup-label">Last template</div>
+          <div class="pickup-value" id="pickupTplValue">—</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+
+
+  <!-- REVIEW QUEUE -->
+  <div class="review-queue empty" id="reviewQueue">
+    <div class="review-queue-icon" id="reviewIcon">📚</div>
+    <div class="review-queue-body">
+      <h3 class="review-queue-title">
+        <span class="review-queue-count" id="dueCount">0</span>
+        <span id="dueLabel">no cards yet</span>
+      </h3>
+      <div class="review-queue-sub" id="dueSub">Answer prompts in the chapter book to start building your review deck.</div>
+    </div>
+  </div>
+
+  <!-- PRIMARY TOOLS -->
+  <div class="section-title">Primary tools</div>
+  <section class="primary-grid">
+
+    <a class="tool-card" href="Elevated%20ATI%20MN%20Book.html">
+      <div class="tool-eyebrow">Reference · 27 chapters</div>
+      <h2>ATI Chapter Book</h2>
+      <p class="tool-desc">
+        Full chapter-by-chapter content from the ATI review module — antepartum care through newborn complications. Each chapter has a TL;DR, condition cards, mnemonics, and an Active Learning Scenario.
+      </p>
+      <div class="tool-meta">
+        <span class="tool-meta-item"><strong>4</strong> units</span>
+        <span class="tool-meta-item"><strong>27</strong> chapters</span>
+        <span class="tool-meta-item"><strong>10</strong> pp avg / ch</span>
+      </div>
+      <div class="progress-row">
+        <div class="progress-bar"><div class="progress-fill" id="bookProgress"></div></div>
+        <div class="progress-text" id="bookProgressText">0 / 27 read</div>
+      </div>
+      <div class="tool-cta">Open chapter book</div>
+    </a>
+
+    <a class="tool-card" href="Elevated%20ATI%20MN%20Templates.html">
+      <div class="tool-eyebrow">Practice · 43 worked examples</div>
+      <h2>ATI Templates</h2>
+      <p class="tool-desc">
+        Worked examples for all six populated ATI Active Learning Template types — Basic Concept, Diagnostic Procedure, Medication, System Disorder, Therapeutic Procedure, Growth &amp; Development. Each example is cross-linked to its chapter.
+      </p>
+      <div class="tool-meta">
+        <span class="tool-meta-item"><strong>8</strong> types</span>
+        <span class="tool-meta-item"><strong>85</strong> examples</span>
+        <span class="tool-meta-item"><strong>0</strong> pending</span>
+      </div>
+      <div class="progress-row">
+        <div class="progress-bar"><div class="progress-fill" id="tplProgress"></div></div>
+        <div class="progress-text" id="tplProgressText">0 / 43 studied</div>
+      </div>
+      <div class="tool-cta">Open templates</div>
+    </a>
+
+    <a class="tool-card" href="Elevated%20ATI%20MN%20Flashcards.html">
+      <div class="tool-eyebrow">Review · spaced repetition</div>
+      <h2>Flashcards</h2>
+      <p class="tool-desc">
+        Spaced-repetition review for every prompt you've rated in the chapter book. Cards return on the SM-2 schedule — Hard returns next day, Good extends the interval, Easy boosts it further.
+      </p>
+      <div class="tool-meta">
+        <span class="tool-meta-item"><strong id="fcMetaDeck">0</strong> in deck</span>
+        <span class="tool-meta-item"><strong id="fcMetaDue">0</strong> due now</span>
+        <span class="tool-meta-item"><strong>SM-2</strong> algorithm</span>
+      </div>
+      <div class="progress-row">
+        <div class="progress-bar"><div class="progress-fill" id="fcProgress"></div></div>
+        <div class="progress-text" id="fcProgressText">no deck yet</div>
+      </div>
+      <div class="tool-cta">Open flashcards</div>
+    </a>
+
+  </section>
+
+  <!-- UNITS BREAKDOWN -->
+  <div class="section-title">Units · chapter book</div>
+  <section class="units-grid">
+
+    <a class="unit-card" href="Elevated%20ATI%20MN%20Book.html#ch1" data-unit="unit1">
+      <div class="unit-num">Unit 1</div>
+      <h3>Antepartum</h3>
+      <div class="unit-range">Ch 1 – 10</div>
+      <div class="unit-progress">
+        <div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit1"></div></div>
+        <div class="unit-progress-text" data-unit-text="unit1">0 / 10 read</div>
+      </div>
+    </a>
+
+    <a class="unit-card" href="Elevated%20ATI%20MN%20Book.html#ch11" data-unit="unit2">
+      <div class="unit-num">Unit 2</div>
+      <h3>Intrapartum</h3>
+      <div class="unit-range">Ch 11 – 16</div>
+      <div class="unit-progress">
+        <div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit2"></div></div>
+        <div class="unit-progress-text" data-unit-text="unit2">0 / 6 read</div>
+      </div>
+    </a>
+
+    <a class="unit-card" href="Elevated%20ATI%20MN%20Book.html#ch17" data-unit="unit3">
+      <div class="unit-num">Unit 3</div>
+      <h3>Postpartum</h3>
+      <div class="unit-range">Ch 17 – 22</div>
+      <div class="unit-progress">
+        <div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit3"></div></div>
+        <div class="unit-progress-text" data-unit-text="unit3">0 / 6 read</div>
+      </div>
+    </a>
+
+    <a class="unit-card" href="Elevated%20ATI%20MN%20Book.html#ch23" data-unit="unit4">
+      <div class="unit-num">Unit 4</div>
+      <h3>Newborn</h3>
+      <div class="unit-range">Ch 23 – 27</div>
+      <div class="unit-progress">
+        <div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit4"></div></div>
+        <div class="unit-progress-text" data-unit-text="unit4">0 / 5 read</div>
+      </div>
+    </a>
+
+  </section>
+
+  <!-- TEMPLATE TYPES -->
+  <div class="section-title">Template types</div>
+  <section class="types-grid">
+
+    <a class="type-row" href="Elevated%20ATI%20MN%20Templates.html#basic-concept-acc">
+      <span class="type-page">A1</span>
+      <span class="type-name">Basic Concept</span>
+      <span class="type-count">14 examples</span>
+    </a>
+
+    <a class="type-row" href="Elevated%20ATI%20MN%20Templates.html#diagnostic-procedure-acc">
+      <span class="type-page">A3</span>
+      <span class="type-name">Diagnostic Procedure</span>
+      <span class="type-count">5 examples</span>
+    </a>
+
+    <a class="type-row" href="Elevated%20ATI%20MN%20Templates.html#growth-development-acc">
+      <span class="type-page">A5</span>
+      <span class="type-name">Growth and Development</span>
+      <span class="type-count">1 example</span>
+    </a>
+
+    <a class="type-row" href="Elevated%20ATI%20MN%20Templates.html#medication-acc">
+      <span class="type-page">A7</span>
+      <span class="type-name">Medication</span>
+      <span class="type-count">13 examples</span>
+    </a>
+
+    <a class="type-row" href="Elevated%20ATI%20MN%20Templates.html#nursing-skill-acc">
+      <span class="type-page">A9</span>
+      <span class="type-name">Nursing Skill</span>
+      <span class="type-count">6 examples</span>
+    </a>
+
+    <a class="type-row" href="Elevated%20ATI%20MN%20Templates.html#system-disorder-acc">
+      <span class="type-page">A11</span>
+      <span class="type-name">System Disorder</span>
+      <span class="type-count">32 examples</span>
+    </a>
+
+    <a class="type-row" href="Elevated%20ATI%20MN%20Templates.html#therapeutic-procedure-acc">
+      <span class="type-page">A13</span>
+      <span class="type-name">Therapeutic Procedure</span>
+      <span class="type-count">12 examples</span>
+    </a>
+
+    <a class="type-row" href="Elevated%20ATI%20MN%20Templates.html#concept-analysis-acc">
+      <span class="type-page">A15</span>
+      <span class="type-name">Concept Analysis</span>
+      <span class="type-count">2 examples</span>
+    </a>
+
+  </section>
+
+  <!-- FUTURE TOOLS -->
+  <div class="future-card">
+    <h3>Planned additions</h3>
+    <ul class="future-list">
+      <li>Mid-read prompts (CONTENT/JUDGMENT/PRINCIPLE/PRIORITY)</li>
+      <li>Spaced-repetition flashcards</li>
+      <li>Pediatric ATI companion</li>
+      <li>Community ATI companion</li>
+    </ul>
+  </div>
+
+
+  <!-- STORAGE TOOLS -->
+  <div class="storage-panel" id="storagePanel">
+    <div class="storage-panel-head" id="storagePanelHead">
+      <h3 class="storage-panel-title">Sync &amp; storage</h3>
+      <span class="storage-panel-caret">▸</span>
+    </div>
+    <div class="storage-panel-body">
+      <div class="storage-actions">
+        <button class="storage-btn" id="exportBtn" type="button">⬇ Export backup</button>
+        <button class="storage-btn" id="importBtn" type="button">⬆ Import backup</button>
+        <button class="storage-btn danger" id="resetBtn" type="button">⌫ Reset all progress</button>
+        <input type="file" id="importFile" accept="application/json" style="display:none">
+      </div>
+      <div class="storage-status" id="storageStatus">Click a button to manage your local data.</div>
+      <div class="storage-keys-list" id="storageKeysList"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Elevated · Maternal-Newborn Nursing · ATI RN Companion · 11th Edition</p>
+    <p>Built for sleepyius.github.io/NUR2460/</p>
+  </footer>
+
+</div><!-- /page -->
+
+<script>
+(function(){
+
+  // ===== Hub storage keys (single source of truth) =====
+  var SYNC_KEYS = [
+    'nur2460_atimn_progress',
+    'nur2460_atimnTemplates_progress',
+    'nur2460_fc_schedule',
+    'nur2460_theme'
+  ];
+
+  // ===== Theme toggle =====
+  var THEME_KEY = 'nur2460_theme';
+  var themeBtn = document.getElementById('themeToggle');
+  var themeIcon = document.getElementById('themeIcon');
+  var themeLabel = document.getElementById('themeLabel');
+  function applyThemeUI(){
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (themeIcon) themeIcon.textContent = isLight ? '🌙' : '☀️';
+    if (themeLabel) themeLabel.textContent = isLight ? 'Dark Mode' : 'Light Mode';
+  }
+  try {
+    var savedTheme = localStorage.getItem(THEME_KEY);
+    if (savedTheme === 'light') document.documentElement.setAttribute('data-theme','light');
+  } catch(e){}
+  applyThemeUI();
+  if (themeBtn) themeBtn.addEventListener('click', function(){
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (isLight) document.documentElement.removeAttribute('data-theme');
+    else document.documentElement.setAttribute('data-theme','light');
+    try { localStorage.setItem(THEME_KEY, isLight ? 'dark' : 'light'); } catch(e){}
+    applyThemeUI();
+  });
+
+  // ===== Storage utilities =====
+  function loadJson(key){
+    try { var raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : {}; }
+    catch(e){ return {}; }
+  }
+  function countChecked(state){
+    var c = 0;
+    for (var k in state){ if (state[k] === 'checked') c++; }
+    return c;
+  }
+
+  // ===== Reading progress (chapter book) =====
+  var BOOK_KEY = 'nur2460_atimn_progress';
+  var TPL_KEY  = 'nur2460_atimnTemplates_progress';
+  var FC_KEY   = 'nur2460_fc_schedule';
+
+  var unitChapters = {
+    unit1: ['ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8','ch9','ch10'],
+    unit2: ['ch11','ch12','ch13','ch14','ch15','ch16'],
+    unit3: ['ch17','ch18','ch19','ch20','ch21','ch22'],
+    unit4: ['ch23','ch24','ch25','ch26','ch27']
+  };
+
+  function countDueCards(){
+    var schedule = loadJson(FC_KEY);
+    var now = Date.now();
+    var due = 0, total = 0, scheduled = 0;
+    for (var k in schedule){
+      total++;
+      if (schedule[k] && schedule[k].nextReview){
+        scheduled++;
+        if (new Date(schedule[k].nextReview).getTime() <= now) due++;
+      }
+    }
+    return { due: due, scheduled: scheduled, total: total };
+  }
+
+  function updateProgressUI(){
+    var bookState = loadJson(BOOK_KEY);
+    var tplState  = loadJson(TPL_KEY);
+
+    // Top tool cards
+    var allChapters = [].concat(unitChapters.unit1, unitChapters.unit2, unitChapters.unit3, unitChapters.unit4);
+    var bookChecked = 0;
+    allChapters.forEach(function(id){ if (bookState[id] === 'checked') bookChecked++; });
+    var tplChecked = countChecked(tplState);
+
+    var bp  = document.getElementById('bookProgress');
+    var bpt = document.getElementById('bookProgressText');
+    if (bp)  bp.style.width = (bookChecked / 27 * 100) + '%';
+    if (bpt) bpt.textContent = bookChecked + ' / 27 read';
+
+    var tp  = document.getElementById('tplProgress');
+    var tpt = document.getElementById('tplProgressText');
+    if (tp)  tp.style.width = (tplChecked / 43 * 100) + '%';
+    if (tpt) tpt.textContent = tplChecked + ' / 43 studied';
+
+    // Flashcards tool card
+    var fcStats = countDueCards();
+    var fcDeck = document.getElementById('fcMetaDeck');
+    var fcDue = document.getElementById('fcMetaDue');
+    var fcP = document.getElementById('fcProgress');
+    var fcPT = document.getElementById('fcProgressText');
+    if (fcDeck) fcDeck.textContent = fcStats.scheduled;
+    if (fcDue) fcDue.textContent = fcStats.due;
+    if (fcP) fcP.style.width = (fcStats.scheduled === 0 ? 0 : ((fcStats.scheduled - fcStats.due) / fcStats.scheduled * 100)) + '%';
+    if (fcPT) {
+      if (fcStats.scheduled === 0) fcPT.textContent = 'no deck yet';
+      else if (fcStats.due === 0) fcPT.textContent = 'all caught up';
+      else fcPT.textContent = fcStats.due + ' due now';
+    }
+
+    // Unit cards
+    Object.keys(unitChapters).forEach(function(uid){
+      var chapters = unitChapters[uid];
+      var checked = 0;
+      chapters.forEach(function(id){ if (bookState[id] === 'checked') checked++; });
+      var bar = document.querySelector('[data-unit-bar="' + uid + '"]');
+      var txt = document.querySelector('[data-unit-text="' + uid + '"]');
+      if (bar) bar.style.width = (checked / chapters.length * 100) + '%';
+      if (txt) txt.textContent = checked + ' / ' + chapters.length + ' read';
+    });
+
+    // Review queue
+    var stats = countDueCards();
+    var queueEl = document.getElementById('reviewQueue');
+    var icon    = document.getElementById('reviewIcon');
+    var cnt     = document.getElementById('dueCount');
+    var label   = document.getElementById('dueLabel');
+    var sub     = document.getElementById('dueSub');
+
+    if (stats.scheduled === 0){
+      queueEl.className = 'review-queue empty';
+      icon.textContent = '📚';
+      cnt.textContent = '0';
+      label.textContent = 'no cards yet';
+      sub.textContent = 'Answer prompts in the chapter book to start building your review deck.';
+    } else if (stats.due === 0){
+      queueEl.className = 'review-queue';
+      icon.textContent = '✓';
+      cnt.textContent = '0';
+      label.textContent = 'cards due today';
+      sub.textContent = 'All caught up. ' + stats.scheduled + ' card' + (stats.scheduled === 1 ? '' : 's') + ' total in your review deck.';
+    } else {
+      queueEl.className = 'review-queue has-due';
+      icon.textContent = '🎯';
+      cnt.textContent = stats.due;
+      label.textContent = stats.due === 1 ? 'card due today' : 'cards due today';
+      sub.textContent = stats.scheduled + ' card' + (stats.scheduled === 1 ? '' : 's') + ' in your deck · review them in the chapter where they appear.';
+    }
+      updatePickupPanel();
+  }
+
+  updateProgressUI();
+
+  // ===== Cross-tab sync — refresh UI on any SYNC_KEY change =====
+  window.addEventListener('storage', function(e){
+    if (e.key && SYNC_KEYS.indexOf(e.key) === -1) return;
+    updateProgressUI();
+  });
+  document.addEventListener('visibilitychange', function(){
+    if (!document.hidden) updateProgressUI();
+  });
+
+  // ===== Storage tools panel =====
+  var panel = document.getElementById('storagePanel');
+  var panelHead = document.getElementById('storagePanelHead');
+  var status = document.getElementById('storageStatus');
+  var keysList = document.getElementById('storageKeysList');
+
+  function renderKeysList(){
+    if (!keysList) return;
+    var html = '';
+    SYNC_KEYS.forEach(function(k){
+      var v = localStorage.getItem(k);
+      var size = v ? new Blob([v]).size : 0;
+      var bytes = size < 1024 ? size + ' B' : (size / 1024).toFixed(1) + ' KB';
+      html += '<span>' + k + ' · ' + (v ? bytes : 'empty') + '</span>';
+    });
+    keysList.innerHTML = html;
+  }
+  renderKeysList();
+
+  if (panelHead) panelHead.addEventListener('click', function(){
+    panel.classList.toggle('open');
+    if (panel.classList.contains('open')) renderKeysList();
+  });
+
+  // Export backup
+  var exportBtn = document.getElementById('exportBtn');
+  if (exportBtn) exportBtn.addEventListener('click', function(){
+    var backup = { _meta: { source: 'Elevated MN hub', exportedAt: new Date().toISOString() } };
+    SYNC_KEYS.forEach(function(k){
+      var v = localStorage.getItem(k);
+      backup[k] = v ? JSON.parse(v) : null;
+    });
+    var blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'nur2460-backup-' + new Date().toISOString().slice(0,10) + '.json';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    status.textContent = '✓ Backup downloaded.';
+  });
+
+  // Import backup
+  var importBtn = document.getElementById('importBtn');
+  var importFile = document.getElementById('importFile');
+  if (importBtn) importBtn.addEventListener('click', function(){ importFile.click(); });
+  if (importFile) importFile.addEventListener('change', function(e){
+    var file = e.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function(ev){
+      try {
+        var backup = JSON.parse(ev.target.result);
+        var restored = 0;
+        SYNC_KEYS.forEach(function(k){
+          if (backup[k] !== undefined && backup[k] !== null){
+            localStorage.setItem(k, typeof backup[k] === 'string' ? backup[k] : JSON.stringify(backup[k]));
+            restored++;
+          }
+        });
+        status.textContent = '✓ Restored ' + restored + ' key(s) from backup.';
+        updateProgressUI();
+        renderKeysList();
+      } catch(err){
+        status.textContent = '✗ Invalid backup file.';
+      }
+    };
+    reader.readAsText(file);
+    importFile.value = '';
+  });
+
+  // Reset all
+  var resetBtn = document.getElementById('resetBtn');
+  if (resetBtn) resetBtn.addEventListener('click', function(){
+    if (!confirm('Erase ALL local progress for NUR 2460 (chapter book, templates, flashcards, theme)? This cannot be undone.')) return;
+    SYNC_KEYS.forEach(function(k){ try { localStorage.removeItem(k); } catch(e){} });
+    status.textContent = '✓ All progress cleared.';
+    // Reset theme to dark (default)
+    document.documentElement.removeAttribute('data-theme');
+    applyThemeUI();
+    updateProgressUI();
+    renderKeysList();
+  });
+
+
+  // ===== BATCH 2: Pick up where you left off =====
+  var LAST_CH_KEY_HUB = 'nur2460_last_chapter';
+  var LAST_TPL_KEY_HUB = 'nur2460_last_template';
+  var PICKUP_DISMISS_KEY = 'nur2460_pickup_dismissed';
+  
+  function updatePickupPanel(){
+    var panel = document.getElementById('pickupPanel');
+    if (!panel) return;
+    
+    // Honor dismissal for this session (sessionStorage so reappears on next visit)
+    try {
+      if (sessionStorage.getItem(PICKUP_DISMISS_KEY) === '1'){
+        panel.hidden = true;
+        return;
+      }
+    } catch(e){}
+    
+    var fcStats = countDueCards();
+    var lastCh = loadJson(LAST_CH_KEY_HUB);
+    var lastTpl = loadJson(LAST_TPL_KEY_HUB);
+    
+    var hasAny = false;
+    
+    // Book card
+    var bookCard = document.getElementById('pickupBook');
+    var bookValue = document.getElementById('pickupBookValue');
+    if (lastCh && lastCh.id && lastCh.name){
+      bookCard.href = 'Elevated%20ATI%20MN%20Book.html#' + lastCh.id;
+      bookValue.textContent = 'Ch ' + (lastCh.id.replace('ch','')) + ': ' + lastCh.name;
+      bookCard.hidden = false;
+      hasAny = true;
+    }
+    
+    // Flashcards card  
+    var fcCard = document.getElementById('pickupFc');
+    var fcValue = document.getElementById('pickupFcValue');
+    if (fcStats.scheduled > 0){
+      if (fcStats.due > 0){
+        fcValue.textContent = fcStats.due + ' card' + (fcStats.due === 1 ? '' : 's') + ' due now';
+      } else {
+        fcValue.textContent = 'All caught up · ' + fcStats.scheduled + ' in deck';
+      }
+      fcCard.hidden = false;
+      hasAny = true;
+    } else {
+      // Show "load starter deck" prompt
+      fcValue.textContent = 'Load starter deck →';
+      fcCard.hidden = false;
+      hasAny = true;
+    }
+    
+    // Template card
+    var tplCard = document.getElementById('pickupTpl');
+    var tplValue = document.getElementById('pickupTplValue');
+    if (lastTpl && lastTpl.id && lastTpl.name){
+      tplCard.href = 'Elevated%20ATI%20MN%20Templates.html#' + lastTpl.id;
+      tplValue.textContent = lastTpl.name;
+      tplCard.hidden = false;
+      hasAny = true;
+    }
+    
+    panel.hidden = !hasAny;
+    
+    // Wire dismiss button
+    var dismiss = document.getElementById('pickupDismiss');
+    if (dismiss && !dismiss._wired){
+      dismiss._wired = true;
+      dismiss.addEventListener('click', function(){
+        try { sessionStorage.setItem(PICKUP_DISMISS_KEY, '1'); } catch(e){}
+        panel.hidden = true;
+      });
+    }
+  }
+
+  updatePickupPanel();
+  })();
+</script>
+
+</body>
+</html>
