@@ -768,6 +768,22 @@ a{color:inherit;text-decoration:none}
   var BOOK_KEY = 'nur2460_atimn_progress';
   var TPL_KEY  = 'nur2460_atimnTemplates_progress';
   var FC_KEY   = 'nur2460_fc_schedule';
+  // ===== Valid card IDs for this subject's deck (from STARTER_DECK) =====
+  // Filters the shared schedule against stale entries left over from prior
+  // subjects sharing the same localStorage key (e.g. PD orphans in nur2460_fc_schedule).
+  var VALID_IDS = new Set(['fc-ch1-naegele','fc-ch1-spinnbarkeit','fc-ch1-aches','fc-ch1-pains','fc-ch1-ec','fc-ch2-semen','fc-ch2-hsg','fc-ch2-art','fc-ch3-naegele','fc-ch3-presumptive','fc-ch3-probable','fc-ch3-positive','fc-ch3-hcg','fc-ch3-fundal','fc-ch4-schedule','fc-ch4-organogenesis','fc-ch4-labs','fc-ch5-calories','fc-ch5-folate','fc-ch5-iron','fc-ch5-pku','fc-ch5-caffeine','fc-ch6-bpp','fc-ch6-bpp-score','fc-ch6-ultrasound','fc-ch6-msafp','fc-ch6-ls','fc-ch7-ectopic','fc-ch7-sab','fc-ch7-mole','fc-ch7-mole-fu','fc-ch8-hiv-delivery','fc-ch8-torch','fc-ch8-syphilis','fc-ch8-cmv','fc-ch9-cerclage','fc-ch9-hyperemesis','fc-ch9-anemia','fc-ch9-sickle','fc-ch10-ffn','fc-ch10-betameth','fc-ch10-mag-cutoff','fc-ch10-indomethacin','fc-ch10-tocolytic-combo','fc-ch10-pprom-abx','fc-ch10-chorio','fc-ch11-fivePs','fc-ch11-true-labor','fc-ch11-rom','fc-ch11-bishop','fc-ch12-epidural-hypo','fc-ch12-spinal-vs-epi','fc-ch12-pdph','fc-ch12-pudendal','fc-ch13-variability','fc-ch13-veal','fc-ch13-leopold','fc-ch13-efm-toco','fc-ch14-stages','fc-ch14-2nd-duration','fc-ch14-pushing','fc-ch14-transition','fc-ch15-ecv','fc-ch15-bishop-ripening','fc-ch15-cesarean-reeda','fc-ch15-vacuum','fc-ch15-vbac','fc-ch16-lion','fc-ch16-afe-triad','fc-ch16-perimortem','fc-ch16-precipitous','fc-ch17-fundal-descent','fc-ch17-lochia-scale','fc-ch17-lochia-progression','fc-ch17-ovulation','fc-ch17-mastitis','fc-ch18-enface','fc-ch18-rubin','fc-ch18-attachment-warning','fc-ch19-perineal','fc-ch19-suppress','fc-ch19-activity','fc-ch20-4ts','fc-ch20-methergine','fc-ch20-carboprost','fc-ch20-vte','fc-ch20-dic-labs','fc-ch20-laceration','fc-ch21-fever','fc-ch21-uti','fc-ch21-endometritis','fc-ch22-edinburgh','fc-ch22-sertraline','fc-ch22-brexanolone','fc-ch22-988','fc-ch23-late-preterm','fc-ch23-sucrose','fc-ch23-fontanelles','fc-ch23-caput-vs-ceph','fc-ch23-ortolani','fc-ch24-vitk','fc-ch24-erythro','fc-ch24-hep-b','fc-ch24-heat-loss','fc-ch24-circ-petroleum','fc-ch25-colostrum','fc-ch25-frequency','fc-ch25-weight','fc-ch25-formula-water','fc-ch25-microwave','fc-ch25-milk-storage','fc-ch26-safe-sleep','fc-ch26-rear-facing','fc-ch26-chest-clip','fc-ch26-redflag-fever','fc-ch26-screening','fc-ch27-hypoglycemia-tx','fc-ch27-sepsis-empiric','fc-ch27-physio-vs-patho','fc-ch27-phototherapy','fc-ch27-kernicterus','fc-ch27-apgar']);
+
+  // One-time cleanup: drop any entries whose IDs aren't in this subject's deck
+  try {
+    var __sched = loadJson(FC_KEY);
+    var __cleaned = false;
+    for (var __k in __sched) {
+      if (!VALID_IDS.has(__k)) { delete __sched[__k]; __cleaned = true; }
+    }
+    if (__cleaned) {
+      try { localStorage.setItem(FC_KEY, JSON.stringify(__sched)); } catch (e) {}
+    }
+  } catch (e) {}
 
   var unitChapters = {
     unit1: ['ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8','ch9','ch10'],
@@ -781,6 +797,7 @@ a{color:inherit;text-decoration:none}
     var now = Date.now();
     var due = 0, total = 0, scheduled = 0;
     for (var k in schedule){
+      if (!VALID_IDS.has(k)) continue;  // skip entries not in this subject's deck
       total++;
       if (schedule[k] && schedule[k].nextReview){
         scheduled++;
