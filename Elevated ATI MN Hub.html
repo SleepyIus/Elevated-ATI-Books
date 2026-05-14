@@ -423,7 +423,13 @@ a{color:inherit;text-decoration:none}
   .topbar-home span{display:none}
 }
 
-</style>
+
+        /* Mobile: prevent long body text from overflowing/clipping in narrow viewports */
+        body {
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+        }
+      </style>
 </head>
 <body>
 

@@ -435,7 +435,8 @@ body{
 
 /* BLANK MODE — hide content, keep layout */
 .example-card[data-mode="blank"] .tp-box .content,
-.example-card[data-mode="blank"] .tp-subbox .content{
+.example-card[data-mode="blank"] .tp-subbox .content,
+        .example-card[data-mode="blank"] .safety-area > *{
   display:none;
 }
 .example-card[data-mode="blank"] .tp-box,
@@ -2048,7 +2049,23 @@ isolation:isolate;}
   .tpl-print-btn{ order: 99 }
 }
 
-</style>
+
+        /* Mobile: prevent long body text from overflowing/clipping in narrow viewports */
+        body {
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+        }
+
+        /* Mobile: make tables horizontally scrollable when wider than viewport */
+        @media (max-width: 600px) {
+          .data-table,
+          .ati-table {
+            display: block;
+            overflow-x: auto;
+            max-width: 100%;
+          }
+        }
+      </style>
 </head>
 <body>
 
