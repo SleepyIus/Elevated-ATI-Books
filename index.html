@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<!-- ============================================================
+     ELEVATED ATI SUITE  ·  v3.2.0
+     File:       index.html
+     Build date: 2026-05-24
+     Status:     Phase 3 · Mental Health suite wired in (4th subject card + MH hub)
+     ------------------------------------------------------------
+     Version marker added so the latest files are identifiable.
+     Suite version = project-wide; build date = this file's last
+     substantive content change.
+     ============================================================ -->
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
@@ -26,6 +36,7 @@
   --pd-color:#0284c7;
   --pd-color-soft:rgba(2,132,199,0.15);
   --pharm-color:#ea580c;
+  --mh-color:#65a30d;
   --pharm-color-soft:rgba(234,88,12,0.15);
   --shadow:0 8px 24px rgba(0,0,0,0.3);
 }
@@ -46,6 +57,7 @@
   --pd-color:#0284c7;
   --pd-color-soft:rgba(2,132,199,0.10);
   --pharm-color:#ea580c;
+  --mh-color:#65a30d;
   --pharm-color-soft:rgba(234,88,12,0.10);
 }
 *{box-sizing:border-box}
@@ -195,6 +207,7 @@ body{
 .subject-card[data-subject="mn"]{ --card-color:var(--mn-color) }
 .subject-card[data-subject="pd"]{ --card-color:var(--pd-color) }
 .subject-card[data-subject="pharm"]{ --card-color:var(--pharm-color) }
+  [data-subject="mh"]{ --card-color:var(--mh-color) }
 
 .coming-soon{
   padding:20px 22px;
@@ -224,6 +237,15 @@ footer{
           overflow-wrap: break-word;
           word-wrap: break-word;
         }
+      
+        /* === VERSION BADGE === */
+        .sb-version{
+          font-size:10px;color:var(--text3,#888);
+          opacity:0.65;letter-spacing:0.03em;margin-top:6px;
+          font-variant-numeric:tabular-nums;
+        }
+        .sb-version:hover{opacity:1}
+        /* === END VERSION BADGE === */
       </style>
 </head>
 <body>
@@ -245,6 +267,35 @@ footer{
     <div class="hero-eyebrow">Elevated · ATI Companion Tools</div>
     <h1>Choose a <em>subject</em></h1>
     <p>Your study suites — built from the ATI RN review modules. Each subject has its own hub with a chapter book, worked templates, and flashcards. Progress is tracked separately per subject.</p>
+      <a class="subject-card" data-subject="mh" href="Elevated%20ATI%20MH%20Hub.html">
+      <div class="subject-head">
+        <div class="subject-mark">MH</div>
+        <div class="subject-meta">
+          <div class="subject-course">ATI · Mental Health</div>
+          <div class="subject-name">Mental Health</div>
+        </div>
+      </div>
+      <p class="subject-desc">ATI RN Mental Health Nursing review module, 11th Edition. Foundations, nonpharmacological and psychopharmacological therapies, psychobiologic disorders, and psychiatric emergencies.</p>
+      <div class="subject-stats">
+        <div class="subject-stat">
+          <div class="subject-stat-val">33</div>
+          <div class="subject-stat-label">Chapters</div>
+        </div>
+        <div class="subject-stat">
+          <div class="subject-stat-val">161</div>
+          <div class="subject-stat-label">Exercises</div>
+        </div>
+        <div class="subject-stat">
+          <div class="subject-stat-val">33</div>
+          <div class="subject-stat-label">Scenarios</div>
+        </div>
+      </div>
+      <div class="subject-cta">
+        <span>Open suite</span>
+        <span class="subject-cta-arrow">→</span>
+      </div>
+    </a>
+
   </section>
 
   <div class="section-label">Available subjects</div>
@@ -346,6 +397,8 @@ footer{
 
   <footer>
     <p>Elevated · Nursing study tools · ATI RN Companion · 11th Edition</p>
+  
+    <p class="ver-badge" style="font-size:11px;opacity:0.55;margin-top:8px;letter-spacing:0.03em;">v3.2.0 · built 2026-05-24</p>
   </footer>
 
 </div>

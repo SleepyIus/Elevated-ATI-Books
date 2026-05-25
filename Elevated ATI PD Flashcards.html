@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<!-- ============================================================
+     ELEVATED ATI SUITE  ·  v3.1.0
+     File:       Elevated ATI PD Flashcards.html
+     Build date: 2026-05-14
+     Status:     Phase 2 · stable
+     ------------------------------------------------------------
+     Version marker added so the latest files are identifiable.
+     Suite version = project-wide; build date = this file's last
+     substantive content change.
+     ============================================================ -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -788,6 +798,15 @@ button{font-family:'DM Sans',sans-serif}
           overflow-wrap: break-word;
           word-wrap: break-word;
         }
+      
+        /* === VERSION BADGE === */
+        .sb-version{
+          font-size:10px;color:var(--text3,#888);
+          opacity:0.65;letter-spacing:0.03em;margin-top:6px;
+          font-variant-numeric:tabular-nums;
+        }
+        .sb-version:hover{opacity:1}
+        /* === END VERSION BADGE === */
       </style>
 </head>
 <body>
@@ -805,6 +824,7 @@ button{font-family:'DM Sans',sans-serif}
       <div class="sb-course">NUR 2460 · ATI</div>
       <div class="sb-title">Flashcards</div>
       <div class="sb-sub">Spaced Repetition Review</div>
+      <div class="sb-version" title="Suite v3.1.0 · built 2026-05-14">v3.1.0 · 2026-05-14</div>
       <button id="themeToggle" type="button"><span id="themeIcon">☀️</span> <span id="themeLabel">Light Mode</span></button>
     </div>
 
@@ -1129,6 +1149,8 @@ button{font-family:'DM Sans',sans-serif}
       { id: 'fc-ch16-suction-pressure', ch: 'ch16', type: 'calc', anchor: 'ch16', q: 'What suction pressures are safe for pediatric airway suctioning?', a: 'Neonate: 60-80 mmHg. Infant: 80-100 mmHg. Child: 100-120 mmHg. Adolescent: 120-150 mmHg. Each pass ≤ <strong>5-10 seconds</strong>; hyperoxygenate before/after.' },
       { id: 'fc-ch16-bulb', ch: 'ch16', type: 'concept', anchor: 'ch16', q: 'What is the correct technique for bulb syringe suctioning?', a: '<strong>Compress BEFORE inserting</strong>; then release gradually to suction. <strong>Mouth before nose</strong>. Don\'t suction more than 3 times per side. Watch for bradycardia.' },
       { id: 'fc-ch17-croup', ch: 'ch17', type: 'concept', anchor: 'ch17', q: 'What are classic signs of croup?', a: '<strong>Barking ("seal-like") cough</strong>, inspiratory stridor, hoarseness, fever. Worse at night. Viral (parainfluenza most common). Treat with cool mist, nebulized epinephrine, dexamethasone.' },
+      { id: 'fc-ch17-nasopharyngitis', ch: 'ch17', type: 'concept', anchor: 'ch17-nasopharyngitis', q: 'How is nasopharyngitis (common cold) managed in children?', a: 'Self-limiting viral illness lasting 4&ndash;10 days. <strong>Supportive care:</strong> antipyretics, rest, cool-mist air. <strong>Decongestants only for children older than 6 years</strong>; use cough suppressants cautiously to avoid oversedation.' },
+      { id: 'fc-ch17-allergic-rhinitis', ch: 'ch17', type: 'concept', anchor: 'ch17-allergic-rhinitis', q: 'What is the first-line treatment for allergic rhinitis in children?', a: '<strong>Nasal corticosteroids</strong> are first-line. Also: avoid allergens; antihistamines, beta-adrenergic decongestants, and mast cell stabilizers. Findings include watery rhinorrhea, nasal/eye itchiness, snoring, fatigue, and poor school performance.' },
       { id: 'fc-ch17-epi', ch: 'ch17', type: 'warning', anchor: 'ch17', q: 'What 4 D\'s suggest epiglottitis and why is throat exam dangerous?', a: '<strong>Drooling, Dysphagia, Dysphonia (muffled voice), Distress</strong>. PLUS tripod position, fever. <strong>NEVER examine throat or tongue blade</strong> — can trigger laryngospasm and complete obstruction. Intubation may be needed.' },
       { id: 'fc-ch17-rsv', ch: 'ch17', type: 'concept', anchor: 'ch17', q: 'How is bronchiolitis (RSV) managed in infants?', a: 'Mostly <strong>supportive</strong>: hydration, suction, oxygen, monitoring. NO routine bronchodilators, steroids, antibiotics. Contact precautions. Severe cases: hospitalization, high-flow oxygen, CPAP. Palivizumab prophylaxis for high-risk infants.' },
       { id: 'fc-ch17-pertussis', ch: 'ch17', type: 'concept', anchor: 'ch17', q: 'What are the three stages of pertussis (whooping cough)?', a: '<strong>1. Catarrhal</strong> (URI symptoms, 1-2 weeks, MOST contagious). <strong>2. Paroxysmal</strong> (severe coughing fits + "whoop" sound, 2-6 weeks). <strong>3. Convalescent</strong> (gradual recovery — "100-day cough").' },

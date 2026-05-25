@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!-- ============================================================
-     ELEVATED ATI SUITE  ·  v3.1.0
-     File:       Elevated ATI MN Hub.html
-     Build date: 2026-05-14
-     Status:     Phase 2 · stable
+     ELEVATED ATI SUITE  ·  v3.2.0
+     File:       Elevated ATI MH Hub.html
+     Build date: 2026-05-24
+     Status:     Phase 3 · MH suite hub — Book complete (33 ch, 161 exercises, 33 ALS)
      ------------------------------------------------------------
      Version marker added so the latest files are identifiable.
      Suite version = project-wide; build date = this file's last
@@ -13,8 +13,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#d97706">
-<title>Elevated · Maternal-Newborn Nursing Hub</title>
+  <meta name="theme-color" content="#4d7c0f">
+<title>Elevated · Mental Health Nursing Hub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital,wght@0,400;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -26,9 +26,9 @@
   --surface3:#242a40;
   --border:#2a3050;
   --border-soft:rgba(255,255,255,0.06);
-  --accent:#d97706;
-  --accent2:#b45309;
-  --accent-soft:rgba(217,119,6,0.15);
+  --accent:#65a30d;
+  --accent2:#4d7c0f;
+  --accent-soft:rgba(101,163,13,0.15);
   --text:#e8eaf2;
   --text2:#8b92b8;
   --text3:#555e85;
@@ -41,9 +41,9 @@
   --surface3:#e3dccc;
   --border:#d6ccb8;
   --border-soft:rgba(0,0,0,0.07);
-  --accent:#d97706;
-  --accent2:#b45309;
-  --accent-soft:rgba(217,119,6,0.10);
+  --accent:#65a30d;
+  --accent2:#4d7c0f;
+  --accent-soft:rgba(101,163,13,0.10);
   --text:#1e1c18;
   --text2:#5a5448;
   --text3:#9e9080;
@@ -434,6 +434,15 @@ a{color:inherit;text-decoration:none}
 }
 
 
+.tool-card.disabled{
+  cursor: not-allowed;
+  opacity: 0.65;
+  pointer-events: none;
+}
+.tool-card.disabled::before{
+  background: var(--text3) !important;
+}
+
         /* Mobile: prevent long body text from overflowing/clipping in narrow viewports */
         body {
           overflow-wrap: break-word;
@@ -459,8 +468,8 @@ a{color:inherit;text-decoration:none}
     <div class="topbar-left">
       <a class="topbar-home" href="index.html" title="Back to all subjects">← <span>Home</span></a>
     <div class="topbar-brand">
-      <div class="topbar-brand-mark">MN</div>
-      <span>Elevated · MN Hub</span>
+      <div class="topbar-brand-mark">MH</div>
+      <span>Elevated · MH Hub</span>
     </div>
     </div>
     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
@@ -471,34 +480,30 @@ a{color:inherit;text-decoration:none}
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-eyebrow">Elevated · ATI Maternal-Newborn Companion</div>
-    <h1>Maternal-Newborn<br><em>Nursing Care</em></h1>
+    <div class="hero-eyebrow">Elevated · ATI Mental Health Companion</div>
+    <h1>Mental Health<br><em>Nursing Care</em></h1>
     <p class="hero-sub">
-      A chapter-by-chapter reference and worked-template companion for the ATI RN Maternal Newborn Nursing review module. Built for fast lookup, focused study, and exam preparation.
+      A chapter-by-chapter reference companion for the ATI RN Mental Health Nursing review module, 11th Edition. Every chapter includes a TL;DR, an Active Learning Scenario, and ATI Application Exercises with rationales.
     </p>
   </section>
 
   <!-- STATS -->
   <section class="stats">
     <div class="stat">
-      <div class="stat-value">27</div>
+      <div class="stat-value">33</div>
       <div class="stat-label">Chapters</div>
     </div>
     <div class="stat">
-      <div class="stat-value">4</div>
+      <div class="stat-value">6</div>
       <div class="stat-label">Units</div>
     </div>
     <div class="stat">
-      <div class="stat-value">105</div>
-      <div class="stat-label">Worked Templates</div>
+      <div class="stat-value">161</div>
+      <div class="stat-label">Application Exercises</div>
     </div>
     <div class="stat">
-      <div class="stat-value">8</div>
-      <div class="stat-label">Template Types</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value">122</div>
-      <div class="stat-label">Starter Cards</div>
+      <div class="stat-value">33</div>
+      <div class="stat-label">Active Learning Scenarios</div>
     </div>
   </section>
 
@@ -515,78 +520,48 @@ a{color:inherit;text-decoration:none}
           <div class="pickup-value" id="pickupBookValue">—</div>
         </div>
       </a>
-      <a class="pickup-card" id="pickupFc" href="Elevated%20ATI%20MN%20Flashcards.html" hidden>
-        <div class="pickup-icon">🃏</div>
-        <div class="pickup-text">
-          <div class="pickup-label">Review queue</div>
-          <div class="pickup-value" id="pickupFcValue">—</div>
-        </div>
-      </a>
-      <a class="pickup-card" id="pickupTpl" href="#" hidden>
-        <div class="pickup-icon">📋</div>
-        <div class="pickup-text">
-          <div class="pickup-label">Last template</div>
-          <div class="pickup-value" id="pickupTplValue">—</div>
-        </div>
-      </a>
     </div>
   </section>
 
-
-
-  <!-- REVIEW QUEUE -->
-  <div class="review-queue empty" id="reviewQueue">
-    <div class="review-queue-icon" id="reviewIcon">📚</div>
-    <div class="review-queue-body">
-      <h3 class="review-queue-title">
-        <span class="review-queue-count" id="dueCount">0</span>
-        <span id="dueLabel">no cards yet</span>
-      </h3>
-      <div class="review-queue-sub" id="dueSub">Answer prompts in the chapter book to start building your review deck.</div>
-    </div>
-  </div>
-
   <!-- PRIMARY TOOLS -->
-  <div class="section-title">Primary tools</div>
+  <div class="section-title">Primary tool</div>
   <section class="primary-grid">
 
-    <a class="tool-card" href="Elevated%20ATI%20MN%20Book.html">
-      <div class="tool-eyebrow">Reference · 27 chapters</div>
+    <a class="tool-card" href="Elevated%20ATI%20MH%20Book.html">
+      <div class="tool-eyebrow">Reference · 33 chapters</div>
       <h2>ATI Chapter Book</h2>
       <p class="tool-desc">
-        Full chapter-by-chapter content from the ATI review module — antepartum care through newborn complications. Each chapter has a TL;DR, condition cards, mnemonics, and an Active Learning Scenario.
+        Full chapter-by-chapter content from the ATI RN Mental Health Nursing review module — foundations, nonpharmacological therapies, psychobiologic disorders, psychopharmacology, specific populations, and psychiatric emergencies. Each chapter has a TL;DR summary, concept pills, an Active Learning Scenario, and ATI Application Exercises with full rationales.
       </p>
       <div class="tool-meta">
-        <span class="tool-meta-item"><strong>4</strong> units</span>
-        <span class="tool-meta-item"><strong>27</strong> chapters</span>
-        <span class="tool-meta-item"><strong>10</strong> pp avg / ch</span>
+        <span class="tool-meta-item"><strong>6</strong> units</span>
+        <span class="tool-meta-item"><strong>33</strong> chapters</span>
+        <span class="tool-meta-item"><strong>161</strong> exercises</span>
       </div>
       <div class="progress-row">
         <div class="progress-bar"><div class="progress-fill" id="bookProgress"></div></div>
-        <div class="progress-text" id="bookProgressText">0 / 27 read</div>
+        <div class="progress-text" id="bookProgressText">0 / 33 read</div>
       </div>
       <div class="tool-cta">Open chapter book</div>
     </a>
-
-    <a class="tool-card" href="Elevated%20ATI%20MN%20Templates.html">
-      <div class="tool-eyebrow">Practice · 43 worked examples</div>
+<a class="tool-card" href="Elevated%20ATI%20MH%20Templates.html">
+      <div class="tool-eyebrow">Practice · 45 worked examples</div>
       <h2>ATI Templates</h2>
       <p class="tool-desc">
-        Worked examples for all six populated ATI Active Learning Template types — Basic Concept, Diagnostic Procedure, Medication, System Disorder, Therapeutic Procedure, Growth &amp; Development. Each example is cross-linked to its chapter.
+        Worked examples across five ATI Active Learning Template types — Basic Concept, System Disorder, Medication, Therapeutic Procedure, and Diagnostic Procedure. Each example is cross-linked to its chapter.
       </p>
       <div class="tool-meta">
         <span class="tool-meta-item"><strong>8</strong> types</span>
-        <span class="tool-meta-item"><strong>85</strong> examples</span>
+        <span class="tool-meta-item"><strong>167</strong> examples</span>
         <span class="tool-meta-item"><strong>0</strong> pending</span>
       </div>
       <div class="progress-row">
         <div class="progress-bar"><div class="progress-fill" id="tplProgress"></div></div>
-        <div class="progress-text" id="tplProgressText">0 / 43 studied</div>
+        <div class="progress-text" id="tplProgressText">0 / 167 studied</div>
       </div>
       <div class="tool-cta">Open templates</div>
     </a>
-
-    <a class="tool-card" href="Elevated%20ATI%20MN%20Flashcards.html">
+<a class="tool-card" href="Elevated%20ATI%20MH%20Flashcards.html">
       <div class="tool-eyebrow">Review · spaced repetition</div>
       <h2>Flashcards</h2>
       <p class="tool-desc">
@@ -607,116 +582,85 @@ a{color:inherit;text-decoration:none}
   </section>
 
   <!-- UNITS BREAKDOWN -->
-  <div class="section-title">Units · chapter book</div>
+  <div class="section-title">Units</div>
   <section class="units-grid">
 
-    <a class="unit-card" href="Elevated%20ATI%20MN%20Book.html#ch1" data-unit="unit1">
+    <a class="unit-card" href="Elevated%20ATI%20MH%20Book.html#ch1" data-unit="unit1">
       <div class="unit-num">Unit 1</div>
-      <h3>Antepartum</h3>
-      <div class="unit-range">Ch 1 – 10</div>
+      <h3>Foundations for Mental Health Nursing</h3>
+      <div class="unit-range">Ch 1 – 6</div>
       <div class="unit-progress">
         <div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit1"></div></div>
-        <div class="unit-progress-text" data-unit-text="unit1">0 / 10 read</div>
+        <div class="unit-progress-text" data-unit-text="unit1">0 / 6 read</div>
       </div>
     </a>
 
-    <a class="unit-card" href="Elevated%20ATI%20MN%20Book.html#ch11" data-unit="unit2">
+    <a class="unit-card" href="Elevated%20ATI%20MH%20Book.html#ch7" data-unit="unit2">
       <div class="unit-num">Unit 2</div>
-      <h3>Intrapartum</h3>
-      <div class="unit-range">Ch 11 – 16</div>
+      <h3>Traditional Nonpharmacological Therapies</h3>
+      <div class="unit-range">Ch 7 – 10</div>
       <div class="unit-progress">
         <div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit2"></div></div>
-        <div class="unit-progress-text" data-unit-text="unit2">0 / 6 read</div>
+        <div class="unit-progress-text" data-unit-text="unit2">0 / 4 read</div>
       </div>
     </a>
 
-    <a class="unit-card" href="Elevated%20ATI%20MN%20Book.html#ch17" data-unit="unit3">
+    <a class="unit-card" href="Elevated%20ATI%20MH%20Book.html#ch11" data-unit="unit3">
       <div class="unit-num">Unit 3</div>
-      <h3>Postpartum</h3>
-      <div class="unit-range">Ch 17 – 22</div>
+      <h3>Psychobiologic Disorders</h3>
+      <div class="unit-range">Ch 11 – 20</div>
       <div class="unit-progress">
         <div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit3"></div></div>
-        <div class="unit-progress-text" data-unit-text="unit3">0 / 6 read</div>
+        <div class="unit-progress-text" data-unit-text="unit3">0 / 10 read</div>
       </div>
     </a>
 
-    <a class="unit-card" href="Elevated%20ATI%20MN%20Book.html#ch23" data-unit="unit4">
+    <a class="unit-card" href="Elevated%20ATI%20MH%20Book.html#ch21" data-unit="unit4">
       <div class="unit-num">Unit 4</div>
-      <h3>Newborn</h3>
-      <div class="unit-range">Ch 23 – 27</div>
+      <h3>Psychopharmacological Therapies</h3>
+      <div class="unit-range">Ch 21 – 26</div>
       <div class="unit-progress">
         <div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit4"></div></div>
-        <div class="unit-progress-text" data-unit-text="unit4">0 / 5 read</div>
+        <div class="unit-progress-text" data-unit-text="unit4">0 / 6 read</div>
       </div>
     </a>
 
-  </section>
-
-  <!-- TEMPLATE TYPES -->
-  <div class="section-title">Template types</div>
-  <section class="types-grid">
-
-    <a class="type-row" href="Elevated%20ATI%20MN%20Templates.html#basic-concept-acc">
-      <span class="type-page">A1</span>
-      <span class="type-name">Basic Concept</span>
-      <span class="type-count">14 examples</span>
+    <a class="unit-card" href="Elevated%20ATI%20MH%20Book.html#ch27" data-unit="unit5">
+      <div class="unit-num">Unit 5</div>
+      <h3>Specific Populations</h3>
+      <div class="unit-range">Ch 27 – 28</div>
+      <div class="unit-progress">
+        <div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit5"></div></div>
+        <div class="unit-progress-text" data-unit-text="unit5">0 / 2 read</div>
+      </div>
     </a>
 
-    <a class="type-row" href="Elevated%20ATI%20MN%20Templates.html#diagnostic-procedure-acc">
-      <span class="type-page">A3</span>
-      <span class="type-name">Diagnostic Procedure</span>
-      <span class="type-count">5 examples</span>
-    </a>
-
-    <a class="type-row" href="Elevated%20ATI%20MN%20Templates.html#growth-development-acc">
-      <span class="type-page">A5</span>
-      <span class="type-name">Growth and Development</span>
-      <span class="type-count">1 example</span>
-    </a>
-
-    <a class="type-row" href="Elevated%20ATI%20MN%20Templates.html#medication-acc">
-      <span class="type-page">A7</span>
-      <span class="type-name">Medication</span>
-      <span class="type-count">13 examples</span>
-    </a>
-
-    <a class="type-row" href="Elevated%20ATI%20MN%20Templates.html#nursing-skill-acc">
-      <span class="type-page">A9</span>
-      <span class="type-name">Nursing Skill</span>
-      <span class="type-count">6 examples</span>
-    </a>
-
-    <a class="type-row" href="Elevated%20ATI%20MN%20Templates.html#system-disorder-acc">
-      <span class="type-page">A11</span>
-      <span class="type-name">System Disorder</span>
-      <span class="type-count">32 examples</span>
-    </a>
-
-    <a class="type-row" href="Elevated%20ATI%20MN%20Templates.html#therapeutic-procedure-acc">
-      <span class="type-page">A13</span>
-      <span class="type-name">Therapeutic Procedure</span>
-      <span class="type-count">12 examples</span>
-    </a>
-
-    <a class="type-row" href="Elevated%20ATI%20MN%20Templates.html#concept-analysis-acc">
-      <span class="type-page">A15</span>
-      <span class="type-name">Concept Analysis</span>
-      <span class="type-count">2 examples</span>
+    <a class="unit-card" href="Elevated%20ATI%20MH%20Book.html#ch29" data-unit="unit6">
+      <div class="unit-num">Unit 6</div>
+      <h3>Psychiatric Emergencies</h3>
+      <div class="unit-range">Ch 29 – 33</div>
+      <div class="unit-progress">
+        <div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit6"></div></div>
+        <div class="unit-progress-text" data-unit-text="unit6">0 / 5 read</div>
+      </div>
     </a>
 
   </section>
 
   <!-- FUTURE TOOLS -->
   <div class="future-card">
-    <h3>Planned additions</h3>
+    <h3>Recently added</h3>
     <ul class="future-list">
-      <li>Mid-read prompts (CONTENT/JUDGMENT/PRINCIPLE/PRIORITY)</li>
-      <li>Spaced-repetition flashcards</li>
-      <li>Pediatric ATI companion</li>
-      <li>Community ATI companion</li>
+      <li>✓ ATI Application Exercises with rationales (161 across all 33 chapters)</li>
+      <li>✓ Active Learning Scenarios (all 33 chapters)</li>
+      <li>✓ TL;DR summaries + concept pills (Unit 1)</li>
+    </ul>
+    <h3 style="margin-top:1rem">Planned additions</h3>
+    <ul class="future-list">
+      <li>MH worked templates companion</li>
+      <li>MH spaced-repetition flashcards</li>
     </ul>
   </div>
-
 
   <!-- STORAGE TOOLS -->
   <div class="storage-panel" id="storagePanel">
@@ -738,24 +682,16 @@ a{color:inherit;text-decoration:none}
 
   <!-- FOOTER -->
   <footer class="footer">
-    <p>Elevated · Maternal-Newborn Nursing · ATI RN Companion · 11th Edition</p>
+    <p>Elevated · Mental Health Nursing · ATI RN Companion · 11th Edition</p>
     <p>Built for sleepyius.github.io/Elevated-ATI-Books/</p>
-  
-    <p class="ver-badge" style="font-size:11px;opacity:0.55;margin-top:8px;letter-spacing:0.03em;">v3.1.0 · built 2026-05-14</p>
+    <p class="ver-badge" style="font-size:11px;opacity:0.55;margin-top:8px;letter-spacing:0.03em;">v3.2.0 · built 2026-05-24</p>
   </footer>
 
 </div><!-- /page -->
 
 <script>
 (function(){
-
-  // ===== Hub storage keys (single source of truth) =====
-  var SYNC_KEYS = [
-    'nur2460_atimn_progress',
-    'nur2460_atimnTemplates_progress',
-    'nur2460_fc_schedule',
-    'nur2460_theme'
-  ];
+  var SYNC_KEYS = ['nur2460_atimh_progress','nur2460_atimh_bookmarks','nur2460_nclex_done','nur2460_theme'];
 
   // ===== Theme toggle =====
   var THEME_KEY = 'nur2460_theme';
@@ -767,10 +703,7 @@ a{color:inherit;text-decoration:none}
     if (themeIcon) themeIcon.textContent = isLight ? '🌙' : '☀️';
     if (themeLabel) themeLabel.textContent = isLight ? 'Dark Mode' : 'Light Mode';
   }
-  try {
-    var savedTheme = localStorage.getItem(THEME_KEY);
-    if (savedTheme === 'light') document.documentElement.setAttribute('data-theme','light');
-  } catch(e){}
+  try { if (localStorage.getItem(THEME_KEY) === 'light') document.documentElement.setAttribute('data-theme','light'); } catch(e){}
   applyThemeUI();
   if (themeBtn) themeBtn.addEventListener('click', function(){
     var isLight = document.documentElement.getAttribute('data-theme') === 'light';
@@ -780,309 +713,108 @@ a{color:inherit;text-decoration:none}
     applyThemeUI();
   });
 
-  // ===== Storage utilities =====
-  function loadJson(key){
-    try { var raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : {}; }
-    catch(e){ return {}; }
-  }
-  function countChecked(state){
-    var c = 0;
-    for (var k in state){ if (state[k] === 'checked') c++; }
-    return c;
-  }
+  // ===== Storage utils =====
+  var BOOK_KEY = 'nur2460_atimh_progress';
+  function loadJson(key){ try { var r = localStorage.getItem(key); return r ? JSON.parse(r) : {}; } catch(e){ return {}; } }
+  function countChecked(state, ids){ var c=0; ids.forEach(function(id){ if (state[id]==='checked') c++; }); return c; }
 
-  // ===== Reading progress (chapter book) =====
-  var BOOK_KEY = 'nur2460_atimn_progress';
-  var TPL_KEY  = 'nur2460_atimnTemplates_progress';
-  var FC_KEY   = 'nur2460_fc_schedule';
-  // ===== Valid card IDs for this subject's deck (from STARTER_DECK) =====
-  // Filters the shared schedule against stale entries left over from prior
-  // subjects sharing the same localStorage key (e.g. PD orphans in nur2460_fc_schedule).
-  var VALID_IDS = new Set(['fc-ch1-naegele','fc-ch1-spinnbarkeit','fc-ch1-aches','fc-ch1-pains','fc-ch1-ec','fc-ch2-semen','fc-ch2-hsg','fc-ch2-art','fc-ch3-naegele','fc-ch3-presumptive','fc-ch3-probable','fc-ch3-positive','fc-ch3-hcg','fc-ch3-fundal','fc-ch4-schedule','fc-ch4-organogenesis','fc-ch4-labs','fc-ch5-calories','fc-ch5-folate','fc-ch5-iron','fc-ch5-pku','fc-ch5-caffeine','fc-ch6-bpp','fc-ch6-bpp-score','fc-ch6-ultrasound','fc-ch6-msafp','fc-ch6-ls','fc-ch7-ectopic','fc-ch7-sab','fc-ch7-mole','fc-ch7-mole-fu','fc-ch8-hiv-delivery','fc-ch8-torch','fc-ch8-syphilis','fc-ch8-cmv','fc-ch9-cerclage','fc-ch9-hyperemesis','fc-ch9-anemia','fc-ch9-sickle','fc-ch10-ffn','fc-ch10-betameth','fc-ch10-mag-cutoff','fc-ch10-indomethacin','fc-ch10-tocolytic-combo','fc-ch10-pprom-abx','fc-ch10-chorio','fc-ch11-fivePs','fc-ch11-true-labor','fc-ch11-rom','fc-ch11-bishop','fc-ch12-epidural-hypo','fc-ch12-spinal-vs-epi','fc-ch12-pdph','fc-ch12-pudendal','fc-ch13-variability','fc-ch13-veal','fc-ch13-leopold','fc-ch13-efm-toco','fc-ch14-stages','fc-ch14-2nd-duration','fc-ch14-pushing','fc-ch14-transition','fc-ch15-ecv','fc-ch15-bishop-ripening','fc-ch15-cesarean-reeda','fc-ch15-vacuum','fc-ch15-vbac','fc-ch16-lion','fc-ch16-afe-triad','fc-ch16-perimortem','fc-ch16-precipitous','fc-ch17-fundal-descent','fc-ch17-lochia-scale','fc-ch17-lochia-progression','fc-ch17-ovulation','fc-ch17-mastitis','fc-ch18-enface','fc-ch18-rubin','fc-ch18-attachment-warning','fc-ch19-perineal','fc-ch19-suppress','fc-ch19-activity','fc-ch20-4ts','fc-ch20-methergine','fc-ch20-carboprost','fc-ch20-vte','fc-ch20-dic-labs','fc-ch20-laceration','fc-ch21-fever','fc-ch21-uti','fc-ch21-endometritis','fc-ch22-edinburgh','fc-ch22-sertraline','fc-ch22-brexanolone','fc-ch22-988','fc-ch23-late-preterm','fc-ch23-sucrose','fc-ch23-fontanelles','fc-ch23-caput-vs-ceph','fc-ch23-ortolani','fc-ch24-vitk','fc-ch24-erythro','fc-ch24-hep-b','fc-ch24-heat-loss','fc-ch24-circ-petroleum','fc-ch25-colostrum','fc-ch25-frequency','fc-ch25-weight','fc-ch25-formula-water','fc-ch25-microwave','fc-ch25-milk-storage','fc-ch26-safe-sleep','fc-ch26-rear-facing','fc-ch26-chest-clip','fc-ch26-redflag-fever','fc-ch26-screening','fc-ch27-hypoglycemia-tx','fc-ch27-sepsis-empiric','fc-ch27-physio-vs-patho','fc-ch27-phototherapy','fc-ch27-kernicterus','fc-ch27-apgar']);
-
-  // One-time cleanup: drop any entries whose IDs aren't in this subject's deck
-  try {
-    var __sched = loadJson(FC_KEY);
-    var __cleaned = false;
-    for (var __k in __sched) {
-      if (!VALID_IDS.has(__k)) { delete __sched[__k]; __cleaned = true; }
-    }
-    if (__cleaned) {
-      try { localStorage.setItem(FC_KEY, JSON.stringify(__sched)); } catch (e) {}
-    }
-  } catch (e) {}
-
-  var unitChapters = {
-    unit1: ['ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8','ch9','ch10'],
-    unit2: ['ch11','ch12','ch13','ch14','ch15','ch16'],
-    unit3: ['ch17','ch18','ch19','ch20','ch21','ch22'],
-    unit4: ['ch23','ch24','ch25','ch26','ch27']
+  // ===== Unit config =====
+  var UNITS = {
+    unit1: ['ch1','ch2','ch3','ch4','ch5','ch6'],
+    unit2: ['ch7','ch8','ch9','ch10'],
+    unit3: ['ch11','ch12','ch13','ch14','ch15','ch16','ch17','ch18','ch19','ch20'],
+    unit4: ['ch21','ch22','ch23','ch24','ch25','ch26'],
+    unit5: ['ch27','ch28'],
+    unit6: ['ch29','ch30','ch31','ch32','ch33']
   };
-
-  function countDueCards(){
-    var schedule = loadJson(FC_KEY);
-    var now = Date.now();
-    var due = 0, total = 0, scheduled = 0;
-    for (var k in schedule){
-      if (!VALID_IDS.has(k)) continue;  // skip entries not in this subject's deck
-      total++;
-      if (schedule[k] && schedule[k].nextReview){
-        scheduled++;
-        if (new Date(schedule[k].nextReview).getTime() <= now) due++;
-      }
-    }
-    return { due: due, scheduled: scheduled, total: total };
-  }
+  var ALL_CH = []; for (var u in UNITS) ALL_CH = ALL_CH.concat(UNITS[u]);
 
   function updateProgressUI(){
-    var bookState = loadJson(BOOK_KEY);
-    var tplState  = loadJson(TPL_KEY);
-
-    // Top tool cards
-    var allChapters = [].concat(unitChapters.unit1, unitChapters.unit2, unitChapters.unit3, unitChapters.unit4);
-    var bookChecked = 0;
-    allChapters.forEach(function(id){ if (bookState[id] === 'checked') bookChecked++; });
-    var tplChecked = countChecked(tplState);
-
-    var bp  = document.getElementById('bookProgress');
-    var bpt = document.getElementById('bookProgressText');
-    if (bp)  bp.style.width = (bookChecked / 27 * 100) + '%';
-    if (bpt) bpt.textContent = bookChecked + ' / 27 read';
-
-    var tp  = document.getElementById('tplProgress');
-    var tpt = document.getElementById('tplProgressText');
-    if (tp)  tp.style.width = (tplChecked / 43 * 100) + '%';
-    if (tpt) tpt.textContent = tplChecked + ' / 43 studied';
-
-    // Flashcards tool card
-    var fcStats = countDueCards();
-    var fcDeck = document.getElementById('fcMetaDeck');
-    var fcDue = document.getElementById('fcMetaDue');
-    var fcP = document.getElementById('fcProgress');
-    var fcPT = document.getElementById('fcProgressText');
-    if (fcDeck) fcDeck.textContent = fcStats.scheduled;
-    if (fcDue) fcDue.textContent = fcStats.due;
-    if (fcP) fcP.style.width = (fcStats.scheduled === 0 ? 0 : ((fcStats.scheduled - fcStats.due) / fcStats.scheduled * 100)) + '%';
-    if (fcPT) {
-      if (fcStats.scheduled === 0) fcPT.textContent = 'no deck yet';
-      else if (fcStats.due === 0) fcPT.textContent = 'all caught up';
-      else fcPT.textContent = fcStats.due + ' due now';
-    }
-
-    // Unit cards
-    Object.keys(unitChapters).forEach(function(uid){
-      var chapters = unitChapters[uid];
-      var checked = 0;
-      chapters.forEach(function(id){ if (bookState[id] === 'checked') checked++; });
-      var bar = document.querySelector('[data-unit-bar="' + uid + '"]');
-      var txt = document.querySelector('[data-unit-text="' + uid + '"]');
-      if (bar) bar.style.width = (checked / chapters.length * 100) + '%';
-      if (txt) txt.textContent = checked + ' / ' + chapters.length + ' read';
+    var state = loadJson(BOOK_KEY);
+    // Book overall
+    var read = countChecked(state, ALL_CH), total = ALL_CH.length;
+    var bp = document.getElementById('bookProgress'); var bt = document.getElementById('bookProgressText');
+    if (bp) bp.style.width = (total ? (read/total)*100 : 0) + '%';
+    if (bt) bt.textContent = read + ' / ' + total + ' read';
+    // Per-unit
+    Object.keys(UNITS).forEach(function(uid){
+      var ids = UNITS[uid]; var rc = countChecked(state, ids); var t = ids.length;
+      var bar = document.querySelector('[data-unit-bar="'+uid+'"]');
+      var txt = document.querySelector('[data-unit-text="'+uid+'"]');
+      if (bar) bar.style.width = (t ? (rc/t)*100 : 0) + '%';
+      if (txt) txt.textContent = rc + ' / ' + t + ' read';
     });
-
-    // Review queue
-    var stats = countDueCards();
-    var queueEl = document.getElementById('reviewQueue');
-    var icon    = document.getElementById('reviewIcon');
-    var cnt     = document.getElementById('dueCount');
-    var label   = document.getElementById('dueLabel');
-    var sub     = document.getElementById('dueSub');
-
-    if (stats.scheduled === 0){
-      queueEl.className = 'review-queue empty';
-      icon.textContent = '📚';
-      cnt.textContent = '0';
-      label.textContent = 'no cards yet';
-      sub.textContent = 'Answer prompts in the chapter book to start building your review deck.';
-    } else if (stats.due === 0){
-      queueEl.className = 'review-queue';
-      icon.textContent = '✓';
-      cnt.textContent = '0';
-      label.textContent = 'cards due today';
-      sub.textContent = 'All caught up. ' + stats.scheduled + ' card' + (stats.scheduled === 1 ? '' : 's') + ' total in your review deck.';
-    } else {
-      queueEl.className = 'review-queue has-due';
-      icon.textContent = '🎯';
-      cnt.textContent = stats.due;
-      label.textContent = stats.due === 1 ? 'card due today' : 'cards due today';
-      sub.textContent = stats.scheduled + ' card' + (stats.scheduled === 1 ? '' : 's') + ' in your deck · review them in the chapter where they appear.';
-    }
-      updatePickupPanel();
   }
 
-  updateProgressUI();
-
-  // ===== Cross-tab sync — refresh UI on any SYNC_KEY change =====
-  window.addEventListener('storage', function(e){
-    if (e.key && SYNC_KEYS.indexOf(e.key) === -1) return;
-    updateProgressUI();
-  });
-  document.addEventListener('visibilitychange', function(){
-    if (!document.hidden) updateProgressUI();
-  });
-
-  // ===== Storage tools panel =====
-  var panel = document.getElementById('storagePanel');
-  var panelHead = document.getElementById('storagePanelHead');
-  var status = document.getElementById('storageStatus');
-  var keysList = document.getElementById('storageKeysList');
-
-  function renderKeysList(){
-    if (!keysList) return;
-    var html = '';
-    SYNC_KEYS.forEach(function(k){
-      var v = localStorage.getItem(k);
-      var size = v ? new Blob([v]).size : 0;
-      var bytes = size < 1024 ? size + ' B' : (size / 1024).toFixed(1) + ' KB';
-      html += '<span>' + k + ' · ' + (v ? bytes : 'empty') + '</span>';
-    });
-    keysList.innerHTML = html;
-  }
-  renderKeysList();
-
-  if (panelHead) panelHead.addEventListener('click', function(){
-    panel.classList.toggle('open');
-    if (panel.classList.contains('open')) renderKeysList();
-  });
-
-  // Export backup
-  var exportBtn = document.getElementById('exportBtn');
-  if (exportBtn) exportBtn.addEventListener('click', function(){
-    var backup = { _meta: { source: 'Elevated MN hub', exportedAt: new Date().toISOString() } };
-    SYNC_KEYS.forEach(function(k){
-      var v = localStorage.getItem(k);
-      backup[k] = v ? JSON.parse(v) : null;
-    });
-    var blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url;
-    a.download = 'nur2460-backup-' + new Date().toISOString().slice(0,10) + '.json';
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    status.textContent = '✓ Backup downloaded.';
-  });
-
-  // Import backup
-  var importBtn = document.getElementById('importBtn');
-  var importFile = document.getElementById('importFile');
-  if (importBtn) importBtn.addEventListener('click', function(){ importFile.click(); });
-  if (importFile) importFile.addEventListener('change', function(e){
-    var file = e.target.files[0];
-    if (!file) return;
-    var reader = new FileReader();
-    reader.onload = function(ev){
-      try {
-        var backup = JSON.parse(ev.target.result);
-        var restored = 0;
-        SYNC_KEYS.forEach(function(k){
-          if (backup[k] !== undefined && backup[k] !== null){
-            localStorage.setItem(k, typeof backup[k] === 'string' ? backup[k] : JSON.stringify(backup[k]));
-            restored++;
-          }
-        });
-        status.textContent = '✓ Restored ' + restored + ' key(s) from backup.';
-        updateProgressUI();
-        renderKeysList();
-      } catch(err){
-        status.textContent = '✗ Invalid backup file.';
-      }
-    };
-    reader.readAsText(file);
-    importFile.value = '';
-  });
-
-  // Reset all
-  var resetBtn = document.getElementById('resetBtn');
-  if (resetBtn) resetBtn.addEventListener('click', function(){
-    if (!confirm('Erase ALL local progress for NUR 2460 (chapter book, templates, flashcards, theme)? This cannot be undone.')) return;
-    SYNC_KEYS.forEach(function(k){ try { localStorage.removeItem(k); } catch(e){} });
-    status.textContent = '✓ All progress cleared.';
-    // Reset theme to dark (default)
-    document.documentElement.removeAttribute('data-theme');
-    applyThemeUI();
-    updateProgressUI();
-    renderKeysList();
-  });
-
-
-  // ===== BATCH 2: Pick up where you left off =====
-  var LAST_CH_KEY_HUB = 'nur2460_last_chapter';
-  var LAST_TPL_KEY_HUB = 'nur2460_last_template';
-  var PICKUP_DISMISS_KEY = 'nur2460_pickup_dismissed';
-  
-  function updatePickupPanel(){
+  // ===== Pickup: continue reading =====
+  function updatePickup(){
     var panel = document.getElementById('pickupPanel');
-    if (!panel) return;
-    
-    // Honor dismissal for this session (sessionStorage so reappears on next visit)
+    var card = document.getElementById('pickupBook');
+    var val = document.getElementById('pickupBookValue');
     try {
-      if (sessionStorage.getItem(PICKUP_DISMISS_KEY) === '1'){
-        panel.hidden = true;
-        return;
+      var raw = localStorage.getItem('nur2460_last_chapter');
+      if (!raw) return;
+      var d = JSON.parse(raw);
+      if (d && d.id && /^ch([1-9]|[12][0-9]|3[0-3])$/.test(d.id)){
+        if (val) val.textContent = d.name || d.id;
+        if (card){ card.href = 'Elevated%20ATI%20MH%20Book.html#' + d.id; card.hidden = false; }
+        if (panel) panel.hidden = false;
       }
     } catch(e){}
-    
-    var fcStats = countDueCards();
-    var lastCh = loadJson(LAST_CH_KEY_HUB);
-    var lastTpl = loadJson(LAST_TPL_KEY_HUB);
-    
-    var hasAny = false;
-    
-    // Book card
-    var bookCard = document.getElementById('pickupBook');
-    var bookValue = document.getElementById('pickupBookValue');
-    if (lastCh && lastCh.id && lastCh.name){
-      bookCard.href = 'Elevated%20ATI%20MN%20Book.html#' + lastCh.id;
-      bookValue.textContent = 'Ch ' + (lastCh.id.replace('ch','')) + ': ' + lastCh.name;
-      bookCard.hidden = false;
-      hasAny = true;
-    }
-    
-    // Flashcards card  
-    var fcCard = document.getElementById('pickupFc');
-    var fcValue = document.getElementById('pickupFcValue');
-    if (fcStats.scheduled > 0){
-      if (fcStats.due > 0){
-        fcValue.textContent = fcStats.due + ' card' + (fcStats.due === 1 ? '' : 's') + ' due now';
-      } else {
-        fcValue.textContent = 'All caught up · ' + fcStats.scheduled + ' in deck';
-      }
-      fcCard.hidden = false;
-      hasAny = true;
-    } else {
-      // Show "load starter deck" prompt
-      fcValue.textContent = 'Load starter deck →';
-      fcCard.hidden = false;
-      hasAny = true;
-    }
-    
-    // Template card
-    var tplCard = document.getElementById('pickupTpl');
-    var tplValue = document.getElementById('pickupTplValue');
-    if (lastTpl && lastTpl.id && lastTpl.name){
-      tplCard.href = 'Elevated%20ATI%20MN%20Templates.html#' + lastTpl.id;
-      tplValue.textContent = lastTpl.name;
-      tplCard.hidden = false;
-      hasAny = true;
-    }
-    
-    panel.hidden = !hasAny;
-    
-    // Wire dismiss button
-    var dismiss = document.getElementById('pickupDismiss');
-    if (dismiss && !dismiss._wired){
-      dismiss._wired = true;
-      dismiss.addEventListener('click', function(){
-        try { sessionStorage.setItem(PICKUP_DISMISS_KEY, '1'); } catch(e){}
-        panel.hidden = true;
-      });
-    }
   }
+  var pd = document.getElementById('pickupDismiss');
+  if (pd) pd.addEventListener('click', function(){ var p=document.getElementById('pickupPanel'); if(p) p.hidden=true; });
 
-  updatePickupPanel();
-  })();
+  // ===== Storage panel =====
+  var panelHead = document.getElementById('storagePanelHead');
+  var panel = document.getElementById('storagePanel');
+  if (panelHead && panel) panelHead.addEventListener('click', function(){ panel.classList.toggle('open'); });
+  function renderKeysList(){
+    var box = document.getElementById('storageKeysList'); if (!box) return;
+    var html = '';
+    SYNC_KEYS.forEach(function(k){
+      var v = null; try { v = localStorage.getItem(k); } catch(e){}
+      var size = v ? (v.length + ' chars') : 'empty';
+      html += '<div class="storage-key-row"><code>'+k+'</code><span>'+size+'</span></div>';
+    });
+    box.innerHTML = html;
+  }
+  function setStatus(msg){ var s=document.getElementById('storageStatus'); if(s) s.textContent = msg; }
+  var exportBtn = document.getElementById('exportBtn');
+  if (exportBtn) exportBtn.addEventListener('click', function(){
+    var backup = {}; SYNC_KEYS.forEach(function(k){ try { var v=localStorage.getItem(k); if(v!==null) backup[k]=v; } catch(e){} });
+    var blob = new Blob([JSON.stringify(backup,null,2)], {type:'application/json'});
+    var a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+    a.download = 'elevated-ati-mh-backup.json'; a.click();
+    setStatus('Backup exported.'); renderKeysList();
+  });
+  var importBtn = document.getElementById('importBtn'); var importFile = document.getElementById('importFile');
+  if (importBtn && importFile){
+    importBtn.addEventListener('click', function(){ importFile.click(); });
+    importFile.addEventListener('change', function(e){
+      var file = e.target.files[0]; if (!file) return;
+      var reader = new FileReader();
+      reader.onload = function(ev){
+        try {
+          var backup = JSON.parse(ev.target.result);
+          Object.keys(backup).forEach(function(k){ if (SYNC_KEYS.indexOf(k)!==-1){ try { localStorage.setItem(k, backup[k]); } catch(e){} } });
+          setStatus('Backup imported.'); updateProgressUI(); renderKeysList(); updatePickup();
+        } catch(err){ setStatus('Import failed — invalid file.'); }
+      };
+      reader.readAsText(file);
+    });
+  }
+  var resetBtn = document.getElementById('resetBtn');
+  if (resetBtn) resetBtn.addEventListener('click', function(){
+    if (!confirm('Reset all Mental Health progress on this device? This cannot be undone.')) return;
+    SYNC_KEYS.forEach(function(k){ if (k!=='nur2460_theme'){ try { localStorage.removeItem(k); } catch(e){} } });
+    setStatus('Progress reset.'); updateProgressUI(); renderKeysList(); 
+    var p=document.getElementById('pickupPanel'); if(p) p.hidden=true;
+  });
+
+  // ===== Init =====
+  updateProgressUI(); updatePickup(); renderKeysList();
+})();
 </script>
-
 </body>
 </html>
