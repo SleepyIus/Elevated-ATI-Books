@@ -813,14 +813,14 @@ button{font-family:'DM Sans',sans-serif}
 
 
 <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Open menu">☰</button>
-<a class="back-home-mobile" href="Elevated%20ATI%20PD%20Hub.html">Back to Hub</a>
+<a class="back-home-mobile" href="Elevated%20ATI%20MH%20Hub.html">Back to Hub</a>
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
 <div class="layout">
 
   <aside class="sidebar" id="sidebar" aria-label="Flashcards navigation">
     <div class="sidebar-header">
-      <a class="back-home" href="Elevated%20ATI%20PD%20Hub.html">← Back to Hub</a>
+      <a class="back-home" href="Elevated%20ATI%20MH%20Hub.html">← Back to Hub</a>
       <div class="sb-course">NUR 2460 · ATI</div>
       <div class="sb-title">Flashcards</div>
       <div class="sb-sub">Spaced Repetition Review</div>
@@ -1018,10 +1018,7 @@ button{font-family:'DM Sans',sans-serif}
   // This migration copies (does not delete) any existing user data to the correct atimh_ keys
   // so progress isn't lost. The old nur2460_* keys remain — they are MN's namespace.
   try {
-    var __pdMigrations = [
-      ['nur2460_fc_schedule', 'atimh_fc_schedule'],
-      ['nur2460_fc_filters',  'atimh_fc_filters']
-    ];
+    var __pdMigrations = [];
     // Theme: PD originally migrated FROM shared TO atimh_; now reverse — share theme with MN+Pharm
     var __pdOldTheme = localStorage.getItem('atimh_theme');
     if (__pdOldTheme !== null) {

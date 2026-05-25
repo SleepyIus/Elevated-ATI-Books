@@ -2236,14 +2236,14 @@ article.exercise.nclex-hidden{ display: none !important }
 <body>
 
 <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Toggle navigation">☰</button>
-<a class="back-home-mobile" href="Elevated%20ATI%20MN%20Hub.html">Back to Hub</a>
+<a class="back-home-mobile" href="Elevated%20ATI%20MH%20Hub.html">Back to Hub</a>
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
 <div class="layout">
 
   <aside class="sidebar" id="sidebar" aria-label="Book navigation">
     <div class="sidebar-header">
-      <a class="back-home" href="Elevated%20ATI%20MN%20Hub.html">Back to Hub</a>
+      <a class="back-home" href="Elevated%20ATI%20MH%20Hub.html">Back to Hub</a>
       <div class="sb-course">NUR 2460 · ATI</div>
       <div class="sb-title">Mental Health</div>
       <div class="sb-sub">Edition 11 · Chunked Reference</div>
@@ -15916,7 +15916,7 @@ article.exercise.nclex-hidden{ display: none !important }
 
   // ===== MID-READ PROMPTS + FLASHCARD SCHEDULE (SM-2) =====
   var MID_PROMPTS = {};
-  var FC_KEY = 'nur2460_fc_schedule';
+  var FC_KEY = 'atimh_fc_schedule';
 
   function loadFcSchedule(){
     try { var raw = localStorage.getItem(FC_KEY); return raw ? JSON.parse(raw) : {}; }
@@ -16612,7 +16612,7 @@ article.exercise.nclex-hidden{ display: none !important }
 <script>
 // === MID-READ FLASHCARD PROMPTS ===
 (function(){
-  var FC_KEY = 'nur2460_fc_schedule';
+  var FC_KEY = 'atimh_fc_schedule';
   function loadSched(){
     try { var r = localStorage.getItem(FC_KEY); return r ? JSON.parse(r) : {}; }
     catch(e){ return {}; }

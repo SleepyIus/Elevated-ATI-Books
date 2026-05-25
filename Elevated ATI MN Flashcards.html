@@ -1007,7 +1007,7 @@ button{font-family:'DM Sans',sans-serif}
   ];
 
   var THEME_KEY = 'nur2460_theme';
-  var FC_KEY = 'nur2460_fc_schedule';
+  try{if(localStorage.getItem('nur2460_fc_schedule')!==null&&localStorage.getItem('atimn_fc_schedule')===null){localStorage.setItem('atimn_fc_schedule',localStorage.getItem('nur2460_fc_schedule'));}}catch(e){} var FC_KEY = 'atimn_fc_schedule';
 
   // ===== Theme =====
   var themeBtn = document.getElementById('themeToggle');
