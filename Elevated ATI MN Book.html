@@ -1426,6 +1426,11 @@ button:focus-visible,a:focus-visible{
   text-transform:uppercase;letter-spacing:0.12em;
   color:var(--accent2);margin:0 0 8px;
 }
+.kb-card h4{
+  font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.12em;
+  color:var(--accent2);margin:0 0 8px;
+}
 .finding-card p,
 .finding-card ul,
 .finding-card ol{
@@ -1435,6 +1440,34 @@ button:focus-visible,a:focus-visible{
 .finding-card ol{padding-left:18px}
 .finding-card li{margin-bottom:4px}
 .finding-card li:last-child{margin-bottom:0}
+
+/* ===== PHASE 1: card-style baseline for lists sitting DIRECTLY in a pill =====
+   Direct-child selectors only, so finding-card / kb-card / ati-deep lists are untouched. */
+.condition-block > ul,
+.condition-block > ol{
+  background:var(--surface2);
+  border:1px solid var(--border-soft);
+  border-radius:10px;
+  padding:14px 18px 14px 34px;
+  margin:14px 0 0;
+  font-size:13.5px;color:var(--text2);line-height:1.55;
+}
+.condition-block > ul li{margin-bottom:5px}
+.condition-block > ol li{margin-bottom:5px}
+.condition-block > ul li:last-child,
+.condition-block > ol li:last-child{margin-bottom:0}
+.condition-block > ul.flag-list,
+.condition-block > ol.flag-list{
+  border-color:var(--nonreassuring);
+  background:linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 100%), var(--surface2);
+  box-shadow:inset 3px 0 0 var(--nonreassuring);
+}
+/* nested sublists stay flush (no inner box) */
+.condition-block > ul ul,
+.condition-block > ul ol,
+.condition-block > ol ul,
+.condition-block > ol ol{background:none;border:0;border-radius:0;padding:6px 0 0 18px;margin:0;box-shadow:none}
+
 .finding-card strong{color:var(--text)}
 
 /* Flag for high-priority/red-flag headings */
@@ -2823,12 +2856,17 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Progestin-only pill (minipill)</h3>
         </header>
         <p>Progestin only — fewer adverse effects, safer in breastfeeding. Less effective at suppressing ovulation than COCs.</p>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Use &amp; effects</h4>
+            <ul>
           <li>Take at the <strong>same time daily</strong> — small dose, narrow window</li>
           <li>Backup contraception during the first month</li>
           <li>Most common adverse effect: <strong>breakthrough/irregular vaginal bleeding</strong></li>
           <li>No STI protection</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch1-hormonal-cb2">
@@ -2836,13 +2874,18 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Emergency contraception (morning-after pill)</h3>
         </header>
         <p>Prevents fertilization by inhibiting ovulation and sperm transport. <strong>Does not terminate an established pregnancy.</strong></p>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Key points</h4>
+            <ul>
           <li>Take within <strong>72 hr</strong> after unprotected intercourse</li>
           <li>OTC antiemetic 1 hr before each dose to counteract nausea</li>
           <li>If menses doesn't begin in 21 days → pregnancy test</li>
           <li>Available OTC, no age restriction</li>
           <li><strong>Copper IUD can also be inserted up to 5 days post-intercourse</strong> as emergency contraception (prescription required)</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch1-hormonal-cb3">
@@ -2875,13 +2918,18 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Contraceptive vaginal ring</h3>
         </header>
         <p>Flexible silicone ring releasing etonogestrel + ethinyl estradiol vaginally for 3 weeks at a time.</p>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Use &amp; timing</h4>
+            <ul>
           <li>Insert vaginally; replace after 3 weeks (new ring within 7 days)</li>
           <li>Insert on the same day of the week monthly</li>
           <li>If removed &gt; 4 hr → replace with new ring + use barrier method × 7 days</li>
           <li>Can be removed up to 3 hr without compromising effectiveness</li>
           <li>Same contraindications as COCs</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch1-hormonal-cb6">
@@ -2999,7 +3047,10 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Client education &amp; monitoring</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Teaching points</h4>
+            <ul>
           <li><strong>Check for IUD strings monthly</strong> after menstruation — confirms device is in place; no migration or expulsion</li>
           <li>Pregnancy test, Pap smear, &amp; cervical cultures negative before insertion</li>
           <li>Sign consent prior to insertion</li>
@@ -3007,6 +3058,8 @@ article.exercise.nclex-hidden{ display: none !important }
           <li>Reversible — fertility returns immediately after removal</li>
           <li>Can be used in nulliparous and multiparous clients</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch1-iud-cb1">
@@ -3104,7 +3157,10 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Transcervical sterilization</h3>
         </header>
         <p>Small flexible agents inserted through the vagina/cervix into the fallopian tubes; resulting scar tissue blocks the tubes.</p>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Key points</h4>
+            <ul>
           <li>Examination required at <strong>3 months</strong> to confirm tubes are blocked</li>
           <li>Resume normal activities within 1 day</li>
           <li>No general anesthesia required</li>
@@ -3112,6 +3168,8 @@ article.exercise.nclex-hidden{ display: none !important }
           <li><strong>Use alternate contraception × 3 months</strong> until blockage confirmed</li>
           <li>Not for postpartum clients</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch1-surgical-cb2">
@@ -3546,13 +3604,18 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Lifestyle &amp; alternative measures</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Options</h4>
+            <ul>
           <li>Nutrition and dietary changes</li>
           <li>Exercise, yoga, stress management</li>
           <li>Herbal medications <em>only if prescribed</em></li>
           <li>Acupuncture</li>
           <li>Avoid high scrotal temperatures (hot tubs, tight clothing, laptops on lap)</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch2-treatment-cb1">
@@ -3620,7 +3683,10 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Nursing interventions</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Support &amp; education</h4>
+            <ul>
           <li>Encourage couples to express and discuss feelings; recognize infertility as a major life stressor</li>
           <li>Assist with options consideration; provide education for decision-making</li>
           <li>Explain roles of genetic counselor, reproductive specialist, geneticist, pharmacist</li>
@@ -3628,6 +3694,8 @@ article.exercise.nclex-hidden{ display: none !important }
           <li>Provide information regarding ART and reproductive alternatives (adoption)</li>
           <li>Refer to grief and infertility support groups</li>
         </ul>
+          </div>
+        </div>
       </article>
     
 <div class="ati-deep">
@@ -3648,31 +3716,48 @@ article.exercise.nclex-hidden{ display: none !important }
       <article class="condition-block" id="ch2-genetic-cb0">
         <header class="condition-head">
           <h3 class="condition-name">Who needs referral</h3>
+          <span class="condition-tag">Identify candidates early</span>
         </header>
-        <ul>
-          <li>Family Hx of birth defects</li>
-          <li><strong>Sickle cell trait or sickle cell anemia</strong></li>
-          <li>Maternal age &gt; 35</li>
-          <li>Hereditary bleeding disorders (e.g., <strong>von Willebrand disease</strong>)</li>
-          <li>Recurrent pregnancy loss</li>
-          <li>Couples with consanguinity</li>
-        </ul>
-        <div class="kb-card">
-          <p><strong>Not warranting referral:</strong> alopecia (non-hereditary), allergies (sulfa), recent rubella in non-pregnant client.</p>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Warrants referral</h4>
+            <ul>
+              <li>Family Hx of birth defects</li>
+              <li><strong>Sickle cell trait or sickle cell anemia</strong></li>
+              <li>Maternal age &gt; 35</li>
+              <li>Hereditary bleeding disorders (e.g., <strong>von Willebrand disease</strong>)</li>
+              <li>Recurrent pregnancy loss</li>
+              <li>Couples with consanguinity</li>
+            </ul>
+          </div>
+          <div class="finding-card">
+            <h4>Not warranting referral</h4>
+            <ul>
+              <li>Alopecia (non-hereditary)</li>
+              <li>Allergies (sulfa)</li>
+              <li>Recent rubella in non-pregnant client</li>
+            </ul>
+          </div>
         </div>
       </article>
 
       <article class="condition-block" id="ch2-genetic-cb1">
         <header class="condition-head">
           <h3 class="condition-name">Nursing actions</h3>
+          <span class="condition-tag">Support, educate, refer</span>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Counseling support</h4>
+            <ul>
           <li>Assist in constructing family medical histories across several generations</li>
           <li>Provide emotional support — responses include denial, anger, grief, guilt, self-blame</li>
           <li>Refer to support groups and provide follow-up</li>
           <li>Clarify information about genetic disorder risk pre-, during, and post-counseling</li>
           <li>Note that prenatal genetic assessment (amniocentesis) carries risk to the fetus</li>
         </ul>
+          </div>
+        </div>
       </article>
     </section>
 
@@ -3685,16 +3770,27 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag flag">Leading bleeding-related cause of maternal death (1st trimester)</span>
         </header>
         <p>Ovum implants in the fallopian tube or abdominal cavity due to scarring from prior infection, surgery, or endometrial tissue. As the ovum grows, the tube can rupture → hemorrhage → emergency surgical removal of the damaged tube (salpingectomy).</p>
-        <ul>
-          <li>If identified <strong>before</strong> rupture → surgical removal of POC <em>or</em> methotrexate to dissolve the pregnancy</li>
-          <li><strong>Increased risk of recurrence</strong> after first ectopic — counsel on early presentation in future pregnancies</li>
-          <li>Increased risk of subsequent infertility</li>
-        </ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Management</h4>
+            <ul>
+              <li>If identified <strong>before</strong> rupture → surgical removal of POC <em>or</em> methotrexate to dissolve the pregnancy</li>
+            </ul>
+          </div>
+          <div class="finding-card">
+            <h4>After an ectopic</h4>
+            <ul>
+              <li><strong>Increased risk of recurrence</strong> after first ectopic — counsel on early presentation in future pregnancies</li>
+              <li>Increased risk of subsequent infertility</li>
+            </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch2-complications-cb1">
         <header class="condition-head">
           <h3 class="condition-name">Multiple gestation</h3>
+          <span class="condition-tag">ART-associated</span>
         </header>
         <p>ART is associated with an increased incidence of multiple gestations — twins, triplets, higher-order. Poses risks for the mother (preeclampsia, GDM, hemorrhage, preterm labor) and babies (prematurity, IUGR, twin-to-twin transfusion).</p>
       </article>
@@ -3943,7 +4039,10 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Subjective · client experiences</span>
         </header>
         <p>Changes the client experiences that suggest pregnancy. Can also be caused by stress, infections, peristalsis, or other physiological factors.</p>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Subjective findings</h4>
+            <ul>
           <li><strong>Amenorrhea</strong></li>
           <li>Fatigue</li>
           <li>Nausea and vomiting</li>
@@ -3952,6 +4051,8 @@ article.exercise.nclex-hidden{ display: none !important }
           <li><strong>Quickening</strong> — fluttering fetal movements felt by client (16–20 weeks)</li>
           <li>Uterine enlargement</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch3-signs-cb1">
@@ -3960,7 +4061,10 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Objective · examiner finds</span>
         </header>
         <p>Findings observed by an examiner — primarily uterine/cervical changes. Can be caused by pelvic congestion or tumors.</p>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Examiner findings</h4>
+            <ul>
           <li><strong>Abdominal enlargement</strong> — uterine size/shape/position</li>
           <li><strong>Hegar's sign</strong> — softening and compressibility of lower uterus</li>
           <li><strong>Chadwick's sign</strong> — deepened violet-bluish color of cervix and vaginal mucosa</li>
@@ -3970,6 +4074,8 @@ article.exercise.nclex-hidden{ display: none !important }
           <li>Positive pregnancy test</li>
           <li>Fetal outline felt by examiner</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch3-signs-cb2">
@@ -3977,11 +4083,16 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Positive signs</h3>
           <span class="condition-tag">Confirmatory · pregnancy alone explains</span>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Confirmatory findings</h4>
+            <ul>
           <li>Fetal heart sounds heard</li>
           <li>Fetal movement <strong>palpated by experienced examiner</strong></li>
           <li>Visualization of fetus by ultrasound</li>
         </ul>
+          </div>
+        </div>
         <div class="kb-card">
           <p><strong>Trick:</strong> a <em>positive pregnancy test</em> is a <strong>probable</strong> sign — not positive — because medications and other factors can cause false results.</p>
         </div>
@@ -4023,11 +4134,16 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">hCG curve</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Pattern over gestation</h4>
+            <ul>
           <li>Production begins with <strong>implantation</strong></li>
           <li>Peaks at ~60–70 days of gestation</li>
           <li>Declines until ~100–130 days, then plateaus for the rest of pregnancy</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch3-verify-cb1">
@@ -4058,12 +4174,17 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Test interference</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Interfering factors</h4>
+            <ul>
           <li><strong>Anticonvulsants, diuretics, tranquilizers</strong> can cause false-positive or false-negative results</li>
           <li>Home pregnancy tests: use <strong>first-voided morning urine</strong></li>
           <li>Follow package directions exactly</li>
           <li>Do <em>not</em> require fasting/NPO; do <em>not</em> require stopping medications without provider review</li>
         </ul>
+          </div>
+        </div>
       </article>
     
 <div class="ati-deep">
@@ -4098,10 +4219,15 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Fundal height</h3>
         </header>
         <p>Measure in centimeters from the symphysis pubis to the top of the uterine fundus. Used between <strong>18 and 30 weeks</strong>. Approximates gestational age ± 2 weeks.</p>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Key points</h4>
+            <ul>
           <li>By 36 weeks the fundus typically reaches the xiphoid process</li>
           <li>Discrepancy &gt; 3 cm warrants further evaluation (IUGR, macrosomia, multifetal, oligohydramnios/polyhydramnios)</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch3-dating-cb2">
@@ -4273,12 +4399,17 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Blood pressure</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Expected changes</h4>
+            <ul>
           <li>1st trimester: within prepregnancy range</li>
           <li>Systolic — slight or no change</li>
           <li>Diastolic — slight ↓ around 24–32 weeks; returns to baseline by term</li>
           <li>Position affects reading — supine can be falsely low from caval compression</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch3-vitals-cb1">
@@ -4313,10 +4444,20 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Pulse &amp; Respirations</h3>
         </header>
-        <ul>
-          <li><strong>Pulse:</strong> ↑ 10–15/min around 32 weeks; remains elevated</li>
-          <li><strong>Respirations:</strong> unchanged or slightly ↑; some SOB normal due to diaphragm elevation</li>
-        </ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Pulse</h4>
+            <ul>
+              <li>↑ 10–15/min around 32 weeks; remains elevated</li>
+            </ul>
+          </div>
+          <div class="finding-card">
+            <h4>Respirations</h4>
+            <ul>
+              <li>unchanged or slightly ↑; some SOB normal due to diaphragm elevation</li>
+            </ul>
+          </div>
+        </div>
       </article>
     </section>
 
@@ -4327,25 +4468,36 @@ article.exercise.nclex-hidden{ display: none !important }
       <article class="condition-block" id="ch3-changes-cb0">
         <header class="condition-head">
           <h3 class="condition-name">Skin changes</h3>
+          <span class="condition-tag">Hyperpigmentation</span>
         </header>
-        <ul>
-          <li><strong>Chloasma (mask of pregnancy)</strong> — increase of pigmentation on the face</li>
-          <li><strong>Linea nigra</strong> — dark vertical line of pigmentation from umbilicus to pubic area</li>
-          <li><strong>Striae gravidarum</strong> — stretch marks, most pronounced on abdomen and thighs</li>
-        </ul>
+        <table class="data-table">
+          <caption>Pregnancy skin changes</caption>
+          <thead><tr><th>Change</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Chloasma (mask of pregnancy)</strong></td><td>increase of pigmentation on the face</td></tr>
+            <tr><td><strong>Linea nigra</strong></td><td>dark vertical line of pigmentation from umbilicus to pubic area</td></tr>
+            <tr><td><strong>Striae gravidarum</strong></td><td>stretch marks, most pronounced on abdomen and thighs</td></tr>
+          </tbody>
+        </table>
       </article>
 
       <article class="condition-block" id="ch3-changes-cb1">
         <header class="condition-head">
           <h3 class="condition-name">Breast changes</h3>
+          <span class="condition-tag">Estrogen/progesterone-driven</span>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Physical signs</h4>
+            <ul>
           <li>Increase in size and heaviness</li>
           <li>Increased sensitivity</li>
           <li>Darkening of the areola</li>
           <li>Enlarged Montgomery's glands</li>
           <li>Vascularization (visible veins)</li>
         </ul>
+          </div>
+        </div>
         <div class="kb-card">
           <p><strong>Underlying principle:</strong> Increase in estrogen and progesterone occurring during pregnancy drives both the skin and breast changes.</p>
         </div>
@@ -4354,20 +4506,30 @@ article.exercise.nclex-hidden{ display: none !important }
       <article class="condition-block" id="ch3-changes-cb2">
         <header class="condition-head">
           <h3 class="condition-name">Body image &amp; psychosocial</h3>
+          <span class="condition-tag">Judgment-free support</span>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Impact by trimester</h4>
+            <ul>
           <li>1st trimester: changes not yet obvious — many anticipate the visible signs</li>
           <li>2nd trimester: rapid abdominal/breast enlargement, mobility changes, balance shifts, back/leg discomfort</li>
           <li>Skin changes (stretch marks, hyperpigmentation) can affect self-image</li>
           <li>Some clients express resentment or anxiety — provide judgment-free support</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch3-changes-cb3">
         <header class="condition-head">
           <h3 class="condition-name">Nursing interventions</h3>
+          <span class="condition-tag">Educate &amp; reassure</span>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Support measures</h4>
+            <ul>
           <li>Acknowledge concerns; provide a judgment-free atmosphere for sharing</li>
           <li>Discuss expected changes and timeline for return to prepregnant state</li>
           <li>Assist with goal-setting for postpartum self-care and newborn care</li>
@@ -4376,6 +4538,8 @@ article.exercise.nclex-hidden{ display: none !important }
           <li>Encourage adherence to follow-up appointments</li>
           <li><strong>Report immediately:</strong> any bleeding, fluid leakage, contractions during pregnancy</li>
         </ul>
+          </div>
+        </div>
       </article>
     </section>
 
@@ -4644,12 +4808,17 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Initial physical workup</h3>
         </header>
-        <ul>
-          <li>Determine EDD from LMP (Nägele's rule)</li>
-          <li>Baseline weight, vital signs</li>
-          <li>Pelvic examination</li>
-          <li>Initial battery of laboratory tests (see next section)</li>
-        </ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>First-visit components</h4>
+            <ul>
+              <li>Determine EDD from LMP (Nägele's rule)</li>
+              <li>Baseline weight, vital signs</li>
+              <li>Pelvic examination</li>
+              <li>Initial battery of laboratory tests (see next section)</li>
+            </ul>
+          </div>
+        </div>
       </article>
     </section>
 
@@ -4682,32 +4851,45 @@ article.exercise.nclex-hidden{ display: none !important }
       <article class="condition-block" id="ch4-schedule-cb0">
         <header class="condition-head">
           <h3 class="condition-name">At every ongoing visit</h3>
+          <span class="condition-tag">Assess every visit</span>
         </header>
-        <ul>
-          <li>Weight</li>
-          <li>Blood pressure</li>
-          <li>Urine — glucose, protein, leukocytes</li>
-          <li>Edema check</li>
-          <li>Fetal development:
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Maternal checks</h4>
+            <ul>
+              <li>Weight</li>
+              <li>Blood pressure</li>
+              <li>Urine — glucose, protein, leukocytes</li>
+              <li>Edema check</li>
+              <li>Education for self-care of common discomforts</li>
+            </ul>
+          </div>
+          <div class="finding-card">
+            <h4>Fetal development</h4>
             <ul>
               <li>FHR — Doppler late 1st trimester; listen midline above symphysis pubis, hold Doppler firmly</li>
               <li>Fundal height — start 2nd trimester; weeks 18–30 cm ≈ weeks gestation</li>
               <li>Fetal movement — assess starting 16–20 weeks</li>
             </ul>
-          </li>
-          <li>Education for self-care of common discomforts</li>
-        </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch4-schedule-cb1">
         <header class="condition-head">
           <h3 class="condition-name">Nursing care actions</h3>
+          <span class="condition-tag">Rho(D) ~28 wk if Rh-negative</span>
         </header>
-        <ul>
-          <li>Perform or assist with <strong>Leopold maneuvers</strong> — fetal presentation/position</li>
-          <li>Assist with gynecological exam — empty bladder first, deep breaths during exam</li>
-          <li><strong>Administer Rho(D) immune globulin IM around 28 weeks</strong> if Rh-negative</li>
-        </ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Key interventions</h4>
+            <ul>
+              <li>Perform or assist with <strong>Leopold maneuvers</strong> — fetal presentation/position</li>
+              <li>Assist with gynecological exam — empty bladder first, deep breaths during exam</li>
+              <li><strong>Administer Rho(D) immune globulin IM around 28 weeks</strong> if Rh-negative</li>
+            </ul>
+          </div>
+        </div>
       </article>
     
 <div class="ati-deep">
@@ -4758,33 +4940,53 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Infectious disease screening</h3>
         </header>
-        <ul>
-          <li><strong>VDRL/RPR</strong> — syphilis screening (mandated by law)</li>
-          <li><strong>HIV</strong> — CDC and ACOG recommend routine testing for all pregnant clients unless they refuse</li>
-          <li><strong>PPD</strong> + chest X-ray after 20 weeks if PPD positive — TB exposure</li>
-          <li><strong>TORCH screening</strong> when indicated — Toxoplasmosis, Other (e.g., parvovirus), Rubella, Cytomegalovirus, Herpes — placental crossing infections</li>
-        </ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Screening tests</h4>
+            <ul>
+              <li><strong>VDRL/RPR</strong> — syphilis screening (mandated by law)</li>
+              <li><strong>HIV</strong> — CDC and ACOG recommend routine testing for all pregnant clients unless they refuse</li>
+              <li><strong>PPD</strong> + chest X-ray after 20 weeks if PPD positive — TB exposure</li>
+              <li><strong>TORCH screening</strong> when indicated — Toxoplasmosis, Other (e.g., parvovirus), Rubella, Cytomegalovirus, Herpes — placental crossing infections</li>
+            </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch4-labs-cb2">
         <header class="condition-head">
           <h3 class="condition-name">Glucose tolerance testing</h3>
         </header>
-        <ul>
-          <li><strong>1-hour OGTT</strong> — venous glucose 1 hr after oral 50g load. <em>Fasting NOT required.</em> Initial visit if at risk; <strong>at 24–28 weeks for all clients</strong>. &gt; 140 mg/dL → follow-up</li>
-          <li><strong>3-hour OGTT</strong> — fasting overnight, then concentrated glucose, blood draws at 1, 2, 3 hr. Follows elevated 1-hr screen. <strong>Two elevated values = gestational diabetes diagnosis</strong></li>
-        </ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>1-hour OGTT</h4>
+            <ul>
+              <li>Venous glucose 1 hr after oral 50g load. <em>Fasting NOT required.</em> Initial visit if at risk; <strong>at 24–28 weeks for all clients</strong>. &gt; 140 mg/dL → follow-up</li>
+            </ul>
+          </div>
+          <div class="finding-card">
+            <h4>3-hour OGTT</h4>
+            <ul>
+              <li>Fasting overnight, then concentrated glucose, blood draws at 1, 2, 3 hr. Follows elevated 1-hr screen. <strong>Two elevated values = gestational diabetes diagnosis</strong></li>
+            </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch4-labs-cb3">
         <header class="condition-head">
           <h3 class="condition-name">Late-pregnancy tests</h3>
         </header>
-        <ul>
-          <li><strong>Group B Streptococcus (GBS)</strong> — vaginal/anal culture at <strong>35–37 weeks</strong>. Positive = intrapartum antibiotic prophylaxis</li>
-          <li><strong>MSAFP</strong> — 15–22 weeks. Low → Down syndrome; High → neural tube defects</li>
-          <li><strong>Quad screen</strong> — alternative at 16–18 weeks; AFP + inhibin-A + hCG + estriol (more reliable than MSAFP alone)</li>
-        </ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Test timing &amp; significance</h4>
+            <ul>
+              <li><strong>Group B Streptococcus (GBS)</strong> — vaginal/anal culture at <strong>35–37 weeks</strong>. Positive = intrapartum antibiotic prophylaxis</li>
+              <li><strong>MSAFP</strong> — 15–22 weeks. Low → Down syndrome; High → neural tube defects</li>
+              <li><strong>Quad screen</strong> — alternative at 16–18 weeks; AFP + inhibin-A + hCG + estriol (more reliable than MSAFP alone)</li>
+            </ul>
+          </div>
+        </div>
       </article>
     
 <div class="ati-deep">
@@ -4835,29 +5037,32 @@ article.exercise.nclex-hidden{ display: none !important }
 
       <article class="condition-block" id="ch4-education-health-cb0">
         <header class="condition-head">
-          <h3 class="condition-name">Avoid / discourage</h3>
+          <h3 class="condition-name">Lifestyle &amp; health counseling</h3>
+          <span class="condition-tag">High-yield NCLEX cues</span>
         </header>
-        <ul>
-          <li><strong>OTC medications, supplements, prescription medications</strong> unless approved by provider</li>
-          <li><strong>Alcohol</strong> — birth defects (fetal alcohol spectrum)</li>
-          <li><strong>Tobacco</strong> — low birth weight</li>
-          <li>All substance use during pregnancy and lactation</li>
-          <li><strong>Hot tubs and saunas</strong> — hyperthermia risk</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch4-education-health-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Encourage</h3>
-        </header>
-        <ul>
-          <li><strong>30 min/day moderate exercise</strong> (walking, swimming) if not contraindicated</li>
-          <li>8–10 glasses (2.3 L) of water daily</li>
-          <li><strong>Flu immunization</strong></li>
-          <li>Smoking cessation strategies</li>
-          <li>Treatment of current infections</li>
-          <li>Genetic testing &amp; counseling if indicated</li>
-        </ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Avoid / discourage</h4>
+            <ul>
+              <li><strong>OTC medications, supplements, prescription medications</strong> unless approved by provider</li>
+              <li><strong>Alcohol</strong> — birth defects (fetal alcohol spectrum)</li>
+              <li><strong>Tobacco</strong> — low birth weight</li>
+              <li>All substance use during pregnancy and lactation</li>
+              <li><strong>Hot tubs and saunas</strong> — hyperthermia risk</li>
+            </ul>
+          </div>
+          <div class="finding-card">
+            <h4>Encourage</h4>
+            <ul>
+              <li><strong>30 min/day moderate exercise</strong> (walking, swimming) if not contraindicated</li>
+              <li>8–10 glasses (2.3 L) of water daily</li>
+              <li><strong>Flu immunization</strong></li>
+              <li>Smoking cessation strategies</li>
+              <li>Treatment of current infections</li>
+              <li>Genetic testing &amp; counseling if indicated</li>
+            </ul>
+          </div>
+        </div>
       </article>
     </section>
 
@@ -4911,11 +5116,22 @@ article.exercise.nclex-hidden{ display: none !important }
       <article class="condition-block" id="ch4-education-trimester-cb0">
         <header class="condition-head">
           <h3 class="condition-name">Kick counts (3rd trimester)</h3>
+          <span class="condition-tag">&lt;3/hr or none ×12 hr → notify</span>
         </header>
-        <ul>
-          <li>Count daily, 2–3 × per day for 2 hours after meals or bedtime</li>
-          <li><strong>Fewer than 3 movements/hour</strong> or no movement for <strong>12 hours</strong> → notify provider</li>
-        </ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>How to count</h4>
+            <ul>
+              <li>Count daily, 2–3 × per day for 2 hours after meals or bedtime</li>
+            </ul>
+          </div>
+          <div class="finding-card">
+            <h4>When to report</h4>
+            <ul>
+              <li><strong>Fewer than 3 movements/hour</strong> or no movement for <strong>12 hours</strong> → notify provider</li>
+            </ul>
+          </div>
+        </div>
       </article>
     </section>
 
@@ -5058,15 +5274,20 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Urinary tract infections</h3>
         </header>
         <p>Common during pregnancy due to renal changes and alkaline vaginal flora. Decrease risk by:</p>
-        <ul>
-          <li><strong>Wipe perineum front to back</strong> after voiding</li>
-          <li>Avoid bubble baths</li>
-          <li>Wear cotton underpants; avoid tight pants</li>
-          <li>Drink 8 glasses of water/day</li>
-          <li><strong>Urinate before and after intercourse</strong></li>
-          <li>Urinate as soon as urge occurs</li>
-          <li><strong>Notify provider</strong> if urine is foul-smelling, contains blood, or is cloudy</li>
-        </ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Prevention</h4>
+            <ul>
+              <li><strong>Wipe perineum front to back</strong> after voiding</li>
+              <li>Avoid bubble baths</li>
+              <li>Wear cotton underpants; avoid tight pants</li>
+              <li>Drink 8 glasses of water/day</li>
+              <li><strong>Urinate before and after intercourse</strong></li>
+              <li>Urinate as soon as urge occurs</li>
+              <li><strong>Notify provider</strong> if urine is foul-smelling, contains blood, or is cloudy</li>
+            </ul>
+          </div>
+        </div>
       </article>
     
 <div class="ati-deep">
@@ -5497,13 +5718,18 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Data to obtain</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Sources</h4>
+            <ul>
           <li><strong>Food journal</strong> — habits, eating patterns, cravings (24-hr recall is one method)</li>
           <li>Nutrition-related questionnaires</li>
           <li>Health history — contraception, previous pregnancies, chronic diseases</li>
           <li>Weight at first prenatal visit and every follow-up</li>
           <li>Laboratory findings — Hgb, iron levels</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch5-assessment-cb1">
@@ -5537,12 +5763,16 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Calories</h3>
         </header>
-        <ul>
-          <li><strong>1st trimester:</strong> no additional calories</li>
-          <li><strong>2nd trimester:</strong> +340 cal/day</li>
-          <li><strong>3rd trimester:</strong> +452 cal/day</li>
-          <li><strong>Lactating (well-nourished):</strong> +450–500 cal/day to a balanced diet (per AAP)</li>
-        </ul>
+        <table class="data-table">
+          <caption>Calorie adjustment by stage</caption>
+          <thead><tr><th>Stage</th><th>Calorie adjustment</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1st trimester</strong></td><td>no additional calories</td></tr>
+            <tr><td><strong>2nd trimester</strong></td><td>+340 cal/day</td></tr>
+            <tr><td><strong>3rd trimester</strong></td><td>+452 cal/day</td></tr>
+            <tr><td><strong>Lactating (well-nourished)</strong></td><td>+450–500 cal/day to a balanced diet (per AAP)</td></tr>
+          </tbody>
+        </table>
       </article>
 
       <article class="condition-block" id="ch5-education-cb1">
@@ -5637,11 +5867,16 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Fluids, caffeine, alcohol</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Daily guidance</h4>
+            <ul>
           <li><strong>Fluid:</strong> 8–10 glasses (2.3 L) daily — water, fruit juice, milk preferred</li>
           <li><strong>Caffeine:</strong> ≤ 200 mg/day per ACOG and March of Dimes. Excessive intake → infertility, spontaneous abortion, IUGR</li>
           <li><strong>Alcohol:</strong> abstain entirely during pregnancy</li>
         </ul>
+          </div>
+        </div>
       </article>
     
 <table class="data-table">
@@ -5802,12 +6037,17 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Diabetes mellitus (preexisting or gestational)</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Dietary management</h4>
+            <ul>
           <li>Monitor carbohydrate amount in diet; keep glucose in target range</li>
           <li>Limit sweets and desserts (high carbohydrate)</li>
           <li>Meet with a registered dietitian</li>
           <li>Coordinate with insulin/medication adjustments</li>
         </ul>
+          </div>
+        </div>
       </article>
     </section>
 
@@ -5817,27 +6057,33 @@ article.exercise.nclex-hidden{ display: none !important }
 
       <article class="condition-block" id="ch5-postpartum-cb0">
         <header class="condition-head">
-          <h3 class="condition-name">Lactating client</h3>
+          <h3 class="condition-name">Postpartum nutrition by feeding choice</h3>
+          <span class="condition-tag">Tailor to breastfeeding status</span>
         </header>
-        <ul>
-          <li><strong>Increase protein and calorie intake</strong> (+450–500 cal/day) within a balanced diet</li>
-          <li>Increase oral fluids</li>
-          <li><strong>Avoid alcohol and caffeine</strong> (caffeine affects iron absorption and infant weight gain)</li>
-          <li>Avoid foods that don't agree with the newborn</li>
-          <li>Continue calcium supplements if dietary calcium is inadequate</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch5-postpartum-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Non-breastfeeding client</h3>
-        </header>
-        <p>Resume previously recommended well-balanced diet.</p>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Lactating client</h4>
+            <ul>
+              <li><strong>Increase protein and calorie intake</strong> (+450–500 cal/day) within a balanced diet</li>
+              <li>Increase oral fluids</li>
+              <li><strong>Avoid alcohol and caffeine</strong> (caffeine affects iron absorption and infant weight gain)</li>
+              <li>Avoid foods that don't agree with the newborn</li>
+              <li>Continue calcium supplements if dietary calcium is inadequate</li>
+            </ul>
+          </div>
+          <div class="finding-card">
+            <h4>Non-breastfeeding client</h4>
+            <ul>
+              <li>Resume previously recommended well-balanced diet.</li>
+            </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch5-postpartum-cb2">
         <header class="condition-head">
           <h3 class="condition-name">Financial assistance</h3>
+          <span class="condition-tag">Refer to WIC</span>
         </header>
         <div class="kb-card">
           <p><strong>Refer to WIC (Women, Infants, and Children)</strong> — federally funded state program providing nutritional support to pregnant clients and their children up to 5 years old.</p>
@@ -6118,11 +6364,16 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Transvaginal ultrasound</h3>
         </header>
         <p>Invasive — probe inserted vaginally for more accurate evaluation. <strong>Does NOT require a full bladder.</strong></p>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Uses</h4>
+            <ul>
           <li>Especially useful in clients who are obese</li>
           <li>1st trimester: detect ectopic pregnancy, identify abnormalities, establish gestational age</li>
           <li>3rd trimester: with abdominal scan to evaluate preterm labor</li>
         </ul>
+          </div>
+        </div>
         <div class="kb-card">
           <h4>Procedure prep</h4>
           <ul>
@@ -6201,7 +6452,10 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Indications</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>When indicated</h4>
+            <ul>
           <li>Nonreactive NST</li>
           <li>Suspected oligohydramnios or polyhydramnios</li>
           <li>Suspected fetal hypoxemia or hypoxia</li>
@@ -6210,6 +6464,8 @@ article.exercise.nclex-hidden{ display: none !important }
           <li>Decreased fetal movement</li>
           <li>Intrauterine growth restriction</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch6-bpp-cb1">
@@ -6259,11 +6515,15 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Total score interpretation</h3>
         </header>
-        <ul>
-          <li><strong>8–10:</strong> normal, low risk of chronic fetal asphyxia</li>
-          <li><strong>4–6:</strong> abnormal, suspect chronic fetal asphyxia</li>
-          <li><strong>&lt; 4:</strong> abnormal, strongly suspect chronic fetal asphyxia</li>
-        </ul>
+        <table class="data-table">
+          <caption>BPP total score</caption>
+          <thead><tr><th>Score</th><th>Interpretation</th></tr></thead>
+          <tbody>
+            <tr><td><strong>8–10</strong></td><td>normal, low risk of chronic fetal asphyxia</td></tr>
+            <tr><td><strong>4–6</strong></td><td>abnormal, suspect chronic fetal asphyxia</td></tr>
+            <tr><td><strong>&lt; 4</strong></td><td>abnormal, strongly suspect chronic fetal asphyxia</td></tr>
+          </tbody>
+        </table>
       </article>
     
 <table class="data-table">
@@ -6331,12 +6591,17 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Procedure</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Steps</h4>
+            <ul>
           <li><strong>Doppler transducer</strong> (FHR) and <strong>tocotransducer</strong> (uterine contractions) attached externally</li>
           <li>Client pushes a button each time fetal movement is felt — marker placed on tracing</li>
           <li>Allows nurse to assess FHR in relationship to fetal movement</li>
           <li>Typically completed within 20–30 minutes</li>
         </ul>
+          </div>
+        </div>
         <div class="kb-card">
           <p><strong>Disadvantages:</strong> high rate of false nonreactive results — fetal sleep cycles, fetal immaturity, maternal medications, nicotine use can blunt the movement response.</p>
         </div>
@@ -6346,7 +6611,10 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Indications</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>When indicated</h4>
+            <ul>
           <li>Assess intact fetal CNS (3rd trimester)</li>
           <li><strong>Rule out fetal death in DM clients — used 2×/week starting at 28–32 weeks</strong></li>
           <li>Decreased fetal movement</li>
@@ -6355,6 +6623,8 @@ article.exercise.nclex-hidden{ display: none !important }
           <li>SLE, kidney disease, intrahepatic cholestasis</li>
           <li>Oligohydramnios, multiple gestation</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch6-nst-cb2">
@@ -6385,11 +6655,16 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Interpretation</h3>
           <span class="condition-tag flag">High-yield NCLEX</span>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Reactive vs nonreactive</h4>
+            <ul>
           <li><strong>Reactive (normal):</strong> FHR accelerates ≥ 15/min for ≥ 15 sec, occurring ≥ 2 times in a 20-min period</li>
           <li><em>Before 32 weeks:</em> ≥ 10/min for ≥ 10 sec is acceptable</li>
           <li><strong>Nonreactive (abnormal):</strong> does not demonstrate ≥ 2 qualifying accelerations in a 20-min window → next step is CST or BPP</li>
         </ul>
+          </div>
+        </div>
       </article>
     </section>
 
@@ -6441,7 +6716,10 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Indications</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>When indicated</h4>
+            <ul>
           <li>High-risk pregnancies (GDM, postterm)</li>
           <li>Nonreactive NST</li>
           <li>Decreased fetal movement</li>
@@ -6451,6 +6729,8 @@ article.exercise.nclex-hidden{ display: none !important }
           <li>SLE, kidney disease, intrahepatic cholestasis</li>
           <li>Oligohydramnios, multiple gestation</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch6-cst-cb3">
@@ -6477,12 +6757,17 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Hyperstimulation management</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Management steps</h4>
+            <ul>
           <li>Monitor for contractions &gt; 90 sec or more frequent than every 2 min</li>
           <li>Administer <strong>tocolytics</strong> as prescribed</li>
           <li>Maintain bed rest during procedure</li>
           <li>Observe client <strong>30 minutes after</strong> to ensure contractions cease and preterm labor doesn't begin</li>
         </ul>
+          </div>
+        </div>
       </article>
     </section>
 
@@ -6494,7 +6779,10 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Indications</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>When indicated</h4>
+            <ul>
           <li>Previous birth with chromosomal anomaly</li>
           <li>Parent who is a carrier of a chromosomal anomaly</li>
           <li>Family Hx of neural tube defects</li>
@@ -6503,6 +6791,8 @@ article.exercise.nclex-hidden{ display: none !important }
           <li><strong>Lung maturity assessment</strong></li>
           <li>Fetal hemolytic disease</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch6-amnio-cb1">
@@ -6572,11 +6862,16 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Interpretation: Fetal lung maturity</h3>
         </header>
         <p>Tested if &lt; 37 weeks, ROM, preterm labor, or cesarean indication. Determines whether fetus can adapt to extrauterine life or needs more time + glucocorticoids.</p>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Maturity markers</h4>
+            <ul>
           <li><strong>L/S ratio (lecithin/sphingomyelin) 2:1</strong> = lung maturity</li>
           <li><strong>2.5:1 or 3:1 in clients with diabetes mellitus</strong></li>
           <li><strong>Phosphatidylglycerol (PG) absence</strong> → respiratory distress risk</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch6-amnio-cb4">
@@ -7106,11 +7401,16 @@ article.exercise.nclex-hidden{ display: none !important }
 
       <article class="condition-block" id="ch7-causes-cb0">
         <header class="condition-head"><h3 class="condition-name">Other causes (any trimester)</h3></header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Causes</h4>
+            <ul>
           <li><strong>Recurrent premature dilation of the cervix</strong> — painless bleeding with cervical dilation leading to fetal expulsion</li>
           <li><strong>Preterm labor</strong> — bloody discharge, regular uterine contractions, cervical dilation/effacement</li>
           <li><strong>Hydatidiform mole</strong> — benign proliferative growth of placental trophoblast (component of GTD)</li>
         </ul>
+          </div>
+        </div>
       </article>
       
     </section>
@@ -7121,7 +7421,10 @@ article.exercise.nclex-hidden{ display: none !important }
 
       <article class="condition-block" id="ch7-spontaneous-abortion-cb0">
         <header class="condition-head"><h3 class="condition-name">Risk factors</h3></header>
-          <ul>
+          <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Contributors</h4>
+            <ul>
             <li>Chromosomal abnormalities (account for ~25%)</li>
             <li>Maternal illness (e.g., type 1 diabetes)</li>
             <li>Advanced maternal age</li>
@@ -7133,24 +7436,22 @@ article.exercise.nclex-hidden{ display: none !important }
             <li>Substance use</li>
             <li>Antiphospholipid syndrome</li>
           </ul>
+          </div>
+        </div>
         </article>
       <article class="condition-block" id="ch7-spontaneous-abortion-cb1">
         <header class="condition-head"><h3 class="condition-name">Expected findings</h3></header>
-          <ul>
-            <li>Abdominal cramping or pain</li>
-            <li>Rupture of membranes</li>
-            <li>Dilation of the cervix</li>
-            <li>Fever</li>
-            <li>Hemorrhage manifestations (hypotension, tachycardia)</li>
-          </ul>
-          <h3 style="margin-top:14px">Labs</h3>
-          <ul>
-            <li>Hgb &amp; Hct (if considerable blood loss)</li>
-            <li>Clotting factors (monitor for DIC)</li>
-            <li>WBC (suspected infection)</li>
-            <li>Serum hCG (confirm pregnancy)</li>
-          </ul>
-        </article>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Clinical signs</h4>
+            <ul><li>Abdominal cramping or pain</li><li>Rupture of membranes</li><li>Dilation of the cervix</li><li>Fever</li><li>Hemorrhage manifestations (hypotension, tachycardia)</li></ul>
+          </div>
+          <div class="finding-card">
+            <h4>Labs</h4>
+            <ul><li>Hgb &amp; Hct (if considerable blood loss)</li><li>Clotting factors (monitor for DIC)</li><li>WBC (suspected infection)</li><li>Serum hCG (confirm pregnancy)</li></ul>
+          </div>
+        </div>
+      </article>
       
 
       <h3>Types — ATI Table 7.2</h3>
@@ -7173,19 +7474,27 @@ article.exercise.nclex-hidden{ display: none !important }
 
       <article class="condition-block" id="ch7-spontaneous-abortion-cb2">
         <header class="condition-head"><h3 class="condition-name">Diagnostic &amp; therapeutic procedures</h3></header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Procedures</h4>
+            <ul>
           <li>Ultrasound — viable vs dead fetus, partial vs complete products of conception</li>
           <li>Cervical exam — opened or closed</li>
           <li>Dilation &amp; curettage (D&amp;C) — for inevitable / incomplete abortions</li>
           <li>Dilation &amp; evacuation (D&amp;E) — after 16 weeks gestation</li>
           <li>Prostaglandins, oxytocin — augment or induce uterine contractions, expulse products</li>
         </ul>
+          </div>
+        </div>
       </article>
       
 
       <article class="condition-block" id="ch7-spontaneous-abortion-cb3">
         <header class="condition-head"><h3 class="condition-name">Nursing care</h3></header>
-          <ul>
+          <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Interventions</h4>
+            <ul>
             <li>Pregnancy test, observe color and amount of bleeding (count pads)</li>
             <li>Bed rest; fall precautions if sedated</li>
             <li><strong>Avoid vaginal exams</strong></li>
@@ -7194,25 +7503,22 @@ article.exercise.nclex-hidden{ display: none !important }
             <li>Use lay term "miscarriage"</li>
             <li>Provide emotional support; refer to pregnancy-loss support groups</li>
           </ul>
+          </div>
+        </div>
         </article>
       <article class="condition-block" id="ch7-spontaneous-abortion-cb4">
         <header class="condition-head"><h3 class="condition-name">Medications</h3></header>
-          <ul>
-            <li>Analgesics, sedatives</li>
-            <li>Prostaglandin (vaginal suppository)</li>
-            <li>Oxytocin</li>
-            <li>Broad-spectrum antibiotics — septic abortion</li>
-            <li><strong>Rho(D) immune globulin</strong> — if Rh-negative</li>
-          </ul>
-          <h3 style="margin-top:14px">Client education</h3>
-          <ul>
-            <li>Notify provider of heavy bright-red bleeding, fever, or foul-smelling discharge</li>
-            <li>Small amount of discharge is normal for 1–2 weeks</li>
-            <li>Take prescribed antibiotics</li>
-            <li>No tub baths, intercourse, or vaginal insertion ×2 weeks</li>
-            <li>Discuss grief &amp; loss before next pregnancy attempt</li>
-          </ul>
-        </article>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Drug therapy</h4>
+            <ul><li>Analgesics, sedatives</li><li>Prostaglandin (vaginal suppository)</li><li>Oxytocin</li><li>Broad-spectrum antibiotics — septic abortion</li><li><strong>Rho(D) immune globulin</strong> — if Rh-negative</li></ul>
+          </div>
+          <div class="finding-card">
+            <h4>Client education</h4>
+            <ul><li>Notify provider of heavy bright-red bleeding, fever, or foul-smelling discharge</li><li>Small amount of discharge is normal for 1–2 weeks</li><li>Take prescribed antibiotics</li><li>No tub baths, intercourse, or vaginal insertion ×2 weeks</li><li>Discuss grief &amp; loss before next pregnancy attempt</li></ul>
+          </div>
+        </div>
+      </article>
       
     
 <div class="ati-deep">
@@ -7251,33 +7557,48 @@ article.exercise.nclex-hidden{ display: none !important }
 
       <article class="condition-block" id="ch7-ectopic-cb0">
         <header class="condition-head"><h3 class="condition-name">Risk factors</h3></header>
-          <ul>
+          <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Contributors</h4>
+            <ul>
             <li>Anything that compromises tubal patency:</li>
             <li>Sexually transmitted infections</li>
             <li>Assisted reproductive technologies</li>
             <li>Tubal surgery</li>
             <li>Contraceptive intrauterine device (IUD)</li>
           </ul>
+          </div>
+        </div>
         </article>
       <article class="condition-block" id="ch7-ectopic-cb1">
         <header class="condition-head"><h3 class="condition-name">Expected findings</h3></header>
-          <ul>
+          <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Clinical signs</h4>
+            <ul>
             <li><strong>Unilateral stabbing pain</strong> — lower-abdominal quadrant</li>
             <li>Menses delayed (1–2 weeks), lighter, or irregular</li>
             <li>Scant dark red / brown spotting 6–8 weeks after last menses; red bleeding if rupture</li>
             <li><strong>Referred shoulder pain</strong> — blood in peritoneal cavity irritating diaphragm/phrenic nerve after rupture</li>
             <li>Hemorrhage / shock if large bleed</li>
           </ul>
+          </div>
+        </div>
         </article>
       
 
       <article class="condition-block" id="ch7-ectopic-cb2">
         <header class="condition-head"><h3 class="condition-name">Labs &amp; diagnostics</h3></header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Workup</h4>
+            <ul>
           <li>Serum progesterone &amp; hCG — help distinguish viable from ectopic pregnancy</li>
           <li>Transvaginal ultrasound — empty uterus</li>
           <li>Use caution with vaginal/bimanual exam</li>
         </ul>
+          </div>
+        </div>
       </article>
       
 
@@ -7292,20 +7613,30 @@ article.exercise.nclex-hidden{ display: none !important }
 
       <article class="condition-block" id="ch7-ectopic-cb3">
         <header class="condition-head"><h3 class="condition-name">Nursing care</h3></header>
-          <ul>
+          <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Interventions</h4>
+            <ul>
             <li>Replace fluids; maintain electrolyte balance</li>
             <li>Administer medications as prescribed</li>
             <li>Prepare client for surgery; postoperative care</li>
             <li>Obtain serum hCG, progesterone, liver/renal labs, CBC, type &amp; Rh</li>
             <li>Emotional support; pregnancy-loss support group referral</li>
           </ul>
+          </div>
+        </div>
         </article>
       <article class="condition-block" id="ch7-ectopic-cb4">
         <header class="condition-head"><h3 class="condition-name">Client education</h3></header>
-          <ul>
+          <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Teaching points</h4>
+            <ul>
             <li><strong>If on methotrexate:</strong> avoid folic-acid–containing vitamins (causes toxic response)</li>
             <li>Sun protection — methotrexate causes photosensitivity</li>
           </ul>
+          </div>
+        </div>
         </article>
       
     
@@ -7341,54 +7672,61 @@ article.exercise.nclex-hidden{ display: none !important }
 
       <article class="condition-block" id="ch7-gtd-cb0">
         <header class="condition-head"><h3 class="condition-name">Complete mole</h3></header>
-          <ul>
+          <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Features</h4>
+            <ul>
             <li>All genetic material is paternal</li>
             <li>Ovum has no genetic material (or it's inactive)</li>
             <li>No fetus, placenta, amniotic membranes, or fluid</li>
             <li>Hemorrhage into uterine cavity → vaginal bleeding</li>
             <li><strong>~20% progress to choriocarcinoma</strong></li>
           </ul>
+          </div>
+        </div>
         </article>
       <article class="condition-block" id="ch7-gtd-cb1">
         <header class="condition-head"><h3 class="condition-name">Partial mole</h3></header>
-          <ul>
+          <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Features</h4>
+            <ul>
             <li>Genetic material is both maternal and paternal</li>
             <li>Normal ovum fertilized by 2 sperm (or 1 sperm with failed meiosis)</li>
             <li>May contain abnormal embryonic/fetal parts, amniotic sac, fetal blood — but congenital anomalies are present</li>
             <li>~6% progress to choriocarcinoma</li>
           </ul>
+          </div>
+        </div>
         </article>
       
 
       <article class="condition-block" id="ch7-gtd-cb2">
         <header class="condition-head"><h3 class="condition-name">Risk factors</h3></header>
-          <ul>
-            <li>Prior molar pregnancy</li>
-            <li>Early teenage years OR older than 40</li>
-          </ul>
-          <h3 style="margin-top:14px">Expected findings</h3>
-          <ul>
-            <li><strong>Excessive vomiting (hyperemesis)</strong> — high hCG</li>
-            <li>Rapid uterine growth — beyond expected for gestational age</li>
-            <li>Bleeding: dark brown ("prune juice") or bright red, scant or profuse — may pass vesicles</li>
-            <li>Anemia from blood loss</li>
-            <li>Preeclampsia signs <strong>before 24 weeks</strong> (red flag)</li>
-          </ul>
-        </article>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Who's at risk</h4>
+            <ul><li>Prior molar pregnancy</li><li>Early teenage years OR older than 40</li></ul>
+          </div>
+          <div class="finding-card">
+            <h4>Expected findings</h4>
+            <ul><li><strong>Excessive vomiting (hyperemesis)</strong> — high hCG</li><li>Rapid uterine growth — beyond expected for gestational age</li><li>Bleeding: dark brown ("prune juice") or bright red, scant or profuse — may pass vesicles</li><li>Anemia from blood loss</li><li>Preeclampsia signs <strong>before 24 weeks</strong> (red flag)</li></ul>
+          </div>
+        </div>
+      </article>
       <article class="condition-block" id="ch7-gtd-cb3">
         <header class="condition-head"><h3 class="condition-name">Diagnostics</h3></header>
-          <ul>
-            <li>Serum hCG persistently elevated (vs expected decline at 10–12 weeks)</li>
-            <li>Ultrasound — dense growth with characteristic vesicles, no fetus</li>
-            <li><strong>Suction curettage</strong> — aspirate &amp; evacuate the mole</li>
-            <li>Post-evacuation: baseline pelvic exam &amp; abdominal ultrasound</li>
-          </ul>
-          <h3 style="margin-top:14px">Follow-up surveillance</h3>
-          <ul>
-            <li>Serum hCG: weekly ×3 weeks, then monthly ×6 months, up to 1 year</li>
-            <li>Detects progression to GTD/choriocarcinoma</li>
-          </ul>
-        </article>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Workup</h4>
+            <ul><li>Serum hCG persistently elevated (vs expected decline at 10–12 weeks)</li><li>Ultrasound — dense growth with characteristic vesicles, no fetus</li><li><strong>Suction curettage</strong> — aspirate &amp; evacuate the mole</li><li>Post-evacuation: baseline pelvic exam &amp; abdominal ultrasound</li></ul>
+          </div>
+          <div class="finding-card">
+            <h4>Follow-up surveillance</h4>
+            <ul><li>Serum hCG: weekly ×3 weeks, then monthly ×6 months, up to 1 year</li><li>Detects progression to GTD/choriocarcinoma</li></ul>
+          </div>
+        </div>
+      </article>
       
 
       <div class="callout amber">
@@ -7457,7 +7795,10 @@ article.exercise.nclex-hidden{ display: none !important }
 
       <article class="condition-block" id="ch7-placenta-previa-cb0">
         <header class="condition-head"><h3 class="condition-name">Risk factors</h3></header>
-          <ul>
+          <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Contributors</h4>
+            <ul>
             <li>Previous placenta previa</li>
             <li>Uterine scarring (prior C-section, curettage, endometritis)</li>
             <li>Maternal age &gt; 35 years</li>
@@ -7465,10 +7806,15 @@ article.exercise.nclex-hidden{ display: none !important }
             <li>Multiple gestations (gravidity)</li>
             <li>Smoking</li>
           </ul>
+          </div>
+        </div>
         </article>
       <article class="condition-block" id="ch7-placenta-previa-cb1">
         <header class="condition-head"><h3 class="condition-name">Expected findings</h3></header>
-          <ul>
+          <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Clinical signs</h4>
+            <ul>
             <li><strong>Painless</strong>, bright red vaginal bleeding (2nd or 3rd trimester)</li>
             <li>Uterus soft, relaxed, nontender, normal tone</li>
             <li>Fundal height greater than expected for gestational age</li>
@@ -7477,16 +7823,23 @@ article.exercise.nclex-hidden{ display: none !important }
             <li>Vital signs WNL</li>
             <li>Decreasing urinary output (better blood-loss indicator than VS)</li>
           </ul>
+          </div>
+        </div>
         </article>
       
 
       <article class="condition-block" id="ch7-placenta-previa-cb2">
         <header class="condition-head"><h3 class="condition-name">Diagnostics</h3></header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Workup</h4>
+            <ul>
           <li>Transabdominal or transvaginal ultrasound — placental placement</li>
           <li>Fetal monitoring — fetal well-being</li>
           <li>Hgb/Hct, CBC, type &amp; Rh, coagulation profile, Kleihauer-Betke (fetal blood in maternal circulation)</li>
         </ul>
+          </div>
+        </div>
       </article>
       
 
@@ -7503,10 +7856,15 @@ article.exercise.nclex-hidden{ display: none !important }
 
       <article class="condition-block" id="ch7-placenta-previa-cb3">
         <header class="condition-head"><h3 class="condition-name">Client education</h3></header>
-          <ul>
+          <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Teaching points</h4>
+            <ul>
             <li>Adhere to bed rest</li>
             <li><strong>Do not insert anything into vagina</strong> — worsens bleeding</li>
           </ul>
+          </div>
+        </div>
         </article>
       <article class="condition-block" id="ch7-placenta-previa-cb4">
         <header class="condition-head"><h3 class="condition-name">Memory hook</h3></header>
@@ -7526,7 +7884,10 @@ article.exercise.nclex-hidden{ display: none !important }
 
       <article class="condition-block" id="ch7-abruption-cb0">
         <header class="condition-head"><h3 class="condition-name">Risk factors</h3></header>
-          <ul>
+          <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Contributors</h4>
+            <ul>
             <li><strong>Maternal hypertension</strong> (chronic or gestational)</li>
             <li>Blunt external abdominal trauma (MVC, battering)</li>
             <li>Cocaine use (vasoconstriction)</li>
@@ -7535,28 +7896,40 @@ article.exercise.nclex-hidden{ display: none !important }
             <li>Premature rupture of membranes</li>
             <li>Multifetal pregnancy</li>
           </ul>
+          </div>
+        </div>
         </article>
       <article class="condition-block" id="ch7-abruption-cb1">
         <header class="condition-head"><h3 class="condition-name">Expected findings</h3></header>
-          <ul>
+          <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Clinical signs</h4>
+            <ul>
             <li><strong>Sudden intense localized uterine pain</strong> with dark red vaginal bleeding</li>
             <li>Uterine tenderness — localized or diffuse, <strong>boardlike</strong></li>
             <li>Contractions with hypertonicity</li>
             <li><strong>Fetal distress</strong> on tracing</li>
             <li>Hypovolemic shock signs</li>
           </ul>
+          </div>
+        </div>
         </article>
       
 
       <article class="condition-block" id="ch7-abruption-cb2">
         <header class="condition-head"><h3 class="condition-name">Labs</h3></header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Workup</h4>
+            <ul>
           <li>Hgb/Hct decreased</li>
           <li>Coagulation factors decreased — DIC profile</li>
           <li>Cross &amp; type match — possible transfusion</li>
           <li>Kleihauer-Betke — fetal blood in maternal circulation</li>
           <li>Ultrasound + biophysical profile — fetal well-being &amp; placental assessment</li>
         </ul>
+          </div>
+        </div>
       </article>
       
 
@@ -7637,10 +8010,15 @@ article.exercise.nclex-hidden{ display: none !important }
 
       <article class="condition-block" id="ch7-vasa-previa-cb0">
         <header class="condition-head"><h3 class="condition-name">Diagnostics &amp; care</h3></header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Approach</h4>
+            <ul>
           <li>Ultrasound — fetal well-being and vessel assessment</li>
           <li><strong>Closely monitor for excessive bleeding during labor and delivery</strong></li>
         </ul>
+          </div>
+        </div>
       </article>
       
     </section>
@@ -7885,12 +8263,17 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Routine screening</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>When to test</h4>
+            <ul>
           <li>HIV testing is routine in early prenatal labs</li>
           <li><strong>Repeat in 3rd trimester for at-risk clients</strong></li>
           <li><strong>Rapid HIV testing if HIV status unknown at labor onset</strong></li>
           <li>Early identification + treatment significantly decreases perinatal transmission</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch8-hiv-cb1">
@@ -7923,7 +8306,10 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Laboratory tests</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Test sequence</h4>
+            <ul>
           <li><strong>Informed maternal consent before testing</strong></li>
           <li>Begin with antibody screen (EIA — enzyme immunoassay)</li>
           <li>Confirm positive results with <strong>Western blot</strong> or immunofluorescence assay</li>
@@ -7931,6 +8317,8 @@ article.exercise.nclex-hidden{ display: none !important }
           <li>Screen for other STIs (gonorrhea, chlamydia, syphilis, hepatitis B)</li>
           <li><strong>Frequent viral load levels and CD4 cell counts</strong> throughout pregnancy</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch8-hiv-cb3">
@@ -7992,12 +8380,17 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Discharge instructions</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Client teaching</h4>
+            <ul>
           <li><strong>DO NOT breastfeed</strong></li>
           <li>Consider meeting with HIV-specialist providers</li>
           <li><strong>HIV/AIDS is a reportable disease</strong> — provider reports to local health department</li>
           <li>Continue barrier protection during sex (prevents further exposure / increased viral load)</li>
         </ul>
+          </div>
+        </div>
       </article>
     
 <div class="ati-deep">
@@ -8081,23 +8474,33 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Diagnostic procedures</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Tests</h4>
+            <ul>
           <li><strong>TORCH screen</strong> — immunologic survey identifies infections in mother (fetal risk) or newborn (antibody detection)</li>
           <li>Prenatal screenings</li>
           <li>HSV cultures from clients with HSV at or near term</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch8-torch-cb2">
         <header class="condition-head">
           <h3 class="condition-name">Client education</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Prevention teaching</h4>
+            <ul>
           <li>Hand hygiene, cook meat thoroughly, <strong>avoid contaminated cat litter</strong></li>
           <li>For CMV: frequent hand hygiene before eating and after handling infant diapers/toys</li>
           <li>Discuss safe sexual practices</li>
           <li>Provide emotional support</li>
         </ul>
+          </div>
+        </div>
       </article>
     
 <div class="ati-deep">
@@ -8119,8 +8522,12 @@ article.exercise.nclex-hidden{ display: none !important }
       <article class="condition-block" id="ch8-gbs-cb0">
         <header class="condition-head">
           <h3 class="condition-name">Risk factors for early-onset neonatal GBS</h3>
+          <span class="condition-tag">GBS+ culture = key risk</span>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Key contributors</h4>
+            <ul>
           <li>Hx of positive GBS in previous pregnancy</li>
           <li><strong>Positive GBS culture in current pregnancy</strong></li>
           <li>Prolonged ROM (≥ 18 hr)</li>
@@ -8129,24 +8536,33 @@ article.exercise.nclex-hidden{ display: none !important }
           <li>Use of intrauterine fetal monitoring</li>
           <li><strong>Intrapartum maternal fever ≥ 38°C (100.4°F)</strong></li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch8-gbs-cb1">
         <header class="condition-head">
           <h3 class="condition-name">Maternal effects of positive GBS</h3>
+          <span class="condition-tag">Sepsis risk</span>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Complications</h4>
+            <ul>
           <li>Preterm labor and delivery</li>
           <li>Chorioamnionitis</li>
           <li>UTI</li>
           <li>Maternal sepsis</li>
           <li>Postpartum endometritis</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch8-gbs-cb2">
         <header class="condition-head">
           <h3 class="condition-name">Laboratory testing</h3>
+          <span class="condition-tag">Vaginal + rectal, 35–37 wk</span>
         </header>
         <div class="kb-card">
           <p><strong>Vaginal AND rectal cultures at 35–37 weeks of gestation</strong> for all pregnant clients.</p>
@@ -8156,24 +8572,35 @@ article.exercise.nclex-hidden{ display: none !important }
       <article class="condition-block" id="ch8-gbs-cb3">
         <header class="condition-head">
           <h3 class="condition-name">Indications for intrapartum antibiotic prophylaxis</h3>
+          <span class="condition-tag">When to give IAP</span>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Give prophylaxis when</h4>
+            <ul>
           <li>GBS-positive screen in current pregnancy</li>
           <li>Unknown GBS status with delivery &lt; 37 weeks gestation</li>
           <li>Maternal fever ≥ 38°C (100.4°F)</li>
           <li>ROM for ≥ 18 hours</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch8-gbs-cb4">
         <header class="condition-head">
           <h3 class="condition-name">Medications</h3>
+          <span class="condition-tag">Penicillin G first-line</span>
         </header>
         <p><strong>Penicillin G</strong> or <strong>ampicillin</strong> are most commonly prescribed.</p>
-        <ul>
-          <li><strong>Penicillin:</strong> 5 million units IV bolus initially, then 2.5 million units IV every 4 hr during intrapartum period</li>
-          <li><strong>Ampicillin:</strong> 2 g IV initially, then 1 g every 4 hr</li>
-        </ul>
+        <table class="data-table">
+          <caption>Intrapartum GBS prophylaxis dosing</caption>
+          <thead><tr><th>Drug</th><th>Regimen</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Penicillin</strong></td><td>5 million units IV bolus initially, then 2.5 million units IV every 4 hr during intrapartum period</td></tr>
+            <tr><td><strong>Ampicillin</strong></td><td>2 g IV initially, then 1 g every 4 hr</td></tr>
+          </tbody>
+        </table>
         <div class="kb-card">
           <p><strong>Client education:</strong> Notify the L&amp;D nurse of GBS status. Decrease neonatal risks by being screened for GBS at 35–37 weeks.</p>
         </div>
@@ -8188,12 +8615,17 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">CDC screening recommendations</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Who to screen</h4>
+            <ul>
           <li>Yearly screen for all sexually active females &lt; 25 yo</li>
           <li>Older females with risk factors (new or multiple partners)</li>
           <li><strong>All pregnant clients screened at first prenatal visit</strong></li>
           <li><strong>Rescreen in 3rd trimester</strong> if &lt; 25 yo or high risk</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch8-chlamydia-cb1">
@@ -8251,7 +8683,10 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Diagnostics, treatment, follow-up</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Management</h4>
+            <ul>
           <li>Endocervical swab culture; urine culture as alternative</li>
           <li><strong>Doxycycline:</strong> first-line in non-pregnant — <strong>contraindicated in pregnancy</strong> (may also reduce effectiveness of OCPs)</li>
           <li><strong>Pregnancy: azithromycin or amoxicillin</strong></li>
@@ -8261,6 +8696,8 @@ article.exercise.nclex-hidden{ display: none !important }
           <li><strong>Erythromycin eye ointment to all infants</strong> after delivery (covers chlamydia + gonorrhea — bacteriostatic and bactericidal)</li>
           <li><strong>Chlamydia is reportable</strong> — provider reports to local health department</li>
         </ul>
+          </div>
+        </div>
       </article>
     </section>
 
@@ -8322,13 +8759,18 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Diagnostics &amp; treatment</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Management</h4>
+            <ul>
           <li><strong>Endocervical culture</strong> preferred for female clients · urine cultures · anal/oral cultures</li>
           <li><strong>Pregnancy:</strong> ceftriaxone IM <strong>plus</strong> azithromycin PO (CDC recommends co-treatment for chlamydia even when only gonorrhea is positive)</li>
           <li>Identify and treat all sexual partners</li>
           <li><strong>Erythromycin eye ointment to all infants</strong> after delivery</li>
           <li><strong>Gonorrhea is reportable</strong> — provider reports to local health department</li>
         </ul>
+          </div>
+        </div>
       </article>
     </section>
 
@@ -8341,11 +8783,16 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Screening</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Tests</h4>
+            <ul>
           <li><strong>VDRL or RPR</strong> — required by law in all states at first prenatal visit</li>
           <li>Confirm positive screen with treponemal test (FTA-ABS or TP-PA)</li>
           <li>Repeat screen in 3rd trimester for at-risk clients</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch8-syphilis-cb1">
@@ -8425,35 +8872,58 @@ article.exercise.nclex-hidden{ display: none !important }
       <article class="condition-block" id="ch8-hpv-cb0">
         <header class="condition-head">
           <h3 class="condition-name">Findings</h3>
+          <span class="condition-tag">Condyloma acuminata</span>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Presentation</h4>
+            <ul>
           <li>Soft, flesh-colored, cauliflower-like growths on vulva, vagina, cervix, perineum, anus</li>
           <li>Lesions may enlarge during pregnancy due to hormonal changes</li>
           <li>Often asymptomatic; identified by visual inspection or Pap test</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch8-hpv-cb1">
         <header class="condition-head">
           <h3 class="condition-name">Pregnancy considerations</h3>
+          <span class="condition-tag">Vaccine contraindicated</span>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Key points</h4>
+            <ul>
           <li>Vaginal birth usually possible; <strong>C-section if extensive lesions obstruct birth canal</strong></li>
           <li>Vertical transmission can rarely cause juvenile-onset recurrent respiratory papillomatosis</li>
           <li><strong>HPV vaccine (Gardasil) is contraindicated during pregnancy</strong> — postpone until postpartum</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch8-hpv-cb2">
         <header class="condition-head">
           <h3 class="condition-name">Treatment in pregnancy</h3>
+          <span class="condition-tag">TCA preferred</span>
         </header>
-        <ul>
-          <li><strong>Trichloroacetic acid (TCA)</strong> topical — preferred during pregnancy</li>
-          <li>Cryotherapy or surgical removal for large lesions</li>
-          <li><strong>Avoid</strong> podophyllin, podofilox, imiquimod, sinecatechins — all teratogenic or contraindicated</li>
-          <li>Pap test screening at first prenatal visit</li>
-        </ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Preferred in pregnancy</h4>
+            <ul>
+              <li><strong>Trichloroacetic acid (TCA)</strong> topical — preferred during pregnancy</li>
+              <li>Cryotherapy or surgical removal for large lesions</li>
+              <li>Pap test screening at first prenatal visit</li>
+            </ul>
+          </div>
+          <div class="finding-card">
+            <h4>Avoid (teratogenic / contraindicated)</h4>
+            <ul>
+              <li><strong>Avoid</strong> podophyllin, podofilox, imiquimod, sinecatechins — all teratogenic or contraindicated</li>
+            </ul>
+          </div>
+        </div>
       </article>
     </section>
 
@@ -8563,28 +9033,37 @@ article.exercise.nclex-hidden{ display: none !important }
       <article class="condition-block" id="ch8-summary-cb0">
         <header class="condition-head">
           <h3 class="condition-name">Quick reference: STI/infection vs. distinguishing finding</h3>
+          <span class="condition-tag">Chapter cheat-sheet</span>
         </header>
-        <ul>
-          <li><strong>HIV:</strong> CD4 monitoring · zidovudine for mom and infant · NO breastfeeding · scheduled C-section if VL &gt; 1,000</li>
-          <li><strong>Toxoplasmosis:</strong> raw meat, cat litter</li>
-          <li><strong>Rubella:</strong> vaccine postpartum only · avoid pregnancy 4 weeks after</li>
-          <li><strong>HSV:</strong> active lesions at labor → C-section</li>
-          <li><strong>GBS:</strong> 35–37 wk culture · intrapartum penicillin G</li>
-          <li><strong>Chlamydia:</strong> azithromycin in pregnancy (NOT doxycycline) · neonatal conjunctivitis/pneumonia</li>
-          <li><strong>Gonorrhea:</strong> ceftriaxone + azithromycin · ophthalmia neonatorum prevention with erythromycin eye ointment</li>
-          <li><strong>Syphilis:</strong> penicillin G IM only — desensitize if allergic · congenital syphilis prevention</li>
-          <li><strong>HPV:</strong> TCA preferred in pregnancy · vaccine contraindicated</li>
-          <li><strong>Trichomoniasis:</strong> frothy yellow-green discharge · strawberry cervix · metronidazole</li>
-          <li><strong>BV:</strong> fishy odor · clue cells · pH &gt; 4.5 · metronidazole</li>
-          <li><strong>Candidiasis:</strong> cottage-cheese discharge · topical azoles · neonatal thrush → nystatin</li>
-        </ul>
+        <table class="data-table">
+          <caption>STI / infection → distinguishing finding &amp; management</caption>
+          <thead><tr><th>Infection</th><th>Distinguishing finding / management</th></tr></thead>
+          <tbody>
+            <tr><td><strong>HIV</strong></td><td>CD4 monitoring · zidovudine for mom and infant · NO breastfeeding · scheduled C-section if VL &gt; 1,000</td></tr>
+            <tr><td><strong>Toxoplasmosis</strong></td><td>raw meat, cat litter</td></tr>
+            <tr><td><strong>Rubella</strong></td><td>vaccine postpartum only · avoid pregnancy 4 weeks after</td></tr>
+            <tr><td><strong>HSV</strong></td><td>active lesions at labor → C-section</td></tr>
+            <tr><td><strong>GBS</strong></td><td>35–37 wk culture · intrapartum penicillin G</td></tr>
+            <tr><td><strong>Chlamydia</strong></td><td>azithromycin in pregnancy (NOT doxycycline) · neonatal conjunctivitis/pneumonia</td></tr>
+            <tr><td><strong>Gonorrhea</strong></td><td>ceftriaxone + azithromycin · ophthalmia neonatorum prevention with erythromycin eye ointment</td></tr>
+            <tr><td><strong>Syphilis</strong></td><td>penicillin G IM only — desensitize if allergic · congenital syphilis prevention</td></tr>
+            <tr><td><strong>HPV</strong></td><td>TCA preferred in pregnancy · vaccine contraindicated</td></tr>
+            <tr><td><strong>Trichomoniasis</strong></td><td>frothy yellow-green discharge · strawberry cervix · metronidazole</td></tr>
+            <tr><td><strong>BV</strong></td><td>fishy odor · clue cells · pH &gt; 4.5 · metronidazole</td></tr>
+            <tr><td><strong>Candidiasis</strong></td><td>cottage-cheese discharge · topical azoles · neonatal thrush → nystatin</td></tr>
+          </tbody>
+        </table>
       </article>
 
       <article class="condition-block" id="ch8-summary-cb1">
         <header class="condition-head">
           <h3 class="condition-name">High-yield NCLEX patterns</h3>
+          <span class="condition-tag">Exam patterns</span>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Exam patterns</h4>
+            <ul>
           <li><strong>Ophthalmia neonatorum prophylaxis:</strong> erythromycin eye ointment to ALL newborns regardless of maternal status</li>
           <li><strong>HIV-positive mother in labor:</strong> avoid amniocentesis, episiotomy, internal fetal monitors, vacuum, forceps</li>
           <li><strong>HIV newborn care:</strong> bathe before bringing to mother, withhold injections/blood draws until after first bath</li>
@@ -8595,6 +9074,8 @@ article.exercise.nclex-hidden{ display: none !important }
           <li><strong>Rubella postpartum vaccine:</strong> teach client to avoid pregnancy for 4 weeks (28 days)</li>
           <li><strong>Reportable diseases</strong> by provider: HIV, syphilis, gonorrhea, chlamydia (state-specific lists)</li>
         </ul>
+          </div>
+        </div>
       </article>
     </section>
 
@@ -8832,13 +9313,18 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Risk factors</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Contributors</h4>
+            <ul>
           <li><strong>History of cervical trauma</strong> — tears from prior deliveries, excessive dilations, biopsy curettage, cervical surgery, short labors</li>
           <li>Pregnancy loss in early gestation</li>
           <li>Advanced cervical dilation at earlier weeks of gestation</li>
           <li>In utero exposure to <strong>diethylstilbestrol (DES)</strong></li>
           <li>Congenital structural defects of uterus or cervix</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch9-cervical-cb1">
@@ -8869,7 +9355,10 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Diagnostic &amp; therapeutic procedures</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Procedures</h4>
+            <ul>
           <li><strong>Ultrasound:</strong> short cervix (&lt; 25 mm), cervical funneling (beaking), or effacement of cervical os indicates reduced competence</li>
           <li><strong>Prophylactic cervical cerclage</strong> — surgical reinforcement of cervix with heavy ligature placed submucosally to strengthen and prevent premature dilation
             <ul>
@@ -8878,6 +9367,8 @@ article.exercise.nclex-hidden{ display: none !important }
             </ul>
           </li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch9-cervical-cb3">
@@ -8944,7 +9435,10 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Risk factors</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Contributors</h4>
+            <ul>
           <li><strong>Maternal age &lt; 30 years</strong></li>
           <li>Multifetal gestation</li>
           <li><strong>Gestational trophoblastic disease</strong> (molar pregnancy)</li>
@@ -8954,19 +9448,26 @@ article.exercise.nclex-hidden{ display: none !important }
           <li>GI disorders</li>
           <li>Family history of hyperemesis</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch9-hyperemesis-cb1">
         <header class="condition-head">
           <h3 class="condition-name">Findings</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Clinical signs</h4>
+            <ul>
           <li>Excessive vomiting for prolonged periods</li>
           <li>Dehydration with possible electrolyte imbalance</li>
           <li>Weight loss</li>
           <li>↑ pulse, ↓ blood pressure</li>
           <li>Poor skin turgor and dry mucous membranes</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch9-hyperemesis-cb2">
@@ -9048,12 +9549,17 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Risk factors</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Contributors</h4>
+            <ul>
           <li>&lt; 2 years between pregnancies</li>
           <li>Heavy menses</li>
           <li>Diet low in iron</li>
           <li>Unhealthy weight loss programs</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch9-anemia-cb1">
@@ -9084,11 +9590,16 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Patient-centered care</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Management</h4>
+            <ul>
           <li><strong>If anemic, increase to 60–120 mg/day iron</strong></li>
           <li>Increase iron-rich foods: legumes, dried fruit, dark green leafy vegetables, meat</li>
           <li>Educate to minimize GI adverse effects</li>
         </ul>
+          </div>
+        </div>
         <div class="kb-card">
           <h4>Ferrous sulfate teaching</h4>
           <ul>
@@ -9155,12 +9666,17 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Risk factors</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Contributors</h4>
+            <ul>
           <li>Obesity, hypertension, glycosuria</li>
           <li>Maternal age &gt; 25 years</li>
           <li>Family history of DM</li>
           <li>Previous delivery of large or stillborn infant</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch9-gdm-cb2">
@@ -9193,19 +9709,27 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Laboratory testing</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Tests</h4>
+            <ul>
           <li><strong>Glucola/1-hr OGTT at 24–28 weeks</strong> — 50 g oral load, glucose checked 1 hr later, <em>fasting NOT necessary</em>; <strong>positive: 130–140 mg/dL or greater</strong> → 3-hr OGTT</li>
           <li><strong>3-hr OGTT</strong> — overnight fast, no caffeine, no smoking 12 hr prior; fasting glucose, then 100 g load, levels at 1, 2, 3 hr</li>
           <li>Urine ketones to assess severity of ketoacidosis</li>
           <li>BPP if NST nonreactive · NST · amniocentesis with PG for fetal lung maturity</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch9-gdm-cb4">
         <header class="condition-head">
           <h3 class="condition-name">Patient-centered care</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Management</h4>
+            <ul>
           <li>Monitor blood glucose and fetus</li>
           <li><strong>Initial management: diet and exercise alone</strong></li>
           <li>If glucose persistently high → insulin</li>
@@ -9216,6 +9740,8 @@ article.exercise.nclex-hidden{ display: none !important }
           <li>Self-administer insulin as needed</li>
           <li>Postpartum: OGTT and blood glucose follow-up testing</li>
         </ul>
+          </div>
+        </div>
       </article>
     </section>
 
@@ -9277,18 +9803,26 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag flag">Diagnosed by labs, not clinically</span>
         </header>
         <p>Variant of GH with hematologic conditions coexisting with severe preeclampsia and hepatic dysfunction.</p>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Lab triad (HELLP)</h4>
+            <ul>
           <li><strong>H — Hemolysis</strong> resulting in anemia and jaundice</li>
           <li><strong>EL — Elevated Liver enzymes</strong> (ALT, AST elevated; epigastric pain, N/V)</li>
           <li><strong>LP — Low Platelets</strong> (&lt; 100,000/mm³); thrombocytopenia, abnormal bleeding/clotting, bleeding gums, petechiae, possibly DIC</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch9-hypertension-cb2">
         <header class="condition-head">
           <h3 class="condition-name">Risk factors</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Contributors</h4>
+            <ul>
           <li><strong>Maternal age &lt; 19 or &gt; 40</strong></li>
           <li>First pregnancy</li>
           <li>Extreme obesity</li>
@@ -9298,13 +9832,18 @@ article.exercise.nclex-hidden{ display: none !important }
           <li>Family Hx of preeclampsia</li>
           <li>Diabetes mellitus, SLE, rheumatoid arthritis</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch9-hypertension-cb3">
         <header class="condition-head">
           <h3 class="condition-name">Physical findings</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Clinical signs</h4>
+            <ul>
           <li>Hypertension, proteinuria, edema (periorbital/facial/hand/abdominal/pitting LE)</li>
           <li>Vomiting, oliguria</li>
           <li><strong>Hyperreflexia</strong>, scotoma (visual field defects)</li>
@@ -9313,6 +9852,8 @@ article.exercise.nclex-hidden{ display: none !important }
           <li>Dyspnea, diminished breath sounds</li>
           <li>Seizures, jaundice</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch9-hypertension-cb4">
@@ -9348,7 +9889,10 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Nursing care</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Interventions</h4>
+            <ul>
           <li>Assess level of consciousness</li>
           <li>Pulse oximetry, urine output, daily weight</li>
           <li><strong>Proper BP measurement:</strong> correct cuff size, do NOT talk to client during measurement</li>
@@ -9356,6 +9900,8 @@ article.exercise.nclex-hidden{ display: none !important }
           <li>NST and daily kick counts</li>
           <li>Client monitors I&amp;O</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch9-hypertension-cb6">
@@ -9387,7 +9933,10 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Discharge teaching</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Teaching points</h4>
+            <ul>
           <li>Bed rest, side-lying position</li>
           <li>Diversional activities (TV, family visits, gentle exercise)</li>
           <li>Avoid high-sodium foods, alcohol, tobacco; limit caffeine</li>
@@ -9396,6 +9945,8 @@ article.exercise.nclex-hidden{ display: none !important }
           <li>Maintain patent airway during seizure</li>
           <li>Take antihypertensives as prescribed</li>
         </ul>
+          </div>
+        </div>
       </article>
     
 <table class="data-table">
@@ -9452,13 +10003,18 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Therapeutic monitoring</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Monitor</h4>
+            <ul>
           <li><strong>Use infusion control device</strong> for regular flow rate</li>
           <li>Monitor: BP, pulse, RR, deep tendon reflexes, LOC</li>
           <li>Urine output via <strong>indwelling urinary catheter</strong> for accuracy</li>
           <li>Monitor for headache, visual disturbances, epigastric pain</li>
           <li>Monitor uterine contractions, FHR, fetal activity</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch9-magsulfate-cb1">
@@ -9493,22 +10049,32 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Expected (non-toxic) effects</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Expected effects</h4>
+            <ul>
           <li>Initial flushing, heat, sedation, diaphoresis with bolus</li>
           <li>Burning at IV site</li>
           <li>These are <em>not</em> toxicity — but client should report blurred vision, headache, N/V, or difficulty breathing</li>
         </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch9-magsulfate-cb4">
         <header class="condition-head">
           <h3 class="condition-name">Client education</h3>
         </header>
-        <ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Teaching points</h4>
+            <ul>
           <li>Notify nurse of: blurred vision, headache, nausea, vomiting, difficulty breathing</li>
           <li>The initial flushing and warmth are expected effects of the bolus</li>
           <li>Frequent assessments will be performed throughout the infusion</li>
         </ul>
+          </div>
+        </div>
       </article>
     
 <table class="data-table">
@@ -16602,33 +17168,50 @@ article.exercise.nclex-hidden{ display: none !important }
       <article class="condition-block" id="ch17-uterus-cb0">
         <header class="condition-head">
           <h3 class="condition-name">Expected fundal progression</h3>
+          <span class="condition-tag">~1 cm (1 fingerbreadth) / day</span>
         </header>
-        <ul>
-          <li><strong>End of 3rd stage:</strong> palpable at midline, 2 cm below umbilicus</li>
-          <li><strong>1 hr after delivery:</strong> fundus rises to level of umbilicus</li>
-          <li><strong>Every 24 hr:</strong> descends ~1–2 cm</li>
-          <li><strong>By 6th postpartum day:</strong> halfway between symphysis pubis and umbilicus</li>
-          <li><strong>~2 weeks:</strong> within true pelvis, no longer palpable</li>
-        </ul>
+        <table class="data-table">
+          <caption>Fundal height by time after delivery</caption>
+          <thead><tr><th>Time</th><th>Fundal location</th></tr></thead>
+          <tbody>
+            <tr><td><strong>End of 3rd stage</strong></td><td>palpable at midline, 2 cm below umbilicus</td></tr>
+            <tr><td><strong>1 hr after delivery</strong></td><td>fundus rises to level of umbilicus</td></tr>
+            <tr><td><strong>Every 24 hr</strong></td><td>descends ~1–2 cm</td></tr>
+            <tr><td><strong>By 6th postpartum day</strong></td><td>halfway between symphysis pubis and umbilicus</td></tr>
+            <tr><td><strong>~2 weeks</strong></td><td>within true pelvis, no longer palpable</td></tr>
+          </tbody>
+        </table>
       </article>
 
       <article class="condition-block" id="ch17-uterus-cb1">
         <header class="condition-head">
           <h3 class="condition-name">Hormonal changes after placental delivery</h3>
+          <span class="condition-tag">Lactation suppresses ovulation</span>
         </header>
-        <ul>
-          <li>↓ estrogen → breast engorgement, diaphoresis, diuresis, vaginal dryness</li>
-          <li>↓ progesterone → ↑ muscle tone</li>
-          <li>↓ placental enzyme insulinase → reverses diabetogenic effect → ↓ blood glucose</li>
-          <li>hCG disappears quickly; detectable up to 4 weeks postpartum</li>
-          <li><strong>Lactating clients:</strong> prolactin remains elevated, suppresses ovulation; first ovulation ~6 months</li>
-          <li><strong>Nonlactating clients:</strong> ovulation 7–9 weeks; menses by 12 weeks postpartum</li>
-        </ul>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Hormone shifts</h4>
+            <ul>
+              <li>↓ estrogen → breast engorgement, diaphoresis, diuresis, vaginal dryness</li>
+              <li>↓ progesterone → ↑ muscle tone</li>
+              <li>↓ placental enzyme insulinase → reverses diabetogenic effect → ↓ blood glucose</li>
+              <li>hCG disappears quickly; detectable up to 4 weeks postpartum</li>
+            </ul>
+          </div>
+          <div class="finding-card">
+            <h4>Ovulation &amp; menses return</h4>
+            <ul>
+              <li><strong>Lactating clients:</strong> prolactin remains elevated, suppresses ovulation; first ovulation ~6 months</li>
+              <li><strong>Nonlactating clients:</strong> ovulation 7–9 weeks; menses by 12 weeks postpartum</li>
+            </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch17-uterus-cb2">
         <header class="condition-head">
           <h3 class="condition-name">Fundal assessment technique</h3>
+          <span class="condition-tag">Never palpate without cupping</span>
         </header>
         <div class="kb-card">
           <ol>
@@ -16641,7 +17224,15 @@ article.exercise.nclex-hidden{ display: none !important }
             <li>Assess: fundal height (fingerbreadths/cm above or below umbilicus), midline vs displaced laterally (full bladder), firm vs boggy</li>
           </ol>
         </div>
-        <p style="margin-top:8px"><strong>Documentation:</strong> If above umbilicus → <em>+1, U+1, or 1/U</em>. If below → <em>-1, U-1, or U/1</em>.</p>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Documentation</h4>
+            <ul>
+              <li>If above umbilicus → <em>+1, U+1, or 1/U</em></li>
+              <li>If below → <em>-1, U-1, or U/1</em></li>
+            </ul>
+          </div>
+        </div>
       </article>
 
       <article class="condition-block" id="ch17-uterus-cb3">

@@ -1426,6 +1426,37 @@ button:focus-visible,a:focus-visible{
   text-transform:uppercase;letter-spacing:0.12em;
   color:var(--accent2);margin:0 0 8px;
 }
+.kb-card h4{
+  font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.12em;
+  color:var(--accent2);margin:0 0 8px;
+}
+
+/* ===== PHASE 1: card-style baseline for lists sitting DIRECTLY in a pill =====
+   Direct-child selectors only; finding-card / kb-card / ati-deep lists untouched. */
+.condition-block > ul,
+.condition-block > ol{
+  background:var(--surface2);
+  border:1px solid var(--border-soft);
+  border-radius:10px;
+  padding:14px 18px 14px 34px;
+  margin:14px 0 0;
+  font-size:13.5px;color:var(--text2);line-height:1.55;
+}
+.condition-block > ul li{margin-bottom:5px}
+.condition-block > ol li{margin-bottom:5px}
+.condition-block > ul li:last-child,
+.condition-block > ol li:last-child{margin-bottom:0}
+.condition-block > ul.flag-list,
+.condition-block > ol.flag-list{
+  border-color:var(--nonreassuring);
+  box-shadow:inset 3px 0 0 var(--nonreassuring);
+}
+.condition-block > ul ul,
+.condition-block > ul ol,
+.condition-block > ol ul,
+.condition-block > ol ol{background:none;border:0;border-radius:0;padding:6px 0 0 18px;margin:0;box-shadow:none}
+
 .finding-card p,
 .finding-card ul,
 .finding-card ol{

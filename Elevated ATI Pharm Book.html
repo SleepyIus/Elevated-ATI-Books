@@ -1426,6 +1426,37 @@ button:focus-visible,a:focus-visible{
   text-transform:uppercase;letter-spacing:0.12em;
   color:var(--accent2);margin:0 0 8px;
 }
+.kb-card h4{
+  font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.12em;
+  color:var(--accent2);margin:0 0 8px;
+}
+
+/* ===== PHASE 1: card-style baseline for lists sitting DIRECTLY in a pill =====
+   Direct-child selectors only; finding-card / kb-card / ati-deep lists untouched. */
+.condition-block > ul,
+.condition-block > ol{
+  background:var(--surface2);
+  border:1px solid var(--border-soft);
+  border-radius:10px;
+  padding:14px 18px 14px 34px;
+  margin:14px 0 0;
+  font-size:13.5px;color:var(--text2);line-height:1.55;
+}
+.condition-block > ul li{margin-bottom:5px}
+.condition-block > ol li{margin-bottom:5px}
+.condition-block > ul li:last-child,
+.condition-block > ol li:last-child{margin-bottom:0}
+.condition-block > ul.flag-list,
+.condition-block > ol.flag-list{
+  border-color:var(--nonreassuring);
+  box-shadow:inset 3px 0 0 var(--nonreassuring);
+}
+.condition-block > ul ul,
+.condition-block > ul ol,
+.condition-block > ol ul,
+.condition-block > ol ol{background:none;border:0;border-radius:0;padding:6px 0 0 18px;margin:0;box-shadow:none}
+
 .finding-card p,
 .finding-card ul,
 .finding-card ol{
@@ -7610,6 +7641,19 @@ article.exercise.nclex-hidden{ display: none !important }
       <aside class="mid-read" data-fc-id="fc-ch11-adhd-stimulant-teaching" data-fc-ch="11" data-fc-type="warning" data-fc-anchor="ch11-tldr" data-fc-q="A child started on methylphenidate (Concerta) for ADHD. What are the four key monitoring/teaching points?" data-fc-a="&lt;strong&gt;(1) Give in the morning&lt;/strong&gt; — late dosing causes insomnia. &lt;strong&gt;(2) Monitor weight and height&lt;/strong&gt; — appetite suppression can cause growth delay; consider &quot;drug holidays&quot; on weekends/summers. &lt;strong&gt;(3) Monitor cardiac status&lt;/strong&gt; (HR, BP) — contraindicated in structural heart abnormalities. &lt;strong&gt;(4) Schedule II controlled substance&lt;/strong&gt; — written Rx, no refills, secure storage. Vyvanse (lisdexamfetamine) is a prodrug → less abuse potential than other amphetamines."><div class="mid-read-q">A child started on methylphenidate (Concerta) for ADHD. What are the four key monitoring/teaching points?</div><button class="mid-read-reveal" type="button">Reveal answer</button><div class="mid-read-a"><strong>(1) Give in the morning</strong> — late dosing causes insomnia. <strong>(2) Monitor weight and height</strong> — appetite suppression can cause growth delay; consider "drug holidays" on weekends/summers. <strong>(3) Monitor cardiac status</strong> (HR, BP) — contraindicated in structural heart abnormalities. <strong>(4) Schedule II controlled substance</strong> — written Rx, no refills, secure storage. Vyvanse (lisdexamfetamine) is a prodrug → less abuse potential than other amphetamines.</div><div class="mid-read-rate"><button data-rate="0">Hard<span class="mid-read-rate-small">+1 day</span></button><button data-rate="3">Good<span class="mid-read-rate-small">extend</span></button><button data-rate="5">Easy<span class="mid-read-rate-small">boost</span></button></div></aside><aside class="mid-read" data-fc-id="fc-ch11-atomoxetine-non-stim" data-fc-ch="11" data-fc-type="concept" data-fc-anchor="ch11-tldr" data-fc-q="When would atomoxetine (Strattera) be chosen over a stimulant for ADHD — and what are its key downsides?" data-fc-a="&lt;strong&gt;Chosen when:&lt;/strong&gt; stimulants contraindicated (cardiac issues, severe anxiety), history of substance abuse, or tics/Tourette syndrome. &lt;strong&gt;Mechanism:&lt;/strong&gt; SNRI; &lt;em&gt;not&lt;/em&gt; a controlled substance. &lt;strong&gt;Downsides:&lt;/strong&gt; takes &lt;strong&gt;1–3 weeks for onset&lt;/strong&gt; (vs. stimulants in 30 min), &lt;strong&gt;black box warning for suicidal ideation&lt;/strong&gt;, and risk of &lt;strong&gt;hepatotoxicity&lt;/strong&gt; (teach client to report jaundice, dark urine, RUQ pain)."><div class="mid-read-q">When would atomoxetine (Strattera) be chosen over a stimulant for ADHD — and what are its key downsides?</div><button class="mid-read-reveal" type="button">Reveal answer</button><div class="mid-read-a"><strong>Chosen when:</strong> stimulants contraindicated (cardiac issues, severe anxiety), history of substance abuse, or tics/Tourette syndrome. <strong>Mechanism:</strong> SNRI; <em>not</em> a controlled substance. <strong>Downsides:</strong> takes <strong>1–3 weeks for onset</strong> (vs. stimulants in 30 min), <strong>black box warning for suicidal ideation</strong>, and risk of <strong>hepatotoxicity</strong> (teach client to report jaundice, dark urine, RUQ pain).</div><div class="mid-read-rate"><button data-rate="0">Hard<span class="mid-read-rate-small">+1 day</span></button><button data-rate="3">Good<span class="mid-read-rate-small">extend</span></button><button data-rate="5">Easy<span class="mid-read-rate-small">boost</span></button></div></aside><aside class="mid-read" data-fc-id="fc-ch11-peds-ssri-bbw" data-fc-ch="11" data-fc-type="warning" data-fc-anchor="ch11-tldr" data-fc-q="Which two SSRIs are FDA-approved for pediatric depression — and what is the critical safety counseling?" data-fc-a="&lt;strong&gt;Fluoxetine (Prozac):&lt;/strong&gt; approved age &lt;strong&gt;8+&lt;/strong&gt;. &lt;strong&gt;Escitalopram (Lexapro):&lt;/strong&gt; approved age &lt;strong&gt;12+&lt;/strong&gt;. &lt;strong&gt;Black box warning:&lt;/strong&gt; heightened risk of &lt;strong&gt;suicidal ideation in children/adolescents&lt;/strong&gt;, especially in first 4 weeks. Counsel parents to watch for worsening mood, agitation, new suicidal thoughts. Schedule weekly follow-up initially. Therapy is most effective combined with psychotherapy."><div class="mid-read-q">Which two SSRIs are FDA-approved for pediatric depression — and what is the critical safety counseling?</div><button class="mid-read-reveal" type="button">Reveal answer</button><div class="mid-read-a"><strong>Fluoxetine (Prozac):</strong> approved age <strong>8+</strong>. <strong>Escitalopram (Lexapro):</strong> approved age <strong>12+</strong>. <strong>Black box warning:</strong> heightened risk of <strong>suicidal ideation in children/adolescents</strong>, especially in first 4 weeks. Counsel parents to watch for worsening mood, agitation, new suicidal thoughts. Schedule weekly follow-up initially. Therapy is most effective combined with psychotherapy.</div><div class="mid-read-rate"><button data-rate="0">Hard<span class="mid-read-rate-small">+1 day</span></button><button data-rate="3">Good<span class="mid-read-rate-small">extend</span></button><button data-rate="5">Easy<span class="mid-read-rate-small">boost</span></button></div></aside>
     </section>
 
+    <section id="ch11-overview" class="content-section">
+      <h2>Pediatric Mental Health — Overview</h2>
+      <p class="section-lead">Medications for children and adolescents treat ADHD, depression, anxiety, and related disorders — always alongside behavioral and family therapy.</p>
+      <article class="condition-block" id="ch11-overview-cb0">
+        <header class="condition-head"><h3 class="condition-name">Principles of pediatric psychopharmacology</h3><span class="condition-tag">Start low, monitor closely</span></header>
+        <ul>
+          <li>Dose by weight; <strong>start low and titrate slowly</strong>, and reassess frequently as the child grows</li>
+          <li><strong>Monitor growth</strong> (height/weight) with stimulants and assess for <strong>increased suicidal ideation</strong> when starting antidepressants</li>
+          <li>Combine medication with behavioral, school, and family interventions for best outcomes</li>
+        </ul>
+      </article>
+    </section>
+
     <section id="ch11-stimulants" class="content-section">
       <h2>CNS Stimulants</h2>
       <p class="section-lead">First-line pharmacologic treatment for ADHD. They raise norepinephrine and dopamine levels to improve attention and impulse control; best combined with behavioral therapy.</p>
@@ -8470,23 +8514,6 @@ COMPLICATIONS:</strong> Identify at least three adverse effects.</li>
       <p class="chapter-lede">Eye disorders include glaucoma (treated with beta blockers, prostaglandin analogs, cholinergics, alpha agonists, carbonic anhydrase inhibitors), allergic conjunctivitis, and infections. Ear disorders are primarily otitis externa (topical antibiotic-steroid drops) and otitis media (oral antibiotics).</p>
     </div>
 
-    <section id="ch14-glaucoma" class="content-section">
-      <h2>Glaucoma — Overview</h2>
-      <p class="section-lead">Glaucoma damages the optic nerve through rising intraocular pressure. Every drug here lowers that pressure.</p>
-
-      <article class="condition-block" id="ch14-glaucoma-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Glaucoma — types &amp; goals</h3>
-          <span class="condition-tag">Lower IOP</span>
-        </header>
-        <ul>
-          <li>Optic nerve damage occurs when aqueous humor can&rsquo;t drain &rarr; <strong>increased intraocular pressure (IOP)</strong> and vision loss (normal IOP 10&ndash;21 mm Hg)</li>
-          <li><strong>Primary open-angle (POAG):</strong> most common, gradual peripheral vision loss, often symptomless until advanced</li>
-          <li><strong>Angle-closure:</strong> acute emergency &mdash; sudden eye pain, halos, nausea, blurred vision; irreversible blindness within 1&ndash;2 days without treatment</li>
-        </ul>
-      </article>
-    </section>
-
     <section id="ch14-glaucoma-meds" class="content-section">
       <h2>Glaucoma Medications</h2>
       <p class="section-lead">Most are eye drops &mdash; punctal occlusion is the key technique to limit systemic effects.</p>
@@ -9006,35 +9033,6 @@ COMPLICATIONS:</strong> Identify at least three adverse effects.</li>
       </article>
     </section>
 
-    <section id="ch16-benzodiazepines" class="content-section">
-      <h2>Benzodiazepines</h2>
-      <p class="section-lead">Broad uses through GABA &mdash; the danger is combined CNS depression, and flumazenil is the reversal.</p>
-
-      <article class="condition-block" id="ch16-benzodiazepines-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Benzodiazepines — action &amp; uses</h3>
-          <span class="condition-tag">Diazepam / lorazepam</span>
-        </header>
-        <ul>
-          <li>Enhance GABA in the CNS; prototype diazepam (also lorazepam, alprazolam, midazolam, temazepam, clonazepam)</li>
-          <li>Uses: anxiety, seizures (and status epilepticus), insomnia, muscle spasm, <strong>alcohol withdrawal</strong>, panic disorder, and preoperative/anesthesia sedation</li>
-          <li>Lorazepam is the agent of choice for IM injection; for insomnia, take 15&ndash;20 min before bed and limit to 7&ndash;10 days</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch16-benzodiazepines-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Benzodiazepines — complications &amp; antidote</h3>
-          <span class="condition-tag">Flumazenil</span>
-        </header>
-        <ul>
-          <li>CNS depression (drowsiness, incoordination), paradoxical excitation, anterograde amnesia, and <strong>dependence</strong> &mdash; taper to discontinue, never stop abruptly</li>
-          <li><strong>Additive CNS depression with alcohol/opioids</strong> can cause respiratory arrest, coma, and death</li>
-          <li><strong>Antidote: flumazenil;</strong> most are Pregnancy Risk Category D (triazolam/temazepam X); contraindicated in sleep apnea/respiratory depression</li>
-        </ul>
-      </article>
-    </section>
-
     <section id="ch16-other" class="content-section">
       <h2>Barbiturates &amp; Newer Hypnotics</h2>
       <p class="section-lead">Older barbiturates versus the safer Z-drugs and melatonin agonist.</p>
@@ -9270,47 +9268,6 @@ COMPLICATIONS:</strong> Identify at least three adverse effects.</li>
       </article>
     </section>
 
-    <section id="ch17-bronchodilators" class="content-section">
-      <h2>Bronchodilators</h2>
-      <p class="section-lead">Open the airway &mdash; and know which inhaler is for rescue versus daily control.</p>
-
-      <article class="condition-block" id="ch17-bronchodilators-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Beta₂-adrenergic agonists</h3>
-          <span class="condition-tag">Albuterol</span>
-        </header>
-        <ul>
-          <li>Activate beta₂ receptors in bronchial smooth muscle &rarr; bronchodilation; prototype <strong>albuterol</strong></li>
-          <li><strong>Short-acting (albuterol) is the rescue inhaler</strong> for acute bronchospasm; <strong>long-acting (salmeterol, formoterol)</strong> are for daily control only &mdash; never to abort an attack, and always paired with an inhaled glucocorticoid</li>
-          <li>Adverse effects: tachycardia, tremor; <strong>use the beta₂ agonist before an inhaled glucocorticoid</strong></li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch17-bronchodilators-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Methylxanthines</h3>
-          <span class="condition-tag">Theophylline</span>
-        </header>
-        <ul>
-          <li><strong>Theophylline</strong> produces bronchodilation &mdash; has a <strong>narrow therapeutic range</strong> (toxicity: dysrhythmias, seizures)</li>
-          <li><strong>Caffeine increases</strong> CNS/cardiac effects and theophylline levels &mdash; avoid caffeinated beverages</li>
-          <li>Swallow sustained-release forms whole; monitor serum levels</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch17-bronchodilators-cb2">
-        <header class="condition-head">
-          <h3 class="condition-name">Inhaled anticholinergics</h3>
-          <span class="condition-tag">Ipratropium</span>
-        </header>
-        <ul>
-          <li><strong>Ipratropium</strong> and tiotropium block muscarinic receptors &rarr; bronchodilation</li>
-          <li>Used mainly for <strong>COPD-associated bronchospasm</strong></li>
-          <li>Local effects: dry mouth and hoarseness &mdash; sip fluids, use sugar-free candy</li>
-        </ul>
-      </article>
-    </section>
-
     <section id="ch17-antiinflammatory" class="content-section">
       <h2>Anti-Inflammatory Agents</h2>
       <p class="section-lead">These prevent attacks rather than relieve them &mdash; rinse the mouth after inhaled steroids.</p>
@@ -9507,64 +9464,6 @@ COMPLICATIONS:</strong> List two adverse effects.</li>
         <ul>
           <li>Treat allergic/nonallergic rhinitis and cough from colds and other disorders</li>
           <li>Classes: antitussives, expectorants, mucolytics, decongestants, and antihistamines &mdash; frequently combined for effect</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="ch18-cough" class="content-section">
-      <h2>Cough &amp; Secretions</h2>
-      <p class="section-lead">Suppress a dry cough, or thin and clear a productive one.</p>
-
-      <article class="condition-block" id="ch18-cough-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Antitussives</h3>
-          <span class="condition-tag">Codeine / dextromethorphan</span>
-        </header>
-        <ul>
-          <li><strong>Opioid</strong> (codeine, hydrocodone): raise the cough threshold for chronic nonproductive cough &mdash; CNS/respiratory depression (monitor RR &lt;12/min, naloxone available), constipation</li>
-          <li><strong>Non-opioid</strong> (dextromethorphan, benzonatate): suppress cough with less CNS effect</li>
-          <li>Avoid hazardous activity; change positions slowly</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch18-cough-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Expectorants &amp; mucolytics</h3>
-          <span class="condition-tag">Guaifenesin / acetylcysteine</span>
-        </header>
-        <ul>
-          <li><strong>Guaifenesin</strong> (expectorant): thins secretions so they&rsquo;re easier to cough up &mdash; <strong>take with a full glass of water</strong></li>
-          <li><strong>Acetylcysteine</strong> (mucolytic): liquefies secretions by inhalation &mdash; also the <strong>antidote for acetaminophen toxicity</strong>; has a rotten-egg odor</li>
-          <li>Watch for bronchospasm/aspiration with acetylcysteine (caution in asthma)</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="ch18-allergy" class="content-section">
-      <h2>Decongestants &amp; Antihistamines</h2>
-      <p class="section-lead">Shrink swollen passages and block histamine &mdash; mind rebound congestion and sedation.</p>
-
-      <article class="condition-block" id="ch18-allergy-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Decongestants</h3>
-          <span class="condition-tag">Phenylephrine / pseudoephedrine</span>
-        </header>
-        <ul>
-          <li><strong>Phenylephrine, pseudoephedrine</strong>: cause vasoconstriction to relieve nasal congestion</li>
-          <li><strong>Rebound congestion</strong> with prolonged topical (nasal spray) use &mdash; limit to a few days</li>
-          <li>CNS/cardiac stimulation &mdash; use cautiously in hypertension and cardiovascular disease</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch18-allergy-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Antihistamines</h3>
-          <span class="condition-tag">Diphenhydramine / loratadine</span>
-        </header>
-        <ul>
-          <li><strong>First-generation</strong> (diphenhydramine): effective but <strong>sedating</strong> with anticholinergic effects (dry mouth, urinary retention)</li>
-          <li><strong>Second-generation</strong> (loratadine, cetirizine): non-sedating &mdash; preferred for daytime allergic rhinitis</li>
-          <li>Also used for motion sickness, allergic reactions, and insomnia (first-generation)</li>
         </ul>
       </article>
     </section>
@@ -10071,6 +9970,19 @@ COMPLICATIONS:</strong> List two adverse effects.</li>
       <aside class="mid-read" data-fc-id="fc-ch20-ace-pril-cough" data-fc-ch="20" data-fc-type="warning" data-fc-anchor="ch20-tldr" data-fc-q="A client started on lisinopril 4 weeks ago calls reporting a persistent dry cough that won't resolve. What is the cause, and what is the nursing action?" data-fc-a="&lt;strong&gt;ACE-inhibitor cough&lt;/strong&gt; — a class effect from &lt;strong&gt;bradykinin accumulation&lt;/strong&gt; (ACE normally inactivates bradykinin). Occurs in &lt;strong&gt;10–20%&lt;/strong&gt; of clients, often after weeks. Not dose-dependent, doesn't resolve over time. &lt;strong&gt;Action: notify provider — switch to an ARB&lt;/strong&gt; (&quot;-sartan&quot;) which preserves the BP/renal benefits without the bradykinin effect. &lt;strong&gt;Worse&lt;/strong&gt; than cough: &lt;strong&gt;angioedema&lt;/strong&gt; (swelling of lips/tongue/airway) — life-threatening, requires immediate discontinuation and emergency care. Both ACE and ARB are &lt;strong&gt;Category D — teratogenic&lt;/strong&gt;."><div class="mid-read-q">A client started on lisinopril 4 weeks ago calls reporting a persistent dry cough that won't resolve. What is the cause, and what is the nursing action?</div><button class="mid-read-reveal" type="button">Reveal answer</button><div class="mid-read-a"><strong>ACE-inhibitor cough</strong> — a class effect from <strong>bradykinin accumulation</strong> (ACE normally inactivates bradykinin). Occurs in <strong>10–20%</strong> of clients, often after weeks. Not dose-dependent, doesn't resolve over time. <strong>Action: notify provider — switch to an ARB</strong> ("-sartan") which preserves the BP/renal benefits without the bradykinin effect. <strong>Worse</strong> than cough: <strong>angioedema</strong> (swelling of lips/tongue/airway) — life-threatening, requires immediate discontinuation and emergency care. Both ACE and ARB are <strong>Category D — teratogenic</strong>.</div><div class="mid-read-rate"><button data-rate="0">Hard<span class="mid-read-rate-small">+1 day</span></button><button data-rate="3">Good<span class="mid-read-rate-small">extend</span></button><button data-rate="5">Easy<span class="mid-read-rate-small">boost</span></button></div></aside><aside class="mid-read" data-fc-id="fc-ch20-clonidine-rebound" data-fc-ch="20" data-fc-type="warning" data-fc-anchor="ch20-tldr" data-fc-q="Why is clonidine particularly dangerous to abruptly discontinue, and what is the safe approach?" data-fc-a="&lt;strong&gt;Rebound hypertension crisis&lt;/strong&gt; — abruptly stopping clonidine (central α2 agonist) causes sympathetic surge with severe HTN, tachycardia, tremor, anxiety, headache — can precipitate stroke or MI. &lt;strong&gt;Safe approach: taper over 2–4 days&lt;/strong&gt;. Critical patient teaching: &lt;em&gt;never miss doses&lt;/em&gt;, fill prescriptions on time, keep a backup supply when traveling, NEVER stop on your own. Same precaution applies to methyldopa (the safer-in-pregnancy alternative)."><div class="mid-read-q">Why is clonidine particularly dangerous to abruptly discontinue, and what is the safe approach?</div><button class="mid-read-reveal" type="button">Reveal answer</button><div class="mid-read-a"><strong>Rebound hypertension crisis</strong> — abruptly stopping clonidine (central α2 agonist) causes sympathetic surge with severe HTN, tachycardia, tremor, anxiety, headache — can precipitate stroke or MI. <strong>Safe approach: taper over 2–4 days</strong>. Critical patient teaching: <em>never miss doses</em>, fill prescriptions on time, keep a backup supply when traveling, NEVER stop on your own. Same precaution applies to methyldopa (the safer-in-pregnancy alternative).</div><div class="mid-read-rate"><button data-rate="0">Hard<span class="mid-read-rate-small">+1 day</span></button><button data-rate="3">Good<span class="mid-read-rate-small">extend</span></button><button data-rate="5">Easy<span class="mid-read-rate-small">boost</span></button></div></aside><aside class="mid-read" data-fc-id="fc-ch20-prazosin-first-dose" data-fc-ch="20" data-fc-type="warning" data-fc-anchor="ch20-tldr" data-fc-q="A client is starting prazosin for HTN. What is the &quot;first-dose phenomenon,&quot; and what teaching prevents injury?" data-fc-a="&lt;strong&gt;First-dose orthostatic hypotension&lt;/strong&gt; — alpha-1 blockers (prazosin, doxazosin, terazosin) cause profound BP drop on initial dose, with risk of syncope and falls. &lt;strong&gt;Teaching: take first dose at bedtime, while in bed&lt;/strong&gt;, and don't plan activities afterward. Going forward: &lt;strong&gt;rise slowly&lt;/strong&gt; (sit on edge of bed before standing), avoid hot showers/alcohol/dehydration, take consistently with food. Prazosin also has off-label use for PTSD-related nightmares."><div class="mid-read-q">A client is starting prazosin for HTN. What is the "first-dose phenomenon," and what teaching prevents injury?</div><button class="mid-read-reveal" type="button">Reveal answer</button><div class="mid-read-a"><strong>First-dose orthostatic hypotension</strong> — alpha-1 blockers (prazosin, doxazosin, terazosin) cause profound BP drop on initial dose, with risk of syncope and falls. <strong>Teaching: take first dose at bedtime, while in bed</strong>, and don't plan activities afterward. Going forward: <strong>rise slowly</strong> (sit on edge of bed before standing), avoid hot showers/alcohol/dehydration, take consistently with food. Prazosin also has off-label use for PTSD-related nightmares.</div><div class="mid-read-rate"><button data-rate="0">Hard<span class="mid-read-rate-small">+1 day</span></button><button data-rate="3">Good<span class="mid-read-rate-small">extend</span></button><button data-rate="5">Easy<span class="mid-read-rate-small">boost</span></button></div></aside><aside class="mid-read" data-fc-id="fc-ch20-nitroprusside-cyanide" data-fc-ch="20" data-fc-type="warning" data-fc-anchor="ch20-tldr" data-fc-q="A client is on IV nitroprusside for hypertensive emergency. What is the major toxicity risk, the time limit, and the storage requirement?" data-fc-a="&lt;strong&gt;Cyanide / thiocyanate toxicity&lt;/strong&gt; — nitroprusside breaks down to release cyanide ions; the body detoxifies them to thiocyanate (renally cleared). &lt;strong&gt;Time limit: max 72 hours&lt;/strong&gt;; shorter in renal impairment. Signs: metabolic acidosis, tachycardia, altered mental status, almond-scented breath (cyanide). &lt;strong&gt;Storage:&lt;/strong&gt; protect from light — wrap bag in foil; solution turns from clear to brown/blue/green if degraded → discard. Always have an arterial line for tight BP monitoring; titrate continuously."><div class="mid-read-q">A client is on IV nitroprusside for hypertensive emergency. What is the major toxicity risk, the time limit, and the storage requirement?</div><button class="mid-read-reveal" type="button">Reveal answer</button><div class="mid-read-a"><strong>Cyanide / thiocyanate toxicity</strong> — nitroprusside breaks down to release cyanide ions; the body detoxifies them to thiocyanate (renally cleared). <strong>Time limit: max 72 hours</strong>; shorter in renal impairment. Signs: metabolic acidosis, tachycardia, altered mental status, almond-scented breath (cyanide). <strong>Storage:</strong> protect from light — wrap bag in foil; solution turns from clear to brown/blue/green if degraded → discard. Always have an arterial line for tight BP monitoring; titrate continuously.</div><div class="mid-read-rate"><button data-rate="0">Hard<span class="mid-read-rate-small">+1 day</span></button><button data-rate="3">Good<span class="mid-read-rate-small">extend</span></button><button data-rate="5">Easy<span class="mid-read-rate-small">boost</span></button></div></aside>
     </section>
 
+    <section id="ch20-overview" class="content-section">
+      <h2>Blood Pressure — Overview</h2>
+      <p class="section-lead">Antihypertensives lower blood pressure through several complementary mechanisms; combination therapy is common, alongside lifestyle change.</p>
+      <article class="condition-block" id="ch20-overview-cb0">
+        <header class="condition-head"><h3 class="condition-name">Approach to hypertension</h3><span class="condition-tag">By mechanism</span></header>
+        <ul>
+          <li>Drug classes act on different targets: the <strong>RAAS</strong> (ACE inhibitors, ARBs, aldosterone antagonists, renin inhibitors), <strong>vessels/heart</strong> (calcium channel blockers, vasodilators), and <strong>sympathetic tone</strong> (alpha blockers, central agonists, beta blockers)</li>
+          <li>Diuretics (Ch 19) are frequently combined with these agents</li>
+          <li>Monitor blood pressure and for orthostatic hypotension; emphasize adherence and lifestyle measures</li>
+        </ul>
+      </article>
+    </section>
+
     <section id="ch20-raas" class="content-section">
       <h2>RAAS Inhibitors</h2>
       <p class="section-lead">Medications that interrupt the renin-angiotensin-aldosterone system at different points. ACE inhibitors block <em>formation</em> of angiotensin II; ARBs block its <em>action</em> at the receptor.</p>
@@ -10520,77 +10432,6 @@ COMPLICATIONS:</strong> List two adverse effects.</li>
       </article>
     </section>
 
-    <section id="ch21-digoxin" class="content-section">
-      <h2>Digoxin</h2>
-      <p class="section-lead">A cardiac glycoside that increases the force of contraction and slows conduction. Powerful but dangerous &mdash; a narrow therapeutic index demands careful monitoring.</p>
-
-      <article class="condition-block" id="ch21-digoxin-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Digoxin — action &amp; therapeutic uses</h3>
-          <span class="condition-tag">Positive inotrope</span>
-        </header>
-        <ul>
-          <li><strong>Positive inotropic effect:</strong> increases force and efficiency of myocardial contraction &rarr; improves stroke volume and cardiac output</li>
-          <li><strong>Negative chronotropic effect:</strong> slows SA node depolarization and conduction &rarr; lowers heart rate, giving ventricles more time to fill</li>
-          <li><strong>Uses:</strong> heart failure (second-line; in females, use only if not responsive to first-line because of increased risk of harm) and atrial fibrillation (rate control)</li>
-          <li>Reduces manifestations but <strong>does not prolong life</strong></li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch21-digoxin-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Digoxin — toxicity &amp; complications</h3>
-          <span class="condition-tag">Narrow therapeutic index</span>
-        </header>
-        <ul>
-          <li><strong>Dysrhythmias &amp; cardiotoxicity:</strong> interferes with myocardial electrical conduction &rarr; bradycardia, AV blocks, ventricular dysrhythmias</li>
-          <li><strong>Early signs:</strong> anorexia, nausea, vomiting; <strong>neurologic:</strong> fatigue, weakness</li>
-          <li><strong>Visual:</strong> yellow-green halos around lights, blurred vision</li>
-          <li><strong>Risk factors:</strong> hypokalemia (most common), hypomagnesemia, hypercalcemia, advanced heart failure, renal impairment, and older age</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch21-digoxin-cb2">
-        <header class="condition-head">
-          <h3 class="condition-name">Digoxin — monitoring &amp; administration</h3>
-          <span class="condition-tag">Apical pulse</span>
-        </header>
-        <ul>
-          <li>Maintain <strong>potassium 3.5&ndash;5.0 mEq/L</strong>; therapeutic <strong>digoxin level 0.5&ndash;2.0 ng/mL</strong></li>
-          <li>Check <strong>apical pulse for 1 full minute</strong> before each dose</li>
-          <li><strong>Hold and notify provider:</strong> HR &lt;60/min (adult), &lt;70/min (child), &lt;90/min (infant)</li>
-          <li>Administer at the <strong>same time daily</strong>; evaluate level and manifestations when toxicity is suspected</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch21-digoxin-cb3">
-        <header class="condition-head">
-          <h3 class="condition-name">Digoxin — drug &amp; food interactions</h3>
-          <span class="condition-tag">Interactions</span>
-        </header>
-        <ul>
-          <li><strong>Thiazide &amp; loop diuretics</strong> (hydrochlorothiazide, furosemide) &rarr; hypokalemia &rarr; increased dysrhythmia risk (treat with K&plus; supplement or potassium-sparing diuretic)</li>
-          <li><strong>ACE inhibitors &amp; ARBs</strong> &rarr; hyperkalemia, which can reduce digoxin&rsquo;s therapeutic effect</li>
-          <li><strong>Sympathomimetics</strong> (dopamine) &rarr; additive inotropy &rarr; increased tachydysrhythmia risk</li>
-          <li><strong>Quinidine</strong> displaces digoxin and reduces renal excretion &rarr; toxicity (avoid concurrent use)</li>
-          <li><strong>Verapamil</strong> increases plasma digoxin levels (reduce dose; usually avoided); <strong>antacids</strong> decrease digoxin absorption</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch21-digoxin-cb4">
-        <header class="condition-head">
-          <h3 class="condition-name">Digoxin — toxicity management &amp; client education</h3>
-          <span class="condition-tag">Digibind</span>
-        </header>
-        <ul>
-          <li><strong>Contraindicated:</strong> ventricular fibrillation/tachycardia and 2nd/3rd-degree heart block; use caution with hypokalemia, partial AV block, advanced HF, and renal impairment</li>
-          <li><strong>Antidote: digoxin immune Fab (Digibind)</strong> for life-threatening toxicity</li>
-          <li>Teach: take pulse before each dose and <strong>hold/call provider if HR &lt;60</strong>; report toxicity signs (anorexia, N/V, fatigue, blurred or yellow-green vision)</li>
-          <li>Take at the same time daily; <strong>avoid OTC medications and antacids without consulting the provider</strong>; eat potassium-rich foods if taking a diuretic</li>
-        </ul>
-      </article>
-    </section>
-
     <section id="ch21-inotropes" class="content-section">
       <h2>Inotropic Sympathomimetics</h2>
       <p class="section-lead">When the failing heart needs urgent support, IV catecholamines boost contractility and perfusion. For dopamine, the dose determines the effect.</p>
@@ -10831,62 +10672,6 @@ COMPLICATIONS:</strong> Identify two adverse effects.</li>
           <li>Goal of therapy: prevent myocardial ischemia, pain, myocardial infarction, and death</li>
           <li>Managed with <strong>organic nitrates, beta-adrenergic blockers, calcium channel blockers, and ranolazine</strong></li>
           <li>Chronic stable angina also includes an <strong>antiplatelet</strong> (aspirin or clopidogrel), a cholesterol-lowering agent, and an ACE inhibitor to prevent MI and death</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="ch22-nitrates" class="content-section">
-      <h2>Organic Nitrates</h2>
-      <p class="section-lead">Nitroglycerin is the prototype &mdash; its form (sublingual vs patch) determines whether it treats an attack or prevents one.</p>
-
-      <article class="condition-block" id="ch22-nitrates-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Nitroglycerin — action &amp; uses</h3>
-          <span class="condition-tag">Vasodilator</span>
-        </header>
-        <ul>
-          <li>Prototype organic nitrate; other agents: isosorbide dinitrate (sublingual), isosorbide mononitrate (oral)</li>
-          <li><strong>Chronic stable (exertional) angina:</strong> dilates veins, decreasing venous return (preload) &rarr; lowers cardiac oxygen demand</li>
-          <li><strong>Variant (Prinzmetal/vasospastic) angina:</strong> prevents or reduces coronary artery spasm &rarr; increases oxygen supply</li>
-          <li>Uses: treat an acute angina attack and prophylaxis of chronic stable or variant angina</li>
-          <li>Forms: sublingual tablet, translingual spray, oral extended-release capsule, topical ointment, transdermal patch, IV</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch22-nitrates-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Nitroglycerin — complications</h3>
-          <span class="condition-tag">Adverse effects</span>
-        </header>
-        <ul>
-          <li><strong>Headache</strong> (common): relieve with aspirin or acetaminophen; notify provider if it persists for weeks (dose may be reduced)</li>
-          <li><strong>Orthostatic hypotension:</strong> sit or lie down if dizzy/faint, rise slowly, avoid sudden position changes; lie with feet elevated to promote venous return</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch22-nitrates-cb2">
-        <header class="condition-head">
-          <h3 class="condition-name">Rapid-acting forms — acute attack</h3>
-          <span class="condition-tag">SL &amp; spray</span>
-        </header>
-        <ul>
-          <li>Sublingual tablet and translingual spray: <strong>rapid onset, short duration</strong> &mdash; treat or prevent acute attacks</li>
-          <li>Use at the <strong>first indication of chest pain</strong> &mdash; do not wait until pain is severe; may use before activity known to trigger angina</li>
-          <li>SL tablet: place under the tongue and let dissolve; store in the original bottle in a cool, dark place</li>
-          <li>Translingual spray: spray against the oral mucosa; do not inhale</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch22-nitrates-cb3">
-        <header class="condition-head">
-          <h3 class="condition-name">Long-acting forms &amp; tolerance</h3>
-          <span class="condition-tag">Prophylaxis</span>
-        </header>
-        <ul>
-          <li>Sustained-release oral capsules: slow onset, long duration &mdash; swallow whole (no crushing/chewing), empty stomach with 8 oz water, once or twice daily to reduce tolerance</li>
-          <li>Transdermal patch: do not cut; apply to hairless skin (chest/back/abdomen) and rotate sites; remove old patch and clean skin first</li>
-          <li><strong>Remove the patch at night to be medication-free 10&ndash;12 hr/day and prevent tolerance</strong></li>
-          <li>Topical ointment: measure with applicator paper (2.5&ndash;3.5 inches), apply to a clean hairless area, cover with plastic wrap</li>
         </ul>
       </article>
     </section>
@@ -11416,49 +11201,6 @@ COMPLICATIONS:</strong> Identify three adverse effects.</li>
       </article>
     </section>
 
-    <section id="ch24-statins" class="content-section">
-      <h2>Statins (HMG-CoA Reductase Inhibitors)</h2>
-      <p class="section-lead">First-choice lipid drugs &mdash; watch muscles and liver, and never in pregnancy.</p>
-
-      <article class="condition-block" id="ch24-statins-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Statins — action &amp; uses</h3>
-          <span class="condition-tag">First-choice</span>
-        </header>
-        <ul>
-          <li>Prototype <strong>atorvastatin</strong>; also simvastatin, lovastatin, pravastatin, rosuvastatin, fluvastatin, pitavastatin</li>
-          <li>Decrease LDL and VLDL production, increase HDL, and lower triglycerides in some clients</li>
-          <li>Additional benefits: promote vasodilation and decrease plaque inflammation and thromboembolism risk</li>
-          <li>Uses: primary hypercholesterolemia; primary/secondary prevention of coronary events; protection against MI and stroke</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch24-statins-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Statins — complications</h3>
-          <span class="condition-tag">Muscle &amp; liver</span>
-        </header>
-        <ul>
-          <li><strong>Myopathy / rhabdomyolysis:</strong> report muscle aches and pain; obtain baseline CK and monitor periodically; discontinue if CK is elevated</li>
-          <li><strong>Hepatotoxicity:</strong> monitor liver enzymes; report anorexia, nausea, and vomiting (signs of liver damage)</li>
-          <li>Take lovastatin with the evening meal; other statins may be taken without regard to meals</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch24-statins-cb2">
-        <header class="condition-head">
-          <h3 class="condition-name">Statins — contraindications &amp; interactions</h3>
-          <span class="condition-tag">Pregnancy X</span>
-        </header>
-        <ul>
-          <li><strong>Pregnancy Risk Category X</strong> &mdash; can cause fetal malformation; discontinue before pregnancy, use contraception, and avoid during lactation</li>
-          <li>Contraindicated in liver disorders; rosuvastatin requires a lower dose for clients of Asian descent; reduce dose in severe kidney impairment</li>
-          <li>Interactions: fibrates + ezetimibe &rarr; increased myopathy/liver/kidney injury; CYP3A4 inhibitors (erythromycin, ketoconazole, HIV protease inhibitors, amiodarone, cyclosporine) raise statin levels</li>
-          <li><strong>Grapefruit juice</strong> raises statin levels &mdash; advise clients to avoid it</li>
-        </ul>
-      </article>
-    </section>
-
     <section id="ch24-other" class="content-section">
       <h2>Other Lipid-Lowering Agents</h2>
       <p class="section-lead">When statins aren&rsquo;t enough or aren&rsquo;t tolerated, these add or substitute.</p>
@@ -11700,59 +11442,6 @@ COMPLICATIONS:</strong> Identify three adverse effects.</li>
       </article>
     </section>
 
-    <section id="ch25-heparins" class="content-section">
-      <h2>Heparins</h2>
-      <p class="section-lead">Fast-acting parenteral anticoagulants &mdash; know the monitoring test and the antidote cold.</p>
-
-      <article class="condition-block" id="ch25-heparins-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Heparin — action &amp; uses</h3>
-          <span class="condition-tag">Antithrombin</span>
-        </header>
-        <ul>
-          <li>Unfractionated heparin activates antithrombin &rarr; indirectly inactivates thrombin and factor Xa &rarr; inhibits fibrin formation</li>
-          <li>LMW heparins (enoxaparin, dalteparin) and the factor Xa inhibitor fondaparinux <strong>inactivate only factor Xa</strong></li>
-          <li>Uses: conditions needing prompt anticoagulation (evolving stroke, pulmonary embolism, massive DVT), adjunct for open-heart surgery/dialysis, low-dose post-op VTE prophylaxis, and DIC</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch25-heparins-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Heparin — complications &amp; antidote</h3>
-          <span class="condition-tag">Protamine</span>
-        </header>
-        <ul>
-          <li><strong>Hemorrhage:</strong> monitor vital signs and platelets; antidote is <strong>protamine</strong> (give IV slowly, no faster than 20 mg/min)</li>
-          <li><strong>Heparin-induced thrombocytopenia (HIT):</strong> low platelets with paradoxical thrombi (&ldquo;white clot syndrome&rdquo;) &mdash; monitor platelets, especially the first month; stop heparin if platelets &lt;100,000/mm³; substitute a nonheparin anticoagulant (argatroban)</li>
-          <li>Hypersensitivity (chills, fever, urticaria): a small test dose may be given first</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch25-heparins-cb2">
-        <header class="condition-head">
-          <h3 class="condition-name">Heparin — administration &amp; monitoring</h3>
-          <span class="condition-tag">aPTT</span>
-        </header>
-        <ul>
-          <li>Monitor <strong>aPTT</strong> for unfractionated heparin (therapeutic ≈ 1.5&ndash;2 times control); heparin is given IV or subcutaneously</li>
-          <li>Spinal/epidural anesthesia: assess insertion site for hematoma and monitor lower-extremity sensation/movement</li>
-          <li>Bleeding precautions: electric razor, soft toothbrush; avoid aspirin/NSAIDs/salicylates; report bruising, bleeding gums, nosebleeds, coffee-ground emesis, tarry stools</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch25-heparins-cb3">
-        <header class="condition-head">
-          <h3 class="condition-name">LMW heparins &amp; fondaparinux</h3>
-          <span class="condition-tag">Subcutaneous</span>
-        </header>
-        <ul>
-          <li>Enoxaparin and fondaparinux <strong>do not require routine monitoring</strong> and are acceptable for home use</li>
-          <li>Deep subcutaneous injection in the abdomen, at least 2 inches from the umbilicus; <strong>do not aspirate, do not rub</strong>; rotate sites</li>
-          <li>Prefilled syringes: do not expel the air bubble unless adjusting the dose; apply gentle pressure 1&ndash;2 min after injection</li>
-        </ul>
-      </article>
-    </section>
-
     <section id="ch25-warfarin" class="content-section">
       <h2>Warfarin (Vitamin K Antagonist)</h2>
       <p class="section-lead">Oral, slow-onset anticoagulant with a long list of interactions &mdash; INR is everything.</p>
@@ -11778,35 +11467,6 @@ COMPLICATIONS:</strong> Identify three adverse effects.</li>
           <li><strong>Pregnancy Risk Category X</strong> (D with mechanical heart valves) &mdash; fetal hemorrhage/death, CNS defects; avoid in lactation; use heparin/LMWH if anticoagulation needed in pregnancy</li>
           <li>Contraindicated: thrombocytopenia, uncontrolled bleeding, recent eye/brain/spinal surgery, vitamin K deficiency, liver disorders, alcohol use disorder</li>
           <li><strong>Increase bleeding</strong> (heparin, aspirin, acetaminophen, glucocorticoids, sulfonamides); <strong>decrease effect</strong> (phenobarbital, carbamazepine, phenytoin, oral contraceptives, vitamin K)</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="ch25-antiplatelet-thrombolytic" class="content-section">
-      <h2>Antiplatelets &amp; Thrombolytics</h2>
-      <p class="section-lead">One stops platelets from clumping; the other actively dissolves a formed clot &mdash; with the highest bleeding risk of all.</p>
-
-      <article class="condition-block" id="ch25-antiplatelet-thrombolytic-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Antiplatelet agents</h3>
-          <span class="condition-tag">Aspirin/clopidogrel</span>
-        </header>
-        <ul>
-          <li>Aspirin and clopidogrel inhibit platelet aggregation; used to prevent MI, stroke, and arterial thrombosis</li>
-          <li>Uses: acute coronary syndrome, post-stent therapy, secondary prevention of MI/stroke</li>
-          <li>Bleeding precautions; report unusual bleeding/bruising; hold before some surgical procedures as directed</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch25-antiplatelet-thrombolytic-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Thrombolytic agents</h3>
-          <span class="condition-tag">Alteplase</span>
-        </header>
-        <ul>
-          <li>Thrombolytics (alteplase, tPA) <strong>dissolve existing clots</strong> by converting plasminogen to plasmin</li>
-          <li>Uses: acute MI, massive PE, and ischemic stroke &mdash; given within a strict time window</li>
-          <li><strong>Highest bleeding risk:</strong> screen for contraindications (recent surgery, active bleeding, intracranial hemorrhage, severe hypertension); monitor closely for bleeding</li>
         </ul>
       </article>
     </section>
@@ -12004,34 +11664,6 @@ COMPLICATIONS:</strong> Identify three adverse effects.</li>
       </article>
     </section>
 
-    <section id="ch26-erythropoietic" class="content-section">
-      <h2>Erythropoietic Growth Factors (ESAs)</h2>
-      <p class="section-lead">Epoetin alfa rebuilds red cells &mdash; but watch the blood pressure and keep iron available.</p>
-
-      <article class="condition-block" id="ch26-erythropoietic-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Epoetin &amp; darbepoetin alfa — action &amp; uses</h3>
-          <span class="condition-tag">↑ RBC</span>
-        </header>
-        <ul>
-          <li>Prototype <strong>epoetin alfa</strong> (erythropoietin); darbepoetin alfa is long-acting &mdash; act on bone marrow to increase RBC production</li>
-          <li>Uses: anemia of chronic kidney disease, chemotherapy-induced anemia (nonmyeloid cancers), to raise erythrocytes before elective surgery, and zidovudine-related anemia in HIV/AIDS</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch26-erythropoietic-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">ESAs — complications &amp; administration</h3>
-          <span class="condition-tag">Hypertension</span>
-        </header>
-        <ul>
-          <li><strong>Hypertension:</strong> obtain baseline BP and control it before treatment in CKD; monitor BP frequently (antihypertensive adjustments may be needed)</li>
-          <li>Administer subcutaneously or by IV bolus (weight-based); do not agitate the vial; do not mix with other medications</li>
-          <li><strong>Ensure adequate iron, folic acid, and vitamin B₁₂</strong> &mdash; RBC growth depends on them; monitor Hgb/Hct; target Hgb 10&ndash;11 g/dL, Hct max ~33%; provide the ESA REMS medication guide</li>
-        </ul>
-      </article>
-    </section>
-
     <section id="ch26-leukopoietic" class="content-section">
       <h2>Leukopoietic Growth Factors</h2>
       <p class="section-lead">Filgrastim and sargramostim rebuild white cells to fight infection after marrow suppression.</p>
@@ -12216,6 +11848,19 @@ COMPLICATIONS:</strong> Identify three adverse effects.</li>
       <h2 class="chapter-name"><em>Blood and Blood Products</em></h2>
       <p class="chapter-lede">Blood and blood products replace deficient components: packed RBCs (anemia, blood loss), platelets (thrombocytopenia, bleeding), fresh frozen plasma (clotting factor deficiency), cryoprecipitate (fibrinogen, factor VIII). Strict transfusion protocols prevent acute and delayed reactions.</p>
     </div>
+
+    <section id="ch27-overview" class="content-section">
+      <h2>Blood Products — Overview</h2>
+      <p class="section-lead">Transfusion replaces whole blood or specific components; the nurse's verification and monitoring are central to safety.</p>
+      <article class="condition-block" id="ch27-overview-cb0">
+        <header class="condition-head"><h3 class="condition-name">Principles of transfusion therapy</h3><span class="condition-tag">Safety-driven</span></header>
+        <ul>
+          <li>Requires <strong>type and crossmatch</strong>, informed consent, and a dedicated IV line with 0.9% normal saline</li>
+          <li>Replace the specific deficit — red cells for oxygen capacity, platelets/plasma for clotting, albumin for volume</li>
+          <li>The greatest risks are <strong>transfusion reactions</strong>, so identity verification and close early monitoring are essential</li>
+        </ul>
+      </article>
+    </section>
 
     <section id="ch27-products" class="content-section">
       <h2>Blood Products &amp; Compatibility</h2>
@@ -12755,64 +12400,6 @@ COMPLICATIONS:</strong> Identify three adverse effects.</li>
       </article>
     </section>
 
-    <section id="ch29-antiemetics" class="content-section">
-      <h2>Antiemetics</h2>
-      <p class="section-lead">Several drug classes stop nausea by different mechanisms &mdash; the class predicts the adverse effect.</p>
-
-      <article class="condition-block" id="ch29-antiemetics-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Antiemetic classes &amp; uses</h3>
-          <span class="condition-tag">Many mechanisms</span>
-        </header>
-        <ul>
-          <li><strong>Serotonin antagonists</strong> (ondansetron, granisetron): first-line for chemotherapy-induced (CINV) and postoperative nausea</li>
-          <li><strong>Dopamine antagonists</strong> (prochlorperazine, metoclopramide, promethazine); <strong>glucocorticoids</strong> (dexamethasone) and <strong>NK₁ antagonists</strong> (aprepitant) for CINV in combination</li>
-          <li><strong>Anticholinergics</strong> (scopolamine) and <strong>antihistamines</strong> (dimenhydrinate, hydroxyzine) for motion sickness; cannabinoids (dronabinol); benzodiazepines (lorazepam) as adjuncts</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch29-antiemetics-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Antiemetics — complications &amp; safety</h3>
-          <span class="condition-tag">Class-specific</span>
-        </header>
-        <ul>
-          <li><strong>Ondansetron:</strong> QT prolongation &rarr; risk of torsades &mdash; monitor ECG with cardiac disease or other QT-prolonging drugs; contraindicated in long QT syndrome</li>
-          <li><strong>Dopamine antagonists:</strong> extrapyramidal symptoms (treat with diphenhydramine/benztropine) and hypotension; use cautiously in children/older adults</li>
-          <li><strong>Promethazine:</strong> contraindicated &lt;2 years (severe respiratory depression); avoid CNS depressants/alcohol with all antiemetics</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="ch29-laxatives" class="content-section">
-      <h2>Laxatives</h2>
-      <p class="section-lead">Four classes by mechanism &mdash; match the laxative to the goal, from gentle softening to full bowel prep.</p>
-
-      <article class="condition-block" id="ch29-laxatives-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Laxative classes &amp; uses</h3>
-          <span class="condition-tag">Four mechanisms</span>
-        </header>
-        <ul>
-          <li><strong>Bulk-forming</strong> (psyllium): softens and adds bulk like dietary fiber &mdash; constipation, diverticulosis/IBS, ostomy stool control</li>
-          <li><strong>Surfactant</strong> (docusate sodium): lowers stool surface tension to soften &mdash; prevents straining/impaction</li>
-          <li><strong>Stimulant</strong> (bisacodyl, senna): stimulate peristalsis &mdash; opioid constipation, bowel prep; <strong>osmotic</strong> (magnesium hydroxide, lactulose): draw water in &mdash; bowel prep, lactulose also lowers ammonia in hepatic encephalopathy</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch29-laxatives-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Laxatives — safety &amp; antidiarrheals</h3>
-          <span class="condition-tag">Avoid dependence</span>
-        </header>
-        <ul>
-          <li>Take bulk-forming laxatives with a full glass of water; ensure adequate fluids to prevent obstruction</li>
-          <li>Avoid chronic stimulant-laxative use (dependence, electrolyte loss); contraindicated with abdominal pain, nausea/vomiting, or suspected obstruction</li>
-          <li><strong>Antidiarrheals</strong> (loperamide, diphenoxylate/atropine): slow motility &mdash; avoid in infectious diarrhea until cleared by provider</li>
-        </ul>
-      </article>
-    </section>
-
     <section id="ch29-other" class="content-section">
       <h2>Prokinetics, IBS &amp; Bowel Disease</h2>
       <p class="section-lead">Drugs that speed the gut, calm IBS, or quiet inflammatory bowel disease round out GI therapy.</p>
@@ -13028,35 +12615,6 @@ COMPLICATIONS:</strong> Identify three adverse effects.</li>
         <ul>
           <li>Vitamins and minerals support RBC production, bone formation, hormone synthesis, fluid balance, and nerve function</li>
           <li>Deficiencies increase the risk of anemia, heart disease, and osteoporosis; supplements help prevent and treat these conditions</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="ch30-iron" class="content-section">
-      <h2>Iron Preparations</h2>
-      <p class="section-lead">Iron treats the most common anemia &mdash; but absorption rules and pediatric toxicity dominate the teaching.</p>
-
-      <article class="condition-block" id="ch30-iron-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Iron — action, uses &amp; administration</h3>
-          <span class="condition-tag">Ferrous sulfate</span>
-        </header>
-        <ul>
-          <li>Prototype oral <strong>ferrous sulfate</strong>; parenteral <strong>iron dextran</strong> &mdash; supply iron for RBC development and oxygen transport</li>
-          <li>Use: treat and prevent <strong>iron-deficiency anemia</strong>; needs rise in growth, pregnancy, and after blood loss</li>
-          <li>Take on an empty stomach (1 hr before meals) for best absorption; take with food if GI upset; expect dark green/black stools; use a straw for liquid forms to avoid staining teeth</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch30-iron-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Iron — complications &amp; interactions</h3>
-          <span class="condition-tag">Pediatric toxicity</span>
-        </header>
-        <ul>
-          <li><strong>Fatal iron toxicity in children</strong> (overdose 2&ndash;10 g): severe GI symptoms, shock, acidosis, liver/heart failure &mdash; antidote <strong>deferoxamine</strong>; keep out of children&rsquo;s reach</li>
-          <li>GI distress, constipation, dark stools with oral iron; do not give oral and parenteral iron concurrently</li>
-          <li>Absorption: <strong>vitamin C increases</strong> it; antacids, tetracyclines, caffeine, and dairy decrease it (separate dosing)</li>
         </ul>
       </article>
     </section>
@@ -13306,48 +12864,6 @@ CLIENT EDUCATION:</strong> Describe four teaching points for the client.</li>
           <li>Hormones stimulate puberty (estrogen/progesterone in females, testosterone in males), replace deficiencies, or <strong>prevent pregnancy</strong> (oral contraceptives, patch, ring, injection)</li>
           <li>BPH is treated with 5-alpha reductase inhibitors and alpha₁-adrenergic antagonists</li>
           <li>PDE5 inhibitors treat erectile dysfunction</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="ch31-hormones" class="content-section">
-      <h2>Female Hormones &amp; Contraceptives</h2>
-      <p class="section-lead">Estrogen and progestins carry a clot/cancer risk profile and a long interaction list &mdash; smoking magnifies the danger.</p>
-
-      <article class="condition-block" id="ch31-hormones-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Estrogens</h3>
-          <span class="condition-tag">Conjugated estrogens</span>
-        </header>
-        <ul>
-          <li>Prototype <strong>conjugated equine estrogens</strong> (also estradiol); support female reproductive maturation, secondary sex characteristics, block bone resorption, and lower LDL</li>
-          <li>Routes: oral, <strong>transdermal</strong> (preferred &mdash; less nausea, steadier levels), intravaginal; apply patches to the trunk, avoiding breasts</li>
-          <li><strong>Pregnancy Risk Category X;</strong> contraindicated with undiagnosed vaginal bleeding, thromboembolic/cardiovascular disease, or breast/genital cancer</li>
-          <li>Report leg swelling/redness, dyspnea, or chest pain; discontinue before surgery/immobilization; avoid smoking</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch31-hormones-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Progestins &amp; oral contraceptives</h3>
-          <span class="condition-tag">Prevent pregnancy</span>
-        </header>
-        <ul>
-          <li>Progestins prevent pregnancy and treat menstrual disorders; expect withdrawal bleeding 3&ndash;7 days after stopping</li>
-          <li>Combined oral contraceptives suppress ovulation; take at the same time daily</li>
-          <li>Contraindicated in pregnancy and thromboembolic disease; <strong>smoking sharply increases thrombophlebitis risk</strong></li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch31-hormones-cb2">
-        <header class="condition-head">
-          <h3 class="condition-name">Hormone interactions &amp; safety</h3>
-          <span class="condition-tag">Reduced effectiveness</span>
-        </header>
-        <ul>
-          <li>Enzyme inducers (carbamazepine, phenobarbital, phenytoin, rifampin) <strong>decrease contraceptive effectiveness</strong> &mdash; use a backup method</li>
-          <li>Estrogens reduce warfarin effectiveness and can alter glucose/thyroid medication effects &mdash; monitor</li>
-          <li>Long-term use with corticosteroids/anticoagulants can decrease bone density &mdash; ensure calcium and vitamin D</li>
         </ul>
       </article>
     </section>
@@ -13621,35 +13137,6 @@ COMPLICATIONS:</strong> Identify two adverse effects.</li>
       </article>
     </section>
 
-    <section id="ch32-tocolytics" class="content-section">
-      <h2>Tocolytics &amp; Preterm Labor</h2>
-      <p class="section-lead">Drugs that buy ~48 hours to give steroids time to mature fetal lungs.</p>
-
-      <article class="condition-block" id="ch32-tocolytics-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Tocolytic agents</h3>
-          <span class="condition-tag">Delay preterm labor</span>
-        </header>
-        <ul>
-          <li><strong>Terbutaline</strong> (beta₂ agonist): relaxes uterine smooth muscle for up to 48 hr &mdash; maternal tachycardia, hypotension, hypokalemia, hyperglycemia; <strong>hold if HR &gt;120/min or BP &lt;90/60</strong></li>
-          <li><strong>Nifedipine</strong> (maintenance) and <strong>indomethacin</strong> (prostaglandin inhibitor) also suppress contractions</li>
-          <li><strong>Hydroxyprogesterone caproate</strong> is the only FDA-approved drug to prevent recurrent preterm birth; betamethasone is given for fetal lung maturity</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch32-tocolytics-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Magnesium sulfate</h3>
-          <span class="condition-tag">Seizure prevention</span>
-        </header>
-        <ul>
-          <li>A CNS depressant that relaxes smooth muscle; primary use is <strong>preventing seizures in preeclampsia</strong></li>
-          <li>Monitor for toxicity: loss of deep tendon reflexes, respiratory depression (&lt;12/min), decreased urine output, decreased LOC</li>
-          <li><strong>Antidote: calcium gluconate</strong> &mdash; keep at the bedside; monitor magnesium levels and fetal status</li>
-        </ul>
-      </article>
-    </section>
-
     <section id="ch32-als" class="content-section">
       <h2>Active Learning Scenario</h2>
       <p class="section-lead">Case-based reasoning using the ATI Active Learning Template: <em>Medication</em>.</p>
@@ -13847,47 +13334,6 @@ COMPLICATIONS:</strong> Describe one adverse effect.</li>
           <li><strong>Rheumatoid arthritis:</strong> chronic autoimmune inflammation &mdash; DMARDs slow progression, glucocorticoids relieve inflammation, NSAIDs give rapid relief without slowing disease</li>
           <li><strong>Gout:</strong> elevated uric acid &rarr; urate crystals in joints &mdash; treated by reducing inflammation or lowering uric acid</li>
           <li><strong>Systemic lupus erythematosus:</strong> autoimmune damage to joints/skin/organs &mdash; NSAIDs, corticosteroids, antimalarials, immunomodulators</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="ch33-ra" class="content-section">
-      <h2>Rheumatoid Arthritis Therapy</h2>
-      <p class="section-lead">DMARDs change the disease; methotrexate leads, and biologics raise serious infection risk.</p>
-
-      <article class="condition-block" id="ch33-ra-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Methotrexate &amp; DMARDs</h3>
-          <span class="condition-tag">Disease-modifying</span>
-        </header>
-        <ul>
-          <li><strong>Methotrexate</strong> (anchor DMARD): slows joint degeneration &mdash; infection risk, hepatic toxicity (monitor LFTs; <strong>folic acid reduces toxicity</strong>), bone marrow suppression (CBC every 3&ndash;6 months), ulcerative stomatitis</li>
-          <li>Report infection signs (fever, sore throat) and jaundice/abdominal fullness immediately</li>
-          <li>Other DMARDs: hydroxychloroquine, sulfasalazine, leflunomide</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch33-ra-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Biologic DMARDs (TNF inhibitors)</h3>
-          <span class="condition-tag">Etanercept / adalimumab</span>
-        </header>
-        <ul>
-          <li>TNF inhibitors (etanercept, adalimumab, infliximab) slow progression in moderate-to-severe RA</li>
-          <li><strong>Serious infection risk</strong> &mdash; screen for TB and hepatitis B before starting; report fever/sore throat; hold during active infection</li>
-          <li>Also watch for Stevens-Johnson syndrome, heart failure, and blood dyscrasias</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch33-ra-cb2">
-        <header class="condition-head">
-          <h3 class="condition-name">NSAIDs &amp; glucocorticoids in RA</h3>
-          <span class="condition-tag">Symptom relief</span>
-        </header>
-        <ul>
-          <li><strong>NSAIDs</strong> give rapid relief of pain/inflammation but do not slow disease &mdash; GI/renal cautions</li>
-          <li><strong>Glucocorticoids</strong> relieve inflammation and may delay progression &mdash; used short-term as a bridge until DMARDs take effect</li>
-          <li>Taper glucocorticoids to prevent adrenal insufficiency; monitor glucose, infection, and bone density</li>
         </ul>
       </article>
     </section>
@@ -14146,47 +13592,6 @@ COMPLICATIONS:</strong> Describe one adverse effect.</li>
       </article>
     </section>
 
-    <section id="ch34-osteoporosis" class="content-section">
-      <h2>Osteoporosis Agents</h2>
-      <p class="section-lead">Bisphosphonate administration rules are the highest-yield content here.</p>
-
-      <article class="condition-block" id="ch34-osteoporosis-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">SERMs — raloxifene</h3>
-          <span class="condition-tag">Estrogen agonist/antagonist</span>
-        </header>
-        <ul>
-          <li>Acts like estrogen in bone (decreases resorption, preserves bone mineral density) but as an antagonist in breast/endometrial tissue</li>
-          <li>Uses: prevent/treat postmenopausal osteoporosis and reduce breast cancer risk</li>
-          <li><strong>Increases PE/DVT risk</strong> &mdash; stop before planned immobilization/surgery</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch34-osteoporosis-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Bisphosphonates — action &amp; administration</h3>
-          <span class="condition-tag">Alendronate</span>
-        </header>
-        <ul>
-          <li><strong>Alendronate</strong>, ibandronate, zoledronic acid decrease osteoclast action and inhibit bone resorption &mdash; for postmenopausal/male/glucocorticoid osteoporosis and Paget&rsquo;s disease</li>
-          <li><strong>Take first thing in the morning with a full 8 oz glass of water on an empty stomach</strong></li>
-          <li><strong>Remain upright for at least 30 min</strong> (60 min for ibandronate) and take nothing else by mouth &mdash; prevents esophagitis/ulceration</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch34-osteoporosis-cb2">
-        <header class="condition-head">
-          <h3 class="condition-name">Bisphosphonate complications &amp; calcitonin</h3>
-          <span class="condition-tag">Jaw osteonecrosis</span>
-        </header>
-        <ul>
-          <li>Esophagitis/ulceration (discontinue for difficulty swallowing or new heartburn), GI upset, musculoskeletal pain, visual disturbances</li>
-          <li><strong>Osteonecrosis of the jaw</strong> (especially with IV) &mdash; recommend a dental exam before starting</li>
-          <li><strong>Calcitonin</strong> (nasal/subcutaneous): decreases bone resorption and relieves bone pain; alternate nostrils for nasal spray</li>
-        </ul>
-      </article>
-    </section>
-
     <section id="ch34-als" class="content-section">
       <h2>Active Learning Scenario</h2>
       <p class="section-lead">Case-based reasoning using the ATI Active Learning Template: <em>Medication</em>.</p>
@@ -14372,64 +13777,6 @@ COMPLICATIONS:</strong> Describe one adverse effect.</li>
         <ul>
           <li>Non-opioid analgesics provide analgesic, antipyretic, and (NSAIDs only) anti-inflammatory effects</li>
           <li><strong>NSAIDs</strong> inhibit cyclooxygenase; <strong>acetaminophen</strong> acts centrally with no anti-inflammatory or antiplatelet effect</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="ch35-nsaids" class="content-section">
-      <h2>NSAIDs</h2>
-      <p class="section-lead">COX-1 vs COX-2 explains both the benefits and the bleeding/kidney risks.</p>
-
-      <article class="condition-block" id="ch35-nsaids-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">NSAIDs — action &amp; uses</h3>
-          <span class="condition-tag">Cyclooxygenase inhibition</span>
-        </header>
-        <ul>
-          <li>Prototypes: aspirin, ibuprofen, naproxen, ketorolac (first-generation COX-1/COX-2); <strong>celecoxib</strong> (selective COX-2)</li>
-          <li>COX-1 inhibition &rarr; decreased platelet aggregation (and kidney/GI effects); COX-2 inhibition &rarr; decreased inflammation, fever, pain</li>
-          <li>Uses: inflammation, mild-to-moderate pain (OA/RA), fever, dysmenorrhea; <strong>aspirin</strong> inhibits platelets to protect against MI/ischemic stroke</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch35-nsaids-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">NSAIDs — complications</h3>
-          <span class="condition-tag">GI bleeding</span>
-        </header>
-        <ul>
-          <li><strong>GI effects:</strong> dyspepsia, ulceration, and bleeding/perforation (higher risk in older adults, smokers, alcohol use, or PUD history) &mdash; take with food</li>
-          <li>Renal impairment and increased cardiovascular (MI/stroke) risk &mdash; <strong>celecoxib is last-choice</strong> for chronic pain; ketorolac limited to 5 days</li>
-          <li>Aspirin is contraindicated in children/adolescents with a viral illness (<strong>Reye syndrome</strong> risk)</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch35-nsaids-cb2">
-        <header class="condition-head">
-          <h3 class="condition-name">Aspirin toxicity &amp; contraindications</h3>
-          <span class="condition-tag">Salicylism</span>
-        </header>
-        <ul>
-          <li><strong>Salicylism/aspirin toxicity:</strong> tinnitus, sweating, high fever, acidosis, dehydration, and respiratory depression &mdash; a medical emergency</li>
-          <li>Management: activated charcoal, IV fluids, <strong>bicarbonate</strong> to reverse acidosis and promote excretion, cooling, possible hemodialysis</li>
-          <li>Contraindicated in pregnancy (Category D), PUD, bleeding disorders, and aspirin/NSAID hypersensitivity</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="ch35-acetaminophen" class="content-section">
-      <h2>Acetaminophen</h2>
-      <p class="section-lead">Safe at the right dose &mdash; deadly to the liver above it.</p>
-
-      <article class="condition-block" id="ch35-acetaminophen-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Acetaminophen</h3>
-          <span class="condition-tag">Hepatotoxicity</span>
-        </header>
-        <ul>
-          <li>Centrally acting analgesic and antipyretic; no anti-inflammatory or antiplatelet effect &mdash; safe in children and pregnancy at recommended doses</li>
-          <li><strong>Hepatotoxicity</strong> is the key danger: keep total intake under ~4 g/day (3 g if undernourished, 2 g with heavy alcohol use)</li>
-          <li><strong>Antidote: acetylcysteine;</strong> teach clients to check combination products so they don&rsquo;t exceed the daily limit</li>
         </ul>
       </article>
     </section>
@@ -14629,59 +13976,6 @@ COMPLICATIONS:</strong> Describe two adverse effects.</li>
           <li>Treat moderate-to-severe pain by acting on CNS receptors to alter pain perception</li>
           <li><strong>Mu receptor</strong> activation produces analgesia, respiratory depression, euphoria, and sedation</li>
           <li>Classified as agonists, agonist-antagonists, and antagonists; pure agonists are <strong>Schedule II</strong> controlled substances</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="ch36-agonists" class="content-section">
-      <h2>Opioid Agonists</h2>
-      <p class="section-lead">Morphine is the prototype &mdash; know the toxicity triad and the antidote cold.</p>
-
-      <article class="condition-block" id="ch36-agonists-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Opioid agonists — action &amp; uses</h3>
-          <span class="condition-tag">Morphine</span>
-        </header>
-        <ul>
-          <li>Prototype <strong>morphine</strong> (also fentanyl, hydromorphone, oxycodone, codeine, methadone, meperidine); activate mu (and kappa) receptors for analgesia</li>
-          <li>Uses: moderate-to-severe pain (postoperative, cancer, MI), and adjuncts for cough suppression and diarrhea</li>
-          <li>Many routes (oral, IV, IM, subcutaneous, transdermal/fentanyl, epidural/intrathecal)</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch36-agonists-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Opioid agonists — complications</h3>
-          <span class="condition-tag">Respiratory depression</span>
-        </header>
-        <ul>
-          <li><strong>Respiratory depression</strong> (the dose-limiting effect), sedation, and <strong>constipation</strong> (give a stimulant laxative + stool softener prophylactically)</li>
-          <li>Orthostatic hypotension, urinary retention, nausea/vomiting (give antiemetic), cough suppression, and biliary colic (use meperidine instead of morphine)</li>
-          <li>Monitor respiratory rate and sedation level; hold and notify provider for RR &lt;12/min</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch36-agonists-cb2">
-        <header class="condition-head">
-          <h3 class="condition-name">Opioid toxicity &amp; naloxone</h3>
-          <span class="condition-tag">Toxicity triad</span>
-        </header>
-        <ul>
-          <li><strong>Opioid toxicity triad: coma, respiratory depression, and pinpoint pupils</strong></li>
-          <li>Support ventilation and administer <strong>naloxone</strong> (opioid antagonist) to reverse respiratory depression</li>
-          <li>Naloxone has a short half-life &mdash; repeated doses may be needed as it can wear off before the opioid</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch36-agonists-cb3">
-        <header class="condition-head">
-          <h3 class="condition-name">Opioid contraindications &amp; cautions</h3>
-          <span class="condition-tag">Drug-specific</span>
-        </header>
-        <ul>
-          <li>Morphine contraindicated after biliary tract surgery and in premature infants (respiratory depression)</li>
-          <li><strong>Meperidine contraindicated in renal failure</strong> &mdash; normeperidine accumulates and causes seizures/neurotoxicity</li>
-          <li>Caution in asthma, emphysema, head injury, pregnancy/labor (newborn respiratory depression), and older adults</li>
         </ul>
       </article>
     </section>
@@ -15134,35 +14428,6 @@ COMPLICATIONS:</strong> Describe two adverse effects.</li>
         <ul>
           <li><strong>Migraine</strong> medications either stop an attack (abortive) or prevent attacks (prophylactic)</li>
           <li><strong>Local anesthetics</strong> block motor and sensory neurons in a specific area &mdash; topical, injected, regional, epidural, or spinal</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="ch38-migraine" class="content-section">
-      <h2>Migraine Medications</h2>
-      <p class="section-lead">Triptans abort attacks but threaten the coronary arteries; beta blockers and anticonvulsants prevent them.</p>
-
-      <article class="condition-block" id="ch38-migraine-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Abortive migraine therapy</h3>
-          <span class="condition-tag">Triptans &amp; ergots</span>
-        </header>
-        <ul>
-          <li>First-line: aspirin-like analgesics (NSAIDs, acetaminophen) and <strong>triptans</strong> (sumatriptan, serotonin receptor agonists)</li>
-          <li><strong>Triptans cause coronary vasospasm</strong> &mdash; do not give to clients with or at risk for coronary artery disease; expect transient chest pressure; avoid in pregnancy</li>
-          <li>Second-line <strong>ergot alkaloids</strong> (ergotamine, dihydroergotamine): risk of ergotism (peripheral ischemia) and physical dependence &mdash; do not take daily; contraindicated in pregnancy</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch38-migraine-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Prophylactic migraine therapy</h3>
-          <span class="condition-tag">Prevention</span>
-        </header>
-        <ul>
-          <li>Taken daily to reduce attack frequency when migraines are frequent or severe</li>
-          <li><strong>Beta blockers</strong> (propranolol), <strong>anticonvulsants</strong> (divalproex, topiramate), tricyclic antidepressants (amitriptyline), and estrogens</li>
-          <li>Propranolol is contraindicated in asthma, bradycardia, heart block, and heart failure; divalproex is contraindicated in liver disease (Category D)</li>
         </ul>
       </article>
     </section>
@@ -15693,47 +14958,6 @@ COMPLICATIONS:</strong> Describe two adverse effects.</li>
         <ul>
           <li>Endocrine disorders involve over- or under-secretion of hormones, or altered target response</li>
           <li>This chapter covers medications for the thyroid, anterior/posterior pituitary, and adrenal glands</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="ch40-thyroid" class="content-section">
-      <h2>Thyroid Medications</h2>
-      <p class="section-lead">Levothyroxine replaces a missing hormone for life; antithyroid drugs and iodine quiet an overactive gland.</p>
-
-      <article class="condition-block" id="ch40-thyroid-cb0">
-        <header class="condition-head">
-          <h3 class="condition-name">Thyroid hormone — levothyroxine</h3>
-          <span class="condition-tag">Hypothyroidism</span>
-        </header>
-        <ul>
-          <li>Prototype <strong>levothyroxine</strong> (synthetic T₄): increases metabolic rate, cardiac output, and growth &mdash; for hypothyroidism (and IV for myxedema coma)</li>
-          <li><strong>Take daily on an empty stomach 30&ndash;60 min before breakfast</strong>; lifelong therapy; full effect takes 6&ndash;8 weeks; dosed in micrograms</li>
-          <li>Overmedication &rarr; thyrotoxicosis (tachycardia, chest pain, tremor, heat intolerance, weight loss); increases warfarin effect (monitor PT/INR); monitor TSH/T₄ and apical pulse</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch40-thyroid-cb1">
-        <header class="condition-head">
-          <h3 class="condition-name">Antithyroid agents</h3>
-          <span class="condition-tag">Methimazole / PTU</span>
-        </header>
-        <ul>
-          <li><strong>Methimazole</strong> and <strong>propylthiouracil (PTU)</strong>: block synthesis of new thyroid hormone (don&rsquo;t affect existing hormone) &mdash; for hyperthyroidism</li>
-          <li>A beta blocker (propranolol) controls tremor/tachycardia; effects take 1&ndash;2 weeks; do not stop abruptly (thyroid crisis)</li>
-          <li>Monitor CBC for leukopenia/agranulocytosis &mdash; report fever, chills, sore throat; PTU is preferred in the first trimester of pregnancy</li>
-        </ul>
-      </article>
-
-      <article class="condition-block" id="ch40-thyroid-cb2">
-        <header class="condition-head">
-          <h3 class="condition-name">Iodine products &amp; radioactive iodine</h3>
-          <span class="condition-tag">I-131 &amp; Lugol&rsquo;s</span>
-        </header>
-        <ul>
-          <li><strong>Nonradioactive iodine</strong> (Lugol&rsquo;s solution): shrinks the gland before thyroidectomy and treats thyrotoxic crisis &mdash; watch for iodism (metallic taste, stomatitis); dilute and give through a straw</li>
-          <li><strong>Radioactive iodine (I-131):</strong> destroys thyroid tissue for hyperthyroidism/cancer</li>
-          <li>Radiation precautions: keep ~6 feet from others, limit close contact, increase fluids, and follow waste-disposal instructions</li>
         </ul>
       </article>
     </section>
