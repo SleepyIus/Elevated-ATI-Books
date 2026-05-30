@@ -1448,7 +1448,9 @@ button:focus-visible,a:focus-visible{
 /* ===== PHASE 1: card-style baseline for lists sitting DIRECTLY in a pill =====
    Direct-child selectors only; finding-card / kb-card / ati-deep lists untouched. */
 .condition-block > ul,
-.condition-block > ol{
+.condition-block > ol,
+.content-section > ul,
+.content-section > ol{
   background:var(--surface2);
   border:1px solid var(--border-soft);
   border-radius:10px;
@@ -1458,17 +1460,27 @@ button:focus-visible,a:focus-visible{
 }
 .condition-block > ul li{margin-bottom:5px}
 .condition-block > ol li{margin-bottom:5px}
+.content-section > ul li{margin-bottom:5px}
+.content-section > ol li{margin-bottom:5px}
 .condition-block > ul li:last-child,
 .condition-block > ol li:last-child{margin-bottom:0}
+.content-section > ul li:last-child,
+.content-section > ol li:last-child{margin-bottom:0}
 .condition-block > ul.flag-list,
-.condition-block > ol.flag-list{
+.condition-block > ol.flag-list,
+.content-section > ul.flag-list,
+.content-section > ol.flag-list{
   border-color:var(--nonreassuring);
   box-shadow:inset 3px 0 0 var(--nonreassuring);
 }
 .condition-block > ul ul,
 .condition-block > ul ol,
 .condition-block > ol ul,
-.condition-block > ol ol{background:none;border:0;border-radius:0;padding:6px 0 0 18px;margin:0;box-shadow:none}
+.condition-block > ol ol,
+.content-section > ul ul,
+.content-section > ul ol,
+.content-section > ol ul,
+.content-section > ol ol{background:none;border:0;border-radius:0;padding:6px 0 0 18px;margin:0;box-shadow:none}
 
 .finding-card p,
 .finding-card ul,
