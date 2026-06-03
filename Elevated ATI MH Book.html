@@ -1487,6 +1487,10 @@ button:focus-visible,a:focus-visible{
 .kb-card h4.flag{
   position:relative;padding-left:14px;
 }
+.finding-card h4.flag{
+  color:var(--nonreassuring);
+  position:relative;padding-left:14px;
+}
 .condition-name.flag::before,
 .kb-card h3.flag::before,
 .kb-card h4.flag::before{
@@ -2074,10 +2078,6 @@ article.exercise.nclex-hidden{ display: none !important }
             max-width: 100%;
           }
         }
-      
-        /* MH Book-only scope: Flashcards file doesn't exist yet — hide the FC button.
-           When MH Flashcards is later built, REMOVE this rule to re-enable the button. */
-        .modal-fc-btn { display: none !important; }
       
         /* ============================================================
            === EXERCISE + ALS SUBCOMPONENTS — Phase 3 unification ===
@@ -2878,6 +2878,9 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Depression in older adults</span>
         </header>
         <p>A self-report yes/no questionnaire validated for depression screening in older adults. Available in 30-item and 15-item (short form) versions. Avoids somatic items that overlap with normal aging.</p>
+        <div class="kb-card">
+          <p><strong>Why a geriatric-specific scale:</strong> depression is common in clients over 65 but easily missed because it can mimic dementia (memory loss, confusion, behavioral changes) or present as somatic complaints. The GDS is designed to differentiate true depressive symptoms from features of normal aging or early dementia — giving a cleaner clinical signal in older adults than a general depression inventory would.</p>
+        </div>
       </article>
 
       <article class="condition-block" id="ch1-screening-cb2">
@@ -2886,6 +2889,9 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Substance use in older adults</span>
         </header>
         <p>24-item yes/no screen designed for older adults; sensitive to drinking patterns that may not be flagged by general adult tools. Score ≥ 5 indicates probable alcohol problem.</p>
+        <div class="kb-card">
+          <p><strong>Why a geriatric-specific scale:</strong> alcohol use in older adults often presents differently — chronic low-level drinking rather than binge patterns, fewer work or legal consequences, and overlap with depression, isolation, or chronic medical conditions. General adult screens (CAGE, AUDIT) may miss these patterns because they emphasize behaviors typical of younger users. The MAST-G targets the loss-of-spouse, retirement, loneliness, and polypharmacy contexts where late-onset or late-detected alcohol use commonly emerges.</p>
+        </div>
       </article>
     </section>
 
@@ -2999,6 +3005,9 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Severe and persistent</span>
         </header>
         <p>SMI includes disorders classified as severe and persistent mental illnesses. Clients with SMI often have difficulty with ADLs, and these are typically <strong>lifelong disorders with remissions and exacerbations</strong>. Care planning addresses long-term functional support, not just acute stabilization.</p>
+        <div class="kb-card">
+          <p><strong>Long-term care emphasis:</strong> most clients with SMI live in the community with ongoing supports rather than long-term inpatient care — case management, group homes, Assertive Community Treatment (ACT) teams, day programs, and supported employment all help maintain stable functioning. The nursing goal shifts from "cure" toward stable role functioning, medication adherence, and crisis prevention.</p>
+        </div>
       </article>
     </section>
 
@@ -3437,7 +3446,26 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Tort law — overview</h3>
           <span class="condition-tag">Civil wrongdoing</span>
         </header>
-        <p>A <strong>tort</strong> is a wrongful act or injury committed by an entity or person against another person or another person's property. Torts decide liability issues and intentional issues that can involve criminal penalties (e.g., abuse of a client). Detailed below in <em>Tort Law in the Mental Health Setting</em>.</p>
+        <p>A <strong>tort</strong> is a civil wrongdoing — a wrongful act or injury committed by an entity or person against another person or their property. The injured party (plaintiff) may collect monetary damages from the responsible party (defendant). Torts fall into two categories.</p>
+        <div class="finding-grid">
+          <div class="finding-card">
+            <h4>Intentional torts</h4>
+            <ul>
+              <li>Willful actions that damage a client's property or violate client rights</li>
+              <li><strong>False imprisonment</strong> — confining a client (physically, verbally, or via chemical restraint) when it is not part of treatment</li>
+              <li><strong>Assault</strong> — threatening a client's person (e.g., approaching with a syringe in a threatening manner)</li>
+              <li><strong>Battery</strong> — touching a client in a harmful or offensive way (e.g., giving an injection against the client's will)</li>
+            </ul>
+          </div>
+          <div class="finding-card">
+            <h4>Unintentional torts</h4>
+            <ul>
+              <li>Actions or inactions that cause unintended harm by failing to meet one's duty of care</li>
+              <li><strong>Negligence</strong> — failing to provide adequate care when one has an obligation. Requires proven duty, breach, causation, and damages.</li>
+              <li><strong>Malpractice</strong> — a type of professional negligence (failure to meet professional standard of care)</li>
+            </ul>
+          </div>
+        </div>
       </article>
     </section>
 
@@ -5146,6 +5174,9 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Sustained trait</span>
         </header>
         <p>Usually develops over time, <strong>often starting in childhood</strong>. The adult who experiences chronic anxiety might display it in physical manifestations (fatigue, frequent headaches).</p>
+        <div class="kb-card">
+          <p><strong>Why it can be missed:</strong> chronic anxiety often presents through the body (fatigue, frequent headaches) rather than as obvious "feeling anxious" — recurring unexplained somatic complaints in an adult with an anxiety history from childhood is the classic pattern.</p>
+        </div>
       </article>
     </section>
 
