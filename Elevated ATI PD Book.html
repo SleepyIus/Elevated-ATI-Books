@@ -21373,6 +21373,42 @@ antipyretics, with development of other Manifestations</p>
     }, 200);
   }
 
+  // ===== Cross-chapter anchor link handler =====
+  // Intercepts clicks on links like <a href="#ch9-magsulfate"> and routes them
+  // through openChapter() instead of relying on browser scroll (which fails
+  // because chapter content is in .chapter-pool with display:none).
+  // Supports:
+  //   #ch{N}                 → opens chapter, first section active
+  //   #ch{N}-{section}       → opens chapter, that section's tab active
+  //   #ch{N}-{section}-{cb#} → opens chapter, parent section's tab active,
+  //                            then scrolls to the specific pill within the modal
+  document.addEventListener('click', function(e){
+    var link = e.target.closest('a[href^="#ch"]');
+    if (!link) return;
+    var href = link.getAttribute('href');
+    var match = href.match(/^#(ch\d+)(?:-(.+))?$/);
+    if (!match) return;
+    var chapterId = match[1];
+    var fullTargetId = href.substring(1); // strip #
+    // Verify chapter exists in the pool
+    if (!pool.querySelector('#' + chapterId)) return;
+    e.preventDefault();
+    // If already in a modal, close it first then re-open at the target
+    if (modalOverlay.classList.contains('show')) {
+      closeChapterModal();
+      setTimeout(function(){ openChapter(chapterId, fullTargetId); }, 220);
+    } else {
+      openChapter(chapterId, fullTargetId);
+    }
+    // After modal opens, try to scroll to pill-level target (if not a section)
+    setTimeout(function(){
+      var pillTarget = modalBody.querySelector('#' + fullTargetId);
+      if (pillTarget && !pillTarget.classList.contains('tab-panel')) {
+        pillTarget.scrollIntoView({behavior: 'smooth', block: 'start'});
+      }
+    }, 350);
+  });
+
   modalClose.addEventListener('click', closeChapterModal);
   modalOverlay.addEventListener('click', function(e){
     if (e.target === modalOverlay) closeChapterModal();
