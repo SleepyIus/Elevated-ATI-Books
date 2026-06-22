@@ -2855,5 +2855,21 @@ button{font-family:'DM Sans',sans-serif}
   </div>
 </div>
 
+<script>
+(function(){
+  // Keep the toolbar "Load N starter cards" button in sync with STARTER_DECK.length
+  function syncTopBtn(){
+    if (typeof STARTER_DECK === 'undefined') return;
+    var btn = document.querySelector('button[data-action="load-starter"]');
+    if (!btn) return;
+    var n = STARTER_DECK.length;
+    var span = btn.querySelector('span');
+    if (span) span.textContent = 'Load ' + n + ' starter cards';
+    btn.title = 'Add the ' + n + ' starter cards (curated from the book) to your review deck.';
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', syncTopBtn);
+  else syncTopBtn();
+})();
+</script>
 </body>
 </html>
