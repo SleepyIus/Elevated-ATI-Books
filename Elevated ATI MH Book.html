@@ -16329,7 +16329,68 @@ article.exercise.nclex-hidden{ display: none !important }
 
 
   // ===== MID-READ PROMPTS + FLASHCARD SCHEDULE (SM-2) =====
-  var MID_PROMPTS = {};
+  var MID_PROMPTS = {
+    ch21: [
+      {
+        id: 'ch21-mid-serotonin-syndrome-priority',
+        type: 'PRIORITY',
+        ch: 'ch21',
+        after: 'ch21-ssris-cb0',
+        q: 'A client started fluoxetine today and now has agitation, hallucinations, diaphoresis, fever, and tremors. What is the nurse\'s priority interpretation?',
+        a: '<strong>Suspect serotonin syndrome.</strong> Withhold the serotonergic medication and notify the provider. ATI flags this as a potentially lethal emergency, especially with serotonergic combinations such as SSRIs, SNRIs, TCAs, MAOIs, lithium, or St. John&rsquo;s wort.'
+      }
+    ],
+    ch22: [
+      {
+        id: 'ch22-mid-maoi-hypertensive-crisis',
+        type: 'JUDGMENT',
+        ch: 'ch22',
+        after: 'ch22-maois-cb0',
+        q: 'A client taking phenelzine reports severe headache, neck stiffness, nausea, and palpitations after eating aged cheese. What complication should the nurse suspect?',
+        a: '<strong>Hypertensive crisis from a tyramine interaction.</strong> MAOIs require avoidance of tyramine foods and interacting medications. Report findings promptly and reinforce diet/medication safety teaching.'
+      }
+    ],
+    ch23: [
+      {
+        id: 'ch23-mid-lithium-toxicity-hold',
+        type: 'PRIORITY',
+        ch: 'ch23',
+        after: 'ch23-lithium-cb1',
+        q: 'A client taking lithium develops ongoing vomiting, coarse tremor, confusion, and ataxia. What should happen before the next dose?',
+        a: '<strong>Hold lithium and notify the provider.</strong> These findings suggest advancing lithium toxicity. ATI emphasizes lithium-level monitoring, renal/sodium balance, and avoiding interacting drugs such as NSAIDs that can raise lithium levels.'
+      }
+    ],
+    ch24: [
+      {
+        id: 'ch24-mid-nms-response',
+        type: 'PRIORITY',
+        ch: 'ch24',
+        after: 'ch24-other-complications-cb0',
+        q: 'A client taking an antipsychotic develops high fever, severe muscle rigidity, altered mental status, and autonomic instability. What is the priority response?',
+        a: '<strong>Suspect neuroleptic malignant syndrome.</strong> Stop/hold the antipsychotic as prescribed, notify the provider, and prepare for intensive supportive care. ATI distinguishes this emergency from routine EPS.'
+      }
+    ],
+    ch25: [
+      {
+        id: 'ch25-mid-stimulant-screening',
+        type: 'JUDGMENT',
+        ch: 'ch25',
+        after: 'ch25-cns-stimulants-cb1',
+        q: 'Before giving a stimulant for ADHD, which history finding is most important to question?',
+        a: '<strong>Cardiovascular disorder, severe anxiety/psychosis, or substance use disorder history.</strong> ATI highlights stimulant cardiovascular effects, misuse potential, MAOI interaction risk, and careful baseline monitoring in children and adolescents.'
+      }
+    ],
+    ch26: [
+      {
+        id: 'ch26-mid-disulfiram-safety',
+        type: 'CONTENT',
+        ch: 'ch26',
+        after: 'ch26-alcohol-abstinence-cb0',
+        q: 'A client taking disulfiram asks whether alcohol in cough syrup, mouthwash, or cooking extracts matters. What teaching should the nurse give?',
+        a: '<strong>Avoid all alcohol-containing products.</strong> Disulfiram can trigger an alcohol-aversive reaction with hidden alcohol sources. ATI also warns that the reaction risk can persist after discontinuation, so clients need specific product-label teaching.'
+      }
+    ]
+  };
   var FC_KEY = 'atimh_fc_schedule';
 
   function loadFcSchedule(){
