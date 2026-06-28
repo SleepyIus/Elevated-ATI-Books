@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!-- ============================================================
-     ELEVATED ATI SUITE  ·  v3.2.0
+     ELEVATED ATI SUITE  ·  v3.3.0
      File:       index.html
-     Build date: 2026-05-24
-     Status:     Phase 3 · Mental Health suite wired in (4th subject card + MH hub)
+     Build date: 2026-06-28
+     Status:     Phase 4 · Adult Medical-Surgical suite wired in (5th subject card + AMS hub)
      ------------------------------------------------------------
      Version marker added so the latest files are identifiable.
      Suite version = project-wide; build date = this file's last
@@ -37,6 +37,7 @@
   --pd-color-soft:rgba(2,132,199,0.15);
   --pharm-color:#ea580c;
   --mh-color:#65a30d;
+  --ams-color:#059669;
   --pharm-color-soft:rgba(234,88,12,0.15);
   --shadow:0 8px 24px rgba(0,0,0,0.3);
 }
@@ -58,6 +59,7 @@
   --pd-color-soft:rgba(2,132,199,0.10);
   --pharm-color:#ea580c;
   --mh-color:#65a30d;
+  --ams-color:#059669;
   --pharm-color-soft:rgba(234,88,12,0.10);
 }
 *{box-sizing:border-box}
@@ -208,6 +210,7 @@ body{
 .subject-card[data-subject="pd"]{ --card-color:var(--pd-color) }
 .subject-card[data-subject="pharm"]{ --card-color:var(--pharm-color) }
   [data-subject="mh"]{ --card-color:var(--mh-color) }
+.subject-card[data-subject="ams"]{ --card-color:var(--ams-color) }
 
 .coming-soon{
   padding:20px 22px;
@@ -390,16 +393,45 @@ footer{
       </div>
     </a>
 
+    <a class="subject-card" data-subject="ams" href="Elevated%20ATI%20AMS%20Hub.html">
+      <div class="subject-head">
+        <div class="subject-mark">AMS</div>
+        <div class="subject-meta">
+          <div class="subject-course">ATI · Adult Med-Surg</div>
+          <div class="subject-name">Adult Medical-Surgical</div>
+        </div>
+      </div>
+      <p class="subject-desc">ATI RN Adult Medical-Surgical Nursing review module, 11th Edition. Source-authored 96-chapter Book with Unit 14 starter Templates and Flashcards live.</p>
+      <div class="subject-stats">
+        <div class="subject-stat">
+          <div class="subject-stat-val">96</div>
+          <div class="subject-stat-label">Chapters</div>
+        </div>
+        <div class="subject-stat">
+          <div class="subject-stat-val">6</div>
+          <div class="subject-stat-label">Templates</div>
+        </div>
+        <div class="subject-stat">
+          <div class="subject-stat-val">12</div>
+          <div class="subject-stat-label">Cards</div>
+        </div>
+      </div>
+      <div class="subject-cta">
+        <span>Open suite</span>
+        <span class="subject-cta-arrow">→</span>
+      </div>
+    </a>
+
   </section>
 
   <div class="coming-soon">
-    🩺 <strong>More subjects coming.</strong> Adult Health (Med-Surg), Mental Health, and Fundamentals can all be added the same way.
+    🩺 <strong>More subjects coming.</strong> Fundamentals, Community Health, Leadership, and Nutrition can all be added the same way.
   </div>
 
   <footer>
     <p>Elevated · Nursing study tools · ATI RN Companion · 11th Edition</p>
   
-    <p class="ver-badge" style="font-size:11px;opacity:0.55;margin-top:8px;letter-spacing:0.03em;">v3.2.0 · built 2026-05-24</p>
+    <p class="ver-badge" style="font-size:11px;opacity:0.55;margin-top:8px;letter-spacing:0.03em;">v3.3.0 · built 2026-06-28</p>
   </footer>
 
 </div>
