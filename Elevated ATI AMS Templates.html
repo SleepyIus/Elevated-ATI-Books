@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <!-- ============================================================
-     ELEVATED ATI SUITE - AMS SHELL
-     Build date: 2026-06-27
-     Status:     Phase 2B shell - no learner-facing clinical content
+     ELEVATED ATI SUITE - AMS TEMPLATES
+     Build date: 2026-06-28
+     Status:     Phase 4A starter examples - Unit 14 perioperative care
      ============================================================ -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Adult Medical-Surgical Nursing template shell for the Elevated ATI suite.">
+<meta name="description" content="Adult Medical-Surgical Nursing worked template starter set for the Elevated ATI suite.">
 <meta name="apple-mobile-web-app-title" content="ATI AMS Tpl">
 <meta name="theme-color" content="#047857">
 <title>Elevated - ATI Adult Medical-Surgical Nursing Templates</title>
@@ -18,7 +18,7 @@
 <style>
 :root{--bg:#0f1117;--surface:#181c27;--surface2:#1e2336;--surface3:#242a40;--border:#2a3050;--border-soft:rgba(255,255,255,.07);--accent:#34d399;--accent2:#10b981;--accent-soft:rgba(52,211,153,.14);--text:#e8eaf2;--text2:#9aa2c7;--text3:#616b94;--shadow:0 12px 28px rgba(0,0,0,.28)}
 [data-theme="light"]{--bg:#f7faf8;--surface:#ffffff;--surface2:#edf7f1;--surface3:#dff0e7;--border:#c9ded4;--border-soft:rgba(0,0,0,.07);--accent:#059669;--accent2:#047857;--accent-soft:rgba(5,150,105,.11);--text:#17201b;--text2:#4e6258;--text3:#81948a;--shadow:0 12px 28px rgba(0,0,0,.10)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}.page{max-width:1180px;margin:0 auto;padding:24px 22px 72px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px;padding:14px 16px;background:var(--surface);border:1px solid var(--border);border-radius:10px}.brand{display:flex;align-items:center;gap:12px}.mark{width:38px;height:38px;border-radius:8px;background:var(--accent);color:#06100b;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}.brand-title{font-family:'DM Serif Display',serif;font-size:21px}.back-link{font-size:12px;color:var(--text2);font-weight:700}.theme-toggle,.button{border:1px solid var(--border);background:var(--surface2);color:var(--text);border-radius:8px;padding:9px 13px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}.theme-toggle:hover,.button:hover{border-color:var(--accent)}.hero{padding:30px 28px;border:1px solid var(--border);border-radius:12px;background:linear-gradient(135deg,var(--surface),var(--surface2));margin-bottom:24px}.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);font-weight:800;margin-bottom:8px}.hero h1{font-family:'DM Serif Display',serif;font-size:42px;line-height:1.1;font-weight:400;margin:0 0 10px}.hero em{color:var(--accent2)}.hero p{max-width:760px;color:var(--text2);margin:0}.notice{margin-top:16px;padding:12px 14px;border:1px solid var(--border);background:var(--accent-soft);border-radius:8px;color:var(--text2);font-size:14px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}.stat,.card,.unit-card,.panel{background:var(--surface);border:1px solid var(--border);border-radius:10px}.stat{padding:16px}.stat-value{font-family:'DM Serif Display',serif;font-size:34px;color:var(--accent2);line-height:1}.stat-label{font-size:11px;color:var(--text3);font-weight:800;text-transform:uppercase;letter-spacing:.11em;margin-top:6px}.section-title{font-size:12px;color:var(--text3);font-weight:800;text-transform:uppercase;letter-spacing:.13em;margin:28px 0 12px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{display:flex;flex-direction:column;min-height:210px;padding:20px;transition:transform .15s,border-color .15s,box-shadow .15s}.card:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:var(--shadow)}.card-kicker{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent2);font-weight:800}.card h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:25px;margin:8px 0}.card p{color:var(--text2);font-size:14px;margin:0 0 18px}.card-footer{margin-top:auto;color:var(--accent);font-weight:800;font-size:13px}.units-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.unit-card{padding:14px 16px;display:grid;grid-template-columns:54px 1fr auto;gap:12px;align-items:center}.unit-num{color:var(--accent2);font-weight:900}.unit-card h3{margin:0;font-size:15px}.unit-card p{margin:2px 0 0;color:var(--text2);font-size:12px}.pill{font-size:12px;color:var(--text3);background:var(--surface2);padding:4px 8px;border-radius:999px}.filters{display:grid;gap:12px;margin-bottom:18px}.search{width:100%;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:9px;padding:12px 14px;font:inherit}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid var(--border);background:var(--surface);color:var(--text2);border-radius:999px;padding:7px 11px;font:inherit;font-size:12px;font-weight:700;cursor:pointer}.chip.active{background:var(--accent);border-color:var(--accent);color:#06100b}.panel{padding:18px}.empty{text-align:center;padding:38px 18px;color:var(--text2);border:1px dashed var(--border);border-radius:10px;background:var(--surface)}.list{display:grid;gap:10px}.row{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:13px 15px}.row h3{font-size:15px;margin:0}.row p{margin:3px 0 0;color:var(--text2);font-size:13px}.footer{margin-top:34px;color:var(--text3);font-size:12px;text-align:center}@media(max-width:860px){.stats,.grid,.units-grid{grid-template-columns:1fr}.hero h1{font-size:32px}.topbar{align-items:flex-start;flex-direction:column}.unit-card{grid-template-columns:1fr}.page{padding:18px 14px 56px}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}.page{max-width:1180px;margin:0 auto;padding:24px 22px 72px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px;padding:14px 16px;background:var(--surface);border:1px solid var(--border);border-radius:10px}.brand{display:flex;align-items:center;gap:12px}.mark{width:38px;height:38px;border-radius:8px;background:var(--accent);color:#06100b;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}.brand-title{font-family:'DM Serif Display',serif;font-size:21px}.back-link{font-size:12px;color:var(--text2);font-weight:700}.theme-toggle,.button{border:1px solid var(--border);background:var(--surface2);color:var(--text);border-radius:8px;padding:9px 13px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}.theme-toggle:hover,.button:hover{border-color:var(--accent)}.hero{padding:30px 28px;border:1px solid var(--border);border-radius:12px;background:linear-gradient(135deg,var(--surface),var(--surface2));margin-bottom:24px}.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);font-weight:800;margin-bottom:8px}.hero h1{font-family:'DM Serif Display',serif;font-size:42px;line-height:1.1;font-weight:400;margin:0 0 10px}.hero em{color:var(--accent2)}.hero p{max-width:760px;color:var(--text2);margin:0}.notice{margin-top:16px;padding:12px 14px;border:1px solid var(--border);background:var(--accent-soft);border-radius:8px;color:var(--text2);font-size:14px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}.stat,.card,.unit-card,.panel{background:var(--surface);border:1px solid var(--border);border-radius:10px}.stat{padding:16px}.stat-value{font-family:'DM Serif Display',serif;font-size:34px;color:var(--accent2);line-height:1}.stat-label{font-size:11px;color:var(--text3);font-weight:800;text-transform:uppercase;letter-spacing:.11em;margin-top:6px}.section-title{font-size:12px;color:var(--text3);font-weight:800;text-transform:uppercase;letter-spacing:.13em;margin:28px 0 12px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{display:flex;flex-direction:column;min-height:210px;padding:20px;transition:transform .15s,border-color .15s,box-shadow .15s}.card:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:var(--shadow)}.card-kicker{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent2);font-weight:800}.card h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:25px;margin:8px 0}.card p{color:var(--text2);font-size:14px;margin:0 0 18px}.card-footer{margin-top:auto;color:var(--accent);font-weight:800;font-size:13px}.units-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.unit-card{padding:14px 16px;display:grid;grid-template-columns:54px 1fr auto;gap:12px;align-items:center}.unit-num{color:var(--accent2);font-weight:900}.unit-card h3{margin:0;font-size:15px}.unit-card p{margin:2px 0 0;color:var(--text2);font-size:12px}.pill{font-size:12px;color:var(--text3);background:var(--surface2);padding:4px 8px;border-radius:999px}.filters{display:grid;gap:12px;margin-bottom:18px}.search{width:100%;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:9px;padding:12px 14px;font:inherit}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid var(--border);background:var(--surface);color:var(--text2);border-radius:999px;padding:7px 11px;font:inherit;font-size:12px;font-weight:700;cursor:pointer}.chip.active{background:var(--accent);border-color:var(--accent);color:#06100b}.panel{padding:18px}.empty{text-align:center;padding:38px 18px;color:var(--text2);border:1px dashed var(--border);border-radius:10px;background:var(--surface)}.list{display:grid;gap:10px}.row{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:13px 15px}.row h3{font-size:15px;margin:0}.row p{margin:3px 0 0;color:var(--text2);font-size:13px}.template-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}.template-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:12px}.template-card[hidden]{display:none}.template-card h3{font-family:'DM Serif Display',serif;font-size:24px;font-weight:400;line-height:1.15;margin:0}.template-card p{margin:0;color:var(--text2);font-size:14px}.template-meta{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--border-soft);background:var(--surface);color:var(--text2);border-radius:999px;padding:4px 8px;font-size:11px;font-weight:800}.template-sections{display:grid;gap:10px}.template-section{border-top:1px solid var(--border-soft);padding-top:10px}.template-section h4{margin:0 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent2)}.template-section ul{margin:0;padding-left:18px;color:var(--text2);font-size:14px}.template-link{margin-top:auto;color:var(--accent);font-weight:800;font-size:13px}.footer{margin-top:34px;color:var(--text3);font-size:12px;text-align:center}@media(max-width:860px){.stats,.grid,.units-grid,.template-grid{grid-template-columns:1fr}.hero h1{font-size:32px}.topbar{align-items:flex-start;flex-direction:column}.unit-card{grid-template-columns:1fr}.page{padding:18px 14px 56px}}
 </style>
 </head>
 <body>
@@ -30,35 +30,109 @@
   </header>
 
   <section class="hero">
-    <div class="eyebrow">AMS Active Learning Template shell</div>
+    <div class="eyebrow">AMS Active Learning Templates</div>
     <h1>Adult Med-Surg <em>Templates</em></h1>
-    <p>Placeholder workspace for future AMS worked examples. No clinical template examples have been authored yet.</p>
-    <div class="notice">Shell status: filters and storage keys are ready; example cards will be added only after ATI-supported AMS content is drafted.</div>
+    <p>Source-verified starter examples for high-yield perioperative care. This first set focuses on anesthesia, preoperative safety, and PACU/postoperative complication recognition.</p>
+    <div class="notice">Build status: Unit 14 starter set is live. Additional examples will be added only when they solve a clear learner need and can be verified against private ATI source support.</div>
   </section>
   <section class="stats">
-    <div class="stat"><div class="stat-value">0</div><div class="stat-label">Examples</div></div>
-    <div class="stat"><div class="stat-value">8</div><div class="stat-label">Template Types</div></div>
+    <div class="stat"><div class="stat-value">6</div><div class="stat-label">Worked Examples</div></div>
+    <div class="stat"><div class="stat-value">4</div><div class="stat-label">Template Types Started</div></div>
     <div class="stat"><div class="stat-value">96</div><div class="stat-label">Chapter Filters</div></div>
-    <div class="stat"><div class="stat-value">14</div><div class="stat-label">Units</div></div>
+    <div class="stat"><div class="stat-value">3</div><div class="stat-label">Source Chapters</div></div>
   </section>
   <section class="filters">
-    <input class="search" id="tplSearch" type="search" placeholder="Search pending AMS templates" aria-label="Search pending AMS templates">
+    <input class="search" id="tplSearch" type="search" placeholder="Search AMS worked templates" aria-label="Search AMS worked templates">
     <div class="chips" data-filter="type"><button class="chip" data-type="basic-concept" type="button">Basic Concept</button><button class="chip" data-type="diagnostic-procedure" type="button">Diagnostic Procedure</button><button class="chip" data-type="growth-development" type="button">Growth and Development</button><button class="chip" data-type="medication" type="button">Medication</button><button class="chip" data-type="nursing-skill" type="button">Nursing Skill</button><button class="chip" data-type="system-disorder" type="button">System Disorder</button><button class="chip" data-type="therapeutic-procedure" type="button">Therapeutic Procedure</button><button class="chip" data-type="concept-analysis" type="button">Concept Analysis</button></div>
     <div class="chips" data-filter="chapter"><button class="chip" data-chapter="1" type="button">1</button><button class="chip" data-chapter="2" type="button">2</button><button class="chip" data-chapter="3" type="button">3</button><button class="chip" data-chapter="4" type="button">4</button><button class="chip" data-chapter="5" type="button">5</button><button class="chip" data-chapter="6" type="button">6</button><button class="chip" data-chapter="7" type="button">7</button><button class="chip" data-chapter="8" type="button">8</button><button class="chip" data-chapter="9" type="button">9</button><button class="chip" data-chapter="10" type="button">10</button><button class="chip" data-chapter="11" type="button">11</button><button class="chip" data-chapter="12" type="button">12</button><button class="chip" data-chapter="13" type="button">13</button><button class="chip" data-chapter="14" type="button">14</button><button class="chip" data-chapter="15" type="button">15</button><button class="chip" data-chapter="16" type="button">16</button><button class="chip" data-chapter="17" type="button">17</button><button class="chip" data-chapter="18" type="button">18</button><button class="chip" data-chapter="19" type="button">19</button><button class="chip" data-chapter="20" type="button">20</button><button class="chip" data-chapter="21" type="button">21</button><button class="chip" data-chapter="22" type="button">22</button><button class="chip" data-chapter="23" type="button">23</button><button class="chip" data-chapter="24" type="button">24</button><button class="chip" data-chapter="25" type="button">25</button><button class="chip" data-chapter="26" type="button">26</button><button class="chip" data-chapter="27" type="button">27</button><button class="chip" data-chapter="28" type="button">28</button><button class="chip" data-chapter="29" type="button">29</button><button class="chip" data-chapter="30" type="button">30</button><button class="chip" data-chapter="31" type="button">31</button><button class="chip" data-chapter="32" type="button">32</button><button class="chip" data-chapter="33" type="button">33</button><button class="chip" data-chapter="34" type="button">34</button><button class="chip" data-chapter="35" type="button">35</button><button class="chip" data-chapter="36" type="button">36</button><button class="chip" data-chapter="37" type="button">37</button><button class="chip" data-chapter="38" type="button">38</button><button class="chip" data-chapter="39" type="button">39</button><button class="chip" data-chapter="40" type="button">40</button><button class="chip" data-chapter="41" type="button">41</button><button class="chip" data-chapter="42" type="button">42</button><button class="chip" data-chapter="43" type="button">43</button><button class="chip" data-chapter="44" type="button">44</button><button class="chip" data-chapter="45" type="button">45</button><button class="chip" data-chapter="46" type="button">46</button><button class="chip" data-chapter="47" type="button">47</button><button class="chip" data-chapter="48" type="button">48</button><button class="chip" data-chapter="49" type="button">49</button><button class="chip" data-chapter="50" type="button">50</button><button class="chip" data-chapter="51" type="button">51</button><button class="chip" data-chapter="52" type="button">52</button><button class="chip" data-chapter="53" type="button">53</button><button class="chip" data-chapter="54" type="button">54</button><button class="chip" data-chapter="55" type="button">55</button><button class="chip" data-chapter="56" type="button">56</button><button class="chip" data-chapter="57" type="button">57</button><button class="chip" data-chapter="58" type="button">58</button><button class="chip" data-chapter="59" type="button">59</button><button class="chip" data-chapter="60" type="button">60</button><button class="chip" data-chapter="61" type="button">61</button><button class="chip" data-chapter="62" type="button">62</button><button class="chip" data-chapter="63" type="button">63</button><button class="chip" data-chapter="64" type="button">64</button><button class="chip" data-chapter="65" type="button">65</button><button class="chip" data-chapter="66" type="button">66</button><button class="chip" data-chapter="67" type="button">67</button><button class="chip" data-chapter="68" type="button">68</button><button class="chip" data-chapter="69" type="button">69</button><button class="chip" data-chapter="70" type="button">70</button><button class="chip" data-chapter="71" type="button">71</button><button class="chip" data-chapter="72" type="button">72</button><button class="chip" data-chapter="73" type="button">73</button><button class="chip" data-chapter="74" type="button">74</button><button class="chip" data-chapter="75" type="button">75</button><button class="chip" data-chapter="76" type="button">76</button><button class="chip" data-chapter="77" type="button">77</button><button class="chip" data-chapter="78" type="button">78</button><button class="chip" data-chapter="79" type="button">79</button><button class="chip" data-chapter="80" type="button">80</button><button class="chip" data-chapter="81" type="button">81</button><button class="chip" data-chapter="82" type="button">82</button><button class="chip" data-chapter="83" type="button">83</button><button class="chip" data-chapter="84" type="button">84</button><button class="chip" data-chapter="85" type="button">85</button><button class="chip" data-chapter="86" type="button">86</button><button class="chip" data-chapter="87" type="button">87</button><button class="chip" data-chapter="88" type="button">88</button><button class="chip" data-chapter="89" type="button">89</button><button class="chip" data-chapter="90" type="button">90</button><button class="chip" data-chapter="91" type="button">91</button><button class="chip" data-chapter="92" type="button">92</button><button class="chip" data-chapter="93" type="button">93</button><button class="chip" data-chapter="94" type="button">94</button><button class="chip" data-chapter="95" type="button">95</button><button class="chip" data-chapter="96" type="button">96</button></div>
   </section>
   <section class="panel">
     <h2 class="section-title">Template Types</h2>
-    <div class="list" id="typeList"><div class="row" data-type-row="basic-concept"><h3>Basic Concept <span class="pill">A1</span></h3><p>0 AMS worked examples - pending source-supported authoring.</p></div>
-<div class="row" data-type-row="diagnostic-procedure"><h3>Diagnostic Procedure <span class="pill">A3</span></h3><p>0 AMS worked examples - pending source-supported authoring.</p></div>
-<div class="row" data-type-row="growth-development"><h3>Growth and Development <span class="pill">A5</span></h3><p>0 AMS worked examples - pending source-supported authoring.</p></div>
-<div class="row" data-type-row="medication"><h3>Medication <span class="pill">A7</span></h3><p>0 AMS worked examples - pending source-supported authoring.</p></div>
-<div class="row" data-type-row="nursing-skill"><h3>Nursing Skill <span class="pill">A9</span></h3><p>0 AMS worked examples - pending source-supported authoring.</p></div>
-<div class="row" data-type-row="system-disorder"><h3>System Disorder <span class="pill">A11</span></h3><p>0 AMS worked examples - pending source-supported authoring.</p></div>
-<div class="row" data-type-row="therapeutic-procedure"><h3>Therapeutic Procedure <span class="pill">A13</span></h3><p>0 AMS worked examples - pending source-supported authoring.</p></div>
-<div class="row" data-type-row="concept-analysis"><h3>Concept Analysis <span class="pill">A15</span></h3><p>0 AMS worked examples - pending source-supported authoring.</p></div></div>
-    <div class="empty" id="emptyState">No AMS worked templates exist yet. This is expected for Phase 2B.</div>
+    <div class="list" id="typeList"><div class="row" data-type-row="basic-concept"><h3>Basic Concept <span class="pill">A1</span></h3><p>3 Unit 14 examples: moderate sedation, preventing surgical complications, postoperative complications.</p></div>
+<div class="row" data-type-row="diagnostic-procedure"><h3>Diagnostic Procedure <span class="pill">A3</span></h3><p>0 examples started; add only when a verified AMS diagnostic procedure needs worked practice.</p></div>
+<div class="row" data-type-row="growth-development"><h3>Growth and Development <span class="pill">A5</span></h3><p>0 examples started; not a priority for the current AMS perioperative set.</p></div>
+<div class="row" data-type-row="medication"><h3>Medication <span class="pill">A7</span></h3><p>1 Unit 14 example: dantrolene response for malignant hyperthermia.</p></div>
+<div class="row" data-type-row="nursing-skill"><h3>Nursing Skill <span class="pill">A9</span></h3><p>1 Unit 14 example: PACU airway and circulation assessment.</p></div>
+<div class="row" data-type-row="system-disorder"><h3>System Disorder <span class="pill">A11</span></h3><p>1 Unit 14 example: wound dehiscence and evisceration response.</p></div>
+<div class="row" data-type-row="therapeutic-procedure"><h3>Therapeutic Procedure <span class="pill">A13</span></h3><p>0 examples started; moderate sedation is currently practiced as a Basic Concept because the source scenario uses that template type.</p></div>
+<div class="row" data-type-row="concept-analysis"><h3>Concept Analysis <span class="pill">A15</span></h3><p>0 examples started; reserve for cross-chapter clinical judgment work.</p></div></div>
+    <div class="template-grid" id="templateGrid">
+      <article class="template-card" id="tpl-ams-ch94-moderate-sedation" data-type="basic-concept" data-chapter="94" data-search="moderate sedation colonoscopy midazolam fentanyl airway oxygen suction emergency cart flumazenil naloxone consent discharge criteria">
+        <div class="card-kicker">Basic Concept - Ch 94</div>
+        <h3>Moderate Sedation Readiness</h3>
+        <div class="template-meta"><span class="tag">A1</span><span class="tag">Anesthesia</span><span class="tag">Airway first</span></div>
+        <p>Use this when a sedation question asks what must be ready before the procedure and what must be monitored until recovery.</p>
+        <div class="template-sections">
+          <div class="template-section"><h4>Related Content</h4><ul><li>Moderate sedation keeps the client responsive enough to protect the airway while reducing pain and anxiety.</li><li>Common procedures include endoscopy, cardioversion, wound care, and minor procedures.</li></ul></div>
+          <div class="template-section"><h4>Underlying Principles</h4><ul><li>Older adults need closer monitoring because medication clearance can be reduced.</li><li>Airway, ventilation, blood pressure, level of consciousness, and capnography guide safety decisions.</li></ul></div>
+          <div class="template-section"><h4>Nursing Interventions</h4><ul><li>Verify consent, IV access, oxygen, suction, emergency equipment, and reversal agents.</li><li>Continue monitoring until presedation assessment findings return and discharge criteria are met.</li></ul></div>
+        </div>
+        <a class="template-link" href="Elevated%20ATI%20AMS%20Book.html#ch94-moderate-sedation">Open Ch 94 anchor</a>
+      </article>
+      <article class="template-card" id="tpl-ams-ch94-dantrolene-mh" data-type="medication" data-chapter="94" data-search="dantrolene malignant hyperthermia succinylcholine volatile anesthetics oxygen cooling dysrhythmia fever rigidity">
+        <div class="card-kicker">Medication - Ch 94</div>
+        <h3>Dantrolene for Malignant Hyperthermia</h3>
+        <div class="template-meta"><span class="tag">A7</span><span class="tag">Emergency</span><span class="tag">Rapid response</span></div>
+        <p>Use this when anesthesia suddenly triggers hypermetabolism, rigidity, rising carbon dioxide, dysrhythmias, or dangerous temperature elevation.</p>
+        <div class="template-sections">
+          <div class="template-section"><h4>Purpose</h4><ul><li>Dantrolene is the priority medication used to stop the muscle-driven hypermetabolic crisis.</li><li>It belongs inside a coordinated malignant hyperthermia response, not as an isolated task.</li></ul></div>
+          <div class="template-section"><h4>Safety Monitoring</h4><ul><li>Stop the triggering anesthetic, support oxygenation, start cooling, and prepare intensive monitoring.</li><li>Trend vital signs, dysrhythmias, laboratory values, urine output, and organ-perfusion concerns.</li></ul></div>
+          <div class="template-section"><h4>Client Education</h4><ul><li>Teach the client and family that malignant hyperthermia risk is inherited and must be reported before future anesthesia.</li></ul></div>
+        </div>
+        <a class="template-link" href="Elevated%20ATI%20AMS%20Book.html#ch94-malignant-hyperthermia">Open Ch 94 anchor</a>
+      </article>
+      <article class="template-card" id="tpl-ams-ch95-preop-complications" data-type="basic-concept" data-chapter="95" data-search="preoperative complications respiratory depression fluid overload deep vein thrombosis dvt consent antibiotics glucose creatinine wbc">
+        <div class="card-kicker">Basic Concept - Ch 95</div>
+        <h3>Preventing Surgical Complications</h3>
+        <div class="template-meta"><span class="tag">A1</span><span class="tag">Preop safety</span><span class="tag">Risk reduction</span></div>
+        <p>Use this when the preoperative question asks which risks should be corrected or taught before the client reaches the operating room.</p>
+        <div class="template-sections">
+          <div class="template-section"><h4>Related Content</h4><ul><li>Preop complications can stem from respiratory depression, fluid overload, infection, abnormal labs, medication effects, or thromboembolism risk.</li><li>Consent, medication review, skin/bowel preparation, and risk-factor screening are part of surgical readiness.</li></ul></div>
+          <div class="template-section"><h4>Underlying Principles</h4><ul><li>Uncontrolled blood glucose, elevated creatinine, or high WBCs can require provider notification before surgery.</li><li>Immobility and surgical stress increase clot risk, so prevention begins before the procedure.</li></ul></div>
+          <div class="template-section"><h4>Nursing Interventions</h4><ul><li>Clarify consent questions through the provider and witness only after the client understands.</li><li>Teach coughing, deep breathing, splinting, incentive spirometry, and ordered DVT prevention.</li></ul></div>
+        </div>
+        <a class="template-link" href="Elevated%20ATI%20AMS%20Book.html#ch95-als-complications">Open Ch 95 anchor</a>
+      </article>
+      <article class="template-card" id="tpl-ams-ch96-pacu-assessment" data-type="nursing-skill" data-chapter="96" data-search="pacu airway breathing circulation aldrete lateral position oxygen saturation breath sounds hypotension urine output dressing drains pain">
+        <div class="card-kicker">Nursing Skill - Ch 96</div>
+        <h3>PACU Airway and Circulation Assessment</h3>
+        <div class="template-meta"><span class="tag">A9</span><span class="tag">PACU</span><span class="tag">ABC priority</span></div>
+        <p>Use this when a newly arrived postoperative client needs immediate assessment after anesthesia handoff.</p>
+        <div class="template-sections">
+          <div class="template-section"><h4>Indications</h4><ul><li>Every PACU transfer requires immediate full-body assessment with airway, breathing, and circulation first.</li><li>Aldrete scoring supports recovery readiness by tracking activity, consciousness, respiration, oxygen saturation, and circulation.</li></ul></div>
+          <div class="template-section"><h4>Steps</h4><ul><li>Assess airway patency, breath sounds, oxygenation, chest movement, vital-sign trends, bleeding, drains, and perfusion.</li><li>Position an unresponsive client laterally and keep rescue equipment available.</li></ul></div>
+          <div class="template-section"><h4>Report</h4><ul><li>Report worsening blood pressure trends, poor oxygenation, airway obstruction cues, excess bleeding, or urine output below expected thresholds.</li></ul></div>
+        </div>
+        <a class="template-link" href="Elevated%20ATI%20AMS%20Book.html#ch96-pacu-framework">Open Ch 96 anchor</a>
+      </article>
+      <article class="template-card" id="tpl-ams-ch96-wound-evisceration" data-type="system-disorder" data-chapter="96" data-search="wound dehiscence evisceration low fowler sterile saline dressing towel abdominal contents shock provider splinting diabetes obesity">
+        <div class="card-kicker">System Disorder - Ch 96</div>
+        <h3>Wound Dehiscence and Evisceration</h3>
+        <div class="template-meta"><span class="tag">A11</span><span class="tag">Postop complication</span><span class="tag">Do not reinsert</span></div>
+        <p>Use this when the incision opens or abdominal contents protrude after surgery.</p>
+        <div class="template-sections">
+          <div class="template-section"><h4>Pathophysiology</h4><ul><li>Dehiscence is wound separation; evisceration is protrusion of internal organs through the incision.</li><li>Risk rises with obesity, diabetes, poor nutrition, infection, coughing without splinting, hematoma, or steroid use.</li></ul></div>
+          <div class="template-section"><h4>Assessment</h4><ul><li>Watch for sudden wound opening, drainage changes, visible tissue, shock signs, pain, or client report that the incision gave way.</li></ul></div>
+          <div class="template-section"><h4>Nursing Care</h4><ul><li>Call for help, stay with the client, cover with sterile saline-moistened dressing, bend hips and knees, and notify the provider.</li><li>Do not push organs back into the wound.</li></ul></div>
+        </div>
+        <a class="template-link" href="Elevated%20ATI%20AMS%20Book.html#ch96-complication-response">Open Ch 96 anchor</a>
+      </article>
+      <article class="template-card" id="tpl-ams-ch96-postop-complications" data-type="basic-concept" data-chapter="96" data-search="postoperative complications paralytic ileus hypovolemic shock wound evisceration dvt hypovolemia urine output ambulation bowel sounds">
+        <div class="card-kicker">Basic Concept - Ch 96</div>
+        <h3>Postoperative Complication Sorting</h3>
+        <div class="template-meta"><span class="tag">A1</span><span class="tag">Clinical judgment</span><span class="tag">PACU to unit</span></div>
+        <p>Use this when a question asks you to match the complication, likely cause, and first nursing response.</p>
+        <div class="template-sections">
+          <div class="template-section"><h4>Related Content</h4><ul><li>Priority complications include airway obstruction, hypovolemia, paralytic ileus, DVT, and wound dehiscence/evisceration.</li><li>Risk factors include immobility, anemia, hypovolemia, respiratory disease, cardiac disease, diabetes, malnutrition, obesity, and age-related changes.</li></ul></div>
+          <div class="template-section"><h4>Underlying Principles</h4><ul><li>Low urine output, poor skin turgor, rising BUN, tachycardia, or concentrated labs can signal hypovolemia.</li><li>Absent bowel sounds after abdominal surgery can point toward paralytic ileus.</li></ul></div>
+          <div class="template-section"><h4>Nursing Interventions</h4><ul><li>Prioritize ABC changes first, then bleeding/perfusion, wound integrity, bowel function, urine output, and mobility/clot prevention.</li><li>Encourage ordered ambulation, coughing and deep breathing, splinting, and incentive spirometry while awake.</li></ul></div>
+        </div>
+        <a class="template-link" href="Elevated%20ATI%20AMS%20Book.html#ch96-als-postop-complications">Open Ch 96 anchor</a>
+      </article>
+    </div>
+    <div class="empty" id="emptyState" hidden>No matching AMS templates found. Clear the search or selected filters to return to the starter set.</div>
   </section>
-  <footer class="footer"><a href="Elevated%20ATI%20AMS%20Book.html">Open AMS Book shell</a> - <a href="Elevated%20ATI%20AMS%20Hub.html">Back to AMS Hub</a></footer>
+  <footer class="footer"><a href="Elevated%20ATI%20AMS%20Book.html">Open AMS Book</a> - <a href="Elevated%20ATI%20AMS%20Hub.html">Back to AMS Hub</a></footer>
 <script>
 (function(){
   var THEME_KEY = 'nur2460_theme';
@@ -73,12 +147,34 @@
   var STORAGE_KEY = 'atiams_templates_progress';
   var STUDIED_KEY = STORAGE_KEY;
   var LAST_TPL_KEY = 'atiams_last_template';
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.template-card'));
+  var empty = document.getElementById('emptyState');
   var state = { search: '', types: [], chapters: [] };
+  function syncState(){
+    state.types = Array.prototype.slice.call(document.querySelectorAll('[data-type].chip.active')).map(function(chip){ return chip.getAttribute('data-type'); });
+    state.chapters = Array.prototype.slice.call(document.querySelectorAll('[data-chapter].chip.active')).map(function(chip){ return chip.getAttribute('data-chapter'); });
+  }
+  function applyFilters(){
+    syncState();
+    var query = state.search.trim().toLowerCase();
+    var visible = 0;
+    cards.forEach(function(card){
+      var typeMatch = !state.types.length || state.types.indexOf(card.getAttribute('data-type')) !== -1;
+      var chapterMatch = !state.chapters.length || state.chapters.indexOf(card.getAttribute('data-chapter')) !== -1;
+      var haystack = (card.getAttribute('data-search') + ' ' + card.textContent).toLowerCase();
+      var searchMatch = !query || haystack.indexOf(query) !== -1;
+      var show = typeMatch && chapterMatch && searchMatch;
+      card.hidden = !show;
+      if (show) visible += 1;
+    });
+    if (empty) empty.hidden = visible !== 0;
+  }
   document.querySelectorAll('.chip').forEach(function(chip){
-    chip.addEventListener('click', function(){ chip.classList.toggle('active'); });
+    chip.addEventListener('click', function(){ chip.classList.toggle('active'); applyFilters(); });
   });
   var search = document.getElementById('tplSearch');
-  if (search) search.addEventListener('input', function(){ state.search = search.value; });
+  if (search) search.addEventListener('input', function(){ state.search = search.value; applyFilters(); });
+  applyFilters();
 
 })();
 </script>
