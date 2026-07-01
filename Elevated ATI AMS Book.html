@@ -1473,6 +1473,19 @@ button:focus-visible,a:focus-visible{
 .finding-grid.wide-box-grid{
   grid-template-columns:repeat(auto-fit, minmax(min(100%, 330px), 1fr));
 }
+.condition-block > .brief-grid{
+  gap:12px;
+  margin-top:14px;
+}
+.condition-block > .brief-grid > div{
+  background:var(--surface2);
+  border:1px solid var(--border-soft);
+  border-radius:10px;
+  padding:14px 16px;
+}
+.condition-block > .brief-grid h3{
+  color:var(--accent2);
+}
 .finding-card{
   background:var(--surface2);
   border:1px solid var(--border-soft);
@@ -1495,8 +1508,20 @@ button:focus-visible,a:focus-visible{
   margin:0;font-size:13.5px;color:var(--text2);line-height:1.55;
 }
 .finding-card ul,
-.finding-card ol{padding-left:18px}
-.finding-card li{margin-bottom:4px}
+.finding-card ol{
+  list-style:none;
+  padding-left:0;
+}
+.finding-card li,
+.condition-block > .brief-grid li{
+  padding:7px 0;
+  border-top:1px solid var(--border-soft);
+}
+.finding-card li:first-child,
+.condition-block > .brief-grid li:first-child{
+  border-top:none;
+  padding-top:0;
+}
 .finding-card li:last-child{margin-bottom:0}
 
 /* ===== PHASE 1: card-style baseline for lists sitting DIRECTLY in a pill =====
