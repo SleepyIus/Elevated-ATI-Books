@@ -1014,6 +1014,19 @@
   });
   var search = document.getElementById('tplSearch');
   if (search) search.addEventListener('input', function(){ state.search = search.value; applyFilters(); });
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var startType = params.get('type');
+    var startChapter = params.get('chapter');
+    if (startType) {
+      var typeChip = document.querySelector('[data-type="' + startType + '"].chip');
+      if (typeChip) typeChip.classList.add('active');
+    }
+    if (startChapter) {
+      var chapterChip = document.querySelector('[data-chapter="' + startChapter + '"].chip');
+      if (chapterChip) chapterChip.classList.add('active');
+    }
+  } catch(e) {}
   applyFilters();
 
 })();
