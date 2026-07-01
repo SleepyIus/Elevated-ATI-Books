@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <!-- ============================================================
      ELEVATED ATI SUITE - AMS TEMPLATES
-     Build date: 2026-06-28
-     Status:     Phase 4AE expansion - Unit 4 shock practice + prior source-verified practice sets
+     Build date: 2026-07-01
+     Status:     Design-canon QA hold - template navigation/status pass
      ============================================================ -->
 <html lang="en">
 <head>
@@ -60,6 +60,17 @@
 .template-link:hover{
   border-color:var(--accent);
   background:var(--accent-soft);
+}
+#typeList .row p{
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.footer a{color:var(--accent);font-weight:700}
+.footer a:hover{text-decoration:underline}
+@media(max-width:860px){
+  #typeList .row p{-webkit-line-clamp:3}
 }
 </style>
 </head>
@@ -1014,7 +1025,7 @@
     </div>
     <div class="empty" id="emptyState" hidden>No matching AMS templates found. Clear the search or selected filters to return to the current practice set.</div>
   </section>
-  <footer class="footer"><a href="Elevated%20ATI%20AMS%20Book.html">Open AMS Book</a> - <a href="Elevated%20ATI%20AMS%20Hub.html">Back to AMS Hub</a></footer>
+  <footer class="footer"><a href="Elevated%20ATI%20AMS%20Book.html">Open AMS Book</a> &middot; <a href="Elevated%20ATI%20AMS%20Hub.html">Back to AMS Hub</a></footer>
 <script>
 (function(){
   var THEME_KEY = 'nur2460_theme';
