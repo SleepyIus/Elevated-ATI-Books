@@ -351,8 +351,8 @@ a{color:inherit;text-decoration:none}
   <section class="stats">
     <div class="stat"><div class="stat-value">96</div><div class="stat-label">Chapters</div></div>
     <div class="stat"><div class="stat-value">14</div><div class="stat-label">Units</div></div>
-    <div class="stat"><div class="stat-value">63</div><div class="stat-label">Worked Templates</div></div>
-    <div class="stat"><div class="stat-value">170</div><div class="stat-label">Starter Cards</div></div>
+    <div class="stat"><div class="stat-value">65</div><div class="stat-label">Worked Templates</div></div>
+    <div class="stat"><div class="stat-value">176</div><div class="stat-label">Starter Cards</div></div>
   </section>
 
   <h2 class="section-title">Primary Tools</h2>
@@ -373,16 +373,16 @@ a{color:inherit;text-decoration:none}
     </a>
 
     <a class="card" href="Elevated%20ATI%20AMS%20Templates.html">
-      <div class="card-kicker">Practice - 63 examples</div>
+      <div class="card-kicker">Practice - 65 examples</div>
       <h2>ATI Templates</h2>
       <p>Worked Active Learning Template examples for focused clinical judgment and chapter-linked practice.</p>
       <div class="card-meta">
         <span>8 types</span>
-        <span>63 examples</span>
+        <span>65 examples</span>
       </div>
       <div class="progress-row">
         <div class="progress-bar"><div class="progress-fill" id="tplProgress"></div></div>
-        <div class="progress-text" id="tplProgressText">0 / 63 studied</div>
+        <div class="progress-text" id="tplProgressText">0 / 65 studied</div>
       </div>
       <div class="card-footer">Open Templates</div>
     </a>
@@ -424,7 +424,7 @@ a{color:inherit;text-decoration:none}
   <h2 class="section-title">Template Types</h2>
   <section class="types-grid">
     <a class="type-row" href="Elevated%20ATI%20AMS%20Templates.html?type=basic-concept">
-      <span class="type-page">A1</span><span class="type-name">Basic Concept</span><span class="type-count">18 examples</span>
+      <span class="type-page">A1</span><span class="type-name">Basic Concept</span><span class="type-count">19 examples</span>
     </a>
     <a class="type-row" href="Elevated%20ATI%20AMS%20Templates.html?type=diagnostic-procedure">
       <span class="type-page">A3</span><span class="type-name">Diagnostic Procedure</span><span class="type-count">7 examples</span>
@@ -442,7 +442,7 @@ a{color:inherit;text-decoration:none}
       <span class="type-page">A11</span><span class="type-name">System Disorder</span><span class="type-count">11 examples</span>
     </a>
     <a class="type-row" href="Elevated%20ATI%20AMS%20Templates.html?type=therapeutic-procedure">
-      <span class="type-page">A13</span><span class="type-name">Therapeutic Procedure</span><span class="type-count">10 examples</span>
+      <span class="type-page">A13</span><span class="type-name">Therapeutic Procedure</span><span class="type-count">11 examples</span>
     </a>
     <a class="type-row" href="Elevated%20ATI%20AMS%20Templates.html?type=concept-analysis">
       <span class="type-page">A15</span><span class="type-name">Concept Analysis</span><span class="type-count">0 examples</span>
@@ -532,7 +532,7 @@ a{color:inherit;text-decoration:none}
   }
   function updateProgress(){
     setProgress('bookProgress', 'bookProgressText', countChecked(loadJson(BOOK_KEY)), 96, 'read');
-    setProgress('tplProgress', 'tplProgressText', countChecked(loadJson(TPL_KEY)), 63, 'studied');
+    setProgress('tplProgress', 'tplProgressText', countChecked(loadJson(TPL_KEY)), 65, 'studied');
 
     var fc = flashcardStats();
     var deckEl = document.getElementById('fcMetaDeck');
