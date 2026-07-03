@@ -1447,12 +1447,16 @@ button:focus-visible,a:focus-visible{
   font-size:20px;line-height:1.25;color:var(--text);
   margin:0;flex:1;min-width:200px;
 }
-@media(max-width:600px){.condition-name{font-size:17px}}
 .condition-tag{
   font-size:11px;font-weight:600;color:var(--accent2);
   background:var(--accent-soft);padding:4px 10px;border-radius:6px;
   text-transform:uppercase;letter-spacing:0.08em;
   white-space:nowrap;
+}
+@media(max-width:600px){
+  .condition-head > *{min-width:0}
+  .condition-name{font-size:17px;min-width:0;overflow-wrap:anywhere}
+  .condition-tag{display:block;width:100%;font-size:10px;white-space:normal;max-width:100%;overflow-wrap:anywhere;word-break:break-word;letter-spacing:0}
 }
 
 /* Body content within the box */
@@ -21374,48 +21378,38 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Arthroscopy</h3>
           <span class="condition-tag">ATI source-authored</span>
         </div>
-        <div class="brief-grid">
-          <div>
-            <h3>Purpose and indications</h3>
-            <ul>
-              <li>Arthroscopy uses an endoscope to visualize internal structures of a joint.</li>
-              <li>It is commonly used for knee and shoulder joints and is performed in the operating room under sterile conditions.</li>
-              <li>Local or general anesthesia can be used.</li>
-              <li>Number and placement of incisions depend on the joint and extent of repair.</li>
-              <li>Potential uses include evaluating joint injury, repairing a torn ligament or meniscus, and performing synovial biopsy.</li>
-            </ul>
+        <div class="finding-grid wide-box-grid">
+          <div class="finding-card">
+            <h4>Purpose and indications</h4>
+            <p>Arthroscopy uses an endoscope to visualize internal structures of a joint.</p>
+            <p>It is commonly used for knee and shoulder joints and is performed in the operating room under sterile conditions.</p>
+            <p>Local or general anesthesia can be used.</p>
+            <p>Number and placement of incisions depend on the joint and extent of repair.</p>
+            <p>Potential uses include evaluating joint injury, repairing a torn ligament or meniscus, and performing synovial biopsy.</p>
           </div>
-          <div>
-            <h3>Contraindications and presentation</h3>
-            <ul>
-              <li>Infection in the joint is a contraindication.</li>
-              <li>Lack of joint mobility is a contraindication.</li>
-              <li>Client presentation can include joint swelling, pain, crepitus, and instability.</li>
-              <li>Preprocedure care includes confirming informed consent.</li>
-              <li>Teach that postoperative joint exercises, such as straight-leg raises or quadriceps-setting isometrics, can be prescribed.</li>
-            </ul>
+          <div class="finding-card">
+            <h4>Contraindications and presentation</h4>
+            <p>Infection in the joint is a contraindication.</p>
+            <p>Lack of joint mobility is a contraindication.</p>
+            <p>Client presentation can include joint swelling, pain, crepitus, and instability.</p>
+            <p>Preprocedure care includes confirming informed consent.</p>
+            <p>Teach that postoperative joint exercises, such as straight-leg raises or quadriceps-setting isometrics, can be prescribed.</p>
           </div>
-        </div>
-        <div class="brief-grid">
-          <div>
-            <h3>Postprocedure priorities</h3>
-            <ul>
-              <li>Recovery actions depend on the type of sedation and extent of repair; arthroscopy is often outpatient.</li>
-              <li>Assess neurovascular status and dressings at least hourly or per facility protocol.</li>
-              <li>Assess color, temperature, pulse, pain, and sensation in the affected extremity.</li>
-              <li>Administer mild analgesics or opioids as prescribed depending on pain and whether repair was corrective.</li>
-              <li>Elevate the extremity for 12 to 24 hr and maintain activity restrictions.</li>
-            </ul>
+          <div class="finding-card">
+            <h4>Postprocedure priorities</h4>
+            <p>Recovery actions depend on the type of sedation and extent of repair; arthroscopy is often outpatient.</p>
+            <p>Assess neurovascular status and dressings at least hourly or per facility protocol.</p>
+            <p>Assess color, temperature, pulse, pain, and sensation in the affected extremity.</p>
+            <p>Administer mild analgesics or opioids as prescribed depending on pain and whether repair was corrective.</p>
+            <p>Elevate the extremity for 12 to 24 hr and maintain activity restrictions.</p>
           </div>
-          <div>
-            <h3>Teaching and complications</h3>
-            <ul>
-              <li>Apply ice for the first 24 hr to control edema and discomfort.</li>
-              <li>Inspect the incision for infection cues such as redness, swelling, purulent drainage, and fever.</li>
-              <li>Report swelling, increased joint pain, thrombophlebitis cues, or infection cues.</li>
-              <li>A cast is not typically required after arthroscopy.</li>
-              <li>Infection is uncommon but possible with any procedure that disrupts skin integrity.</li>
-            </ul>
+          <div class="finding-card">
+            <h4>Teaching and complications</h4>
+            <p>Apply ice for the first 24 hr to control edema and discomfort.</p>
+            <p>Inspect the incision for infection cues such as redness, swelling, purulent drainage, and fever.</p>
+            <p>Report swelling, increased joint pain, thrombophlebitis cues, or infection cues.</p>
+            <p>A cast is not typically required after arthroscopy.</p>
+            <p>Infection is uncommon but possible with any procedure that disrupts skin integrity.</p>
           </div>
         </div>
       </article>
@@ -21425,48 +21419,38 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Nuclear Scans and DXA</h3>
           <span class="condition-tag">Bone density and isotope teaching</span>
         </div>
-        <div class="brief-grid">
-          <div>
-            <h3>Bone, gallium, and thallium scans</h3>
-            <ul>
-              <li>Bone scans evaluate the entire skeletal system.</li>
-              <li>A radionuclide is injected 2 to 3 hr before a bone scan; areas of abnormal bone formation appear brighter during scanning.</li>
-              <li>Bone scans can detect hairline fractures, tumors, fractures, osteomyelitis, osteoporosis, and vertebral compression fractures.</li>
-              <li>Gallium and thallium scans are more sensitive for bone problems and can detect disease in tissues such as brain, liver, and breast.</li>
-              <li>Gallium/thallium radionuclide injection occurs 4 to 6 hr before scanning; repeat scanning can occur at 24, 48, and 72 hr.</li>
-            </ul>
+        <div class="finding-grid wide-box-grid">
+          <div class="finding-card">
+            <h4>Bone, gallium, and thallium scans</h4>
+            <p>Bone scans evaluate the entire skeletal system.</p>
+            <p>A radionuclide is injected 2 to 3 hr before a bone scan; areas of abnormal bone formation appear brighter during scanning.</p>
+            <p>Bone scans can detect hairline fractures, tumors, fractures, osteomyelitis, osteoporosis, and vertebral compression fractures.</p>
+            <p>Gallium and thallium scans are more sensitive for bone problems and can detect disease in tissues such as brain, liver, and breast.</p>
+            <p>Gallium/thallium radionuclide injection occurs 4 to 6 hr before scanning; repeat scanning can occur at 24, 48, and 72 hr.</p>
           </div>
-          <div>
-            <h3>Nuclear scan care</h3>
-            <ul>
-              <li>Potential indications include degenerative bone disease, osteomyelitis, stress or vertebral compression fractures, nonhealing fractures, osteoporosis, primary or metastatic bone cancer, bone pain of unknown origin, and aseptic necrosis.</li>
-              <li>Assess for radioisotope allergy and conditions that prevent the procedure, including pregnancy, lactation, and kidney disease.</li>
-              <li>Teach the client to remain still and empty the bladder before the procedure to improve pelvic bone visualization.</li>
-              <li>After the procedure, radioactive precautions are not needed.</li>
-              <li>Increase fluids to promote excretion of the radioisotope in urine and feces.</li>
-            </ul>
+          <div class="finding-card">
+            <h4>Nuclear scan care</h4>
+            <p>Potential indications include degenerative bone disease, osteomyelitis, stress or vertebral compression fractures, nonhealing fractures, osteoporosis, primary or metastatic bone cancer, bone pain of unknown origin, and aseptic necrosis.</p>
+            <p>Assess for radioisotope allergy and conditions that prevent the procedure, including pregnancy, lactation, and kidney disease.</p>
+            <p>Teach the client to remain still and empty the bladder before the procedure to improve pelvic bone visualization.</p>
+            <p>After the procedure, radioactive precautions are not needed.</p>
+            <p>Increase fluids to promote excretion of the radioisotope in urine and feces.</p>
           </div>
-        </div>
-        <div class="brief-grid">
-          <div>
-            <h3>DXA purpose</h3>
-            <ul>
-              <li>DXA estimates bone mass density, usually in the hip or spine.</li>
-              <li>DXA evaluates presence and extent of osteoporosis.</li>
-              <li>The scan uses two beams of radiation and a computer analyzes findings for radiologist interpretation.</li>
-              <li>Clients do not receive contrast material.</li>
-              <li>Clients lie on an x-ray table during hip or spine scanning.</li>
-            </ul>
+          <div class="finding-card">
+            <h4>DXA purpose</h4>
+            <p>DXA estimates bone mass density, usually in the hip or spine.</p>
+            <p>DXA evaluates presence and extent of osteoporosis.</p>
+            <p>The scan uses two beams of radiation and a computer analyzes findings for radiologist interpretation.</p>
+            <p>Clients do not receive contrast material.</p>
+            <p>Clients lie on an x-ray table during hip or spine scanning.</p>
           </div>
-          <div>
-            <h3>DXA teaching</h3>
-            <ul>
-              <li>Indications include osteoporosis, postmenopausal state, and baseline testing for females in their 40s.</li>
-              <li>Client findings that can indicate need for DXA include loss of height, bone pain, and fractures.</li>
-              <li>DXA is not recommended for clients who are pregnant or lactating.</li>
-              <li>Clients can stay dressed but should remove metallic objects.</li>
-              <li>If bone loss is present, follow up with the provider to discuss supplements and medications.</li>
-            </ul>
+          <div class="finding-card">
+            <h4>DXA teaching</h4>
+            <p>Indications include osteoporosis, postmenopausal state, and baseline testing for females in their 40s.</p>
+            <p>Client findings that can indicate need for DXA include loss of height, bone pain, and fractures.</p>
+            <p>DXA is not recommended for clients who are pregnant or lactating.</p>
+            <p>Clients can stay dressed but should remove metallic objects.</p>
+            <p>If bone loss is present, follow up with the provider to discuss supplements and medications.</p>
           </div>
         </div>
       </article>
@@ -21476,46 +21460,36 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">EMG, Nerve Conduction, CT, MRI, Radiography, and US</h3>
           <span class="condition-tag">Neuromuscular and soft-tissue evaluation</span>
         </div>
-        <div class="brief-grid">
-          <div>
-            <h3>EMG and nerve conduction</h3>
-            <ul>
-              <li>EMG and nerve conduction studies determine the presence and cause of muscle weakness.</li>
-              <li>EMG places thin needles in the muscle being studied; electrodes connect to an oscilloscope and record activity during contraction.</li>
-              <li>Nerve conduction studies use surface or needle electrodes and low electrical current to record muscle response.</li>
-              <li>Potential diagnoses include neuromuscular disorders, motor neuron disease, and peripheral nerve disorders such as carpal tunnel.</li>
-              <li>Discomfort is possible during needle insertion and electrical current; the client can be asked to flex muscles during needle insertion.</li>
-            </ul>
+        <div class="finding-grid wide-box-grid">
+          <div class="finding-card">
+            <h4>EMG and nerve conduction</h4>
+            <p>EMG and nerve conduction studies determine the presence and cause of muscle weakness.</p>
+            <p>EMG places thin needles in the muscle being studied; electrodes connect to an oscilloscope and record activity during contraction.</p>
+            <p>Nerve conduction studies use surface or needle electrodes and low electrical current to record muscle response.</p>
+            <p>Potential diagnoses include neuromuscular disorders, motor neuron disease, and peripheral nerve disorders such as carpal tunnel.</p>
+            <p>Discomfort is possible during needle insertion and electrical current; the client can be asked to flex muscles during needle insertion.</p>
           </div>
-          <div>
-            <h3>EMG safety</h3>
-            <ul>
-              <li>Determine whether the client takes an anticoagulant because anticoagulation can be contraindicated due to bleeding risk within the muscle.</li>
-              <li>Check for skin infection in the assessment area because infection can spread to muscle with needle insertion.</li>
-              <li>Ask about muscle relaxants because they can be discontinued before testing for accurate results.</li>
-              <li>Teach the client to avoid cream or lotion on the area the day of the procedure.</li>
-              <li>Afterward, bruising can occur; report swelling or tenderness, and use ice to prevent hematoma or warm compresses for residual discomfort.</li>
-            </ul>
+          <div class="finding-card">
+            <h4>EMG safety</h4>
+            <p>Determine whether the client takes an anticoagulant because anticoagulation can be contraindicated due to bleeding risk within the muscle.</p>
+            <p>Check for skin infection in the assessment area because infection can spread to muscle with needle insertion.</p>
+            <p>Ask about muscle relaxants because they can be discontinued before testing for accurate results.</p>
+            <p>Teach the client to avoid cream or lotion on the area the day of the procedure.</p>
+            <p>Afterward, bruising can occur; report swelling or tenderness, and use ice to prevent hematoma or warm compresses for residual discomfort.</p>
           </div>
-        </div>
-        <div class="brief-grid">
-          <div>
-            <h3>CT, MRI, radiography, US</h3>
-            <ul>
-              <li>These procedures provide detailed images of body structures, bone density, texture, and surgical hardware.</li>
-              <li>MRI, ultrasound, and CT provide visualization of soft tissues.</li>
-              <li>Potential diagnoses include tendon or ligament injuries, fractures of chest or pelvic bones, skull or vertebral fracture, and herniated disc.</li>
-              <li>Client presentation can include bone pain and joint instability.</li>
-            </ul>
+          <div class="finding-card">
+            <h4>CT, MRI, radiography, US</h4>
+            <p>These procedures provide detailed images of body structures, bone density, texture, and surgical hardware.</p>
+            <p>MRI, ultrasound, and CT provide visualization of soft tissues.</p>
+            <p>Potential diagnoses include tendon or ligament injuries, fractures of chest or pelvic bones, skull or vertebral fracture, and herniated disc.</p>
+            <p>Client presentation can include bone pain and joint instability.</p>
           </div>
-          <div>
-            <h3>Procedure-specific checks</h3>
-            <ul>
-              <li>For CT with contrast, assess for contrast allergy.</li>
-              <li>After contrast testing, ensure adequate fluid intake if not contraindicated.</li>
-              <li>For MRI, determine whether the client has metal in the body, such as a pacemaker.</li>
-              <li>Remove external metal such as jewelry and hair clips before MRI.</li>
-            </ul>
+          <div class="finding-card">
+            <h4>Procedure-specific checks</h4>
+            <p>For CT with contrast, assess for contrast allergy.</p>
+            <p>After contrast testing, ensure adequate fluid intake if not contraindicated.</p>
+            <p>For MRI, determine whether the client has metal in the body, such as a pacemaker.</p>
+            <p>Remove external metal such as jewelry and hair clips before MRI.</p>
           </div>
         </div>
       </article>
