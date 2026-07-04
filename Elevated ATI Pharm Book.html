@@ -1466,6 +1466,9 @@ button:focus-visible,a:focus-visible{
   gap:12px;
   margin:14px 0 0;
 }
+.finding-grid.wide-box-grid{
+  grid-template-columns:repeat(auto-fit, minmax(min(100%, 330px), 1fr));
+}
 .finding-card{
   background:var(--surface2);
   border:1px solid var(--border-soft);
@@ -2766,7 +2769,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Most common</span>
         </header>
         <p>Tablets, capsules, liquids, suspensions, elixirs, lozenges. Convenient and inexpensive but absorption is variable.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Absorption pattern</h4><ul>
             <li>Varies greatly with stability, solubility, GI pH, emptying time, food presence</li>
             <li>Enteric-coated tablets and sustained-release forms — <strong>do not crush or chew</strong></li>
@@ -2786,7 +2789,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Rapid systemic action</span>
         </header>
         <p>Dissolves under tongue (SL) or against cheek (buccal). Bypasses first-pass effect — rapid systemic absorption.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Pattern</h4><ul>
             <li>Quick absorption through highly vascular mucous membranes</li>
             <li>Swallowing before dissolution allows gastric pH to inactivate the medication</li>
@@ -2804,7 +2807,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Other mucous membranes (rectal, vaginal)</h3>
         </header>
         <p>Suppositories and vaginal applications produce both local and systemic effects depending on the medication.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Absorption</h4><ul>
             <li>Easy absorption with both local and systemic effects</li>
             <li>Stool in the rectum or infectious material in the vagina limits tissue contact</li>
@@ -2822,7 +2825,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Direct delivery to lungs</span>
         </header>
         <p>Medication delivered via metered-dose inhaler (MDI), dry powder inhaler (DPI), or nebulizer. Local effect for respiratory conditions; some systemic absorption.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Absorption pattern</h4><ul>
             <li>Rapid absorption through alveolar capillary network</li>
             <li>Barrier: inadequate inspiratory effort</li>
@@ -2844,7 +2847,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Local and slow systemic</span>
         </header>
         <p>Topical creams/ointments treat skin conditions; transdermal patches deliver steady systemic medication over hours to days.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Patterns</h4><ul>
             <li>Slow, gradual absorption</li>
             <li>Effects primarily local, but systemic possible with lipid-soluble drugs (passes through SC fat)</li>
@@ -2865,7 +2868,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Parenteral</span>
         </header>
         <p>Injection into subcutaneous fat (SC) or muscle (IM). Bypasses GI tract; useful when oral route unavailable or for medications inactivated by GI environment (insulin).</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Absorption</h4><ul>
             <li>Capillary walls have large gaps — no significant barrier</li>
             <li>Highly soluble medications absorb in 10–30 min; poorly soluble drugs absorb slowly</li>
@@ -2886,7 +2889,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Most rapid and complete</span>
         </header>
         <p>Direct infusion into the vein. 100% bioavailability and immediate onset. Carries the highest risk for adverse effects and toxicity.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Properties</h4><ul>
             <li>No barriers — immediate and complete</li>
             <li>Enters blood directly; reaches systemic circulation in entirety</li>
@@ -2911,7 +2914,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Circulation</h3>
         </header>
         <p>Conditions that inhibit blood flow or perfusion delay distribution.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Conditions that impair distribution</h4><ul>
             <li>Peripheral vascular disease</li>
             <li>Cardiac disease (heart failure, shock)</li>
@@ -2925,7 +2928,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Permeability of cell membranes</h3>
         </header>
         <p>The medication must cross tissues and membranes to reach its target. Lipid solubility and transport systems determine penetration.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>What crosses easily</h4><ul>
             <li>Lipid-soluble medications (cross blood-brain barrier and placenta)</li>
             <li>Small uncharged molecules</li>
@@ -2943,7 +2946,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Plasma protein binding</h3>
         </header>
         <p>Medications compete for protein binding sites in the blood — primarily albumin. Only the unbound (free) fraction is active.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Key concepts</h4><ul>
             <li>Two medications competing for the same binding site → ↑ free fraction → ↑ effect/toxicity</li>
             <li>Low albumin (malnutrition, liver disease, older adults) → ↑ free drug → ↑ effect</li>
@@ -2962,7 +2965,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Factors affecting metabolism</h3>
         </header>
         <p>Multiple factors alter the rate at which the body metabolizes medications, requiring dosage adjustments.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Factors that ↓ metabolism (require ↓ dose)</h4><ul>
             <li><strong>Liver failure</strong> — decreased enzyme activity</li>
             <li>Aging — hepatic metabolism declines, accumulation possible</li>
@@ -2982,7 +2985,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">First-pass effect</h3>
         </header>
         <p>Oral medications absorbed in the GI tract pass through the liver before reaching systemic circulation. The liver metabolizes a portion, reducing the amount that reaches systemic circulation (oral bioavailability).</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Routes that bypass first-pass effect</h4><ul>
             <li>IV, IM, SC, sublingual, buccal, transdermal, inhaled</li>
             <li>Example: <strong>Nitroglycerin</strong> is given SL, IV, transdermal, or buccal — never PO standard tablet (almost completely destroyed in first pass)</li>
@@ -2995,7 +2998,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Prodrugs</h3>
         </header>
         <p>Inactive medications that become active after metabolism.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Examples</h4><ul>
             <li><strong>Codeine → morphine</strong> (CYP2D6)</li>
             <li><strong>Enalapril → enalaprilat</strong></li>
@@ -3015,7 +3018,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Renal excretion</h3>
         </header>
         <p>The kidneys filter most medications and their metabolites. Renal function determines elimination rate.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Key points</h4><ul>
             <li>↓ glomerular filtration rate (GFR) → ↑ medication accumulation → ↑ risk of toxicity</li>
             <li>Renal impairment: <strong>↓ dose</strong> for renally-cleared drugs (digoxin, aminoglycosides, vancomycin, lithium, metformin)</li>
@@ -3030,7 +3033,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Other routes of excretion</h3>
         </header>
         <p>Some medications use additional or alternative routes.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Routes</h4><ul>
             <li>Bile/feces — enterohepatic recirculation prolongs effect of some drugs</li>
             <li>Lungs — volatile drugs and gases (anesthetics, alcohol)</li>
@@ -3050,7 +3053,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Half-life (t½)</h3>
         </header>
         <p>The time required for the medication concentration to decrease by 50%. Determines dosing frequency.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Implications</h4><ul>
             <li><strong>Short half-life</strong> → multiple daily doses (e.g., ibuprofen QID)</li>
             <li><strong>Long half-life</strong> → once daily dosing (e.g., phenobarbital, levothyroxine)</li>
@@ -3065,7 +3068,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Steady state</h3>
         </header>
         <p>When the amount of medication entering the body equals the amount eliminated. Therapeutic effect plateaus.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Loading dose</h4><ul>
             <li>A larger initial dose to reach therapeutic level quickly</li>
             <li>Used when waiting 4–5 half-lives is impractical (e.g., digoxin, amiodarone, antiretrovirals)</li>
@@ -3079,7 +3082,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Therapeutic index (TI)</h3>
         </header>
         <p>The ratio of toxic to therapeutic dose. A high TI means a wide safety margin; a low TI means a narrow margin where toxicity is close to therapeutic levels.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Low-TI medications (require monitoring)</h4><ul>
             <li><strong>Digoxin</strong> — therapeutic 0.5–2.0 ng/mL</li>
             <li><strong>Lithium</strong> — therapeutic 0.6–1.2 mEq/L</li>
@@ -3335,7 +3338,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Verify every dose</span>
         </header>
         <p>The classic six rights protect against medication errors. Many facilities now add right reason, right response, and right documentation.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Core six rights</h4><ul>
             <li><strong>Right patient</strong> — verify with <strong>two identifiers</strong> (name, DOB, MR#); scan barcode</li>
             <li><strong>Right medication</strong> — read label <strong>three times</strong>: when removing, when preparing, before administering</li>
@@ -3357,7 +3360,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Two patient identifiers</h3>
         </header>
         <p>Use two unique identifiers before administering any medication. Room number is NOT an identifier.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Acceptable identifiers</h4><ul>
             <li>Full name and date of birth</li>
             <li>Medical record number</li>
@@ -3382,7 +3385,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Technology safeguards</h3>
         </header>
         <p>Bedside technology has substantially reduced errors but is not a substitute for nursing vigilance.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Tools</h4><ul>
             <li><strong>Barcode medication administration (BCMA):</strong> Scan client armband and medication; system flags mismatches</li>
             <li><strong>Smart pumps:</strong> Built-in drug libraries with dose-range limits; flag potentially unsafe rates</li>
@@ -3397,7 +3400,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Communication safeguards</h3>
         </header>
         <p>Many errors trace back to communication breakdowns.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Best practices</h4><ul>
             <li><strong>Read back verbal/telephone orders</strong>; have the prescriber repeat</li>
             <li><strong>SBAR</strong> communication for handoffs (Situation, Background, Assessment, Recommendation)</li>
@@ -3413,7 +3416,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Special formulation cautions</h3>
         </header>
         <p>Certain medication forms have administration restrictions that prevent errors.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Do NOT crush or chew</h4><ul>
             <li>Enteric-coated tablets</li>
             <li>Sustained-release / extended-release (ER, XR, XL, SR, CR)</li>
@@ -3435,7 +3438,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Tall-man lettering</h3>
         </header>
         <p>A system of mixed-case letters that highlights distinguishing letters in look-alike drug names. Prevents wrong-drug errors.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Common tall-man pairs</h4><ul>
             <li><strong>hydrOXYzine</strong> (antihistamine, anxiolytic) vs <strong>hydrALAzine</strong> (antihypertensive)</li>
             <li><strong>predniSONE</strong> (oral) vs <strong>predniSOLONE</strong> (different potency)</li>
@@ -3451,7 +3454,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">ISMP Do-Not-Use abbreviations</h3>
         </header>
         <p>The Institute for Safe Medication Practices (ISMP) maintains a list of dangerous abbreviations that should not be used. The Joint Commission requires elimination of these from prescribing.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Common forbidden abbreviations</h4><ul>
             <li><strong>U or u</strong> → use "units" (mistaken for 0, 4, or cc)</li>
             <li><strong>IU</strong> → use "international units"</li>
@@ -3475,7 +3478,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">DEA Schedules</h3>
         </header>
         <p>Schedule classification determines prescribing restrictions, refills allowed, and storage requirements.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Schedule II — high abuse potential, accepted medical use</h4><ul>
             <li>No refills allowed; written or electronic prescription required (some states allow phone for emergency, with written follow-up)</li>
             <li>Examples: <strong>morphine, oxycodone, hydromorphone, fentanyl, methadone, methylphenidate, amphetamines, cocaine</strong></li>
@@ -3500,7 +3503,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Handling and documentation</h3>
         </header>
         <p>Controlled substances require strict accountability to prevent diversion.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Nursing responsibilities</h4><ul>
             <li><strong>Count at every shift change</strong> with another licensed nurse — both sign</li>
             <li>Any discrepancy: <strong>investigate immediately</strong>; do not give the next dose until resolved</li>
@@ -3522,7 +3525,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Medication reconciliation</h3>
         </header>
         <p>A formal process required at every transition of care to prevent omissions, duplications, dosing errors, and interactions.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>When to reconcile</h4><ul>
             <li>On admission to a healthcare facility</li>
             <li>At each transfer (e.g., ICU to floor, ED to admission)</li>
@@ -3544,7 +3547,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Pregnancy categories (older FDA system)</h3>
         </header>
         <p>The FDA pregnancy categories (A, B, C, D, X) were the standard until 2015. The newer Pregnancy and Lactation Labeling Rule (PLLR) replaces these with narrative summaries, but the letter categories still appear on many references.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>FDA letter categories</h4><ul>
             <li><strong>A</strong> — adequate human studies show no fetal risk (rare; example: levothyroxine, prenatal vitamins)</li>
             <li><strong>B</strong> — animal studies show no risk OR animal toxicity not confirmed in humans (acetaminophen, most penicillins, metformin, ondansetron)</li>
@@ -3794,7 +3797,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Universal applicability</span>
         </header>
         <p>Set up known and unknown ratios as equivalent fractions, then solve for the unknown.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Steps</h4><ul>
             <li><strong>Step 1:</strong> Write the known ratio (what you have)</li>
             <li><strong>Step 2:</strong> Write the unknown ratio (what you want)</li>
@@ -3810,7 +3813,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Most common</span>
         </header>
         <p>Use when the units match. Quantity is the volume or number of units per dose.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Formula</h4><ul>
             <li><strong>(Desired ÷ Have) × Quantity = amount to administer</strong></li>
             <li>Example: Desired = 25 mg; have = 100 mg/2 mL → (25 ÷ 100) × 2 = 0.5 mL</li>
@@ -3825,7 +3828,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Best for multi-step conversions</span>
         </header>
         <p>Set up a chain of conversion factors so unwanted units cancel and only the desired unit remains. Particularly useful for weight-based and IV drip calculations.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Steps</h4><ul>
             <li><strong>Step 1:</strong> Write the desired unit (left side of equation = X with appropriate unit)</li>
             <li><strong>Step 2:</strong> Find a factor with the same unit on top (right side starts there)</li>
@@ -3846,7 +3849,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Tablets and capsules</h3>
         </header>
         <p>Solid oral dosage forms. Always confirm whether the tablet can be cut, crushed, or split.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Formula</h4><ul>
             <li><strong>Number of tablets = Desired dose ÷ Available dose per tablet</strong></li>
             <li>Example: Order = 750 mg; on hand = 250 mg tabs → 750 ÷ 250 = 3 tabs</li>
@@ -3860,7 +3863,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Liquid medications</h3>
         </header>
         <p>Oral suspensions, solutions, and parenteral medications. Always verify with marked oral syringe (oral) or appropriate volumetric measure.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Formula</h4><ul>
             <li><strong>Volume = (Desired dose ÷ Available concentration) × Volume of one dose</strong></li>
             <li>Example: Order = 40 mg; on hand = 100 mg/5 mL → (40 ÷ 100) × 5 = 2 mL</li>
@@ -3875,7 +3878,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">IV continuous infusion</h3>
         </header>
         <p>Calculate the rate for IV pump programming. Pumps deliver in mL/hr.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Formula</h4><ul>
             <li><strong>mL/hr = Total volume (mL) ÷ Time (hours)</strong></li>
             <li>Example: 1000 mL over 8 hr → 125 mL/hr</li>
@@ -3889,7 +3892,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">IV drip rate (gtt/min) — gravity infusion</h3>
         </header>
         <p>For gravity drips without a pump. Requires the drop factor (gtt/mL), found on the tubing package.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Formula</h4><ul>
             <li><strong>gtt/min = (Volume × Drop factor) ÷ Time in minutes</strong></li>
             <li>Example: 1000 mL over 8 hr, drop factor 15 gtt/mL → (1000 × 15) ÷ 480 min ≈ 31 gtt/min</li>
@@ -3904,7 +3907,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">IV bolus / push</h3>
         </header>
         <p>Direct injection of a medication into an IV line.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Considerations</h4><ul>
             <li>Verify drug-specific push rate (per pharmacy or drug reference) — many drugs over 1–5 minutes</li>
             <li>Hold timer; do not exceed maximum rate (e.g., furosemide ≤ 20 mg/min, vancomycin not given as push)</li>
@@ -3923,7 +3926,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Weight-based dosing</h3>
         </header>
         <p>Always convert pounds to kilograms first: <strong>kg = lb ÷ 2.2</strong>. Some medications use mg/m² (body surface area) but most pediatric drugs use mg/kg.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Standard process</h4><ul>
             <li><strong>Step 1:</strong> Convert weight to kg (lb ÷ 2.2)</li>
             <li><strong>Step 2:</strong> Calculate total daily dose (mg/kg/day × weight in kg)</li>
@@ -3947,7 +3950,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Critical safety check</span>
         </header>
         <p>Before administering ANY pediatric medication, verify the order is within the safe dose range. Hold the medication and call the provider if outside the range.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Verification steps</h4><ul>
             <li>Look up the recommended dose range (mg/kg/day) from a drug reference</li>
             <li>Calculate the safe range for this client (range × weight in kg)</li>
@@ -3963,7 +3966,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Rounding rules</h3>
         </header>
         <p>Follow facility policy and the medication's package insert.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Common pediatric rounding</h4><ul>
             <li>Most pediatric oral liquids: round to nearest 0.1 mL (1/10)</li>
             <li>Many IV medications: round to nearest 0.01 mL for small infants</li>
@@ -3983,7 +3986,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">High-alert medication classes</h3>
         </header>
         <p>These categories have the highest risk profile. ISMP maintains the official list.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Examples</h4><ul>
             <li><strong>Insulin</strong> (all forms — especially U-500 concentration)</li>
             <li><strong>Anticoagulants</strong> (heparin IV, warfarin, DOACs)</li>
@@ -4001,7 +4004,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Independent double-check</h3>
         </header>
         <p>Two qualified individuals separately calculate and verify the medication and dose. Each person performs the calculation independently — not just "looks over" the other's work.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>When required (per ISMP and facility policy)</h4><ul>
             <li>Insulin IV infusions and bolus doses</li>
             <li>Heparin IV infusions and bolus</li>
@@ -4246,7 +4249,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Same osmolality as plasma</span>
         </header>
         <p>Fluid stays in the vascular space — used for volume expansion and replacement. No fluid shift between compartments.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Examples & uses</h4><ul>
             <li><strong>0.9% sodium chloride (NS, normal saline)</strong> — fluid replacement; compatible with blood products</li>
             <li><strong>Lactated Ringer's (LR)</strong> — surgical and trauma resuscitation; contains K+, Ca++, lactate (becomes bicarbonate); avoid in liver failure (impaired lactate metabolism), hyperkalemia</li>
@@ -4266,7 +4269,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Lower osmolality than plasma</span>
         </header>
         <p>Fluid shifts from the vascular space into cells — rehydrates cells. Used carefully — too much can cause cellular swelling and cerebral edema.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Examples & uses</h4><ul>
             <li><strong>0.45% NS (half-normal saline)</strong> — most common hypotonic; cellular dehydration, hypernatremia, DKA after initial resuscitation</li>
             <li><strong>0.225% NS, 0.33% NS</strong> — less common</li>
@@ -4284,7 +4287,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Higher osmolality than plasma</span>
         </header>
         <p>Pulls fluid from cells into the vascular space. Used for severe hyponatremia and to reduce cerebral edema.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Examples & uses</h4><ul>
             <li><strong>3% NS, 5% NS</strong> — severe symptomatic hyponatremia, cerebral edema (raises serum osmolality, reduces brain swelling)</li>
             <li><strong>D5NS, D5LR, D5 ½ NS</strong> — provides calories with electrolytes; post-op</li>
@@ -4305,7 +4308,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Volume expanders</span>
         </header>
         <p>Large molecules that remain in the vascular space, pulling fluid in by osmotic pressure. Useful when blood products are not available or appropriate.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Examples & uses</h4><ul>
             <li><strong>Albumin (5% and 25%)</strong> — burns, hypovolemia, hypoalbuminemia, large-volume paracentesis</li>
             <li><strong>Dextran, hetastarch</strong> — synthetic plasma expanders; trauma</li>
@@ -4330,7 +4333,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Standard short-term</span>
         </header>
         <p>Catheter inserted in a peripheral vein, usually in the hand or forearm. Limited to short courses (typically &lt; 5–7 days) and non-vesicant solutions.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Site selection</h4><ul>
             <li>Use most distal site that will accept the catheter (preserves proximal sites for future use)</li>
             <li>Avoid: areas of flexion (antecubital limited), affected side post-mastectomy, dialysis fistula limb, paralyzed limb</li>
@@ -4356,7 +4359,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Long-term, irritant, TPN</span>
         </header>
         <p>Catheter terminates in the superior vena cava (or other large central vein). Allows infusion of irritants, vesicants, hyperosmolar solutions, TPN, and frequent blood draws.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Types</h4><ul>
             <li><strong>PICC (peripherally inserted central catheter):</strong> Inserted in upper arm, threads to SVC; weeks to months; nurse-inserted with proper certification</li>
             <li><strong>Tunneled catheter (Hickman, Broviac, Groshong):</strong> Surgically tunneled under skin; long-term (months to years); chemotherapy, TPN</li>
@@ -4384,7 +4387,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Non-vesicant leak</span>
         </header>
         <p>Solution leaks into surrounding tissue (extravascular). Most common IV complication.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Signs</h4><ul>
             <li>Swelling, coolness, pallor at the site</li>
             <li>Slowed or stopped flow</li>
@@ -4408,7 +4411,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Vesicant leak — emergency</span>
         </header>
         <p>A VESICANT solution (chemotherapy, dopamine, vasopressors, calcium chloride, hypertonic saline) leaks into surrounding tissue, causing severe tissue damage and necrosis.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Signs</h4><ul>
             <li>Severe burning or pain at site</li>
             <li>Swelling and erythema</li>
@@ -4433,7 +4436,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Vein inflammation</span>
         </header>
         <p>Inflammation of the vein wall, often with thrombus formation. Caused by chemical irritation, mechanical movement of catheter, or infection.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Signs</h4><ul>
             <li>Redness and warmth along the vein</li>
             <li>Pain or tenderness</li>
@@ -4457,7 +4460,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Life-threatening</span>
         </header>
         <p>Air enters the circulation through the IV line.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Signs</h4><ul>
             <li>Sudden dyspnea, chest pain</li>
             <li>Hypotension, tachycardia</li>
@@ -4480,7 +4483,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Volume overload</span>
         </header>
         <p>Too much IV fluid given too quickly overwhelms cardiovascular system.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Signs</h4><ul>
             <li>Dyspnea, crackles (rales), tachypnea</li>
             <li>Hypertension</li>
@@ -4504,7 +4507,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Catheter fragment travels</span>
         </header>
         <p>Tip of catheter breaks off and travels in the bloodstream.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Recognition & response</h4><ul>
             <li>Suspect when partial catheter is withdrawn during removal</li>
             <li><strong>Apply tourniquet above insertion site</strong></li>
@@ -4521,7 +4524,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Bloodstream infection</span>
         </header>
         <p>Central line-associated bloodstream infection. Significant morbidity and mortality risk.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Signs</h4><ul>
             <li>Fever, chills, elevated WBC</li>
             <li>Erythema, warmth, purulent drainage at site</li>
@@ -4775,7 +4778,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Predictable</span>
         </header>
         <p>An expected, dose-related effect at therapeutic doses. Usually mild; often resolves with continued use or dose reduction.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Examples</h4><ul>
             <li>Nausea with opioids</li>
             <li>Drowsiness with antihistamines</li>
@@ -4795,7 +4798,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Unintended, harmful</span>
         </header>
         <p>Noxious, unintended response at normal doses. More serious than side effects; may require dose adjustment or discontinuation.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Examples</h4><ul>
             <li>Aplastic anemia with chloramphenicol</li>
             <li>Pulmonary fibrosis with amiodarone</li>
@@ -4815,7 +4818,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Dose-related danger</span>
         </header>
         <p>Effect from accumulation, overdose, or low therapeutic index. Watch for in renal/hepatic impairment, drug interactions, and high-alert medications.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>High-risk drugs</h4><ul>
             <li>Digoxin (therapeutic 0.5–2.0 ng/mL)</li>
             <li>Lithium (0.6–1.2 mEq/L)</li>
@@ -4839,7 +4842,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Unpredictable</span>
         </header>
         <p>Unusual, unexpected response that cannot be predicted by the drug's pharmacology. Often genetic basis (e.g., CYP450 polymorphism).</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Examples</h4><ul>
             <li>Hemolytic anemia in G6PD deficiency with sulfa drugs, nitrofurantoin, primaquine</li>
             <li>Paradoxical excitation in older adults with benzodiazepines</li>
@@ -4854,7 +4857,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Immune-mediated</span>
         </header>
         <p>Hypersensitivity reaction from prior sensitization. Severity ranges from mild rash to fatal anaphylaxis.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Types</h4><ul>
             <li><strong>Type I (immediate):</strong> IgE-mediated — anaphylaxis, urticaria, bronchospasm (PCN, latex, contrast)</li>
             <li><strong>Type II:</strong> Cytotoxic — hemolytic anemia, thrombocytopenia (PCN, methyldopa)</li>
@@ -4876,7 +4879,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Long-term harm</span>
         </header>
         <p>Effects on fetal development, cancer risk, or DNA. Most relevant for pregnancy planning and chronic therapy.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Known teratogens (avoid in pregnancy)</h4><ul>
             <li>Warfarin (fetal bleeding, malformation)</li>
             <li>ACE inhibitors, ARBs (renal damage)</li>
@@ -4900,7 +4903,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Recognition</h3>
           <span class="condition-tag">Multi-system</span>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Manifestations</h4><ul>
             <li><strong>Skin:</strong> Generalized urticaria, flushing, pruritus, angioedema (lips, tongue, throat)</li>
             <li><strong>Respiratory:</strong> Hoarseness, stridor, wheezing, dyspnea, throat tightness</li>
@@ -4921,7 +4924,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Treatment sequence</h3>
           <span class="condition-tag">Time-critical</span>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Immediate actions</h4><ul>
             <li><strong>1. Stop the offending drug</strong> immediately</li>
             <li><strong>2. Epinephrine IM</strong> in the vastus lateralis (anterolateral thigh) — first-line, no contraindications in anaphylaxis</li>
@@ -4950,7 +4953,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Pharmacokinetic interactions</h3>
           <span class="condition-tag">ADME-based</span>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Absorption</h4><ul>
             <li>Antacids ↓ absorption of fluoroquinolones, tetracyclines (separate by 2 hr)</li>
             <li>Bile acid sequestrants bind many drugs — separate by 4 hr</li>
@@ -4961,7 +4964,7 @@ article.exercise.nclex-hidden{ display: none !important }
             <li>Cleared when drugs are taken concurrently with similar high protein binding</li>
           </ul></div>
         </div>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Metabolism — CYP450 inducers (↓ drug levels)</h4><ul>
             <li>Carbamazepine, phenytoin, phenobarbital</li>
             <li>Rifampin, rifabutin</li>
@@ -4978,7 +4981,7 @@ article.exercise.nclex-hidden{ display: none !important }
             <li>Many antidepressants (fluoxetine, paroxetine)</li>
           </ul></div>
         </div>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Excretion</h4><ul>
             <li>NSAIDs ↓ renal excretion of lithium → toxicity</li>
             <li>Probenecid ↓ excretion of penicillins (intentional — prolongs effect)</li>
@@ -4992,7 +4995,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Pharmacodynamic interactions</h3>
           <span class="condition-tag">Effect-based</span>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Additive / synergistic (effects ↑)</h4><ul>
             <li>CNS depressants (alcohol + benzodiazepine + opioid) — respiratory depression</li>
             <li>Multiple antihypertensives — hypotension</li>
@@ -5018,7 +5021,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Legacy FDA Pregnancy Categories</h3>
           <span class="condition-tag">Still used clinically</span>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Categories</h4><ul>
             <li><strong>A:</strong> Adequate studies show no risk (vitamins at RDA, levothyroxine)</li>
             <li><strong>B:</strong> Animal studies show no risk, but no adequate human studies (acetaminophen, amoxicillin, metformin, insulin)</li>
@@ -5034,7 +5037,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Lactation</h3>
           <span class="condition-tag">Most drugs cross to milk</span>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Generally safe</h4><ul>
             <li>Acetaminophen, ibuprofen (most NSAIDs)</li>
             <li>Most antibiotics (avoid sulfonamides near birth — kernicterus)</li>
@@ -5243,7 +5246,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Expected, dose-related</span>
         </header>
         <p>An effect that is part of the medication's pharmacological action but is unwanted. Usually predictable, mild, and dose-related.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Examples</h4><ul>
             <li>Drowsiness with antihistamines</li>
             <li>Dry mouth with anticholinergics</li>
@@ -5265,7 +5268,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Immune-mediated</span>
         </header>
         <p>An immunologic response to a medication. May be immediate (Type I, IgE-mediated, e.g., anaphylaxis) or delayed (Type IV, T-cell mediated, e.g., contact dermatitis).</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Manifestations (mild → severe)</h4><ul>
             <li>Itching, hives, rash</li>
             <li>Wheezing, dyspnea, swelling of lips/tongue</li>
@@ -5287,7 +5290,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Unpredictable</span>
         </header>
         <p>An unexpected reaction unique to the individual, often genetic. Cannot be predicted from the medication's known pharmacology.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Examples</h4><ul>
             <li>Aplastic anemia with chloramphenicol</li>
             <li>Malignant hyperthermia with halothane/succinylcholine</li>
@@ -5307,7 +5310,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Dose-related serious harm</span>
         </header>
         <p>Damage caused by excessive medication levels — either overdose or accumulation due to impaired metabolism/excretion.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Common examples</h4><ul>
             <li><strong>Acetaminophen → hepatotoxicity</strong> (antidote: acetylcysteine)</li>
             <li><strong>Aminoglycosides → nephro/ototoxicity</strong></li>
@@ -5333,7 +5336,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Dermatologic emergency</span>
         </header>
         <p>A severe mucocutaneous reaction characterized by fever, skin pain, then widespread blistering and sloughing. Toxic Epidermal Necrolysis (TEN) is the most severe form (&gt; 30% body surface).</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Common triggers</h4><ul>
             <li><strong>Sulfa drugs</strong> (TMP/SMX)</li>
             <li><strong>Anticonvulsants</strong> (carbamazepine, lamotrigine, phenytoin)</li>
@@ -5356,7 +5359,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">FDA highest warning</span>
         </header>
         <p>The FDA's strongest warning, indicating a medication has serious or life-threatening risks. Required on the label and prescribing information.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Examples</h4><ul>
             <li><strong>SSRIs:</strong> Suicidal ideation in &lt; 25 yo</li>
             <li><strong>NSAIDs:</strong> CV thrombotic events, GI bleeding</li>
@@ -5380,7 +5383,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Pregnancy harm</span>
         </header>
         <p>Medications that can cause fetal malformations or developmental harm. The FDA replaced the A/B/C/D/X categories in 2015 with detailed narrative labeling (PLLR).</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Known teratogens (avoid in pregnancy)</h4><ul>
             <li><strong>Warfarin</strong> — fetal warfarin syndrome</li>
             <li><strong>ACE inhibitors, ARBs</strong> — fetal renal damage (esp. 2nd-3rd trimester)</li>
@@ -5412,7 +5415,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Major mechanism</span>
         </header>
         <p>The cytochrome P450 enzyme system in the liver metabolizes most drugs. Inducers increase enzyme activity (→ less drug); inhibitors decrease activity (→ more drug).</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>CYP inducers (↓ substrate levels)</h4><ul>
             <li><strong>Anticonvulsants:</strong> Carbamazepine, phenytoin, phenobarbital</li>
             <li><strong>Rifampin</strong></li>
@@ -5437,7 +5440,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Food interactions</h3>
         </header>
         <p>Foods can alter absorption, metabolism, and pharmacological effect of medications.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Common food-drug interactions</h4><ul>
             <li><strong>Warfarin + vitamin K foods</strong> (leafy greens) → ↓ INR; keep intake CONSISTENT</li>
             <li><strong>MAOI + tyramine foods</strong> (aged cheese, cured meats, wine) → hypertensive crisis</li>
@@ -5453,7 +5456,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Pharmacodynamic interactions</h3>
         </header>
         <p>When drugs with similar or opposing effects are combined, effects may be additive, synergistic, or antagonistic.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Additive/synergistic (dangerous combinations)</h4><ul>
             <li><strong>CNS depressants:</strong> Opioids + benzodiazepines + alcohol → respiratory depression</li>
             <li><strong>Serotonergic agents:</strong> SSRI + MAOI/St. John's wort/triptan → serotonin syndrome</li>
@@ -5712,7 +5715,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Age-related</span>
         </header>
         <p>Infants and young children have unique absorption, distribution, metabolism, and excretion patterns.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Key differences</h4><ul>
             <li><strong>Absorption:</strong> Gastric pH higher in neonates; oral absorption variable</li>
             <li><strong>Distribution:</strong> Higher % body water; lower body fat; immature blood-brain barrier (more CNS effects)</li>
@@ -5733,7 +5736,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">High-risk medications</span>
         </header>
         <p>Several medications have specific age cutoffs based on safety concerns.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Absolute avoidance</h4><ul>
             <li><strong>Aspirin in viral illness:</strong> Reye syndrome (fatal hepatic encephalopathy)</li>
             <li><strong>Tetracyclines &lt; 8 yo:</strong> Tooth discoloration, bone growth inhibition</li>
@@ -5754,7 +5757,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Administration considerations</h3>
         </header>
         <p>Technique varies with age and developmental stage.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Pediatric administration tips</h4><ul>
             <li>Liquid oral medications: use oral syringe (not household teaspoon)</li>
             <li>Tablets: consider crushability or use liquid form when available</li>
@@ -5777,7 +5780,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Aging effects</span>
         </header>
         <p>Multiple physiologic changes alter how medications behave in older adults.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Changes & implications</h4><ul>
             <li><strong>↓ Renal function (GFR):</strong> Accumulation of renally-cleared drugs (digoxin, lithium, aminoglycosides, vancomycin)</li>
             <li><strong>↓ Hepatic metabolism:</strong> Some drugs accumulate</li>
@@ -5800,7 +5803,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Avoid in elderly</span>
         </header>
         <p>A list of potentially inappropriate medications for adults &gt; 65 years, maintained by the American Geriatrics Society.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Examples of medications to avoid</h4><ul>
             <li><strong>Benzodiazepines</strong> (especially long-acting): falls, sedation, cognitive impairment</li>
             <li><strong>1st-generation antihistamines</strong> (diphenhydramine): anticholinergic effects, confusion</li>
@@ -5824,7 +5827,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Multiple medications</span>
         </header>
         <p>Older adults often take many medications, increasing risk of interactions, errors, and non-adherence.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Strategies</h4><ul>
             <li><strong>Medication review</strong> at every visit</li>
             <li><strong>Deprescribing:</strong> Stop medications that are no longer needed</li>
@@ -5846,7 +5849,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Pregnancy</h3>
         </header>
         <p>The FDA Pregnancy and Lactation Labeling Rule (PLLR, 2015) replaced the A/B/C/D/X categories with narrative labeling, though letter categories still appear on many references.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Generally safe in pregnancy</h4><ul>
             <li><strong>Acetaminophen</strong> (preferred analgesic/antipyretic)</li>
             <li><strong>Insulin</strong> (preferred for diabetes)</li>
@@ -5872,7 +5875,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Lactation</h3>
         </header>
         <p>Most drugs transfer to breast milk in small amounts. Always check LactMed database before prescribing.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Considerations</h4><ul>
             <li>Check LactMed (NIH database) for specific drugs</li>
             <li>Time doses to minimize infant exposure (right after feeding)</li>
@@ -5900,7 +5903,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Clinical examples</h3>
         </header>
         <p>Several drugs have well-established genetic considerations.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Genetic testing recommendations</h4><ul>
             <li><strong>Abacavir + HLA-B*5701:</strong> Test before use; presence → severe hypersensitivity</li>
             <li><strong>Carbamazepine + HLA-B*1502:</strong> Test in Asian descent (Stevens-Johnson risk)</li>
@@ -6156,7 +6159,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Schedule IV</span>
         </header>
         <p>Short-acting benzodiazepine. Other examples: lorazepam (Ativan), diazepam (Valium), midazolam (Versed), chlordiazepoxide (Librium), clonazepam (Klonopin), oxazepam, temazepam, triazolam.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Mechanism & uses</h4><ul>
             <li>Enhances GABA inhibition in CNS → rapid anxiolysis, sedation, anticonvulsant, muscle relaxant</li>
             <li>Uses: GAD, panic disorder, PTSD adjunct, alcohol withdrawal (chlordiazepoxide, diazepam, lorazepam), seizures (lorazepam, diazepam — status epilepticus), pre-procedure sedation, muscle spasm (diazepam)</li>
@@ -6190,7 +6193,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Atypical anxiolytic</span>
         </header>
         <p>5-HT1A partial agonist. Not a CNS depressant. Does not cause sedation or impair cognition. No abuse potential (not scheduled).</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Uses</h4><ul>
             <li>Generalized anxiety disorder</li>
             <li>Adjunctive treatment of depression</li>
@@ -6221,7 +6224,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">First-line for chronic anxiety</span>
         </header>
         <p>Examples: paroxetine (Paxil) — prototype for anxiety, sertraline (Zoloft), escitalopram (Lexapro), fluoxetine (Prozac), citalopram, fluvoxamine.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Uses</h4><ul>
             <li>Generalized anxiety disorder, panic disorder, OCD, PTSD, social anxiety</li>
             <li>Also approved for depression</li>
@@ -6254,7 +6257,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Also first-line</span>
         </header>
         <p>Examples: venlafaxine (Effexor) — prototype, duloxetine (Cymbalta), desvenlafaxine.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Uses & Effects</h4><ul>
             <li>GAD, panic, social anxiety, depression</li>
             <li>Similar AE profile to SSRIs PLUS: hypertension (especially venlafaxine), tachycardia</li>
@@ -6273,7 +6276,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">TCAs (older alternative)</h3>
         </header>
         <p>Examples: amitriptyline, nortriptyline, imipramine, clomipramine (most effective for OCD).</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>AE & Cautions</h4><ul>
             <li>Anticholinergic (dry mouth, constipation, urinary retention, blurred vision)</li>
             <li>Orthostatic hypotension</li>
@@ -6296,7 +6299,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Performance anxiety</span>
         </header>
         <p>Propranolol — blocks somatic (physical) symptoms of anxiety.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Uses</h4><ul>
             <li>Performance anxiety, social anxiety (acute, situational use)</li>
             <li>Essential tremor</li>
@@ -6317,7 +6320,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">PRN anxiety</span>
         </header>
         <p>H1 antihistamine with anxiolytic effect — useful for occasional anxiety without dependence.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Properties</h4><ul>
             <li>Sedating but no abuse potential</li>
             <li>Useful in pregnancy</li>
@@ -6334,7 +6337,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">PTSD nightmares</span>
         </header>
         <p>Prazosin — for PTSD-related nightmares.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Notes</h4><ul>
             <li>Bedtime dosing; titrate to effect</li>
             <li>AE: orthostatic hypotension, dizziness, headache</li>
@@ -6349,7 +6352,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Off-label</span>
         </header>
         <p>Anticonvulsants with some anxiolytic effect.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Notes</h4><ul>
             <li>Off-label for GAD; useful adjuncts</li>
             <li>Pregabalin is Schedule V</li>
@@ -6602,7 +6605,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Most commonly prescribed antidepressants</span>
         </header>
         <p>Prototype: Fluoxetine (Prozac). Other examples: sertraline (Zoloft), paroxetine (Paxil), citalopram (Celexa), escitalopram (Lexapro), fluvoxamine, vilazodone.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Uses</h4><ul>
             <li>Major depressive disorder</li>
             <li>Anxiety disorders (GAD, panic, OCD, PTSD, social anxiety)</li>
@@ -6642,7 +6645,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Dual action</span>
         </header>
         <p>Examples: venlafaxine (Effexor) — prototype, duloxetine (Cymbalta), desvenlafaxine (Pristiq), levomilnacipran.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Uses</h4><ul>
             <li>Major depressive disorder, GAD, panic, social anxiety, PTSD</li>
             <li>Duloxetine: diabetic neuropathy, fibromyalgia, chronic musculoskeletal pain</li>
@@ -6676,7 +6679,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Second-line — high toxicity in overdose</span>
         </header>
         <p>Prototype: Amitriptyline. Other examples: imipramine, nortriptyline, doxepin, desipramine, clomipramine.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Uses</h4><ul>
             <li>Depression (resistant or specific symptom patterns)</li>
             <li>Neuropathic pain (amitriptyline, nortriptyline — lower doses than depression)</li>
@@ -6714,7 +6717,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Last-line — many restrictions</span>
         </header>
         <p>Monoamine oxidase inhibitors — phenelzine (Nardil), tranylcypromine (Parnate), isocarboxazid, selegiline (transdermal patch).</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Uses</h4><ul>
             <li>Treatment-resistant depression</li>
             <li>Atypical depression</li>
@@ -6739,7 +6742,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Atypical antidepressants</h3>
         </header>
         <p>Diverse mechanisms outside SSRI/SNRI/TCA classes.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Bupropion (Wellbutrin)</h4><ul>
             <li>Norepinephrine and dopamine reuptake inhibitor</li>
             <li>Uses: Depression, smoking cessation (as Zyban), seasonal affective disorder</li>
@@ -7025,7 +7028,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Mood stabilizer prototype</span>
         </header>
         <p>Mechanism unclear; stabilizes neuronal membranes and alters intracellular signaling. Effective for both acute mania and maintenance.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Uses</h4><ul>
             <li>Acute mania</li>
             <li>Maintenance therapy for bipolar I and II</li>
@@ -7080,7 +7083,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Valproic acid / divalproex (Depakote)</h3>
         </header>
         <p>First-line for acute mania, especially with rapid cycling or mixed episodes.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Uses</h4><ul>
             <li>Acute mania, mixed episodes, rapid cycling</li>
             <li>Bipolar maintenance</li>
@@ -7108,7 +7111,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Best for bipolar depression</span>
         </header>
         <p>More effective for bipolar depression than mania.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Uses</h4><ul>
             <li>Bipolar I maintenance</li>
             <li>Bipolar depression</li>
@@ -7132,7 +7135,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Carbamazepine (Tegretol)</h3>
         </header>
         <p>Used when other agents fail. Many drug interactions.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Uses</h4><ul>
             <li>Bipolar disorder, mania</li>
             <li>Seizure disorders</li>
@@ -7162,7 +7165,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Multiple indications</span>
         </header>
         <p>Examples used in bipolar: olanzapine (Zyprexa), quetiapine (Seroquel), risperidone, aripiprazole (Abilify), ziprasidone, lurasidone (Latuda), cariprazine.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Uses in bipolar</h4><ul>
             <li>Acute mania (most atypicals)</li>
             <li>Acute bipolar depression (quetiapine, lurasidone, cariprazine, olanzapine + fluoxetine)</li>
@@ -7730,7 +7733,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Schedule II · ADHD</span>
         </header>
         <p>Methylphenidate, dexmethylphenidate, dextroamphetamine, and amphetamine mixtures. Therapeutic effects begin rapidly.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Complications</h4><ul>
             <li><strong>Insomnia, restlessness</strong> — give last dose before 4 p.m.</li>
             <li><strong>Decreased appetite, weight loss, growth suppression</strong> — monitor height/weight against baseline</li>
@@ -10060,7 +10063,7 @@ COMPLICATIONS:</strong> List two adverse effects.</li>
           <span class="condition-tag">"-pril" · prototype captopril</span>
         </header>
         <p>Block conversion of angiotensin I → II and increase bradykinin, producing arteriolar vasodilation, sodium/water excretion with potassium retention, and reduced cardiac/vascular remodeling.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Therapeutic uses</h4><ul>
             <li>Hypertension, heart failure</li>
             <li>Post-MI (decreases mortality)</li>
@@ -10090,7 +10093,7 @@ COMPLICATIONS:</strong> List two adverse effects.</li>
           <span class="condition-tag">"-sartan" · prototype losartan</span>
         </header>
         <p>Block angiotensin II at the receptor → vasodilation and sodium/water excretion. The major advantage over ACE inhibitors is <strong>no cough</strong> and less angioedema.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Therapeutic uses</h4><ul>
             <li>Hypertension; heart failure (valsartan, candesartan)</li>
             <li>Stroke prevention &amp; diabetic nephropathy (losartan)</li>
@@ -10115,7 +10118,7 @@ COMPLICATIONS:</strong> List two adverse effects.</li>
           <span class="condition-tag">Potassium-sparing</span>
         </header>
         <p>Block aldosterone receptors in the kidney → sodium/water excretion with potassium retention.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card"><h4>Uses</h4><ul>
             <li>Hypertension, heart failure</li>
             <li>PMS, PCOS, acne in young females (spironolactone)</li>
