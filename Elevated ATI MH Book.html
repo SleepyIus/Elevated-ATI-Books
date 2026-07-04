@@ -1466,6 +1466,9 @@ button:focus-visible,a:focus-visible{
   gap:12px;
   margin:14px 0 0;
 }
+.finding-grid.wide-box-grid{
+  grid-template-columns:repeat(auto-fit, minmax(min(100%, 330px), 1fr));
+}
 .finding-card{
   background:var(--surface2);
   border:1px solid var(--border-soft);
@@ -2614,7 +2617,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Rules out organic causes</span>
         </header>
         <p>Perform a physical assessment as indicated by client condition or policy. Mental health symptoms can be the first sign of an underlying medical condition (e.g., delirium from infection, agitation from hypoxia, mood changes from thyroid disease).</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Approach</h4>
             <ul>
@@ -2655,7 +2658,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Client's lived experience</span>
         </header>
         <p>Assess the client's perception of their own health, beliefs about illness and wellness, and how they typically function and cope. Use this to identify both strengths and vulnerabilities.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Functioning &amp; coping</h4>
             <ul>
@@ -2701,7 +2704,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">First and fastest</span>
         </header>
         <p>Document level of consciousness using standard terms (above). Then assess orientation to <strong>person, place, time, and situation</strong> (oriented ×4).</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Orientation (×4)</h4>
             <ul>
@@ -2723,7 +2726,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Physical appearance &amp; behavior</h3>
           <span class="condition-tag">Observable from first contact</span>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Physical appearance</h4>
             <ul>
@@ -2763,7 +2766,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Internal vs observed emotion</span>
         </header>
         <p>Mood is what the client <em>says</em> they feel; affect is what the nurse <em>observes</em>. The two should be congruent — when they aren't, that's clinically significant.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Mood (subjective)</h4>
             <ul>
@@ -2792,7 +2795,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Thought process &amp; content</h3>
           <span class="condition-tag">How thinking flows and what it contains</span>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Thought process</h4>
             <ul>
@@ -2824,7 +2827,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Thinking abilities</span>
         </header>
         <p>Assess memory across three timeframes and test specific cognitive abilities with practical tasks.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Memory</h4>
             <ul>
@@ -2865,7 +2868,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Insight &amp; judgment</h3>
           <span class="condition-tag">Awareness &amp; decision-making</span>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Insight</h4>
             <ul>
@@ -2899,7 +2902,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Cognitive status — all ages, especially older adults</span>
         </header>
         <p>A 30-point cognitive screen used to evaluate the following domains. A score &lt; 24 typically suggests cognitive impairment, though cutoffs vary by education level.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Domains evaluated</h4>
             <ul>
@@ -2955,7 +2958,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">HEADSSS framework</span>
         </header>
         <p>Assessment includes <strong>temperament, social and environmental factors, cultural and religious concerns, and developmental level</strong>. The client should be the primary source of information, but caregivers can provide valuable collateral data.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Mental health in children</h4>
             <ul>
@@ -2986,7 +2989,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Comprehensive geriatric assessment</span>
         </header>
         <p>In addition to all the standard assessments, older adult assessment includes specific functional and environmental elements. Interview technique itself must be adapted to support sensory and mobility differences.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Additional areas to assess</h4>
             <ul>
@@ -3025,7 +3028,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">DSM-5 vs NANDA — two complementary systems</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>DSM-5 (medical)</h4>
             <ul>
@@ -3127,7 +3130,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Health teaching, promotion, and case management</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Health teaching</h4>
             <ul>
@@ -3177,7 +3180,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Assessing ability to adapt and cope</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Factors to assess</h4>
             <ul>
@@ -3477,7 +3480,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Specific mental health client rights</h3>
           <span class="condition-tag">Tied to treatment status</span>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Treatment-related</h4>
             <ul>
@@ -3511,7 +3514,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Civil wrongdoing</span>
         </header>
         <p>A <strong>tort</strong> is a civil wrongdoing — a wrongful act or injury committed by an entity or person against another person or their property. The injured party (plaintiff) may collect monetary damages from the responsible party (defendant). Torts fall into two categories.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Intentional torts</h4>
             <ul>
@@ -3603,7 +3606,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Routine confidentiality practice</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Do</h4>
             <ul>
@@ -3661,7 +3664,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Informal admission</h3>
           <span class="condition-tag">Least restrictive</span>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Criteria</h4>
             <ul>
@@ -3677,7 +3680,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Voluntary admission</h3>
           <span class="condition-tag">Client-initiated</span>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Process</h4>
             <ul>
@@ -3695,7 +3698,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Temporary emergency admission</h3>
           <span class="condition-tag">Acute, time-limited</span>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Criteria &amp; process</h4>
             <ul>
@@ -3713,7 +3716,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Against client's will, indefinite</span>
         </header>
         <p>Based on the client's need for psychiatric treatment, the risk of harm to self or others, or the inability to provide self-care.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Criteria — all must apply</h4>
             <ul>
@@ -3765,7 +3768,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Types of restraint</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Physical (mechanical)</h4>
             <p>Devices that restrict movement — wrist/ankle straps, vests, etc.</p>
@@ -3813,7 +3816,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Requirements when seclusion or restraint IS used</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Prescription</h4>
             <ul>
@@ -3848,7 +3851,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Ongoing monitoring</span>
         </header>
         <p>The facility protocol identifies the nursing responsibilities. The client should be:</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Frequency-based care</h4>
             <ul>
@@ -3885,7 +3888,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Willful actions that violate rights</span>
         </header>
         <p>Intentional torts are willful actions that damage a client's property or violate client rights.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>False imprisonment</h4>
             <p>Confining a client to a specific area (e.g., a seclusion room) physically, verbally, or using a chemical restraint <strong>when it is not part of the client's treatment</strong> (i.e., not to prevent harm to self/others).</p>
@@ -3914,7 +3917,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Failure of duty</span>
         </header>
         <p>Actions or inactions that cause unintended harm as a result of failing to meet one's duty of care.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Negligence</h4>
             <p>Failing to provide adequate care in a personal or professional situation when one has an obligation to do so.</p>
@@ -3942,7 +3945,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Three documentation domains</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>1. Client behavior — objectively</h4>
             <p><em>Example:</em> "The client suddenly began to run down the hall with both hands in the air, screaming obscenities." (NOT: "The client acted out.")</p>
@@ -3963,7 +3966,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Objective vs subjective — examples</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>✓ Objective — do this</h4>
             <ul>
@@ -4285,7 +4288,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Six components of verbal communication</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Vocabulary</h4>
             <ul>
@@ -4346,7 +4349,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Watch + match to verbal</span>
         </header>
         <p>Pay attention to these behaviors and compare them to the verbal message being conveyed. Incongruence between verbal and nonverbal is clinically significant.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Body presentation</h4>
             <ul>
@@ -4414,7 +4417,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Assessment phase</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>General assessment</h4>
             <ul>
@@ -4510,7 +4513,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Personal qualities the nurse brings</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Caring attitude</h4>
             <p>Show concern and facilitate an emotional connection with the client and the client's family.</p>
@@ -4543,7 +4546,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Silence and active listening</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Silence</h4>
             <p>Silence allows time for <strong>meaningful reflection</strong>. Resist the urge to fill every pause.</p>
@@ -4560,7 +4563,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Questions — four types</h3>
         </header>
         <p>Questions allow the nurse to obtain specific or additional information from the client.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Open-ended questions</h4>
             <p>Facilitate spontaneous responses and interactive discussion.</p>
@@ -4590,7 +4593,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Confirm understanding</span>
         </header>
         <p>Used to determine if the message received was accurate.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Restating</h4>
             <p>Uses the client's <strong>exact words</strong>.</p>
@@ -4617,7 +4620,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Other key techniques</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Offering general leads / broad opening statements</h4>
             <p>Encourages the client to determine where the communication can start and to continue talking.</p>
@@ -4669,7 +4672,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Ten barriers to therapeutic communication</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Personal injection</h4>
             <ul>
@@ -4922,7 +4925,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Always healthy</span>
         </header>
         <p>Dealing with anxiety by <strong>reaching out to others</strong>.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Adaptive use</h4>
             <p>A nurse who lost a family member in a fire is a volunteer firefighter.</p>
@@ -4940,7 +4943,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Always healthy</span>
         </header>
         <p>Dealing with <strong>unacceptable feelings or impulses</strong> by unconsciously substituting acceptable forms of expression.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Adaptive use</h4>
             <p>A person who has feelings of anger and hostility toward their work supervisor sublimates those feelings by working out vigorously at the gym during their lunch period.</p>
@@ -4958,7 +4961,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Voluntary / conscious</span>
         </header>
         <p><strong>Voluntarily denying</strong> unpleasant thoughts and feelings.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Adaptive use</h4>
             <p>A student puts off thinking about a fight they had with a friend so they can focus on a test.</p>
@@ -4976,7 +4979,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Unconscious — vs suppression</span>
         </header>
         <p><strong>Unconsciously</strong> putting unacceptable ideas, thoughts, and emotions out of awareness. Key contrast: suppression = voluntary; repression = involuntary/unconscious.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Adaptive use</h4>
             <p>A person preparing to give a speech unconsciously forgets about the time when they were young and kids laughed at them while on stage.</p>
@@ -4994,7 +4997,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Childlike behaviors</span>
         </header>
         <p>Sudden use of <strong>childlike or primitive behaviors</strong> that do not correlate with the person's current developmental level.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Adaptive use</h4>
             <p>A young child temporarily wets the bed when they learn that their pet died.</p>
@@ -5012,7 +5015,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Shifting feelings</span>
         </header>
         <p>Shifting feelings related to an object, person, or situation to <strong>another less threatening</strong> object, person, or situation.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Adaptive use</h4>
             <p>An adolescent angrily punches a punching bag after losing a game.</p>
@@ -5030,7 +5033,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Demonstrating the opposite</span>
         </header>
         <p>Unacceptable feelings or behaviors are controlled or kept out of awareness by <strong>overcompensating or demonstrating the opposite</strong> behavior of what is felt.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Adaptive use</h4>
             <p>A person who is trying to quit smoking repeatedly talks to adolescents about the dangers of nicotine.</p>
@@ -5048,7 +5051,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Making up for prior behavior</span>
         </header>
         <p>Performing an act to <strong>make up for prior behavior</strong> (most commonly seen in children).</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Adaptive use</h4>
             <p>An adolescent completes their chores without being prompted after having an argument with their parent.</p>
@@ -5066,7 +5069,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Reasonable-sounding excuse</span>
         </header>
         <p>Creating <strong>reasonable and acceptable explanations</strong> for unacceptable behavior.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Adaptive use</h4>
             <p>An adolescent says, "They must already have a boyfriend" when rejected by another adolescent.</p>
@@ -5084,7 +5087,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Assuming others' characteristics</span>
         </header>
         <p>Conscious or unconscious <strong>assumption of the characteristics</strong> of another individual or group.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Adaptive use</h4>
             <p>A child who has a chronic illness pretends to be a nurse for their dolls.</p>
@@ -5102,7 +5105,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Logic over emotion</span>
         </header>
         <p><strong>Separation of emotions and logical facts</strong> when analyzing or coping with a situation or event.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Adaptive use</h4>
             <p>A law enforcement officer blocks out the emotional aspect of a crime so they can objectively focus on the investigation.</p>
@@ -5120,7 +5123,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Compartmentalization</span>
         </header>
         <p>A <strong>disruption in consciousness, memory, identity, or perception</strong> of the environment that results in compartmentalization of uncomfortable or unpleasant aspects of oneself.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Adaptive use</h4>
             <p>A parent blocks out the distracting noise of their children in order to focus while driving in traffic.</p>
@@ -5138,7 +5141,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Stress → physical symptoms</span>
         </header>
         <p>Responding to stress through the <strong>unconscious development of physical manifestations</strong> not caused by a physical illness.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Adaptive use</h4>
             <p>None.</p>
@@ -5156,7 +5159,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">All good / all bad</span>
         </header>
         <p>Demonstrating an <strong>inability to reconcile negative and positive attributes</strong> of self or others into a cohesive image. Common in borderline personality disorder.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Adaptive use</h4>
             <p>None.</p>
@@ -5174,7 +5177,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Truth isn't real</span>
         </header>
         <p>Pretending the truth is <strong>not reality</strong> to manage unpleasant, anxiety-causing thoughts or feelings.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Adaptive use</h4>
             <p>A person initially says, "No, that can't be true" when told they have cancer.</p>
@@ -5192,7 +5195,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Strengths cover weaknesses</span>
         </header>
         <p>Emphasizing <strong>strengths to make up for weaknesses</strong>.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Adaptive use</h4>
             <p>An adolescent who is physically unable to play contact sports excels in academic competitions.</p>
@@ -5210,7 +5213,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Attributing onto others</span>
         </header>
         <p>Attributing one's <strong>unacceptable thoughts and feelings onto another</strong> who does not have them.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Adaptive use</h4>
             <p>None.</p>
@@ -5273,7 +5276,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">↑ perception</span>
         </header>
         <p>Occurs in the normal experience of everyday living.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Perception &amp; cognition</h4>
             <ul>
@@ -5299,7 +5302,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Selective inattention</span>
         </header>
         <p>Occurs when mild anxiety escalates.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Perception &amp; cognition</h4>
             <ul>
@@ -5329,7 +5332,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Severe anxiety</h3>
           <span class="condition-tag">No learning possible</span>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Perception &amp; cognition</h4>
             <ul>
@@ -5360,7 +5363,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Reality slips</span>
         </header>
         <p>Characterized by markedly disturbed behavior.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Perception &amp; cognition</h4>
             <ul>
@@ -5393,7 +5396,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Mild to moderate anxiety</h3>
           <span class="condition-tag">Engage, process, build coping</span>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Use active listening &amp; specific techniques</h4>
             <p><strong>Open-ended questions, broad openings, exploring, seeking clarification.</strong></p>
@@ -5425,7 +5428,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Safety, simplicity, stay</span>
         </header>
         <p>The client cannot take direction or learn. The focus shifts to safety and reducing arousal.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Provide a safe environment; stay with the client</h4>
             <p>Provide an environment that meets the physical and safety needs of the client. <strong>Remain with the client and remain calm.</strong></p>
@@ -5718,7 +5721,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Critical distinction</span>
         </header>
         <p>The nurse practices <strong>empathy</strong> by remaining nonjudgmental and attempting to understand the client's actions and feelings.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Empathy (therapeutic)</h4>
             <p>Objective awareness and understanding of the feelings of others. The nurse <em>understands</em> what the client feels without taking it on.</p>
@@ -5753,7 +5756,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Characteristics of the therapeutic milieu</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Physical setting</h4>
             <ul>
@@ -5835,7 +5838,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Blurred vs maintained boundaries</h3>
         </header>
         <p><strong>Blurred boundaries</strong> occur if the relationship begins to meet the needs of the <em>nurse</em> rather than those of the client, or if the relationship becomes social rather than therapeutic.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Social relationship</h4>
             <p>Primary purpose is <strong>socialization or friendship</strong> with a focus on the <strong>mutual needs</strong> of the individuals involved.</p>
@@ -5853,7 +5856,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Client → Nurse</span>
         </header>
         <p>Transference occurs when the <strong>client views a member of the health care team as having characteristics of another person</strong> who has been significant to the client's personal life.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Behaviors</h4>
             <ul>
@@ -5879,7 +5882,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Nurse → Client</span>
         </header>
         <p>Countertransference occurs when a <strong>health care team member displaces characteristics of people in their past onto a client</strong>.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Behaviors</h4>
             <ul>
@@ -5934,7 +5937,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Seclusion, restraint, and emergency planning</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Seclusion &amp; restraint</h4>
             <ul>
@@ -5976,7 +5979,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Therapy formats</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Individual therapy</h4>
             <p>Scheduled sessions with a mental health provider to address <strong>specific mental health concerns</strong> (e.g., depression).</p>
@@ -6027,7 +6030,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Orientation phase</h3>
           <span class="condition-tag">Setting up the relationship</span>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Nurse tasks</h4>
             <ul>
@@ -6061,7 +6064,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Working phase</h3>
           <span class="condition-tag">Doing the work</span>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Nurse tasks</h4>
             <ul>
@@ -6099,7 +6102,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <h3 class="condition-name">Termination phase</h3>
           <span class="condition-tag">Wrapping up</span>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Nurse tasks</h4>
             <ul>
@@ -6375,7 +6378,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Locked, intensive, short-term</span>
         </header>
         <p>Provides intensive treatment and supervision in <strong>locked units</strong> for clients who have severe mental illness and who present a danger to self or others. Care helps stabilize manifestations and promotes the client's <strong>rapid return to the community</strong>.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Staff &amp; structure</h4>
             <ul>
@@ -6405,7 +6408,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Primary care + prevention</span>
         </header>
         <p>Primary care is provided in community-based settings. Nurses help stabilize or improve clients' mental functioning within the community. They teach, support, and make referrals to promote positive social activities.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Types of community settings</h4>
             <ul>
@@ -6449,7 +6452,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Timeline of mental health care</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Pre-1950s</h4>
             <p>Most clients with severe mental illness were treated <strong>solely in acute care facilities</strong>.</p>
@@ -6569,7 +6572,7 @@ article.exercise.nclex-hidden{ display: none !important }
           <span class="condition-tag">Public health framework</span>
         </header>
         <p>Three levels of prevention are used by nurses when implementing community care interventions and teaching.</p>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Primary prevention</h4>
             <p><strong>Promotes health and emphasizes efforts on preventing mental health problems from occurring.</strong></p>
@@ -6667,7 +6670,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Registered Nurse</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Educational preparation</h4>
             <p>Diploma, associate degree, or baccalaureate degree in nursing, with additional <strong>on-the-job training and continuing education</strong> in mental health care.</p>
@@ -6687,7 +6690,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Advanced Practice Nurse</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Educational preparation</h4>
             <p><strong>Advanced nursing degree in behavioral health</strong> — master's degree, doctorate, nurse practitioner, or clinical nurse specialist.</p>
@@ -6938,7 +6941,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Transference vs. countertransference</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Transference</h4>
             <ul>
@@ -6976,7 +6979,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Talk-based therapies</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Psychodynamic psychotherapy</h4>
             <ul>
@@ -7024,7 +7027,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Combined cognitive-behavioral approaches</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Cognitive-behavioral therapy (CBT)</h4>
             <ul>
@@ -7079,7 +7082,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Reinforcement &amp; modeling</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Modeling</h4>
             <ul>
@@ -7101,7 +7104,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Exposure-based techniques</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Systematic desensitization</h4>
             <ul>
@@ -7341,7 +7344,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Leadership styles</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Democratic</h4>
             <ul><li>Supports group interaction and decision-making to solve problems</li></ul>
@@ -7402,7 +7405,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Member roles</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Maintenance roles</h4>
             <ul><li>Help maintain the purpose/process (e.g., the <strong>harmonizer</strong> prevents conflict)</li></ul>
@@ -7422,7 +7425,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Characteristics by setting</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Acute mental health setting</h4>
             <ul><li>Members vary daily; focus on <strong>relief</strong>; unit activities affect the group; leader provides a <strong>higher level of structure</strong></li></ul>
@@ -7501,7 +7504,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Communication &amp; boundaries</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Healthy</h4>
             <ul>
@@ -7529,7 +7532,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Management, socialization &amp; emotional support</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Healthy</h4>
             <ul>
@@ -7795,7 +7798,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Acute vs. prolonged stress</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Acute stress (fight or flight)</h4>
             <ul>
@@ -8067,7 +8070,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Indications</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Major depressive disorder</h4>
             <ul>
@@ -8432,7 +8435,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Social phobia, panic disorder &amp; GAD</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Social phobia</h4>
             <ul><li>Difficulty performing/speaking in front of others; excessive fear of embarrassment; may report physical manifestations to avoid the situation</li></ul>
@@ -8781,7 +8784,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">ASD &amp; PTSD</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Intrusive &amp; avoidance</h4>
             <ul>
@@ -9139,7 +9142,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Manifestations</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Core &amp; vegetative</h4>
             <ul>
@@ -9178,7 +9181,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Acute, continuation &amp; maintenance</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Acute</h4>
             <ul><li>Severe findings; ~6-12 weeks; possible hospitalization; goal is symptom reduction; <strong>assess suicide risk and implement safety precautions/1:1 observation</strong></li></ul>
@@ -9220,7 +9223,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Antidepressant classes</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>SSRIs (leading treatment)</h4>
             <ul><li>Citalopram, fluoxetine, sertraline; watch for <strong>serotonin syndrome</strong> and sexual dysfunction; avoid St. John's wort</li></ul>
@@ -9495,7 +9498,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Types &amp; comorbidities</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Types</h4>
             <ul>
@@ -9522,7 +9525,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Manic vs. depressive characteristics</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Manic</h4>
             <ul>
@@ -9853,7 +9856,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Positive vs. negative</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Positive (things added)</h4>
             <ul><li>Hallucinations, delusions, alterations in speech, bizarre behavior — the most easily identified</li></ul>
@@ -9967,7 +9970,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Antipsychotic generations</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>First-generation (conventional)</h4>
             <ul><li>Haloperidol, loxapine, chlorpromazine, fluphenazine; mainly <strong>positive</strong> symptoms; monitor <strong>EPS</strong> (dystonia, akathisia, pseudoparkinsonism, tardive dyskinesia)</li></ul>
@@ -10224,7 +10227,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Clusters A, B &amp; C</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Cluster A (odd/eccentric)</h4>
             <ul>
@@ -10511,7 +10514,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Key differences</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Delirium</h4>
             <ul>
@@ -10606,7 +10609,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Alzheimer's medications</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Cholinesterase inhibitors</h4>
             <ul>
@@ -10644,7 +10647,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Home safety &amp; caregiver support</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Home safety measures</h4>
             <ul>
@@ -10953,7 +10956,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">CNS stimulants</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Cocaine &amp; amphetamines</h4>
             <ul>
@@ -11257,7 +11260,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Bulimia &amp; binge eating disorder</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Bulimia nervosa</h4>
             <ul>
@@ -11311,7 +11314,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Physical findings by system</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Integumentary &amp; HEENT</h4>
             <ul>
@@ -12464,7 +12467,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Lithium toxicity (by level)</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Early (&lt; 2.0 mEq/L)</h4>
             <ul><li>Diarrhea, nausea/vomiting, thirst, polyuria, muscle weakness, coarse tremors, slurred speech, mental confusion — <strong>withhold and notify provider</strong></li></ul>
@@ -12500,7 +12503,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Key adverse effects by agent</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Carbamazepine</h4>
             <ul><li>CNS effects (nystagmus, diplopia, ataxia); <strong>blood dyscrasias</strong> and hyponatremia (monitor CBC/platelets and sodium); induces hepatic enzymes, decreasing effects of oral contraceptives and warfarin</li></ul>
@@ -12746,7 +12749,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">The four EPS</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Acute dystonia (1-5 days)</h4>
             <ul><li>Severe spasm of tongue, neck, face, back — a <strong>crisis</strong>; treat with benztropine or IM/IV diphenhydramine; monitor airway</li></ul>
@@ -13317,7 +13320,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Withdrawal manifestations</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Alcohol</h4>
             <ul><li>Begins ~4-12 hr after the last intake: tremors, restlessness, increased vital signs, diaphoresis, possible <strong>tonic-clonic seizures</strong>; alcohol withdrawal delirium (2-3 days after cessation) is a <strong>medical emergency</strong></li></ul>
@@ -13630,7 +13633,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Stage theories</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Kübler-Ross (5 stages)</h4>
             <ul><li>Denial → Anger → Bargaining → Depression → Acceptance</li></ul>
@@ -15043,7 +15046,7 @@ article.exercise.nclex-hidden{ display: none !important }
         <header class="condition-head">
           <h3 class="condition-name">Vulnerable person &amp; perpetrator</h3>
         </header>
-        <div class="finding-grid">
+        <div class="finding-grid wide-box-grid">
           <div class="finding-card">
             <h4>Vulnerable person</h4>
             <ul><li>Low self-esteem, helplessness, guilt, shame; attempts to protect the perpetrator and accept responsibility; denial; anger and terror</li></ul>
