@@ -723,6 +723,45 @@ body.brief-mode .brief-banner{display:block}
   gap:8px;
   padding:10px 0 14px;
 }
+.modal-action-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  width:100%;
+}
+.modal-chapter-nav{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-left:auto;
+}
+.modal-chapter-nav-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  min-height:34px;
+  padding:7px 12px;
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:8px;
+  color:var(--text2);
+  font-family:inherit;
+  font-size:12px;
+  font-weight:600;
+  line-height:1;
+  cursor:pointer;
+  transition:all .15s;
+}
+.modal-chapter-nav-btn:hover:not(:disabled){
+  border-color:var(--accent);
+  color:var(--accent);
+}
+.modal-chapter-nav-btn:disabled{
+  opacity:.42;
+  cursor:not-allowed;
+}
 .modal-tabs-wrap{
   position:relative;
   flex:1;
@@ -801,6 +840,17 @@ body.brief-mode .brief-banner{display:block}
   }
   .modal-header{padding:16px 18px 0}
   .modal-title{font-size:22px}
+  .modal-action-row{
+    align-items:stretch;
+    flex-direction:column;
+  }
+  .modal-chapter-nav{
+    width:100%;
+    margin-left:0;
+  }
+  .modal-chapter-nav-btn{
+    flex:1;
+  }
   .modal-body{padding:20px 18px 40px}
 }
 body.modal-open{overflow:hidden}
@@ -21031,9 +21081,19 @@ antipyretics, with development of other Manifestations</p>
         <button class="modal-close" id="modalClose" type="button" aria-label="Close chapter">×</button>
       </div>
       <div class="modal-controls">
-                <button class="modal-fc-btn" id="modalFcBtn" type="button" title="Open flashcards for this chapter">
-          🃏 <span>Flashcards for this chapter</span>
-        </button>
+        <div class="modal-action-row">
+          <button class="modal-fc-btn" id="modalFcBtn" type="button" title="Open flashcards for this chapter">
+            🃏 <span>Flashcards for this chapter</span>
+          </button>
+          <div class="modal-chapter-nav" aria-label="Chapter navigation">
+            <button class="modal-chapter-nav-btn" id="modalPrevChapterBtn" type="button" aria-label="Previous chapter">
+              <span aria-hidden="true">←</span><span>Previous</span>
+            </button>
+            <button class="modal-chapter-nav-btn" id="modalNextChapterBtn" type="button" aria-label="Next chapter">
+              <span>Next</span><span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
         <div class="modal-tabs-wrap" id="modalTabsWrap">
           <nav class="modal-tabs" id="modalTabs" aria-label="Chapter sections"></nav>
         </div>
@@ -21252,7 +21312,10 @@ antipyretics, with development of other Manifestations</p>
   var modalTabs = document.getElementById('modalTabs');
   var modalClose = document.getElementById('modalClose');
   var modalTabsWrap = document.getElementById('modalTabsWrap');
+  var modalPrevChapterBtn = document.getElementById('modalPrevChapterBtn');
+  var modalNextChapterBtn = document.getElementById('modalNextChapterBtn');
   var pool = document.getElementById('chapterPool');
+  var modalCurrentChapterId = null;
 
   function updateTabFade(){
     if (!modalTabs || !modalTabsWrap) return;
@@ -21279,9 +21342,71 @@ antipyretics, with development of other Manifestations</p>
     return label;
   }
 
+  function getChapterIds(){
+    return Array.prototype.slice.call(pool.querySelectorAll('.chapter[id]'))
+      .map(function(chapter){ return chapter.id; })
+      .filter(function(id){ return /^ch\d+$/.test(id); });
+  }
+
+  function getActiveModalTabId(){
+    var activeBtn = modalTabs ? modalTabs.querySelector('.tab-btn.active') : null;
+    return activeBtn ? activeBtn.getAttribute('data-tab-for') : null;
+  }
+
+  function getAdjacentChapterId(chapterId, direction){
+    var ids = getChapterIds();
+    var index = ids.indexOf(chapterId);
+    if (index === -1) return null;
+    return ids[index + direction] || null;
+  }
+
+  function resolveAdjacentTabId(targetChapterId){
+    var activeTabId = getActiveModalTabId();
+    var targetChapter = pool.querySelector('#' + targetChapterId);
+    if (!targetChapter) return targetChapterId;
+    if (activeTabId && modalCurrentChapterId && activeTabId.indexOf(modalCurrentChapterId) === 0) {
+      var matchingTabId = targetChapterId + activeTabId.substring(modalCurrentChapterId.length);
+      if (targetChapter.querySelector('#' + matchingTabId)) return matchingTabId;
+    }
+    if (targetChapter.querySelector('#' + targetChapterId + '-outline')) return targetChapterId + '-outline';
+    var firstSection = targetChapter.querySelector(':scope > section[id]');
+    return firstSection ? firstSection.id : targetChapterId;
+  }
+
+  function updateModalChapterNav(chapterId){
+    modalCurrentChapterId = chapterId;
+    var prevId = getAdjacentChapterId(chapterId, -1);
+    var nextId = getAdjacentChapterId(chapterId, 1);
+    if (modalPrevChapterBtn) {
+      modalPrevChapterBtn.disabled = !prevId;
+      modalPrevChapterBtn.setAttribute('aria-disabled', prevId ? 'false' : 'true');
+      modalPrevChapterBtn.dataset.targetChapter = prevId || '';
+    }
+    if (modalNextChapterBtn) {
+      modalNextChapterBtn.disabled = !nextId;
+      modalNextChapterBtn.setAttribute('aria-disabled', nextId ? 'false' : 'true');
+      modalNextChapterBtn.dataset.targetChapter = nextId || '';
+    }
+  }
+
+  function navigateModalChapter(direction){
+    if (!modalCurrentChapterId) return;
+    var targetChapterId = getAdjacentChapterId(modalCurrentChapterId, direction);
+    if (!targetChapterId) return;
+    var targetTabId = resolveAdjacentTabId(targetChapterId);
+    var nextHash = '#' + targetTabId;
+    if (window.location.hash === nextHash) {
+      var opener = window.openChapter || openChapter;
+      opener(targetChapterId, targetTabId);
+    } else {
+      window.location.hash = nextHash;
+    }
+  }
+
   function openChapter(chapterId, initialTabId) {
     var chapter = pool.querySelector('#' + chapterId);
     if (!chapter) return;
+    updateModalChapterNav(chapterId);
 
     // Header metadata
     var meta = chapter.querySelector('.chapter-meta');
@@ -21372,6 +21497,7 @@ antipyretics, with development of other Manifestations</p>
 
   function closeChapterModal(){
     clearSearchHighlights(modalBody);
+    modalCurrentChapterId = null;
     modalOverlay.classList.remove('show');
     modalOverlay.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
@@ -21419,6 +21545,16 @@ antipyretics, with development of other Manifestations</p>
   });
 
   modalClose.addEventListener('click', closeChapterModal);
+  if (modalPrevChapterBtn) {
+    modalPrevChapterBtn.addEventListener('click', function(){
+      navigateModalChapter(-1);
+    });
+  }
+  if (modalNextChapterBtn) {
+    modalNextChapterBtn.addEventListener('click', function(){
+      navigateModalChapter(1);
+    });
+  }
   modalOverlay.addEventListener('click', function(e){
     if (e.target === modalOverlay) closeChapterModal();
   });
@@ -21441,6 +21577,26 @@ antipyretics, with development of other Manifestations</p>
       if (window.innerWidth <= 900) setTimeout(closeSidebarPanel, 80);
     });
   });
+
+  window.openChapter = openChapter;
+
+  function openChapterFromHash(){
+    var match = window.location.hash.match(/^#(ch\d+)(?:-(.+))?$/);
+    if (!match) return;
+    var chapterId = match[1];
+    var fullTargetId = window.location.hash.substring(1);
+    if (!pool.querySelector('#' + chapterId)) return;
+    var opener = window.openChapter || openChapter;
+    opener(chapterId, fullTargetId);
+    setTimeout(function(){
+      var pillTarget = modalBody.querySelector('#' + fullTargetId);
+      if (pillTarget && !pillTarget.classList.contains('tab-panel')) {
+        pillTarget.scrollIntoView({behavior: 'smooth', block: 'start'});
+      }
+    }, 350);
+  }
+  window.addEventListener('hashchange', openChapterFromHash);
+  setTimeout(openChapterFromHash, 0);
 
   // Bind abbreviations on the page-level (sidebar etc.)
 
@@ -22291,12 +22447,12 @@ antipyretics, with development of other Manifestations</p>
   }
   // Hook into openChapter: record + show flashcards button (deferred until openChapter exists)
   function _installCrossToolHook(){
-    if (typeof openChapter !== 'function'){
+    if (typeof window.openChapter !== 'function'){
       setTimeout(_installCrossToolHook, 100);
       return;
     }
-    var _origOpenChapter = openChapter;
-    openChapter = function(chapterId, initialTabId){
+    var _origOpenChapter = window.openChapter;
+    window.openChapter = function(chapterId, initialTabId){
       _origOpenChapter(chapterId, initialTabId);
     var chapter = document.getElementById(chapterId);
     var name = chapter ? (chapter.querySelector('.chapter-name') || {}).textContent : '';
@@ -22460,10 +22616,10 @@ antipyretics, with development of other Manifestations</p>
       // Otherwise jump to the bookmark
       var chapterId = item.getAttribute('data-chapter-id');
       var sectionId = item.getAttribute('data-section-id');
-      if (chapterId && typeof openChapter === 'function'){
+      if (chapterId && typeof window.openChapter === 'function'){
         var overlay = document.getElementById('bookmarksOverlay');
         if (overlay) overlay.classList.remove('show');
-        openChapter(chapterId, sectionId);
+        window.openChapter(chapterId, sectionId);
       }
     }
   });
@@ -22474,11 +22630,11 @@ antipyretics, with development of other Manifestations</p>
   // Hook into chapter modal opening to add bookmark buttons after content renders
   var _origOpenForBookmarks = window.openChapter || null;
   function _withBookmarkInject(){
-    if (typeof openChapter !== 'function'){
+    if (typeof window.openChapter !== 'function'){
       setTimeout(_withBookmarkInject, 100);
       return;
     }
-    var orig = openChapter;
+    var orig = window.openChapter;
     window.openChapter = function(chapterId, initialTabId){
       orig(chapterId, initialTabId);
       // Defer button injection until DOM updates
@@ -22823,11 +22979,11 @@ antipyretics, with development of other Manifestations</p>
   
   // Hook openChapter to inject the filter bar after content loads
   function _withNclexInject(){
-    if (typeof openChapter !== 'function'){
+    if (typeof window.openChapter !== 'function'){
       setTimeout(_withNclexInject, 100);
       return;
     }
-    var orig = openChapter;
+    var orig = window.openChapter;
     window.openChapter = function(chapterId, initialTabId){
       orig(chapterId, initialTabId);
       setTimeout(injectNclexFilterBar, 75);  // after the bookmark injection
