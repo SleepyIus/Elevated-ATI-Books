@@ -671,4 +671,56 @@ Validation:
 Still deferred:
 
 - Pharm educational enrichment remains paused in DESIGN-CANON / HOLD-CONTENT mode.
-- The rollout has not yet been applied to every remaining non-MN template file.
+- This Pharm-only note is superseded by the full non-MN template rollout completion audit below.
+
+## Rollout Completion Audit: 2026-07-05 Non-MN Template Files
+
+Reason for audit:
+
+- User asked to proceed with the current best path before restarting heartbeat automation.
+- This was a design/canon verification pass only; no educational content, templates, cards, prompts, or enrichment were added.
+
+Files checked:
+
+- `Elevated ATI AMS Templates.html`
+- `Elevated ATI MH Templates.html`
+- `Elevated ATI PD Templates.html`
+- `Elevated ATI Pharm Templates.html`
+- `Elevated ATI MN Templates.html` was intentionally not touched.
+
+Completion evidence:
+
+- All current non-MN template files now use the approved template-canon shell: fixed template navigation, template-type accordion grouping, compact worked-example rows, search, modal worked examples, Filled/Blank modal mode, print, and same-type Previous/Next navigation.
+- All current non-MN template files contain `templateModal`, `buildMnTemplateLayout()`, and same-type Previous/Next navigation.
+- No current non-MN template file contains the old `exampleModal` shell.
+- Correct subject H1 labels are now confirmed:
+  - AMS: Adult Med-Surg Templates.
+  - MH: Mental Health Nursing Templates.
+  - PD: Pediatric Templates.
+  - Pharm: Pharmacology Templates.
+- Cleanup made during this pass: corrected the MH template hub H1 from the stale AMS label to the MH subject label.
+
+Count evidence:
+
+- AMS Templates: 84 total template cards, 8 actual prototype fixtures, 76 normal template cards.
+- MH Templates: 71 total template cards, 0 actual prototype fixtures.
+- PD Templates: 179 total template cards, 0 actual prototype fixtures.
+- Pharm Templates: 249 total template cards, 0 actual prototype fixtures.
+
+Validation:
+
+- Script parsing passed for all four current non-MN template files.
+- Static canon-feature sweep passed for all four current non-MN template files.
+- Subject-label sweep passed after the MH H1 cleanup.
+- This pass did not perform educational source verification because no educational content was authored.
+
+Current decision:
+
+- Template-canon rollout is complete for all current non-MN template files in the repo.
+- Do not restart the older heartbeat prompt that says to begin one-book-at-a-time template-canon rollout unless it is updated, because there is no remaining non-MN template file to roll out in the current repo.
+
+Next recommendation:
+
+- Move next to a Flashcards design-canon audit/rollout plan, because flashcards are the next shared public shell likely to benefit from canon alignment.
+- Start with an audit-only pass across AMS, MH, PD, and Pharm Flashcards.
+- Keep content population paused: do not add flashcards or educational content during DESIGN-CANON / HOLD-CONTENT mode.
