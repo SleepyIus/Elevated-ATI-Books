@@ -142,7 +142,7 @@ body{
 }
 .sidebar-progress-fill{
   height:100%;background:var(--accent);
-  border-radius:2px;transition:width 0.3s;
+  width:0;border-radius:2px;transition:width 0.3s;
 }
 .sidebar-progress-text{
   font-size:10px;color:var(--text3);font-weight:600;
@@ -155,9 +155,15 @@ body{
   display:flex;align-items:center;gap:5px;
   font-size:10px;color:var(--text3);font-weight:500;
 }
-.legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.legend-dot.live{background:var(--reassuring)}
-.legend-dot.pending{background:var(--indeterminate)}
+.legend-dot{
+  width:8px;height:8px;border-radius:50%;flex-shrink:0;
+  border:1px solid transparent;
+}
+.legend-dot.checked{background:var(--accent)}
+.legend-dot.reviewed{
+  background:var(--accent-soft);
+  border-color:var(--accent);
+}
 
 /* Sidebar nav — flat list of templates */
 .sidebar-list{
@@ -853,7 +859,11 @@ body.modal-open{overflow:hidden}
 .exam-reset button:hover{color:#e05c6a;background:rgba(224,92,106,0.08)}
 
 /* Sidebar search */
-.sidebar-search{position:relative;padding:0 12px 12px}
+.sidebar-search{
+  position:relative;
+  padding:10px 16px;
+  border-bottom:1px solid var(--border);
+}
 #searchInput{
   width:100%;background:var(--bg);
   border:1px solid var(--border);color:var(--text);
@@ -1010,39 +1020,48 @@ body.modal-open{overflow:hidden}
 
 
 /* ===== Collapsible sidebar template groups ===== */
-.sidebar-list{padding:0 12px 24px}
+.sidebar-list{padding:8px 0 24px}
 .sidebar-section-label{
   font-family:'DM Sans',sans-serif;
-  font-size:10px;font-weight:700;
-  text-transform:uppercase;letter-spacing:0.14em;
+  font-size:10px;font-weight:800;
+  text-transform:uppercase;letter-spacing:0.12em;
   color:var(--text3);
-  padding:14px 8px 8px;
+  padding:14px 16px 4px;
 }
-.sb-tpl-group{margin-bottom:2px}
+.sb-tpl-group{margin:0 8px 2px}
 .sb-tpl-header{
   width:100%;display:flex;align-items:center;gap:8px;
   padding:9px 10px;
-  background:transparent;border:none;cursor:pointer;
+  background:transparent;border:0;cursor:pointer;
   color:var(--text2);
-  font-family:'DM Sans',sans-serif;font-size:13px;text-align:left;
+  font:inherit;font-size:13px;text-align:left;
   border-radius:7px;
-  transition:background .15s ease, color .15s ease;
+  transition:background .15s,color .15s;
 }
-.sb-tpl-header:hover{background:var(--surface);color:var(--text)}
+.sb-tpl-header:hover{background:var(--surface2);color:var(--text)}
+.sb-tpl-group.active > .sb-tpl-header{
+  background:var(--surface2);
+  color:var(--text);
+}
+.sb-tpl-group.reviewed .sb-tpl-count,
+.sb-tpl-group.checked .sb-tpl-count{
+  border-color:var(--accent);
+  color:var(--accent);
+}
 .sb-tpl-num{
-  flex-shrink:0;width:22px;
-  font-size:10px;font-weight:600;color:var(--text3);letter-spacing:0.06em;
+  flex-shrink:0;width:28px;
+  font-size:10px;font-weight:800;color:var(--text3);letter-spacing:0.06em;
 }
-.sb-tpl-name{flex:1;font-weight:500}
+.sb-tpl-name{flex:1;min-width:0;font-weight:600}
 .sb-tpl-count{
   flex-shrink:0;font-size:10px;color:var(--text3);
   background:var(--surface2);border:1px solid var(--border-soft);
   padding:1px 6px;border-radius:8px;
-  min-width:18px;text-align:center;
+  min-width:22px;text-align:center;
 }
 .sb-tpl-caret{
   flex-shrink:0;font-size:10px;color:var(--text3);
-  transition:transform .2s ease;
+  transition:transform .2s;
 }
 .sb-tpl-group.collapsed .sb-tpl-caret{transform:rotate(-90deg)}
 .sb-tpl-group.collapsed .sb-tpl-examples{display:none}
@@ -1051,13 +1070,13 @@ body.modal-open{overflow:hidden}
   display:flex;flex-direction:column;gap:2px;
 }
 .sb-tpl-example{
-  display:block;padding:6px 12px;
+  display:block;padding:8px 12px;
   font-size:12px;color:var(--text3);
   text-decoration:none;
   border-radius:6px;
   border-left:2px solid var(--border-soft);
   margin-left:-1px;
-  transition:all .12s ease;
+  transition:all .12s;
 }
 .sb-tpl-example:hover{
   color:var(--accent);
@@ -2082,6 +2101,14 @@ isolation:isolate;}
       <div class="sb-sub">Pharmacology · Edition 8</div>
       <div class="sb-version" title="Suite v3.1.0 · built 2026-05-14">v3.1.0 · 2026-05-14</div>
       <button id="themeToggle" type="button"><span id="themeIcon">☀️</span> <span id="themeLabel">Light Mode</span></button>
+    </div>
+    <div class="sidebar-progress-wrap">
+      <div class="sidebar-progress"><div class="sidebar-progress-fill" id="tplSidebarProgress" style="width:0%"></div></div>
+      <div class="sidebar-progress-text" id="tplSidebarProgressText">0 of 0 checked</div>
+      <div class="sidebar-legend">
+        <span class="legend-item"><span class="legend-dot reviewed"></span>Reviewed</span>
+        <span class="legend-item"><span class="legend-dot checked"></span>Checked</span>
+      </div>
     </div>
     <div class="sidebar-search">
       <input id="searchInput" type="text" placeholder="Search templates &amp; examples…" autocomplete="off">
@@ -16481,8 +16508,22 @@ isolation:isolate;}
     if (barEl) barEl.style.width = (total === 0 ? 0 : (checkedCount / total) * 100) + '%';
     if (partialEl) partialEl.style.width = (total === 0 ? 0 : ((checkedCount + reviewedCount) / total) * 100) + '%';
   }
+  function updateSidebarProgress(){
+    var progressFill = document.getElementById('tplSidebarProgress');
+    var progressText = document.getElementById('tplSidebarProgressText');
+    var state = loadProgress();
+    var allExamples = [];
+    Object.keys(templateExamples).forEach(function(templateId){
+      allExamples = allExamples.concat(templateExamples[templateId] || []);
+    });
+    var checkedCount = allExamples.filter(function(id){ return state[id] === 'checked'; }).length;
+    var total = allExamples.length;
+    if (progressFill) progressFill.style.width = (total === 0 ? 0 : (checkedCount / total) * 100) + '%';
+    if (progressText) progressText.textContent = checkedCount + ' of ' + total + ' checked';
+  }
   function updateAllTemplateProgress(){
     Object.keys(templateExamples).forEach(updateTemplateProgress);
+    updateSidebarProgress();
   }
 
   // ===== Bullet click → open modal with that example =====
@@ -16948,6 +16989,7 @@ isolation:isolate;}
       Object.keys(templateExamples).forEach(function(tid){
         if (templateExamples[tid].indexOf(id) !== -1) updateTemplateProgress(tid);
       });
+      updateSidebarProgress();
     });
   });
 

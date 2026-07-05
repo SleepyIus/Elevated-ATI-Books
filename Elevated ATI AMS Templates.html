@@ -39,7 +39,28 @@
 .chips::-webkit-scrollbar-track{background:transparent}
 .chips::-webkit-scrollbar-thumb{background:var(--border);border-radius:999px}
 .chip{flex:0 0 auto}
+[hidden]{display:none!important}
 .hero p,.notice{overflow-wrap:anywhere}
+:root{
+  --tpl-font-ui:'DM Sans',sans-serif;
+  --tpl-font-display:'DM Serif Display',serif;
+  --tpl-modal-title-size:34px;
+  --tpl-modal-title-size-mobile:28px;
+  --tpl-modal-kicker-size:12px;
+  --tpl-worked-title-size:18px;
+  --tpl-source-size:12px;
+  --tpl-meta-label-size:10px;
+  --tpl-meta-value-size:14px;
+  --tpl-box-title-size:15px;
+  --tpl-subbox-title-size:13.5px;
+  --tpl-box-body-size:13.5px;
+  --tpl-dense-body-size:13px;
+  --tpl-box-pad-x:16px;
+  --tpl-box-pad-y:14px;
+  --tpl-template-width:880px;
+  --tpl-micro-letter-spacing:.14em;
+  --tpl-kicker-letter-spacing:.16em;
+}
 .template-section{
   border:1px solid var(--border-soft);
   background:var(--surface);
@@ -61,6 +82,2258 @@
   border-color:var(--accent);
   background:var(--accent-soft);
 }
+.template-toolbar{
+  display:none;
+  grid-template-columns:1fr auto auto;
+  gap:10px;
+  align-items:center;
+  margin:0 0 18px;
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--surface);
+}
+.view-toggle,.status-filter{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+.view-toggle{
+  display:none;
+}
+.view-mode-btn,.status-chip,.template-study-btn,.template-check,.template-reset-btn,.modal-print{
+  border:1px solid var(--border);
+  background:var(--surface2);
+  color:var(--text);
+  border-radius:8px;
+  padding:8px 10px;
+  font:inherit;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+}
+.view-mode-btn.active,.status-chip.active,.template-check[data-state="reviewed"],.template-check[data-state="checked"]{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:#06100b;
+}
+.template-check[data-state="reviewed"]{
+  background:var(--accent-soft);
+  color:var(--accent);
+}
+.tpl-result-count{
+  color:var(--text2);
+  font-size:12px;
+  font-weight:800;
+  text-align:right;
+}
+.template-reset-btn{
+  white-space:nowrap;
+}
+.exam-reset{
+  display:inline-block;
+  margin:18px 0 8px;
+}
+.exam-reset button{
+  border:1px solid var(--border);
+  background:transparent;
+  color:var(--text2);
+  border-radius:8px;
+  padding:8px 12px;
+  font:inherit;
+  font-size:12px;
+  font-weight:700;
+  cursor:pointer;
+}
+.exam-reset button:hover{
+  color:var(--accent);
+  background:var(--accent-soft);
+}
+.template-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+.template-type-group{
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--surface);
+  overflow:hidden;
+}
+.template-type-group[hidden]{display:none}
+.template-group-head{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:12px;
+  align-items:center;
+  padding:14px 16px;
+  border-bottom:1px solid var(--border);
+  background:var(--surface2);
+}
+.template-group-title{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+  font-weight:900;
+}
+.template-group-title span:first-child{
+  font-family:'DM Serif Display',serif;
+  font-size:22px;
+  font-weight:400;
+}
+.template-group-meta{
+  color:var(--text2);
+  font-size:12px;
+  font-weight:800;
+}
+.template-progress-track{
+  grid-column:1 / -1;
+  position:relative;
+  height:8px;
+  overflow:hidden;
+  border-radius:999px;
+  background:var(--surface3);
+  border:1px solid var(--border-soft);
+}
+.unit-bar-outer{
+  position:relative;
+  width:100%;
+  height:100%;
+}
+.template-progress-partial,.template-progress-fill{
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:0;
+  transition:width .18s ease;
+}
+.template-progress-partial{
+  background:rgba(52,211,153,.28);
+}
+.template-progress-fill{
+  background:var(--accent);
+}
+.template-group-body{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  padding:12px;
+}
+.template-card{
+  position:relative;
+  border-radius:9px;
+}
+.template-card[data-status="reviewed"]{
+  border-color:rgba(52,211,153,.55);
+}
+.template-card[data-status="checked"]{
+  border-color:var(--accent);
+  box-shadow:0 0 0 1px rgba(52,211,153,.18);
+}
+.template-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:auto;
+}
+.template-actions .template-link,.template-actions button{
+  margin-top:0;
+}
+.template-study-btn:hover,.template-check:hover,.template-reset-btn:hover,.modal-print:hover{
+  border-color:var(--accent);
+  background:var(--accent-soft);
+}
+.template-card[data-mode="blank"] .template-section p,
+.template-card[data-mode="blank"] .template-section li,
+.modal-template-card[data-mode="blank"] .template-section p,
+.modal-template-card[data-mode="blank"] .template-section li{
+  color:transparent;
+  user-select:none;
+}
+.template-card[data-mode="blank"] .template-section p::selection,
+.template-card[data-mode="blank"] .template-section li::selection,
+.modal-template-card[data-mode="blank"] .template-section p::selection,
+.modal-template-card[data-mode="blank"] .template-section li::selection{
+  color:transparent;
+  background:transparent;
+}
+.template-card[data-mode="blank"] .template-section li,
+.modal-template-card[data-mode="blank"] .template-section li{
+  border-bottom:1px solid var(--border);
+  min-height:1.35em;
+}
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  z-index:80;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:rgba(0,0,0,.62);
+}
+.modal-overlay.open,.modal-overlay.show{
+  display:flex;
+}
+.modal{
+  width:min(1080px,100%);
+  max-height:min(86vh,900px);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--surface);
+  box-shadow:0 24px 70px rgba(0,0,0,.36);
+}
+.modal-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  padding:28px 32px 22px;
+  border-bottom:1px solid var(--border);
+  background:var(--surface);
+}
+.modal-title-row{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  width:100%;
+}
+.modal-meta{
+  margin:0 0 8px;
+  color:var(--accent);
+  font-family:var(--tpl-font-ui);
+  font-size:var(--tpl-modal-kicker-size);
+  font-weight:800;
+  letter-spacing:var(--tpl-kicker-letter-spacing);
+  text-transform:uppercase;
+}
+.modal-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-shrink:0;
+}
+.modal-title{
+  margin:0;
+  font-family:var(--tpl-font-display);
+  font-size:var(--tpl-modal-title-size);
+  font-weight:400;
+  line-height:1.15;
+}
+.modal-subtitle{
+  margin:0 0 8px;
+  color:var(--accent);
+  font-family:var(--tpl-font-ui);
+  font-size:var(--tpl-modal-kicker-size);
+  font-weight:800;
+  letter-spacing:var(--tpl-kicker-letter-spacing);
+  text-transform:uppercase;
+}
+.modal-body{
+  overflow:auto;
+  padding:28px 32px 40px;
+}
+.modal-print,.modal-close{
+  width:36px;
+  height:36px;
+  padding:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  line-height:1;
+}
+.modal-close{
+  background:transparent;
+  border:1px solid var(--border);
+  color:var(--text2);
+  border-radius:8px;
+  font-size:20px;
+  cursor:pointer;
+  flex-shrink:0;
+  transition:all .15s;
+  line-height:1;
+}
+.modal-close:hover{
+  border-color:var(--accent);
+  color:var(--accent);
+}
+.modal-body > .example-card,
+.modal-body .example-card{
+  display:block !important;
+}
+.example-card{padding:0}
+.example-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  padding-bottom:16px;
+  margin-bottom:18px;
+  border-bottom:1px solid var(--border-soft);
+}
+.example-info{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  flex:1;
+  min-width:200px;
+}
+.example-label{
+  color:var(--text3);
+  font-family:var(--tpl-font-ui);
+  font-size:var(--tpl-meta-label-size);
+  font-weight:800;
+  letter-spacing:var(--tpl-micro-letter-spacing);
+  text-transform:uppercase;
+}
+.example-name{
+  color:var(--text);
+  font-family:var(--tpl-font-display);
+  font-size:var(--tpl-worked-title-size);
+  font-weight:400;
+}
+.example-source{
+  color:var(--text2);
+  font-family:var(--tpl-font-ui);
+  font-size:var(--tpl-source-size);
+}
+.example-source a{
+  color:var(--accent);
+  font-weight:800;
+  border-bottom:1px dotted var(--accent);
+}
+.example-controls{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  flex-wrap:wrap;
+}
+/* Canon: template modal navigation stays within the active ATI template type. */
+.template-modal-nav{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:3px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--surface2);
+}
+.template-modal-nav button{
+  border:0;
+  background:transparent;
+  color:var(--text2);
+  border-radius:7px;
+  padding:7px 10px;
+  font:inherit;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+  transition:all .15s;
+}
+.template-modal-nav button:hover:not(:disabled){
+  background:var(--accent-soft);
+  color:var(--accent);
+}
+.template-modal-nav button:disabled{
+  color:var(--text3);
+  cursor:not-allowed;
+  opacity:.45;
+}
+.template-modal-count{
+  min-width:42px;
+  color:var(--text3);
+  font-size:11px;
+  font-weight:900;
+  text-align:center;
+}
+.example-check{
+  width:20px;
+  height:20px;
+  border:2px solid var(--border);
+  border-radius:6px;
+  background:var(--bg);
+  color:transparent;
+  cursor:pointer;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all .15s;
+  font-size:12px;
+}
+.example-check:hover{border-color:var(--accent)}
+.example-check[data-state="reviewed"]{
+  background:var(--accent-soft);
+  border-color:var(--accent);
+  color:var(--accent);
+  font-size:0;
+}
+.example-check[data-state="reviewed"]::before{
+  content:"◐";
+  color:var(--accent);
+  font-size:13px;
+  font-weight:900;
+  line-height:1;
+}
+.example-check[data-state="checked"]{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:#fff;
+}
+.example-check[data-state="checked"]::before{
+  content:"✓";
+  color:#fff;
+  font-weight:900;
+}
+.part-print-btn{
+  border:1px solid var(--border);
+  background:transparent;
+  color:var(--text3);
+  border-radius:8px;
+  padding:7px 12px;
+  font:inherit;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+  transition:all .15s;
+}
+.part-print-btn:hover{
+  color:var(--accent);
+  background:var(--surface2);
+}
+.modal-body .template-card{
+  display:flex;
+  max-width:none;
+  box-shadow:none;
+}
+.modal-worked-head{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:14px;
+  align-items:start;
+  padding-bottom:22px;
+  margin-bottom:24px;
+  border-bottom:1px solid var(--border-soft);
+}
+.modal-worked-kicker{
+  margin:0 0 8px;
+  color:var(--text3);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.modal-worked-title{
+  margin:0 0 6px;
+  color:var(--text);
+  font-family:'DM Serif Display',serif;
+  font-size:24px;
+  font-weight:400;
+  line-height:1.15;
+}
+.modal-worked-source{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  color:var(--text2);
+  font-size:14px;
+}
+.modal-worked-source a{
+  color:var(--accent);
+  font-weight:800;
+  border-bottom:1px dotted var(--accent);
+}
+.modal-worked-controls{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.modal-worked-check{
+  width:22px;
+  height:22px;
+  border:2px solid var(--border);
+  border-radius:6px;
+  background:var(--bg);
+  color:transparent;
+  cursor:pointer;
+}
+.modal-worked-check[data-state="reviewed"]{
+  background:var(--accent-soft);
+  border-color:var(--accent);
+  color:var(--accent);
+}
+.modal-worked-check[data-state="reviewed"]::before{content:"◐";font-weight:900}
+.modal-worked-check[data-state="checked"]{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:#06100b;
+}
+.modal-worked-check[data-state="checked"]::before{content:"✓";font-weight:900}
+.modal-inline-print{
+  border:1px solid var(--border);
+  background:var(--surface2);
+  color:var(--text2);
+  border-radius:8px;
+  padding:8px 12px;
+  font:inherit;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+}
+.mode-toggle{
+  display:inline-flex;
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+  background:var(--surface2);
+  padding:3px;
+}
+.mode-toggle button{
+  border:0;
+  background:transparent;
+  color:var(--text2);
+  padding:7px 16px;
+  border-radius:7px;
+  font:inherit;
+  font-size:12px;
+  font-weight:600;
+  cursor:pointer;
+  min-width:60px;
+}
+.mode-toggle button.active{
+  background:var(--accent);
+  color:#fff;
+}
+.modal-template-meta{
+  display:grid;
+  grid-template-columns:210px 1fr;
+  gap:12px 18px;
+  margin:0 0 24px;
+  padding:18px 20px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--surface2);
+}
+.modal-template-meta dt{
+  margin:0;
+  color:var(--text3);
+  font-family:var(--tpl-font-ui);
+  font-size:var(--tpl-meta-label-size);
+  font-weight:900;
+  letter-spacing:var(--tpl-kicker-letter-spacing);
+  text-transform:uppercase;
+}
+.modal-template-meta dd{
+  margin:0;
+  color:var(--text);
+  font-family:var(--tpl-font-ui);
+  font-size:var(--tpl-meta-value-size);
+}
+.modal-template-meta .blank-field{
+  display:inline-block;
+  min-width:160px;
+  height:20px;
+  border-bottom:1px dashed var(--border);
+}
+.modal-template-card > dl.template-meta{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:6px 14px;
+  margin:0 0 18px;
+  padding:14px 18px;
+  border:1px solid var(--border-soft);
+  border-radius:10px;
+  background:var(--surface2);
+}
+.modal-template-card > dl.template-meta dt{
+  align-self:center;
+  margin:0;
+  color:var(--text3);
+  font-family:var(--tpl-font-ui);
+  font-size:var(--tpl-meta-label-size);
+  font-weight:800;
+  letter-spacing:var(--tpl-micro-letter-spacing);
+  text-transform:uppercase;
+}
+.modal-template-card > dl.template-meta dd{
+  margin:0;
+  color:var(--text);
+  font-family:var(--tpl-font-ui);
+  font-size:var(--tpl-meta-value-size);
+}
+.modal-template-card .meta-value.blank{
+  display:inline-block;
+  min-width:120px;
+  height:18px;
+  border-bottom:1px dashed var(--border);
+}
+.modal-template-card .template-sections{display:none}
+.modal-template-card{
+  width:min(100%, var(--tpl-template-width));
+  max-width:var(--tpl-template-width);
+  margin:0 auto;
+}
+.modal-template-card .mn-template-layout{
+  display:grid;
+  gap:14px;
+}
+.modal-template-card .tp-box,
+.modal-template-card .tpl-group{
+  border:1px solid var(--border);
+  background:var(--surface);
+  min-width:0;
+}
+.modal-template-card .tp-box{
+  display:flex;
+  flex-direction:column;
+  padding:0;
+  overflow:hidden;
+  border-radius:14px;
+  min-height:120px;
+}
+.modal-template-card .tp-box > h3{
+  margin:0;
+  padding:11px 16px;
+  border-bottom:1px solid var(--border);
+  background:var(--surface2);
+  color:var(--text);
+  font-family:var(--tpl-font-display);
+  font-size:var(--tpl-box-title-size);
+  font-weight:400;
+  letter-spacing:0;
+  text-transform:none;
+}
+.modal-template-card .tp-box > .content{
+  flex:1;
+  margin:0;
+  padding:14px 16px 16px;
+  color:var(--text2);
+  font-family:var(--tpl-font-ui);
+  font-size:var(--tpl-box-body-size);
+  line-height:1.55;
+  overflow-wrap:anywhere;
+}
+.modal-template-card .tp-box > .content ul{
+  margin:0;
+  padding-left:0;
+  list-style:none;
+}
+.modal-template-card .tp-box > .content ol{
+  margin:0;
+  padding-left:18px;
+}
+.modal-template-card .tp-box > .content li{
+  position:relative;
+  padding-left:14px;
+  margin-bottom:12px;
+}
+.modal-template-card .tp-box > .content ul > li::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:.72em;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:var(--accent);
+}
+.modal-template-card .tpl-group{
+  border-radius:16px;
+  padding:14px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  background:var(--surface2);
+}
+.modal-template-card .tpl-group-label{
+  margin:0;
+  padding:2px 4px 4px;
+  color:var(--text3);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.modal-template-card .tpl-group-body{
+  display:grid;
+  gap:10px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;
+}
+.modal-template-card[data-mode="filled"] .tpl-group.tpl-group-visible-1 .tpl-group-body{
+  grid-template-columns:1fr;
+}
+.modal-template-card[data-mode="filled"] .tpl-group.tpl-group-visible-2 .tpl-group-body{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.modal-template-card[data-mode="filled"] .tpl-group.tpl-group-visible-0{
+  display:none;
+}
+.modal-template-card .tpl-group-body > .tp-box{
+  height:100%;
+}
+.modal-template-card .bc-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  align-items:stretch;
+}
+.modal-template-card .bc-grid .tp-box{
+  min-height:280px;
+}
+/* Canon A1 Basic Concept: official 3-column ATI layout, styled with MN modal discipline and AMS accent colors. */
+.modal-template-card[data-template-type="basic-concept"]{
+  max-width:var(--tpl-template-width);
+  margin:0 auto;
+}
+.modal-template-card[data-template-type="basic-concept"] > dl.template-meta{
+  margin-bottom:18px;
+}
+.modal-template-card[data-template-type="basic-concept"] .bc-grid{
+  gap:12px;
+}
+.modal-template-card[data-template-type="basic-concept"] .bc-grid .tp-box{
+  min-height:330px;
+  border-radius:10px;
+}
+.modal-template-card[data-template-type="basic-concept"] .bc-grid .tp-box > h3{
+  padding:10px 14px;
+}
+.modal-template-card[data-template-type="basic-concept"] .bc-grid .tp-box > .content{
+  padding:var(--tpl-box-pad-y) var(--tpl-box-pad-x) calc(var(--tpl-box-pad-y) + 2px);
+  font-size:var(--tpl-dense-body-size);
+  line-height:1.5;
+}
+.modal-template-card[data-template-type="basic-concept"] .bc-grid .tp-box > .content li{
+  margin-bottom:9px;
+}
+/* Canon A3 Diagnostic Procedure: official two-column ATI layout, adapted to the MN modal shell with AMS accent colors. */
+.modal-template-card[data-template-type="diagnostic-procedure"]{
+  max-width:var(--tpl-template-width);
+  margin:0 auto;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] > dl.template-meta{
+  margin-bottom:12px;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid{
+  --tp-gap:10px;
+  --tp-connector-overlap:8px;
+  gap:var(--tp-gap);
+  align-items:stretch;
+  grid-template-areas:
+    "description description"
+    "indications considerations"
+    "outcomes considerations"
+    "complications nursing-interventions";
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .description{
+  min-height:92px;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .indications,
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .outcomes,
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .complications,
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .nursing-interventions{
+  min-height:150px;
+  height:100%;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid .tp-box,
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid .tp-subbox{
+  border-radius:8px;
+  min-height:0;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid .tp-box > h3,
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid .tp-subbox > h4{
+  padding:10px var(--tpl-box-pad-x);
+  border-top-left-radius:7px;
+  border-top-right-radius:7px;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid .tp-box > .content,
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid .tp-subbox > .content{
+  padding:var(--tpl-box-pad-y) var(--tpl-box-pad-x) calc(var(--tpl-box-pad-y) + 2px);
+  font-size:var(--tpl-dense-body-size);
+  line-height:1.5;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid .content li{
+  margin-bottom:6px;
+}
+/* Canon A9 Nursing Skill: official skill layout using the shared procedure grid and MN modal shell. */
+.modal-template-card[data-template-type="nursing-skill"]{
+  max-width:var(--tpl-template-width);
+  margin:0 auto;
+}
+.modal-template-card[data-template-type="nursing-skill"] > dl.template-meta{
+  margin-bottom:12px;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid{
+  --tp-gap:10px;
+  --tp-connector-overlap:8px;
+  gap:var(--tp-gap);
+  align-items:stretch;
+  grid-template-areas:
+    "description description"
+    "indications considerations"
+    "outcomes considerations"
+    "complications nursing-interventions";
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .description{
+  min-height:92px;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .indications,
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .outcomes,
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .complications,
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .nursing-interventions{
+  min-height:150px;
+  height:100%;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .considerations{
+  min-height:310px;
+  height:auto;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:10px;
+  border-radius:8px;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .considerations > .tp-subbox{
+  flex:0 1 auto;
+  min-height:120px;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid .tp-box,
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid .tp-subbox{
+  border-radius:8px;
+  min-height:0;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid .tp-box > h3,
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid .tp-subbox > h4{
+  padding:10px var(--tpl-box-pad-x);
+  border-top-left-radius:7px;
+  border-top-right-radius:7px;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid .tp-box > .content,
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid .tp-subbox > .content{
+  padding:var(--tpl-box-pad-y) var(--tpl-box-pad-x) calc(var(--tpl-box-pad-y) + 2px);
+  font-size:var(--tpl-dense-body-size);
+  line-height:1.5;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid .content li{
+  margin-bottom:6px;
+}
+/* Canon A13 Therapeutic Procedure: official procedure layout using the A3/A9 shared grid, MN modal shell, and AMS spacing. */
+.modal-template-card[data-template-type="therapeutic-procedure"]{
+  max-width:var(--tpl-template-width);
+  margin:0 auto;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] > dl.template-meta{
+  margin-bottom:12px;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid{
+  --tp-gap:10px;
+  --tp-connector-overlap:8px;
+  gap:var(--tp-gap);
+  align-items:stretch;
+  grid-template-areas:
+    "description description"
+    "indications considerations"
+    "outcomes considerations"
+    "complications nursing-interventions";
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .description{
+  min-height:92px;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .indications,
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .outcomes,
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .complications,
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .nursing-interventions{
+  min-height:150px;
+  height:100%;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .considerations{
+  min-height:310px;
+  height:auto;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:10px;
+  border-radius:8px;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .considerations > .tp-subbox{
+  flex:0 1 auto;
+  min-height:120px;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid .tp-box,
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid .tp-subbox{
+  border-radius:8px;
+  min-height:0;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid .tp-box > h3,
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid .tp-subbox > h4{
+  padding:10px var(--tpl-box-pad-x);
+  border-top-left-radius:7px;
+  border-top-right-radius:7px;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid .tp-box > .content,
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid .tp-subbox > .content{
+  padding:var(--tpl-box-pad-y) var(--tpl-box-pad-x) calc(var(--tpl-box-pad-y) + 2px);
+  font-size:var(--tpl-dense-body-size);
+  line-height:1.5;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid .content li{
+  margin-bottom:6px;
+}
+/* Canon A5 Growth and Development: official 4+parent+4 ATI layout, using the MN modal shell and AMS accent colors. */
+.modal-template-card[data-template-type="growth-development"]{
+  max-width:var(--tpl-template-width);
+  margin:0 auto;
+}
+.modal-template-card[data-template-type="growth-development"] > dl.template-meta{
+  margin-bottom:14px;
+}
+.modal-template-card[data-template-type="growth-development"] .gd-grid{
+  gap:18px;
+}
+.modal-template-card[data-template-type="growth-development"] .gd-grid > .tpl-group > .tpl-group-body{
+  gap:10px;
+  align-items:stretch;
+}
+.modal-template-card[data-template-type="growth-development"] .gd-grid > .tpl-group > .tpl-group-body > .tp-box{
+  min-height:260px;
+  border-radius:10px;
+}
+.modal-template-card[data-template-type="growth-development"] .gd-grid > .tpl-group:first-child > .tpl-group-body > .tp-box{
+  min-height:300px;
+}
+.modal-template-card[data-template-type="growth-development"] .gd-grid .hp-parent{
+  border-radius:10px;
+}
+.modal-template-card[data-template-type="growth-development"] .gd-grid .hp-parent > h3,
+.modal-template-card[data-template-type="growth-development"] .gd-grid > .tpl-group > .tpl-group-body > .tp-box > h3{
+  padding:10px var(--tpl-box-pad-x);
+}
+.modal-template-card[data-template-type="growth-development"] .gd-grid .hp-parent > .content,
+.modal-template-card[data-template-type="growth-development"] .gd-grid > .tpl-group > .tpl-group-body > .tp-box > .content{
+  padding:var(--tpl-box-pad-y) var(--tpl-box-pad-x) calc(var(--tpl-box-pad-y) + 2px);
+  font-size:var(--tpl-dense-body-size);
+  line-height:1.5;
+}
+.modal-template-card[data-template-type="growth-development"] .gd-grid .hp-parent > .content li,
+.modal-template-card[data-template-type="growth-development"] .gd-grid > .tpl-group > .tpl-group-body > .tp-box > .content li{
+  margin-bottom:6px;
+}
+.modal-template-card .considerations-label{
+  margin:0;
+  padding:2px 4px 4px;
+  color:var(--text3);
+  font-family:var(--tpl-font-ui);
+  font-size:var(--tpl-meta-label-size);
+  font-weight:900;
+  letter-spacing:var(--tpl-micro-letter-spacing);
+  text-transform:uppercase;
+}
+.modal-template-card .med-grid{
+  grid-template-columns:1fr;
+}
+.modal-template-card .med-body{
+  --med-gap:14px;
+  --connector-overlap:10px;
+  display:flex;
+  gap:var(--med-gap);
+  position:relative;
+  isolation:isolate;
+}
+.modal-template-card .med-col-left{
+  flex:1.35;
+  display:flex;
+  flex-direction:column;
+  gap:var(--med-gap);
+}
+.modal-template-card .med-col-right{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:var(--med-gap);
+}
+.modal-template-card .med-body.med-body-single-column{
+  display:grid;
+  grid-template-columns:1fr;
+}
+.modal-template-card .med-body.med-body-single-column .med-col-left.is-empty,
+.modal-template-card .med-body.med-body-single-column .med-col-right.is-empty{
+  display:none;
+}
+.modal-template-card .med-ni,
+.modal-template-card .med-ce{position:relative}
+.modal-template-card .med-ni::after{
+  content:'';
+  position:absolute;
+  left:50%;
+  bottom:calc(-1 * var(--med-gap) - var(--connector-overlap));
+  transform:translateX(-50%);
+  width:3px;
+  height:calc(var(--med-gap) + 2 * var(--connector-overlap));
+  background:var(--text3);
+  border-radius:1px;
+  z-index:-1;
+}
+/* Canon A7 Medication: official Purpose group plus left/right medication body, adapted to the MN modal shell with AMS accent colors. */
+.modal-template-card[data-template-type="medication"]{
+  max-width:var(--tpl-template-width);
+  margin:0 auto;
+}
+.modal-template-card[data-template-type="medication"] > dl.template-meta{
+  margin-bottom:14px;
+}
+.modal-template-card[data-template-type="medication"] .med-grid{
+  gap:14px;
+}
+.modal-template-card[data-template-type="medication"] .purpose-group{
+  border-radius:10px;
+  padding:10px;
+}
+.modal-template-card[data-template-type="medication"] .purpose-group .tpl-group-body{
+  gap:10px;
+}
+.modal-template-card[data-template-type="medication"] .purpose-group .tp-box{
+  min-height:112px;
+  border-radius:8px;
+}
+.modal-template-card[data-template-type="medication"] .med-body{
+  --med-gap:10px;
+  --connector-overlap:10px;
+  gap:var(--med-gap);
+  align-items:stretch;
+}
+.modal-template-card[data-template-type="medication"] .med-col-left{
+  flex:1.55;
+  gap:var(--med-gap);
+}
+.modal-template-card[data-template-type="medication"] .med-col-right{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:var(--med-gap);
+  position:relative;
+  isolation:isolate;
+}
+.modal-template-card[data-template-type="medication"] .med-body .tp-box{
+  border-radius:8px;
+  min-height:116px;
+  overflow:visible;
+  position:relative;
+  z-index:auto;
+}
+.modal-template-card[data-template-type="medication"] .med-ni::after{
+  content:'';
+  position:absolute;
+  left:50%;
+  bottom:calc(-1 * var(--med-gap) - var(--connector-overlap));
+  transform:translateX(-50%);
+  width:3px;
+  height:calc(var(--med-gap) + 2 * var(--connector-overlap));
+  border-radius:1px;
+  background:var(--text3);
+  z-index:-1;
+}
+.modal-template-card[data-template-type="medication"] .med-col-right .tp-box{
+  min-height:170px;
+}
+.modal-template-card[data-template-type="medication"] .med-col-left > .tp-box:last-child,
+.modal-template-card[data-template-type="medication"] .med-col-right > .tp-box:last-child{
+  flex-grow:1;
+}
+.modal-template-card[data-template-type="medication"] .med-grid .tp-box > h3,
+.modal-template-card[data-template-type="medication"] .med-grid .tp-box > h4,
+.modal-template-card[data-template-type="medication"] .med-body .tp-box > h3{
+  padding:10px var(--tpl-box-pad-x);
+  border-top-left-radius:7px;
+  border-top-right-radius:7px;
+}
+.modal-template-card[data-template-type="medication"] .med-grid .tp-box > .content,
+.modal-template-card[data-template-type="medication"] .med-body .tp-box > .content{
+  padding:var(--tpl-box-pad-y) var(--tpl-box-pad-x) calc(var(--tpl-box-pad-y) + 2px);
+  font-size:var(--tpl-dense-body-size);
+  line-height:1.5;
+}
+.modal-template-card[data-template-type="medication"] .med-grid .content li,
+.modal-template-card[data-template-type="medication"] .med-body .content li{
+  margin-bottom:6px;
+}
+.modal-template-card .tp-grid{
+  --tp-gap:14px;
+  --tp-connector-overlap:10px;
+  grid-template-columns:1fr 1fr;
+  grid-template-areas:
+    "description description"
+    "indications considerations"
+    "outcomes considerations"
+    "complications nursing-interventions";
+  position:relative;
+  isolation:isolate;
+  align-items:stretch;
+}
+.modal-template-card .tp-grid > .description{grid-area:description}
+.modal-template-card .tp-grid > .indications{grid-area:indications}
+.modal-template-card .tp-grid > .outcomes{grid-area:outcomes}
+.modal-template-card .tp-grid > .considerations{grid-area:considerations}
+.modal-template-card .tp-grid > .complications{grid-area:complications;position:relative}
+.modal-template-card .tp-grid > .nursing-interventions{grid-area:nursing-interventions;position:relative}
+.modal-template-card .tp-grid > .complications::after{
+  content:'';
+  position:absolute;
+  top:50%;
+  right:calc(-1 * (var(--tp-gap) + var(--tp-connector-overlap)));
+  transform:translateY(-50%);
+  width:calc(var(--tp-gap) + 2 * var(--tp-connector-overlap));
+  height:3px;
+  background:var(--text3);
+  border-radius:1px;
+  z-index:-1;
+}
+/* Canon A3/A9/A13 procedure-grid connector: Potential Complications connects to the lower Nursing Interventions box. */
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .complications,
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .nursing-interventions,
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .complications,
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .nursing-interventions,
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .complications,
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .nursing-interventions{
+  overflow:visible;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .complications::after,
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .complications::after,
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .complications::after{
+  right:calc(-1 * var(--tp-gap));
+  width:var(--tp-gap);
+  background:var(--text3);
+  z-index:0;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .complications > *,
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .complications > *,
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .complications > *{
+  position:relative;
+  z-index:1;
+}
+.modal-template-card .tp-grid.tp-grid-lean{
+  grid-template-areas:
+    "description description"
+    "considerations considerations"
+    "complications nursing-interventions";
+}
+.modal-template-card .tp-grid.tp-grid-no-description:not(.tp-grid-lean){
+  grid-template-areas:
+    "indications considerations"
+    "outcomes considerations"
+    "complications nursing-interventions";
+}
+.modal-template-card .tp-grid.tp-grid-no-interventions:not(.tp-grid-lean){
+  grid-template-areas:
+    "description description"
+    "indications considerations"
+    "outcomes considerations"
+    "complications complications";
+}
+.modal-template-card .tp-grid.tp-grid-no-description.tp-grid-no-interventions:not(.tp-grid-lean){
+  grid-template-areas:
+    "indications considerations"
+    "outcomes considerations"
+    "complications complications";
+}
+.modal-template-card .tp-grid.tp-grid-lean.tp-grid-no-description:not(.tp-grid-no-interventions){
+  grid-template-areas:
+    "indications considerations"
+    "complications nursing-interventions";
+}
+.modal-template-card .tp-grid.tp-grid-lean.tp-grid-no-interventions:not(.tp-grid-no-description){
+  grid-template-areas:
+    "description description"
+    "considerations considerations"
+    "complications complications";
+}
+.modal-template-card .tp-grid.tp-grid-lean.tp-grid-no-description.tp-grid-no-interventions{
+  grid-template-areas:
+    "indications considerations"
+    "complications complications";
+}
+.modal-template-card .tp-grid .considerations{
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:14px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.modal-template-card .tp-grid .considerations .tp-box,
+.modal-template-card .tp-grid .considerations .tp-subbox{
+  min-height:0;
+  border-radius:11px;
+}
+.modal-template-card .tp-subbox{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:11px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+.modal-template-card .tp-subbox > h4{
+  margin:0;
+  padding:9px 14px;
+  border-bottom:1px solid var(--border);
+  background:var(--surface2);
+  color:var(--text);
+  font-family:var(--tpl-font-display);
+  font-size:var(--tpl-subbox-title-size);
+  font-weight:400;
+  letter-spacing:0;
+  text-transform:none;
+}
+.modal-template-card .tp-subbox > .content{
+  flex:1;
+  padding:12px 14px 14px;
+  color:var(--text2);
+  font-family:var(--tpl-font-ui);
+  font-size:var(--tpl-dense-body-size);
+  line-height:1.5;
+  overflow-wrap:anywhere;
+}
+.modal-template-card .tp-subbox > .content ul{
+  margin:0;
+  padding-left:0;
+  list-style:none;
+}
+.modal-template-card .tp-subbox > .content li{
+  position:relative;
+  padding-left:14px;
+  margin-bottom:5px;
+  color:var(--text2);
+}
+.modal-template-card .tp-subbox > .content ul > li::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:.72em;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:var(--accent);
+}
+.modal-template-card .sd-grid{
+  grid-template-columns:2fr 1fr;
+  grid-template-areas:
+    "top top"
+    "assessment safety"
+    "patient-care safety";
+}
+.modal-template-card .sd-grid.sd-no-assessment{
+  grid-template-areas:
+    "top top"
+    "patient-care safety";
+}
+.modal-template-card .sd-top-row{
+  grid-area:top;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+  align-items:stretch;
+}
+.modal-template-card[data-mode="filled"] .sd-top-row.sd-top-visible-1{
+  grid-template-columns:1fr;
+}
+.modal-template-card[data-mode="filled"] .sd-top-row.sd-top-visible-2{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.modal-template-card .sd-middle{
+  display:contents;
+}
+.modal-template-card .sd-middle > .assessment-group{grid-area:assessment}
+.modal-template-card .sd-middle > .safety-group{grid-area:safety}
+.modal-template-card .sd-grid > .patient-care-group{grid-area:patient-care}
+.modal-template-card .safety-group{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.modal-template-card .safety-area{
+  flex:1;
+  padding:4px 4px 0;
+  color:var(--text2);
+  font-size:13px;
+  line-height:1.55;
+  min-height:80px;
+}
+.modal-template-card .safety-area ul{
+  margin:0;
+  padding-left:18px;
+}
+.modal-template-card .safety-area p{
+  margin:0 0 8px;
+}
+.modal-template-card .patient-care-group .tpl-group-body{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+.modal-template-card[data-mode="filled"] .patient-care-group.tpl-group-visible-1 .tpl-group-body{
+  grid-template-columns:1fr;
+}
+.modal-template-card[data-mode="filled"] .patient-care-group.tpl-group-visible-2 .tpl-group-body{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+/* Canon A11 System Disorder: official top row, Assessment block, Safety column, and 5-box Patient-Centered Care layout. */
+.modal-template-card[data-template-type="system-disorder"]{
+  max-width:var(--tpl-template-width);
+  margin:0 auto;
+}
+.modal-template-card[data-template-type="system-disorder"] > dl.template-meta{
+  margin-bottom:14px;
+}
+.modal-template-card[data-template-type="system-disorder"] .sd-grid{
+  grid-template-columns:minmax(0,1fr) minmax(215px,.34fr);
+  gap:14px;
+  align-items:stretch;
+}
+.modal-template-card[data-template-type="system-disorder"] .sd-top-row{
+  gap:14px;
+}
+.modal-template-card[data-template-type="system-disorder"] .sd-top-row > .tp-box{
+  min-height:118px;
+  border-radius:10px;
+}
+.modal-template-card[data-template-type="system-disorder"] .assessment-group,
+.modal-template-card[data-template-type="system-disorder"] .patient-care-group{
+  border-radius:10px;
+  padding:10px;
+  gap:10px;
+}
+.modal-template-card[data-template-type="system-disorder"] .safety-group{
+  border-radius:10px;
+  padding:0;
+}
+.modal-template-card[data-template-type="system-disorder"] .assessment-group .tpl-group-body{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.modal-template-card[data-template-type="system-disorder"] .assessment-group .tp-box{
+  min-height:168px;
+  border-radius:8px;
+}
+.modal-template-card[data-template-type="system-disorder"] .safety-group{
+  min-height:100%;
+  display:grid;
+  grid-template-rows:minmax(0,1fr) minmax(0,1fr);
+  gap:14px;
+}
+@supports (grid-template-rows:subgrid){
+  .modal-template-card[data-template-type="system-disorder"] .safety-group{
+    grid-template-rows:subgrid;
+  }
+}
+.modal-template-card[data-template-type="system-disorder"] .sd-safety-main{
+  grid-row:1;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  min-height:0;
+  padding:10px;
+}
+.modal-template-card[data-template-type="system-disorder"] .safety-area{
+  flex:1 1 auto;
+  min-height:0;
+  padding:var(--tpl-box-pad-y) var(--tpl-box-pad-x);
+  font-size:var(--tpl-dense-body-size);
+  line-height:1.5;
+}
+.modal-template-card[data-template-type="system-disorder"] .safety-group > .tp-box{
+  min-height:168px;
+  border-radius:8px;
+}
+.modal-template-card[data-template-type="system-disorder"] .safety-group > .sd-complications{
+  grid-row:2;
+  min-height:100%;
+  height:100%;
+  border-radius:8px;
+}
+.modal-template-card[data-template-type="system-disorder"] .patient-care-group .tpl-group-body{
+  grid-template-columns:1fr .68fr 1fr;
+  grid-template-areas:
+    "nursing-care medications client-education"
+    "therapeutic-procedures medications interprofessional-care";
+  gap:10px;
+  align-items:stretch;
+}
+.modal-template-card[data-template-type="system-disorder"] .patient-care-group .sd-nursing-care{grid-area:nursing-care}
+.modal-template-card[data-template-type="system-disorder"] .patient-care-group .sd-medications{grid-area:medications}
+.modal-template-card[data-template-type="system-disorder"] .patient-care-group .sd-client-education{grid-area:client-education}
+.modal-template-card[data-template-type="system-disorder"] .patient-care-group .sd-therapeutic-procedures{grid-area:therapeutic-procedures}
+.modal-template-card[data-template-type="system-disorder"] .patient-care-group .sd-interprofessional-care{grid-area:interprofessional-care}
+.modal-template-card[data-template-type="system-disorder"] .patient-care-group .tp-box{
+  min-height:168px;
+  border-radius:8px;
+}
+.modal-template-card[data-template-type="system-disorder"] .patient-care-group .sd-medications{
+  min-height:100%;
+}
+.modal-template-card[data-template-type="system-disorder"] .sd-grid .tp-box > h3,
+.modal-template-card[data-template-type="system-disorder"] .sd-grid .tpl-group > .tpl-group-label{
+  padding:10px var(--tpl-box-pad-x);
+}
+.modal-template-card[data-template-type="system-disorder"] .sd-grid .tp-box > .content{
+  padding:var(--tpl-box-pad-y) var(--tpl-box-pad-x) calc(var(--tpl-box-pad-y) + 2px);
+  font-size:var(--tpl-dense-body-size);
+  line-height:1.5;
+}
+.modal-template-card[data-template-type="system-disorder"][data-mode="filled"] .empty-tpl-box{
+  display:flex;
+}
+.modal-template-card[data-template-type="system-disorder"][data-mode="filled"] .sd-top-row{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+.modal-template-card[data-template-type="system-disorder"][data-mode="filled"] .patient-care-group .tpl-group-body{
+  grid-template-columns:1fr .68fr 1fr;
+}
+.modal-template-card[data-mode="filled"] .empty-tpl-box,
+.modal-template-card[data-mode="filled"] .empty-tpl-subbox{
+  display:none;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"][data-mode="filled"] .empty-tpl-box,
+.modal-template-card[data-template-type="diagnostic-procedure"][data-mode="filled"] .empty-tpl-subbox{
+  display:flex;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .considerations{
+  min-height:310px;
+  height:100%;
+  display:grid;
+  grid-template-rows:minmax(0,1fr) minmax(0,1fr);
+  gap:var(--tp-gap);
+  padding:10px;
+  border-radius:8px;
+  background:var(--surface2);
+  border:1px solid var(--border);
+  align-items:stretch;
+}
+@supports (grid-template-rows:subgrid){
+  .modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .considerations{
+    grid-template-rows:subgrid;
+  }
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .considerations .considerations-top{
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .considerations .considerations-top .tp-subbox,
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .considerations .client-education{
+  flex:1 1 auto;
+  min-height:0;
+  height:100%;
+}
+.modal-template-card .gd-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:20px;
+}
+.modal-template-card .gd-grid > .tpl-group{
+  display:flex !important;
+  flex-direction:column;
+  gap:12px;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  padding:0;
+}
+.modal-template-card .gd-grid > .tpl-group > .tpl-group-label{
+  display:flex !important;
+  align-items:center;
+  gap:14px;
+  color:var(--text2);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin:0;
+  padding:0;
+}
+.modal-template-card .gd-grid > .tpl-group > .tpl-group-label::before,
+.modal-template-card .gd-grid > .tpl-group > .tpl-group-label::after{
+  content:'';
+  flex:1;
+  height:1px;
+  background:var(--border);
+}
+.modal-template-card .gd-grid > .tpl-group > .tpl-group-body{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+}
+.modal-template-card .gd-grid > .tpl-group > .tpl-group-body > .tp-box{
+  min-height:200px;
+}
+.modal-template-card .gd-grid > .tpl-group > .tpl-group-body > .tp-box > h3{
+  padding:11px 14px;
+  font-size:14px;
+}
+.modal-template-card .gd-grid > .tpl-group > .tpl-group-body > .tp-box > .content{
+  padding:12px 14px 14px;
+  font-size:13px;
+  line-height:1.5;
+}
+.modal-template-card .gd-grid > .tpl-group.health-promotion-group{
+  --hp-connector-height:20px;
+  --hp-connector-width:3px;
+  background:transparent !important;
+  border:0 !important;
+  border-radius:0 !important;
+  padding:0 !important;
+  gap:0;
+  isolation:isolate;
+  position:relative;
+}
+.modal-template-card .gd-grid .hp-parent{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  overflow:hidden;
+}
+.modal-template-card .gd-grid .hp-parent > h3{
+  margin:0;
+  padding:11px 16px;
+  border-bottom:1px solid var(--border);
+  background:var(--surface2);
+  color:var(--text);
+  font-family:var(--tpl-font-display);
+  font-size:var(--tpl-box-title-size);
+  font-weight:400;
+}
+.modal-template-card .gd-grid .hp-parent > .content{
+  padding:0 16px 14px;
+  color:var(--text2);
+  font-family:var(--tpl-font-ui);
+  font-size:var(--tpl-dense-body-size);
+  line-height:1.5;
+}
+.modal-template-card .gd-grid .hp-parent > .content li{
+  margin-bottom:5px;
+}
+.modal-template-card .gd-grid .hp-connectors{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+  height:var(--hp-connector-height, 20px);
+  pointer-events:none;
+}
+.modal-template-card .gd-grid .hp-connectors > span{
+  display:block;
+  width:var(--hp-connector-width, 3px);
+  height:calc(var(--hp-connector-height, 20px) + 20px);
+  margin-top:-10px;
+  border-radius:1px;
+  background:var(--text3);
+  justify-self:center;
+  position:relative;
+  z-index:-1;
+}
+.modal-template-card .ca-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-areas:
+    "defining defining"
+    "antecedents consequences"
+    "related exemplars";
+  gap:14px;
+}
+.modal-template-card[data-template-type="concept-analysis"]{
+  max-width:var(--tpl-template-width);
+  margin:0 auto;
+}
+.modal-template-card[data-template-type="concept-analysis"] > dl.template-meta{
+  margin-bottom:12px;
+}
+.modal-template-card[data-template-type="concept-analysis"] .ca-grid{
+  gap:12px;
+  align-items:stretch;
+}
+.modal-template-card[data-template-type="concept-analysis"] .ca-grid > .defining{
+  min-height:112px;
+}
+.modal-template-card[data-template-type="concept-analysis"] .ca-grid > .antecedents,
+.modal-template-card[data-template-type="concept-analysis"] .ca-grid > .consequences,
+.modal-template-card[data-template-type="concept-analysis"] .ca-grid > .related,
+.modal-template-card[data-template-type="concept-analysis"] .ca-grid > .exemplars{
+  min-height:240px;
+  height:100%;
+}
+.modal-template-card[data-template-type="concept-analysis"] .ca-grid .tp-box{
+  border-radius:10px;
+}
+.modal-template-card[data-template-type="concept-analysis"] .ca-grid .tp-box > h3{
+  padding:10px var(--tpl-box-pad-x);
+}
+.modal-template-card[data-template-type="concept-analysis"] .ca-grid .tp-box > .content{
+  padding:var(--tpl-box-pad-y) var(--tpl-box-pad-x) calc(var(--tpl-box-pad-y) + 2px);
+  font-size:var(--tpl-dense-body-size);
+  line-height:1.5;
+}
+.modal-template-card[data-template-type="concept-analysis"] .ca-grid .content li{
+  margin-bottom:7px;
+}
+.modal-template-card .ca-grid > .defining{grid-area:defining}
+.modal-template-card .ca-grid > .antecedents{grid-area:antecedents}
+.modal-template-card .ca-grid > .consequences{grid-area:consequences}
+.modal-template-card .ca-grid > .related{grid-area:related}
+.modal-template-card .ca-grid > .exemplars{grid-area:exemplars}
+.modal-template-card[data-mode="blank"] .tp-box > .content p,
+.modal-template-card[data-mode="blank"] .tp-box > .content li{
+  color:transparent;
+  text-shadow:none;
+}
+.modal-template-card[data-mode="blank"] .tp-box > .content p,
+.modal-template-card[data-mode="blank"] .tp-box > .content li{
+  border-bottom:1px solid var(--border);
+}
+.modal-template-card[data-mode="blank"] .tp-box > .content,
+.modal-template-card[data-mode="blank"] .tp-subbox > .content{
+  display:none;
+}
+.modal-template-card[data-mode="blank"] .tp-box,
+.modal-template-card[data-mode="blank"] .tp-subbox{
+  min-height:120px;
+}
+.modal-template-card[data-mode="blank"] .meta-value:not(.always-show){
+  display:inline-block;
+  min-width:120px;
+  height:18px;
+  border-bottom:1px dashed var(--border);
+  color:transparent;
+}
+.modal-body .modal-template-card > h3,
+.modal-body .modal-template-card > .card-kicker,
+.modal-body .modal-template-card > p{
+  display:none;
+}
+.modal-body .template-actions{
+  display:none;
+}
+.modal-body .template-study-btn{
+  display:none;
+}
+body.modal-open{
+  overflow:hidden;
+}
+@media print{
+  body.printing-modal > *:not(#templateModal){display:none!important}
+  body.printing-modal #templateModal{
+    position:static!important;
+    display:block!important;
+    background:#fff!important;
+    padding:0!important;
+    overflow:visible!important;
+  }
+  body.printing-modal #templateModal .modal{
+    position:static!important;
+    max-width:100%!important;
+    box-shadow:none!important;
+    border:none!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
+  body.printing-modal #templateModal .modal-body{
+    max-height:none!important;
+    overflow:visible!important;
+    padding:0!important;
+  }
+  body.printing-modal #templateModal .modal-actions,
+  body.printing-modal #templateModal .mode-toggle,
+  body.printing-modal #templateModal .part-print-btn{
+    display:none!important;
+  }
+  body.printing-modal #templateModal .example-card{
+    box-shadow:none!important;
+    border:none!important;
+    padding:0!important;
+    page-break-inside:avoid;
+  }
+  body.printing-modal #templateModal .tp-box,
+  body.printing-modal #templateModal .tpl-group{
+    page-break-inside:avoid;
+  }
+}
+.template-layout{
+  display:flex;
+  max-width:none;
+  min-height:100vh;
+  padding:0;
+}
+.template-main{
+  flex:1;
+  min-width:0;
+  max-width:1100px;
+  margin-left:280px;
+  padding:48px 56px 80px;
+}
+.template-sidebar{
+  position:fixed;
+  inset:0 auto 0 0;
+  z-index:10;
+  display:flex;
+  flex-direction:column;
+  width:280px;
+  min-width:280px;
+  overflow:hidden;
+  background:var(--surface);
+  border-right:1px solid var(--border);
+}
+.sidebar-header{
+  padding:18px 16px 14px;
+  border-bottom:1px solid var(--border);
+  flex-shrink:0;
+}
+.back-home{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:5px 0 12px;
+  color:var(--text3);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.03em;
+  text-decoration:none;
+  transition:color .15s;
+}
+.back-home::before{content:'←';font-size:13px}
+.back-home:hover{color:var(--accent)}
+.sb-course{
+  margin-bottom:4px;
+  color:var(--accent);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.sb-title{
+  color:var(--text);
+  font-family:'DM Serif Display',serif;
+  font-size:22px;
+  font-weight:400;
+  line-height:1.1;
+  margin-bottom:2px;
+}
+.sb-sub{
+  color:var(--text3);
+  font-size:11px;
+}
+.sb-version{
+  margin-top:6px;
+  color:var(--text3);
+  font-size:10px;
+  letter-spacing:.03em;
+  font-variant-numeric:tabular-nums;
+  opacity:.65;
+}
+.sb-version:hover{opacity:1}
+.sidebar-theme-toggle{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  margin-top:12px;
+  padding:6px 10px;
+  border-radius:6px;
+  background:transparent;
+  color:var(--text2);
+  font-size:11px;
+  font-weight:600;
+}
+.sidebar-progress-wrap{
+  padding:12px 16px;
+  border-bottom:1px solid var(--border);
+  flex-shrink:0;
+}
+.sidebar-progress{
+  height:4px;
+  overflow:hidden;
+  border-radius:2px;
+  background:var(--surface2);
+  margin-bottom:6px;
+}
+.sidebar-progress-fill{
+  height:100%;
+  width:0;
+  border-radius:2px;
+  background:var(--accent);
+  transition:width .25s ease;
+}
+.sidebar-progress-text{
+  color:var(--text3);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.sidebar-legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:8px;
+}
+.legend-item{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  color:var(--text3);
+  font-size:10px;
+  font-weight:600;
+}
+.legend-dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  flex-shrink:0;
+  border:1px solid transparent;
+}
+.legend-dot.checked{background:var(--accent)}
+.legend-dot.reviewed{
+  background:var(--accent-soft);
+  border-color:var(--accent);
+}
+.sidebar-list{
+  flex:1;
+  overflow-y:auto;
+  padding:8px 0;
+}
+.sidebar-section-label{
+  padding:14px 16px 4px;
+  color:var(--text3);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.sidebar-item{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin:0 8px;
+  padding:8px 16px;
+  border-radius:6px;
+  color:var(--text2);
+  font-size:13px;
+  transition:background .12s,color .12s;
+}
+.sidebar-item:hover,.sidebar-item.active{
+  background:var(--surface2);
+  color:var(--text);
+}
+.sidebar-item .item-num{
+  width:24px;
+  flex-shrink:0;
+  color:var(--text3);
+  font-size:10px;
+  font-weight:800;
+  font-variant-numeric:tabular-nums;
+}
+.sidebar-item .item-name{
+  flex:1;
+  min-width:0;
+}
+.sidebar-item .item-status{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  flex-shrink:0;
+  background:var(--border);
+  border:1px solid transparent;
+}
+.sidebar-item.reviewed .item-status{
+  background:var(--accent-soft);
+  border-color:var(--accent);
+}
+.sidebar-item.checked .item-status{background:var(--accent)}
+.sidebar-search{
+  position:relative;
+  padding:10px 16px;
+  border-bottom:1px solid var(--border);
+}
+#tplSidebarSearch{
+  width:100%;
+  background:var(--bg);
+  border:1px solid var(--border);
+  color:var(--text);
+  padding:10px 12px;
+  border-radius:8px;
+  font:inherit;
+  font-size:12px;
+  outline:0;
+}
+#tplSidebarSearch:focus{border-color:var(--accent)}
+#tplSidebarSearch::placeholder{color:var(--text3)}
+.sb-tpl-group{margin:0 8px 2px}
+.sb-tpl-header{
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 10px;
+  border:0;
+  border-radius:7px;
+  background:transparent;
+  color:var(--text2);
+  cursor:pointer;
+  font:inherit;
+  font-size:13px;
+  text-align:left;
+  transition:background .15s,color .15s;
+}
+.sb-tpl-header:hover{background:var(--surface2);color:var(--text)}
+.sb-tpl-group.active > .sb-tpl-header{
+  background:var(--surface2);
+  color:var(--text);
+}
+.sb-tpl-group.reviewed .sb-tpl-count{
+  border-color:var(--accent);
+  color:var(--accent);
+}
+.sb-tpl-group.checked .sb-tpl-count{
+  border-color:var(--accent);
+  color:var(--accent);
+}
+.sb-tpl-num{
+  width:28px;
+  flex-shrink:0;
+  color:var(--text3);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.06em;
+}
+.sb-tpl-name{
+  flex:1;
+  min-width:0;
+  font-weight:600;
+}
+.sb-tpl-count{
+  flex-shrink:0;
+  min-width:22px;
+  padding:1px 6px;
+  border:1px solid var(--border-soft);
+  border-radius:8px;
+  background:var(--surface2);
+  color:var(--text3);
+  font-size:10px;
+  text-align:center;
+}
+.sb-tpl-caret{
+  flex-shrink:0;
+  color:var(--text3);
+  font-size:10px;
+  transition:transform .2s;
+}
+.sb-tpl-group.collapsed .sb-tpl-caret{transform:rotate(-90deg)}
+.sb-tpl-group.collapsed .sb-tpl-examples{display:none}
+.sb-tpl-examples{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  padding:4px 0 8px 30px;
+}
+.sb-tpl-example{
+  display:block;
+  margin-left:-1px;
+  padding:6px 12px;
+  border-left:2px solid var(--border-soft);
+  border-radius:6px;
+  color:var(--text3);
+  font-size:12px;
+  text-decoration:none;
+  transition:all .12s;
+}
+.sb-tpl-example:hover,
+.sb-tpl-example.active{
+  border-left-color:var(--accent);
+  background:var(--accent-soft);
+  color:var(--accent);
+}
+.sb-tpl-example.active{font-weight:700}
+.sidebar-toggle{
+  display:none;
+  position:fixed;
+  top:14px;
+  left:14px;
+  z-index:50;
+  width:40px;
+  height:40px;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:var(--surface);
+  color:var(--text);
+  font-size:18px;
+  cursor:pointer;
+}
+.sidebar-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:9;
+  background:rgba(0,0,0,.4);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+}
+.sidebar-overlay.show{display:block}
+.topbar,.stats{
+  display:none;
+}
+.hero{
+  padding:36px 0 20px;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  margin-bottom:18px;
+}
+.eyebrow{
+  color:var(--accent);
+}
+.hero h1{
+  font-size:44px;
+  letter-spacing:0;
+}
+.notice{
+  max-width:760px;
+  border-radius:8px;
+}
+.filters{
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--surface);
+}
+.filter-label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:10px;
+  color:var(--text3);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.panel{
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+}
+.section-title{
+  padding-bottom:12px;
+  border-bottom:1px solid var(--border);
+}
+#typeList{
+  display:none;
+}
+.template-type-group{
+  margin-bottom:14px;
+  border-radius:14px;
+}
+.template-group-head{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  padding:18px 22px;
+  cursor:pointer;
+  user-select:none;
+}
+.template-group-head:hover{
+  background:var(--surface2);
+}
+.unit-caret{
+  color:var(--accent);
+  font-size:16px;
+  transition:transform .2s ease;
+}
+.template-type-group.collapsed .unit-caret{
+  transform:rotate(-90deg);
+}
+.template-group-title{
+  gap:8px;
+  flex:1;
+  min-width:180px;
+}
+.template-group-title span:first-child{
+  font-family:'DM Sans',sans-serif;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:.02em;
+}
+.unit-pages{
+  margin-left:4px;
+  padding:3px 7px;
+  border-radius:4px;
+  background:var(--surface2);
+  color:var(--text3);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.template-group-meta{
+  margin-left:auto;
+  color:var(--accent);
+}
+.template-progress-track{
+  flex-basis:100%;
+  height:8px;
+  background:var(--bg);
+}
+.template-progress-partial{
+  background-image:repeating-linear-gradient(-45deg,var(--accent) 0,var(--accent) 4px,rgba(52,211,153,.24) 4px,rgba(52,211,153,.24) 8px);
+}
+.template-group-body{
+  display:block;
+  padding:8px 0;
+  border-top:1px solid var(--border);
+}
+.template-type-group.collapsed .template-group-body{
+  display:none;
+}
+.template-group-body > .template-card{
+  display:none !important;
+}
+.example-list{
+  margin:14px 22px 0;
+  padding:0;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--surface2);
+}
+.example-list-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  padding:8px 14px;
+  border-bottom:1px solid var(--border);
+  background:var(--bg);
+  color:var(--text3);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.example-list-hint{
+  padding:2px 8px;
+  border-radius:4px;
+  background:var(--accent-soft);
+  color:var(--accent);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:none;
+}
+.example-list-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 14px;
+  border-bottom:1px solid var(--border);
+  color:var(--text2);
+  cursor:pointer;
+  font-size:13px;
+  transition:background .12s,color .12s;
+}
+.example-list-item:last-child{border-bottom:none}
+.example-list-item:hover{
+  background:var(--surface);
+  color:var(--text);
+}
+.example-list-item.active{
+  background:var(--accent-soft);
+  color:var(--accent);
+  font-weight:700;
+}
+.example-bullet{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--border);
+  flex-shrink:0;
+  transition:background .15s,transform .15s;
+}
+.example-list-item:hover .example-bullet{background:var(--text3)}
+.example-list-item.active .example-bullet{
+  background:var(--accent);
+  transform:scale(1.4);
+}
+.example-list-item-name{
+  flex:1;
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.example-list-item-status{
+  width:14px;
+  flex-shrink:0;
+  font-size:14px;
+  font-weight:900;
+  line-height:1;
+  text-align:center;
+}
+.example-list-item-status.reviewed{color:var(--accent)}
+.example-list-item-status.checked{color:var(--accent)}
+.placeholder-card{
+  margin:14px 22px 18px;
+  padding:20px 24px;
+  border:2px dashed var(--border);
+  border-radius:12px;
+  color:var(--text2);
+  background:transparent;
+}
+.placeholder-card .placeholder-label{
+  margin:0 0 8px;
+  color:var(--accent);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.placeholder-card p{
+  margin:0;
+  color:var(--text2);
+  font-size:14px;
+}
+.modal-overlay{
+  align-items:flex-start;
+  padding:40px 24px;
+  overflow-y:auto;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+.modal{
+  margin:auto;
+  border-radius:16px;
+  background:var(--bg);
+}
+.modal-head{
+  padding:24px 28px 14px;
+  background:var(--surface);
+}
+.modal-title{
+  font-size:var(--tpl-modal-title-size-mobile);
+}
+.modal-template-card{
+  border:0;
+  background:transparent;
+}
 #typeList .row p{
   display:-webkit-box;
   -webkit-line-clamp:2;
@@ -71,44 +2344,138 @@
 .footer a:hover{text-decoration:underline}
 @media(max-width:860px){
   #typeList .row p{-webkit-line-clamp:3}
+  .template-toolbar{grid-template-columns:1fr}
+  .tpl-result-count{text-align:left}
+  .template-group-head{grid-template-columns:1fr}
+  .template-group-body{grid-template-columns:1fr}
+  .modal-head{padding:20px 18px}
+  .template-sidebar{
+    display:flex;
+    transform:translateX(-100%);
+    transition:transform .25s ease;
+  }
+  .template-sidebar.open{transform:translateX(0)}
+  .sidebar-toggle{display:flex}
+  .template-main{
+    margin-left:0;
+    padding:72px 16px 60px;
+  }
+  .hero h1{font-size:32px}
+  .example-list{margin:12px 14px 0}
+  .example-list-item{padding:11px 14px}
+  .modal-template-meta{grid-template-columns:1fr}
+  .modal-body{padding:20px 18px 36px}
+  .modal-worked-head{grid-template-columns:1fr}
+  .modal-worked-controls{justify-content:flex-start}
+  .template-modal-nav{
+    order:3;
+    width:100%;
+    justify-content:space-between;
+  }
+  .modal-template-card[data-template-type="basic-concept"]{
+    max-width:none;
+  }
+  .modal-template-card[data-template-type="diagnostic-procedure"]{
+    max-width:none;
+  }
+  .modal-template-card .bc-grid,
+  .modal-template-card .sd-top-row,
+  .modal-template-card .gd-grid > .tpl-group > .tpl-group-body,
+  .modal-template-card .tpl-group-body,
+  .modal-template-card .patient-care-group .tpl-group-body{
+    grid-template-columns:1fr;
+  }
+  .modal-template-card .tp-grid{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "description"
+      "considerations"
+      "indications"
+      "outcomes"
+      "complications"
+      "nursing-interventions";
+  }
+  .modal-template-card .ca-grid{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "defining"
+      "antecedents"
+      "consequences"
+      "related"
+      "exemplars";
+  }
+  .modal-template-card .gd-grid .hp-connectors{display:none}
+  .modal-template-card .sd-grid{
+    grid-template-columns:1fr;
+    grid-template-areas:"top" "assessment" "safety" "patient-care";
+  }
+  .modal-template-card[data-template-type="system-disorder"] .safety-group{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    padding:10px;
+  }
+  .modal-template-card[data-template-type="system-disorder"] .patient-care-group .tpl-group-body{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "nursing-care"
+      "medications"
+      "client-education"
+      "therapeutic-procedures"
+      "interprofessional-care";
+  }
+  .modal-template-card .med-body{flex-direction:column}
+  .modal-template-card .med-ni::after,
+  .modal-template-card .tp-grid > .complications::after{display:none}
 }
 </style>
 </head>
 <body>
-<div class="page">
+<button class="sidebar-toggle" id="tplSidebarToggle" type="button" aria-label="Open template navigation">☰</button>
+<div class="sidebar-overlay" id="tplSidebarOverlay"></div>
+<div class="page template-layout">
+  <aside class="template-sidebar" aria-label="AMS template navigation">
+    <div class="sidebar-header">
+      <a class="back-home" href="Elevated%20ATI%20AMS%20Hub.html">Back to Hub</a>
+      <div class="sb-course">ATI AMS · ATI</div>
+      <div class="sb-title">Active Learning Templates</div>
+      <div class="sb-sub">Adult Medical-Surgical Nursing · Edition 11</div>
+      <div class="sb-version" title="Suite v3.1.0 · built 2026-07-01">v3.1.0 · 2026-07-01</div>
+      <button class="theme-toggle sidebar-theme-toggle" id="themeToggleSidebar" type="button"><span class="theme-icon">☀️</span> <span class="theme-label">Light Mode</span></button>
+    </div>
+    <div class="sidebar-progress-wrap">
+      <div class="sidebar-progress"><div class="sidebar-progress-fill" id="tplSidebarProgress" style="width:0%"></div></div>
+      <div class="sidebar-progress-text" id="tplSidebarProgressText">0 of 76 checked</div>
+      <div class="sidebar-legend">
+        <span class="legend-item"><span class="legend-dot reviewed"></span>Reviewed</span>
+        <span class="legend-item"><span class="legend-dot checked"></span>Checked</span>
+      </div>
+    </div>
+    <div class="sidebar-search">
+      <input id="tplSidebarSearch" type="search" placeholder="🔍 Search templates" autocomplete="off" aria-label="Search templates">
+    </div>
+    <nav class="sidebar-list" id="tplSidebarList">
+      <div class="sidebar-section-label">Template Types</div>
+    </nav>
+  </aside>
+  <main class="template-main">
   <header class="topbar">
     <a class="back-link" href="index.html">Back to All Subjects</a>
     <div class="brand"><div class="mark">AMS</div><div class="brand-title">Adult Medical-Surgical Nursing</div></div>
-    <button class="theme-toggle" id="themeToggle" type="button">Toggle Theme</button>
+    <button class="theme-toggle" id="themeToggle" type="button"><span class="theme-icon">☀️</span> <span class="theme-label">Light Mode</span></button>
   </header>
 
   <section class="hero">
     <div class="eyebrow">AMS Active Learning Templates</div>
     <h1>Adult Med-Surg <em>Templates</em></h1>
-    <p>Study 76 source-verified AMS examples by template type or chapter, then jump to the matching AMS Book chapter.</p>
-    <div class="notice">Build status: 6 template types, 46 source chapters, and 96 chapter filters. Content population is paused for design-canon review.</div>
-  </section>
-  <section class="stats">
-    <div class="stat"><div class="stat-value">76</div><div class="stat-label">Worked Examples</div></div>
-    <div class="stat"><div class="stat-value">6</div><div class="stat-label">Template Types Started</div></div>
-    <div class="stat"><div class="stat-value">96</div><div class="stat-label">Chapter Filters</div></div>
-    <div class="stat"><div class="stat-value">46</div><div class="stat-label">Source Chapters</div></div>
+    <p>Study 76 source-verified AMS examples by template type, then jump to the matching AMS Book chapter.</p>
   </section>
   <section class="filters">
+    <div class="filter-label">🔍 Search templates</div>
     <input class="search" id="tplSearch" type="search" placeholder="Search AMS worked templates" aria-label="Search AMS worked templates">
-    <div class="chips" data-filter="type"><button class="chip" data-type="basic-concept" type="button">Basic Concept</button><button class="chip" data-type="diagnostic-procedure" type="button">Diagnostic Procedure</button><button class="chip" data-type="growth-development" type="button">Growth and Development</button><button class="chip" data-type="medication" type="button">Medication</button><button class="chip" data-type="nursing-skill" type="button">Nursing Skill</button><button class="chip" data-type="system-disorder" type="button">System Disorder</button><button class="chip" data-type="therapeutic-procedure" type="button">Therapeutic Procedure</button><button class="chip" data-type="concept-analysis" type="button">Concept Analysis</button></div>
-    <div class="chips" data-filter="chapter"><button class="chip" data-chapter="1" type="button">1</button><button class="chip" data-chapter="2" type="button">2</button><button class="chip" data-chapter="3" type="button">3</button><button class="chip" data-chapter="4" type="button">4</button><button class="chip" data-chapter="5" type="button">5</button><button class="chip" data-chapter="6" type="button">6</button><button class="chip" data-chapter="7" type="button">7</button><button class="chip" data-chapter="8" type="button">8</button><button class="chip" data-chapter="9" type="button">9</button><button class="chip" data-chapter="10" type="button">10</button><button class="chip" data-chapter="11" type="button">11</button><button class="chip" data-chapter="12" type="button">12</button><button class="chip" data-chapter="13" type="button">13</button><button class="chip" data-chapter="14" type="button">14</button><button class="chip" data-chapter="15" type="button">15</button><button class="chip" data-chapter="16" type="button">16</button><button class="chip" data-chapter="17" type="button">17</button><button class="chip" data-chapter="18" type="button">18</button><button class="chip" data-chapter="19" type="button">19</button><button class="chip" data-chapter="20" type="button">20</button><button class="chip" data-chapter="21" type="button">21</button><button class="chip" data-chapter="22" type="button">22</button><button class="chip" data-chapter="23" type="button">23</button><button class="chip" data-chapter="24" type="button">24</button><button class="chip" data-chapter="25" type="button">25</button><button class="chip" data-chapter="26" type="button">26</button><button class="chip" data-chapter="27" type="button">27</button><button class="chip" data-chapter="28" type="button">28</button><button class="chip" data-chapter="29" type="button">29</button><button class="chip" data-chapter="30" type="button">30</button><button class="chip" data-chapter="31" type="button">31</button><button class="chip" data-chapter="32" type="button">32</button><button class="chip" data-chapter="33" type="button">33</button><button class="chip" data-chapter="34" type="button">34</button><button class="chip" data-chapter="35" type="button">35</button><button class="chip" data-chapter="36" type="button">36</button><button class="chip" data-chapter="37" type="button">37</button><button class="chip" data-chapter="38" type="button">38</button><button class="chip" data-chapter="39" type="button">39</button><button class="chip" data-chapter="40" type="button">40</button><button class="chip" data-chapter="41" type="button">41</button><button class="chip" data-chapter="42" type="button">42</button><button class="chip" data-chapter="43" type="button">43</button><button class="chip" data-chapter="44" type="button">44</button><button class="chip" data-chapter="45" type="button">45</button><button class="chip" data-chapter="46" type="button">46</button><button class="chip" data-chapter="47" type="button">47</button><button class="chip" data-chapter="48" type="button">48</button><button class="chip" data-chapter="49" type="button">49</button><button class="chip" data-chapter="50" type="button">50</button><button class="chip" data-chapter="51" type="button">51</button><button class="chip" data-chapter="52" type="button">52</button><button class="chip" data-chapter="53" type="button">53</button><button class="chip" data-chapter="54" type="button">54</button><button class="chip" data-chapter="55" type="button">55</button><button class="chip" data-chapter="56" type="button">56</button><button class="chip" data-chapter="57" type="button">57</button><button class="chip" data-chapter="58" type="button">58</button><button class="chip" data-chapter="59" type="button">59</button><button class="chip" data-chapter="60" type="button">60</button><button class="chip" data-chapter="61" type="button">61</button><button class="chip" data-chapter="62" type="button">62</button><button class="chip" data-chapter="63" type="button">63</button><button class="chip" data-chapter="64" type="button">64</button><button class="chip" data-chapter="65" type="button">65</button><button class="chip" data-chapter="66" type="button">66</button><button class="chip" data-chapter="67" type="button">67</button><button class="chip" data-chapter="68" type="button">68</button><button class="chip" data-chapter="69" type="button">69</button><button class="chip" data-chapter="70" type="button">70</button><button class="chip" data-chapter="71" type="button">71</button><button class="chip" data-chapter="72" type="button">72</button><button class="chip" data-chapter="73" type="button">73</button><button class="chip" data-chapter="74" type="button">74</button><button class="chip" data-chapter="75" type="button">75</button><button class="chip" data-chapter="76" type="button">76</button><button class="chip" data-chapter="77" type="button">77</button><button class="chip" data-chapter="78" type="button">78</button><button class="chip" data-chapter="79" type="button">79</button><button class="chip" data-chapter="80" type="button">80</button><button class="chip" data-chapter="81" type="button">81</button><button class="chip" data-chapter="82" type="button">82</button><button class="chip" data-chapter="83" type="button">83</button><button class="chip" data-chapter="84" type="button">84</button><button class="chip" data-chapter="85" type="button">85</button><button class="chip" data-chapter="86" type="button">86</button><button class="chip" data-chapter="87" type="button">87</button><button class="chip" data-chapter="88" type="button">88</button><button class="chip" data-chapter="89" type="button">89</button><button class="chip" data-chapter="90" type="button">90</button><button class="chip" data-chapter="91" type="button">91</button><button class="chip" data-chapter="92" type="button">92</button><button class="chip" data-chapter="93" type="button">93</button><button class="chip" data-chapter="94" type="button">94</button><button class="chip" data-chapter="95" type="button">95</button><button class="chip" data-chapter="96" type="button">96</button></div>
   </section>
+  <span class="tpl-result-count" id="tplResultCount" aria-live="polite" hidden></span>
   <section class="panel">
-    <h2 class="section-title">Template Types</h2>
-    <div class="list" id="typeList"><div class="row" data-type-row="basic-concept"><h3>Basic Concept <span class="pill">A1</span></h3><p>20 examples: Unit 1 health-promotion/adherence support and emergency triage/primary survey; Unit 2 status epilepticus priorities; Unit 3 oxygenation/ventilation priorities; Unit 4 ACS, dysrhythmia, pacemaker/ICD mode and teaching, invasive cardiovascular complication sorting, PAD versus venous disease sorting, and pulmonary edema priorities; Unit 5 transfusion-reaction sorting; Unit 6 fluid-volume sorting; Unit 10 osteoporosis fracture prevention; Unit 11 burn resuscitation priorities; Unit 12 sick-day diabetes safety and DKA/HHS sorting; Unit 13 immunization safety; Unit 14 moderate sedation, surgical-complication prevention, and postoperative complications.</p></div>
-<div class="row" data-type-row="diagnostic-procedure"><h3>Diagnostic Procedure <span class="pill">A3</span></h3><p>7 examples: Unit 3 respiratory diagnostic prep/recovery, Unit 4 cardiac stress-test prep/monitoring, Unit 7 GI diagnostic prep/recovery, Unit 8 excretory urography contrast safety and peritoneal dialysis complication monitoring, Unit 9 PSA/DRE/TRUS screening order, and Unit 13 HIV confirmation/monitoring tests.</p></div>
-<div class="row" data-type-row="growth-development"><h3>Growth and Development <span class="pill">A5</span></h3><p>0 examples started; not a priority for the current AMS perioperative set.</p></div>
-<div class="row" data-type-row="medication"><h3>Medication <span class="pill">A7</span></h3><p>15 examples: Unit 3 asthma rescue/control, tuberculosis combination medication safety, pulmonary embolism anticoagulation/thrombolytic safety, pleural trauma pain/sedation respiratory safety, and respiratory failure sedation/paralytic safety; Unit 4 nitroglycerin/antiplatelet safety, Unit 5 DIC/HIT anticoagulation safety, Unit 6 potassium replacement/hyperkalemia rescue, Unit 7 IBD anti-inflammatory/immunosuppressant safety, Unit 10 enoxaparin after arthroplasty, Unit 11 psoriasis/dermatitis medication safety, Unit 12 insulin safety, Unit 13 antiretroviral adherence safety, and Unit 14 dantrolene response for malignant hyperthermia.</p></div>
-<div class="row" data-type-row="nursing-skill"><h3>Nursing Skill <span class="pill">A9</span></h3><p>3 examples: Unit 2 post-stroke dysphagia safety, Unit 5 suspected transfusion reaction response, and Unit 14 PACU airway/circulation assessment.</p></div>
-<div class="row" data-type-row="system-disorder"><h3>System Disorder <span class="pill">A11</span></h3><p>15 examples: Unit 2 acute stroke sorting; Unit 3 asthma/COPD/tuberculosis respiratory safety, pulmonary embolism recognition/priority care, tension pneumothorax, and ARDS/respiratory failure response; Unit 4 valvular heart disease recognition, inflammatory cardiac disorder sorting, and hemodynamic shock differentiation; Unit 5 DIC bleeding/microclot priorities; Unit 6 severe hyponatremia neurologic safety; Unit 7 IBD flare and complication safety; Unit 9 BPH obstruction and medication safety; Unit 14 wound dehiscence and evisceration response.</p></div>
-<div class="row" data-type-row="therapeutic-procedure"><h3>Therapeutic Procedure <span class="pill">A13</span></h3><p>16 examples: Unit 3 chest tube monitoring/removal safety, hemothorax/thoracentesis/chest tube monitoring, and respiratory failure intubation/mechanical ventilation priorities; Unit 4 cardioversion/defibrillation safety, hemodynamic/angiography/central-access monitoring, pacemaker/ICD insertion monitoring, PCI postprocedure care, valve replacement/valvuloplasty teaching, tamponade/pericardiocentesis response, obstructive shock procedure matching, and peripheral angioplasty/DVT/PE escalation safety; Unit 8 hemodialysis access protection/bleeding surveillance/postdialysis safety; Unit 9 TURP continuous bladder irrigation safety; Unit 10 arthroplasty postoperative positioning/neurovascular safety; and Unit 11 burn graft/wound infection and mobility follow-up.</p></div>
-<div class="row" data-type-row="concept-analysis"><h3>Concept Analysis <span class="pill">A15</span></h3><p>0 examples started; reserve for cross-chapter clinical judgment work.</p></div></div>
     <div class="template-grid" id="templateGrid">
       <article class="template-card" id="tpl-ams-ch21-asthma-med-safety" data-type="medication" data-chapter="21" data-search="asthma albuterol short acting beta2 agonist bronchodilator corticosteroid fluticasone prednisone status asthmaticus oxygenation bronchodilator first">
         <div class="card-kicker">Medication - Ch 21</div>
@@ -1022,30 +3389,542 @@
         </div>
         <a class="template-link" href="Elevated%20ATI%20AMS%20Book.html#ch52-care-medications">Open chapter</a>
       </article>
+      <article class="template-card" id="tpl-ams-prototype-basic-concept-layout" data-prototype-fixture="true" data-type="basic-concept" data-chapter="Prototype" data-search="prototype layout fixture basic concept official active learning template spacing alignment stress test a1">
+        <div class="card-kicker">Prototype Fixture - A1</div>
+        <h3>Prototype Basic Concept</h3>
+        <div class="template-meta"><span class="tag">A1</span><span class="tag">Prototype</span><span class="tag">Official layout QA</span></div>
+        <p>This non-content fixture tests the A1 Basic Concept geometry with all three official boxes filled.</p>
+        <div class="template-sections">
+          <div class="template-section"><h4>Related Content</h4><ul><li>Prototype line with short text to verify compact scanning in the first column.</li><li>Prototype line with a longer phrase to test wrapping and equal-height behavior beside the other A1 boxes.</li><li>Prototype line reserved for a definition-style entry.</li><li>Prototype line reserved for a category-style entry.</li><li>Prototype line reserved for a comparison-style entry.</li><li>Prototype line reserved for a prioritization-style entry.</li><li>Prototype line reserved for a final dense-list entry.</li></ul></div>
+          <div class="template-section"><h4>Underlying Principles</h4><ul><li>Prototype line with short text to test the center column rhythm.</li><li>Prototype line with medium wrapping to confirm the column does not collapse or detach visually.</li><li>Prototype line reserved for a rationale-style entry.</li><li>Prototype line reserved for a mechanism-style entry.</li><li>Prototype line reserved for a rule-style entry.</li><li>Prototype line reserved for a cue-and-response entry.</li><li>Prototype line reserved for a final dense-list entry.</li></ul></div>
+          <div class="template-section"><h4>Nursing Interventions</h4><ul><li>Prototype line with short text to test the third column.</li><li>Prototype line with a longer phrase to confirm bottom alignment across all three A1 boxes.</li><li>Prototype line reserved for an assessment-style action.</li><li>Prototype line reserved for a monitoring-style action.</li><li>Prototype line reserved for a teaching-style action.</li><li>Prototype line reserved for an escalation-style action.</li><li>Prototype line reserved for a final dense-list entry.</li></ul></div>
+        </div>
+      </article>
+      <article class="template-card" id="tpl-ams-prototype-diagnostic-procedure-layout" data-prototype-fixture="true" data-type="diagnostic-procedure" data-chapter="Prototype" data-search="prototype layout fixture diagnostic procedure official active learning template spacing alignment stress test a3">
+        <div class="card-kicker">Prototype Fixture - A3</div>
+        <h3>Prototype Diagnostic Procedure</h3>
+        <div class="template-meta"><span class="tag">A3</span><span class="tag">Prototype</span><span class="tag">Official layout QA</span></div>
+        <p>This non-content fixture tests the A3 Diagnostic Procedure geometry with every official slot filled.</p>
+        <div class="template-sections">
+          <div class="template-section"><h4>Description of Procedure</h4><ul><li>Prototype full-width description line to test the top A3 panel.</li><li>Prototype line with longer wrapping text to confirm the description panel handles filled-state density cleanly.</li><li>Prototype line reserved for a purpose-style phrase.</li></ul></div>
+          <div class="template-section"><h4>Indications</h4><ul><li>Short indication prototype.</li><li>Second short indication prototype.</li></ul></div>
+          <div class="template-section"><h4>Interpretation of Findings</h4><ul><li>Prototype finding entry with medium length.</li><li>Prototype finding entry with a longer phrase that wraps enough to test whether the middle-left box still aligns with Client Education.</li><li>Prototype finding entry reserved for a reportable-result phrase.</li></ul></div>
+          <div class="template-section"><h4>Nursing Interventions (pre, intra, post)</h4><ul><li>Prototype preprocedure entry inside the Considerations parent.</li><li>Prototype intraprocedure entry with deliberately long wrapping text to stress the nested subbox, because this upper-right area needs to stay aligned against a much shorter Indications box on the left.</li><li>Prototype postprocedure entry reserved for monitoring-style text.</li><li>Prototype entry reserved for a safety-check phrase.</li><li>Prototype entry reserved for a second safety-check phrase that adds more vertical pressure.</li><li>Prototype entry reserved for a final dense line so the right side is intentionally taller than the left-side indication content.</li></ul></div>
+          <div class="template-section"><h4>Client Education</h4><ul><li>Short education prototype.</li><li>Second short education prototype.</li></ul></div>
+          <div class="template-section"><h4>Potential Complications</h4><ul><li>Prototype complication entry for the lower-left official A3 box.</li><li>Prototype complication entry with longer wrapping to confirm alignment with lower-right Nursing Interventions.</li><li>Prototype complication entry reserved for a risk-style phrase.</li><li>Prototype complication entry reserved for an escalation-style phrase.</li><li>Prototype complication entry reserved for additional height testing.</li></ul></div>
+          <div class="template-section"><h4>Nursing Interventions</h4><ul><li>Short lower-right nursing intervention prototype.</li><li>Second short lower-right intervention prototype.</li></ul></div>
+        </div>
+      </article>
+      <article class="template-card" id="tpl-ams-prototype-growth-development-layout" data-prototype-fixture="true" data-type="growth-development" data-chapter="Prototype" data-search="prototype layout fixture growth development official active learning template spacing alignment stress test a5">
+        <div class="card-kicker">Prototype Fixture - A5</div>
+        <h3>Prototype Developmental Stage</h3>
+        <div class="template-meta"><span class="tag">A5</span><span class="tag">Prototype</span><span class="tag">Official layout QA</span></div>
+        <p>This non-content fixture tests the A5 Growth and Development geometry before AMS has source-verified learner examples for this template type.</p>
+        <div class="template-sections">
+          <div class="template-section"><h4>Physical Development</h4><ul><li>Prototype line with short text to test compact scanning.</li><li>Prototype line with medium-length wrapping to confirm the top row keeps equal height.</li><li>Prototype line with a longer phrase that simulates a dense filled template without adding AMS teaching content.</li><li>Prototype line reserved for a measurement-style entry.</li><li>Prototype line reserved for a second measurement-style entry.</li><li>Prototype line reserved for an observation-style entry.</li></ul></div>
+          <div class="template-section"><h4>Cognitive Development</h4><ul><li>Prototype line for a short developmental note.</li><li>Prototype line for a longer entry that wraps across two lines in the narrow card.</li><li>Prototype line reserved for a milestone-style phrase.</li><li>Prototype line reserved for a comparison-style phrase.</li><li>Prototype line reserved for an assessment-style phrase.</li></ul></div>
+          <div class="template-section"><h4>Psychosocial Development</h4><ul><li>Prototype line for a short psychosocial cue.</li><li>Prototype line with enough words to test vertical rhythm beside neighboring boxes.</li><li>Prototype line reserved for a caregiver-response entry.</li><li>Prototype line reserved for an interaction-style entry.</li><li>Prototype line reserved for a priority-style entry.</li></ul></div>
+          <div class="template-section"><h4>Age-Appropriate Activities</h4><ul><li>Prototype line for a short activity entry.</li><li>Prototype line with a longer activity-style phrase to test wrapping and equal bottoms.</li><li>Prototype line reserved for an environment-style entry.</li><li>Prototype line reserved for a safety-compatible activity entry.</li><li>Prototype line reserved for a teaching-style activity entry.</li></ul></div>
+          <div class="template-section"><h4>Health Promotion</h4><ul><li>Prototype parent line that spans the width above the four health-promotion child boxes.</li><li>Prototype parent line that verifies the connector strip stays centered under the parent.</li><li>Prototype parent line that gives the panel enough height to test real filled-state spacing.</li></ul></div>
+          <div class="template-section"><h4>Immunizations</h4><ul><li>Prototype entry for the first lower-grid child box.</li><li>Prototype entry with longer wrapping text for height testing.</li><li>Prototype entry reserved for a schedule-style phrase.</li><li>Prototype entry reserved for a follow-up-style phrase.</li><li>Prototype entry reserved for a teaching-style phrase.</li></ul></div>
+          <div class="template-section"><h4>Health Screening</h4><ul><li>Prototype entry for the second lower-grid child box.</li><li>Prototype entry with medium wrapping to match neighboring box density.</li><li>Prototype entry reserved for a screening-timing phrase.</li><li>Prototype entry reserved for an abnormal-result phrase.</li><li>Prototype entry reserved for a documentation phrase.</li></ul></div>
+          <div class="template-section"><h4>Nutrition</h4><ul><li>Prototype entry for the third lower-grid child box.</li><li>Prototype entry with longer wrapping to stress the column without changing content mode.</li><li>Prototype entry reserved for an intake-style phrase.</li><li>Prototype entry reserved for a client-teaching phrase.</li><li>Prototype entry reserved for a follow-up phrase.</li></ul></div>
+          <div class="template-section"><h4>Injury Prevention</h4><ul><li>Prototype entry for the fourth lower-grid child box.</li><li>Prototype entry with longer wrapping text to confirm row alignment.</li><li>Prototype entry reserved for an environment-safety phrase.</li><li>Prototype entry reserved for a caregiver-teaching phrase.</li><li>Prototype entry reserved for an escalation-style phrase.</li></ul></div>
+        </div>
+      </article>
+      <article class="template-card" id="tpl-ams-prototype-medication-layout" data-prototype-fixture="true" data-type="medication" data-chapter="Prototype" data-category-class="Prototype Class" data-search="prototype layout fixture medication official active learning template spacing alignment stress test a7">
+        <div class="card-kicker">Prototype Fixture - A7</div>
+        <h3>Prototype Medication</h3>
+        <div class="template-meta"><span class="tag">A7</span><span class="tag">Prototype</span><span class="tag">Official layout QA</span></div>
+        <p>This non-content fixture tests the A7 Medication geometry with every official medication box filled.</p>
+        <div class="template-sections">
+          <div class="template-section"><h4>Expected Pharmacological Action</h4><ul><li>Short action prototype.</li><li>Second short action prototype to keep the left purpose box intentionally compact.</li></ul></div>
+          <div class="template-section"><h4>Therapeutic Use</h4><ul><li>Prototype therapeutic-use entry with a longer phrase to test top-row wrapping beside the shorter pharmacological-action box.</li><li>Prototype therapeutic-use entry reserved for a second use-style phrase.</li><li>Prototype therapeutic-use entry reserved for a timing-style phrase.</li><li>Prototype therapeutic-use entry reserved for a special-situation phrase.</li></ul></div>
+          <div class="template-section"><h4>Complications</h4><ul><li>Prototype complication entry for the upper-left body box.</li><li>Prototype complication entry with longer wrapping text to stress the wider left column.</li><li>Prototype complication entry reserved for a reaction-style phrase.</li><li>Prototype complication entry reserved for an escalation-style phrase.</li></ul></div>
+          <div class="template-section"><h4>Contraindications/Precautions</h4><ul><li>Short precaution prototype.</li><li>Second short precaution prototype.</li></ul></div>
+          <div class="template-section"><h4>Interactions</h4><ul><li>Prototype interaction entry with medium length.</li><li>Prototype interaction entry with longer wrapping text to check the left-column rhythm after a shorter box above it.</li><li>Prototype interaction entry reserved for a timing-style phrase.</li><li>Prototype interaction entry reserved for a compatibility-style phrase.</li><li>Prototype interaction entry reserved for a final dense-list phrase.</li></ul></div>
+          <div class="template-section"><h4>Evaluation of Medication Effectiveness</h4><ul><li>Prototype effectiveness entry for the bottom-left official box.</li><li>Prototype effectiveness entry with longer wrapping text to test bottom alignment against the right column.</li><li>Prototype effectiveness entry reserved for a measurable-outcome phrase.</li><li>Prototype effectiveness entry reserved for a follow-up phrase.</li></ul></div>
+          <div class="template-section"><h4>Medication Administration</h4><ul><li>Prototype administration entry for the upper-right official box.</li><li>Prototype administration entry with deliberately longer wrapping text to test the narrower right column and its relationship to the left stack.</li><li>Prototype administration entry reserved for a route-style phrase.</li><li>Prototype administration entry reserved for a timing-style phrase.</li><li>Prototype administration entry reserved for a documentation-style phrase.</li><li>Prototype administration entry reserved for a final dense line.</li></ul></div>
+          <div class="template-section"><h4>Nursing Interventions</h4><ul><li>Short nursing intervention prototype.</li><li>Second short nursing intervention prototype.</li></ul></div>
+          <div class="template-section"><h4>Client Education</h4><ul><li>Prototype education entry for the connected lower-right box.</li><li>Prototype education entry with a longer phrase so the connector can be reviewed when Client Education is taller than Nursing Interventions.</li><li>Prototype education entry reserved for a self-monitoring phrase.</li><li>Prototype education entry reserved for a reporting phrase.</li><li>Prototype education entry reserved for a follow-up phrase.</li><li>Prototype education entry reserved for a final dense-list phrase.</li></ul></div>
+        </div>
+      </article>
+      <article class="template-card" id="tpl-ams-prototype-nursing-skill-layout" data-prototype-fixture="true" data-type="nursing-skill" data-chapter="Prototype" data-search="prototype layout fixture nursing skill official active learning template spacing alignment stress test a9">
+        <div class="card-kicker">Prototype Fixture - A9</div>
+        <h3>Prototype Nursing Skill</h3>
+        <div class="template-meta"><span class="tag">A9</span><span class="tag">Prototype</span><span class="tag">Official layout QA</span></div>
+        <p>This non-content fixture tests the A9 Nursing Skill geometry with every official skill box filled.</p>
+        <div class="template-sections">
+          <div class="template-section"><h4>Description of Skill</h4><ul><li>Prototype full-width description entry for the official A9 top panel.</li><li>Prototype description entry with longer wrapping text to confirm the skill-description panel remains compact and readable above the two-column body.</li><li>Prototype description entry reserved for a purpose-style phrase.</li></ul></div>
+          <div class="template-section"><h4>Indications</h4><ul><li>Short indication prototype.</li><li>Second short indication prototype.</li><li>Prototype indication entry reserved for a client-readiness phrase.</li><li>Prototype indication entry reserved for a provider-order phrase.</li></ul></div>
+          <div class="template-section"><h4>Outcomes/Evaluation</h4><ul><li>Prototype outcome entry with medium length.</li><li>Prototype outcome entry with longer wrapping text to test whether the middle-left box still aligns with the lower edge of the Considerations group.</li><li>Prototype outcome entry reserved for a measurable-response phrase.</li><li>Prototype outcome entry reserved for a documentation phrase.</li></ul></div>
+          <div class="template-section"><h4>Nursing Interventions (pre, intra, post)</h4><ul><li>Prototype pre-skill entry inside the Considerations parent.</li><li>Prototype intra-skill entry with deliberately long wrapping text to stress the upper-right subbox against a shorter Indications box on the left.</li><li>Prototype post-skill entry reserved for a reassessment phrase.</li><li>Prototype entry reserved for equipment preparation.</li><li>Prototype entry reserved for client positioning.</li><li>Prototype entry reserved for a final dense monitoring phrase.</li></ul></div>
+          <div class="template-section"><h4>Client Education</h4><ul><li>Short client education prototype.</li><li>Second education prototype with a longer phrase to test the lower-right subbox height inside the Considerations group.</li><li>Prototype education entry reserved for expectation-setting.</li><li>Prototype education entry reserved for when-to-report teaching.</li></ul></div>
+          <div class="template-section"><h4>Potential Complications</h4><ul><li>Prototype complication entry for the lower-left official A9 box.</li><li>Prototype complication entry with longer wrapping to confirm the connector aligns toward the lower-right Nursing Interventions box.</li><li>Prototype complication entry reserved for a client-tolerance issue.</li><li>Prototype complication entry reserved for an escalation-style phrase.</li><li>Prototype complication entry reserved for additional height testing.</li></ul></div>
+          <div class="template-section"><h4>Nursing Interventions</h4><ul><li>Short lower-right nursing intervention prototype.</li><li>Second short lower-right intervention prototype.</li><li>Prototype intervention entry with longer wrapping text to test bottom alignment against Potential Complications.</li><li>Prototype intervention entry reserved for follow-up monitoring.</li><li>Prototype intervention entry reserved for documentation.</li></ul></div>
+        </div>
+      </article>
+      <article class="template-card" id="tpl-ams-prototype-system-disorder-layout" data-prototype-fixture="true" data-type="system-disorder" data-chapter="Prototype" data-search="prototype layout fixture system disorder official active learning template spacing alignment stress test a11">
+        <div class="card-kicker">Prototype Fixture - A11</div>
+        <h3>Prototype System Disorder</h3>
+        <div class="template-meta"><span class="tag">A11</span><span class="tag">Prototype</span><span class="tag">Official layout QA</span></div>
+        <p>This non-content fixture tests the A11 System Disorder geometry with every official system-disorder box filled.</p>
+        <div class="template-sections">
+          <div class="template-section"><h4>Alterations in Health (Diagnosis)</h4><ul><li>Prototype diagnosis-area entry with compact text.</li><li>Prototype diagnosis-area entry with longer wrapping to test the top-row card height.</li><li>Prototype diagnosis entry reserved for a cue-style phrase.</li></ul></div>
+          <div class="template-section"><h4>Pathophysiology Related to Client Problem</h4><ul><li>Prototype pathophysiology entry for the center top box.</li><li>Prototype mechanism entry with enough text to test safe insets and wrapping.</li><li>Prototype pathophysiology entry reserved for a cause-and-effect phrase.</li></ul></div>
+          <div class="template-section"><h4>Health Promotion and Disease Prevention</h4><ul><li>Prototype prevention entry for the top-right box.</li><li>Prototype prevention entry with a longer phrase to test equal top-row card rhythm.</li><li>Prototype prevention entry reserved for a risk-reduction phrase.</li></ul></div>
+          <div class="template-section"><h4>Risk Factors</h4><ul><li>Prototype risk-factor entry.</li><li>Prototype risk-factor entry with longer wrapping to stress the assessment grid.</li><li>Prototype entry reserved for a history-style phrase.</li><li>Prototype entry reserved for a lifestyle-style phrase.</li></ul></div>
+          <div class="template-section"><h4>Expected Findings</h4><ul><li>Prototype expected-finding entry.</li><li>Prototype expected-finding entry with longer wrapping to test side-by-side alignment.</li><li>Prototype finding entry reserved for a subjective cue.</li><li>Prototype finding entry reserved for an objective cue.</li></ul></div>
+          <div class="template-section"><h4>Laboratory Tests</h4><ul><li>Prototype laboratory entry.</li><li>Prototype laboratory entry with longer wrapping for lower assessment row testing.</li><li>Prototype laboratory entry reserved for a monitoring phrase.</li></ul></div>
+          <div class="template-section"><h4>Diagnostic Procedures</h4><ul><li>Prototype diagnostic-procedure entry.</li><li>Prototype diagnostic-procedure entry with longer wrapping to test the lower-right assessment box.</li><li>Prototype diagnostic entry reserved for a follow-up phrase.</li></ul></div>
+          <div class="template-section"><h4>Safety Considerations</h4><ul><li>Prototype safety entry for the tall right-side safety panel.</li><li>Prototype safety entry with longer wrapping to confirm the panel uses readable safe insets.</li><li>Prototype safety entry reserved for a priority cue.</li><li>Prototype safety entry reserved for an escalation phrase.</li></ul></div>
+          <div class="template-section"><h4>Complications</h4><ul><li>Prototype complication entry for the lower right safety-column box.</li><li>Prototype complication entry with longer wrapping text to test the tall right rail.</li><li>Prototype complication entry reserved for a worsening-cue phrase.</li><li>Prototype complication entry reserved for a monitoring phrase.</li><li>Prototype complication entry reserved for a final dense-list phrase.</li></ul></div>
+          <div class="template-section"><h4>Nursing Care</h4><ul><li>Prototype nursing-care entry for the upper-left Patient-Centered Care box.</li><li>Prototype nursing-care entry with longer wrapping to test the stacked left column.</li><li>Prototype nursing-care entry reserved for a priority action.</li></ul></div>
+          <div class="template-section"><h4>Medications</h4><ul><li>Prototype medication entry for the tall center box.</li><li>Prototype medication entry with longer wrapping to confirm the middle column can hold dense content.</li><li>Prototype medication entry reserved for a monitoring phrase.</li><li>Prototype medication entry reserved for an adverse-effect phrase.</li><li>Prototype medication entry reserved for a teaching phrase.</li><li>Prototype medication entry reserved for final height testing.</li></ul></div>
+          <div class="template-section"><h4>Client Education</h4><ul><li>Prototype education entry for the upper-right Patient-Centered Care box.</li><li>Prototype education entry with longer wrapping to test the right stacked column.</li><li>Prototype education entry reserved for self-monitoring.</li></ul></div>
+          <div class="template-section"><h4>Therapeutic Procedures</h4><ul><li>Prototype therapeutic-procedure entry for the lower-left Patient-Centered Care box.</li><li>Prototype therapeutic-procedure entry with longer wrapping for left-column height testing.</li><li>Prototype therapeutic-procedure entry reserved for a timing phrase.</li></ul></div>
+          <div class="template-section"><h4>Interprofessional Care</h4><ul><li>Prototype interprofessional-care entry for the lower-right Patient-Centered Care box.</li><li>Prototype interprofessional-care entry with longer wrapping to test the final right-column card.</li><li>Prototype interprofessional entry reserved for a referral phrase.</li></ul></div>
+        </div>
+      </article>
+      <article class="template-card" id="tpl-ams-prototype-therapeutic-procedure-layout" data-prototype-fixture="true" data-type="therapeutic-procedure" data-chapter="Prototype" data-search="prototype layout fixture therapeutic procedure official active learning template spacing alignment stress test a13">
+        <div class="card-kicker">Prototype Fixture - A13</div>
+        <h3>Prototype Therapeutic Procedure</h3>
+        <div class="template-meta"><span class="tag">A13</span><span class="tag">Prototype</span><span class="tag">Official layout QA</span></div>
+        <p>This non-content fixture tests the A13 Therapeutic Procedure geometry with every official procedure box filled.</p>
+        <div class="template-sections">
+          <div class="template-section"><h4>Description of Procedure</h4><ul><li>Prototype full-width procedure description entry for the official A13 top panel.</li><li>Prototype description entry with longer wrapping text to confirm the top panel remains readable before the two-column body begins.</li><li>Prototype description entry reserved for a purpose-style phrase.</li></ul></div>
+          <div class="template-section"><h4>Indications</h4><ul><li>Prototype indication entry.</li><li>Prototype indication entry with longer wrapping to stress the upper-left box against the Considerations parent.</li><li>Prototype indication entry reserved for a readiness-style phrase.</li><li>Prototype indication entry reserved for a provider-order phrase.</li></ul></div>
+          <div class="template-section"><h4>Outcomes/Evaluation</h4><ul><li>Prototype outcome entry with medium length.</li><li>Prototype outcome entry with longer wrapping text to test the middle-left box height against the lower edge of the Considerations parent.</li><li>Prototype outcome entry reserved for a measurable-response phrase.</li><li>Prototype outcome entry reserved for a documentation phrase.</li></ul></div>
+          <div class="template-section"><h4>Nursing Interventions (pre, intra, post)</h4><ul><li>Prototype preprocedure entry inside the Considerations parent.</li><li>Prototype intraprocedure entry with deliberately long wrapping text to test the upper-right subbox when it contains dense pre, intra, and post sequencing.</li><li>Prototype postprocedure entry reserved for a reassessment phrase.</li><li>Prototype entry reserved for positioning.</li><li>Prototype entry reserved for equipment preparation.</li><li>Prototype entry reserved for a final dense monitoring phrase.</li></ul></div>
+          <div class="template-section"><h4>Client Education</h4><ul><li>Prototype client education entry inside the lower Considerations subbox.</li><li>Prototype education entry with a longer phrase to check spacing when the client teaching box grows beneath the procedure-intervention box.</li><li>Prototype education entry reserved for expectation-setting.</li><li>Prototype education entry reserved for when-to-report teaching.</li></ul></div>
+          <div class="template-section"><h4>Potential Complications</h4><ul><li>Prototype complication entry for the lower-left official A13 box.</li><li>Prototype complication entry with longer wrapping to confirm connector alignment toward lower-right Nursing Interventions.</li><li>Prototype complication entry reserved for a tolerance issue.</li><li>Prototype complication entry reserved for an escalation-style phrase.</li><li>Prototype complication entry reserved for additional height testing.</li></ul></div>
+          <div class="template-section"><h4>Nursing Interventions</h4><ul><li>Prototype lower-right nursing intervention entry.</li><li>Prototype lower-right intervention entry with longer wrapping text to test bottom alignment against Potential Complications.</li><li>Prototype intervention entry reserved for follow-up monitoring.</li><li>Prototype intervention entry reserved for documentation.</li><li>Prototype intervention entry reserved for a final dense-list phrase.</li></ul></div>
+        </div>
+      </article>
+      <article class="template-card" id="tpl-ams-prototype-concept-analysis-layout" data-prototype-fixture="true" data-type="concept-analysis" data-chapter="Prototype" data-search="prototype layout fixture concept analysis official active learning template spacing alignment stress test">
+        <div class="card-kicker">Prototype Fixture - A15</div>
+        <h3>Prototype Concept Analysis</h3>
+        <div class="template-meta"><span class="tag">A15</span><span class="tag">Prototype</span><span class="tag">Official layout QA</span></div>
+        <p>This non-content fixture tests the A15 Concept Analysis geometry with every official concept-analysis box filled.</p>
+        <div class="template-sections">
+          <div class="template-section"><h4>Defining Characteristics</h4><ul><li>Prototype defining-characteristic entry for the official full-width top panel.</li><li>Prototype defining-characteristic entry with longer wrapping text to confirm the panel remains readable above the paired concept-analysis boxes.</li><li>Prototype defining entry reserved for a concise definition-style phrase.</li></ul></div>
+          <div class="template-section"><h4>Antecedents</h4><ul><li>Prototype antecedent entry for the upper-left official box.</li><li>Prototype antecedent entry with longer wrapping to test alignment against Negative Consequences.</li><li>Prototype antecedent entry reserved for a prerequisite-style phrase.</li><li>Prototype antecedent entry reserved for a context-style phrase.</li><li>Prototype antecedent entry reserved for additional height testing.</li></ul></div>
+          <div class="template-section"><h4>Negative Consequences</h4><ul><li>Prototype consequence entry for the upper-right official box.</li><li>Prototype consequence entry with longer wrapping text to test paired-row height against Antecedents.</li><li>Prototype consequence entry reserved for an impaired-outcome phrase.</li><li>Prototype consequence entry reserved for an escalation-style phrase.</li></ul></div>
+          <div class="template-section"><h4>Related Concepts</h4><ul><li>Prototype related-concept entry for the lower-left official box.</li><li>Prototype related-concept entry with longer wrapping to check the lower row against Exemplars.</li><li>Prototype related-concept entry reserved for a comparison-style phrase.</li><li>Prototype related-concept entry reserved for a concept-link phrase.</li><li>Prototype related-concept entry reserved for final height testing.</li></ul></div>
+          <div class="template-section"><h4>Exemplars</h4><ul><li>Prototype exemplar entry for the lower-right official box.</li><li>Prototype exemplar entry with longer wrapping text to confirm lower-row alignment and safe insets.</li><li>Prototype exemplar entry reserved for a concrete-example phrase.</li><li>Prototype exemplar entry reserved for a scenario-style phrase.</li></ul></div>
+        </div>
+      </article>
     </div>
-    <div class="empty" id="emptyState" hidden>No matching AMS templates found. Clear the search or selected filters to return to the current practice set.</div>
+    <div class="empty" id="emptyState" hidden>No matching AMS templates found. Clear the search to return to the current practice set.</div>
   </section>
+  <div class="exam-reset"><button class="template-reset-btn" id="tplResetProgress" type="button">Reset All Progress</button></div>
+  <div class="modal-overlay" id="templateModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="templateModalTitle">
+      <div class="modal-head modal-header">
+        <div class="modal-title-row">
+          <div>
+          <p class="modal-subtitle modal-meta" id="templateModalSubtitle"></p>
+          <h2 class="modal-title" id="templateModalTitle">Template</h2>
+          </div>
+          <div class="modal-actions">
+            <button class="modal-print" id="templateModalPrint" type="button" aria-label="Print this example" title="Print this example">⎙</button>
+            <button class="modal-close" id="templateModalClose" type="button" aria-label="Close">×</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body" id="templateModalBody"></div>
+    </div>
+  </div>
   <footer class="footer"><a href="Elevated%20ATI%20AMS%20Book.html">Open AMS Book</a> &middot; <a href="Elevated%20ATI%20AMS%20Hub.html">Back to AMS Hub</a></footer>
+  </main>
 <script>
 (function(){
   var THEME_KEY = 'nur2460_theme';
-  var btn = document.getElementById('themeToggle');
+  var themeButtons = Array.prototype.slice.call(document.querySelectorAll('#themeToggle,#themeToggleSidebar'));
   try { if (localStorage.getItem(THEME_KEY) === 'light') document.documentElement.setAttribute('data-theme','light'); } catch(e){}
-  if (btn) btn.addEventListener('click', function(){
-    var light = document.documentElement.getAttribute('data-theme') === 'light';
-    if (light) document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme','light');
-    try { localStorage.setItem(THEME_KEY, light ? 'dark' : 'light'); } catch(e){}
+  function updateThemeButtons(){
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    themeButtons.forEach(function(btn){
+      var icon = btn.querySelector('.theme-icon');
+      var label = btn.querySelector('.theme-label');
+      if (icon) icon.textContent = isLight ? '🌙' : '☀️';
+      if (label) label.textContent = isLight ? 'Dark Mode' : 'Light Mode';
+    });
+  }
+  themeButtons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var light = document.documentElement.getAttribute('data-theme') === 'light';
+      if (light) document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme','light');
+      try { localStorage.setItem(THEME_KEY, light ? 'dark' : 'light'); } catch(e){}
+      updateThemeButtons();
+    });
   });
+  updateThemeButtons();
 
   var STORAGE_KEY = 'atiams_templates_progress';
   var STUDIED_KEY = STORAGE_KEY;
   var LAST_TPL_KEY = 'atiams_last_template';
-  var cards = Array.prototype.slice.call(document.querySelectorAll('.template-card'));
+  var showPrototypeFixtures = false;
+  try { showPrototypeFixtures = new URLSearchParams(window.location.search).get('prototypeFixtures') === '1'; } catch(e) {}
+  try {
+    var requestedPrototype = document.querySelector(window.location.hash + '[data-prototype-fixture="true"]');
+    if (requestedPrototype) showPrototypeFixtures = true;
+  } catch(e) {}
+  var allCards = Array.prototype.slice.call(document.querySelectorAll('.template-card'));
+  var cards = allCards.filter(function(card){
+    var isPrototype = card.getAttribute('data-prototype-fixture') === 'true';
+    if (isPrototype && !showPrototypeFixtures) card.hidden = true;
+    return showPrototypeFixtures || !isPrototype;
+  });
+  var grid = document.getElementById('templateGrid');
   var empty = document.getElementById('emptyState');
-  var state = { search: '', types: [], chapters: [] };
+  var resultCount = document.getElementById('tplResultCount');
+  var modal = document.getElementById('templateModal');
+  var modalBody = document.getElementById('templateModalBody');
+  var modalTitle = document.getElementById('templateModalTitle');
+  var modalSubtitle = document.getElementById('templateModalSubtitle');
+  var modalClose = document.getElementById('templateModalClose');
+  var modalPrint = document.getElementById('templateModalPrint');
+  var resetProgress = document.getElementById('tplResetProgress');
+  var sidebarProgress = document.getElementById('tplSidebarProgress');
+  var sidebarProgressText = document.getElementById('tplSidebarProgressText');
+  var sidebarList = document.getElementById('tplSidebarList');
+  var sidebarSearch = document.getElementById('tplSidebarSearch');
+  var sidebarPanel = document.querySelector('.template-sidebar');
+  var sidebarToggle = document.getElementById('tplSidebarToggle');
+  var sidebarOverlay = document.getElementById('tplSidebarOverlay');
+  var groups = {};
+  var progress = loadProgress();
+  var state = { search: '', types: [], chapters: [], status: 'all', mode: 'filled' };
+  var typeOrder = [
+    'basic-concept',
+    'diagnostic-procedure',
+    'growth-development',
+    'medication',
+    'nursing-skill',
+    'system-disorder',
+    'therapeutic-procedure',
+    'concept-analysis'
+  ];
+  var typePages = {
+    'basic-concept': 'A1',
+    'diagnostic-procedure': 'A3',
+    'growth-development': 'A5',
+    'medication': 'A7',
+    'nursing-skill': 'A9',
+    'system-disorder': 'A11',
+    'therapeutic-procedure': 'A13',
+    'concept-analysis': 'A15'
+  };
+  var typeNames = {
+    'basic-concept': 'Basic Concept',
+    'diagnostic-procedure': 'Diagnostic Procedure',
+    'growth-development': 'Growth and Development',
+    'medication': 'Medication',
+    'nursing-skill': 'Nursing Skill',
+    'system-disorder': 'System Disorder',
+    'therapeutic-procedure': 'Therapeutic Procedure',
+    'concept-analysis': 'Concept Analysis'
+  };
+  var typeNumbers = {
+    'basic-concept': '1',
+    'diagnostic-procedure': '2',
+    'growth-development': '3',
+    'medication': '4',
+    'nursing-skill': '5',
+    'system-disorder': '6',
+    'therapeutic-procedure': '7',
+    'concept-analysis': '8'
+  };
+  function readJson(key, fallback){
+    try {
+      var value = localStorage.getItem(key);
+      return value ? JSON.parse(value) : fallback;
+    } catch(e) {
+      return fallback;
+    }
+  }
+  function loadProgress(){
+    return readJson(STUDIED_KEY, {});
+  }
+  function saveProgress(){
+    try { localStorage.setItem(STUDIED_KEY, JSON.stringify(progress)); } catch(e) {}
+  }
+  function typeTitle(type){
+    return typeNames[type] || type.replace(/-/g, ' ');
+  }
+  function ensureGroups(){
+    if (!grid) return;
+    var byType = {};
+    cards.forEach(function(card){
+      var type = card.getAttribute('data-type') || 'uncategorized';
+      if (!byType[type]) byType[type] = [];
+      byType[type].push(card);
+    });
+    typeOrder.forEach(function(type){
+      var typeCards = byType[type] || [];
+      var group = document.createElement('section');
+      group.className = 'template-type-group unit-accordion collapsed';
+      group.setAttribute('data-type-group', type);
+      group.setAttribute('data-template-id', type);
+      group.id = type + '-acc';
+      group.innerHTML =
+        '<div class="template-group-head unit-header" data-toggle-template-group="' + type + '" data-toggle-unit="' + type + '-acc">' +
+          '<span class="unit-caret">▾</span>' +
+          '<div class="template-group-title"><span></span><span class="unit-pages"></span></div>' +
+          '<div class="template-group-meta unit-count"></div>' +
+          '<div class="template-progress-track unit-bar-wrap" aria-hidden="true">' +
+            '<div class="unit-bar-outer">' +
+              '<span class="template-progress-partial unit-bar-partial"></span>' +
+              '<span class="template-progress-fill unit-bar-inner"></span>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="template-group-body unit-body"></div>';
+      group.querySelector('.template-group-title span:first-child').textContent = typeNumbers[type] + ' · ' + typeTitle(type);
+      group.querySelector('.unit-pages').textContent = typePages[type] || '';
+      groups[type] = group;
+      grid.appendChild(group);
+      var body = group.querySelector('.template-group-body');
+      if (typeCards.length) {
+        var list = document.createElement('div');
+        list.className = 'example-list';
+        list.innerHTML = '<div class="example-list-header">Worked Examples · ' + typeCards.length + ' <span class="example-list-hint">tap to open</span></div>';
+        typeCards.forEach(function(card){
+          var item = document.createElement('div');
+          item.className = 'example-list-item';
+          item.setAttribute('data-template-row', card.id);
+          item.innerHTML =
+            '<span class="example-bullet"></span>' +
+            '<span class="example-list-item-name"></span>' +
+            '<span class="example-list-item-status" data-status-icon="' + card.id + '"></span>';
+          item.querySelector('.example-list-item-name').textContent = (card.querySelector('h3') || card).textContent.trim();
+          list.appendChild(item);
+        });
+        body.appendChild(list);
+        typeCards.forEach(function(card){ body.appendChild(card); });
+      } else {
+        var placeholder = document.createElement('div');
+        placeholder.className = 'placeholder-card';
+        placeholder.innerHTML = '<div class="placeholder-label">Not populated in AMS prototype</div><p>This ATI template type is present for canon completeness, but no AMS worked examples are currently assigned.</p>';
+        body.appendChild(placeholder);
+      }
+      group.querySelector('.template-group-head').addEventListener('click', function(event){
+        if (event.target.closest('button,a')) return;
+        group.classList.toggle('collapsed');
+        setActiveSidebar(type);
+      });
+    });
+  }
+  function closeSidebarPanel(){
+    if (sidebarPanel) sidebarPanel.classList.remove('open');
+    if (sidebarOverlay) sidebarOverlay.classList.remove('show');
+  }
+  function buildSidebarGroups(){
+    if (!sidebarList) return;
+    sidebarList.innerHTML = '<div class="sidebar-section-label">Template Types</div>';
+    typeOrder.forEach(function(type){
+      var typeCards = cards.filter(function(card){ return card.getAttribute('data-type') === type; });
+      var group = document.createElement('div');
+      group.className = 'sb-tpl-group collapsed';
+      group.setAttribute('data-sidebar-group', type);
+      group.innerHTML =
+        '<button type="button" class="sb-tpl-header" data-sidebar-toggle="' + type + '">' +
+          '<span class="sb-tpl-num">' + (typePages[type] || '') + '</span>' +
+          '<span class="sb-tpl-name"></span>' +
+          '<span class="sb-tpl-count">' + typeCards.length + '</span>' +
+          '<span class="sb-tpl-caret">▾</span>' +
+        '</button>' +
+        '<div class="sb-tpl-examples"></div>';
+      group.querySelector('.sb-tpl-name').textContent = typeTitle(type);
+      var exampleList = group.querySelector('.sb-tpl-examples');
+      if (typeCards.length) {
+        typeCards.forEach(function(card){
+          var link = document.createElement('a');
+          link.className = 'sb-tpl-example';
+          link.href = '#' + card.id;
+          link.setAttribute('data-sidebar-template', card.id);
+          link.textContent = (card.querySelector('h3') || card).textContent.trim();
+          exampleList.appendChild(link);
+        });
+      } else {
+        var emptyLine = document.createElement('span');
+        emptyLine.className = 'sb-tpl-example';
+        emptyLine.textContent = 'No AMS examples yet';
+        exampleList.appendChild(emptyLine);
+      }
+      sidebarList.appendChild(group);
+    });
+    sidebarList.querySelectorAll('[data-sidebar-toggle]').forEach(function(button){
+      button.addEventListener('click', function(){
+        var type = button.getAttribute('data-sidebar-toggle');
+        var group = button.closest('.sb-tpl-group');
+        if (group) group.classList.toggle('collapsed');
+        var mainGroup = groups[type];
+        if (mainGroup) {
+          mainGroup.classList.remove('collapsed');
+          mainGroup.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+        setActiveSidebar(type);
+      });
+    });
+    sidebarList.querySelectorAll('[data-sidebar-template]').forEach(function(link){
+      link.addEventListener('click', function(event){
+        event.preventDefault();
+        var id = link.getAttribute('data-sidebar-template');
+        var card = document.getElementById(id);
+        if (!card) return;
+        var type = card.getAttribute('data-type');
+        if (groups[type]) groups[type].classList.remove('collapsed');
+        openModal(id);
+        if (window.innerWidth <= 860) closeSidebarPanel();
+      });
+    });
+  }
+  function addCardActions(){
+    cards.forEach(function(card){
+      if (card.querySelector('.template-actions')) return;
+      var link = card.querySelector('.template-link');
+      var actions = document.createElement('div');
+      actions.className = 'template-actions';
+      var study = document.createElement('button');
+      study.className = 'template-study-btn';
+      study.type = 'button';
+      study.textContent = 'Study template';
+      study.setAttribute('data-template-study', card.id);
+      var check = document.createElement('button');
+      check.className = 'template-check';
+      check.type = 'button';
+      check.setAttribute('data-template-check', card.id);
+      actions.appendChild(study);
+      actions.appendChild(check);
+      if (link) actions.appendChild(link);
+      card.appendChild(actions);
+      if (link) {
+        link.addEventListener('click', function(){
+          try { localStorage.setItem(LAST_TPL_KEY, card.id); } catch(e) {}
+        });
+      }
+    });
+    document.querySelectorAll('[data-template-row]').forEach(function(item){
+      item.addEventListener('click', function(){
+        var id = item.getAttribute('data-template-row');
+        document.querySelectorAll('.example-list-item').forEach(function(row){ row.classList.remove('active'); });
+        item.classList.add('active');
+        var group = item.closest('.template-type-group');
+        if (group) setActiveSidebar(group.getAttribute('data-type-group'));
+        openModal(id);
+      });
+    });
+    document.querySelectorAll('[data-sidebar-type]').forEach(function(item){
+      item.addEventListener('click', function(){
+        var type = item.getAttribute('data-sidebar-type');
+        var group = groups[type];
+        if (group) {
+          group.classList.remove('collapsed');
+          setActiveSidebar(type);
+        }
+      });
+    });
+  }
+  function statusFor(card){
+    return progress[card.id] || 'not-started';
+  }
+  function labelForStatus(status){
+    if (status === 'checked') return 'Checked';
+    if (status === 'reviewed') return 'Reviewed';
+    return 'Mark reviewed';
+  }
+  function applyCardState(card){
+    var status = statusFor(card);
+    card.setAttribute('data-status', status);
+    card.setAttribute('data-mode', state.mode);
+    var button = card.querySelector('.template-check');
+    if (button) {
+      button.setAttribute('data-state', status);
+      button.textContent = labelForStatus(status);
+    }
+    var icon = document.querySelector('[data-status-icon="' + card.id + '"]');
+    if (icon) {
+      icon.classList.remove('reviewed','checked');
+      icon.textContent = '';
+      if (status === 'reviewed') {
+        icon.classList.add('reviewed');
+        icon.textContent = '◐';
+      } else if (status === 'checked') {
+        icon.classList.add('checked');
+        icon.textContent = '✓';
+      }
+    }
+  }
+  function applyAllCardState(){
+    cards.forEach(applyCardState);
+  }
+  function cycleProgress(id){
+    var current = progress[id] || 'not-started';
+    if (current === 'not-started') progress[id] = 'reviewed';
+    else if (current === 'reviewed') progress[id] = 'checked';
+    else delete progress[id];
+    saveProgress();
+    applyAllCardState();
+    updateGroupProgress();
+    applyFilters();
+    refreshOpenModal(id);
+  }
+  function updateGroupProgress(){
+    var totalCards = cards.length || 1;
+    var totalChecked = cards.filter(function(card){ return statusFor(card) === 'checked'; }).length;
+    if (sidebarProgress) sidebarProgress.style.width = Math.round((totalChecked / totalCards) * 100) + '%';
+    if (sidebarProgressText) sidebarProgressText.textContent = totalChecked + ' of ' + cards.length + ' checked';
+    Object.keys(groups).forEach(function(type){
+      var group = groups[type];
+      var groupCards = cards.filter(function(card){ return card.getAttribute('data-type') === type; });
+      var reviewed = groupCards.filter(function(card){ return statusFor(card) === 'reviewed'; }).length;
+      var checked = groupCards.filter(function(card){ return statusFor(card) === 'checked'; }).length;
+      var total = groupCards.length || 1;
+      var partialPct = Math.round(((reviewed + checked) / total) * 100);
+      var checkedPct = Math.round((checked / total) * 100);
+      var meta = group.querySelector('.template-group-meta');
+      var partial = group.querySelector('.template-progress-partial');
+      var fill = group.querySelector('.template-progress-fill');
+      if (meta) meta.textContent = checked + ' / ' + groupCards.length + ' studied';
+      if (partial) partial.style.width = partialPct + '%';
+      if (fill) fill.style.width = checkedPct + '%';
+      var sidebarItem = document.querySelector('[data-sidebar-type="' + type + '"]');
+      if (sidebarItem) {
+        sidebarItem.classList.remove('reviewed','checked');
+        if (checked === groupCards.length && groupCards.length > 0) sidebarItem.classList.add('checked');
+        else if (checked + reviewed > 0) sidebarItem.classList.add('reviewed');
+      }
+      var sidebarGroup = document.querySelector('[data-sidebar-group="' + type + '"]');
+      if (sidebarGroup) {
+        sidebarGroup.classList.remove('reviewed','checked');
+        if (checked === groupCards.length && groupCards.length > 0) sidebarGroup.classList.add('checked');
+        else if (checked + reviewed > 0) sidebarGroup.classList.add('reviewed');
+      }
+    });
+  }
+  function setActiveSidebar(type){
+    document.querySelectorAll('[data-sidebar-type]').forEach(function(item){
+      item.classList.toggle('active', item.getAttribute('data-sidebar-type') === type);
+    });
+    document.querySelectorAll('[data-sidebar-group]').forEach(function(item){
+      item.classList.toggle('active', item.getAttribute('data-sidebar-group') === type);
+    });
+  }
+  function setActiveSidebarExample(id){
+    document.querySelectorAll('[data-sidebar-template]').forEach(function(link){
+      var active = link.getAttribute('data-sidebar-template') === id;
+      link.classList.toggle('active', active);
+      if (active) {
+        var group = link.closest('.sb-tpl-group');
+        if (group) group.classList.remove('collapsed');
+      }
+    });
+  }
   function syncState(){
-    state.types = Array.prototype.slice.call(document.querySelectorAll('[data-type].chip.active')).map(function(chip){ return chip.getAttribute('data-type'); });
-    state.chapters = Array.prototype.slice.call(document.querySelectorAll('[data-chapter].chip.active')).map(function(chip){ return chip.getAttribute('data-chapter'); });
+    state.types = [];
+    state.chapters = [];
   }
   function applyFilters(){
     syncState();
@@ -1054,19 +3933,643 @@
     cards.forEach(function(card){
       var typeMatch = !state.types.length || state.types.indexOf(card.getAttribute('data-type')) !== -1;
       var chapterMatch = !state.chapters.length || state.chapters.indexOf(card.getAttribute('data-chapter')) !== -1;
+      var statusMatch = state.status === 'all' || statusFor(card) === state.status;
       var haystack = (card.getAttribute('data-search') + ' ' + card.textContent).toLowerCase();
       var searchMatch = !query || haystack.indexOf(query) !== -1;
-      var show = typeMatch && chapterMatch && searchMatch;
+      var show = typeMatch && chapterMatch && statusMatch && searchMatch;
       card.hidden = !show;
+      var item = document.querySelector('[data-template-row="' + card.id + '"]');
+      if (item) item.hidden = !show;
+      var sidebarLink = document.querySelector('[data-sidebar-template="' + card.id + '"]');
+      if (sidebarLink) sidebarLink.hidden = !show;
       if (show) visible += 1;
     });
+    Object.keys(groups).forEach(function(type){
+      var group = groups[type];
+      var groupCards = cards.filter(function(card){ return card.getAttribute('data-type') === type; });
+      var hasVisible = groupCards.some(function(card){ return !card.hidden; });
+      var noExamples = groupCards.length === 0;
+      var showEmptyGroup = noExamples && !state.types.length && !state.chapters.length && !query && state.status === 'all';
+      group.hidden = !(hasVisible || showEmptyGroup);
+      var sidebarGroup = document.querySelector('[data-sidebar-group="' + type + '"]');
+      if (sidebarGroup) sidebarGroup.hidden = !(hasVisible || showEmptyGroup);
+    });
     if (empty) empty.hidden = visible !== 0;
+    if (resultCount) resultCount.textContent = visible + ' of ' + cards.length + ' templates shown';
+  }
+  function openModal(id){
+    var card = document.getElementById(id);
+    if (!card || !modal || !modalBody) return;
+    try { localStorage.setItem(LAST_TPL_KEY, id); } catch(e) {}
+    modal.setAttribute('data-current-template', id);
+    refreshOpenModal(id);
+    setActiveSidebarExample(id);
+    modal.classList.add('open','show');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    if (modalBody) modalBody.scrollTop = 0;
+  }
+  function sectionToBox(section, className){
+    var box = document.createElement('div');
+    box.className = 'tp-box' + (className ? ' ' + className : '');
+    var heading = document.createElement('h3');
+    heading.textContent = (section.querySelector('h4') || section).textContent.trim();
+    var content = document.createElement('div');
+    content.className = 'content';
+    Array.prototype.slice.call(section.childNodes).forEach(function(node){
+      if (node.nodeType === 1 && node.tagName && node.tagName.toLowerCase() === 'h4') return;
+      content.appendChild(node.cloneNode(true));
+    });
+    box.appendChild(heading);
+    box.appendChild(content);
+    return box;
+  }
+  function sectionToSubbox(section){
+    var box = document.createElement('div');
+    box.className = 'tp-subbox';
+    var heading = document.createElement('h4');
+    heading.textContent = sectionTitle(section);
+    var content = document.createElement('div');
+    content.className = 'content';
+    Array.prototype.slice.call(section.childNodes).forEach(function(node){
+      if (node.nodeType === 1 && node.tagName && node.tagName.toLowerCase() === 'h4') return;
+      content.appendChild(node.cloneNode(true));
+    });
+    box.appendChild(heading);
+    box.appendChild(content);
+    return box;
+  }
+  function sectionTitle(section){
+    return (section.querySelector('h4') || section).textContent.trim();
+  }
+  function sectionTitleLower(section){
+    return sectionTitle(section).toLowerCase();
+  }
+  function hasAny(text, words){
+    return words.some(function(word){ return text.indexOf(word) !== -1; });
+  }
+  function buildGroup(label, boxes, extraClass){
+    var group = document.createElement('div');
+    group.className = 'tpl-group' + (extraClass ? ' ' + extraClass : '');
+    var groupLabel = document.createElement('div');
+    groupLabel.className = 'tpl-group-label';
+    groupLabel.textContent = label;
+    var body = document.createElement('div');
+    body.className = 'tpl-group-body';
+    boxes.forEach(function(box){ body.appendChild(box); });
+    group.appendChild(groupLabel);
+    group.appendChild(body);
+    return group;
+  }
+  function buildSafetyGroup(sections){
+    var group = document.createElement('div');
+    group.className = 'tpl-group safety-group';
+    var label = document.createElement('div');
+    label.className = 'tpl-group-label';
+    label.textContent = 'Safety Considerations';
+    group.appendChild(label);
+    sections.forEach(function(section){
+      var title = sectionTitleLower(section);
+      if (title.indexOf('complication') !== -1) {
+        group.appendChild(sectionToBox(section));
+        return;
+      }
+      var area = document.createElement('div');
+      area.className = 'safety-area';
+      Array.prototype.slice.call(section.childNodes).forEach(function(node){
+        if (node.nodeType === 1 && node.tagName && node.tagName.toLowerCase() === 'h4') return;
+        area.appendChild(node.cloneNode(true));
+      });
+      group.appendChild(area);
+    });
+    return group;
+  }
+  function buildConsiderationsGroup(sections){
+    var group = document.createElement('div');
+    group.className = 'considerations';
+    var label = document.createElement('div');
+    label.className = 'considerations-label';
+    label.textContent = 'Considerations';
+    group.appendChild(label);
+    sections.forEach(function(section){ group.appendChild(sectionToSubbox(section)); });
+    return group;
+  }
+  function cloneSectionContent(section){
+    var content = document.createElement('div');
+    content.className = 'content';
+    if (!section) return content;
+    Array.prototype.slice.call(section.childNodes).forEach(function(node){
+      if (node.nodeType === 1 && node.tagName && node.tagName.toLowerCase() === 'h4') return;
+      content.appendChild(node.cloneNode(true));
+    });
+    return content;
+  }
+  function sectionHasContent(section){
+    if (!section) return false;
+    var clone = cloneSectionContent(section);
+    return clone.textContent.trim().length > 0;
+  }
+  function takeSection(sections, used, words){
+    var found = sections.find(function(section){
+      if (used.indexOf(section) !== -1) return false;
+      return hasAny(sectionTitleLower(section), words);
+    });
+    if (found) used.push(found);
+    return found || null;
+  }
+  function takeSectionWhere(sections, used, predicate){
+    var found = sections.find(function(section){
+      if (used.indexOf(section) !== -1) return false;
+      return predicate(sectionTitleLower(section), section);
+    });
+    if (found) used.push(found);
+    return found || null;
+  }
+  function takeRemaining(sections, used){
+    var found = sections.find(function(section){ return used.indexOf(section) === -1; });
+    if (found) used.push(found);
+    return found || null;
+  }
+  function atiBox(title, section, className){
+    var box = document.createElement('div');
+    box.className = 'tp-box' + (className ? ' ' + className : '');
+    if (!sectionHasContent(section)) box.classList.add('empty-tpl-box');
+    var heading = document.createElement('h3');
+    heading.textContent = title;
+    box.appendChild(heading);
+    box.appendChild(cloneSectionContent(section));
+    return box;
+  }
+  function atiSubbox(title, section){
+    var box = document.createElement('div');
+    box.className = 'tp-subbox';
+    if (!sectionHasContent(section)) box.classList.add('empty-tpl-subbox');
+    var heading = document.createElement('h4');
+    heading.textContent = title;
+    box.appendChild(heading);
+    box.appendChild(cloneSectionContent(section));
+    return box;
+  }
+  function atiGroup(label, boxes, extraClass){
+    var group = document.createElement('div');
+    var visibleCount = boxes.filter(function(box){
+      return !box.classList.contains('empty-tpl-box') && !box.classList.contains('empty-tpl-subbox');
+    }).length;
+    group.className = 'tpl-group tpl-group-visible-' + visibleCount + (extraClass ? ' ' + extraClass : '');
+    var groupLabel = document.createElement('div');
+    groupLabel.className = 'tpl-group-label';
+    groupLabel.textContent = label;
+    var body = document.createElement('div');
+    body.className = 'tpl-group-body';
+    boxes.forEach(function(box){ body.appendChild(box); });
+    group.appendChild(groupLabel);
+    group.appendChild(body);
+    return group;
+  }
+  function buildAtiProcedureLayout(sections, type){
+    var used = [];
+    var layout = document.createElement('div');
+    layout.className = 'mn-template-layout tp-grid';
+    var descriptionTitle = type === 'nursing-skill' ? 'Description of Skill' : 'Description of Procedure';
+    var outcomesTitle = type === 'diagnostic-procedure' ? 'Interpretation of Findings' : 'Outcomes/Evaluation';
+    var description = takeSection(sections, used, ['description','purpose','hemodynamic monitoring','angiography','central access']);
+    var indications = takeSection(sections, used, ['indication']);
+    var outcomes = takeSection(sections, used, ['outcome','evaluation','interpretation','finding','report']);
+    var complications = takeSection(sections, used, ['complication','safety','risk']);
+    var prePost = type === 'diagnostic-procedure' || type === 'nursing-skill' || type === 'therapeutic-procedure'
+      ? takeSectionWhere(sections, used, function(title){
+          var hasPhaseLanguage = (title.indexOf('pre') !== -1 && title.indexOf('post') !== -1) ||
+            title.indexOf('intra') !== -1 ||
+            title.indexOf('before') !== -1 ||
+            title.indexOf('during') !== -1 ||
+            title.indexOf('after') !== -1;
+          return hasPhaseLanguage && (type === 'diagnostic-procedure' || title.indexOf('nursing intervention') !== -1);
+        })
+      : takeSection(sections, used, ['preprocedure','postprocedure','before','during','after','step','nursing action','action','monitoring']);
+    var education = takeSection(sections, used, ['education','teaching']);
+    var interventions = type === 'diagnostic-procedure' || type === 'nursing-skill' || type === 'therapeutic-procedure'
+      ? takeSectionWhere(sections, used, function(title){
+          return title.indexOf('nursing intervention') !== -1 &&
+            title.indexOf('pre') === -1 &&
+            title.indexOf('intra') === -1 &&
+            title.indexOf('post') === -1;
+        }) || takeRemaining(sections, used)
+      : takeSection(sections, used, ['nursing intervention','nursing care','report']) || takeRemaining(sections, used);
+    if (type !== 'diagnostic-procedure') {
+      if (!sectionHasContent(indications) && !sectionHasContent(outcomes)) layout.classList.add('tp-grid-lean');
+      if (!sectionHasContent(description)) layout.classList.add('tp-grid-no-description');
+      if (!sectionHasContent(interventions)) layout.classList.add('tp-grid-no-interventions');
+    }
+    layout.appendChild(atiBox(descriptionTitle, description, 'description'));
+    layout.appendChild(atiBox('Indications', indications, 'indications'));
+    layout.appendChild(atiBox(outcomesTitle, outcomes, 'outcomes'));
+    if (type === 'diagnostic-procedure') {
+      var diagnosticConsiderations = document.createElement('div');
+      diagnosticConsiderations.className = 'considerations';
+      var considerationsTop = document.createElement('div');
+      considerationsTop.className = 'considerations-top';
+      var diagnosticLabel = document.createElement('div');
+      diagnosticLabel.className = 'considerations-label';
+      diagnosticLabel.textContent = 'Considerations';
+      considerationsTop.appendChild(diagnosticLabel);
+      considerationsTop.appendChild(atiSubbox('Nursing Interventions (pre, intra, post)', prePost));
+      diagnosticConsiderations.appendChild(considerationsTop);
+      var clientEducation = atiSubbox('Client Education', education);
+      clientEducation.classList.add('client-education');
+      diagnosticConsiderations.appendChild(clientEducation);
+      layout.appendChild(diagnosticConsiderations);
+    } else {
+      var considerations = document.createElement('div');
+      considerations.className = 'considerations';
+      var label = document.createElement('div');
+      label.className = 'considerations-label';
+      label.textContent = 'Considerations';
+      considerations.appendChild(label);
+      considerations.appendChild(atiSubbox('Nursing Interventions (pre, intra, post)', prePost));
+      considerations.appendChild(atiSubbox('Client Education', education));
+      layout.appendChild(considerations);
+    }
+    layout.appendChild(atiBox('Potential Complications', complications, 'complications'));
+    layout.appendChild(atiBox('Nursing Interventions', interventions, 'nursing-interventions'));
+    return layout;
+  }
+  function buildAtiMedicationLayout(sections){
+    var used = [];
+    var layout = document.createElement('div');
+    layout.className = 'mn-template-layout med-grid';
+    var purpose = takeSection(sections, used, ['purpose','pharmacological','action']) || takeRemaining(sections, used);
+    var therapeutic = takeSection(sections, used, ['therapeutic use','teaching and procedures']);
+    layout.appendChild(atiGroup('Purpose of Medication', [
+      atiBox('Expected Pharmacological Action', purpose),
+      atiBox('Therapeutic Use', therapeutic)
+    ], 'purpose-group'));
+    var body = document.createElement('div');
+    body.className = 'med-body';
+    var left = document.createElement('div');
+    left.className = 'med-col-left';
+    var right = document.createElement('div');
+    right.className = 'med-col-right';
+    var complication = takeSection(sections, used, ['complication','adverse','toxicity']);
+    var contraindication = takeSection(sections, used, ['contraindication','precaution']);
+    var interaction = takeSection(sections, used, ['interaction']);
+    var evaluation = takeSection(sections, used, ['evaluation','effectiveness']);
+    var administration = takeSection(sections, used, ['administration']);
+    var nursing = takeSection(sections, used, ['nursing','monitoring','safety']);
+    var clientEducation = takeSection(sections, used, ['education','teaching','client']);
+    left.appendChild(atiBox('Complications', complication));
+    left.appendChild(atiBox('Contraindications/Precautions', contraindication));
+    left.appendChild(atiBox('Interactions', interaction));
+    left.appendChild(atiBox('Evaluation of Medication Effectiveness', evaluation));
+    right.appendChild(atiBox('Medication Administration', administration));
+    right.appendChild(atiBox('Nursing Interventions', nursing, 'med-ni'));
+    right.appendChild(atiBox('Client Education', clientEducation, 'med-ce'));
+    if (![complication, contraindication, interaction, evaluation].some(sectionHasContent)) left.classList.add('is-empty');
+    if (![administration, nursing, clientEducation].some(sectionHasContent)) right.classList.add('is-empty');
+    if (left.classList.contains('is-empty') || right.classList.contains('is-empty')) body.classList.add('med-body-single-column');
+    body.appendChild(left);
+    body.appendChild(right);
+    layout.appendChild(body);
+    return layout;
+  }
+  function buildAtiSystemLayout(sections){
+    var used = [];
+    var layout = document.createElement('div');
+    layout.className = 'mn-template-layout sd-grid';
+    var top = document.createElement('div');
+    top.className = 'sd-top-row';
+    var topBoxes = [
+      atiBox('Alterations in Health (Diagnosis)', takeSection(sections, used, ['expected','finding','description','alteration'])),
+      atiBox('Pathophysiology Related to Client Problem', takeSection(sections, used, ['pathophysiology'])),
+      atiBox('Health Promotion and Disease Prevention', takeSection(sections, used, ['prevention','health promotion','risk']))
+    ];
+    top.classList.add('sd-top-visible-' + topBoxes.filter(function(box){
+      return !box.classList.contains('empty-tpl-box');
+    }).length);
+    topBoxes.forEach(function(box){ top.appendChild(box); });
+    layout.appendChild(top);
+    var middle = document.createElement('div');
+    middle.className = 'sd-middle';
+    var assessmentGroup = atiGroup('Assessment', [
+      atiBox('Risk Factors', takeSection(sections, used, ['risk'])),
+      atiBox('Expected Findings', takeSection(sections, used, ['assessment','expected','finding'])),
+      atiBox('Laboratory Tests', takeSection(sections, used, ['laboratory','labs'])),
+      atiBox('Diagnostic Procedures', takeSection(sections, used, ['diagnostic']))
+    ], 'assessment-group');
+    if (assessmentGroup.classList.contains('tpl-group-visible-0')) layout.classList.add('sd-no-assessment');
+    middle.appendChild(assessmentGroup);
+    var safety = document.createElement('div');
+    safety.className = 'tpl-group safety-group';
+    var safetyMain = document.createElement('div');
+    safetyMain.className = 'sd-safety-main';
+    var safetyLabel = document.createElement('div');
+    safetyLabel.className = 'tpl-group-label';
+    safetyLabel.textContent = 'Safety Considerations';
+    safetyMain.appendChild(safetyLabel);
+    safetyMain.appendChild(cloneSectionContent(takeSection(sections, used, ['safety','priority','emergency'])));
+    safetyMain.lastElementChild.className = 'safety-area';
+    safety.appendChild(safetyMain);
+    safety.appendChild(atiBox('Complications', takeSection(sections, used, ['complication']), 'sd-complications'));
+    middle.appendChild(safety);
+    layout.appendChild(middle);
+    layout.appendChild(atiGroup('Patient-Centered Care', [
+      atiBox('Nursing Care', takeSection(sections, used, ['nursing','care']), 'sd-nursing-care'),
+      atiBox('Medications', takeSection(sections, used, ['medication']), 'sd-medications'),
+      atiBox('Client Education', takeSection(sections, used, ['education','teaching']), 'sd-client-education'),
+      atiBox('Therapeutic Procedures', takeSection(sections, used, ['therapeutic procedure','therapeutic procedures','procedure']), 'sd-therapeutic-procedures'),
+      atiBox('Interprofessional Care', takeSection(sections, used, ['interprofessional','collaboration','referral']) || takeRemaining(sections, used), 'sd-interprofessional-care')
+    ], 'patient-care-group'));
+    return layout;
+  }
+  function buildAtiGrowthLayout(sections){
+    var used = [];
+    var layout = document.createElement('div');
+    layout.className = 'mn-template-layout gd-grid';
+    layout.appendChild(atiGroup('Expected Growth and Development', [
+      atiBox('Physical Development', takeSection(sections, used, ['physical'])),
+      atiBox('Cognitive Development', takeSection(sections, used, ['cognitive'])),
+      atiBox('Psychosocial Development', takeSection(sections, used, ['psychosocial'])),
+      atiBox('Age-Appropriate Activities', takeSection(sections, used, ['age','activities']))
+    ]));
+    var health = document.createElement('div');
+    health.className = 'tpl-group health-promotion-group';
+    var parent = atiBox('Health Promotion', takeSection(sections, used, ['health promotion','promotion']));
+    parent.className = 'hp-parent';
+    health.appendChild(parent);
+    var connectors = document.createElement('div');
+    connectors.className = 'hp-connectors';
+    connectors.setAttribute('aria-hidden', 'true');
+    connectors.innerHTML = '<span></span><span></span><span></span><span></span>';
+    health.appendChild(connectors);
+    var body = document.createElement('div');
+    body.className = 'tpl-group-body';
+    body.appendChild(atiBox('Immunizations', takeSection(sections, used, ['immunization'])));
+    body.appendChild(atiBox('Health Screening', takeSection(sections, used, ['screening'])));
+    body.appendChild(atiBox('Nutrition', takeSection(sections, used, ['nutrition'])));
+    body.appendChild(atiBox('Injury Prevention', takeSection(sections, used, ['injury','safety'])));
+    health.appendChild(body);
+    layout.appendChild(health);
+    return layout;
+  }
+  function buildAtiConceptAnalysisLayout(sections){
+    var used = [];
+    var layout = document.createElement('div');
+    layout.className = 'mn-template-layout ca-grid';
+    layout.appendChild(atiBox('Defining Characteristics', takeSection(sections, used, ['defining','characteristic','description']) || takeRemaining(sections, used), 'defining'));
+    layout.appendChild(atiBox('Antecedents', takeSection(sections, used, ['antecedent']), 'antecedents'));
+    layout.appendChild(atiBox('Negative Consequences', takeSection(sections, used, ['consequence','negative']), 'consequences'));
+    layout.appendChild(atiBox('Related Concepts', takeSection(sections, used, ['related']), 'related'));
+    layout.appendChild(atiBox('Exemplars', takeSection(sections, used, ['exemplar']), 'exemplars'));
+    return layout;
+  }
+  function buildMnTemplateLayout(clone, type){
+    var sections = Array.prototype.slice.call(clone.querySelectorAll('.template-sections .template-section'));
+    if (!sections.length) return;
+    var layout;
+    if (type === 'medication') {
+      layout = buildAtiMedicationLayout(sections);
+    } else if (type === 'system-disorder') {
+      layout = buildAtiSystemLayout(sections);
+    } else if (type === 'therapeutic-procedure' || type === 'diagnostic-procedure' || type === 'nursing-skill') {
+      layout = buildAtiProcedureLayout(sections, type);
+    } else if (type === 'growth-development') {
+      layout = buildAtiGrowthLayout(sections);
+    } else if (type === 'concept-analysis') {
+      layout = buildAtiConceptAnalysisLayout(sections);
+    } else {
+      var used = [];
+      layout = document.createElement('div');
+      layout.className = 'mn-template-layout bc-grid';
+      layout.appendChild(atiBox('Related Content', takeSection(sections, used, ['related']) || takeRemaining(sections, used)));
+      layout.appendChild(atiBox('Underlying Principles', takeSection(sections, used, ['underlying','principle']) || takeRemaining(sections, used)));
+      layout.appendChild(atiBox('Nursing Interventions', takeSection(sections, used, ['nursing','intervention']) || takeRemaining(sections, used)));
+    }
+    clone.appendChild(layout);
+  }
+  function bindModalModeControls(scope, card){
+    scope.querySelectorAll('[data-modal-mode]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var mode = btn.getAttribute('data-modal-mode') || 'filled';
+        scope.querySelectorAll('[data-modal-mode]').forEach(function(item){ item.classList.toggle('active', item === btn); });
+        if (card) card.setAttribute('data-mode', mode);
+      });
+    });
+  }
+  function directChild(parent, selector){
+    return Array.prototype.slice.call(parent.children).filter(function(child){ return child.matches(selector); })[0] || null;
+  }
+  function metaLabelForType(type){
+    if (type === 'medication') return 'Medication';
+    if (type === 'system-disorder') return 'Disorder / Disease Process';
+    if (type === 'nursing-skill') return 'Skill Name';
+    if (type === 'therapeutic-procedure' || type === 'diagnostic-procedure') return 'Procedure Name';
+    if (type === 'growth-development') return 'Developmental Stage';
+    if (type === 'concept-analysis') return 'Concept Analysis';
+    return 'Concept';
+  }
+  function buildTemplateMeta(type, title, sourceText, categoryClass){
+    var meta = document.createElement('dl');
+    meta.className = 'template-meta';
+    var rows =
+      '<dt>Student Name</dt><dd><span class="meta-value blank"></span></dd>' +
+      '<dt></dt><dd><span class="meta-value"></span></dd>';
+    if (type === 'medication') {
+      rows += '<dt>Category Class</dt><dd><span class="meta-value category-class"></span></dd>';
+    }
+    rows += '<dt>Review Module Chapter</dt><dd><span class="meta-value always-show"></span></dd>';
+    meta.innerHTML = rows;
+    meta.querySelectorAll('dt')[1].textContent = metaLabelForType(type);
+    meta.querySelectorAll('.meta-value')[1].textContent = title;
+    if (type === 'medication') {
+      var categoryValue = meta.querySelector('.category-class');
+      if (categoryValue && categoryClass) {
+        categoryValue.textContent = categoryClass;
+      } else if (categoryValue) {
+        categoryValue.classList.add('blank');
+      }
+    }
+    meta.querySelector('.always-show').textContent = sourceText;
+    return meta;
+  }
+  function printCurrentModal(){
+    var prevTitle = document.title;
+    var exName = (modalTitle && modalTitle.textContent.trim()) || 'ATI Template';
+    document.title = 'ATI Template — ' + exName;
+    document.body.classList.add('printing-modal');
+    function cleanup(){
+      document.body.classList.remove('printing-modal');
+      document.title = prevTitle;
+      window.removeEventListener('afterprint', cleanup);
+    }
+    window.addEventListener('afterprint', cleanup);
+    setTimeout(function(){ window.print(); }, 50);
+  }
+  function modalNavState(id, type){
+    // Canon: Previous/Next moves within the same ATI template type, not across unrelated template layouts.
+    var visibleCards = cards.filter(function(card){
+      return !card.hidden && card.getAttribute('data-type') === type;
+    });
+    if (!visibleCards.length) {
+      visibleCards = cards.filter(function(card){ return !card.hidden; });
+    }
+    var index = visibleCards.findIndex(function(card){ return card.id === id; });
+    if (index === -1) {
+      visibleCards = cards.filter(function(card){ return card.getAttribute('data-type') === type; });
+    }
+    if (index === -1) {
+      index = visibleCards.findIndex(function(card){ return card.id === id; });
+    }
+    return {
+      previous: index > 0 ? visibleCards[index - 1].id : '',
+      next: index > -1 && index < visibleCards.length - 1 ? visibleCards[index + 1].id : '',
+      index: index > -1 ? index + 1 : 0,
+      total: visibleCards.length
+    };
+  }
+  function refreshOpenModal(id){
+    var card = document.getElementById(id);
+    if (!card || !modalBody) return;
+    var clone = card.cloneNode(true);
+    clone.removeAttribute('hidden');
+    clone.classList.add('example-card');
+    clone.classList.add('modal-template-card');
+    clone.setAttribute('data-mode', 'filled');
+    applyCardState(card);
+    var type = card.getAttribute('data-type') || '';
+    clone.setAttribute('data-template-type', type);
+    var chapter = card.getAttribute('data-chapter') || '';
+    var title = (card.querySelector('h3') || card).textContent.trim();
+    var chapterLink = card.querySelector('.template-link');
+    var sourceText = chapter === 'Prototype' ? 'Prototype fixture — ' + typeTitle(type) : 'Ch ' + chapter + ' — ' + typeTitle(type);
+    var nav = modalNavState(id, type);
+    if (modalTitle) modalTitle.textContent = title;
+    if (modalSubtitle) modalSubtitle.textContent = 'ATI Active Learning Template · ' + (typeNumbers[type] || '') + ' · ' + typeTitle(type);
+    buildMnTemplateLayout(clone, type);
+    var oldMeta = directChild(clone, '.template-meta');
+    if (oldMeta) oldMeta.remove();
+    var oldLink = directChild(clone, '.template-link');
+    if (oldLink) oldLink.remove();
+    var oldActions = directChild(clone, '.template-actions');
+    if (oldActions) oldActions.remove();
+    modalBody.innerHTML = '';
+    var header = document.createElement('div');
+    header.className = 'example-header';
+    header.innerHTML =
+      '<div class="example-info">' +
+        '<span class="example-label">Worked Example</span>' +
+        '<span class="example-name"></span>' +
+        '<span class="example-source"><span></span></span>' +
+      '</div>' +
+      '<div class="example-controls">' +
+        '<div class="template-modal-nav" aria-label="Template navigation">' +
+          '<button type="button" data-template-nav="previous">Previous</button>' +
+          '<span class="template-modal-count"></span>' +
+          '<button type="button" data-template-nav="next">Next</button>' +
+        '</div>' +
+        '<button class="example-check" type="button" aria-label="Mark template progress" title="Mark template progress"></button>' +
+        '<button class="part-print-btn" type="button">🖨️ Print</button>' +
+        '<div class="mode-toggle" role="tablist" aria-label="View mode">' +
+          '<button data-modal-mode="filled" class="active" type="button">Filled</button>' +
+          '<button data-modal-mode="blank" type="button">Blank</button>' +
+        '</div>' +
+      '</div>';
+    header.querySelector('.example-name').textContent = title;
+    header.querySelector('.example-source span').textContent = sourceText;
+    if (chapterLink) {
+      var openLink = document.createElement('a');
+      openLink.href = chapterLink.href;
+      openLink.textContent = 'Open chapter ↗';
+      header.querySelector('.example-source').appendChild(document.createTextNode(' · '));
+      header.querySelector('.example-source').appendChild(openLink);
+    }
+    var previousButton = header.querySelector('[data-template-nav="previous"]');
+    var nextButton = header.querySelector('[data-template-nav="next"]');
+    var navCount = header.querySelector('.template-modal-count');
+    if (previousButton) {
+      previousButton.disabled = !nav.previous;
+      previousButton.setAttribute('data-template-target', nav.previous);
+    }
+    if (nextButton) {
+      nextButton.disabled = !nav.next;
+      nextButton.setAttribute('data-template-target', nav.next);
+    }
+    if (navCount) navCount.textContent = nav.index + ' / ' + nav.total;
+    var modalCheck = header.querySelector('.example-check');
+    modalCheck.setAttribute('data-template-check', id);
+    modalCheck.setAttribute('data-state', statusFor(card));
+    clone.insertBefore(buildTemplateMeta(type, title, sourceText, card.getAttribute('data-category-class') || ''), clone.firstChild);
+    clone.insertBefore(header, clone.firstChild);
+    modalBody.appendChild(clone);
+    var inlinePrint = header.querySelector('.part-print-btn');
+    if (inlinePrint) inlinePrint.addEventListener('click', printCurrentModal);
+    header.querySelectorAll('[data-template-nav]').forEach(function(button){
+      button.addEventListener('click', function(){
+        var target = button.getAttribute('data-template-target');
+        if (target) openModal(target);
+      });
+    });
+    bindModalModeControls(clone, clone);
+    applyCardState(clone);
+  }
+  function closeModal(){
+    if (!modal) return;
+    modal.classList.remove('open','show');
+    modal.setAttribute('aria-hidden', 'true');
+    modal.removeAttribute('data-current-template');
+    setActiveSidebarExample(null);
+    document.body.classList.remove('modal-open');
   }
   document.querySelectorAll('.chip').forEach(function(chip){
     chip.addEventListener('click', function(){ chip.classList.toggle('active'); applyFilters(); });
   });
   var search = document.getElementById('tplSearch');
-  if (search) search.addEventListener('input', function(){ state.search = search.value; applyFilters(); });
+  if (search) search.addEventListener('input', function(){
+    state.search = search.value;
+    if (sidebarSearch) sidebarSearch.value = state.search;
+    applyFilters();
+  });
+  if (sidebarSearch) {
+    sidebarSearch.addEventListener('input', function(){
+      state.search = sidebarSearch.value;
+      if (search) search.value = state.search;
+      applyFilters();
+    });
+  }
+  if (sidebarToggle) {
+    sidebarToggle.addEventListener('click', function(){
+      if (!sidebarPanel) return;
+      var willOpen = !sidebarPanel.classList.contains('open');
+      sidebarPanel.classList.toggle('open', willOpen);
+      if (sidebarOverlay) sidebarOverlay.classList.toggle('show', willOpen);
+    });
+  }
+  if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebarPanel);
+  document.querySelectorAll('[data-status-filter]').forEach(function(button){
+    button.addEventListener('click', function(){
+      state.status = button.getAttribute('data-status-filter') || 'all';
+      document.querySelectorAll('[data-status-filter]').forEach(function(item){ item.classList.toggle('active', item === button); });
+      applyFilters();
+    });
+  });
+  document.addEventListener('click', function(event){
+    var study = event.target.closest('[data-template-study]');
+    var check = event.target.closest('[data-template-check]');
+    if (study) openModal(study.getAttribute('data-template-study'));
+    if (check) cycleProgress(check.getAttribute('data-template-check'));
+  });
+  if (modalClose) modalClose.addEventListener('click', closeModal);
+  if (modalPrint) modalPrint.addEventListener('click', printCurrentModal);
+  if (modal) modal.addEventListener('click', function(event){ if (event.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(event){
+    if (event.key === 'Escape' && modal && modal.classList.contains('open')) closeModal();
+  });
+  if (resetProgress) resetProgress.addEventListener('click', function(){
+    if (!window.confirm('Reset AMS template progress?')) return;
+    progress = {};
+    saveProgress();
+    applyAllCardState();
+    updateGroupProgress();
+    applyFilters();
+  });
   try {
     var params = new URLSearchParams(window.location.search);
     var startType = params.get('type');
@@ -1080,6 +4583,11 @@
       if (chapterChip) chapterChip.classList.add('active');
     }
   } catch(e) {}
+  ensureGroups();
+  buildSidebarGroups();
+  addCardActions();
+  applyAllCardState();
+  updateGroupProgress();
   applyFilters();
 
 })();

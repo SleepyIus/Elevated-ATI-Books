@@ -1,0 +1,645 @@
+# AMS Prototype MN Canon Audit
+
+Status: Design-canon / HOLD-CONTENT audit only.
+Date: 2026-07-04.
+Scope: Current AMS prototype compared against the MN design canon. This document does not add ATI educational content and does not approve rollout to MN or other books.
+
+## Files Reviewed
+
+- `MN Design Canon Checklist.md`
+- `Elevated ATI AMS Hub.html`
+- `Elevated ATI AMS Book.html`
+- `Elevated ATI AMS Templates.html`
+- `Elevated ATI AMS Flashcards.html`
+
+## High-Level Finding
+
+AMS now has a strong hub and book foundation, but it is not yet fully MN-canon as a complete study system. The book file carries most of the modern interaction work: modal chapters, tabs, TL;DR sections, Related ATI Template bridges, chapter-to-chapter modal navigation, bookmarks, highlights, search, NCLEX done state, print modes, and source-linked practice surfaces.
+
+The weakest areas are the companion tools. `Elevated ATI AMS Templates.html` and `Elevated ATI AMS Flashcards.html` are useful starter pages, but they are still flatter than MN's template and flashcard systems. They do not yet match MN's deeper template geometry, modal worked-example behavior, review/browse flashcard workflow, session metrics, keyboard support, and durable progress loop.
+
+## Evidence Snapshot
+
+- AMS Hub: 1,023 lines; includes 96 chapters, 14 units, 76 worked templates, pickup panel, review queue, unit progress, template type overview, storage tools, and shared local storage keys.
+- AMS Book: 33,867 lines; includes 96 chapters, 96 TL;DR cards, 404 content sections, 540 condition blocks, 1,724 finding cards, 52 knowledge cards, 1,317 exercises, 4 ALS cards, 96 template bridges, modal chapter navigation, bookmarks, highlights, NCLEX done state, print modes, and flashcard scheduling hooks.
+- AMS Templates: 1,090 lines; includes 76 worked template cards, search, type filters, chapter filters, and source links back to AMS Book anchors.
+- AMS Flashcards: 2,243 lines; includes 208 starter cards, search, unit/chapter/type filters, reveal buttons, and source links back to AMS Book anchors.
+
+## Canon Checklist
+
+| MN canon item | AMS status | File evidence | Critical note |
+| --- | --- | --- | --- |
+| Connected study system | Partial | Hub links Book/Templates/Flashcards; Book links Templates and Flashcards; Templates/Flashcards link back to Book | The loop exists structurally, but Templates and Flashcards are not yet MN-depth tools. |
+| Hub as dashboard | Done | AMS Hub has stats, primary tools, unit map, pickup panel, review queue, template overview, and storage tools | This is the strongest current match to MN's hub pattern. |
+| Book chapters as modal study workspaces | Done | `chapterModal`, modal header, modal tabs, modal body, flashcard button, previous/next chapter buttons | The AMS book has the expected modal workspace behavior. |
+| TL;DR-first chapter structure | Done | 96 `.brief-card` sections | Each chapter has a TL;DR entry point. |
+| Tabs as navigational compression | Done | `buildTabLabel()` maps TL;DR, Templates, Practice, and section headings into modal tabs | Tabs are generated from chapter sections rather than being decorative. |
+| Dense content hierarchy | Partial | 540 `.condition-block`, 1,724 `.finding-card`, 52 `.kb-card` | Structure exists, but user-observed small-box arrangement still needs visual QA and cleanup. |
+| Template visual geometry | Partial | AMS Templates now uses the MN-like sidebar plus 8 accordion template-type navigator, 76 compact example rows, hidden card content, modal worked examples, Filled/Blank mode, progress buttons, progress bars, and status filtering | Major hub/navigation mismatch is corrected; full MN connector-map geometry inside each template example is still not copied. |
+| Book-to-template links | Done | 96 `tpl-bridge` sections in AMS Book; links target AMS Templates anchors | The bridge pattern is broadly implemented. |
+| Template-to-book links | Done | Template cards use `template-link` back to AMS Book anchors | Source-jump behavior exists. |
+| Book-to-flashcard links | Partial | Modal flashcard button routes to AMS Flashcards by chapter; mid-prompt cards save into `atiams_fc_schedule` | The book side is strong; the standalone flashcard page does not yet fully consume the review-loop design. |
+| Flashcards as first-class companion tool | Partial | 208 starter cards, filters, reveal actions, source links | Missing MN-level review/browse tabs, due review workflow, session metrics, keyboard shortcuts, and mature SM-2 page behavior. |
+| Local progress state across suite | Partial | Hub and Book use book progress, template progress, flashcard schedule, last chapter/template, bookmarks, NCLEX done, highlights; AMS Templates now stores template reviewed/checked progress and last template | Flashcards still uses a lighter standalone review state than MN. |
+| Learner memory tools | Partial | Book has bookmarks, pill bookmarks, highlights, notes/tombstones, search highlights, and print modes | Suite-wide memory is not equally deep in Templates/Flashcards. |
+| Prompt canon caution | Not done | AMS Book contains both `.mid-prompt` and `.mid-read` systems | This needs deliberate cleanup before rollout so old and new prompt generations are not mixed accidentally. |
+| Latest Batch 2 practice design | Partial | AMS Book has styled exercises and Practice tabs | Must be visually checked against the user's latest Batch 2 page 15 item 16 direction before calling this complete. |
+| ALS design | Partial | 4 `.als-card` instances and ALS-specific styles | ALS exists but is sparse and not yet enough evidence for an all-chapter canon. |
+| Common button label consistency | Partial | AMS has consistent core labels in many places, but Templates/Flashcards use simpler standalone labels | Needs a label audit before rollout. |
+
+## Completed Items
+
+- Hub dashboard structure is substantially complete for AMS.
+- Book modal structure is substantially complete for AMS.
+- TL;DR-first chapter opening pattern is complete across 96 chapters.
+- Chapter modal previous/next navigation is implemented.
+- Related ATI Template bridges are present across all 96 chapters.
+- Book-to-template and template-to-book source links are present.
+- Book-side bookmarks, highlights, print, search, NCLEX done, and progress state are present.
+- AMS Book has enough condition/finding/card hierarchy to support MN-style dense content, pending visual refinement.
+
+## Partial Or Risk Items
+
+- Small-box arrangement still needs a visual pass because the existence of `.condition-block` and `.finding-card` does not prove the boxes are grouped cleanly on screen.
+- Practice/Application Exercises cannot be marked done until checked against the final Batch 2 page 15 item 16 design.
+- ALS design exists but is too sparse to treat as a finished canon pattern.
+- Prompt/review design is mixed: `.mid-prompt` and `.mid-read` both remain in AMS Book.
+- Local progress is strong in Hub/Book, lighter in Templates/Flashcards.
+
+## Not Done Items
+
+- AMS Templates still needs full MN connector-map geometry if the prototype review confirms that pattern should be copied.
+- AMS Flashcards does not yet match MN's first-class review engine.
+- AMS Flashcards does not yet provide MN-style review/browse tabs, due queue workflow, session metrics, keyboard support, or mature SM-2 review UI.
+
+## Recommended Next Action
+
+Continue AMS prototype work only. Do not touch MN and do not roll out to other books yet.
+
+Next focused batch:
+
+1. Visually QA AMS Book small-box arrangement and Practice tab design against the Batch 2 comments.
+2. Resolve the prompt generation split by choosing one AMS practice/review visual system.
+3. Review the AMS Templates prototype and decide whether the remaining MN connector-map geometry should be copied exactly or adapted.
+4. Upgrade AMS Flashcards toward MN's review-loop shell without adding new cards.
+5. Re-run this audit and mark each row Done, Partial, or Not done again based on file evidence and visual QA.
+
+## Batch Update: 2026-07-04 AMS Book Visual Normalization
+
+Completed in AMS Book only:
+
+- Tightened `.finding-grid.wide-box-grid` so dense small-box groups use more compact columns in modal content.
+- Normalized both early and late Practice/Application Exercise markup into one connected quiz-bank shell.
+- Fixed direct-hash Practice loading so NCLEX filter and Mark done controls inject reliably.
+- Extended Mark done support to later exercise markup that uses heading labels instead of `.q-num`.
+- Visually normalized older `.mid-read` prompt styling to match the newer typed prompt system more closely.
+
+Validation:
+
+- Checked chapter 92 dense content at `#ch92-prostate-testicular`: small boxes now render as three compact columns at the desktop modal width tested.
+- Checked chapter 92 Practice at `#ch92-exercises`: six Mark done controls inject and the question/option well renders as a connected shell.
+- Checked chapter 21 Practice at `#ch21-exercises`: five Mark done controls inject in the earlier exercise markup.
+- Browser console reported no errors or warnings during this pass.
+- `git diff --check` passed.
+
+Still not done:
+
+- AMS Templates still needs review for whether the remaining MN connector-map geometry should be copied exactly.
+- AMS Flashcards still needs the MN review-loop shell upgrade.
+- The prompt split is visually softened, but the underlying old/new prompt code paths still need a later structural cleanup before rollout.
+
+## Batch Update: 2026-07-04 AMS Templates MN Shell Prototype
+
+Completed in AMS Templates only:
+
+- Added a MN-style template operating layer around the existing 76 AMS template cards.
+- Grouped cards into 6 template-type containers with group-level progress bars and counts.
+- Added Filled/Blank mode controls that preserve template structure while hiding answer text in Blank mode.
+- Added a modal study view for worked examples, using the existing card content without adding educational material.
+- Added reviewed/checked progress buttons, progress persistence, status filtering, visible result counts, and reset progress.
+- Preserved existing template-to-book links and recorded the last opened template for hub continuity.
+
+Validation:
+
+- `git diff --check` passed.
+- Script compilation passed with the bundled Node runtime: 1 inline script parsed successfully.
+- Headless Chrome validation passed against `Elevated ATI AMS Templates.html`.
+- Browser evidence: 6 generated type groups, 76 template cards, 76 action controls, 76 visible cards on first load, Blank mode active state works, modal opens with the selected template, reviewed progress saves and filters to 1 of 76, and console logs reported no errors.
+- Screenshot reviewed at `/private/tmp/ams-templates-prototype.png`; the modal, Blank mode, and progress state rendered coherently at desktop width.
+
+Still not done:
+
+- AMS Templates has not copied MN's full connector-map geometry.
+- AMS Flashcards still needs the MN review-loop shell upgrade.
+- AMS Book prompt code paths still need later structural cleanup before rollout.
+
+## Corrective Batch Update: 2026-07-04 AMS Templates MN Hub Match
+
+Reason for correction:
+
+- User correctly identified that the first AMS Templates prototype still did not match the MN template design. The earlier pass copied the feature layer but left the page reading like a grouped card grid, while MN Templates is fundamentally a sidebar plus accordion row navigator with modalized examples.
+
+Completed in AMS Templates only:
+
+- Added a fixed MN-style left sidebar with back link, course/title block, suite progress strip, legend, and template-type navigation.
+- Reframed the main page away from the AMS card-grid/stats presentation and toward MN's plain study-page header plus template accordion flow.
+- Converted the visible template hub into 8 ATI template-type accordions, including placeholders for the 2 currently unpopulated template types.
+- Changed the visible worked-example surface from full cards to compact MN-style rows: bullet, example name, and reviewed/checked status icon.
+- Kept all 76 existing AMS worked-template cards hidden in the accordion bodies and opened them through the modal, matching MN's page-to-modal interaction model more closely.
+- Synced sidebar active state, reviewed/checked row icons, group progress bars, and suite progress summary.
+
+Validation:
+
+- `git diff --check` passed.
+- Script compilation passed with the bundled Node runtime: 1 inline script parsed successfully.
+- Desktop headless Chrome validation passed: 8 generated accordions, all 8 collapsed initially, 76 compact example rows, 76 hidden cards, 2 placeholders, sidebar present, stats strip hidden, medication accordion opens from sidebar, row opens modal, progress icon updates, and console logs reported no errors.
+- Desktop page screenshot reviewed at `/private/tmp/ams-templates-mn-page.png`; visible page now shows the sidebar plus accordion row navigator instead of a card grid.
+- Modal screenshot reviewed at `/private/tmp/ams-templates-mn-correction.png`; modal continues to render the worked example cleanly.
+- Mobile headless Chrome validation passed: sidebar hidden, main margin reset to 0, 8 accordions, 76 rows, modal width fits at 390 px, no horizontal overflow, and no console errors.
+
+Still not done:
+
+- The internal worked-example content still uses AMS card/section geometry rather than MN's full ATI template connector-map layouts.
+- AMS Flashcards still needs the MN review-loop shell upgrade.
+- AMS Book prompt code paths still need later structural cleanup before rollout.
+
+## Corrective Batch Update: 2026-07-04 AMS Templates Filter And Modal Header Cleanup
+
+Reason for correction:
+
+- User noted that the type filter duplicated the accordion structure, the chapter filter added clutter, the page-level Filled/Blank buttons were not useful, and the individual template modal needed to follow the MN worked-example upper design more closely.
+
+Completed in AMS Templates only:
+
+- Removed the visible type filter from the template hub.
+- Removed the visible chapter filter from the template hub.
+- Kept the search box as the primary cross-template lookup tool.
+- Removed the page-level Filled/Blank controls.
+- Updated the build notice so it no longer references chapter filters.
+- Reworked the modal upper area toward MN's individual template design: template identity line above the large title, worked-example label, repeated worked-example title, chapter/source line with Open chapter link, and a progress check control in the worked-example header.
+- Hid the duplicate bottom action strip inside the modal so the upper header becomes the main control surface.
+
+Validation:
+
+- `git diff --check` passed.
+- Script compilation passed with the bundled Node runtime: 1 inline script parsed successfully.
+- Desktop headless Chrome validation passed: search box present, visible type filters 0, visible chapter filters 0, visible Filled/Blank controls 0, search for "asthma" filtered to 3 of 76 rows across 2 groups, modal opened, modal header order matched the MN pattern, bottom actions were hidden, and console logs reported no errors.
+- Screenshot reviewed at `/private/tmp/ams-templates-modal-upper-v2.png`; modal top now places ATI template identity above the title and the worked-example header below it.
+
+## Corrective Batch Update: 2026-07-04 AMS Templates MN Individual Template Redo
+
+Reason for correction:
+
+- User noted the page still did not follow the MN individual template design and that the chapter filter still appeared under search. The prior change hid controls but did not fully remove the chapter filter markup, and the modal still lacked MN's meta panel plus structured template boxes.
+
+Completed in AMS Templates only:
+
+- Removed the chapter filter row from the HTML completely.
+- Confirmed the type filter row is also absent from the HTML.
+- Removed the obsolete Filled/Blank event hookup and left no Filled/Blank controls in AMS Templates.
+- Added a global `[hidden]` safety rule so hidden UI cannot be accidentally re-shown by `.chips` display styling.
+- Rebuilt the modal body to better match MN's individual template design: ATI identity line, title, worked-example header, progress check, source/Open chapter row, meta panel with Student Name / Concept / Review Module Chapter, and three structured content boxes.
+- Converted the modal content boxes from simple stacked AMS sections into MN-like boxed columns with header bands and larger learner-facing text.
+
+Validation:
+
+- `git diff --check` passed.
+- Script compilation passed with the bundled Node runtime: 1 inline script parsed successfully.
+- Source check confirmed 0 `data-filter="type"`, 0 `data-filter="chapter"`, and 0 `data-template-mode` controls remain in AMS Templates.
+- Desktop headless Chrome validation passed: search remains present, search for "asthma" filters to 3 of 76 rows across 2 groups, modal opens, 3-row meta panel renders, 3 structured content boxes render in columns, bottom action strip is hidden, and console logs reported no errors.
+- Screenshot reviewed at `/private/tmp/ams-templates-mn-redo-modal.png`; modal now visually follows MN's individual template structure more closely.
+- Mobile headless Chrome validation passed: modal width fits at 342 px, meta panel and content boxes collapse to one column, no horizontal overflow, and no console errors.
+
+## Canonization Update: 2026-07-04 AMS Templates A1 Basic Concept
+
+Reason for canonization:
+
+- User reviewed the AMS A1 Basic Concept prototype and approved the design direction as acceptable for this design-canon phase.
+- Content enrichment is intentionally deferred. The A1 shell is canonized for layout and workflow only, not for MN-level content density.
+
+Canonized A1 pattern:
+
+- Use the MN-style individual template modal shell: ATI identity line, large title, worked-example header, source/Open chapter row, progress checkbox, print, Filled/Blank toggle, and compact modal controls.
+- Use the official ATI A1 Basic Concept body structure: one meta strip followed by exactly three aligned columns: Related Content, Underlying Principles, and Nursing Interventions.
+- Use AMS accent colors for AMS templates. Do not copy MN orange accent into AMS.
+- Keep A1 boxes equal-width and aligned on desktop, collapsing to one column on small screens.
+- Keep Previous/Next navigation available in the modal, scoped to the current ATI template type so A1 examples move only among A1 examples.
+
+Implementation evidence:
+
+- `Elevated ATI AMS Templates.html` includes explicit A1 canon selectors on `data-template-type="basic-concept"`.
+- `modalNavState(id, type)` scopes previous/next movement to the active ATI template type.
+- Prototype-only A5/A15 fixtures remain separate and do not affect normal template count.
+
+Validation:
+
+- Script compilation passed with the bundled Node runtime: 1 inline script parsed successfully.
+- `git diff --check` passed for AMS Templates.
+- Browser validation passed on AMS A1: modal opened, A1 rendered as three equal columns, AMS green accent appeared on title/toggle/bullets, normal template count remained 76, Previous was disabled on the first A1, and Next opened the next A1.
+
+Still deferred:
+
+- MN-level content enrichment for A1 is not part of DESIGN-CANON / HOLD-CONTENT mode.
+- A3 Diagnostic Procedure has started as the next template-type canon pass and should be reviewed before being called canonized.
+- Other template types should not inherit A1's three-column body; each should be matched against its own official ATI template geometry.
+
+## Prototype Update: 2026-07-04 AMS Templates A3 Diagnostic Procedure
+
+Reason for prototype:
+
+- User provided the official A3 Diagnostic Procedure template and MN A3 screenshot as the next design reference.
+- A3 must not inherit the A1 three-column body. Its layout needs to follow the official ATI A3 geometry while staying inside the MN-style modal shell and AMS accent system.
+
+Prototype A3 pattern:
+
+- Use the same individual template modal shell accepted during the A1 pass.
+- Use the official A3 Diagnostic Procedure body structure: full-width Description of Procedure, left-column Indications / Interpretation of Findings / Potential Complications, right-side Considerations group with Nursing Interventions (pre, intra, post) and Client Education, then lower-right Nursing Interventions.
+- Keep the connector from Potential Complications to Nursing Interventions.
+- Preserve the official A3 boxes even when a current AMS card has an unpopulated slot, because content enrichment is paused and the design shell still needs to be testable.
+- Use AMS accent colors for AMS templates. Do not copy MN orange accent into AMS.
+- Keep Previous/Next navigation scoped to Diagnostic Procedure examples.
+
+Implementation evidence:
+
+- `Elevated ATI AMS Templates.html` includes explicit A3 selectors on `data-template-type="diagnostic-procedure"`.
+- A3 now labels the second left-column box as `Interpretation of Findings`, matching the official ATI A3 template.
+- The A3 layout uses tighter diagnostic-procedure-specific spacing and box sizing instead of the A1 three-column canon.
+- Diagnostic Procedure no longer collapses empty official A3 boxes in Filled mode, so sparse current AMS examples do not distort the template geometry.
+- Adjacent A3 boxes now preserve the official larger Considerations container while aligning its internal rows to MN's pattern: the Considerations label plus Nursing Interventions (pre, intra, post) aligns with Indications, Client Education aligns with Interpretation of Findings, and the lower Potential Complications / Nursing Interventions pair remains aligned.
+- A3 now uses the shared A3/A9 lower-box connector rule so Potential Complications visibly connects to Nursing Interventions without being clipped by the card border.
+
+Validation:
+
+- Official A3 PDF was rendered and visually checked against the AMS/MN pattern.
+- MN A3 screenshot was used as the modal-layout comparison reference.
+- Full browser validation is still pending for this A3-specific pass.
+
+## Prototype Update: 2026-07-04 AMS Templates A5 Growth and Development
+
+Reason for prototype:
+
+- User moved the canon pass to A5 Growth and Development, but AMS does not currently have source-verified learner-facing A5 examples.
+- The official A5 template PDF is available locally and was used for layout verification.
+- In DESIGN-CANON / HOLD-CONTENT mode, A5 should be tested as a prototype fixture only until AMS-specific content support is approved.
+
+Prototype A5 pattern:
+
+- Use the same individual template modal shell accepted during the A1/A3 passes.
+- Use the official A5 Growth and Development body structure: four aligned Expected Growth and Development boxes, then a full-width Health Promotion parent box with four aligned child boxes beneath it.
+- Preserve the connector strip between Health Promotion and the four child boxes.
+- Keep boxes in the same official row aligned at the bottom whenever possible: the four top growth boxes align with each other, and the four lower health-promotion child boxes align with each other.
+- Use AMS accent colors for AMS templates. Do not copy MN orange accent into AMS.
+- Keep the A5 item marked as a prototype fixture so it does not affect the normal AMS template count or imply source-verified AMS content.
+
+Implementation evidence:
+
+- `Elevated ATI AMS Templates.html` includes explicit A5 selectors on `data-template-type="growth-development"`.
+- The A5 prototype fixture is populated with neutral layout stress-test lines only, not ATI educational content.
+- The A5 fixture remains `data-prototype-fixture="true"` and is available for design testing through prototype-fixture review.
+
+Validation:
+
+- Official A5 PDF was rendered and visually checked against the AMS/MN pattern.
+- Script compilation and count validation should be repeated after each A5 design iteration.
+
+## Prototype Update: 2026-07-04 AMS Templates A1/A3 Filled Fixtures
+
+Reason for prototype:
+
+- User requested fully populated prototypes for all template types, starting again with A1 and A3 because some current AMS examples have empty official boxes.
+- In DESIGN-CANON / HOLD-CONTENT mode, the safe approach is to use neutral prototype fixtures for visual QA rather than adding real AMS educational content.
+
+Prototype A1 pattern:
+
+- Add a prototype-only A1 Basic Concept fixture with all three official boxes populated: Related Content, Underlying Principles, and Nursing Interventions.
+- Use neutral layout stress-test lines to evaluate column density, wrapping, and bottom alignment.
+
+Prototype A3 pattern:
+
+- Add a prototype-only A3 Diagnostic Procedure fixture with every official slot populated: Description of Procedure, Indications, Interpretation of Findings, Considerations with Nursing Interventions (pre, intra, post), Client Education, Potential Complications, and lower Nursing Interventions.
+- Preserve the larger official Considerations parent container and the left/right alignment preference from the A3 canon pass.
+- Route `Nursing Interventions (pre, intra, post)` to the nested Considerations subbox, and route plain `Nursing Interventions` to the lower-right official box. Do not let one steal the other's content.
+- Use deliberately uneven text lengths in paired A3 boxes during prototype testing so left/right height alignment can be judged under real density stress.
+
+Implementation evidence:
+
+- `Elevated ATI AMS Templates.html` now includes `tpl-ams-prototype-basic-concept-layout` and `tpl-ams-prototype-diagnostic-procedure-layout`.
+- Both fixtures remain `data-prototype-fixture="true"` so normal AMS counts are not affected.
+- Fixture text is design-only and neutral; it does not add learner-facing ATI content.
+- A3 prototype routing was corrected so the nested pre/intra/post subbox is populated separately from the lower-right Nursing Interventions box.
+
+Validation:
+
+- Script compilation passed.
+- Normal AMS template count remained 76.
+- Static routing validation confirmed that `Nursing Interventions (pre, intra, post)` maps to the nested Considerations subbox and plain `Nursing Interventions` maps to the lower-right box.
+
+## Prototype Update: 2026-07-04 AMS Templates A7 Medication
+
+Reason for prototype:
+
+- User approved proceeding from A3 to A7 and provided the official A7 Medication PDF plus an MN medication example screenshot.
+- A7 must be tested as a design prototype with every official box populated before any real AMS content enrichment occurs.
+
+Prototype A7 pattern:
+
+- Use the MN-style individual template modal shell and AMS accent colors.
+- Use the official A7 Medication body structure: Purpose of Medication group with Expected Pharmacological Action and Therapeutic Use, then a wider left column containing Complications, Contraindications/Precautions, Interactions, and Evaluation of Medication Effectiveness, plus a narrower right column containing Medication Administration, Nursing Interventions, connector, and Client Education.
+- Include `Category Class` in the medication meta strip. Use a blank field for real AMS cards when no source-supported category is present; use `Prototype Class` only for the prototype fixture.
+- Preserve the vertical connector between Nursing Interventions and Client Education only. Match MN: use a neutral `var(--text3)` connector on the Nursing Interventions box, allow medication body boxes to avoid overflow clipping, extend the line slightly behind both boxes, and let the boxes mask it so only the segment in the gap remains visible.
+- Use deliberately uneven text lengths across purpose and body boxes to stress-test wrapping, box height, bottom alignment, and connector behavior.
+
+Implementation evidence:
+
+- `Elevated ATI AMS Templates.html` now includes `tpl-ams-prototype-medication-layout`.
+- The A7 fixture remains `data-prototype-fixture="true"` and does not affect normal AMS template count.
+- Medication-specific modal CSS now scopes A7 spacing, column proportions, dense text sizing, box radius, and the neutral behind-the-box Nursing Interventions-to-Client Education connector to `data-template-type="medication"`.
+- The medication meta builder now adds a `Category Class` row for medication templates.
+
+Validation:
+
+- Official A7 PDF was rendered and visually checked against the MN medication screenshot.
+- Script compilation and count validation should be repeated after each A7 design iteration.
+
+Still deferred:
+
+- Content enrichment for A3 remains out of scope in DESIGN-CANON / HOLD-CONTENT mode.
+- A3 visual review was completed during the AMS prototype pass and the shared A3/A9/A13 procedure-family geometry is approved for AMS design-canon use.
+- Other template types should continue to use their own official ATI template geometry rather than inheriting A3's labels.
+
+## Prototype Update: 2026-07-04 AMS Templates A9 Nursing Skill
+
+Reason for prototype:
+
+- User provided the official A9 Nursing Skill PDF plus an MN Nursing Skill example screenshot.
+- A9 must be tested as a design prototype with every official box populated before real AMS content enrichment occurs.
+
+Prototype A9 pattern:
+
+- Use the MN-style individual template modal shell and AMS accent colors.
+- Use the official A9 Nursing Skill body structure: full-width Description of Skill, left-column Indications and Outcomes/Evaluation, right-side Considerations group containing Nursing Interventions (pre, intra, post) and Client Education, then lower Potential Complications connected to lower Nursing Interventions.
+- Treat the Considerations area as a true parent container with two smaller stacked subboxes inside it: Nursing Interventions (pre, intra, post) and Client Education.
+- Preserve the neutral `var(--text3)` connector between Potential Complications and Nursing Interventions, following the shared A3/A9/A13 connector convention.
+- A3 Diagnostic Procedure and A9 Nursing Skill share the same official procedure-grid geometry; only the box labels differ. Keep their lower Potential Complications to Nursing Interventions connector aligned the same way.
+- Use deliberately uneven text lengths across left/right and lower boxes to stress-test wrapping, box height, bottom alignment, and connector behavior.
+
+Implementation evidence:
+
+- `Elevated ATI AMS Templates.html` now includes `tpl-ams-prototype-nursing-skill-layout`.
+- The A9 fixture remains `data-prototype-fixture="true"` and does not affect normal AMS template count.
+- Nursing Skill-specific modal CSS now scopes A9 max width, gap, connector overlap, dense text sizing, and official A9 box sizing to `data-template-type="nursing-skill"`.
+- The A9 builder now routes the phased Nursing Interventions section into the Considerations parent and reserves the separate Nursing Interventions section for the lower-right official A9 box.
+- The shared A3/A9 connector rule is explicitly scoped so later grid changes do not remove the Potential Complications to Nursing Interventions line.
+- The shared connector is drawn as a neutral gap connector between the lower boxes to avoid clipping or accidental lines across the box interiors.
+
+Validation:
+
+- Official A9 PDF was rendered and visually checked against the MN Nursing Skill screenshot.
+- Script compilation and count validation should be repeated after each A9 design iteration.
+
+Still deferred:
+
+- Content enrichment for A9 remains out of scope in DESIGN-CANON / HOLD-CONTENT mode.
+- A9 visual review was completed during the AMS prototype pass and the shared A3/A9/A13 procedure-family geometry is approved for AMS design-canon use.
+- A11 System Disorder has also completed prototype review and should be treated as an approved special-case A11 layout.
+
+## Canonization Update: 2026-07-04 AMS Template Typography
+
+Reason for canonization:
+
+- User asked whether AMS template fonts were uniform with the other books before continuing with more template types.
+- AMS and MN already share the same core font families, but AMS had scattered literal font sizes across the template modal, A1, and A3 overrides.
+
+Canonized typography pattern:
+
+- Use `DM Sans` for interface text, metadata, labels, controls, and template body copy.
+- Use `DM Serif Display` for modal titles, worked-example titles, and ATI template box headings.
+- Keep micro-labels uppercase with consistent letter spacing.
+- Use one shared modal title scale, one worked-example title scale, one meta label/value scale, one box-heading scale, and one dense-template body scale.
+- Allow dense official ATI template layouts, such as A1 and A3, to use the dense body scale while preserving the same font families and heading hierarchy.
+
+Implementation evidence:
+
+- `Elevated ATI AMS Templates.html` now defines template typography tokens for modal titles, worked-example titles, metadata, box headings, body text, dense body text, and letter spacing.
+- A1 and A3 now use those tokens instead of hard-coded local body sizes.
+- A3 retains its official layout and larger Considerations container while using the shared typography scale.
+
+Validation:
+
+- Script compilation passed with the bundled Node runtime: 1 inline script parsed successfully.
+- `git diff --check` passed for AMS Templates and this audit file.
+
+Still deferred:
+
+- This canon is currently applied only to AMS Templates. It should be visually approved on A1 and A3 before rollout to other books.
+
+## Canonization Update: 2026-07-04 AMS Shared Template Width
+
+Reason for canonization:
+
+- User identified that individual ATI template modals were not using the same width and that narrow layouts were wasting usable space.
+- The design preference is to widen all template types consistently while preserving each official ATI internal box layout.
+
+Canonized width pattern:
+
+- Use one shared individual-template sheet width token for all AMS template types: `--tpl-template-width`.
+- Current prototype value: `880px`.
+- Use a wider modal shell so the shared template sheet has breathing room without filling the entire viewport.
+- Keep each template type's official internal geometry intact; A1, A3, A5, A7, A9, system disorder, concept analysis, and future template types should differ by internal layout, not by outer sheet width.
+- On mobile, keep the template sheet responsive at full available width.
+
+Implementation evidence:
+
+- `Elevated ATI AMS Templates.html` now defines `--tpl-template-width:880px`.
+- The modal shell now uses `width:min(1080px,100%)`.
+- `.modal-template-card` uses `width:min(100%, var(--tpl-template-width))` and `max-width:var(--tpl-template-width)`.
+- Template-specific max-width overrides now point back to the shared token instead of fixed per-type widths.
+
+Still deferred:
+
+- Visual approval is still needed after reviewing several template types side by side, especially dense layouts such as A1, A5, A7, and A9.
+
+## Canonization Update: 2026-07-04 AMS Template Safe Insets
+
+Reason for canonization:
+
+- User identified that template text was too close to box edges and could be cut off or visually crowded as real content becomes denser.
+- The A9 Considerations prototype showed this risk most clearly because the nested subboxes were being forced into equal-height halves.
+
+Canonized spacing pattern:
+
+- Use shared template box padding tokens: `--tpl-box-pad-x` and `--tpl-box-pad-y`.
+- Dense template layouts should still be compact, but not use cramped 12px side padding.
+- Nested boxes, especially A9 Considerations subboxes, should grow with content instead of clipping longer text.
+- Preserve official ATI geometry and MN-style visual hierarchy while prioritizing readable inner spacing.
+
+Implementation evidence:
+
+- `Elevated ATI AMS Templates.html` now defines `--tpl-box-pad-x:16px` and `--tpl-box-pad-y:14px`.
+- Dense A1, A3, A5, A7, and A9 box content now uses the shared safe inset tokens.
+- A9 Considerations subboxes no longer use forced equal-half flex sizing; they can grow with content while retaining the parent Considerations structure.
+
+Still deferred:
+
+- Visual approval is needed on A9 and A7 after refresh to confirm the new spacing still feels compact enough.
+
+## Prototype Update: 2026-07-04 AMS Templates A11 System Disorder
+
+Reason for prototype:
+
+- User approved the A7/A9 spacing review and asked to move to the next template.
+- A11 System Disorder is structurally complex and is the next best stress test for the AMS template canon.
+
+Source support:
+
+- Official ATI template source used: `/Users/markjuliusgearhart/Downloads/ATI Templates/A11 System Disorder.pdf`.
+- The PDF is a multi-page ATI template bundle; page 11 was rendered and visually checked as the A11 System Disorder form.
+
+Prototype A11 pattern:
+
+- Use the shared widened template sheet and safe inset tokens.
+- Use the official A11 top row: Alterations in Health (Diagnosis), Pathophysiology Related to Client Problem, and Health Promotion and Disease Prevention.
+- Use the official Assessment block with Risk Factors, Expected Findings, Laboratory Tests, and Diagnostic Procedures in a 2-by-2 grouped area.
+- Use the official Safety Considerations and Complications boxes, but optimize the AMS layout so Safety aligns with Assessment and Complications aligns with Patient-Centered Care.
+- Use the official Patient-Centered Care geometry: Nursing Care over Therapeutic Procedures on the left, Medications as the tall center box, and Client Education over Interprofessional Care on the right.
+
+Implementation evidence:
+
+- `Elevated ATI AMS Templates.html` now includes `tpl-ams-prototype-system-disorder-layout`.
+- The A11 fixture remains `data-prototype-fixture="true"` and uses only neutral prototype text.
+- The System Disorder builder now assigns explicit grid-area classes for the five official Patient-Centered Care boxes.
+- System Disorder CSS now preserves official A11 geometry, including desktop and mobile stacking behavior.
+
+Still deferred:
+
+- A11 visual review was completed during the later space-optimization pass and is approved for AMS design-canon use.
+- Real AMS System Disorder content enrichment remains paused in DESIGN-CANON / HOLD-CONTENT mode.
+
+## Prototype Update: 2026-07-04 AMS Templates A11 Space Optimization
+
+Reason for update:
+
+- User reviewed the A11 prototype against the MN screenshot and official A11 template and identified poor space optimization.
+- This is a design/canon issue only: no educational content was added.
+
+Approved A11 refinement:
+
+- Preserve the official A11 box identities and the MN-style visual shell.
+- Keep Safety Considerations and Complications visually grouped: Safety Considerations is the larger right-side parent/shadow area, and Complications sits inside it as the lower child.
+- Reduce obvious wasted space where possible, but do not separate Complications from the Safety Considerations parent.
+- Give the grouped Safety/Complications rail a balanced width for dense safety text: wider than the narrow MN-style strip, but not so wide that it overwhelms the Patient-Centered Care block.
+- Align the top and bottom of the nested Complications box with the top and bottom of the Patient-Centered Care block when the desktop A11 grid is shown.
+- Keep the bottom of the grouped right rail visually balanced against Patient-Centered Care where the official A11 geometry allows.
+
+Implementation evidence:
+
+- `Elevated ATI AMS Templates.html` now renders A11 Complications inside the Safety Considerations group using the `sd-complications` class.
+- The System Disorder grid preserves the official parent-child relationship while using the lower desktop row for the nested Complications box, so its top and bottom align with Patient-Centered Care.
+- The A11 right rail now uses a balanced middle-width column so Safety Considerations and Complications have more readable space without dominating the layout.
+- Mobile stacking keeps Safety Considerations and its nested Complications together before Patient-Centered Care.
+
+Still deferred:
+
+- User approved the optimized A11 layout after the Safety Considerations and Complications rail was aligned with Patient-Centered Care.
+- A11 is approved for AMS design-canon use as a special-case system-disorder layout.
+
+## Prototype Update: 2026-07-04 AMS Templates A13 Therapeutic Procedure
+
+Reason for prototype:
+
+- User provided the official A13 Therapeutic Procedure PDF and MN-style screenshot as the next template-type prototype.
+- This is a design/canon task only; no AMS educational content was added.
+
+Source support:
+
+- Official ATI template source used: `/Users/markjuliusgearhart/Downloads/ATI Templates/A13 Therapeutic Procedure.pdf`.
+- The PDF is a one-page letter-size A13 Therapeutic Procedure form and was rendered locally for layout verification.
+
+Prototype A13 pattern:
+
+- Use the shared widened template sheet and safe inset tokens.
+- Preserve the official A13 field order: Student Name, Procedure Name, and Review Module Chapter.
+- Use the official A13 full-width Description of Procedure panel.
+- Use the official two-column body: Indications over Outcomes/Evaluation on the left, and Considerations on the right.
+- Keep Considerations as a parent/shadow area with two stacked child boxes: Nursing Interventions (pre, intra, post) and Client Education.
+- Use the official bottom row: Potential Complications on the left connected to Nursing Interventions on the right.
+- Follow the same left/right bottom alignment and neutral connector convention approved for A3 and A9.
+
+Implementation evidence:
+
+- `Elevated ATI AMS Templates.html` now includes `tpl-ams-prototype-therapeutic-procedure-layout`.
+- A13 now has explicit `therapeutic-procedure` CSS using the shared A3/A9 procedure grid discipline.
+- The procedure builder now routes A13's phase-based Nursing Interventions (pre, intra, post) into the Considerations parent and keeps the lower Nursing Interventions box separate.
+- The Potential Complications connector rule now explicitly includes A13.
+- The A13 fixture remains `data-prototype-fixture="true"` and uses only neutral prototype text.
+
+Approval status:
+
+- User approved the A13 direction after confirming it belongs to the shared A3/A9/A13 procedure-family geometry with A13-specific labels.
+- A13 is approved for AMS design-canon use.
+
+## Prototype Update: 2026-07-04 AMS Templates A15 Concept Analysis
+
+Reason for prototype:
+
+- User provided the official A15 Concept Analysis PDF and MN-style screenshot as the final template-type prototype in this pass.
+- This is a design/canon task only; no AMS educational content was added.
+
+Source support:
+
+- Official ATI template source used: `/Users/markjuliusgearhart/Downloads/ATI Templates/A15 Concept Analysis.pdf`.
+- The PDF is a one-page letter-size A15 Concept Analysis form and was rendered locally for layout verification.
+
+Prototype A15 pattern:
+
+- Use the shared widened template sheet and safe inset tokens.
+- Preserve the official A15 field order: Student Name and Concept Analysis.
+- Use the official full-width Defining Characteristics panel.
+- Use the official two paired rows: Antecedents with Negative Consequences, then Related Concepts with Exemplars.
+- Keep paired boxes aligned top and bottom when they occupy the same row.
+- Use the MN modal shell and AMS accent/spacing discipline without adding connectors, because A15 does not use connector lines.
+
+Implementation evidence:
+
+- `Elevated ATI AMS Templates.html` now includes a source-backed `tpl-ams-prototype-concept-analysis-layout` fixture.
+- A15 now has explicit `concept-analysis` CSS using the official five-box geometry.
+- The A15 fixture remains `data-prototype-fixture="true"` and uses only neutral prototype text.
+
+Approval status:
+
+- User approved the A15 prototype after the source-backed concept-analysis fixture was added.
+- A15 is approved for AMS design-canon use.
+
+## Final QA Update: 2026-07-05 AMS Templates Prototype Set
+
+Reason for update:
+
+- User asked to proceed with the recommended final QA before restarting heartbeat automation.
+- This is a design/canon readiness check only; no educational content was added.
+
+Approved AMS template set:
+
+- A1 Basic Concept.
+- A3 Diagnostic Procedure.
+- A5 Growth and Development.
+- A7 Medication.
+- A9 Nursing Skill.
+- A11 System Disorder.
+- A13 Therapeutic Procedure.
+- A15 Concept Analysis.
+
+Final QA evidence:
+
+- `Elevated ATI AMS Templates.html` script parsing passed with the bundled Node runtime.
+- `git diff --check` passed for AMS Templates and this audit file.
+- Static count check passed: 84 total template cards, 8 prototype fixtures, and 76 normal AMS templates.
+- Prototype fixture IDs are present for all approved template types.
+- Structure sweep confirmed each prototype fixture contains its expected official ATI section set.
+- Old template hub type/chapter filters and nonfunctional Filled/Blank card tags are absent.
+- AMS orange styling was not found; the remaining word "orange" appears only in source-supported tuberculosis medication content.
+- In-app browser visual verification against the direct `file://` URL was blocked by browser URL policy, so this final pass used static and script-level verification rather than a new rendered screenshot pass.
+
+Next heartbeat recommendation:
+
+- Restart the heartbeat in DESIGN-CANON / HOLD-CONTENT mode only after this QA note is committed or intentionally left as the current working baseline.
+- Next heartbeat should roll the approved AMS template design canon to one next book template file at a time, without touching MN and without adding educational content.
