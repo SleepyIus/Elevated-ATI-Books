@@ -443,14 +443,14 @@ Reason for canonization:
 Canonized width pattern:
 
 - Use one shared individual-template sheet width token for all AMS template types: `--tpl-template-width`.
-- Current prototype value: `880px`.
+- Current prototype value: `1000px`.
 - Use a wider modal shell so the shared template sheet has breathing room without filling the entire viewport.
 - Keep each template type's official internal geometry intact; A1, A3, A5, A7, A9, system disorder, concept analysis, and future template types should differ by internal layout, not by outer sheet width.
 - On mobile, keep the template sheet responsive at full available width.
 
 Implementation evidence:
 
-- `Elevated ATI AMS Templates.html` now defines `--tpl-template-width:880px`.
+- `Elevated ATI AMS Templates.html` now defines `--tpl-template-width:1000px`.
 - The modal shell now uses `width:min(1080px,100%)`.
 - `.modal-template-card` uses `width:min(100%, var(--tpl-template-width))` and `max-width:var(--tpl-template-width)`.
 - Template-specific max-width overrides now point back to the shared token instead of fixed per-type widths.
@@ -879,3 +879,37 @@ Validation target:
 
 - Static CSS check should confirm `--template-modal-width:1080px` and `width:min(var(--template-modal-width),100%)`.
 - Visual QA should confirm MN template examples have more horizontal room while still collapsing properly on mobile.
+
+## Non-MN Template Width Rollout: 2026-07-05
+
+Reason for update:
+
+- User reviewed the larger MN template display and approved that wider inner sheet feel for the rest of the books.
+- The non-MN books already had the 1080 px modal shell but retained the narrower 880 px inner template sheet.
+
+Files updated:
+
+- `Elevated ATI AMS Templates.html`.
+- `Elevated ATI MH Templates.html`.
+- `Elevated ATI PD Templates.html`.
+- `Elevated ATI Pharm Templates.html`.
+
+Reference:
+
+- Current MN rendered modal/card width after the MN width backport.
+
+Completed:
+
+- Increased the shared non-MN `--tpl-template-width` token from 880 px to 1000 px.
+- Preserved each book's accent color, subject identity, modal shell, template content, and template-type-specific layout rules.
+- Kept mobile behavior responsive because `.modal-template-card` still uses `width:min(100%, var(--tpl-template-width))`.
+
+Content status:
+
+- No ATI educational content was added.
+- No template content was enriched.
+
+Validation target:
+
+- Static CSS check should confirm all non-MN template files now define `--tpl-template-width:1000px`.
+- Visual QA should confirm AMS, MH, PD, and Pharm individual template modals now use the larger MN-like display without horizontal overflow.
