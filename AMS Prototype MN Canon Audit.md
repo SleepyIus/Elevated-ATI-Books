@@ -847,3 +847,35 @@ Next recommendation:
 
 - Visually QA the sidebar progress/search strip on AMS, MH, PD, and Pharm Templates.
 - Continue template uniformity only; keep flashcards paused.
+
+## MN Template Width Backport: 2026-07-05
+
+Reason for update:
+
+- User identified that the approved template width/space optimization had been applied outside MN but not backported to MN.
+- MN is explicitly approved for this focused design-canon update.
+
+File updated:
+
+- `Elevated ATI MN Templates.html`.
+
+Reference:
+
+- Current approved AMS Templates modal geometry.
+
+Completed:
+
+- Widened the MN individual-template modal workspace to the approved shared 1080 px modal width.
+- Added an MN template modal width token so the widened shell is explicit and reusable.
+- Ensured template examples pulled into the modal use the full available modal body width.
+- Preserved MN accent color, content, sidebar, accordion behavior, and template structure.
+
+Content status:
+
+- No ATI educational content was added.
+- No template content was enriched.
+
+Validation target:
+
+- Static CSS check should confirm `--template-modal-width:1080px` and `width:min(var(--template-modal-width),100%)`.
+- Visual QA should confirm MN template examples have more horizontal room while still collapsing properly on mobile.

@@ -41,6 +41,7 @@
   --nav-bg:rgba(15,17,23,0.92);
   --shadow:0 8px 24px rgba(0,0,0,0.3);
   --modal-bg:rgba(9,11,20,0.85);
+  --template-modal-width:1080px;
 }
 [data-theme="light"]{
   --bg:#faf7f2;
@@ -738,7 +739,7 @@ button:focus-visible,a:focus-visible{
 }
 .modal-overlay.show{display:flex}
 .modal{
-  width:100%;max-width:980px;background:var(--bg);
+  width:min(var(--template-modal-width),100%);max-width:var(--template-modal-width);background:var(--bg);
   border:1px solid var(--border);border-radius:16px;margin:auto;
   display:flex;flex-direction:column;
   max-height:calc(100vh - 80px);overflow:hidden;
@@ -1095,6 +1096,10 @@ body.modal-open{overflow:hidden}
 .modal-body > .example-card,
 .modal-body > .tab-panel,
 .modal-body .example-card{display:block !important}
+.modal-body > .example-card{
+  width:100%;
+  max-width:none;
+}
 
 
 
