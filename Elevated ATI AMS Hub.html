@@ -2,7 +2,7 @@
 <!-- ============================================================
      ELEVATED ATI SUITE - AMS HUB
      Build date: 2026-06-30
-     Status:     Design prototype - compact AMS hub with live progress cards
+     Status:     Design canon - MN-aligned AMS hub
      ============================================================ -->
 <html lang="en">
 <head>
@@ -53,9 +53,13 @@ body{
   background:var(--bg);
   color:var(--text);
   font-family:'DM Sans',sans-serif;
+  font-weight:400;
   font-size:16px;
-  line-height:1.6;
+  line-height:1.65;
   -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  transition:background .25s,color .25s;
+  min-height:100vh;
   overflow-x:hidden;
 }
 a{color:inherit;text-decoration:none}
@@ -64,6 +68,7 @@ a{color:inherit;text-decoration:none}
   margin:0 auto;
   padding:24px 24px 80px;
 }
+@media(max-width:720px){.page{padding:18px 16px 60px}}
 .topbar{
   display:flex;
   align-items:center;
@@ -108,10 +113,9 @@ a{color:inherit;text-decoration:none}
   border:1px solid var(--border);
   background:transparent;
   color:var(--text3);
-  border-radius:8px;
-  padding:10px 14px;
+  border-radius:6px;
+  padding:6px 10px;
   font-size:12px;
-  line-height:1.1;
   font-weight:600;
   white-space:nowrap;
   transition:all .15s ease;
@@ -171,10 +175,10 @@ a{color:inherit;text-decoration:none}
   margin:0 0 12px;
 }
 .hero em{color:var(--accent2)}
-.hero p{position:relative;max-width:640px;color:var(--text2);margin:0;font-size:16px;line-height:1.6}
+.hero-sub{position:relative;max-width:640px;color:var(--text2);margin:0;font-size:16px;line-height:1.6}
 .stats{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:14px;
   margin-bottom:36px;
 }
@@ -214,12 +218,9 @@ a{color:inherit;text-decoration:none}
 }
 .tool-card{
   position:relative;
-  display:flex;
-  flex-direction:column;
-  min-height:220px;
+  display:block;
   padding:24px 24px 22px;
   transition:transform .15s,border-color .15s,box-shadow .15s;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
   border-radius:16px;
 }
 .tool-card:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:var(--shadow)}
@@ -246,44 +247,37 @@ a{color:inherit;text-decoration:none}
 }
 .tool-meta{
   display:flex;
-  flex-wrap:wrap;
-  gap:12px 14px;
-  margin:0 0 16px;
+  gap:14px;
+  margin-bottom:16px;
   font-size:12px;
   color:var(--text3);
 }
-.tool-meta-item strong{color:var(--text);font-weight:700}
+.tool-meta-item strong{color:var(--text);font-weight:600}
 .progress-row{
-  margin-top:auto;
-  display:grid;
-  grid-template-columns:1fr auto;
+  display:flex;
   align-items:center;
-  gap:8px 12px;
-  padding-top:12px;
-  border-top:1px solid var(--border-soft);
+  gap:10px;
+  margin-top:auto;
 }
 .progress-bar{
   flex:1;
   height:6px;
   background:var(--surface3);
-  border:1px solid var(--border-soft);
-  border-radius:999px;
+  border-radius:3px;
   overflow:hidden;
 }
 .progress-fill{
-  width:0;
   height:100%;
-  background:linear-gradient(90deg,var(--accent2),var(--accent));
-  border-radius:999px;
-  transition:width .25s ease;
+  background:var(--accent);
+  border-radius:3px;
+  transition:width .35s ease;
+  width:0%;
 }
 .progress-text{
-  color:var(--text3);
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  min-width:88px;
+  color:var(--text2);
+  font-size:12px;
+  font-weight:500;
+  min-width:64px;
   text-align:right;
 }
 .tool-cta{
@@ -292,66 +286,78 @@ a{color:inherit;text-decoration:none}
   gap:6px;
   margin-top:16px;
   color:var(--accent);
-  font-weight:800;
+  font-weight:600;
   font-size:13px;
 }
 .tool-cta::after{
-  content:"->";
+  content:"\2192";
   transition:transform .15s ease;
 }
 .tool-card:hover .tool-cta{color:var(--accent2)}
 .tool-card:hover .tool-cta::after{transform:translateX(2px)}
 .types-grid{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-columns:repeat(2,1fr);
   gap:10px;
+  margin-bottom:36px;
 }
 .type-row{
-  display:grid;
-  grid-template-columns:42px 1fr auto;
-  gap:12px;
+  display:flex;
+  gap:14px;
   align-items:center;
   background:var(--surface);
   border:1px solid var(--border);
   border-radius:10px;
-  padding:12px 14px;
+  padding:14px 18px;
   transition:border-color .15s;
 }
 .type-row:hover{border-color:var(--accent)}
 .type-page{
-  color:var(--accent2);
   font-size:11px;
-  font-weight:900;
+  color:var(--text3);
+  font-weight:600;
+  background:var(--surface3);
+  padding:3px 8px;
+  border-radius:6px;
+  font-variant-numeric:tabular-nums;
 }
-.type-name{font-size:14px;font-weight:700}
-.type-count{font-size:12px;color:var(--text3);font-weight:800}
+.type-name{flex:1;font-size:14px;color:var(--text);font-weight:500}
+.type-count{
+  font-size:13px;
+  color:var(--accent2);
+  font-weight:600;
+  font-variant-numeric:tabular-nums;
+}
 .future-card,.storage-panel{
   background:var(--surface);
-  border-radius:10px;
-  padding:16px;
+  border-radius:12px;
 }
 .future-card{
   border:1px dashed var(--border);
-  margin-top:28px;
+  padding:20px 22px;
+  margin-bottom:36px;
 }
 .storage-panel{
   border:1px solid var(--border-soft);
+  padding:18px 22px;
   margin-top:32px;
 }
 .future-card h3,.storage-panel-title{
-  margin:0;
+  margin:0 0 12px;
   font-size:13px;
   color:var(--text2);
   text-transform:uppercase;
   letter-spacing:.12em;
+  font-weight:600;
 }
+.storage-panel-title{margin:0}
 .future-list{
   display:flex;
   flex-wrap:wrap;
   gap:8px;
   list-style:none;
   padding:0;
-  margin:12px 0 0;
+  margin:0;
 }
 .future-list li{
   background:var(--surface2);
@@ -359,7 +365,6 @@ a{color:inherit;text-decoration:none}
   border-radius:6px;
   color:var(--text3);
   font-size:12px;
-  font-weight:700;
   padding:5px 11px;
 }
 .storage-panel-head{
@@ -377,12 +382,12 @@ a{color:inherit;text-decoration:none}
 .storage-btn{
   border:1px solid var(--border);
   background:var(--surface2);
-  color:var(--text2);
+  color:var(--text);
   border-radius:8px;
-  padding:8px 11px;
+  padding:8px 14px;
   font:inherit;
-  font-size:12px;
-  font-weight:800;
+  font-size:13px;
+  font-weight:500;
   cursor:pointer;
 }
 .storage-btn:hover{border-color:var(--accent);color:var(--accent)}
@@ -394,13 +399,26 @@ a{color:inherit;text-decoration:none}
   margin-top:8px;
   font-size:11px;
   color:var(--text3);
+  font-family:'SF Mono', Menlo, monospace;
+  background:var(--surface2);
+  padding:8px 12px;
+  border-radius:6px;
 }
+.storage-keys-list span{display:block}
+.footer{
+  text-align:center;
+  padding-top:28px;
+  border-top:1px solid var(--border-soft);
+  font-size:12px;
+  color:var(--text3);
+}
+.footer p{margin:4px 0}
 .pickup-panel{
-  margin:0 0 24px;
+  margin:0 0 30px;
   padding:18px 20px;
   background:linear-gradient(135deg,var(--surface),var(--surface2));
   border:1px solid var(--border);
-  border-radius:10px;
+  border-radius:12px;
 }
 .pickup-panel[hidden]{display:none}
 .pickup-head{
@@ -455,60 +473,52 @@ a{color:inherit;text-decoration:none}
   display:flex;
   align-items:center;
   justify-content:center;
-  background:var(--surface2);
-  color:var(--accent2);
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:.08em;
-  text-transform:uppercase;
+  font-size:24px;
+  line-height:1;
   flex-shrink:0;
 }
-.pickup-text{min-width:0}
+.pickup-text{flex:1;min-width:0}
 .pickup-label{
   font-size:11px;
-  color:var(--text3);
+  color:var(--text2);
   text-transform:uppercase;
-  letter-spacing:.09em;
-  font-weight:900;
+  letter-spacing:.04em;
   margin-bottom:3px;
 }
 .pickup-value{
   color:var(--text);
   font-size:14px;
-  font-weight:800;
+  font-weight:500;
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
 }
 .review-queue{
-  margin:0 0 24px;
-  padding:18px 20px;
+  margin-bottom:24px;
+  padding:18px 22px;
   background:var(--surface);
   border:1px solid var(--border);
-  border-radius:10px;
+  border-radius:14px;
   display:flex;
   align-items:center;
-  gap:16px;
+  gap:18px;
+  transition:border-color .2s ease;
 }
 .review-queue.has-due{border-color:var(--accent);background:var(--accent-soft)}
 .review-queue.empty{opacity:.72}
 .review-queue-icon{
   width:46px;
   height:46px;
-  border-radius:10px;
+  border-radius:11px;
   background:var(--surface2);
-  color:var(--accent2);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:.08em;
-  text-transform:uppercase;
+  font-size:22px;
   flex-shrink:0;
 }
 .review-queue.has-due .review-queue-icon{background:var(--accent);color:var(--bg)}
-.review-queue-body{min-width:0}
+.review-queue-body{flex:1;min-width:0}
 .review-queue-title{
   margin:0 0 3px;
   font-family:'DM Serif Display',serif;
@@ -524,25 +534,35 @@ a{color:inherit;text-decoration:none}
 }
 .review-queue.empty .review-queue-count{color:var(--text3)}
 .review-queue-sub{font-size:13px;color:var(--text2)}
-.units-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.unit-card{
-  padding:14px 16px;
+.units-grid{
   display:grid;
-  grid-template-columns:54px 1fr auto;
+  grid-template-columns:repeat(4,1fr);
   gap:12px;
-  align-items:center;
+  margin-bottom:36px;
 }
-.unit-num{color:var(--accent2);font-weight:900}
-.unit-card h3{margin:0;font-size:15px}
-.unit-card p{margin:2px 0 0;color:var(--text2);font-size:12px}
-.pill{
-  font-size:12px;
+.unit-card{
+  padding:16px 16px 18px;
+  display:block;
+  transition:border-color .15s ease;
+}
+.unit-card:hover{border-color:var(--accent)}
+.unit-num{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.14em;
   color:var(--text3);
-  background:var(--surface2);
-  padding:4px 8px;
-  border-radius:999px;
+  font-weight:600;
 }
-.unit-progress{grid-column:1 / -1;margin-top:4px}
+.unit-card h3{
+  font-family:'DM Serif Display',serif;
+  font-weight:400;
+  font-size:18px;
+  margin:4px 0 8px;
+  color:var(--text);
+}
+.unit-range{font-size:12px;color:var(--text2)}
+.unit-card p{margin:0;color:var(--text2);font-size:12px}
+.unit-progress{margin-top:12px}
 .unit-progress-bar{
   height:4px;
   background:var(--surface3);
@@ -552,31 +572,29 @@ a{color:inherit;text-decoration:none}
 .unit-progress-fill{
   height:100%;
   width:0;
-  background:linear-gradient(90deg,var(--accent2),var(--accent));
+  background:var(--accent);
   transition:width .25s ease;
 }
 .unit-progress-text{
   color:var(--text3);
   font-size:11px;
-  font-weight:800;
   margin-top:6px;
-  text-transform:uppercase;
-  letter-spacing:.05em;
 }
 @media(max-width:860px){
-  .stats,.primary-grid,.units-grid,.types-grid{grid-template-columns:1fr}
-  .type-row{grid-template-columns:42px minmax(0,1fr) auto}
+  .primary-grid,.types-grid{grid-template-columns:1fr}
+  .stats,.units-grid{grid-template-columns:repeat(2,1fr)}
   .hero h1{font-size:32px}
   .eyebrow{letter-spacing:.10em}
-  .hero p,.tool-desc,.unit-card p{overflow-wrap:anywhere}
+  .hero-sub,.tool-desc,.unit-card p{overflow-wrap:anywhere}
   .topbar{align-items:flex-start;flex-direction:column}
   .topbar-left{flex-wrap:wrap}
   .brand-title{overflow-wrap:anywhere}
-  .unit-card{grid-template-columns:1fr}
   .page{max-width:100vw;padding:18px 16px 60px;overflow-x:hidden}
-  .progress-row{grid-template-columns:1fr}
   .progress-bar{width:100%}
   .progress-text{text-align:left;min-width:0}
+}
+@media(max-width:520px){
+  .stats,.units-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -587,71 +605,73 @@ a{color:inherit;text-decoration:none}
       <a class="back-link" href="index.html" title="Back to all subjects">&larr; <span>Home</span></a>
       <div class="brand"><div class="mark">AMS</div><div class="brand-title">Elevated &middot; AMS Hub</div></div>
     </div>
-    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme"><span class="theme-icon" id="themeIcon">☀</span> <span id="themeLabel">Light Mode</span></button>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme"><span class="theme-icon" id="themeIcon">☀️</span> <span id="themeLabel">Light Mode</span></button>
   </header>
 
   <section class="hero">
-    <div class="eyebrow">ATI RN Adult Medical-Surgical Nursing - Edition 11</div>
-    <h1>Adult <em>Medical-Surgical</em> Nursing</h1>
-    <p>Focused review for all 96 AMS chapters, with quick lookup, template practice, and spaced review in one place.</p>
+    <div class="eyebrow">Elevated &middot; ATI Adult Medical-Surgical Companion</div>
+    <h1>Adult Medical-Surgical<br><em>Nursing Care</em></h1>
+    <p class="hero-sub">A chapter-by-chapter reference and worked-template companion for the ATI RN Adult Medical-Surgical Nursing review module. Built for fast lookup, focused study, and exam preparation.</p>
   </section>
 
   <section class="stats">
     <div class="stat"><div class="stat-value">96</div><div class="stat-label">Chapters</div></div>
     <div class="stat"><div class="stat-value">14</div><div class="stat-label">Units</div></div>
     <div class="stat"><div class="stat-value">76</div><div class="stat-label">Worked Templates</div></div>
+    <div class="stat"><div class="stat-value">0</div><div class="stat-label">Starter Cards</div></div>
   </section>
 
   <section class="pickup-panel" id="pickupPanel" hidden>
     <div class="pickup-head">
-      <h3>Pick up where you left off</h3>
+      <h3>&#9654; Pick up where you left off</h3>
       <button class="pickup-dismiss" id="pickupDismiss" type="button" title="Hide this panel">&times;</button>
     </div>
     <div class="pickup-cards">
       <a class="pickup-card" id="pickupBook" href="#" hidden>
-        <div class="pickup-icon">Book</div>
+        <div class="pickup-icon">&#128214;</div>
         <div class="pickup-text">
           <div class="pickup-label">Continue reading</div>
-          <div class="pickup-value" id="pickupBookValue">-</div>
+          <div class="pickup-value" id="pickupBookValue">&mdash;</div>
         </div>
       </a>
       <a class="pickup-card" id="pickupFc" href="Elevated%20ATI%20AMS%20Flashcards.html" hidden>
-        <div class="pickup-icon">Cards</div>
+        <div class="pickup-icon">&#127183;</div>
         <div class="pickup-text">
           <div class="pickup-label">Review queue</div>
-          <div class="pickup-value" id="pickupFcValue">-</div>
+          <div class="pickup-value" id="pickupFcValue">&mdash;</div>
         </div>
       </a>
       <a class="pickup-card" id="pickupTpl" href="#" hidden>
-        <div class="pickup-icon">Tpl</div>
+        <div class="pickup-icon">&#128203;</div>
         <div class="pickup-text">
           <div class="pickup-label">Last template</div>
-          <div class="pickup-value" id="pickupTplValue">-</div>
+          <div class="pickup-value" id="pickupTplValue">&mdash;</div>
         </div>
       </a>
     </div>
   </section>
 
   <div class="review-queue empty" id="reviewQueue">
-    <div class="review-queue-icon" id="reviewIcon">Deck</div>
+    <div class="review-queue-icon" id="reviewIcon">&#128218;</div>
     <div class="review-queue-body">
       <h3 class="review-queue-title">
         <span class="review-queue-count" id="dueCount">0</span>
         <span id="dueLabel">no cards yet</span>
       </h3>
-      <div class="review-queue-sub" id="dueSub">Use flashcards to build a local review queue.</div>
+      <div class="review-queue-sub" id="dueSub">Answer prompts in the chapter book to start building your review deck.</div>
     </div>
   </div>
 
-  <h2 class="section-title">Primary Tools</h2>
+  <div class="section-title">Primary tools</div>
   <section class="primary-grid">
     <a class="tool-card" href="Elevated%20ATI%20AMS%20Book.html">
-      <div class="tool-eyebrow">Reference - 96 chapters</div>
+      <div class="tool-eyebrow">Reference &middot; 96 chapters</div>
       <h2>ATI Chapter Book</h2>
-      <p class="tool-desc">Source-authored chapter review with TL;DRs, priority content, scenarios, practice, and template bridges.</p>
+      <p class="tool-desc">Full chapter-by-chapter content from the ATI review module &mdash; foundations through perioperative care. Each chapter keeps quick lookup, priority review, active learning scenarios, and practice tools in one place.</p>
       <div class="tool-meta">
         <span class="tool-meta-item"><strong>14</strong> units</span>
         <span class="tool-meta-item"><strong>96</strong> chapters</span>
+        <span class="tool-meta-item"><strong>source</strong> linked</span>
       </div>
       <div class="progress-row">
         <div class="progress-bar"><div class="progress-fill" id="bookProgress"></div></div>
@@ -661,12 +681,13 @@ a{color:inherit;text-decoration:none}
     </a>
 
     <a class="tool-card" href="Elevated%20ATI%20AMS%20Templates.html">
-      <div class="tool-eyebrow">Practice - 76 examples</div>
+      <div class="tool-eyebrow">Practice &middot; 76 worked examples</div>
       <h2>ATI Templates</h2>
-      <p class="tool-desc">Worked Active Learning Template examples for focused clinical judgment and chapter-linked practice.</p>
+      <p class="tool-desc">Worked examples for all eight ATI Active Learning Template types &mdash; Basic Concept, Diagnostic Procedure, Growth &amp; Development, Medication, Nursing Skill, System Disorder, Therapeutic Procedure, and Concept Analysis. Each example is cross-linked to its chapter.</p>
       <div class="tool-meta">
         <span class="tool-meta-item"><strong>8</strong> types</span>
         <span class="tool-meta-item"><strong>76</strong> examples</span>
+        <span class="tool-meta-item"><strong>0</strong> pending</span>
       </div>
       <div class="progress-row">
         <div class="progress-bar"><div class="progress-fill" id="tplProgress"></div></div>
@@ -676,12 +697,13 @@ a{color:inherit;text-decoration:none}
     </a>
 
     <a class="tool-card" href="Elevated%20ATI%20AMS%20Flashcards.html">
-      <div class="tool-eyebrow">Review - spaced repetition</div>
+      <div class="tool-eyebrow">Review &middot; spaced repetition</div>
       <h2>Flashcards</h2>
-      <p class="tool-desc">Starter deck review with reveal controls, filters, search, and saved review scheduling.</p>
+      <p class="tool-desc">Spaced-repetition review for prompts you've rated in the chapter book. Cards return on the SM-2 schedule &mdash; Hard returns next day, Good extends the interval, Easy boosts it further.</p>
       <div class="tool-meta">
         <span class="tool-meta-item"><strong id="fcMetaDeck">0</strong> in deck</span>
         <span class="tool-meta-item"><strong id="fcMetaDue">0</strong> due now</span>
+        <span class="tool-meta-item"><strong>SM-2</strong> algorithm</span>
       </div>
       <div class="progress-row">
         <div class="progress-bar"><div class="progress-fill" id="fcProgress"></div></div>
@@ -691,25 +713,95 @@ a{color:inherit;text-decoration:none}
     </a>
   </section>
 
-  <h2 class="section-title">Unit Map</h2>
+  <div class="section-title">Units &middot; chapter book</div>
   <section class="units-grid">
-    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch1" data-unit="unit1"><div class="unit-num">Unit 1</div><div><h3>Foundations of Nursing Care for Adult Clients</h3><p>Ch 1-2 - source-authored chapters</p></div><span class="pill">2 ch</span><div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit1"></div></div><div class="unit-progress-text" data-unit-text="unit1">0 / 2 read</div></div></a>
-    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch3" data-unit="unit2"><div class="unit-num">Unit 2</div><div><h3>Neurologic Disorders</h3><p>Ch 3-16 - source-authored chapters</p></div><span class="pill">14 ch</span><div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit2"></div></div><div class="unit-progress-text" data-unit-text="unit2">0 / 14 read</div></div></a>
-    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch17" data-unit="unit3"><div class="unit-num">Unit 3</div><div><h3>Respiratory Disorders</h3><p>Ch 17-26 - source-authored chapters</p></div><span class="pill">10 ch</span><div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit3"></div></div><div class="unit-progress-text" data-unit-text="unit3">0 / 10 read</div></div></a>
-    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch27" data-unit="unit4"><div class="unit-num">Unit 4</div><div><h3>Cardiovascular Disorders</h3><p>Ch 27-38 - source-authored chapters</p></div><span class="pill">12 ch</span><div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit4"></div></div><div class="unit-progress-text" data-unit-text="unit4">0 / 12 read</div></div></a>
-    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch39" data-unit="unit5"><div class="unit-num">Unit 5</div><div><h3>Hematologic Disorders</h3><p>Ch 39-42 - source-authored chapters</p></div><span class="pill">4 ch</span><div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit5"></div></div><div class="unit-progress-text" data-unit-text="unit5">0 / 4 read</div></div></a>
-    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch43" data-unit="unit6"><div class="unit-num">Unit 6</div><div><h3>Fluid/Electrolyte/Acid-Base Imbalances</h3><p>Ch 43-45 - source-authored chapters</p></div><span class="pill">3 ch</span><div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit6"></div></div><div class="unit-progress-text" data-unit-text="unit6">0 / 3 read</div></div></a>
-    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch46" data-unit="unit7"><div class="unit-num">Unit 7</div><div><h3>Gastrointestinal Disorders</h3><p>Ch 46-55 - source-authored chapters</p></div><span class="pill">10 ch</span><div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit7"></div></div><div class="unit-progress-text" data-unit-text="unit7">0 / 10 read</div></div></a>
-    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch56" data-unit="unit8"><div class="unit-num">Unit 8</div><div><h3>Renal Disorders</h3><p>Ch 56-61 - source-authored chapters</p></div><span class="pill">6 ch</span><div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit8"></div></div><div class="unit-progress-text" data-unit-text="unit8">0 / 6 read</div></div></a>
-    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch62" data-unit="unit9"><div class="unit-num">Unit 9</div><div><h3>Reproductive Disorders</h3><p>Ch 62-66 - source-authored chapters</p></div><span class="pill">5 ch</span><div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit9"></div></div><div class="unit-progress-text" data-unit-text="unit9">0 / 5 read</div></div></a>
-    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch67" data-unit="unit10"><div class="unit-num">Unit 10</div><div><h3>Musculoskeletal Disorders</h3><p>Ch 67-72 - source-authored chapters</p></div><span class="pill">6 ch</span><div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit10"></div></div><div class="unit-progress-text" data-unit-text="unit10">0 / 6 read</div></div></a>
-    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch73" data-unit="unit11"><div class="unit-num">Unit 11</div><div><h3>Integumentary Disorders</h3><p>Ch 73-75 - source-authored chapters</p></div><span class="pill">3 ch</span><div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit11"></div></div><div class="unit-progress-text" data-unit-text="unit11">0 / 3 read</div></div></a>
-    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch76" data-unit="unit12"><div class="unit-num">Unit 12</div><div><h3>Endocrine Disorders</h3><p>Ch 76-83 - source-authored chapters</p></div><span class="pill">8 ch</span><div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit12"></div></div><div class="unit-progress-text" data-unit-text="unit12">0 / 8 read</div></div></a>
-    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch84" data-unit="unit13"><div class="unit-num">Unit 13</div><div><h3>Immune System and Connective Tissue Disorders</h3><p>Ch 84-93 - source-authored chapters</p></div><span class="pill">10 ch</span><div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit13"></div></div><div class="unit-progress-text" data-unit-text="unit13">0 / 10 read</div></div></a>
-    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch94" data-unit="unit14"><div class="unit-num">Unit 14</div><div><h3>Nursing Care of Perioperative Clients</h3><p>Ch 94-96 - source-authored chapters</p></div><span class="pill">3 ch</span><div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit14"></div></div><div class="unit-progress-text" data-unit-text="unit14">0 / 3 read</div></div></a>
+    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch1" data-unit="unit1">
+      <div class="unit-num">Unit 1</div>
+      <h3>Foundations of Nursing Care for Adult Clients</h3>
+      <div class="unit-range">Ch 1 &ndash; 2</div>
+      <div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit1"></div></div><div class="unit-progress-text" data-unit-text="unit1">0 / 2 read</div></div>
+    </a>
+    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch3" data-unit="unit2">
+      <div class="unit-num">Unit 2</div>
+      <h3>Neurologic Disorders</h3>
+      <div class="unit-range">Ch 3 &ndash; 16</div>
+      <div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit2"></div></div><div class="unit-progress-text" data-unit-text="unit2">0 / 14 read</div></div>
+    </a>
+    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch17" data-unit="unit3">
+      <div class="unit-num">Unit 3</div>
+      <h3>Respiratory Disorders</h3>
+      <div class="unit-range">Ch 17 &ndash; 26</div>
+      <div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit3"></div></div><div class="unit-progress-text" data-unit-text="unit3">0 / 10 read</div></div>
+    </a>
+    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch27" data-unit="unit4">
+      <div class="unit-num">Unit 4</div>
+      <h3>Cardiovascular Disorders</h3>
+      <div class="unit-range">Ch 27 &ndash; 38</div>
+      <div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit4"></div></div><div class="unit-progress-text" data-unit-text="unit4">0 / 12 read</div></div>
+    </a>
+    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch39" data-unit="unit5">
+      <div class="unit-num">Unit 5</div>
+      <h3>Hematologic Disorders</h3>
+      <div class="unit-range">Ch 39 &ndash; 42</div>
+      <div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit5"></div></div><div class="unit-progress-text" data-unit-text="unit5">0 / 4 read</div></div>
+    </a>
+    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch43" data-unit="unit6">
+      <div class="unit-num">Unit 6</div>
+      <h3>Fluid/Electrolyte/Acid-Base Imbalances</h3>
+      <div class="unit-range">Ch 43 &ndash; 45</div>
+      <div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit6"></div></div><div class="unit-progress-text" data-unit-text="unit6">0 / 3 read</div></div>
+    </a>
+    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch46" data-unit="unit7">
+      <div class="unit-num">Unit 7</div>
+      <h3>Gastrointestinal Disorders</h3>
+      <div class="unit-range">Ch 46 &ndash; 55</div>
+      <div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit7"></div></div><div class="unit-progress-text" data-unit-text="unit7">0 / 10 read</div></div>
+    </a>
+    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch56" data-unit="unit8">
+      <div class="unit-num">Unit 8</div>
+      <h3>Renal Disorders</h3>
+      <div class="unit-range">Ch 56 &ndash; 61</div>
+      <div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit8"></div></div><div class="unit-progress-text" data-unit-text="unit8">0 / 6 read</div></div>
+    </a>
+    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch62" data-unit="unit9">
+      <div class="unit-num">Unit 9</div>
+      <h3>Reproductive Disorders</h3>
+      <div class="unit-range">Ch 62 &ndash; 66</div>
+      <div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit9"></div></div><div class="unit-progress-text" data-unit-text="unit9">0 / 5 read</div></div>
+    </a>
+    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch67" data-unit="unit10">
+      <div class="unit-num">Unit 10</div>
+      <h3>Musculoskeletal Disorders</h3>
+      <div class="unit-range">Ch 67 &ndash; 72</div>
+      <div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit10"></div></div><div class="unit-progress-text" data-unit-text="unit10">0 / 6 read</div></div>
+    </a>
+    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch73" data-unit="unit11">
+      <div class="unit-num">Unit 11</div>
+      <h3>Integumentary Disorders</h3>
+      <div class="unit-range">Ch 73 &ndash; 75</div>
+      <div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit11"></div></div><div class="unit-progress-text" data-unit-text="unit11">0 / 3 read</div></div>
+    </a>
+    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch76" data-unit="unit12">
+      <div class="unit-num">Unit 12</div>
+      <h3>Endocrine Disorders</h3>
+      <div class="unit-range">Ch 76 &ndash; 83</div>
+      <div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit12"></div></div><div class="unit-progress-text" data-unit-text="unit12">0 / 8 read</div></div>
+    </a>
+    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch84" data-unit="unit13">
+      <div class="unit-num">Unit 13</div>
+      <h3>Immune System and Connective Tissue Disorders</h3>
+      <div class="unit-range">Ch 84 &ndash; 93</div>
+      <div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit13"></div></div><div class="unit-progress-text" data-unit-text="unit13">0 / 10 read</div></div>
+    </a>
+    <a class="unit-card" href="Elevated%20ATI%20AMS%20Book.html#ch94" data-unit="unit14">
+      <div class="unit-num">Unit 14</div>
+      <h3>Nursing Care of Perioperative Clients</h3>
+      <div class="unit-range">Ch 94 &ndash; 96</div>
+      <div class="unit-progress"><div class="unit-progress-bar"><div class="unit-progress-fill" data-unit-bar="unit14"></div></div><div class="unit-progress-text" data-unit-text="unit14">0 / 3 read</div></div>
+    </a>
   </section>
 
-  <h2 class="section-title">Template Types</h2>
+  <div class="section-title">Template types</div>
   <section class="types-grid">
     <a class="type-row" href="Elevated%20ATI%20AMS%20Templates.html?type=basic-concept">
       <span class="type-page">A1</span><span class="type-name">Basic Concept</span><span class="type-count">20 examples</span>
@@ -749,19 +841,25 @@ a{color:inherit;text-decoration:none}
   <div class="storage-panel" id="storagePanel">
     <div class="storage-panel-head" id="storagePanelHead">
       <h3 class="storage-panel-title">Sync &amp; storage</h3>
-      <span class="storage-panel-caret">&gt;</span>
+      <span class="storage-panel-caret">&#9656;</span>
     </div>
     <div class="storage-panel-body">
       <div class="storage-actions">
-        <button class="storage-btn" id="exportBtn" type="button">Export backup</button>
-        <button class="storage-btn" id="importBtn" type="button">Import backup</button>
-        <button class="storage-btn danger" id="resetBtn" type="button">Reset AMS progress</button>
+        <button class="storage-btn" id="exportBtn" type="button">&#11015; Export backup</button>
+        <button class="storage-btn" id="importBtn" type="button">&#11014; Import backup</button>
+        <button class="storage-btn danger" id="resetBtn" type="button">&#8998; Reset all progress</button>
         <input type="file" id="importFile" accept="application/json" style="display:none">
       </div>
-      <div class="storage-status" id="storageStatus">Click a button to manage AMS progress stored in this browser.</div>
+      <div class="storage-status" id="storageStatus">Click a button to manage your local data.</div>
       <div class="storage-keys-list" id="storageKeysList"></div>
     </div>
   </div>
+
+  <footer class="footer">
+    <p>Elevated &middot; Adult Medical-Surgical Nursing &middot; ATI RN Companion &middot; 11th Edition</p>
+    <p>Built for sleepyius.github.io/Elevated-ATI-Books/</p>
+    <p class="ver-badge" style="font-size:11px;opacity:0.55;margin-top:8px;letter-spacing:0.03em;">v3.1.0 &middot; built 2026-06-30</p>
+  </footer>
 
 </div>
 
@@ -773,7 +871,7 @@ a{color:inherit;text-decoration:none}
   var themeLabel = document.getElementById('themeLabel');
   function syncThemeButton(){
     var light = document.documentElement.getAttribute('data-theme') === 'light';
-    if (themeIcon) themeIcon.textContent = light ? '◐' : '☀';
+    if (themeIcon) themeIcon.textContent = light ? '🌙' : '☀️';
     if (themeLabel) themeLabel.textContent = light ? 'Dark Mode' : 'Light Mode';
   }
   try {
@@ -861,20 +959,21 @@ a{color:inherit;text-decoration:none}
     var sub = document.getElementById('dueSub');
     if (!queue || !count || !label || !sub) return;
     queue.className = 'review-queue empty';
-    if (icon) icon.textContent = 'Deck';
+    if (icon) icon.textContent = '\uD83D\uDCDA';
     if (!fc.total) {
       count.textContent = '0';
       label.textContent = 'no cards yet';
-      sub.textContent = 'Use flashcards to build a local review queue.';
+      sub.textContent = 'Answer prompts in the chapter book to start building your review deck.';
     } else if (!fc.due) {
       count.textContent = '0';
       label.textContent = 'cards due today';
-      sub.textContent = 'All caught up. ' + fc.total + ' card' + (fc.total === 1 ? '' : 's') + ' in your review deck.';
+      sub.textContent = 'All caught up. ' + fc.total + ' card' + (fc.total === 1 ? '' : 's') + ' total in your review deck.';
     } else {
       queue.className = 'review-queue has-due';
+      if (icon) icon.textContent = '\uD83C\uDFAF';
       count.textContent = fc.due;
       label.textContent = fc.due === 1 ? 'card due today' : 'cards due today';
-      sub.textContent = fc.total + ' card' + (fc.total === 1 ? '' : 's') + ' in your deck.';
+      sub.textContent = fc.total + ' card' + (fc.total === 1 ? '' : 's') + ' in your deck \u00B7 review them in the chapter where they appear.';
     }
   }
   function updatePickupPanel(fc){
@@ -908,7 +1007,7 @@ a{color:inherit;text-decoration:none}
     var fcValue = document.getElementById('pickupFcValue');
     if (fcCard && fcValue) {
       if (fc.total) {
-        fcValue.textContent = fc.due ? (fc.due + ' due now') : ('All caught up - ' + fc.total + ' in deck');
+        fcValue.textContent = fc.due ? (fc.due + ' due now') : ('All caught up \u2014 ' + fc.total + ' in deck');
       } else {
         fcValue.textContent = 'Open flashcards';
       }

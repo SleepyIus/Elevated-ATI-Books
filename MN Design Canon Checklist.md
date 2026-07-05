@@ -11,6 +11,7 @@ Scope: Design, structure, navigation, and learning-workflow patterns only. This 
 
 - [ ] Keep the hub as a dashboard, not a landing page.
   - Canon pattern: primary tools, subject stats, unit progress, template-type overview, pickup panel, review queue, and storage controls.
+  - Hub stat strip canon: use exactly four high-level counters only: Chapters, Units, Worked Templates, and Starter Cards. Do not include Template Types in the top stat strip because template-type detail belongs in its dedicated lower section.
   - AMS implication: hub changes should prioritize continuation, progress visibility, and tool relationships.
 
 - [ ] Keep book chapters as modal study workspaces.
