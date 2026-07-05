@@ -812,3 +812,38 @@ Next recommendation:
 
 - Visually QA the top hero/print area on AMS, MH, PD, and Pharm Templates.
 - If the top area is accepted, continue template uniformity only for remaining design issues; keep flashcards paused.
+
+## Template Sidebar Search Canon Update: 2026-07-05
+
+Reason for update:
+
+- User compared the MN sidebar search/progress strip against PD and requested the MN design be applied to the other books.
+- This is a design-only template uniformity update.
+
+Files updated:
+
+- `Elevated ATI AMS Templates.html`.
+- `Elevated ATI MH Templates.html`.
+- `Elevated ATI PD Templates.html`.
+- `Elevated ATI Pharm Templates.html`.
+
+Read-only reference:
+
+- `Elevated ATI MN Templates.html`.
+
+Completed:
+
+- Matched the MN sidebar search placeholder pattern: `Search templates & examples…` without a leading search emoji inside the field.
+- Tightened the non-MN sidebar search input padding and radius to match the MN treatment.
+- Matched the lighter MN sidebar progress-text weight while preserving each book's accent color for reviewed/checked indicators.
+
+Content status:
+
+- No ATI educational content was added.
+- No template examples were added or enriched.
+- MN was not edited.
+
+Next recommendation:
+
+- Visually QA the sidebar progress/search strip on AMS, MH, PD, and Pharm Templates.
+- Continue template uniformity only; keep flashcards paused.
