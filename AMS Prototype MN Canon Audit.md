@@ -643,3 +643,32 @@ Next heartbeat recommendation:
 
 - Restart the heartbeat in DESIGN-CANON / HOLD-CONTENT mode only after this QA note is committed or intentionally left as the current working baseline.
 - Next heartbeat should roll the approved AMS template design canon to one next book template file at a time, without touching MN and without adding educational content.
+
+## Rollout Update: 2026-07-05 Pharm Templates Canon Rollout
+
+Reason for rollout:
+
+- User approved the AMS Templates prototype set as the current template-design canon and asked to proceed with the optimal one-book-at-a-time rollout path.
+- Pharm was selected as the next non-MN template file after MH and PD. This was a design/canon migration only.
+
+Completed in Pharm Templates only:
+
+- Replaced the older Pharm template shell with the approved AMS/MN-canon template shell: fixed left navigation, template-type accordions, compact worked-example rows, progress strip, search, modal worked examples, Filled/Blank modal mode, print, and same-type Previous/Next navigation.
+- Preserved all existing Pharm worked-template content while converting it from old `example-card` markup into canon `template-card` markup.
+- Preserved Pharm identity and accent color instead of importing AMS/MH/PD colors.
+- Corrected stale subject identity in the Pharm sidebar/header.
+- Kept A5 Growth and Development as an empty Pharm template-type group rather than inventing educational content.
+
+Validation:
+
+- Static count check passed: 249 total Pharm template cards.
+- Type distribution preserved: A1 = 1, A3 = 3, A5 = 0, A7 = 141, A9 = 18, A11 = 35, A13 = 9, A15 = 42.
+- Script compilation passed with the bundled Node runtime: 1 inline script parsed successfully.
+- Source sweep confirmed no stale MH/PD subject labels, no old `exampleModal`, and the canon `templateModal` plus `buildMnTemplateLayout()` are present.
+- Rendered localhost validation passed for the Pharm shell: Pharm heading, Pharm search placeholder, 249 cards outside the modal, hidden empty state on first load, and A5 empty group present.
+- Rendered modal validation passed for representative A1, A7, A11, and A13-family examples: generated canon layouts appeared as `bc-grid`, `med-grid`, `sd-grid`, and `tp-grid`; medication connector and system-disorder safety grouping rendered where expected; Previous/Next same-type navigation appeared in the modal; no text-edge overflow was detected in sampled boxes. The procedure-family connector line can extend behind boxes by design and may register as non-text scroll width.
+
+Still deferred:
+
+- Pharm educational enrichment remains paused in DESIGN-CANON / HOLD-CONTENT mode.
+- The rollout has not yet been applied to every remaining non-MN template file.
