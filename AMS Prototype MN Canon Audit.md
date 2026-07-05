@@ -913,3 +913,28 @@ Validation target:
 
 - Static CSS check should confirm all non-MN template files now define `--tpl-template-width:1000px`.
 - Visual QA should confirm AMS, MH, PD, and Pharm individual template modals now use the larger MN-like display without horizontal overflow.
+
+## MN Sidebar Header Alignment: 2026-07-05
+
+Reason for update:
+
+- User identified that the MN sidebar header still used the old course-code identity line while the other template books use the cleaner ATI subject-code convention.
+
+File updated:
+
+- `Elevated ATI MN Templates.html`.
+
+Completed:
+
+- Changed the MN sidebar identity line from `NUR 2460 · ATI` to `ATI MN · ATI`.
+- Matched the visible MN sidebar version date to the current template-family header convention used by AMS, MH, PD, and Pharm: `v3.1.0 · 2026-07-01`.
+- Preserved MN accent color, subject subtitle, template content, modal behavior, and navigation behavior.
+
+Content status:
+
+- No ATI educational content was added.
+- No template content was enriched.
+
+Validation target:
+
+- Static markup check should confirm the MN sidebar header now uses `ATI MN · ATI` and `v3.1.0 · 2026-07-01`.
