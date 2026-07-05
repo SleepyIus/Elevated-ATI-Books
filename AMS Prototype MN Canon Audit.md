@@ -724,3 +724,49 @@ Next recommendation:
 - Move next to a Flashcards design-canon audit/rollout plan, because flashcards are the next shared public shell likely to benefit from canon alignment.
 - Start with an audit-only pass across AMS, MH, PD, and Pharm Flashcards.
 - Keep content population paused: do not add flashcards or educational content during DESIGN-CANON / HOLD-CONTENT mode.
+
+## Flashcards Design-Canon Audit: 2026-07-05
+
+Reason for audit:
+
+- User approved proceeding to the next design-canon surface after template rollout completion.
+- This was a flashcard shell and workflow audit only; no educational flashcard content was authored.
+
+Files checked:
+
+- `Elevated ATI MN Flashcards.html` as read-only reference.
+- `Elevated ATI AMS Flashcards.html`.
+- `Elevated ATI MH Flashcards.html`.
+- `Elevated ATI PD Flashcards.html`.
+- `Elevated ATI Pharm Flashcards.html`.
+
+MN flashcard canon evidence:
+
+- MN uses a first-class review engine rather than a static card grid.
+- Canon elements include fixed flashcard sidebar navigation, Review/Browse tabs, due counts, SM-2 scheduling, reveal/rate controls, session metrics, keyboard shortcuts, source links back to the book, starter deck loading, CSV export, filter panel, status filters, and durable local progress.
+
+Audit findings:
+
+- AMS Flashcards is the only current non-MN flashcard file still on the older flat shell. It has 208 inline `<article class="flashcard">` cards, search/chapter/type chips, reveal buttons, and source text, but it lacks the MN-style sidebar, Review/Browse tabs, SM-2 scheduler, due queue, session metrics, keyboard shortcut panel, starter deck loader, and CSV export.
+- MH Flashcards already uses the MN-style flashcard shell with 593 starter deck items, subject-specific schedule/filter keys, sidebar, Review/Browse tabs, SM-2 scheduling, session metrics, keyboard shortcuts, source links, starter deck loading, and CSV export.
+- PD Flashcards already uses the MN-style flashcard shell with 747 starter deck items, subject-specific schedule/filter keys, sidebar, Review/Browse tabs, SM-2 scheduling, session metrics, keyboard shortcuts, source links, starter deck loading, and CSV export.
+- Pharm Flashcards already uses the MN-style flashcard shell with 702 starter deck items, subject-specific schedule key, sidebar, Review/Browse tabs, SM-2 scheduling, session metrics, keyboard shortcuts, source links, starter deck loading, and CSV export.
+
+Cleanup completed during audit:
+
+- Updated MH CSV export filename from the old `NUR2460` label to an MH-specific filename.
+- Updated PD CSV export filename from the old `NUR2460` label to a PD-specific filename.
+- Updated Pharm CSV export filename from the old `NUR2460` label to a Pharm-specific filename.
+- Updated Pharm filter persistence to use `atipharm_fc_filters`, while preserving non-destructive migration bridges from legacy Pharm/shared filter keys so existing filter state is not stranded.
+
+Validation target for this batch:
+
+- Script parsing should pass for all five flashcard files.
+- Feature matrix should confirm that MH, PD, and Pharm remain MN-style review engines after cleanup.
+- AMS should remain unchanged in this batch except as the documented next rollout target.
+
+Next recommendation:
+
+- Begin the AMS Flashcards shell migration as the next focused design-canon batch.
+- Convert the existing 208 AMS inline cards into a starter-deck/review-engine workflow based on the MN shell while preserving AMS accent, subject identity, source links, and existing card content.
+- Do not add new AMS flashcards or educational content during DESIGN-CANON / HOLD-CONTENT mode.

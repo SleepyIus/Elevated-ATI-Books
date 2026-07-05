@@ -1029,15 +1029,14 @@ button{font-family:'DM Sans',sans-serif}
 <script>
 (function(){
 
-  // ===== One-time cleanup: salvage pharm-prefixed data from earlier build into shared MN+Pharm keys =====
-  // Per Build Guide §C.3.3: MN and Pharm SHARE nur2460_fc_schedule, nur2460_fc_filters, nur2460_theme.
-  // An earlier Pharm Flashcards build mistakenly wrote to nur2460_pharm_* keys. This migration moves
-  // any orphan data back to the shared keys (only when shared key is empty, so MN data is never overwritten).
+  // ===== One-time cleanup: salvage legacy Pharm data into the Pharm namespace =====
+  // Earlier builds used shared or pharm-prefixed filter keys. Keep migration bridges so existing
+  // progress is recoverable while the current shell uses subject-specific flashcard state.
   try {
     var __salvage = [
       ['nur2460_pharm_theme',       'nur2460_theme'],
       ['nur2460_pharm_fc_schedule', 'atipharm_fc_schedule'],
-      ['nur2460_pharm_fc_filters',  'nur2460_fc_filters']
+      ['nur2460_pharm_fc_filters',  'atipharm_fc_filters']
     ];
     __salvage.forEach(function(pair){
       var orphanKey = pair[0], sharedKey = pair[1];
@@ -1049,6 +1048,10 @@ button{font-family:'DM Sans',sans-serif}
         localStorage.removeItem(orphanKey);
       }
     });
+    var sharedFilterData = localStorage.getItem('nur2460_fc_filters');
+    if (sharedFilterData !== null && localStorage.getItem('atipharm_fc_filters') === null) {
+      localStorage.setItem('atipharm_fc_filters', sharedFilterData);
+    }
   } catch(e){}
 
   var SYNC_KEYS = [
@@ -1056,6 +1059,7 @@ button{font-family:'DM Sans',sans-serif}
     'nur2460_atipharm_templates_progress',
     'nur2460_fc_schedule',
     'nur2460_fc_filters',
+    'atipharm_fc_filters',
     'nur2460_theme'
   ];
 
@@ -2120,7 +2124,7 @@ button{font-family:'DM Sans',sans-serif}
   });
 
   // ===== FILTERS =====
-  var FILTER_STATE_KEY = 'nur2460_fc_filters';
+  var FILTER_STATE_KEY = 'atipharm_fc_filters';
   var filterState = {
     search: '',
     unit: 'all',
@@ -2646,7 +2650,7 @@ button{font-family:'DM Sans',sans-serif}
     var url = URL.createObjectURL(blob);
     var a = document.createElement('a');
     a.href = url;
-    a.download = 'NUR2460_flashcards_' + new Date().toISOString().slice(0,10) + '.csv';
+    a.download = 'ATI_Pharm_flashcards_' + new Date().toISOString().slice(0,10) + '.csv';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
