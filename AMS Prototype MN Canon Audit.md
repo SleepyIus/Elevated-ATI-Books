@@ -994,3 +994,34 @@ Content status:
 Validation target:
 
 - Static markup check should confirm the MN main hero no longer uses the older course-code eyebrow or generic `ATI Templates` title.
+
+## Template Modal Overlay And Size Alignment: 2026-07-05
+
+Reason for update:
+
+- User identified that individual template modal sizing and the background blur/overlay treatment were not uniform across books.
+- User preferred MN's taller modal size and the newer four-book overlay treatment.
+
+Files updated:
+
+- `Elevated ATI AMS Templates.html`.
+- `Elevated ATI MH Templates.html`.
+- `Elevated ATI PD Templates.html`.
+- `Elevated ATI Pharm Templates.html`.
+- `Elevated ATI MN Templates.html`.
+
+Completed:
+
+- Updated AMS, MH, PD, and Pharm template modals to use MN's taller modal height cap: `calc(100vh - 80px)`.
+- Updated MN's modal overlay background to match the newer four-book dark overlay treatment while preserving the existing blur amount.
+- Preserved each book's accent color, template content, modal controls, print controls, navigation, and template layouts.
+
+Content status:
+
+- No ATI educational content was added.
+- No template content was enriched.
+
+Validation target:
+
+- Static CSS check should confirm AMS, MH, PD, and Pharm modals use `max-height:calc(100vh - 80px)`.
+- Static CSS check should confirm MN uses the shared dark modal overlay background.
