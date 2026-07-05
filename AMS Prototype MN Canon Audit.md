@@ -968,3 +968,29 @@ Content status:
 Validation target:
 
 - Static markup check should confirm no template sidebar `sb-course` label still ends in `· ATI`.
+
+## MN Main Hero Alignment: 2026-07-05
+
+Reason for update:
+
+- User preferred the newer non-MN template hero pattern: subject-specific eyebrow plus subject-specific template title.
+- MN still used the older course-code hero line and generic `ATI Templates` title.
+
+File updated:
+
+- `Elevated ATI MN Templates.html`.
+
+Completed:
+
+- Changed the MN main hero eyebrow to `MN Active Learning Templates`.
+- Changed the MN main hero title to `Maternal Newborn Templates`.
+- Preserved MN accent color, sidebar, search, print action, template content, modal behavior, and navigation behavior.
+
+Content status:
+
+- No ATI educational content was added.
+- No template content was enriched.
+
+Validation target:
+
+- Static markup check should confirm the MN main hero no longer uses the older course-code eyebrow or generic `ATI Templates` title.
