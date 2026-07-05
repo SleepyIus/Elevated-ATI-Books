@@ -2148,6 +2148,37 @@ body.modal-open{
   font-size:44px;
   letter-spacing:0;
 }
+.compare-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 20px;
+  margin:22px 0 0;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:var(--surface);
+  color:var(--text2);
+  font:inherit;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+  transition:border-color .15s ease,color .15s ease,background .15s ease;
+}
+.compare-btn:hover{
+  border-color:var(--accent);
+  color:var(--accent);
+  background:var(--surface2);
+}
+.section-divider{
+  padding-bottom:14px;
+  margin:18px 0 14px;
+  border-bottom:1px solid var(--border);
+  color:var(--text3);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
 .notice{
   max-width:760px;
   border-radius:8px;
@@ -2512,8 +2543,10 @@ body.modal-open{
   <section class="hero">
     <div class="eyebrow">PD Active Learning Templates</div>
     <h1>Pediatric <em>Templates</em></h1>
-    <p>Study 179 PD worked examples by template type, then jump to the matching PD Book chapter.</p>
+    <p>The eight standardized ATI Active Learning templates from Pediatric Nursing Edition 11 (book pages A1–A16). Click a template to expand it, then switch tabs to study each worked example. Track your study progress with the checkboxes — single tap = reviewed, double tap = mastered.</p>
+    <button class="compare-btn" id="masterPrintBtn" type="button">🖨️ Print Templates</button>
   </section>
+  <div class="section-divider">Templates</div>
   <section class="filters">
     <div class="filter-label">🔍 Search templates</div>
     <input class="search" id="tplSearch" type="search" placeholder="Search PD worked templates" aria-label="Search PD worked templates">
@@ -7094,6 +7127,16 @@ body.modal-open{
     window.addEventListener('afterprint', cleanup);
     setTimeout(function(){ window.print(); }, 50);
   }
+  function printTemplateHub(){
+    var prevTitle = document.title;
+    document.title = 'PD Active Learning Templates';
+    function cleanup(){
+      document.title = prevTitle;
+      window.removeEventListener('afterprint', cleanup);
+    }
+    window.addEventListener('afterprint', cleanup);
+    setTimeout(function(){ window.print(); }, 50);
+  }
   function modalNavState(id, type){
     // Canon: Previous/Next moves within the same ATI template type, not across unrelated template layouts.
     var visibleCards = cards.filter(function(card){
@@ -7250,6 +7293,8 @@ body.modal-open{
   });
   if (modalClose) modalClose.addEventListener('click', closeModal);
   if (modalPrint) modalPrint.addEventListener('click', printCurrentModal);
+  var masterPrint = document.getElementById('masterPrintBtn');
+  if (masterPrint) masterPrint.addEventListener('click', printTemplateHub);
   if (modal) modal.addEventListener('click', function(event){ if (event.target === modal) closeModal(); });
   document.addEventListener('keydown', function(event){
     if (event.key === 'Escape' && modal && modal.classList.contains('open')) closeModal();

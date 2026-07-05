@@ -765,8 +765,50 @@ Validation target for this batch:
 - Feature matrix should confirm that MH, PD, and Pharm remain MN-style review engines after cleanup.
 - AMS should remain unchanged in this batch except as the documented next rollout target.
 
+Status after user correction:
+
+- Flashcards are paused because the user clarified that template uniformity is not complete yet.
+- Do not begin the AMS Flashcards shell migration until templates are accepted as uniform.
+- Return to template design-canon work only.
+
+## Template Top Hero Canon Update: 2026-07-05
+
+Reason for update:
+
+- User identified that MN Templates has a clearer top instructional block and page-level Print Templates action than the other template hubs.
+- Flashcards are paused until template uniformity is complete.
+
+Files updated:
+
+- `Elevated ATI AMS Templates.html`.
+- `Elevated ATI MH Templates.html`.
+- `Elevated ATI PD Templates.html`.
+- `Elevated ATI Pharm Templates.html`.
+
+Read-only reference:
+
+- `Elevated ATI MN Templates.html`.
+
+Completed:
+
+- Added MN-style top guidance to the non-MN template hubs: eight ATI Active Learning templates, expand behavior, tab study behavior, and single-tap/double-tap progress behavior.
+- Added a page-level `Print Templates` button to each non-MN template hub.
+- Added a `Templates` divider before the template/search area so the top area reads like MN before the template list begins.
+- Added a page-level print handler for each non-MN template hub without changing modal print behavior.
+- Preserved each subject's accent color, subject identity, and existing template content.
+
+Content status:
+
+- No ATI educational content was added.
+- No template content was enriched.
+- MN was not edited.
+
+Validation target:
+
+- Static sweep should confirm each non-MN template hub has `masterPrintBtn`, `.compare-btn`, `.section-divider`, the MN-style progress guidance sentence, and the page-level print handler.
+- Script parsing should pass for all four edited template files.
+
 Next recommendation:
 
-- Begin the AMS Flashcards shell migration as the next focused design-canon batch.
-- Convert the existing 208 AMS inline cards into a starter-deck/review-engine workflow based on the MN shell while preserving AMS accent, subject identity, source links, and existing card content.
-- Do not add new AMS flashcards or educational content during DESIGN-CANON / HOLD-CONTENT mode.
+- Visually QA the top hero/print area on AMS, MH, PD, and Pharm Templates.
+- If the top area is accepted, continue template uniformity only for remaining design issues; keep flashcards paused.
