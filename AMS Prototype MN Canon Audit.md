@@ -926,7 +926,7 @@ File updated:
 
 Completed:
 
-- Changed the MN sidebar identity line from `NUR 2460 · ATI` to `ATI MN · ATI`.
+- Changed the MN sidebar identity line from `NUR 2460 · ATI` toward the shared ATI subject-code convention.
 - Matched the visible MN sidebar version date to the current template-family header convention used by AMS, MH, PD, and Pharm: `v3.1.0 · 2026-07-01`.
 - Preserved MN accent color, subject subtitle, template content, modal behavior, and navigation behavior.
 
@@ -937,4 +937,34 @@ Content status:
 
 Validation target:
 
-- Static markup check should confirm the MN sidebar header now uses `ATI MN · ATI` and `v3.1.0 · 2026-07-01`.
+- Static markup check should confirm the MN sidebar header now uses the current template sidebar course-label canon and `v3.1.0 · 2026-07-01`.
+
+## Template Sidebar Course Label Cleanup: 2026-07-05
+
+Reason for update:
+
+- User identified that labels such as `ATI MN · ATI` repeat ATI unnecessarily.
+- The cleaner canonical sidebar identity is the subject code alone.
+
+Files updated:
+
+- `Elevated ATI AMS Templates.html`.
+- `Elevated ATI MH Templates.html`.
+- `Elevated ATI PD Templates.html`.
+- `Elevated ATI Pharm Templates.html`.
+- `Elevated ATI MN Templates.html`.
+
+Completed:
+
+- Removed the redundant trailing `· ATI` from all template sidebar course labels.
+- Current sidebar labels are `ATI AMS`, `ATI MH`, `ATI PD`, `ATI Pharm`, and `ATI MN`.
+- Preserved each book's accent color, subtitle, version line, template content, modal behavior, and navigation behavior.
+
+Content status:
+
+- No ATI educational content was added.
+- No template content was enriched.
+
+Validation target:
+
+- Static markup check should confirm no template sidebar `sb-course` label still ends in `· ATI`.
