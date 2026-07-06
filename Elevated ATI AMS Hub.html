@@ -81,7 +81,7 @@ a{color:inherit;text-decoration:none}
   border-radius:14px;
 }
 .topbar-left{display:flex;align-items:center;gap:14px;min-width:0}
-.brand{
+.topbar-brand{
   display:flex;
   align-items:center;
   gap:12px;
@@ -90,7 +90,7 @@ a{color:inherit;text-decoration:none}
   font-size:18px;
   color:var(--text);
 }
-.mark{
+.topbar-brand-mark{
   width:36px;
   height:36px;
   border-radius:10px;
@@ -105,8 +105,8 @@ a{color:inherit;text-decoration:none}
   letter-spacing:.02em;
   flex:0 0 auto;
 }
-.brand-title{font-family:inherit;font-size:18px;line-height:1.1;overflow-wrap:anywhere}
-.back-link{
+.topbar-brand span{font-family:inherit;font-size:18px;line-height:1.1;overflow-wrap:anywhere}
+.topbar-home{
   display:inline-flex;
   align-items:center;
   gap:4px;
@@ -120,7 +120,7 @@ a{color:inherit;text-decoration:none}
   white-space:nowrap;
   transition:all .15s ease;
 }
-.back-link:hover{border-color:var(--accent);color:var(--accent)}
+.topbar-home:hover{border-color:var(--accent);color:var(--accent)}
 .theme-toggle{
   border:1px solid var(--border);
   background:var(--surface2);
@@ -156,7 +156,7 @@ a{color:inherit;text-decoration:none}
   background:radial-gradient(circle at top right, var(--accent-soft) 0%, transparent 70%);
   pointer-events:none;
 }
-.eyebrow{
+.hero-eyebrow{
   position:relative;
   font-size:11px;
   letter-spacing:.18em;
@@ -584,11 +584,11 @@ a{color:inherit;text-decoration:none}
   .primary-grid,.types-grid{grid-template-columns:1fr}
   .stats,.units-grid{grid-template-columns:repeat(2,1fr)}
   .hero h1{font-size:32px}
-  .eyebrow{letter-spacing:.10em}
+  .hero-eyebrow{letter-spacing:.10em}
   .hero-sub,.tool-desc,.unit-card p{overflow-wrap:anywhere}
   .topbar{align-items:flex-start;flex-direction:column}
   .topbar-left{flex-wrap:wrap}
-  .brand-title{overflow-wrap:anywhere}
+  .topbar-brand span{overflow-wrap:anywhere}
   .page{max-width:100vw;padding:18px 16px 60px;overflow-x:hidden}
   .progress-bar{width:100%}
   .progress-text{text-align:left;min-width:0}
@@ -602,14 +602,17 @@ a{color:inherit;text-decoration:none}
 <div class="page">
   <header class="topbar">
     <div class="topbar-left">
-      <a class="back-link" href="index.html" title="Back to all subjects">&larr; <span>Home</span></a>
-      <div class="brand"><div class="mark">AMS</div><div class="brand-title">Elevated &middot; AMS Hub</div></div>
+      <a class="topbar-home" href="index.html" title="Back to all subjects">&larr; <span>Home</span></a>
+      <div class="topbar-brand">
+        <div class="topbar-brand-mark">AMS</div>
+        <span>Elevated &middot; AMS Hub</span>
+      </div>
     </div>
     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme"><span class="theme-icon" id="themeIcon">☀️</span> <span id="themeLabel">Light Mode</span></button>
   </header>
 
   <section class="hero">
-    <div class="eyebrow">Elevated &middot; ATI Adult Medical-Surgical Companion</div>
+    <div class="hero-eyebrow">Elevated &middot; ATI Adult Medical-Surgical Companion</div>
     <h1>Adult Medical-Surgical<br><em>Nursing Care</em></h1>
     <p class="hero-sub">A chapter-by-chapter reference and worked-template companion for the ATI RN Adult Medical-Surgical Nursing review module. Built for fast lookup, focused study, and exam preparation.</p>
   </section>

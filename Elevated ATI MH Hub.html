@@ -243,27 +243,6 @@ a{color:inherit;text-decoration:none}
 }
 .type-row.pending .type-count{color:var(--text3);font-style:italic;font-weight:400}
 
-/* FUTURE TOOLS */
-.future-card{
-  padding:20px 22px;background:var(--surface);
-  border:1px dashed var(--border);border-radius:12px;
-  margin-bottom:36px;
-}
-.future-card h3{
-  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;
-  text-transform:uppercase;letter-spacing:0.12em;color:var(--text2);
-  margin:0 0 12px;
-}
-.future-list{
-  display:flex;flex-wrap:wrap;gap:8px;
-  list-style:none;padding:0;margin:0;
-}
-.future-list li{
-  font-size:12px;color:var(--text3);
-  padding:5px 11px;background:var(--surface2);
-  border:1px solid var(--border-soft);border-radius:6px;
-}
-
 /* FOOTER */
 .footer{
   text-align:center;padding-top:28px;
@@ -514,17 +493,42 @@ a{color:inherit;text-decoration:none}
     </div>
     <div class="pickup-cards">
       <a class="pickup-card" id="pickupBook" href="#" hidden>
-        <div class="pickup-icon">📖</div>
+        <div class="pickup-icon">&#128214;</div>
         <div class="pickup-text">
           <div class="pickup-label">Continue reading</div>
-          <div class="pickup-value" id="pickupBookValue">—</div>
+          <div class="pickup-value" id="pickupBookValue">&mdash;</div>
+        </div>
+      </a>
+      <a class="pickup-card" id="pickupFc" href="Elevated%20ATI%20MH%20Flashcards.html" hidden>
+        <div class="pickup-icon">&#127183;</div>
+        <div class="pickup-text">
+          <div class="pickup-label">Review queue</div>
+          <div class="pickup-value" id="pickupFcValue">&mdash;</div>
+        </div>
+      </a>
+      <a class="pickup-card" id="pickupTpl" href="#" hidden>
+        <div class="pickup-icon">&#128203;</div>
+        <div class="pickup-text">
+          <div class="pickup-label">Last template</div>
+          <div class="pickup-value" id="pickupTplValue">&mdash;</div>
         </div>
       </a>
     </div>
   </section>
 
+  <div class="review-queue empty" id="reviewQueue">
+    <div class="review-queue-icon" id="reviewIcon">&#128218;</div>
+    <div class="review-queue-body">
+      <h3 class="review-queue-title">
+        <span class="review-queue-count" id="dueCount">0</span>
+        <span id="dueLabel">no cards yet</span>
+      </h3>
+      <div class="review-queue-sub" id="dueSub">Answer prompts in the chapter book to start building your review deck.</div>
+    </div>
+  </div>
+
   <!-- PRIMARY TOOLS -->
-  <div class="section-title">Primary tool</div>
+  <div class="section-title">Primary tools</div>
   <section class="primary-grid">
 
     <a class="tool-card" href="Elevated%20ATI%20MH%20Book.html">
@@ -582,7 +586,7 @@ a{color:inherit;text-decoration:none}
   </section>
 
   <!-- UNITS BREAKDOWN -->
-  <div class="section-title">Units</div>
+  <div class="section-title">Units &middot; chapter book</div>
   <section class="units-grid">
 
     <a class="unit-card" href="Elevated%20ATI%20MH%20Book.html#ch1" data-unit="unit1">
@@ -647,20 +651,33 @@ a{color:inherit;text-decoration:none}
 
   </section>
 
-  <!-- FUTURE TOOLS -->
-  <div class="future-card">
-    <h3>Recently added</h3>
-    <ul class="future-list">
-      <li>✓ ATI Application Exercises with rationales (161 across all 33 chapters)</li>
-      <li>✓ Active Learning Scenarios (all 33 chapters)</li>
-      <li>✓ TL;DR summaries + concept pills (Unit 1)</li>
-    </ul>
-    <h3 style="margin-top:1rem">Planned additions</h3>
-    <ul class="future-list">
-      <li>MH worked templates companion</li>
-      <li>MH spaced-repetition flashcards</li>
-    </ul>
-  </div>
+  <div class="section-title">Template types</div>
+  <section class="types-grid">
+    <a class="type-row" href="Elevated%20ATI%20MH%20Templates.html?type=basic-concept">
+      <span class="type-page">A1</span><span class="type-name">Basic Concept</span><span class="type-count">13 examples</span>
+    </a>
+    <a class="type-row" href="Elevated%20ATI%20MH%20Templates.html?type=diagnostic-procedure">
+      <span class="type-page">A3</span><span class="type-name">Diagnostic Procedure</span><span class="type-count">6 examples</span>
+    </a>
+    <a class="type-row" href="Elevated%20ATI%20MH%20Templates.html?type=growth-development">
+      <span class="type-page">A5</span><span class="type-name">Growth and Development</span><span class="type-count">6 examples</span>
+    </a>
+    <a class="type-row" href="Elevated%20ATI%20MH%20Templates.html?type=medication">
+      <span class="type-page">A7</span><span class="type-name">Medication</span><span class="type-count">12 examples</span>
+    </a>
+    <a class="type-row" href="Elevated%20ATI%20MH%20Templates.html?type=nursing-skill">
+      <span class="type-page">A9</span><span class="type-name">Nursing Skill</span><span class="type-count">6 examples</span>
+    </a>
+    <a class="type-row" href="Elevated%20ATI%20MH%20Templates.html?type=system-disorder">
+      <span class="type-page">A11</span><span class="type-name">System Disorder</span><span class="type-count">12 examples</span>
+    </a>
+    <a class="type-row" href="Elevated%20ATI%20MH%20Templates.html?type=therapeutic-procedure">
+      <span class="type-page">A13</span><span class="type-name">Therapeutic Procedure</span><span class="type-count">10 examples</span>
+    </a>
+    <a class="type-row" href="Elevated%20ATI%20MH%20Templates.html?type=concept-analysis">
+      <span class="type-page">A15</span><span class="type-name">Concept Analysis</span><span class="type-count">6 examples</span>
+    </a>
+  </section>
 
   <!-- STORAGE TOOLS -->
   <div class="storage-panel" id="storagePanel">
@@ -691,10 +708,25 @@ a{color:inherit;text-decoration:none}
 
 <script>
 (function(){
-  var SYNC_KEYS = ['nur2460_atimh_progress','nur2460_atimh_bookmarks','nur2460_nclex_done','nur2460_theme'];
+  var THEME_KEY = 'nur2460_theme';
+  var BOOK_KEY = 'nur2460_atimh_progress';
+  var TPL_KEY = 'atimh_templates_progress';
+  var FC_KEY = 'atimh_fc_schedule';
+  var LAST_CH_KEY = 'nur2460_last_chapter';
+  var LAST_TPL_KEY = 'atimh_last_template';
+  var PICKUP_DISMISS_KEY = 'atimh_pickup_dismissed';
+  var SYNC_KEYS = [
+    BOOK_KEY,
+    TPL_KEY,
+    FC_KEY,
+    LAST_CH_KEY,
+    LAST_TPL_KEY,
+    'nur2460_atimh_bookmarks',
+    'nur2460_nclex_done',
+    THEME_KEY
+  ];
 
   // ===== Theme toggle =====
-  var THEME_KEY = 'nur2460_theme';
   var themeBtn = document.getElementById('themeToggle');
   var themeIcon = document.getElementById('themeIcon');
   var themeLabel = document.getElementById('themeLabel');
@@ -714,9 +746,20 @@ a{color:inherit;text-decoration:none}
   });
 
   // ===== Storage utils =====
-  var BOOK_KEY = 'nur2460_atimh_progress';
   function loadJson(key){ try { var r = localStorage.getItem(key); return r ? JSON.parse(r) : {}; } catch(e){ return {}; } }
   function countChecked(state, ids){ var c=0; ids.forEach(function(id){ if (state[id]==='checked') c++; }); return c; }
+  function countCheckedValues(state){
+    var c = 0;
+    Object.keys(state || {}).forEach(function(key){ if (state[key] === 'checked') c++; });
+    return c;
+  }
+  function loadStored(key){
+    try {
+      var raw = localStorage.getItem(key);
+      if (!raw) return null;
+      try { return JSON.parse(raw); } catch(e){ return raw; }
+    } catch(e){ return null; }
+  }
 
   // ===== Unit config =====
   var UNITS = {
@@ -744,26 +787,134 @@ a{color:inherit;text-decoration:none}
       if (bar) bar.style.width = (t ? (rc/t)*100 : 0) + '%';
       if (txt) txt.textContent = rc + ' / ' + t + ' read';
     });
+
+    var tplState = loadJson(TPL_KEY);
+    var tplChecked = countCheckedValues(tplState);
+    var tplTotal = 71;
+    var tp = document.getElementById('tplProgress');
+    var tt = document.getElementById('tplProgressText');
+    if (tp) tp.style.width = (tplTotal ? (tplChecked / tplTotal) * 100 : 0) + '%';
+    if (tt) tt.textContent = tplChecked + ' / ' + tplTotal + ' studied';
+
+    var fc = flashcardStats();
+    var fcDeck = document.getElementById('fcMetaDeck');
+    var fcDue = document.getElementById('fcMetaDue');
+    var fcProgress = document.getElementById('fcProgress');
+    var fcText = document.getElementById('fcProgressText');
+    if (fcDeck) fcDeck.textContent = fc.total;
+    if (fcDue) fcDue.textContent = fc.due;
+    if (fcProgress) fcProgress.style.width = fc.total ? Math.min(100, (fc.due / fc.total) * 100) + '%' : '0%';
+    if (fcText) fcText.textContent = fc.total ? (fc.due + ' due now') : 'no deck yet';
+    updateReviewQueue(fc);
+    updatePickupPanel(fc);
   }
 
-  // ===== Pickup: continue reading =====
-  function updatePickup(){
+  // ===== Review queue + pickup cards =====
+  function flashcardStats(){
+    var schedule = loadJson(FC_KEY);
+    var now = Date.now();
+    var total = 0;
+    var due = 0;
+    Object.keys(schedule || {}).forEach(function(key){
+      var item = schedule[key];
+      if (!item) return;
+      total++;
+      var next = item.nextReview || item.due || item.dueAt || item.next || null;
+      if (next && new Date(next).getTime() <= now) due++;
+    });
+    return { total: total, due: due };
+  }
+
+  function updateReviewQueue(fc){
+    var queue = document.getElementById('reviewQueue');
+    var icon = document.getElementById('reviewIcon');
+    var count = document.getElementById('dueCount');
+    var label = document.getElementById('dueLabel');
+    var sub = document.getElementById('dueSub');
+    if (!queue) return;
+    if (!fc.total){
+      queue.className = 'review-queue empty';
+      if (icon) icon.textContent = '\uD83D\uDCDA';
+      if (count) count.textContent = '0';
+      if (label) label.textContent = 'no cards yet';
+      if (sub) sub.textContent = 'Answer prompts in the chapter book to start building your review deck.';
+      return;
+    }
+    if (!fc.due){
+      queue.className = 'review-queue empty';
+      if (icon) icon.textContent = '\uD83C\uDF93';
+      if (count) count.textContent = '0';
+      if (label) label.textContent = 'cards due today';
+      if (sub) sub.textContent = 'All caught up. ' + fc.total + ' cards total in your review deck.';
+      return;
+    }
+    queue.className = 'review-queue has-due';
+    if (icon) icon.textContent = '\uD83C\uDFAF';
+    if (count) count.textContent = fc.due;
+    if (label) label.textContent = fc.due === 1 ? 'card due today' : 'cards due today';
+    if (sub) sub.textContent = fc.total + ' cards in your deck - review them in the chapter where they appear.';
+  }
+
+  function friendlyTemplateName(id){
+    if (!id) return '';
+    return String(id)
+      .replace(/^tpl-mh-/, '')
+      .replace(/^tpl-/, '')
+      .replace(/^ch\d+-/, '')
+      .replace(/-/g, ' ')
+      .replace(/\b\w/g, function(c){ return c.toUpperCase(); });
+  }
+
+  function updatePickupPanel(fc){
     var panel = document.getElementById('pickupPanel');
-    var card = document.getElementById('pickupBook');
-    var val = document.getElementById('pickupBookValue');
-    try {
-      var raw = localStorage.getItem('nur2460_last_chapter');
-      if (!raw) return;
-      var d = JSON.parse(raw);
-      if (d && d.id && /^ch([1-9]|[12][0-9]|3[0-3])$/.test(d.id)){
-        if (val) val.textContent = d.name || d.id;
-        if (card){ card.href = 'Elevated%20ATI%20MH%20Book.html#' + d.id; card.hidden = false; }
-        if (panel) panel.hidden = false;
-      }
-    } catch(e){}
+    if (!panel) return;
+    if (sessionStorage.getItem(PICKUP_DISMISS_KEY) === '1'){
+      panel.hidden = true;
+      return;
+    }
+    var hasAny = false;
+
+    var bookCard = document.getElementById('pickupBook');
+    var bookVal = document.getElementById('pickupBookValue');
+    var lastCh = loadStored(LAST_CH_KEY);
+    if (lastCh && lastCh.id && /^ch([1-9]|[12][0-9]|3[0-3])$/.test(lastCh.id)){
+      if (bookVal) bookVal.textContent = (lastCh.name ? ('Ch ' + String(lastCh.id).replace('ch','') + ': ' + lastCh.name) : lastCh.id);
+      if (bookCard){ bookCard.href = 'Elevated%20ATI%20MH%20Book.html#' + lastCh.id; bookCard.hidden = false; }
+      hasAny = true;
+    } else if (bookCard){
+      bookCard.hidden = true;
+    }
+
+    var fcCard = document.getElementById('pickupFc');
+    var fcVal = document.getElementById('pickupFcValue');
+    if (fcCard && fcVal){
+      if (!fc.total) fcVal.textContent = 'Open flashcards';
+      else if (fc.due) fcVal.textContent = fc.due + ' due now';
+      else fcVal.textContent = 'All caught up - ' + fc.total + ' in deck';
+      fcCard.hidden = false;
+      hasAny = true;
+    }
+
+    var tplCard = document.getElementById('pickupTpl');
+    var tplVal = document.getElementById('pickupTplValue');
+    var lastTpl = loadStored(LAST_TPL_KEY);
+    var tplId = typeof lastTpl === 'string' ? lastTpl : (lastTpl && lastTpl.id);
+    var tplName = typeof lastTpl === 'object' && lastTpl ? (lastTpl.name || lastTpl.title) : '';
+    if (tplId){
+      if (tplVal) tplVal.textContent = tplName || friendlyTemplateName(tplId);
+      if (tplCard){ tplCard.href = 'Elevated%20ATI%20MH%20Templates.html#' + tplId; tplCard.hidden = false; }
+      hasAny = true;
+    } else if (tplCard){
+      tplCard.hidden = true;
+    }
+
+    panel.hidden = !hasAny;
   }
   var pd = document.getElementById('pickupDismiss');
-  if (pd) pd.addEventListener('click', function(){ var p=document.getElementById('pickupPanel'); if(p) p.hidden=true; });
+  if (pd) pd.addEventListener('click', function(){
+    try { sessionStorage.setItem(PICKUP_DISMISS_KEY, '1'); } catch(e){}
+    var p=document.getElementById('pickupPanel'); if(p) p.hidden=true;
+  });
 
   // ===== Storage panel =====
   var panelHead = document.getElementById('storagePanelHead');
@@ -798,7 +949,7 @@ a{color:inherit;text-decoration:none}
         try {
           var backup = JSON.parse(ev.target.result);
           Object.keys(backup).forEach(function(k){ if (SYNC_KEYS.indexOf(k)!==-1){ try { localStorage.setItem(k, backup[k]); } catch(e){} } });
-          setStatus('Backup imported.'); updateProgressUI(); renderKeysList(); updatePickup();
+          setStatus('Backup imported.'); updateProgressUI(); renderKeysList();
         } catch(err){ setStatus('Import failed — invalid file.'); }
       };
       reader.readAsText(file);
@@ -813,7 +964,7 @@ a{color:inherit;text-decoration:none}
   });
 
   // ===== Init =====
-  updateProgressUI(); updatePickup(); renderKeysList();
+  updateProgressUI(); renderKeysList();
 })();
 </script>
 </body>

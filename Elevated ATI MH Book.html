@@ -15528,10 +15528,10 @@ article.exercise.nclex-hidden{ display: none !important }
           </button>
           <div class="modal-chapter-nav" aria-label="Chapter navigation">
             <button class="modal-chapter-nav-btn" id="modalPrevChapterBtn" type="button" aria-label="Previous chapter">
-              <span aria-hidden="true">←</span><span>Previous</span>
+              &larr; Previous
             </button>
             <button class="modal-chapter-nav-btn" id="modalNextChapterBtn" type="button" aria-label="Next chapter">
-              <span>Next</span><span aria-hidden="true">→</span>
+              Next &rarr;
             </button>
           </div>
         </div>
@@ -15838,10 +15838,11 @@ article.exercise.nclex-hidden{ display: none !important }
     if (!targetChapterId) return;
     var targetTabId = resolveAdjacentTabId(targetChapterId);
     var nextHash = '#' + targetTabId;
-    if (window.location.hash === nextHash) {
-      var opener = window.openChapter || openChapter;
-      opener(targetChapterId, targetTabId);
-    } else {
+    var opener = window.openChapter || openChapter;
+    opener(targetChapterId, targetTabId);
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, '', nextHash);
+    } else if (window.location.hash !== nextHash) {
       window.location.hash = nextHash;
     }
   }
