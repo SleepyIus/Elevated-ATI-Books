@@ -1025,3 +1025,342 @@ Validation target:
 
 - Static CSS check should confirm AMS, MH, PD, and Pharm modals use `max-height:calc(100vh - 80px)`.
 - Static CSS check should confirm MN uses the shared dark modal overlay background.
+
+## Four-Surface MN Canon Roadmap: 2026-07-05
+
+Reason for roadmap:
+
+- User wants MN to remain the structural/design reference across each book's four public HTML surfaces.
+- Templates have received the deepest pass so far and should not keep reopening unless a concrete visual defect appears.
+- Flashcards are paused by user direction until the template and book/hub surfaces are more uniform.
+
+Global rules:
+
+- Current mode remains `DESIGN-CANON / HOLD-CONTENT`.
+- Do not add ATI educational content, flashcards, prompts, templates, sections, or enrichment.
+- Use MN as the design/structure reference, but do not edit MN unless the user explicitly asks.
+- Preserve each book's accent color, subject identity, existing educational content, and source links.
+- Treat edits as design, layout, navigation, wording-consistency, and QA changes only.
+
+Roadmap checklist:
+
+| Order | Surface | Current status | Next action |
+| --- | --- | --- | --- |
+| 1 | Templates | Pinned | Keep the approved AMS/MN template canon stable; only fix concrete regressions. |
+| 2 | AMS Book vs MN Book | Static/interaction-code pass complete; rendered browser QA deferred | Proceed to AMS Hub recheck now; rerun rendered modal QA later when the browser connector is available or if the user reports a concrete Book visual defect. |
+| 3 | AMS Hub vs MN Hub | Static structure recheck complete; rendered/user visual QA pending | Only reopen if rendered QA or user review identifies a concrete hub visual mismatch. |
+| 4 | AMS Flashcards vs MN Flashcards | Paused | Do not proceed until the user explicitly resumes flashcard design work. |
+| 5 | Other books | Pending | Roll out only after AMS Book and AMS Hub are accepted as the updated cross-book baseline. |
+
+Trackable checklist:
+
+- [x] Pin Templates as the approved template-design baseline.
+- [x] Pause Flashcards until template/book/hub uniformity is stable.
+- [x] Start AMS Book vs MN Book with static evidence instead of assumptions.
+- [x] Finish AMS Book modal static/interaction-code QA: shell, tabs, controls, close button, keyboard flow, scroll behavior.
+- [ ] Run rendered AMS Book modal browser QA when connector access is available or a concrete visual defect is reported.
+- [x] Finish AMS Book TL;DR and dense-card hierarchy static QA against MN.
+- [x] Finish AMS Book Related ATI Template link/bridge static QA against MN and the approved template canon.
+- [x] Finish AMS Book ALS presentation static QA using existing AMS ALS content only.
+- [x] Finish AMS Book Practice/Application Exercises static QA, preserving the approved newer AMS exercise design where it is better than MN.
+- [x] Finish AMS Hub static structure recheck against MN after the Book static pass.
+- [ ] Run rendered/user visual AMS Hub QA if a concrete visual mismatch is reported or before cross-book hub rollout.
+- [ ] Keep other-book rollout on hold until AMS Book and Hub are accepted.
+
+First active batch:
+
+- Start with an evidence-first AMS Book vs MN Book audit.
+- Record static differences before editing.
+- Only implement design-only corrections that are clearly supported by MN or by the already approved AMS template canon.
+
+## AMS Book MN-Canon Audit Pass 1: 2026-07-05
+
+Status:
+
+- Completed for modal/control and Practice/Application Exercises static inspection; continued by Pass 2.
+
+Static evidence gathered:
+
+| Pattern | MN Book | AMS Book | Design meaning |
+| --- | ---: | ---: | --- |
+| Chapters | 27 | 96 | Counts match each book's source scope. |
+| TL;DR sections | 27 | 96 | Both books have TL;DR coverage for every chapter. |
+| Template bridge sections | 27 | 96 | Both books have chapter-level template bridge coverage. |
+| Exercise sections | 27 | 96 | Both books use `-exercises` sections for Practice/Application Exercises. |
+| Chapter modal | 1 | 1 | Both books use a single modal workspace system. |
+| Brief cards | 35 | 104 | AMS has comparable TL;DR/card scaffolding, scaled to 96 chapters. |
+| Condition blocks | 633 | 570 | AMS uses fewer condition blocks relative to chapter count; dense-box hierarchy needs visual QA. |
+| Finding cards | 561 | 1742 | AMS relies heavily on finding-card style; check whether this creates clutter or weak hierarchy. |
+| Knowledge cards | 189 | 65 | MN uses more knowledge-card patterning; AMS may need design-only hierarchy alignment where existing content supports it. |
+| Mid-read prompts | 1011 | 54 | AMS does not use MN's mid-read rhythm at the same density; do not add prompts in HOLD-CONTENT mode, but standardize existing prompt styling. |
+| Mid-prompt markers | 47 | 47 | Both contain the older prompt marker class; resolve style duplication carefully without adding prompts. |
+| ALS cards | 137 | 22 | AMS has fewer ALS-specific card instances; only restyle existing ALS content in this mode. |
+| Template bridges | 62 | 105 | AMS bridge count is healthy; verify visual consistency and placement. |
+| Application Exercises text markers | 68 | 96 | AMS appears to have one Practice/Application Exercises marker per chapter. |
+
+Initial findings:
+
+- Templates are not the next active surface; keep them pinned unless the user reports a specific defect.
+- AMS Book already has the required core shell: chapter modal, TL;DR, Templates, Practice/Application Exercises, bookmarks, highlights, NCLEX filter, and chapter navigation.
+- The likely Book risks are design consistency rather than missing educational material: dense-card hierarchy, prompt class consistency, ALS card styling, Practice tab layout, and small-box spacing/alignment.
+
+Next implementation target:
+
+- Inspect AMS Book modal/chapter CSS against MN Book and make the first small design-only correction if there is a clear mismatch that does not alter educational content.
+
+Pass 1 modal/control inspection:
+
+- MN and AMS use the same base chapter modal shell: full-screen overlay, `max-width:980px` modal, 16px radius, shared title/meta sizing, shared tab strip behavior, and shared body padding.
+- AMS intentionally adds chapter Previous/Next controls inside the modal action row. This is an approved user-requested improvement and should be preserved rather than removed to match MN exactly.
+- AMS adds mobile overflow protection around the modal header/body. This is a safe design robustness improvement and should be preserved unless visual QA shows a regression.
+- No AMS Book HTML change was made from this modal pass because the clear differences are either approved AMS improvements or mobile safety guards.
+
+Pass 1 Practice/Application Exercises inspection:
+
+- MN uses the older compact exercise row pattern.
+- AMS uses the newer approved Application Exercises pattern: question chip, boxed options, clearer answer/rationale toggle copy, and a separated answer panel.
+- This is a known design preference from Batch 2 page 15 item 16, so the AMS pattern should be preserved and visually QA'd rather than reverted to MN.
+
+Updated next implementation target:
+
+- Run representative rendered visual QA on AMS Book modal behavior before moving back to the AMS Hub recheck.
+
+## AMS Book MN-Canon Audit Pass 2: 2026-07-05
+
+Status:
+
+- Static AMS Book design pass complete.
+- No public HTML change was made in this pass.
+- No ATI educational content was added or rewritten.
+
+Static evidence gathered:
+
+| Pattern | AMS Book count | Design finding |
+| --- | ---: | --- |
+| TL;DR brief cards | 96 | One per chapter; CSS matches the MN brief-card pattern. |
+| Related ATI Template bridge sections | 96 | One per chapter; CSS matches MN, with AMS also allowing the existing `h2` bridge heading. |
+| Active Learning Scenario sections | 96 | One per chapter; base ALS card styling matches MN. |
+| Practice/Application Exercises sections | 96 | One per chapter; AMS keeps the newer approved exercise design from Batch 2 page 15 item 16. |
+
+Design decisions:
+
+- TL;DR cards do not need an AMS HTML edit because the AMS and MN card rules use the same structure, spacing, heading hierarchy, and mobile behavior.
+- Related ATI Template bridges do not need an AMS HTML edit because AMS already has chapter-level bridge coverage and preserves the approved template-canon connection.
+- ALS presentation does not need an AMS HTML edit because the base ALS card presentation matches MN and uses existing AMS ALS content only.
+- Dense-card hierarchy is acceptable as an AMS-approved improvement over MN: AMS preserves the MN card/pill hierarchy while keeping the later approved wide grids, equal-height card behavior, text-wrap protection, and clearer list dividers for scanability.
+- Practice/Application Exercises should not be reverted to MN because AMS is using the newer user-approved answer/rationale layout.
+
+Remaining AMS Book QA:
+
+- Rendered modal QA was not completed in this batch because automated in-app browser navigation to the local AMS Book file was blocked, and the later localhost browser-tab attempt reset the browser connector.
+- Static/interaction-code QA should be completed before leaving the Book pass.
+- Rendered modal visual pass for representative chapters should be rerun later when browser connector access is available or if the user reports a concrete Book visual defect.
+- Then return to the AMS Hub recheck against MN.
+
+## AMS Book MN-Canon Modal QA Pass 3: 2026-07-05
+
+Status:
+
+- Static/interaction-code QA complete.
+- No public HTML change was made in this pass.
+- No ATI educational content was added or rewritten.
+- Rendered in-app browser QA remains deferred because the browser connector reset after a timed-out localhost tab attempt, and the selected `file://` tab was blocked by browser-tool URL policy.
+
+Static/interaction evidence verified:
+
+| Area | Evidence in AMS Book | Finding |
+| --- | --- | --- |
+| Modal shell | `.modal-overlay`, `.modal`, `.modal-header`, `.modal-body` | AMS has the same core modal workspace pattern and scroll containment expected from the MN Book reference. |
+| Close behavior | `.modal-close`, overlay click handler, Escape key handler | Close affordances are wired in code and should remain visually checked later. |
+| Tabs | `.modal-tabs-wrap`, `.modal-tabs`, `buildTabLabel`, tab click binding | AMS keeps the chapter tab model and maps TL;DR, Templates, Practice, and content tabs into the modal. |
+| Previous/next chapter controls | `.modal-chapter-nav`, `getAdjacentChapterId`, `navigateModalChapter`, `updateModalChapterNav` | The user-approved previous/next chapter controls are present and preserve active tab family when moving chapters. |
+| Hash/open flow | `openChapter`, `openChapterFromHash`, `hashchange` handler | Direct chapter links route through the modal instead of relying on page scroll. |
+| Scroll/mobile safeguards | mobile rules for `.modal-overlay`, `.modal`, `.modal-tabs-wrap`, `.modal-chapter-nav` | AMS includes additional mobile overflow protection; keep unless visual QA reveals a regression. |
+| Bookmark/highlight hooks | bookmark injection around `openChapter`, highlight reapply observer | Existing study tools are attached to the modal opening flow without adding content. |
+| NCLEX filter hooks | `injectNclexFilterBar`, `.nclex-filter-chip`, `.nclex-hidden` | Practice filtering is wired for the rendered modal; visual confirmation remains deferred. |
+
+Decision:
+
+- Do not reopen Templates or Flashcards from this pass.
+- Do not edit AMS Book without a concrete visual defect.
+- Proceed to the AMS Hub recheck against MN as the next best design-canon task.
+
+Next Recommendation:
+
+- Recheck AMS Hub against MN with focus on hero alignment, stat box count/labels, Pick up where you left off, card queue, primary tool blocks, spacing, and removal of redundant template-type stats.
+
+## AMS Hub MN-Canon Static Recheck: 2026-07-05
+
+Status:
+
+- Static structure recheck complete.
+- No public HTML change was made in this pass.
+- No ATI educational content was added or rewritten.
+- Rendered/user visual QA remains pending.
+
+Static evidence verified:
+
+| Area | AMS Hub evidence | MN canon comparison |
+| --- | --- | --- |
+| Hero/topbar | Topbar, subject mark, hero eyebrow, two-line hero title, subject subcopy | Matches MN structure while preserving AMS subject identity and accent. |
+| Stat row | Four boxes only: Chapters, Units, Worked Templates, Starter Cards | Matches MN count pattern; redundant Template Types stat is absent. |
+| Pick up where you left off | Continue reading, Review queue, Last template cards | Matches MN card pattern and local-state intent. |
+| Review queue | Review queue panel with due count and empty state | Matches MN review-queue placement while preserving AMS current zero-card status. |
+| Primary tools | ATI Chapter Book, ATI Templates, Flashcards cards | Matches MN three-tool dashboard structure; Flashcards remains paused for further design work. |
+| Unit map | Unit cards with ranges and progress bars | Matches MN unit-map pattern, scaled to AMS 14 units. |
+| Template types section | Lower template-type section remains present | Matches MN; this is separate from the removed redundant stat box. |
+| Storage/footer | Storage panel and footer present | Matches MN support/utility structure. |
+
+Decision:
+
+- Treat AMS Hub as statically aligned with MN for the current design-canon stage.
+- Do not edit AMS Hub without a concrete visual defect; the remaining differences are subject-specific labels, counts, copy, and accent values.
+- Keep Flashcards paused.
+
+Next Recommendation:
+
+- Ask for or perform rendered visual QA on AMS Hub if needed; otherwise move to deciding the next non-flashcard surface for cross-book rollout after AMS Book and AMS Hub are accepted.
+
+## MH Hub MN-Canon Parity Pass: 2026-07-05
+
+Status:
+
+- Updated Mental Health Hub structure toward the approved MN/AMS/PD/Pharm hub pattern.
+- No ATI educational content was added or rewritten.
+- Flashcards remain paused; only existing local review-queue status is surfaced.
+- Templates remain pinned; template links/counts are navigation/status only.
+
+Evidence:
+
+- Added three-card pickup row, review queue, primary tools label, unit-map label, and lower template-type navigation.
+- Wired existing MH storage keys: `nur2460_atimh_progress`, `atimh_templates_progress`, `atimh_fc_schedule`, `nur2460_last_chapter`, and `atimh_last_template`.
+- Preserved MH accent, subject identity, chapter/unit/template counts.
+
+Next Recommendation:
+
+- Visual QA Mental Health Hub against MN/AMS/PD/Pharm, then continue the Book-surface parity checklist. Do not resume Flashcards until hub/book/template uniformity is accepted.
+
+## Shell-First Canon Plan: 2026-07-05
+
+User goal clarified:
+
+- Build durable shells for each book first.
+- Educational-content population will happen later in a separate workflow.
+- Codex should own the HTML/CSS/JS frame quality, canon consistency, navigation behavior, layout discipline, and QA.
+- Claude or a later content-focused workflow can populate teachable material once shells are stable.
+
+Current design-canon interpretation:
+
+| Surface | Current status | Next action |
+| --- | --- | --- |
+| Templates | Pinned/approved as the current template design canon | Do not reopen unless a concrete defect is reported. |
+| Hubs | Active shell surface | Finish rendered MH Hub visual QA, then continue hub parity across books as needed. |
+| Books | Next major shell surface | Compare AMS/MH/PD/Pharm book shells to MN after hub parity is accepted. |
+| Flashcards | Paused | Do not resume until Hub, Book, and Templates shells are uniform. |
+
+Shell completion gates:
+
+- Static structure check: required MN-derived shell parts exist and redundant pieces are removed.
+- Rendered visual QA: spacing, font scale, blur, modal width, card count, and responsive behavior are checked.
+- Navigation/count QA: links, anchors, progress counters, and local-storage keys are verified.
+- Canon documentation: accepted decisions and remaining rollout limits are recorded.
+
+Next Recommendation:
+
+- Complete rendered Mental Health Hub QA against the MN/AMS/PD/Pharm hub pattern. If no concrete defect appears, move to the Book-shell parity checklist while keeping Flashcards paused and Templates pinned.
+
+## MH Hub Rendered Shell QA: 2026-07-05
+
+Status:
+
+- Rendered Mental Health Hub QA complete through local browser preview.
+- Removed the stale "Recently added / Planned additions" future panel from MH Hub because Templates already exist and Flashcards are paused.
+- No ATI educational content was added or rewritten.
+
+Rendered evidence:
+
+| Check | Result |
+| --- | --- |
+| Four-stat hub pattern | Pass: Chapters, Units, Worked Templates, Starter Cards only. |
+| Redundant Template Types stat | Pass: absent from the stat row. |
+| Pickup panel | Pass: Continue Reading, Review Queue, and Last Template cards render. |
+| Primary tools | Pass: ATI Chapter Book, ATI Templates, and Flashcards cards render. |
+| Unit map | Pass: 6 units render with progress structure. |
+| Template-type navigation | Pass: 8 template types render in the lower section. |
+| Storage/local state | Pass: storage controls and local-state wiring exist. |
+| Stale future/planned panel | Pass: removed. |
+| Horizontal overflow | Pass at 1280 x 900 preview. |
+
+Validation performed:
+
+- Browser-rendered QA through localhost preview.
+- JavaScript parse check passed.
+- Whitespace diff check passed.
+
+Next Recommendation:
+
+- Begin the Book-shell parity checklist next. Compare AMS, MH, PD, and Pharm Book HTML against MN's approved shell patterns and make design-only fixes. Keep Templates pinned and Flashcards paused unless the user explicitly reopens them.
+
+## Book-Shell Parity Matrix: 2026-07-05
+
+Current mode: DESIGN-CANON / HOLD-CONTENT.
+
+Scope:
+
+- Compare the five chapter-book shells against the approved MN/AMS dual-reference canon.
+- Keep Templates pinned unless a concrete template-shell defect appears.
+- Keep Flashcards paused.
+- Do not add educational content, new study cards, prompts, or enrichment.
+
+Initial findings:
+
+| File | Shell status | Action |
+| --- | --- | --- |
+| MN Book | Baseline structure for chapter-book flow; now includes the shared modal previous/next chapter controls. | Added previous/next navigation to close the remaining approved chapter-modal shell gap. |
+| AMS Book | Core shell features present; intro copy was still older and less MN-like. | Updated intro copy to the shared MN/MH/PD chapter-book description. |
+| MH Book | Core shell features and shared intro copy present. | No immediate change needed. |
+| PD Book | Core shell features and shared intro copy present. | No immediate change needed. |
+| Pharm Book | Core shell features present; intro copy used variant wording; template bridge sections are not populated. | Updated intro copy to shared wording; template bridges remain deferred because adding sections is not allowed during HOLD-CONTENT mode. |
+
+Validation performed:
+
+- Static shell matrix confirmed sidebar search, print, bookmarks, highlights/notes, modal tabs, and flashcard button wiring exist across the five chapter-book files.
+- AMS, MN, MH, PD, and Pharm now include modal previous/next chapter controls.
+- Static matrix confirmed all five chapter-book files have previous/next controls, direct modal chapter opening, URL hash sync, and the shared MN-style intro copy.
+- Script parse passed for all five chapter-book files.
+- Rendered spot-check passed for MN, AMS, MH, PD, and Pharm: selecting Next inside the open chapter modal now changes the modal content, keeps the TL;DR tab active, enables Previous, and syncs the URL hash.
+- No ATI educational content was added or rewritten.
+
+Next Recommendation:
+
+- Treat the chapter-book modal navigation shell as current-complete, then continue with a hub-shell parity pass across the five books. Keep Templates pinned and Flashcards paused unless the user explicitly reopens those surfaces.
+
+## Hub-Shell Parity Closeout: 2026-07-05
+
+Current mode: DESIGN-CANON / HOLD-CONTENT.
+
+Status:
+
+- Hub-shell parity is current-complete for this pass.
+- Templates remain pinned as the approved template design canon.
+- Flashcards remain paused by user direction.
+- No ATI educational content, cards, prompts, templates, or enrichment were added.
+
+Action completed:
+
+- Normalized AMS Hub to the shared MN/MH/PD/Pharm hub shell vocabulary: `topbar-home`, `topbar-brand`, `topbar-brand-mark`, and `hero-eyebrow`.
+- Preserved AMS subject identity, accent color, counts, and learner-facing copy.
+- Kept the approved four-stat hub pattern only: Chapters, Units, Worked Templates, Starter Cards.
+- Kept the lower template-type navigation section, because that is separate from the redundant Template Types stat box and matches the MN-style hub shell.
+
+Validation performed:
+
+- Static matrix confirmed all five Hub files expose the shared topbar, hero, stat row, pickup panel, review queue, primary tools, unit map, template-type navigation, and storage/footer shell pieces.
+- Static count check confirmed all five Hub stat rows use exactly: Chapters, Units, Worked Templates, Starter Cards.
+- Redundant Template Types stat is absent across the Hub stat rows.
+- JavaScript parse check passed for all five Hub files.
+- Rendered AMS Hub spot QA passed in local browser preview: shared topbar, four stat cards, pickup panel, and no old AMS-only hub class hits.
+
+Next Recommendation:
+
+- Treat Hub, Book, and Templates shells as current-complete for this design-canon pass. Do not reopen Templates or Flashcards unless the user reports a concrete shell defect or explicitly resumes that surface. The next best action is a final five-book shell matrix and then commit/push the current design-shell batch when approved.

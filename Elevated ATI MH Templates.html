@@ -1807,6 +1807,67 @@ body.modal-open{
   body.printing-modal #templateModal .tpl-group{
     page-break-inside:avoid;
   }
+  body.printing-template-group{
+    background:#fff!important;
+    color:#000!important;
+  }
+  body.printing-template-group .sidebar,
+  body.printing-template-group .sidebar-toggle,
+  body.printing-template-group .sidebar-overlay,
+  body.printing-template-group .topbar,
+  body.printing-template-group .hero,
+  body.printing-template-group .section-divider,
+  body.printing-template-group .filters,
+  body.printing-template-group .tpl-result-count,
+  body.printing-template-group .exam-reset,
+  body.printing-template-group .footer{
+    display:none!important;
+  }
+  body.printing-template-group .template-layout,
+  body.printing-template-group .template-main,
+  body.printing-template-group .panel,
+  body.printing-template-group .template-grid{
+    display:block!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    background:#fff!important;
+  }
+  body.printing-template-group .template-grid > .template-type-group:not(.printing-target){
+    display:none!important;
+  }
+  body.printing-template-group .template-type-group.printing-target{
+    display:block!important;
+    border:0!important;
+    background:#fff!important;
+    overflow:visible!important;
+  }
+  body.printing-template-group .template-type-group.printing-target .template-group-head{
+    background:#fff!important;
+    border-bottom:1px solid #ccc!important;
+    padding:0 0 12px!important;
+  }
+  body.printing-template-group .template-type-group.printing-target .template-group-body{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:12px!important;
+    padding:12px 0 0!important;
+    border:0!important;
+  }
+  body.printing-template-group .template-type-group.printing-target .example-list,
+  body.printing-template-group .template-type-group.printing-target .template-progress-track,
+  body.printing-template-group .template-type-group.printing-target .part-print-btn,
+  body.printing-template-group .template-type-group.printing-target .template-actions{
+    display:none!important;
+  }
+  body.printing-template-group .template-type-group.printing-target .template-card{
+    display:flex!important;
+    border:1px solid #ccc!important;
+    background:#fff!important;
+    box-shadow:none!important;
+    page-break-inside:avoid;
+  }
 }
 .template-layout{
   display:flex;
@@ -3686,6 +3747,7 @@ body.modal-open{
           '<span class="unit-caret">▾</span>' +
           '<div class="template-group-title"><span></span><span class="unit-pages"></span></div>' +
           '<div class="template-group-meta unit-count"></div>' +
+          '<button class="part-print-btn template-group-print" data-print-template="' + type + '" type="button" aria-label="Print ' + typeTitle(type) + ' template group" title="Print this template group">⎙</button>' +
           '<div class="template-progress-track unit-bar-wrap" aria-hidden="true">' +
             '<div class="unit-bar-outer">' +
               '<span class="template-progress-partial unit-bar-partial"></span>' +
@@ -4426,6 +4488,28 @@ body.modal-open{
     window.addEventListener('afterprint', cleanup);
     setTimeout(function(){ window.print(); }, 50);
   }
+  function printTemplateGroup(type){
+    var group = groups[type] || document.querySelector('[data-type-group="' + type + '"]');
+    if (!group) return;
+    var prevTitle = document.title;
+    var wasCollapsed = group.classList.contains('collapsed');
+    document.querySelectorAll('.template-type-group.printing-target').forEach(function(item){
+      item.classList.remove('printing-target');
+    });
+    group.classList.add('printing-target');
+    group.classList.remove('collapsed');
+    document.title = 'MH Templates — ' + (typePages[type] || '') + ' ' + typeTitle(type);
+    document.body.classList.add('printing-template-group');
+    function cleanup(){
+      document.body.classList.remove('printing-template-group');
+      group.classList.remove('printing-target');
+      if (wasCollapsed) group.classList.add('collapsed');
+      document.title = prevTitle;
+      window.removeEventListener('afterprint', cleanup);
+    }
+    window.addEventListener('afterprint', cleanup);
+    setTimeout(function(){ window.print(); }, 50);
+  }
   function modalNavState(id, type){
     // Canon: Previous/Next moves within the same ATI template type, not across unrelated template layouts.
     var visibleCards = cards.filter(function(card){
@@ -4575,8 +4659,15 @@ body.modal-open{
     });
   });
   document.addEventListener('click', function(event){
+    var printGroup = event.target.closest('[data-print-template]');
     var study = event.target.closest('[data-template-study]');
     var check = event.target.closest('[data-template-check]');
+    if (printGroup) {
+      event.preventDefault();
+      event.stopPropagation();
+      printTemplateGroup(printGroup.getAttribute('data-print-template'));
+      return;
+    }
     if (study) openModal(study.getAttribute('data-template-study'));
     if (check) cycleProgress(check.getAttribute('data-template-check'));
   });

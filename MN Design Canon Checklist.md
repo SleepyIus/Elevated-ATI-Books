@@ -54,6 +54,31 @@ Scope: Design, structure, navigation, and learning-workflow patterns only. This 
   - Canon pattern: bookmarks, pill-level bookmarks, highlights, notes, print modes, search highlighting, and pickup links.
   - AMS implication: navigation improvements should account for returning to precise concepts, not only chapters.
 
+## Shell-First Build Canon
+
+- [ ] Treat the current project goal as shell construction before content population.
+  - Canon intent: build durable frames that can safely receive educational content later.
+  - HOLD-CONTENT implication: do not add or enrich ATI educational content while building shells.
+
+- [ ] Define each book as four coordinated shells.
+  - Hub shell: topbar, hero, four stat cards, pickup panel, review queue status, primary tools, unit map, template-type navigation, storage controls, and subject accent identity.
+  - Book shell: chapter navigation, modal study workspace, TL;DR-first flow, tabs, next/previous chapter movement, template bridges, practice area, bookmarks/highlights/notes, print, and progress memory.
+  - Templates shell: MN-approved navigation sidebar, search, progress strip, template-type accordions, official A1-A15 geometry, filled/blank mode, print, previous/next within type, source jumps, and book-specific accent.
+  - Flashcards shell: paused until Hub, Book, and Templates are uniform; later shell should preserve due queue, review/browse views, filters, session metrics, source links, and scheduling.
+
+- [ ] Use completion gates before calling a shell done.
+  - Static structure pass: required elements exist and redundant elements are removed.
+  - Rendered visual QA: spacing, sizing, font hierarchy, blur, modal width, and responsive behavior are checked in browser.
+  - Navigation/count QA: links, anchors, progress counts, and local-storage keys are verified.
+  - Canon documentation: accepted patterns and unresolved questions are recorded before rollout.
+
+- [ ] Current surface priority.
+  - Templates: pinned as approved design canon unless a concrete defect appears.
+  - Hubs: current-complete for this shell pass; reopen only for a concrete defect or approved rollout need.
+  - Books: current-complete for the chapter-modal navigation shell pass; reopen only for a concrete visual/navigation defect.
+  - Flashcards: paused; do not resume until the user explicitly reopens flashcard shell work.
+  - Next best step: final five-book shell matrix, then commit/push the current design-shell batch when approved.
+
 ## Prompt Canon Caution
 
 - [ ] Do not blindly copy all MN prompt styles.

@@ -78,13 +78,13 @@ body{
 }
 
 /* LAYOUT — canonical hub pattern: fixed sidebar + margin-left main */
-.layout{display:flex;min-height:100vh}
-.main-content{
+.layout,.template-layout{display:flex;min-height:100vh}
+.main-content,.template-main{
   margin-left:280px;
   flex:1;min-width:0;
   padding:48px 56px 80px;max-width:1100px;
 }
-@media(max-width:1100px){.main-content{padding:40px 32px 80px}}
+@media(max-width:1100px){.main-content,.template-main{padding:40px 32px 80px}}
 
 /* SIDEBAR — fixed full-height left rail */
 .sidebar{
@@ -226,11 +226,11 @@ body{
 @media(max-width:900px){
   .sidebar{transform:translateX(-100%);transition:transform .25s}
   .sidebar.open{transform:translateX(0)}
-  .main-content{margin-left:0;padding:72px 24px 60px}
+  .main-content,.template-main{margin-left:0;padding:72px 24px 60px}
   .sidebar-toggle{display:flex}
 }
 @media(max-width:600px){
-  .main-content{padding:64px 16px 60px}
+  .main-content,.template-main{padding:64px 16px 60px}
 }
 
 /* HEADER */
@@ -495,7 +495,7 @@ button:focus-visible,a:focus-visible{
 @media print{
   body{background:#fff;color:#000}
   .sidebar,.sidebar-toggle,.sidebar-overlay,.mode-toggle,#themeToggle{display:none!important}
-  .main-content{margin-left:0!important;padding:20px!important;max-width:100%!important}
+.main-content,.template-main{margin-left:0!important;padding:20px!important;max-width:100%!important}
   .abbr{border-bottom:none!important}
   *{background:#fff!important;color:#000!important;border-color:#ccc!important}
 }
@@ -506,28 +506,103 @@ button:focus-visible,a:focus-visible{
    ============================================================ */
 
 /* HERO */
-.main-course{
+.main-course,.hero .eyebrow{
   font-size:12px;font-weight:600;letter-spacing:.16em;
   text-transform:uppercase;color:var(--accent);margin-bottom:10px;
 }
-.main-title{
+.main-title,.hero h1{
   font-family:'DM Serif Display',serif;
   font-size:44px;font-weight:400;line-height:1.05;
   margin-bottom:14px;color:var(--text);letter-spacing:-0.005em;
 }
-.main-title em{font-style:italic;color:var(--accent)}
-.main-desc{
+.main-title em,.hero h1 em{font-style:italic;color:var(--accent)}
+.main-desc,.hero p{
   font-size:15px;color:var(--text2);
   max-width:680px;line-height:1.65;margin-bottom:24px;
 }
-@media(max-width:600px){.main-title{font-size:32px}}
+.hero{
+  padding:36px 0 20px;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  margin-bottom:18px;
+}
+.eyebrow{color:var(--accent)}
+.hero .main-course,.hero .eyebrow{margin-bottom:8px}
+.hero .main-title,.hero h1{margin:0 0 10px;letter-spacing:0}
+.hero .main-desc,.hero p{max-width:760px;margin:0}
+.hero .compare-btn{margin-top:22px}
+.panel{
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+}
+.template-grid{
+  display:grid;
+  gap:14px;
+  margin-top:0;
+}
+.template-grid .unit-accordion{margin-bottom:0}
+@media(max-width:600px){.main-title,.hero h1{font-size:32px}}
 
 .section-divider{
   font-size:11px;font-weight:700;letter-spacing:.14em;
   text-transform:uppercase;color:var(--text3);
-  padding-bottom:12px;border-bottom:1px solid var(--border);
-  margin:36px 0 18px;
+  padding-bottom:14px;border-bottom:1px solid var(--border);
+  margin:18px 0 14px;
 }
+
+.filters{
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--surface);
+  margin-bottom:18px;
+}
+
+.filter-label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:10px;
+  color:var(--text3);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.search{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--bg);
+  color:var(--text);
+  padding:12px 14px;
+  font:inherit;
+  font-size:16px;
+  outline:none;
+}
+
+.search:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 15%,transparent);
+}
+
+.search::placeholder{color:var(--text3)}
+
+.tpl-result-count{
+  display:block;
+  margin:-6px 0 16px;
+  color:var(--text3);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.unit-accordion[hidden]{display:none}
 
 /* UNIT ACCORDION */
 .unit-accordion{
@@ -866,15 +941,15 @@ body.modal-open{overflow:hidden}
   padding:10px 16px;
   border-bottom:1px solid var(--border);
 }
-#searchInput{
-  width:100%;background:var(--bg);
-  border:1px solid var(--border);color:var(--text);
-  padding:8px 10px;border-radius:6px;
-  font-family:inherit;font-size:12px;outline:0;
-  transition:border-color .15s;
-}
-#searchInput:focus{border-color:var(--accent)}
-#searchInput::placeholder{color:var(--text3)}
+    #tplSidebarSearch{
+      width:100%;background:var(--bg);
+      border:1px solid var(--border);color:var(--text);
+      padding:8px 10px;border-radius:6px;
+      font-family:inherit;font-size:12px;outline:0;
+      transition:border-color .15s;
+    }
+    #tplSidebarSearch:focus{border-color:var(--accent)}
+    #tplSidebarSearch::placeholder{color:var(--text3)}
 #searchResults{
   position:absolute;top:calc(100% - 1px);left:12px;right:12px;
   background:var(--surface);border:1px solid var(--border);border-top:0;
@@ -926,7 +1001,7 @@ body.modal-open{overflow:hidden}
   .sidebar-toggle{top:66px!important}
   .sidebar-header{padding-top:116px!important}
   .sidebar-header .back-home{display:none}
-  .main-content{padding:124px 24px 60px!important}
+  .main-content,.template-main{padding:124px 24px 60px!important}
   .back-home-mobile{display:flex}
 }
 
@@ -2103,20 +2178,20 @@ isolation:isolate;}
 </head>
 <body>
 
-<button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Toggle navigation">☰</button>
-<a class="back-home-mobile" href="Elevated%20ATI%20MN%20Hub.html">Back to Hub</a>
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <button class="sidebar-toggle" id="tplSidebarToggle" type="button" aria-label="Toggle template navigation">☰</button>
+  <a class="back-home-mobile" href="Elevated%20ATI%20MN%20Hub.html">Back to Hub</a>
+  <div class="sidebar-overlay" id="tplSidebarOverlay"></div>
 
-<div class="layout">
+  <div class="page template-layout">
 
-  <aside class="sidebar" id="sidebar" aria-label="Templates navigation">
+  <aside class="sidebar template-sidebar" id="sidebar" aria-label="MN template navigation">
     <div class="sidebar-header">
       <a class="back-home" href="Elevated%20ATI%20MN%20Hub.html">Back to Hub</a>
       <div class="sb-course">ATI MN</div>
       <div class="sb-title">Active Learning Templates</div>
       <div class="sb-sub">Maternal Newborn · Edition 11</div>
       <div class="sb-version" title="Suite v3.1.0 · built 2026-07-01">v3.1.0 · 2026-07-01</div>
-      <button id="themeToggle" type="button"><span id="themeIcon">☀️</span> <span id="themeLabel">Light Mode</span></button>
+      <button class="sidebar-theme-toggle" id="themeToggle" type="button"><span class="theme-icon" id="themeIcon">☀️</span> <span class="theme-label" id="themeLabel">Light Mode</span></button>
     </div>
     <div class="sidebar-progress-wrap">
       <div class="sidebar-progress"><div class="sidebar-progress-fill" id="tplSidebarProgress" style="width:0%"></div></div>
@@ -2127,15 +2202,15 @@ isolation:isolate;}
       </div>
     </div>
     <div class="sidebar-search">
-      <input id="searchInput" type="text" placeholder="Search templates &amp; examples…" autocomplete="off">
+      <input id="tplSidebarSearch" type="search" placeholder="Search templates &amp; examples…" autocomplete="off" aria-label="Search templates and examples">
       <div id="searchResults"></div>
     </div>
-    <nav class="sidebar-list" aria-label="Template list">
-      <div class="sidebar-section-label">Templates</div>
+    <nav class="sidebar-list" id="tplSidebarList" aria-label="Template type list">
+      <div class="sidebar-section-label">Template Types</div>
 
       <div class="sb-tpl-group collapsed" data-tpl="basic-concept">
         <button type="button" class="sb-tpl-header" data-toggle-tpl="basic-concept">
-          <span class="sb-tpl-num">01</span>
+          <span class="sb-tpl-num">A1</span>
           <span class="sb-tpl-name">Basic Concept</span>
           <span class="sb-tpl-count">46</span>
           <span class="sb-tpl-caret">▾</span>
@@ -2192,7 +2267,7 @@ isolation:isolate;}
 
       <div class="sb-tpl-group collapsed" data-tpl="diagnostic-procedure">
         <button type="button" class="sb-tpl-header" data-toggle-tpl="diagnostic-procedure">
-          <span class="sb-tpl-num">02</span>
+          <span class="sb-tpl-num">A3</span>
           <span class="sb-tpl-name">Diagnostic Procedure</span>
           <span class="sb-tpl-count">15</span>
           <span class="sb-tpl-caret">▾</span>
@@ -2218,7 +2293,7 @@ isolation:isolate;}
 
       <div class="sb-tpl-group collapsed" data-tpl="growth-development">
         <button type="button" class="sb-tpl-header" data-toggle-tpl="growth-development">
-          <span class="sb-tpl-num">03</span>
+          <span class="sb-tpl-num">A5</span>
           <span class="sb-tpl-name">Growth and Development</span>
           <span class="sb-tpl-count">7</span>
           <span class="sb-tpl-caret">▾</span>
@@ -2236,7 +2311,7 @@ isolation:isolate;}
 
       <div class="sb-tpl-group collapsed" data-tpl="medication">
         <button type="button" class="sb-tpl-header" data-toggle-tpl="medication">
-          <span class="sb-tpl-num">04</span>
+          <span class="sb-tpl-num">A7</span>
           <span class="sb-tpl-name">Medication</span>
           <span class="sb-tpl-count">18</span>
           <span class="sb-tpl-caret">▾</span>
@@ -2265,7 +2340,7 @@ isolation:isolate;}
 
       <div class="sb-tpl-group collapsed" data-tpl="nursing-skill">
         <button type="button" class="sb-tpl-header" data-toggle-tpl="nursing-skill">
-          <span class="sb-tpl-num">05</span>
+          <span class="sb-tpl-num">A9</span>
           <span class="sb-tpl-name">Nursing Skill</span>
           <span class="sb-tpl-count">15</span>
           <span class="sb-tpl-caret">▾</span>
@@ -2291,7 +2366,7 @@ isolation:isolate;}
 
       <div class="sb-tpl-group collapsed" data-tpl="system-disorder">
         <button type="button" class="sb-tpl-header" data-toggle-tpl="system-disorder">
-          <span class="sb-tpl-num">06</span>
+          <span class="sb-tpl-num">A11</span>
           <span class="sb-tpl-name">System Disorder</span>
           <span class="sb-tpl-count">65</span>
           <span class="sb-tpl-caret">▾</span>
@@ -2367,7 +2442,7 @@ isolation:isolate;}
 
       <div class="sb-tpl-group collapsed" data-tpl="therapeutic-procedure">
         <button type="button" class="sb-tpl-header" data-toggle-tpl="therapeutic-procedure">
-          <span class="sb-tpl-num">07</span>
+          <span class="sb-tpl-num">A13</span>
           <span class="sb-tpl-name">Therapeutic Procedure</span>
           <span class="sb-tpl-count">22</span>
           <span class="sb-tpl-caret">▾</span>
@@ -2399,7 +2474,7 @@ isolation:isolate;}
       </div>
         <div class="sb-tpl-group collapsed" data-tpl="concept-analysis">
         <button type="button" class="sb-tpl-header" data-toggle-tpl="concept-analysis">
-          <span class="sb-tpl-num">08</span>
+          <span class="sb-tpl-num">A15</span>
           <span class="sb-tpl-name">Concept Analysis</span>
           <span class="sb-tpl-count">9</span>
           <span class="sb-tpl-caret">▾</span>
@@ -2419,15 +2494,26 @@ isolation:isolate;}
     </nav>
   </aside>
 
-  <main class="main-content">
+  <main class="template-main">
 
-  <div class="main-course">MN Active Learning Templates</div>
-  <h1 class="main-title">Maternal Newborn <em>Templates</em></h1>
-  <p class="main-desc">The eight standardized ATI Active Learning templates from Maternal Newborn Edition 11 (book pages A1–A16). Click a template to expand it, then switch tabs to study each worked example. Track your study progress with the checkboxes — single tap = reviewed, double tap = mastered.</p>
+  <section class="hero">
+    <div class="eyebrow">MN Active Learning Templates</div>
+    <h1>Maternal Newborn <em>Templates</em></h1>
+    <p>The eight standardized ATI Active Learning templates from Maternal Newborn Edition 11 (book pages A1–A16). Click a template to expand it, then switch tabs to study each worked example. Track your study progress with the checkboxes — single tap = reviewed, double tap = mastered.</p>
 
-  <button class="compare-btn" id="masterPrintBtn">🖨️ Print Templates</button>
+    <button type="button" class="compare-btn" id="masterPrintBtn">🖨️ Print Templates</button>
+  </section>
 
   <div class="section-divider">Templates</div>
+
+  <section class="filters">
+    <div class="filter-label">🔍 Search templates</div>
+    <input class="search" id="tplSearch" type="search" placeholder="Search MN worked templates" aria-label="Search MN worked templates">
+  </section>
+  <span class="tpl-result-count" id="tplResultCount" aria-live="polite" hidden></span>
+
+  <section class="panel">
+    <div class="template-grid" id="templateGrid">
 
   <div class="unit-accordion collapsed" data-template-id="basic-concept" id="basic-concept-acc">
     <div class="unit-header" data-toggle-unit="basic-concept-acc">
@@ -2543,6 +2629,9 @@ isolation:isolate;}
     </div>
     <div class="unit-body"></div>
   </div>
+
+    </div>
+  </section>
 
   <div class="exam-reset" style="margin-left:0;margin-top:18px"><button data-reset-all>Reset All Progress</button></div>
 
@@ -16048,7 +16137,7 @@ isolation:isolate;}
     <p>Source: ATI RN Maternal Newborn Nursing · 11th Edition · Pages A1–A16 · <a href="Elevated%20ATI%20MN%20Hub.html">Back to hub</a></p>
   </footer>
 
-  </main><!-- /main-content -->
+  </main><!-- /template-main -->
 </div><!-- /layout -->
 
 <!-- EXAMPLE MODAL -->
@@ -16115,11 +16204,17 @@ isolation:isolate;}
 
   // ===== Sidebar toggle (mobile) =====
   var sidebar = document.getElementById('sidebar');
-  var sidebarToggle = document.getElementById('sidebarToggle');
-  var sidebarOverlay = document.getElementById('sidebarOverlay');
-  function openSidebarPanel(){ sidebar.classList.add('open'); sidebarOverlay.classList.add('show'); }
-  function closeSidebarPanel(){ sidebar.classList.remove('open'); sidebarOverlay.classList.remove('show'); }
-  if (sidebarToggle) {
+  var sidebarToggle = document.getElementById('tplSidebarToggle');
+  var sidebarOverlay = document.getElementById('tplSidebarOverlay');
+  function openSidebarPanel(){
+    if (sidebar) sidebar.classList.add('open');
+    if (sidebarOverlay) sidebarOverlay.classList.add('show');
+  }
+  function closeSidebarPanel(){
+    if (sidebar) sidebar.classList.remove('open');
+    if (sidebarOverlay) sidebarOverlay.classList.remove('show');
+  }
+  if (sidebarToggle && sidebar) {
     sidebarToggle.addEventListener('click', function(){
       if (sidebar.classList.contains('open')) closeSidebarPanel();
       else openSidebarPanel();
@@ -16960,10 +17055,36 @@ isolation:isolate;}
     }
   }
 
-  var searchInput = document.getElementById('searchInput');
+  var searchInput = document.getElementById('tplSidebarSearch');
   var searchResults = document.getElementById('searchResults');
+  var tplSearch = document.getElementById('tplSearch');
+  var tplResultCount = document.getElementById('tplResultCount');
+
+  function filterTemplateGroups(val){
+    var q = (val || '').toLowerCase().trim();
+    var groups = Array.from(document.querySelectorAll('.unit-accordion[data-template-id]'));
+    if (!tplResultCount) return;
+    if (!q || q.length < 2) {
+      groups.forEach(function(group){ group.hidden = false; });
+      tplResultCount.hidden = true;
+      tplResultCount.textContent = '';
+      return;
+    }
+    var terms = q.split(/\s+/).filter(Boolean);
+    var visible = 0;
+    groups.forEach(function(group){
+      var text = (group.textContent || '').toLowerCase();
+      var match = terms.every(function(term){ return text.indexOf(term) !== -1; });
+      group.hidden = !match;
+      if (match) visible++;
+    });
+    tplResultCount.hidden = false;
+    tplResultCount.textContent = visible + ' of ' + groups.length + ' template groups shown';
+  }
+
   function handleSearch(val){
-    var q = val.toLowerCase().trim();
+    if (!searchResults) return;
+    var q = (val || '').toLowerCase().trim();
     if (!q || q.length < 2) {
       searchResults.classList.remove('show');
       searchResults.innerHTML = '';
@@ -17013,9 +17134,12 @@ isolation:isolate;}
       item.addEventListener('click', function(){
         var accId = item.getAttribute('data-acc');
         var tabId = item.getAttribute('data-tab');
-        var pendingQuery = searchInput.value.trim();
+        var activeSearch = searchInput || tplSearch;
+        var pendingQuery = activeSearch ? activeSearch.value.trim() : '';
         searchResults.classList.remove('show');
-        searchInput.value = '';
+        if (searchInput) searchInput.value = '';
+        if (tplSearch) tplSearch.value = '';
+        filterTemplateGroups('');
         var acc = document.getElementById(accId);
         if (acc) {
           acc.classList.remove('collapsed');
@@ -17040,11 +17164,23 @@ isolation:isolate;}
     });
   }
   if (searchInput) {
-    searchInput.addEventListener('input', function(){ handleSearch(this.value); });
+    searchInput.addEventListener('input', function(){
+      if (tplSearch) tplSearch.value = this.value;
+      filterTemplateGroups(this.value);
+      handleSearch(this.value);
+    });
     searchInput.addEventListener('focus', function(){ if (this.value.trim().length >= 2) handleSearch(this.value); });
   }
+  if (tplSearch) {
+    tplSearch.addEventListener('input', function(){
+      if (searchInput) searchInput.value = this.value;
+      filterTemplateGroups(this.value);
+      if (searchResults) searchResults.classList.remove('show');
+    });
+    tplSearch.addEventListener('focus', function(){ if (searchResults) searchResults.classList.remove('show'); });
+  }
   document.addEventListener('click', function(e){
-    if (!e.target.closest('.sidebar-search')) searchResults.classList.remove('show');
+    if (searchResults && !e.target.closest('.sidebar-search') && !e.target.closest('.filters')) searchResults.classList.remove('show');
   });
 
   // ===== Print to PDF =====
