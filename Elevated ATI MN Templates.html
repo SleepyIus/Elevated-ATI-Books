@@ -216,7 +216,7 @@ body{
 .sidebar-overlay.show{display:block}
 .sidebar-toggle{
   display:none;position:fixed;
-  top:14px;left:14px;z-index:50;
+  top:14px;right:14px;left:auto;z-index:50;
   background:var(--surface);
   border:1px solid var(--border);color:var(--text);
   width:40px;height:40px;border-radius:8px;
@@ -360,6 +360,49 @@ body{
 }
 .mode-toggle button:hover{color:var(--text)}
 .mode-toggle button.active{background:var(--accent);color:#fff}
+.template-modal-nav{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:3px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--surface2);
+}
+.example-header > .template-modal-nav{
+  flex-basis:100%;
+  width:100%;
+  justify-content:space-between;
+  margin-top:2px;
+}
+.template-modal-nav button{
+  border:0;
+  background:transparent;
+  color:var(--text2);
+  border-radius:7px;
+  padding:7px 10px;
+  font:inherit;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+  transition:all .15s;
+}
+.template-modal-nav button:hover:not(:disabled){
+  background:var(--accent-soft);
+  color:var(--accent);
+}
+.template-modal-nav button:disabled{
+  color:var(--text3);
+  cursor:not-allowed;
+  opacity:.45;
+}
+.template-modal-count{
+  min-width:42px;
+  color:var(--text3);
+  font-size:11px;
+  font-weight:900;
+  text-align:center;
+}
 
 /* TEMPLATE META FIELDS */
 .template-meta{
@@ -530,7 +573,7 @@ button:focus-visible,a:focus-visible{
 .eyebrow{color:var(--accent)}
 .hero .main-course,.hero .eyebrow{margin-bottom:8px}
 .hero .main-title,.hero h1{margin:0 0 10px;letter-spacing:0}
-.hero .main-desc,.hero p{max-width:760px;margin:0}
+.hero .main-desc,.hero p{max-width:760px;margin:0;line-height:25px;min-height:125px}
 .hero .compare-btn{margin-top:22px}
 .panel{
   padding:0;
@@ -821,21 +864,21 @@ button:focus-visible,a:focus-visible{
   box-shadow:0 20px 60px rgba(0,0,0,0.4);
 }
 .modal-header{
-  padding:24px 28px 0;flex-shrink:0;
+  padding:28px 32px 22px;flex-shrink:0;
   background:var(--surface);
   border-bottom:1px solid var(--border);
 }
 .modal-title-row{
   display:flex;align-items:flex-start;justify-content:space-between;
-  gap:16px;margin-bottom:14px;
+  gap:16px;width:100%;margin-bottom:14px;
 }
 .modal-meta{
   font-size:11px;font-weight:600;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--accent);margin-bottom:6px;
+  text-transform:uppercase;color:var(--accent);margin:0 0 8px;
 }
 .modal-title{
   font-family:'DM Serif Display',serif;
-  font-size:28px;font-weight:400;line-height:1.1;
+  font-size:34px;font-weight:400;line-height:1.1;
   color:var(--text);margin:0;
 }
 .modal-title em{font-style:italic;color:var(--accent2)}
@@ -895,7 +938,7 @@ button:focus-visible,a:focus-visible{
   .modal-overlay{padding:0}
   .modal{max-width:100%;border-radius:0;max-height:100vh;height:100vh;border:none}
   .modal-header{padding:16px 18px 0}
-  .modal-title{font-size:22px}
+  .modal-title{font-size:28px}
   .modal-body{padding:20px 18px 40px}
 }
 body.modal-open{overflow:hidden}
@@ -996,12 +1039,16 @@ body.modal-open{overflow:hidden}
 .back-home-mobile:hover{color:var(--accent);border-color:var(--accent)}
 .back-home-mobile::before{content:'←';font-size:12px}
 
-/* Mobile-specific overrides for stacked top buttons */
+/* Mobile nav rail: Back to Hub on the left, menu on the right */
 @media(max-width:900px){
-  .sidebar-toggle{top:66px!important}
-  .sidebar-header{padding-top:116px!important}
+  .sidebar-toggle{
+    top:14px!important;
+    right:14px!important;
+    left:auto!important;
+  }
+  .sidebar-header{padding-top:72px!important}
   .sidebar-header .back-home{display:none}
-  .main-content,.template-main{padding:124px 24px 60px!important}
+  .main-content,.template-main{padding:92px 24px 60px!important}
   .back-home-mobile{display:flex}
 }
 
@@ -1072,7 +1119,7 @@ body.modal-open{overflow:hidden}
 }
 
 
-.ex-jump{color:var(--accent);text-decoration:none;font-weight:600;border-bottom:1px dotted var(--accent)}
+.ex-jump{display:inline-block;margin-top:2px;color:var(--accent);text-decoration:none;font-weight:600;border-bottom:1px dotted var(--accent)}
 .ex-jump:hover{color:var(--accent2);border-bottom-style:solid}
 
 /* ===== In-content search highlight (applied after clicking a search result) ===== */
@@ -1922,7 +1969,8 @@ isolation:isolate;}
     padding:0!important;
   }
   body.printing-modal #exampleModal .modal-actions,
-  body.printing-modal #exampleModal .mode-toggle{display:none!important}
+  body.printing-modal #exampleModal .mode-toggle,
+  body.printing-modal #exampleModal .template-modal-nav{display:none!important}
   body.printing-modal #exampleModal .example-card{
     box-shadow:none!important;border:none!important;
     padding:0!important;page-break-inside:avoid;
@@ -2126,6 +2174,7 @@ isolation:isolate;}
   }
   body.printing-one-tpl .tpl-print-btn,
   body.printing-one-tpl .mode-toggle,
+  body.printing-one-tpl .template-modal-nav,
   body.printing-one-tpl .ex-jump { display: none !important }
 }
 
@@ -2178,7 +2227,7 @@ isolation:isolate;}
 </head>
 <body>
 
-  <button class="sidebar-toggle" id="tplSidebarToggle" type="button" aria-label="Toggle template navigation">☰</button>
+  <button class="sidebar-toggle" id="tplSidebarToggle" type="button" aria-label="Open template navigation" aria-expanded="false">☰</button>
   <a class="back-home-mobile" href="Elevated%20ATI%20MN%20Hub.html">Back to Hub</a>
   <div class="sidebar-overlay" id="tplSidebarOverlay"></div>
 
@@ -2689,7 +2738,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Skin and Breast Changes During Pregnancy</span>
-                <span class="example-source">Ch 3 — Expected Physiological Changes · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch3-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 3 — Expected Physiological Changes<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch3-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -2764,7 +2813,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">UTI Prevention During Pregnancy</span>
-                <span class="example-source">Ch 4 — Prenatal Care · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch4-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 4 — Prenatal Care<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch4-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -2832,7 +2881,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Inadequate Nutrition Risk Factors During Pregnancy</span>
-                <span class="example-source">Ch 5 — Nutrition During Pregnancy · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch5-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 5 — Nutrition During Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch5-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -2918,7 +2967,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Nonpharmacological Pain Management in Labor</span>
-                <span class="example-source">Ch 12 — Pain Management · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch12-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 12 — Pain Management<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch12-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -2998,7 +3047,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Fourth Stage of Labor Care</span>
-                <span class="example-source">Ch 14 — Nursing Care During Stages of Labor · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch14-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 14 — Nursing Care During Stages of Labor<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch14-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -3092,7 +3141,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Postpartum Perineal Care</span>
-                <span class="example-source">Ch 17 — Postpartum Physiological Adaptations · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch17-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 17 — Postpartum Physiological Adaptations<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch17-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -3186,7 +3235,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Paternal Adaptation to Parenthood</span>
-                <span class="example-source">Ch 18 — Baby-Friendly Care · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch18-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 18 — Baby-Friendly Care<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch18-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -3271,7 +3320,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Discharge Teaching — Nonlactating Postpartum Client</span>
-                <span class="example-source">Ch 19 — Client Education &amp; Discharge Teaching · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch19-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 19 — Client Education &amp; Discharge Teaching<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch19-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -3360,7 +3409,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Newborn Airway Clearance &amp; Bulb Syringe</span>
-                <span class="example-source">Ch 24 — Nursing Care of Newborns · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch24-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 24 — Nursing Care of Newborns<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch24-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -3472,7 +3521,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Breast Pump Use &amp; Milk Storage</span>
-                <span class="example-source">Ch 25 — Newborn Nutrition · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch25-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 25 — Newborn Nutrition<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch25-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -3569,7 +3618,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Newborn Bathing</span>
-                <span class="example-source">Ch 26 — Nursing Care &amp; Discharge Teaching · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch26-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 26 — Nursing Care &amp; Discharge Teaching<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch26-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -3659,7 +3708,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Apgar Score Assessment</span>
-                <span class="example-source">Ch 23 — Newborn Assessment · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch23-apgar">Open chapter ↗</a></span>
+                <span class="example-source">Ch 23 — Newborn Assessment<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch23-apgar">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -3731,7 +3780,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Newborn Reflex Assessment</span>
-                <span class="example-source">Ch 23 — Newborn Assessment · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch23-reflexes">Open chapter ↗</a></span>
+                <span class="example-source">Ch 23 — Newborn Assessment<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch23-reflexes">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -3809,7 +3858,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Fetal Heart Rate Deceleration Patterns</span>
-                <span class="example-source">Ch 13 — Fetal Assessment During Labor · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch13-patterns">Open chapter ↗</a></span>
+                <span class="example-source">Ch 13 — Fetal Assessment During Labor<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch13-patterns">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -3900,7 +3949,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Pregnancy Weight Gain by Pre-Pregnancy BMI</span>
-                <span class="example-source">Ch 5 — Nutrition During Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch5-weight">Open chapter ↗</a></span>
+                <span class="example-source">Ch 5 — Nutrition During Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch5-weight">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -4021,7 +4070,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Bishop Score</span>
-                <span class="example-source">Ch 11 — Labor and Delivery Processes · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch11-stages">Open chapter ↗</a></span>
+                <span class="example-source">Ch 11 — Labor and Delivery Processes<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch11-stages">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -4152,7 +4201,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Common Discomforts of Pregnancy by Trimester</span>
-                <span class="example-source">Ch 4 — Prenatal Care · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch4-discomforts">Open chapter ↗</a></span>
+                <span class="example-source">Ch 4 — Prenatal Care<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch4-discomforts">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -4261,7 +4310,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">TORCH Infections</span>
-                <span class="example-source">Ch 8 — Infections · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch8-torch">Open chapter ↗</a></span>
+                <span class="example-source">Ch 8 — Infections<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch8-torch">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -4392,7 +4441,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">BUBBLE-HE Postpartum Assessment</span>
-                <span class="example-source">Ch 17 — Postpartum Adaptations · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch17-uterus">Open chapter ↗</a></span>
+                <span class="example-source">Ch 17 — Postpartum Adaptations<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch17-uterus">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -4527,7 +4576,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Maternal Role Attainment / Rubin's Phases</span>
-                <span class="example-source">Ch 18 — Baby-Friendly Care of the Newborn · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch18-maternal-phases">Open chapter ↗</a></span>
+                <span class="example-source">Ch 18 — Baby-Friendly Care of the Newborn<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch18-maternal-phases">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -4676,7 +4725,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Car Seat Safety</span>
-                <span class="example-source">Ch 26 — Newborn Discharge Teaching · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch26-clothing-safety">Open chapter ↗</a></span>
+                <span class="example-source">Ch 26 — Newborn Discharge Teaching<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch26-clothing-safety">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -4819,7 +4868,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Five P's of Labor</span>
-                <span class="example-source">Ch 11 — Labor & Delivery Processes · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch11">Open chapter ↗</a></span>
+                <span class="example-source">Ch 11 — Labor & Delivery Processes<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch11">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -4845,7 +4894,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Four Stages of Labor — Overview</span>
-                <span class="example-source">Ch 11 — Labor & Delivery Processes · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch11">Open chapter ↗</a></span>
+                <span class="example-source">Ch 11 — Labor & Delivery Processes<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch11">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -4871,7 +4920,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">True vs False Labor</span>
-                <span class="example-source">Ch 11 — Labor & Delivery Processes · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch11">Open chapter ↗</a></span>
+                <span class="example-source">Ch 11 — Labor & Delivery Processes<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch11">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -4897,7 +4946,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Three-Tier FHR Interpretation System</span>
-                <span class="example-source">Ch 13 — Fetal Assessment During Labor · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch13">Open chapter ↗</a></span>
+                <span class="example-source">Ch 13 — Fetal Assessment During Labor<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch13">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -4924,7 +4973,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">First Stage of Labor — Nursing Care</span>
-                <span class="example-source">Ch 14 — Nursing Care During Stages of Labor · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch14">Open chapter ↗</a></span>
+                <span class="example-source">Ch 14 — Nursing Care During Stages of Labor<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch14">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -4950,7 +4999,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Second Stage of Labor — Nursing Care</span>
-                <span class="example-source">Ch 14 — Nursing Care During Stages of Labor · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch14">Open chapter ↗</a></span>
+                <span class="example-source">Ch 14 — Nursing Care During Stages of Labor<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch14">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -4976,7 +5025,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Third Stage of Labor — Nursing Care</span>
-                <span class="example-source">Ch 14 — Nursing Care During Stages of Labor · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch14">Open chapter ↗</a></span>
+                <span class="example-source">Ch 14 — Nursing Care During Stages of Labor<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch14">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5002,7 +5051,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Initial Prenatal Assessment</span>
-                <span class="example-source">Ch 4 — Prenatal Care · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch4">Open chapter ↗</a></span>
+                <span class="example-source">Ch 4 — Prenatal Care<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch4">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5029,7 +5078,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Naegele's Rule and Pregnancy Dating</span>
-                <span class="example-source">Ch 4 — Prenatal Care · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch4">Open chapter ↗</a></span>
+                <span class="example-source">Ch 4 — Prenatal Care<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch4">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5055,7 +5104,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Signs of Pregnancy (Presumptive, Probable, Positive)</span>
-                <span class="example-source">Ch 3 — Expected Physiological Changes · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch3">Open chapter ↗</a></span>
+                <span class="example-source">Ch 3 — Expected Physiological Changes<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch3">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5082,7 +5131,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Lochia — Three Stages</span>
-                <span class="example-source">Ch 17 — Postpartum Physiological Adaptations · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch17">Open chapter ↗</a></span>
+                <span class="example-source">Ch 17 — Postpartum Physiological Adaptations<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch17">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5108,7 +5157,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Danger Signs in Pregnancy</span>
-                <span class="example-source">Ch 4 — Prenatal Care · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch4">Open chapter ↗</a></span>
+                <span class="example-source">Ch 4 — Prenatal Care<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch4">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5134,7 +5183,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Discharge Teaching — Lactating Postpartum Client</span>
-                <span class="example-source">Ch 19 — Client Education & Discharge Teaching · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch19">Open chapter ↗</a></span>
+                <span class="example-source">Ch 19 — Client Education & Discharge Teaching<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch19">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5160,7 +5209,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Newborn CPR & Safe Sleep Education</span>
-                <span class="example-source">Ch 26 — Newborn Discharge Teaching · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch26">Open chapter ↗</a></span>
+                <span class="example-source">Ch 26 — Newborn Discharge Teaching<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch26">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5186,7 +5235,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Natural Family Planning</span>
-                <span class="example-source">Ch 1 — Contraception · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch1">Open chapter ↗</a></span>
+                <span class="example-source">Ch 1 — Contraception<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch1">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5212,7 +5261,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Barrier Contraception Methods</span>
-                <span class="example-source">Ch 1 — Contraception · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch1">Open chapter ↗</a></span>
+                <span class="example-source">Ch 1 — Contraception<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch1">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5238,7 +5287,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Prenatal Nutrient Targets</span>
-                <span class="example-source">Ch 5 — Nutrition During Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch5-education">Open chapter ↗</a></span>
+                <span class="example-source">Ch 5 — Nutrition During Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch5-education">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5263,7 +5312,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Prenatal Visit Schedule &amp; Surveillance</span>
-                <span class="example-source">Ch 4 — Prenatal Care · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch4-schedule">Open chapter ↗</a></span>
+                <span class="example-source">Ch 4 — Prenatal Care<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch4-schedule">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5288,7 +5337,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Postpartum Warning Signs to Report</span>
-                <span class="example-source">Ch 19 — Postpartum Discharge Teaching · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch19-redflags">Open chapter ↗</a></span>
+                <span class="example-source">Ch 19 — Postpartum Discharge Teaching<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch19-redflags">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5313,7 +5362,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Sibling Adaptation</span>
-                <span class="example-source">Ch 18 — Family Adaptation · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch18-sibling">Open chapter ↗</a></span>
+                <span class="example-source">Ch 18 — Family Adaptation<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch18-sibling">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5338,7 +5387,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Newborn Nutritional Needs</span>
-                <span class="example-source">Ch 25 — Newborn Nutrition · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch25-needs">Open chapter ↗</a></span>
+                <span class="example-source">Ch 25 — Newborn Nutrition<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch25-needs">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5363,7 +5412,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Causes of Bleeding by Trimester</span>
-                <span class="example-source">Ch 7 — Bleeding During Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-causes">Open chapter ↗</a></span>
+                <span class="example-source">Ch 7 — Bleeding During Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-causes">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5388,7 +5437,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Supine Hypotensive Syndrome</span>
-                <span class="example-source">Ch 3 — Maternal Adaptation in Early Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch3-vitals">Open chapter ↗</a></span>
+                <span class="example-source">Ch 3 — Maternal Adaptation in Early Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch3-vitals">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5412,7 +5461,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Newborn Illness Signs &amp; Checkup Schedule</span>
-                <span class="example-source">Ch 26 — Newborn Discharge Teaching · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch26-checkups-illness">Open chapter ↗</a></span>
+                <span class="example-source">Ch 26 — Newborn Discharge Teaching<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch26-checkups-illness">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5436,7 +5485,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Pain Method by Birth Stage</span>
-                <span class="example-source">Ch 12 — Pain Management During Labor · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch12-stage-table">Open chapter ↗</a></span>
+                <span class="example-source">Ch 12 — Pain Management During Labor<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch12-stage-table">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5475,7 +5524,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Hysterosalpingography (HSG)</span>
-                <span class="example-source">Ch 2 — Infertility · Tubal patency assessment · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch2-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 2 — Infertility · Tubal patency assessment<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch2-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5591,7 +5640,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Nonstress Test (NST)</span>
-                <span class="example-source">Ch 6 — Assessment of Fetal Well-Being · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch6-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 6 — Assessment of Fetal Well-Being<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch6-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5708,7 +5757,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Biophysical Profile (BPP)</span>
-                <span class="example-source">Ch 6 — Assessment of Fetal Well-Being · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch6-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 6 — Assessment of Fetal Well-Being<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch6-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5826,7 +5875,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Ultrasound (Abdominal &amp; Transvaginal)</span>
-                <span class="example-source">Ch 6 — Assessment of Fetal Well-Being · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch6-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 6 — Assessment of Fetal Well-Being<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch6-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -5958,7 +6007,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Amniocentesis</span>
-                <span class="example-source">Ch 6 — Assessment of Fetal Well-Being · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch6-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 6 — Assessment of Fetal Well-Being<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch6-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -6098,7 +6147,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Newborn Screening Tests</span>
-                <span class="example-source">Ch 24 — Nursing Care of Newborns · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch24-medications">Open chapter ↗</a></span>
+                <span class="example-source">Ch 24 — Nursing Care of Newborns<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch24-medications">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -6130,7 +6179,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Contraction Stress Test (CST)</span>
-                <span class="example-source">Ch 6 — Assessment of Fetal Well-Being · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch6">Open chapter ↗</a></span>
+                <span class="example-source">Ch 6 — Assessment of Fetal Well-Being<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch6">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -6183,7 +6232,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">MSAFP and Quad Marker Screening</span>
-                <span class="example-source">Ch 6 — Assessment of Fetal Well-Being · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch6">Open chapter ↗</a></span>
+                <span class="example-source">Ch 6 — Assessment of Fetal Well-Being<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch6">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -6236,7 +6285,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">PUBS and CVS</span>
-                <span class="example-source">Ch 6 — Assessment of Fetal Well-Being · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch6">Open chapter ↗</a></span>
+                <span class="example-source">Ch 6 — Assessment of Fetal Well-Being<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch6">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -6289,7 +6338,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Routine Prenatal Laboratory Tests</span>
-                <span class="example-source">Ch 4 — Prenatal Care · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch4">Open chapter ↗</a></span>
+                <span class="example-source">Ch 4 — Prenatal Care<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch4">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -6342,7 +6391,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">hCG Verification of Pregnancy</span>
-                <span class="example-source">Ch 3 — Maternal Adaptation in Early Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch3-verify">Open chapter ↗</a></span>
+                <span class="example-source">Ch 3 — Maternal Adaptation in Early Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch3-verify">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -6375,7 +6424,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Oral Glucose Tolerance Test (OGTT)</span>
-                <span class="example-source">Ch 4 (Prenatal Labs) &amp; Ch 9 (Diabetes in Pregnancy) · GDM screening/diagnosis · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-gdm">Open chapter ↗</a></span>
+                <span class="example-source">Ch 4 (Prenatal Labs) &amp; Ch 9 (Diabetes in Pregnancy) · GDM screening/diagnosis<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-gdm">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -6466,7 +6515,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Group B Strep (GBS) Screening Culture</span>
-                <span class="example-source">Ch 8 — Infections · 35–37 wk rectovaginal culture · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch8-gbs">Open chapter ↗</a></span>
+                <span class="example-source">Ch 8 — Infections · 35–37 wk rectovaginal culture<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch8-gbs">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -6553,7 +6602,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Kleihauer-Betke Test</span>
-                <span class="example-source">Ch 7 (Bleeding) &amp; Ch 6 (PUBS) · Detects fetal blood in maternal circulation · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-abruption">Open chapter ↗</a></span>
+                <span class="example-source">Ch 7 (Bleeding) &amp; Ch 6 (PUBS) · Detects fetal blood in maternal circulation<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-abruption">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -6637,7 +6686,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Newborn Bilirubin &amp; Coombs Testing</span>
-                <span class="example-source">Ch 27 — Newborn Complications · Hyperbilirubinemia workup · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-hyperbilirubinemia">Open chapter ↗</a></span>
+                <span class="example-source">Ch 27 — Newborn Complications · Hyperbilirubinemia workup<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-hyperbilirubinemia">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -6744,7 +6793,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Newborn Physical Development</span>
-                <span class="example-source">Ch 23 — Newborn Assessment · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch23-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 23 — Newborn Assessment<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch23-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -6884,7 +6933,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Fetal Growth &amp; Development by Trimester</span>
-                <span class="example-source">Ch 3 — Maternal Adaptation in Early Pregnancy · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch3-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 3 — Maternal Adaptation in Early Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch3-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -6926,7 +6975,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Maternal Physiologic Adaptation Across Pregnancy</span>
-                <span class="example-source">Ch 3 — Maternal Adaptation in Early Pregnancy · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch3-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 3 — Maternal Adaptation in Early Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch3-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -6968,7 +7017,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Postpartum Maternal Adaptation (Body Systems)</span>
-                <span class="example-source">Ch 17 — Postpartum Physiologic Changes · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch17-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 17 — Postpartum Physiologic Changes<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch17-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -7010,7 +7059,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Preterm vs Term Newborn Maturity</span>
-                <span class="example-source">Ch 27 — Management of Newborn Complications · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-preterm">Open chapter ↗</a></span>
+                <span class="example-source">Ch 27 — Management of Newborn Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-preterm">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -7097,7 +7146,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Infant Reflexes &amp; Neuromotor Development</span>
-                <span class="example-source">Ch 23 — Newborn Assessment · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch23-reflexes">Open chapter ↗</a></span>
+                <span class="example-source">Ch 23 — Newborn Assessment<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch23-reflexes">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -7182,7 +7231,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Postmature (Post-term) Newborn</span>
-                <span class="example-source">Ch 27 — Management of Newborn Complications · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-sga-lga-postmature">Open chapter ↗</a></span>
+                <span class="example-source">Ch 27 — Management of Newborn Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-sga-lga-postmature">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -7282,7 +7331,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Methotrexate (Trexall)</span>
-                <span class="example-source">Ch 7 — Bleeding During Pregnancy · Ectopic Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-ectopic">Open chapter ↗</a></span>
+                <span class="example-source">Ch 7 — Bleeding During Pregnancy · Ectopic Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-ectopic">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -7374,7 +7423,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Betamethasone (Celestone)</span>
-                <span class="example-source">Ch 7 — Bleeding During Pregnancy · Placenta Previa · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-placenta-previa">Open chapter ↗</a></span>
+                <span class="example-source">Ch 7 — Bleeding During Pregnancy · Placenta Previa<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-placenta-previa">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -7462,7 +7511,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Rho(D) Immune Globulin (RhoGAM)</span>
-                <span class="example-source">Ch 7 — Bleeding During Pregnancy · Universal Rh-negative · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-exercises">Open chapter ↗</a></span>
+                <span class="example-source">Ch 7 — Bleeding During Pregnancy · Universal Rh-negative<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-exercises">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -7549,7 +7598,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Combined Oral Contraceptives (COCs)</span>
-                <span class="example-source">Ch 1 — Contraception · Hormonal methods · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch1-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 1 — Contraception · Hormonal methods<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch1-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -7655,7 +7704,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Magnesium Sulfate</span>
-                <span class="example-source">Ch 9 — Medical Conditions · Highest-yield maternal med · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 9 — Medical Conditions · Highest-yield maternal med<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -7764,7 +7813,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Nifedipine</span>
-                <span class="example-source">Ch 9 + Ch 10 · Antihypertensive &amp; tocolytic · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 9 + Ch 10 · Antihypertensive &amp; tocolytic<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -7868,7 +7917,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Penicillin G (Intrapartum GBS Prophylaxis)</span>
-                <span class="example-source">Ch 8 — Infections · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch8-gbs">Open chapter ↗</a></span>
+                <span class="example-source">Ch 8 — Infections<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch8-gbs">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -7915,7 +7964,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Oxytocin (Pitocin)</span>
-                <span class="example-source">Ch 11 — Labor &amp; Delivery · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch11-stages">Open chapter ↗</a></span>
+                <span class="example-source">Ch 11 — Labor &amp; Delivery<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch11-stages">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -7962,7 +8011,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Vitamin K (Phytonadione · AquaMEPHYTON)</span>
-                <span class="example-source">Ch 24 — Newborn Care · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch24-medications">Open chapter ↗</a></span>
+                <span class="example-source">Ch 24 — Newborn Care<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch24-medications">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8009,7 +8058,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Erythromycin 0.5% Ophthalmic Ointment</span>
-                <span class="example-source">Ch 24 — Newborn Care · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch24-medications">Open chapter ↗</a></span>
+                <span class="example-source">Ch 24 — Newborn Care<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch24-medications">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8055,7 +8104,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Terbutaline (Brethine)</span>
-                <span class="example-source">Ch 10 — Early Onset of Labor · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch10-tocolytics">Open chapter ↗</a></span>
+                <span class="example-source">Ch 10 — Early Onset of Labor<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch10-tocolytics">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8102,7 +8151,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Misoprostol (Cytotec)</span>
-                <span class="example-source">Ch 11 — Labor &amp; Delivery · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15-induction">Open chapter ↗</a></span>
+                <span class="example-source">Ch 11 — Labor &amp; Delivery<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15-induction">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8148,7 +8197,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Butorphanol (Stadol) — IV Opioid in Labor</span>
-                <span class="example-source">Ch 12 — Pain Management in Labor · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch12-analgesia">Open chapter ↗</a></span>
+                <span class="example-source">Ch 12 — Pain Management in Labor<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch12-analgesia">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8192,7 +8241,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Intrauterine Device (IUD)</span>
-                <span class="example-source">Ch 1 — Contraception · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch1-iud">Open chapter ↗</a></span>
+                <span class="example-source">Ch 1 — Contraception<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch1-iud">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8229,7 +8278,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Other Hormonal Contraceptives</span>
-                <span class="example-source">Ch 1 — Contraception · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch1">Open chapter ↗</a></span>
+                <span class="example-source">Ch 1 — Contraception<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch1">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8273,7 +8322,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Emergency Contraception</span>
-                <span class="example-source">Ch 1 — Contraception · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch1-hormonal">Open chapter ↗</a></span>
+                <span class="example-source">Ch 1 — Contraception<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch1-hormonal">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8317,7 +8366,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Hepatitis B Vaccine at Birth</span>
-                <span class="example-source">Ch 24 — Newborn Nursing Care &amp; Procedures · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch24-medications">Open chapter ↗</a></span>
+                <span class="example-source">Ch 24 — Newborn Nursing Care &amp; Procedures<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch24-medications">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8361,7 +8410,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Iron Supplementation in Pregnancy</span>
-                <span class="example-source">Ch 5 — Nutrition During Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch5-education">Open chapter ↗</a></span>
+                <span class="example-source">Ch 5 — Nutrition During Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch5-education">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8420,7 +8469,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Fundal Massage</span>
-                <span class="example-source">Ch 14 — Stages of Labor + Ch 20 — Postpartum Disorders · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch14-fourth">Open chapter ↗</a></span>
+                <span class="example-source">Ch 14 — Stages of Labor + Ch 20 — Postpartum Disorders<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch14-fourth">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8523,7 +8572,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Newborn Heel Stick (Capillary Blood Sampling)</span>
-                <span class="example-source">Ch 24 — Nursing Care of Newborns · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch24-physical-labs">Open chapter ↗</a></span>
+                <span class="example-source">Ch 24 — Nursing Care of Newborns<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch24-physical-labs">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8627,7 +8676,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Newborn Vital Signs Assessment</span>
-                <span class="example-source">Ch 23 — Newborn Assessment · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch23-physical">Open chapter ↗</a></span>
+                <span class="example-source">Ch 23 — Newborn Assessment<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch23-physical">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8731,7 +8780,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Newborn Umbilical Cord Care</span>
-                <span class="example-source">Ch 24 — Newborn Care · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch24-care">Open chapter ↗</a></span>
+                <span class="example-source">Ch 24 — Newborn Care<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch24-care">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8764,7 +8813,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Newborn Circumcision Care</span>
-                <span class="example-source">Ch 24 — Newborn Care · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch24-circumcision">Open chapter ↗</a></span>
+                <span class="example-source">Ch 24 — Newborn Care<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch24-circumcision">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8797,7 +8846,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Breastfeeding Latch Assessment</span>
-                <span class="example-source">Ch 25 — Newborn Nutrition · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch25-breastfeeding">Open chapter ↗</a></span>
+                <span class="example-source">Ch 25 — Newborn Nutrition<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch25-breastfeeding">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8829,7 +8878,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Formula Feeding Preparation</span>
-                <span class="example-source">Ch 25 — Newborn Nutrition · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch25-formula">Open chapter ↗</a></span>
+                <span class="example-source">Ch 25 — Newborn Nutrition<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch25-formula">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8856,7 +8905,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Intrapartum Initial Assessment</span>
-                <span class="example-source">Ch 11 — Nursing Care During Stages of Labor · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch11-assessment">Open chapter ↗</a></span>
+                <span class="example-source">Ch 11 — Nursing Care During Stages of Labor<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch11-assessment">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8885,7 +8934,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Intermittent Auscultation of FHR</span>
-                <span class="example-source">Ch 13 — Fetal Assessment During Labor · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch13-auscultation">Open chapter ↗</a></span>
+                <span class="example-source">Ch 13 — Fetal Assessment During Labor<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch13-auscultation">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8914,7 +8963,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Genetic Counseling Referral &amp; Support</span>
-                <span class="example-source">Ch 2 — Infertility &amp; Genetic Counseling · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch2-genetic">Open chapter ↗</a></span>
+                <span class="example-source">Ch 2 — Infertility &amp; Genetic Counseling<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch2-genetic">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8943,7 +8992,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Neonatal Thermoregulation</span>
-                <span class="example-source">Ch 24 — Newborn Nursing Care &amp; Procedures · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch24-resp-id-thermo">Open chapter ↗</a></span>
+                <span class="example-source">Ch 24 — Newborn Nursing Care &amp; Procedures<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch24-resp-id-thermo">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -8972,7 +9021,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Leopold Maneuvers</span>
-                <span class="example-source">Ch 13 — Fetal Assessment During Labor · External abdominal palpation · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch13-leopold">Open chapter ↗</a></span>
+                <span class="example-source">Ch 13 — Fetal Assessment During Labor · External abdominal palpation<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch13-leopold">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -9074,7 +9123,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Fundal Height Measurement</span>
-                <span class="example-source">Ch 4 — Prenatal Care · McDonald method · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch4-assessment">Open chapter ↗</a></span>
+                <span class="example-source">Ch 4 — Prenatal Care · McDonald method<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch4-assessment">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -9176,7 +9225,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Magnesium Sulfate Administration &amp; Monitoring</span>
-                <span class="example-source">Ch 9 — Hypertensive Disorders · Seizure prophylaxis · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-magsulfate">Open chapter ↗</a></span>
+                <span class="example-source">Ch 9 — Hypertensive Disorders · Seizure prophylaxis<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-magsulfate">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -9279,7 +9328,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Phototherapy Care</span>
-                <span class="example-source">Ch 27 — Newborn Complications · Hyperbilirubinemia treatment · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-hyperbilirubinemia">Open chapter ↗</a></span>
+                <span class="example-source">Ch 27 — Newborn Complications · Hyperbilirubinemia treatment<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-hyperbilirubinemia">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -9396,7 +9445,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Placenta Previa</span>
-                <span class="example-source">Ch 7 — Bleeding During Pregnancy · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-placenta-previa">Open chapter ↗</a></span>
+                <span class="example-source">Ch 7 — Bleeding During Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-placenta-previa">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -9518,7 +9567,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Abruptio Placentae</span>
-                <span class="example-source">Ch 7 — Bleeding During Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-abruption">Open chapter ↗</a></span>
+                <span class="example-source">Ch 7 — Bleeding During Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-abruption">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -9640,7 +9689,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Spontaneous Abortion</span>
-                <span class="example-source">Ch 7 — Bleeding During Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-spontaneous-abortion">Open chapter ↗</a></span>
+                <span class="example-source">Ch 7 — Bleeding During Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-spontaneous-abortion">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -9762,7 +9811,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Ectopic Pregnancy</span>
-                <span class="example-source">Ch 7 — Bleeding During Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-ectopic">Open chapter ↗</a></span>
+                <span class="example-source">Ch 7 — Bleeding During Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-ectopic">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -9879,7 +9928,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Gestational Trophoblastic Disease (Hydatidiform Mole)</span>
-                <span class="example-source">Ch 7 — Bleeding During Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-gtd">Open chapter ↗</a></span>
+                <span class="example-source">Ch 7 — Bleeding During Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-gtd">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -9992,7 +10041,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Vasa Previa</span>
-                <span class="example-source">Ch 7 — Bleeding During Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-vasa-previa">Open chapter ↗</a></span>
+                <span class="example-source">Ch 7 — Bleeding During Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-vasa-previa">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -10097,7 +10146,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Infertility</span>
-                <span class="example-source">Ch 2 — Infertility · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch2-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 2 — Infertility<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch2-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -10226,7 +10275,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Preterm Labor</span>
-                <span class="example-source">Ch 10 — Early Onset of Labor · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch10-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 10 — Early Onset of Labor<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch10-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -10367,7 +10416,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Meconium-Stained Amniotic Fluid</span>
-                <span class="example-source">Ch 16 — Complications Related to the Labor Process · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch16-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 16 — Complications Related to the Labor Process<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch16-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -10504,7 +10553,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Deep-Vein Thrombosis (Postpartum)</span>
-                <span class="example-source">Ch 20 — Postpartum Disorders · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch20-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 20 — Postpartum Disorders<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch20-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -10644,7 +10693,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Endometritis (Postpartum)</span>
-                <span class="example-source">Ch 21 — Postpartum Infections · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch21-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 21 — Postpartum Infections<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch21-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -10787,7 +10836,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Postpartum Depression</span>
-                <span class="example-source">Ch 22 — Postpartum Depression · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch22-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 22 — Postpartum Depression<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch22-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -10929,7 +10978,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Hyperbilirubinemia</span>
-                <span class="example-source">Ch 27 — Newborn Complications · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 27 — Newborn Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -11209,7 +11258,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Group B Streptococcus (GBS) Prophylaxis</span>
-                <span class="example-source">Ch 8 — Infections · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch8-gbs">Open chapter ↗</a></span>
+                <span class="example-source">Ch 8 — Infections<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch8-gbs">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -11265,7 +11314,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Gestational Diabetes Mellitus (GDM)</span>
-                <span class="example-source">Ch 9 — Medical Conditions of Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-gdm">Open chapter ↗</a></span>
+                <span class="example-source">Ch 9 — Medical Conditions of Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-gdm">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -11321,7 +11370,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Preterm Premature Rupture of Membranes (PPROM)</span>
-                <span class="example-source">Ch 10 — Early Onset of Labor · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch10-prom">Open chapter ↗</a></span>
+                <span class="example-source">Ch 10 — Early Onset of Labor<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch10-prom">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -11377,7 +11426,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Postpartum Hemorrhage (PPH)</span>
-                <span class="example-source">Ch 16 — Labor Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch20-hemorrhage-meds">Open chapter ↗</a></span>
+                <span class="example-source">Ch 16 — Labor Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch20-hemorrhage-meds">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -11433,7 +11482,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Respiratory Distress Syndrome of the Newborn (RDS)</span>
-                <span class="example-source">Ch 27 — Newborn Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-rds-asphyxia">Open chapter ↗</a></span>
+                <span class="example-source">Ch 27 — Newborn Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-rds-asphyxia">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -11488,7 +11537,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Preeclampsia / Eclampsia</span>
-                <span class="example-source">Ch 9 — Medical Conditions of Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-hypertension">Open chapter ↗</a></span>
+                <span class="example-source">Ch 9 — Medical Conditions of Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-hypertension">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -11544,7 +11593,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">HELLP Syndrome</span>
-                <span class="example-source">Ch 9 — Medical Conditions of Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-hypertension">Open chapter ↗</a></span>
+                <span class="example-source">Ch 9 — Medical Conditions of Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-hypertension">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -11600,7 +11649,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Hyperemesis Gravidarum</span>
-                <span class="example-source">Ch 9 — Medical Conditions of Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-hyperemesis">Open chapter ↗</a></span>
+                <span class="example-source">Ch 9 — Medical Conditions of Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-hyperemesis">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -11656,7 +11705,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Shoulder Dystocia</span>
-                <span class="example-source">Ch 16 — Labor Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch16-dystocia">Open chapter ↗</a></span>
+                <span class="example-source">Ch 16 — Labor Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch16-dystocia">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -11712,7 +11761,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Umbilical Cord Prolapse</span>
-                <span class="example-source">Ch 16 — Labor Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch16-prolapse">Open chapter ↗</a></span>
+                <span class="example-source">Ch 16 — Labor Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch16-prolapse">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -11768,7 +11817,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Uterine Rupture</span>
-                <span class="example-source">Ch 16 — Labor Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch16-rupture">Open chapter ↗</a></span>
+                <span class="example-source">Ch 16 — Labor Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch16-rupture">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -11824,7 +11873,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Mastitis (Lactational)</span>
-                <span class="example-source">Ch 21 — Postpartum Infections · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch21-mastitis">Open chapter ↗</a></span>
+                <span class="example-source">Ch 21 — Postpartum Infections<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch21-mastitis">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -11880,7 +11929,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Neonatal Hypoglycemia</span>
-                <span class="example-source">Ch 27 — Newborn Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-hypoglycemia">Open chapter ↗</a></span>
+                <span class="example-source">Ch 27 — Newborn Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-hypoglycemia">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -11936,7 +11985,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Neonatal Abstinence Syndrome (NAS)</span>
-                <span class="example-source">Ch 27 — Newborn Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-substance-withdrawal">Open chapter ↗</a></span>
+                <span class="example-source">Ch 27 — Newborn Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-substance-withdrawal">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -11991,7 +12040,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Gestational Hypertension</span>
-                <span class="example-source">Ch 9 — Medical Conditions of Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-hypertension">Open chapter ↗</a></span>
+                <span class="example-source">Ch 9 — Medical Conditions of Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-hypertension">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -12045,7 +12094,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Postpartum Hematomas</span>
-                <span class="example-source">Ch 20 — Postpartum Disorders · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch20-retained-lacerations">Open chapter ↗</a></span>
+                <span class="example-source">Ch 20 — Postpartum Disorders<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch20-retained-lacerations">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -12099,7 +12148,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Postpartum Psychosis</span>
-                <span class="example-source">Ch 22 — Postpartum Depression · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch22-psychosis">Open chapter ↗</a></span>
+                <span class="example-source">Ch 22 — Postpartum Depression<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch22-psychosis">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -12153,7 +12202,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Transient Tachypnea of the Newborn (TTN)</span>
-                <span class="example-source">Ch 27 — Newborn Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-rds-asphyxia">Open chapter ↗</a></span>
+                <span class="example-source">Ch 27 — Newborn Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-rds-asphyxia">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -12207,7 +12256,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Meconium Aspiration Syndrome (MAS)</span>
-                <span class="example-source">Ch 27 — Newborn Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-rds-asphyxia">Open chapter ↗</a></span>
+                <span class="example-source">Ch 27 — Newborn Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-rds-asphyxia">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -12260,7 +12309,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Iron-Deficiency Anemia in Pregnancy</span>
-                <span class="example-source">Ch 9 — Medical Conditions of Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-anemia">Open chapter ↗</a></span>
+                <span class="example-source">Ch 9 — Medical Conditions of Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-anemia">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -12314,7 +12363,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Cardiac Disease in Pregnancy</span>
-                <span class="example-source">Ch 9 — Medical Conditions of Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-hypertension">Open chapter ↗</a></span>
+                <span class="example-source">Ch 9 — Medical Conditions of Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-hypertension">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -12368,7 +12417,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Amniotic Fluid Embolism (AFE)</span>
-                <span class="example-source">Ch 16 — Complications Related to the Labor Process · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch16-afe">Open chapter ↗</a></span>
+                <span class="example-source">Ch 16 — Complications Related to the Labor Process<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch16-afe">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -12422,7 +12471,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Subinvolution of the Uterus</span>
-                <span class="example-source">Ch 20 — Postpartum Disorders · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch20-uterine-disorders">Open chapter ↗</a></span>
+                <span class="example-source">Ch 20 — Postpartum Disorders<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch20-uterine-disorders">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -12476,7 +12525,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Necrotizing Enterocolitis (NEC)</span>
-                <span class="example-source">Ch 27 — Newborn Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-anomalies-tef">Open chapter ↗</a></span>
+                <span class="example-source">Ch 27 — Newborn Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-anomalies-tef">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -12530,7 +12579,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Chorioamnionitis</span>
-                <span class="example-source">Ch 10 — Early Onset of Labor · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch10-prom">Open chapter ↗</a></span>
+                <span class="example-source">Ch 10 — Early Onset of Labor<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch10-prom">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -12584,7 +12633,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">DIC in Pregnancy</span>
-                <span class="example-source">Ch 20 — Postpartum Disorders · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch20-coagulopathies">Open chapter ↗</a></span>
+                <span class="example-source">Ch 20 — Postpartum Disorders<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch20-coagulopathies">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -12638,7 +12687,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">HIV in Pregnancy</span>
-                <span class="example-source">Ch 8 — Infections · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch8-hiv">Open chapter ↗</a></span>
+                <span class="example-source">Ch 8 — Infections<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch8-hiv">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -12691,7 +12740,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Chlamydia in Pregnancy</span>
-                <span class="example-source">Ch 8 — Infections · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch8">Open chapter ↗</a></span>
+                <span class="example-source">Ch 8 — Infections<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch8">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -12746,7 +12795,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Gonorrhea in Pregnancy</span>
-                <span class="example-source">Ch 8 — Infections · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch8">Open chapter ↗</a></span>
+                <span class="example-source">Ch 8 — Infections<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch8">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -12801,7 +12850,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Syphilis in Pregnancy</span>
-                <span class="example-source">Ch 8 — Infections · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch8">Open chapter ↗</a></span>
+                <span class="example-source">Ch 8 — Infections<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch8">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -12856,7 +12905,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">HPV in Pregnancy</span>
-                <span class="example-source">Ch 8 — Infections · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch8">Open chapter ↗</a></span>
+                <span class="example-source">Ch 8 — Infections<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch8">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -12911,7 +12960,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Trichomoniasis, BV, and Candidiasis in Pregnancy</span>
-                <span class="example-source">Ch 8 — Infections · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch8">Open chapter ↗</a></span>
+                <span class="example-source">Ch 8 — Infections<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch8">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -12966,7 +13015,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Cervical Insufficiency</span>
-                <span class="example-source">Ch 9 — Medical Conditions / Ch 10 — Early Onset of Labor · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9">Open chapter ↗</a></span>
+                <span class="example-source">Ch 9 — Medical Conditions / Ch 10 — Early Onset of Labor<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -13021,7 +13070,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Postpartum Urinary Tract Infection</span>
-                <span class="example-source">Ch 21 — Postpartum Infections · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch21">Open chapter ↗</a></span>
+                <span class="example-source">Ch 21 — Postpartum Infections<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch21">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -13076,7 +13125,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Postpartum Wound Infection</span>
-                <span class="example-source">Ch 21 — Postpartum Infections · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch21">Open chapter ↗</a></span>
+                <span class="example-source">Ch 21 — Postpartum Infections<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch21">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -13132,7 +13181,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Sepsis Neonatorum</span>
-                <span class="example-source">Ch 27 — Newborn Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27">Open chapter ↗</a></span>
+                <span class="example-source">Ch 27 — Newborn Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -13187,7 +13236,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Preterm Newborn</span>
-                <span class="example-source">Ch 27 — Newborn Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27">Open chapter ↗</a></span>
+                <span class="example-source">Ch 27 — Newborn Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -13242,7 +13291,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Birth Trauma</span>
-                <span class="example-source">Ch 27 — Newborn Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27">Open chapter ↗</a></span>
+                <span class="example-source">Ch 27 — Newborn Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -13297,7 +13346,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Cold Stress</span>
-                <span class="example-source">Ch 27 — Newborn Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27">Open chapter ↗</a></span>
+                <span class="example-source">Ch 27 — Newborn Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -13352,7 +13401,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">SGA, LGA, and Postmature Newborns</span>
-                <span class="example-source">Ch 27 — Newborn Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27">Open chapter ↗</a></span>
+                <span class="example-source">Ch 27 — Newborn Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -13407,7 +13456,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Newborn Asphyxia</span>
-                <span class="example-source">Ch 27 — Newborn Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27">Open chapter ↗</a></span>
+                <span class="example-source">Ch 27 — Newborn Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -13462,7 +13511,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Newborn Hemorrhage</span>
-                <span class="example-source">Ch 27 — Newborn Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27">Open chapter ↗</a></span>
+                <span class="example-source">Ch 27 — Newborn Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -13517,7 +13566,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Dystocia (Dysfunctional Labor)</span>
-                <span class="example-source">Ch 16 — Labor Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch16">Open chapter ↗</a></span>
+                <span class="example-source">Ch 16 — Labor Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch16">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -13573,7 +13622,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Precipitous Labor</span>
-                <span class="example-source">Ch 16 — Labor Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch16">Open chapter ↗</a></span>
+                <span class="example-source">Ch 16 — Labor Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch16">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -13628,7 +13677,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Retained Placenta</span>
-                <span class="example-source">Ch 20 — Postpartum Disorders · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch20">Open chapter ↗</a></span>
+                <span class="example-source">Ch 20 — Postpartum Disorders<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch20">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -13683,7 +13732,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Postpartum Lacerations</span>
-                <span class="example-source">Ch 20 — Postpartum Disorders · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch20">Open chapter ↗</a></span>
+                <span class="example-source">Ch 20 — Postpartum Disorders<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch20">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -13738,7 +13787,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Uterine Inversion</span>
-                <span class="example-source">Ch 20 — Postpartum Disorders · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch20">Open chapter ↗</a></span>
+                <span class="example-source">Ch 20 — Postpartum Disorders<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch20">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -13793,7 +13842,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Postpartum Blues</span>
-                <span class="example-source">Ch 22 — Postpartum Depression &amp; Mood Disorders · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch22-blues">Open chapter ↗</a></span>
+                <span class="example-source">Ch 22 — Postpartum Depression &amp; Mood Disorders<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch22-blues">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -13847,7 +13896,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Fetal Distress (Category III FHR)</span>
-                <span class="example-source">Ch 16 — Complications of Labor &amp; Birth · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch16-distress">Open chapter ↗</a></span>
+                <span class="example-source">Ch 16 — Complications of Labor &amp; Birth<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch16-distress">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -13901,7 +13950,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Pulmonary Embolism (Postpartum)</span>
-                <span class="example-source">Ch 20 — Postpartum Hemorrhage &amp; Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch20-thromboembolic">Open chapter ↗</a></span>
+                <span class="example-source">Ch 20 — Postpartum Hemorrhage &amp; Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch20-thromboembolic">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -13955,7 +14004,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Pre-existing Diabetes in Pregnancy</span>
-                <span class="example-source">Ch 5 — Nutrition During Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch5-complications">Open chapter ↗</a></span>
+                <span class="example-source">Ch 5 — Nutrition During Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch5-complications">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -14009,7 +14058,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">TEF &amp; Major Congenital Anomalies</span>
-                <span class="example-source">Ch 27 — High-Risk Newborn · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-anomalies-tef">Open chapter ↗</a></span>
+                <span class="example-source">Ch 27 — High-Risk Newborn<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-anomalies-tef">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -14078,7 +14127,7 @@ isolation:isolate;}
             <div class="example-info">
               <span class="example-label">Worked Example</span>
               <span class="example-name">Leopold Maneuvers</span>
-              <span class="example-source">Ch 13 — Fetal Assessment During Labor · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch13-leopold">Open chapter ↗</a></span>
+              <span class="example-source">Ch 13 — Fetal Assessment During Labor<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch13-leopold">Open chapter ↗</a></span>
             </div>
             <div class="mode-toggle" role="tablist" aria-label="View mode">
               <button data-mode="filled" class="active" type="button">Filled</button>
@@ -14188,7 +14237,7 @@ isolation:isolate;}
             <div class="example-info">
               <span class="example-label">Worked Example</span>
               <span class="example-name">Dilation &amp; Curettage (D&amp;C)</span>
-              <span class="example-source">Ch 7 — Bleeding During Pregnancy · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-spontaneous-abortion">Open chapter ↗</a></span>
+              <span class="example-source">Ch 7 — Bleeding During Pregnancy<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch7-spontaneous-abortion">Open chapter ↗</a></span>
             </div>
             <div class="mode-toggle" role="tablist" aria-label="View mode">
               <button data-mode="filled" class="active" type="button">Filled</button>
@@ -14308,7 +14357,7 @@ isolation:isolate;}
             <div class="example-info">
               <span class="example-label">Worked Example</span>
               <span class="example-name">Vasectomy</span>
-              <span class="example-source">Ch 1 — Contraception · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch1-als">Open chapter ↗</a></span>
+              <span class="example-source">Ch 1 — Contraception<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch1-als">Open chapter ↗</a></span>
             </div>
             <div class="mode-toggle" role="tablist" aria-label="View mode">
               <button data-mode="filled" class="active" type="button">Filled</button>
@@ -14436,7 +14485,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Cervical Cerclage</span>
-                <span class="example-source">Ch 9 — Medical Conditions · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 9 — Medical Conditions<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -14573,7 +14622,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Vaginal Examination (Intrapartum)</span>
-                <span class="example-source">Ch 11 — Labor &amp; Delivery Processes · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch11-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 11 — Labor &amp; Delivery Processes<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch11-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -14710,7 +14759,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Epidural Block (Anesthesia/Analgesia)</span>
-                <span class="example-source">Ch 12 — Pain Management · Most common labor analgesia · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch12-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 12 — Pain Management · Most common labor analgesia<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch12-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -14856,7 +14905,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Cesarean Birth</span>
-                <span class="example-source">Ch 15 — Therapeutic Procedures · ALS in book · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15-als">Open chapter ↗</a></span>
+                <span class="example-source">Ch 15 — Therapeutic Procedures<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15-als">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15030,7 +15079,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Phototherapy for Hyperbilirubinemia</span>
-                <span class="example-source">Ch 27 — Newborn Complications · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-hyperbilirubinemia">Open chapter ↗</a></span>
+                <span class="example-source">Ch 27 — Newborn Complications<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-hyperbilirubinemia">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15064,7 +15113,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Amniotomy (Artificial Rupture of Membranes)</span>
-                <span class="example-source">Ch 11 — Labor &amp; Delivery · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15-amniotomy-infusion">Open chapter ↗</a></span>
+                <span class="example-source">Ch 11 — Labor &amp; Delivery<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15-amniotomy-infusion">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15097,7 +15146,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Internal Fetal Monitoring</span>
-                <span class="example-source">Ch 13 — Fetal Assessment During Labor · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch13-internal-fm">Open chapter ↗</a></span>
+                <span class="example-source">Ch 13 — Fetal Assessment During Labor<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch13-internal-fm">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15130,7 +15179,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Forceps-Assisted Birth</span>
-                <span class="example-source">Ch 15 — Therapeutic Procedures · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15-operative">Open chapter ↗</a></span>
+                <span class="example-source">Ch 15 — Therapeutic Procedures<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15-operative">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15163,7 +15212,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Vacuum-Assisted Birth</span>
-                <span class="example-source">Ch 15 — Therapeutic Procedures · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15-operative">Open chapter ↗</a></span>
+                <span class="example-source">Ch 15 — Therapeutic Procedures<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15-operative">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15195,7 +15244,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">External Fetal Monitoring (EFM)</span>
-                <span class="example-source">Ch 13 — Fetal Assessment During Labor · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch13-external-efm">Open chapter ↗</a></span>
+                <span class="example-source">Ch 13 — Fetal Assessment During Labor<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch13-external-efm">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15228,7 +15277,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Spinal Block (Subarachnoid Anesthesia)</span>
-                <span class="example-source">Ch 12 — Pain Management · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch12-anesthesia">Open chapter ↗</a></span>
+                <span class="example-source">Ch 12 — Pain Management<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch12-anesthesia">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15260,7 +15309,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Vaginal Birth After Cesarean (VBAC)</span>
-                <span class="example-source">Ch 15 — Therapeutic Procedures · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15">Open chapter ↗</a></span>
+                <span class="example-source">Ch 15 — Therapeutic Procedures<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15292,7 +15341,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">External Cephalic Version (ECV)</span>
-                <span class="example-source">Ch 15 — Therapeutic Procedures · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15">Open chapter ↗</a></span>
+                <span class="example-source">Ch 15 — Therapeutic Procedures<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15324,7 +15373,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Cervical Ripening — Mechanical Methods</span>
-                <span class="example-source">Ch 15 — Therapeutic Procedures · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15">Open chapter ↗</a></span>
+                <span class="example-source">Ch 15 — Therapeutic Procedures<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15356,7 +15405,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Episiotomy</span>
-                <span class="example-source">Ch 15 — Therapeutic Procedures · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15">Open chapter ↗</a></span>
+                <span class="example-source">Ch 15 — Therapeutic Procedures<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15388,7 +15437,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Amnioinfusion</span>
-                <span class="example-source">Ch 15 — Therapeutic Procedures · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15">Open chapter ↗</a></span>
+                <span class="example-source">Ch 15 — Therapeutic Procedures<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15420,7 +15469,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Tubal Ligation</span>
-                <span class="example-source">Ch 1 — Contraception · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch1">Open chapter ↗</a></span>
+                <span class="example-source">Ch 1 — Contraception<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch1">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15452,7 +15501,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Induction &amp; Augmentation of Labor</span>
-                <span class="example-source">Ch 15 — Therapeutic Procedures During Labor · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15-induction">Open chapter ↗</a></span>
+                <span class="example-source">Ch 15 — Therapeutic Procedures During Labor<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch15-induction">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15485,7 +15534,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Assisted Reproductive Technologies (ART)</span>
-                <span class="example-source">Ch 2 — Infertility &amp; Genetic Counseling · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch2-treatment">Open chapter ↗</a></span>
+                <span class="example-source">Ch 2 — Infertility &amp; Genetic Counseling<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch2-treatment">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15533,7 +15582,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Maternal-Newborn Attachment</span>
-                <span class="example-source">Concept spans Ch 17 – 19 (Postpartum Adaptation, Baby-Friendly Care, Discharge Teaching) · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch18-maternal-phases">Open chapter ↗</a></span>
+                <span class="example-source">Concept spans Ch 17 – 19 (Postpartum Adaptation, Baby-Friendly Care, Discharge Teaching)<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch18-maternal-phases">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15620,7 +15669,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Tissue Perfusion · Fetal Oxygenation</span>
-                <span class="example-source">Concept spans Ch 6 (Fetal Well-Being) + Ch 13 (Fetal Assessment) · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch6-bpp">Open chapter ↗</a></span>
+                <span class="example-source">Concept spans Ch 6 (Fetal Well-Being) + Ch 13 (Fetal Assessment)<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch6-bpp">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15706,7 +15755,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Pain in Labor</span>
-                <span class="example-source">Concept spans Ch 12 (Pain Management in Labor), Ch 14 (Nursing Care of Labor) · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch12-sources">Open chapter ↗</a></span>
+                <span class="example-source">Concept spans Ch 12 (Pain Management in Labor), Ch 14 (Nursing Care of Labor)<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch12-sources">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15752,7 +15801,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Lactation</span>
-                <span class="example-source">Concept spans Ch 17 (Postpartum Physiologic Changes), Ch 25 (Newborn Nutrition) · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch25-breastfeeding">Open chapter ↗</a></span>
+                <span class="example-source">Concept spans Ch 17 (Postpartum Physiologic Changes), Ch 25 (Newborn Nutrition)<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch25-breastfeeding">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15798,7 +15847,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Postpartum Hemorrhage</span>
-                <span class="example-source">Concept spans Ch 14 (Labor Stages 3 &amp; 4), Ch 17 (Postpartum), Ch 20 (Postpartum Hemorrhage &amp; Complications) · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch20-hemorrhage-meds">Open chapter ↗</a></span>
+                <span class="example-source">Concept spans Ch 14 (Labor Stages 3 &amp; 4), Ch 17 (Postpartum), Ch 20 (Postpartum Hemorrhage &amp; Complications)<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch20-hemorrhage-meds">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15844,7 +15893,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Family Adaptation to Childbearing</span>
-                <span class="example-source">Concept spans Ch 18 (Maternal &amp; Family Adaptation), Ch 19 (Postpartum Discharge Teaching), Ch 22 (Postpartum Mood Disorders) · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch18-maternal-phases">Open chapter ↗</a></span>
+                <span class="example-source">Concept spans Ch 18 (Maternal &amp; Family Adaptation), Ch 19 (Postpartum Discharge Teaching), Ch 22 (Postpartum Mood Disorders)<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch18-maternal-phases">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15890,7 +15939,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Thermoregulation</span>
-                <span class="example-source">Concept spans Ch 24 (Newborn Care) &amp; Ch 27 (Newborn Complications) · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch24-resp-id-thermo">Open chapter ↗</a></span>
+                <span class="example-source">Concept spans Ch 24 (Newborn Care) &amp; Ch 27 (Newborn Complications)<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch24-resp-id-thermo">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -15971,7 +16020,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Perinatal Infection &amp; Immunity</span>
-                <span class="example-source">Concept spans Ch 8 (Maternal Infections), Ch 21 (Postpartum Infections) &amp; Ch 27 (Neonatal Sepsis) · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-sepsis-trauma">Open chapter ↗</a></span>
+                <span class="example-source">Concept spans Ch 8 (Maternal Infections), Ch 21 (Postpartum Infections) &amp; Ch 27 (Neonatal Sepsis)<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch27-sepsis-trauma">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -16052,7 +16101,7 @@ isolation:isolate;}
               <div class="example-info">
                 <span class="example-label">Worked Example</span>
                 <span class="example-name">Fluid &amp; Electrolyte Balance</span>
-                <span class="example-source">Concept spans Ch 9 (Hyperemesis), Ch 17 (Postpartum Diuresis) &amp; Ch 27 (Neonatal Glucose/Fluid) · <a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-hyperemesis">Open chapter ↗</a></span>
+                <span class="example-source">Concept spans Ch 9 (Hyperemesis), Ch 17 (Postpartum Diuresis) &amp; Ch 27 (Neonatal Glucose/Fluid)<br><a class="ex-jump" href="Elevated%20ATI%20MN%20Book.html#ch9-hyperemesis">Open chapter ↗</a></span>
               </div>
               <div class="mode-toggle" role="tablist" aria-label="View mode">
                 <button data-mode="filled" class="active" type="button">Filled</button>
@@ -16210,10 +16259,20 @@ isolation:isolate;}
   function openSidebarPanel(){
     if (sidebar) sidebar.classList.add('open');
     if (sidebarOverlay) sidebarOverlay.classList.add('show');
+    if (sidebarToggle) {
+      sidebarToggle.textContent = '×';
+      sidebarToggle.setAttribute('aria-label', 'Close template navigation');
+      sidebarToggle.setAttribute('aria-expanded', 'true');
+    }
   }
   function closeSidebarPanel(){
     if (sidebar) sidebar.classList.remove('open');
     if (sidebarOverlay) sidebarOverlay.classList.remove('show');
+    if (sidebarToggle) {
+      sidebarToggle.textContent = '☰';
+      sidebarToggle.setAttribute('aria-label', 'Open template navigation');
+      sidebarToggle.setAttribute('aria-expanded', 'false');
+    }
   }
   if (sidebarToggle && sidebar) {
     sidebarToggle.addEventListener('click', function(){
@@ -16813,6 +16872,8 @@ isolation:isolate;}
 
   function returnCardToAccordion(card){
     if (!card) return;
+    var nav = card.querySelector('.template-modal-nav');
+    if (nav) nav.remove();
     var tabId = card.getAttribute('data-tab-id');
     var match = tabId && tabId.match(/^(.+?)-ex-\d+$/);
     if (!match) return;
@@ -16822,6 +16883,55 @@ isolation:isolate;}
       var origBody = acc.querySelector('.unit-body');
       if (origBody) origBody.appendChild(card);
     }
+  }
+
+  function modalNavState(exampleId){
+    var match = exampleId && exampleId.match(/^(.+?)-ex-\d+$/);
+    var templateId = match ? match[1] : '';
+    var examples = templateExamples[templateId] || [];
+    var index = examples.indexOf(exampleId);
+    return {
+      previous: index > 0 ? examples[index - 1] : '',
+      next: index > -1 && index < examples.length - 1 ? examples[index + 1] : '',
+      index: index > -1 ? index + 1 : 0,
+      total: examples.length
+    };
+  }
+
+  function updateModalNavigation(exampleId){
+    var card = modalBody.querySelector('.example-card');
+    var header = card ? card.querySelector('.example-header') : null;
+    if (!header) return;
+    var existing = header.querySelector('.template-modal-nav');
+    if (existing) existing.remove();
+    var nav = modalNavState(exampleId);
+    if (!nav.total) return;
+    var navEl = document.createElement('div');
+    navEl.className = 'template-modal-nav';
+    navEl.setAttribute('aria-label', 'Template navigation');
+    navEl.innerHTML =
+      '<button type="button" data-template-nav="previous">Previous</button>' +
+      '<span class="template-modal-count"></span>' +
+      '<button type="button" data-template-nav="next">Next</button>';
+    var previousButton = navEl.querySelector('[data-template-nav="previous"]');
+    var nextButton = navEl.querySelector('[data-template-nav="next"]');
+    var navCount = navEl.querySelector('.template-modal-count');
+    if (previousButton) {
+      previousButton.disabled = !nav.previous;
+      previousButton.setAttribute('data-template-target', nav.previous);
+    }
+    if (nextButton) {
+      nextButton.disabled = !nav.next;
+      nextButton.setAttribute('data-template-target', nav.next);
+    }
+    if (navCount) navCount.textContent = nav.index + ' / ' + nav.total;
+    navEl.querySelectorAll('[data-template-nav]').forEach(function(button){
+      button.addEventListener('click', function(){
+        var target = button.getAttribute('data-template-target');
+        if (target) openExampleModal(target);
+      });
+    });
+    header.appendChild(navEl);
   }
 
   function openExampleModal(exampleId){
@@ -16845,6 +16955,7 @@ isolation:isolate;}
 
     // Move the card into the modal body
     modalBody.appendChild(card);
+    updateModalNavigation(exampleId);
 
     // Wrap abbreviations in newly-injected modal content
     autoWrapAbbreviations(modalBody);
