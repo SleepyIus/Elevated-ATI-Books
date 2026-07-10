@@ -57,6 +57,11 @@
   --tpl-dense-body-size:13px;
   --tpl-box-pad-x:16px;
   --tpl-box-pad-y:14px;
+  --tpl-box-gap:14px;
+  --tpl-group-gap:10px;
+  --tpl-gd-section-gap:20px;
+  --tpl-gd-box-gap:12px;
+  --tpl-mobile-box-gap:12px;
   --tpl-template-width:1016px;
   --tpl-micro-letter-spacing:.14em;
   --tpl-kicker-letter-spacing:.14em;
@@ -101,7 +106,7 @@
 .view-toggle{
   display:none;
 }
-.view-mode-btn,.status-chip,.template-study-btn,.template-check,.template-reset-btn,.modal-print{
+.view-mode-btn,.status-chip,.template-study-btn,.template-check,.modal-print{
   border:1px solid var(--border);
   background:var(--surface2);
   color:var(--text);
@@ -133,9 +138,6 @@
 .tpl-result-count[hidden]{
   display:block!important;
 }
-.template-reset-btn{
-  white-space:nowrap;
-}
 .exam-reset{
   display:inline-block;
   margin:18px 0 10px;
@@ -146,9 +148,9 @@
   color:var(--text3);
   border-radius:4px;
   padding:5px 10px;
-  font:inherit;
+  font-family:inherit;
   font-size:11px;
-  font-weight:600;
+  font-weight:400;
   letter-spacing:.02em;
   cursor:pointer;
   transition:all .15s;
@@ -262,7 +264,7 @@
 .template-actions .template-link,.template-actions button{
   margin-top:0;
 }
-.template-study-btn:hover,.template-check:hover,.template-reset-btn:hover,.modal-print:hover{
+.template-study-btn:hover,.template-check:hover,.modal-print:hover{
   border-color:var(--accent);
   background:var(--accent-soft);
 }
@@ -717,10 +719,11 @@
   width:min(100%, var(--tpl-template-width));
   max-width:var(--tpl-template-width);
   margin:0 auto;
+  container: template-card / inline-size;
 }
 .modal-template-card .mn-template-layout{
   display:grid;
-  gap:14px;
+  gap:var(--tpl-box-gap);
 }
 .modal-template-card .tp-box,
 .modal-template-card .tpl-group{
@@ -787,7 +790,7 @@
   padding:14px;
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:var(--tpl-group-gap);
   background:var(--surface2);
 }
 .modal-template-card .tpl-group-label{
@@ -801,7 +804,7 @@
 }
 .modal-template-card .tpl-group-body{
   display:grid;
-  gap:10px;
+  gap:var(--tpl-group-gap);
   grid-template-columns:repeat(2,minmax(0,1fr));
   align-items:stretch;
 }
@@ -833,7 +836,7 @@
   margin-bottom:18px;
 }
 .modal-template-card[data-template-type="basic-concept"] .bc-grid{
-  gap:12px;
+  gap:var(--tpl-box-gap);
 }
 .modal-template-card[data-template-type="basic-concept"] .bc-grid .tp-box{
   min-height:330px;
@@ -859,7 +862,7 @@
   margin-bottom:12px;
 }
 .modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid{
-  --tp-gap:10px;
+  --tp-gap:var(--tpl-box-gap);
   --tp-connector-overlap:8px;
   gap:var(--tp-gap);
   align-items:stretch;
@@ -908,7 +911,7 @@
   margin-bottom:12px;
 }
 .modal-template-card[data-template-type="nursing-skill"] .tp-grid{
-  --tp-gap:10px;
+  --tp-gap:var(--tpl-box-gap);
   --tp-connector-overlap:8px;
   gap:var(--tp-gap);
   align-items:stretch;
@@ -933,13 +936,17 @@
   height:auto;
   display:flex;
   flex-direction:column;
-  gap:8px;
-  padding:10px;
+  gap:var(--tpl-group-gap);
+  padding:var(--tpl-group-gap);
   border-radius:8px;
 }
 .modal-template-card[data-template-type="nursing-skill"] .tp-grid > .considerations > .tp-subbox{
   flex:0 1 auto;
   min-height:120px;
+}
+.modal-template-card[data-template-type="nursing-skill"][data-mode="filled"] .tp-grid > .empty-tpl-box,
+.modal-template-card[data-template-type="nursing-skill"][data-mode="filled"] .tp-grid > .considerations > .empty-tpl-subbox{
+  display:flex;
 }
 .modal-template-card[data-template-type="nursing-skill"] .tp-grid .tp-box,
 .modal-template-card[data-template-type="nursing-skill"] .tp-grid .tp-subbox{
@@ -970,7 +977,7 @@
   margin-bottom:12px;
 }
 .modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid{
-  --tp-gap:10px;
+  --tp-gap:var(--tpl-box-gap);
   --tp-connector-overlap:8px;
   gap:var(--tp-gap);
   align-items:stretch;
@@ -995,8 +1002,8 @@
   height:auto;
   display:flex;
   flex-direction:column;
-  gap:8px;
-  padding:10px;
+  gap:var(--tpl-group-gap);
+  padding:var(--tpl-group-gap);
   border-radius:8px;
 }
 .modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .considerations > .tp-subbox{
@@ -1031,33 +1038,6 @@
 .modal-template-card[data-template-type="growth-development"] > dl.template-meta{
   margin-bottom:14px;
 }
-.modal-template-card[data-template-type="growth-development"] .gd-grid{
-  gap:18px;
-}
-.modal-template-card[data-template-type="growth-development"] .gd-grid > .tpl-group > .tpl-group-body{
-  gap:10px;
-  align-items:stretch;
-}
-.modal-template-card[data-template-type="growth-development"] .gd-grid > .tpl-group > .tpl-group-body > .tp-box{
-  min-height:260px;
-  border-radius:10px;
-}
-.modal-template-card[data-template-type="growth-development"] .gd-grid > .tpl-group:first-child > .tpl-group-body > .tp-box{
-  min-height:300px;
-}
-.modal-template-card[data-template-type="growth-development"] .gd-grid .hp-parent{
-  border-radius:10px;
-}
-.modal-template-card[data-template-type="growth-development"] .gd-grid .hp-parent > h3,
-.modal-template-card[data-template-type="growth-development"] .gd-grid > .tpl-group > .tpl-group-body > .tp-box > h3{
-  padding:10px var(--tpl-box-pad-x);
-}
-.modal-template-card[data-template-type="growth-development"] .gd-grid .hp-parent > .content,
-.modal-template-card[data-template-type="growth-development"] .gd-grid > .tpl-group > .tpl-group-body > .tp-box > .content{
-  padding:var(--tpl-box-pad-y) var(--tpl-box-pad-x) calc(var(--tpl-box-pad-y) + 2px);
-  font-size:var(--tpl-dense-body-size);
-  line-height:1.5;
-}
 .modal-template-card[data-template-type="growth-development"] .gd-grid .hp-parent > .content li,
 .modal-template-card[data-template-type="growth-development"] .gd-grid > .tpl-group > .tpl-group-body > .tp-box > .content li{
   margin-bottom:5px;
@@ -1076,7 +1056,7 @@
   grid-template-columns:1fr;
 }
 .modal-template-card .med-body{
-  --med-gap:14px;
+  --med-gap:var(--tpl-box-gap);
   --connector-overlap:10px;
   display:flex;
   gap:var(--med-gap);
@@ -1126,21 +1106,27 @@
   margin-bottom:14px;
 }
 .modal-template-card[data-template-type="medication"] .med-grid{
-  gap:14px;
+  gap:var(--tpl-box-gap);
 }
 .modal-template-card[data-template-type="medication"] .purpose-group{
   border-radius:10px;
   padding:10px;
 }
 .modal-template-card[data-template-type="medication"] .purpose-group .tpl-group-body{
-  gap:10px;
+  gap:var(--tpl-group-gap);
 }
 .modal-template-card[data-template-type="medication"] .purpose-group .tp-box{
   min-height:112px;
   border-radius:8px;
 }
+.modal-template-card[data-template-type="medication"][data-mode="filled"] .empty-tpl-box{
+  display:flex;
+}
+.modal-template-card[data-template-type="medication"][data-mode="filled"] .purpose-group .tpl-group-body{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
 .modal-template-card[data-template-type="medication"] .med-body{
-  --med-gap:10px;
+  --med-gap:var(--tpl-box-gap);
   --connector-overlap:10px;
   gap:var(--med-gap);
   align-items:stretch;
@@ -1201,7 +1187,7 @@
   margin-bottom:5px;
 }
 .modal-template-card .tp-grid{
-  --tp-gap:14px;
+  --tp-gap:var(--tpl-box-gap);
   --tp-connector-overlap:10px;
   grid-template-columns:1fr 1fr;
   grid-template-areas:
@@ -1299,10 +1285,10 @@
   background:var(--surface2);
   border:1px solid var(--border);
   border-radius:16px;
-  padding:14px;
+  padding:var(--tpl-box-gap);
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:var(--tpl-group-gap);
 }
 .modal-template-card .tp-grid .considerations .tp-box,
 .modal-template-card .tp-grid .considerations .tp-subbox{
@@ -1375,7 +1361,7 @@
   grid-area:top;
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:14px;
+  gap:var(--tpl-box-gap);
   align-items:stretch;
 }
 .modal-template-card[data-mode="filled"] .sd-top-row.sd-top-visible-1{
@@ -1393,7 +1379,7 @@
 .modal-template-card .safety-group{
   display:flex;
   flex-direction:column;
-  gap:12px;
+  gap:var(--tpl-group-gap);
 }
 .modal-template-card .safety-area{
   flex:1;
@@ -1429,11 +1415,11 @@
 }
 .modal-template-card[data-template-type="system-disorder"] .sd-grid{
   grid-template-columns:minmax(0,1fr) minmax(215px,.34fr);
-  gap:14px;
+  gap:var(--tpl-box-gap);
   align-items:stretch;
 }
 .modal-template-card[data-template-type="system-disorder"] .sd-top-row{
-  gap:14px;
+  gap:var(--tpl-box-gap);
 }
 .modal-template-card[data-template-type="system-disorder"] .sd-top-row > .tp-box{
   min-height:118px;
@@ -1443,7 +1429,7 @@
 .modal-template-card[data-template-type="system-disorder"] .patient-care-group{
   border-radius:10px;
   padding:10px;
-  gap:10px;
+  gap:var(--tpl-group-gap);
 }
 .modal-template-card[data-template-type="system-disorder"] .safety-group{
   border-radius:10px;
@@ -1451,7 +1437,7 @@
 }
 .modal-template-card[data-template-type="system-disorder"] .assessment-group .tpl-group-body{
   grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:10px;
+  gap:var(--tpl-group-gap);
 }
 .modal-template-card[data-template-type="system-disorder"] .assessment-group .tp-box{
   min-height:168px;
@@ -1461,7 +1447,7 @@
   min-height:100%;
   display:grid;
   grid-template-rows:minmax(0,1fr) minmax(0,1fr);
-  gap:14px;
+  gap:var(--tpl-box-gap);
 }
 @supports (grid-template-rows:subgrid){
   .modal-template-card[data-template-type="system-disorder"] .safety-group{
@@ -1472,7 +1458,7 @@
   grid-row:1;
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:var(--tpl-group-gap);
   min-height:0;
   padding:10px;
 }
@@ -1498,7 +1484,7 @@
   grid-template-areas:
     "nursing-care medications client-education"
     "therapeutic-procedures medications interprofessional-care";
-  gap:10px;
+  gap:var(--tpl-group-gap);
   align-items:stretch;
 }
 .modal-template-card[data-template-type="system-disorder"] .patient-care-group .sd-nursing-care{grid-area:nursing-care}
@@ -1544,8 +1530,8 @@
   height:100%;
   display:grid;
   grid-template-rows:minmax(0,1fr) minmax(0,1fr);
-  gap:var(--tp-gap);
-  padding:10px;
+  gap:var(--tpl-group-gap);
+  padding:var(--tpl-group-gap);
   border-radius:8px;
   background:var(--surface2);
   border:1px solid var(--border);
@@ -1560,7 +1546,7 @@
   min-height:0;
   display:flex;
   flex-direction:column;
-  gap:8px;
+  gap:var(--tpl-group-gap);
 }
 .modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .considerations .considerations-top .tp-subbox,
 .modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .considerations .client-education{
@@ -1568,24 +1554,101 @@
   min-height:0;
   height:100%;
 }
+@container template-card (max-width:760px){
+  .modal-template-card .tp-grid{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "description"
+      "considerations"
+      "indications"
+      "outcomes"
+      "complications"
+      "nursing-interventions";
+  }
+  .modal-template-card .tp-grid.tp-grid-no-description:not(.tp-grid-lean){
+    grid-template-areas:
+      "indications"
+      "considerations"
+      "outcomes"
+      "complications"
+      "nursing-interventions";
+  }
+  .modal-template-card .tp-grid.tp-grid-no-interventions:not(.tp-grid-lean){
+    grid-template-areas:
+      "description"
+      "indications"
+      "considerations"
+      "outcomes"
+      "complications";
+  }
+  .modal-template-card .tp-grid.tp-grid-no-description.tp-grid-no-interventions:not(.tp-grid-lean){
+    grid-template-areas:
+      "indications"
+      "considerations"
+      "outcomes"
+      "complications";
+  }
+  .modal-template-card .tp-grid.tp-grid-lean{
+    grid-template-areas:
+      "description"
+      "considerations"
+      "complications"
+      "nursing-interventions";
+  }
+  .modal-template-card .tp-grid.tp-grid-lean.tp-grid-no-description:not(.tp-grid-no-interventions){
+    grid-template-areas:
+      "indications"
+      "considerations"
+      "complications"
+      "nursing-interventions";
+  }
+  .modal-template-card .tp-grid.tp-grid-lean.tp-grid-no-interventions:not(.tp-grid-no-description){
+    grid-template-areas:
+      "description"
+      "considerations"
+      "complications";
+  }
+  .modal-template-card .tp-grid.tp-grid-lean.tp-grid-no-description.tp-grid-no-interventions{
+    grid-template-areas:
+      "indications"
+      "considerations"
+      "complications";
+  }
+  .modal-template-card .tp-grid > .tp-box,
+  .modal-template-card .tp-grid > .considerations,
+  .modal-template-card .tp-grid .tp-subbox{
+    height:auto;
+    min-height:auto;
+  }
+  .modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .considerations{
+    display:flex;
+    flex-direction:column;
+    grid-template-rows:none;
+  }
+  .modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .considerations .considerations-top .tp-subbox,
+  .modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .considerations .client-education{
+    flex:0 1 auto;
+    height:auto;
+    min-height:auto;
+  }
+  .modal-template-card .tp-grid > .complications::after{
+    display:none;
+  }
+}
 .modal-template-card .gd-grid{
   display:grid;
   grid-template-columns:1fr;
-  gap:20px;
+  gap:var(--tpl-gd-section-gap);
 }
 .modal-template-card .gd-grid > .tpl-group{
   display:flex !important;
   flex-direction:column;
-  gap:12px;
-  background:transparent;
-  border:0;
-  border-radius:0;
-  padding:0;
+  gap:var(--tpl-gd-box-gap);
 }
 .modal-template-card .gd-grid > .tpl-group > .tpl-group-label{
   display:flex !important;
   align-items:center;
-  gap:14px;
+  gap:var(--tpl-box-gap);
   color:var(--text2);
   font-size:11px;
   font-weight:700;
@@ -1604,7 +1667,7 @@
 .modal-template-card .gd-grid > .tpl-group > .tpl-group-body{
   display:grid;
   grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:12px;
+  gap:var(--tpl-gd-box-gap);
 }
 .modal-template-card .gd-grid > .tpl-group > .tpl-group-body > .tp-box{
   min-height:200px;
@@ -1658,7 +1721,7 @@
 .modal-template-card .gd-grid .hp-connectors{
   display:grid;
   grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:12px;
+  gap:var(--tpl-gd-box-gap);
   height:var(--hp-connector-height, 20px);
   pointer-events:none;
 }
@@ -1680,7 +1743,7 @@
     "defining defining"
     "antecedents consequences"
     "related exemplars";
-  gap:14px;
+  gap:var(--tpl-box-gap);
 }
 .modal-template-card[data-template-type="concept-analysis"]{
   max-width:var(--tpl-template-width);
@@ -1690,7 +1753,7 @@
   margin-bottom:12px;
 }
 .modal-template-card[data-template-type="concept-analysis"] .ca-grid{
-  gap:12px;
+  gap:var(--tpl-box-gap);
   align-items:stretch;
 }
 .modal-template-card[data-template-type="concept-analysis"] .ca-grid > .defining{
@@ -2246,7 +2309,7 @@ body.modal-open{
   display:none;
 }
 .hero{
-  padding:36px 0 20px;
+  padding:36px 0 16.2px;
   border:0;
   border-radius:0;
   background:transparent;
@@ -2288,6 +2351,7 @@ body.modal-open{
   font-size:13px;
   font-weight:600;
   cursor:pointer;
+  transform:translateY(-2px);
   transition:border-color .15s ease,color .15s ease,background .15s ease;
 }
 .compare-btn:hover{
@@ -2684,12 +2748,81 @@ body.modal-open{
   .modal-template-card[data-template-type="diagnostic-procedure"]{
     max-width:none;
   }
-  .modal-template-card .bc-grid,
-  .modal-template-card .sd-top-row,
-  .modal-template-card .gd-grid > .tpl-group > .tpl-group-body,
-  .modal-template-card .tpl-group-body,
-  .modal-template-card .patient-care-group .tpl-group-body{
+  .modal-template-card .bc-grid{
     grid-template-columns:1fr;
+  }
+  .modal-template-card .bc-grid .tp-box,
+  .modal-template-card[data-template-type="basic-concept"] .bc-grid .tp-box{
+    min-height:auto;
+  }
+  .modal-template-card .sd-grid{
+    grid-template-columns:1fr;
+    grid-template-areas:"top" "assessment" "safety" "patient-care";
+  }
+  .modal-template-card .sd-grid.sd-no-assessment{
+    grid-template-areas:"top" "safety" "patient-care";
+  }
+  .modal-template-card .sd-top-row{
+    grid-template-columns:1fr;
+  }
+  .modal-template-card .patient-care-group .tpl-group-body,
+  .modal-template-card[data-template-type="system-disorder"] .patient-care-group .tpl-group-body{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-areas:none;
+  }
+  .modal-template-card .patient-care-group .tp-box,
+  .modal-template-card[data-template-type="system-disorder"] .patient-care-group .tp-box{
+    grid-area:auto !important;
+  }
+  .modal-template-card[data-mode="filled"] .patient-care-group.tpl-group-visible-1 .tpl-group-body{
+    grid-template-columns:1fr;
+  }
+  .modal-template-card[data-mode="filled"] .patient-care-group.tpl-group-visible-2 .tpl-group-body{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .modal-template-card[data-template-type="system-disorder"] .assessment-group .tpl-group-body{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .modal-template-card[data-template-type="system-disorder"] .safety-group{
+    display:flex;
+    flex-direction:column;
+    gap:var(--tpl-group-gap);
+    padding:10px;
+    min-height:0;
+    grid-template-rows:none;
+  }
+  .modal-template-card[data-template-type="system-disorder"] .safety-group > .tp-box,
+  .modal-template-card[data-template-type="system-disorder"] .safety-group > .sd-complications{
+    grid-row:auto;
+    height:auto;
+    min-height:auto;
+  }
+}
+@media(max-width:720px){
+  .modal-template-card .ca-grid{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "defining"
+      "antecedents"
+      "consequences"
+      "related"
+      "exemplars";
+  }
+  .modal-template-card .ca-grid > .tp-box,
+  .modal-template-card[data-template-type="concept-analysis"] .ca-grid > .tp-box{
+    height:auto;
+    min-height:auto;
+  }
+}
+@media(max-width:680px){
+  .modal-template-card .tpl-group .tpl-group-body,
+  .modal-template-card[data-mode="filled"] .tpl-group.tpl-group-visible-2 .tpl-group-body,
+  .modal-template-card .patient-care-group .tpl-group-body,
+  .modal-template-card[data-template-type="system-disorder"] .assessment-group .tpl-group-body,
+  .modal-template-card[data-template-type="system-disorder"] .patient-care-group .tpl-group-body,
+  .modal-template-card[data-mode="filled"] .patient-care-group.tpl-group-visible-2 .tpl-group-body{
+    grid-template-columns:1fr;
+    grid-template-areas:none;
   }
   .modal-template-card .tp-grid{
     grid-template-columns:1fr;
@@ -2701,41 +2834,407 @@ body.modal-open{
       "complications"
       "nursing-interventions";
   }
-  .modal-template-card .ca-grid{
-    grid-template-columns:1fr;
+  .modal-template-card .tp-grid.tp-grid-no-description:not(.tp-grid-lean){
     grid-template-areas:
-      "defining"
-      "antecedents"
-      "consequences"
-      "related"
-      "exemplars";
+      "indications"
+      "considerations"
+      "outcomes"
+      "complications"
+      "nursing-interventions";
   }
-  .modal-template-card .gd-grid .hp-connectors{display:none}
-  .modal-template-card .sd-grid{
-    grid-template-columns:1fr;
-    grid-template-areas:"top" "assessment" "safety" "patient-care";
-  }
-  .modal-template-card[data-template-type="system-disorder"] .safety-group{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    padding:10px;
-  }
-  .modal-template-card[data-template-type="system-disorder"] .patient-care-group .tpl-group-body{
-    grid-template-columns:1fr;
+  .modal-template-card .tp-grid.tp-grid-no-interventions:not(.tp-grid-lean){
     grid-template-areas:
-      "nursing-care"
-      "medications"
-      "client-education"
-      "therapeutic-procedures"
-      "interprofessional-care";
+      "description"
+      "indications"
+      "considerations"
+      "outcomes"
+      "complications";
+  }
+  .modal-template-card .tp-grid.tp-grid-no-description.tp-grid-no-interventions:not(.tp-grid-lean){
+    grid-template-areas:
+      "indications"
+      "considerations"
+      "outcomes"
+      "complications";
+  }
+  .modal-template-card .tp-grid.tp-grid-lean{
+    grid-template-areas:
+      "description"
+      "considerations"
+      "complications"
+      "nursing-interventions";
+  }
+  .modal-template-card .tp-grid.tp-grid-lean.tp-grid-no-description:not(.tp-grid-no-interventions){
+    grid-template-areas:
+      "indications"
+      "considerations"
+      "complications"
+      "nursing-interventions";
+  }
+  .modal-template-card .tp-grid.tp-grid-lean.tp-grid-no-interventions:not(.tp-grid-no-description){
+    grid-template-areas:
+      "description"
+      "considerations"
+      "complications";
+  }
+  .modal-template-card .tp-grid.tp-grid-lean.tp-grid-no-description.tp-grid-no-interventions{
+    grid-template-areas:
+      "indications"
+      "considerations"
+      "complications";
+  }
+  .modal-template-card .tp-grid > .tp-box,
+  .modal-template-card .tp-grid > .considerations,
+  .modal-template-card .tp-grid .tp-subbox,
+  .modal-template-card .med-body .tp-box,
+  .modal-template-card .sd-top-row > .tp-box,
+  .modal-template-card .assessment-group .tp-box,
+  .modal-template-card .patient-care-group .tp-box{
+    height:auto;
+    min-height:auto;
   }
   .modal-template-card .med-body{flex-direction:column}
-  .modal-template-card .med-ni::after,
   .modal-template-card .tp-grid > .complications::after{display:none}
+}
+@media(max-width:1100px){
+  .modal-template-card .gd-grid > .tpl-group > .tpl-group-body{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .modal-template-card .gd-grid .hp-connectors{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
 }
 @media(max-width:600px){
   .hero h1{font-size:32px}
+  .modal-template-card .gd-grid > .tpl-group > .tpl-group-body{
+    grid-template-columns:1fr;
+  }
+  .modal-template-card .gd-grid > .tpl-group.health-promotion-group{
+    gap:var(--tpl-mobile-box-gap);
+  }
+  .modal-template-card .gd-grid .hp-connectors{
+    display:none;
+  }
+  .data-table,
+  .ati-table{
+    display:block;
+    overflow-x:auto;
+    max-width:100%;
+  }
+}
+@container template-card (max-width:820px){
+  .modal-template-card:is([data-template-type="diagnostic-procedure"],[data-template-type="nursing-skill"],[data-template-type="therapeutic-procedure"]) .tp-grid{
+    grid-template-columns:1fr !important;
+    grid-template-areas:
+      "description"
+      "considerations"
+      "indications"
+      "outcomes"
+      "complications"
+      "nursing-interventions" !important;
+  }
+}
+.modal-template-card.is-narrow-template:is([data-template-type="diagnostic-procedure"],[data-template-type="nursing-skill"],[data-template-type="therapeutic-procedure"]) .tp-grid{
+  grid-template-columns:1fr !important;
+  grid-template-areas:
+    "description"
+    "considerations"
+    "indications"
+    "outcomes"
+    "complications"
+    "nursing-interventions" !important;
+}
+.modal-template-card.is-narrow-template .tp-grid.tp-grid-no-description:not(.tp-grid-lean){
+  grid-template-areas:
+    "indications"
+    "considerations"
+    "outcomes"
+    "complications"
+    "nursing-interventions" !important;
+}
+.modal-template-card.is-narrow-template .tp-grid.tp-grid-no-interventions:not(.tp-grid-lean){
+  grid-template-areas:
+    "description"
+    "indications"
+    "considerations"
+    "outcomes"
+    "complications" !important;
+}
+.modal-template-card.is-narrow-template .tp-grid.tp-grid-no-description.tp-grid-no-interventions:not(.tp-grid-lean){
+  grid-template-areas:
+    "indications"
+    "considerations"
+    "outcomes"
+    "complications" !important;
+}
+.modal-template-card.is-narrow-template .tp-grid.tp-grid-lean{
+  grid-template-areas:
+    "description"
+    "considerations"
+    "complications"
+    "nursing-interventions" !important;
+}
+.modal-template-card.is-narrow-template .tp-grid.tp-grid-lean.tp-grid-no-description:not(.tp-grid-no-interventions){
+  grid-template-areas:
+    "indications"
+    "considerations"
+    "complications"
+    "nursing-interventions" !important;
+}
+.modal-template-card.is-narrow-template .tp-grid.tp-grid-lean.tp-grid-no-interventions:not(.tp-grid-no-description){
+  grid-template-areas:
+    "description"
+    "considerations"
+    "complications" !important;
+}
+.modal-template-card.is-narrow-template .tp-grid.tp-grid-lean.tp-grid-no-description.tp-grid-no-interventions{
+  grid-template-areas:
+    "indications"
+    "considerations"
+    "complications" !important;
+}
+.modal-template-card.is-narrow-template .tp-grid > .tp-box,
+.modal-template-card.is-narrow-template .tp-grid > .considerations,
+.modal-template-card.is-narrow-template .tp-grid .tp-subbox{
+  height:auto !important;
+  min-height:auto !important;
+}
+.modal-template-card.is-narrow-template .tp-grid > .tp-box > .content,
+.modal-template-card.is-narrow-template .tp-grid .tp-subbox > .content{
+  overflow-wrap:break-word;
+  word-break:normal;
+}
+.modal-template-card.is-narrow-template:is([data-template-type="diagnostic-procedure"],[data-template-type="nursing-skill"],[data-template-type="therapeutic-procedure"]) .tp-grid > .considerations{
+  display:flex !important;
+  flex-direction:column;
+  grid-template-rows:none !important;
+}
+.modal-template-card.is-narrow-template:is([data-template-type="diagnostic-procedure"],[data-template-type="nursing-skill"],[data-template-type="therapeutic-procedure"]) .tp-grid > .considerations > .tp-subbox,
+.modal-template-card.is-narrow-template:is([data-template-type="diagnostic-procedure"],[data-template-type="nursing-skill"],[data-template-type="therapeutic-procedure"]) .tp-grid > .considerations .considerations-top .tp-subbox,
+.modal-template-card.is-narrow-template:is([data-template-type="diagnostic-procedure"],[data-template-type="nursing-skill"],[data-template-type="therapeutic-procedure"]) .tp-grid > .considerations .client-education{
+  flex:0 1 auto;
+  height:auto !important;
+  min-height:auto !important;
+}
+.modal-template-card.is-narrow-template .tp-grid > .complications::after{
+  display:none !important;
+}
+.modal-template-card.is-narrow-template[data-template-type="medication"] .med-body{
+  display:flex;
+  flex-direction:column;
+}
+.modal-template-card.is-narrow-template[data-template-type="medication"] .med-col-left,
+.modal-template-card.is-narrow-template[data-template-type="medication"] .med-col-right{
+  flex:0 1 auto;
+}
+.modal-template-card.is-narrow-template[data-template-type="medication"] .med-body .tp-box,
+.modal-template-card.is-narrow-template[data-template-type="medication"] .purpose-group .tp-box{
+  height:auto !important;
+  min-height:auto !important;
+}
+.modal-template-card.is-narrow-template[data-template-type="medication"] .med-ni::after{
+  display:block !important;
+}
+@container template-card (max-width:820px){
+  .modal-template-card[data-template-type="system-disorder"] .sd-grid{
+    grid-template-columns:1fr !important;
+    grid-template-areas:
+      "top"
+      "assessment"
+      "safety"
+      "patient-care" !important;
+  }
+  .modal-template-card[data-template-type="system-disorder"] .sd-grid.sd-no-assessment{
+    grid-template-areas:
+      "top"
+      "safety"
+      "patient-care" !important;
+  }
+  .modal-template-card[data-template-type="system-disorder"] .sd-top-row,
+  .modal-template-card[data-template-type="system-disorder"][data-mode="filled"] .sd-top-row{
+    grid-template-columns:1fr !important;
+  }
+  .modal-template-card[data-template-type="system-disorder"] .assessment-group .tpl-group-body,
+  .modal-template-card[data-template-type="system-disorder"] .patient-care-group .tpl-group-body,
+  .modal-template-card[data-template-type="system-disorder"][data-mode="filled"] .patient-care-group .tpl-group-body{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    grid-template-areas:none !important;
+  }
+  .modal-template-card[data-template-type="system-disorder"][data-mode="filled"] .patient-care-group.tpl-group-visible-1 .tpl-group-body{
+    grid-template-columns:1fr !important;
+  }
+  .modal-template-card[data-template-type="system-disorder"] .patient-care-group .tp-box{
+    grid-area:auto !important;
+  }
+  .modal-template-card[data-template-type="system-disorder"] .safety-group{
+    display:flex !important;
+    flex-direction:column;
+    gap:var(--tpl-group-gap);
+    padding:10px;
+    min-height:0;
+    grid-template-rows:none !important;
+  }
+  .modal-template-card[data-template-type="system-disorder"] .safety-group > .tp-box,
+  .modal-template-card[data-template-type="system-disorder"] .safety-group > .sd-complications{
+    grid-row:auto !important;
+    height:auto !important;
+    min-height:auto !important;
+  }
+}
+@container template-card (max-width:680px){
+  .modal-template-card[data-template-type="system-disorder"] .assessment-group .tpl-group-body,
+  .modal-template-card[data-template-type="system-disorder"] .patient-care-group .tpl-group-body,
+  .modal-template-card[data-template-type="system-disorder"][data-mode="filled"] .patient-care-group.tpl-group-visible-2 .tpl-group-body{
+    grid-template-columns:1fr !important;
+  }
+  .modal-template-card[data-template-type="system-disorder"] .sd-top-row > .tp-box,
+  .modal-template-card[data-template-type="system-disorder"] .assessment-group .tp-box,
+  .modal-template-card[data-template-type="system-disorder"] .patient-care-group .tp-box{
+    height:auto !important;
+    min-height:auto !important;
+  }
+}
+.modal-template-card.is-narrow-template[data-template-type="system-disorder"] .sd-grid{
+  grid-template-columns:1fr !important;
+  grid-template-areas:
+    "top"
+    "assessment"
+    "safety"
+    "patient-care" !important;
+}
+.modal-template-card.is-narrow-template[data-template-type="system-disorder"] .sd-grid.sd-no-assessment{
+  grid-template-areas:
+    "top"
+    "safety"
+    "patient-care" !important;
+}
+.modal-template-card.is-narrow-template[data-template-type="system-disorder"] .sd-top-row,
+.modal-template-card.is-narrow-template[data-template-type="system-disorder"][data-mode="filled"] .sd-top-row{
+  grid-template-columns:1fr !important;
+}
+.modal-template-card.is-narrow-template[data-template-type="system-disorder"] .assessment-group .tpl-group-body,
+.modal-template-card.is-narrow-template[data-template-type="system-disorder"] .patient-care-group .tpl-group-body,
+.modal-template-card.is-narrow-template[data-template-type="system-disorder"][data-mode="filled"] .patient-care-group .tpl-group-body{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  grid-template-areas:none !important;
+}
+.modal-template-card.is-narrow-template[data-template-type="system-disorder"][data-mode="filled"] .patient-care-group.tpl-group-visible-1 .tpl-group-body{
+  grid-template-columns:1fr !important;
+}
+.modal-template-card.is-narrow-template[data-template-type="system-disorder"] .patient-care-group .tp-box{
+  grid-area:auto !important;
+}
+.modal-template-card.is-narrow-template[data-template-type="system-disorder"] .safety-group{
+  display:flex !important;
+  flex-direction:column;
+  gap:var(--tpl-group-gap);
+  padding:10px;
+  min-height:0;
+  grid-template-rows:none !important;
+}
+.modal-template-card.is-narrow-template[data-template-type="system-disorder"] .safety-group > .tp-box,
+.modal-template-card.is-narrow-template[data-template-type="system-disorder"] .safety-group > .sd-complications{
+  grid-row:auto !important;
+  height:auto !important;
+  min-height:auto !important;
+}
+.modal-template-card.is-phone-template[data-template-type="system-disorder"] .assessment-group .tpl-group-body,
+.modal-template-card.is-phone-template[data-template-type="system-disorder"] .patient-care-group .tpl-group-body,
+.modal-template-card.is-phone-template[data-template-type="system-disorder"][data-mode="filled"] .patient-care-group.tpl-group-visible-2 .tpl-group-body{
+  grid-template-columns:1fr !important;
+}
+.modal-template-card.is-phone-template[data-template-type="system-disorder"] .sd-top-row > .tp-box,
+.modal-template-card.is-phone-template[data-template-type="system-disorder"] .assessment-group .tp-box,
+.modal-template-card.is-phone-template[data-template-type="system-disorder"] .patient-care-group .tp-box{
+  height:auto !important;
+  min-height:auto !important;
+}
+@media(max-width:900px){
+  .modal-template-card:is([data-template-type="diagnostic-procedure"],[data-template-type="nursing-skill"],[data-template-type="therapeutic-procedure"]) .tp-grid{
+    grid-template-columns:1fr !important;
+    grid-template-areas:
+      "description"
+      "considerations"
+      "indications"
+      "outcomes"
+      "complications"
+      "nursing-interventions" !important;
+  }
+  .modal-template-card .tp-grid.tp-grid-no-description:not(.tp-grid-lean){
+    grid-template-areas:
+      "indications"
+      "considerations"
+      "outcomes"
+      "complications"
+      "nursing-interventions" !important;
+  }
+  .modal-template-card .tp-grid.tp-grid-no-interventions:not(.tp-grid-lean){
+    grid-template-areas:
+      "description"
+      "indications"
+      "considerations"
+      "outcomes"
+      "complications" !important;
+  }
+  .modal-template-card .tp-grid.tp-grid-no-description.tp-grid-no-interventions:not(.tp-grid-lean){
+    grid-template-areas:
+      "indications"
+      "considerations"
+      "outcomes"
+      "complications" !important;
+  }
+  .modal-template-card .tp-grid.tp-grid-lean{
+    grid-template-areas:
+      "description"
+      "considerations"
+      "complications"
+      "nursing-interventions" !important;
+  }
+  .modal-template-card .tp-grid.tp-grid-lean.tp-grid-no-description:not(.tp-grid-no-interventions){
+    grid-template-areas:
+      "indications"
+      "considerations"
+      "complications"
+      "nursing-interventions" !important;
+  }
+  .modal-template-card .tp-grid.tp-grid-lean.tp-grid-no-interventions:not(.tp-grid-no-description){
+    grid-template-areas:
+      "description"
+      "considerations"
+      "complications" !important;
+  }
+  .modal-template-card .tp-grid.tp-grid-lean.tp-grid-no-description.tp-grid-no-interventions{
+    grid-template-areas:
+      "indications"
+      "considerations"
+      "complications" !important;
+  }
+  .modal-template-card:is([data-template-type="diagnostic-procedure"],[data-template-type="nursing-skill"],[data-template-type="therapeutic-procedure"]) .tp-grid > .tp-box,
+  .modal-template-card:is([data-template-type="diagnostic-procedure"],[data-template-type="nursing-skill"],[data-template-type="therapeutic-procedure"]) .tp-grid > .considerations,
+  .modal-template-card:is([data-template-type="diagnostic-procedure"],[data-template-type="nursing-skill"],[data-template-type="therapeutic-procedure"]) .tp-grid .tp-subbox{
+    height:auto !important;
+    min-height:auto !important;
+  }
+  .modal-template-card:is([data-template-type="diagnostic-procedure"],[data-template-type="nursing-skill"],[data-template-type="therapeutic-procedure"]) .tp-grid > .tp-box > .content,
+  .modal-template-card:is([data-template-type="diagnostic-procedure"],[data-template-type="nursing-skill"],[data-template-type="therapeutic-procedure"]) .tp-grid .tp-subbox > .content{
+    overflow-wrap:break-word;
+    word-break:normal;
+  }
+  .modal-template-card:is([data-template-type="diagnostic-procedure"],[data-template-type="nursing-skill"],[data-template-type="therapeutic-procedure"]) .tp-grid > .considerations{
+    display:flex !important;
+    flex-direction:column;
+    grid-template-rows:none !important;
+  }
+  .modal-template-card:is([data-template-type="diagnostic-procedure"],[data-template-type="nursing-skill"],[data-template-type="therapeutic-procedure"]) .tp-grid > .considerations > .tp-subbox,
+  .modal-template-card:is([data-template-type="diagnostic-procedure"],[data-template-type="nursing-skill"],[data-template-type="therapeutic-procedure"]) .tp-grid > .considerations .considerations-top .tp-subbox,
+  .modal-template-card:is([data-template-type="diagnostic-procedure"],[data-template-type="nursing-skill"],[data-template-type="therapeutic-procedure"]) .tp-grid > .considerations .client-education{
+    flex:0 1 auto;
+    height:auto !important;
+    min-height:auto !important;
+  }
+  .modal-template-card:is([data-template-type="diagnostic-procedure"],[data-template-type="nursing-skill"],[data-template-type="therapeutic-procedure"]) .tp-grid > .complications::after{
+    display:none !important;
+  }
 }
 </style>
 </head>
@@ -3829,7 +4328,7 @@ body.modal-open{
     </div>
     <div class="empty" id="emptyState" hidden>No matching AMS templates found. Clear the search to return to the current practice set.</div>
   </section>
-  <div class="exam-reset"><button class="template-reset-btn" id="tplResetProgress" type="button">Reset All Progress</button></div>
+  <div class="exam-reset"><button id="tplResetProgress" type="button">Reset All Progress</button></div>
   <div class="modal-overlay" id="templateModal" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="templateModalTitle">
       <div class="modal-head modal-header">
@@ -3908,6 +4407,8 @@ body.modal-open{
   var sidebarPanel = document.querySelector('.template-sidebar');
   var sidebarToggle = document.getElementById('tplSidebarToggle');
   var sidebarOverlay = document.getElementById('tplSidebarOverlay');
+  var modalTemplateResizeObserver = null;
+  var modalTemplateResizeCard = null;
   var groups = {};
   var progress = loadProgress();
   var state = { search: '', types: [], chapters: [], status: 'all', mode: 'filled' };
@@ -4297,7 +4798,32 @@ body.modal-open{
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
     if (modalBody) modalBody.scrollTop = 0;
+    requestAnimationFrame(function(){
+      syncModalTemplateWidth();
+      requestAnimationFrame(syncModalTemplateWidth);
+    });
   }
+  function syncModalTemplateWidth(){
+    if (!modalTemplateResizeCard) return;
+    var width = modalTemplateResizeCard.getBoundingClientRect().width;
+    var viewportWidth = window.innerWidth || document.documentElement.clientWidth || width;
+    var type = modalTemplateResizeCard.getAttribute('data-template-type') || '';
+    var isProcedureFamily = type === 'diagnostic-procedure' || type === 'nursing-skill' || type === 'therapeutic-procedure';
+    modalTemplateResizeCard.classList.toggle('is-narrow-template', (width > 0 && width <= 820) || (isProcedureFamily && viewportWidth <= 900));
+    modalTemplateResizeCard.classList.toggle('is-phone-template', width > 0 && width <= 680);
+  }
+  function observeModalTemplateWidth(card){
+    if (modalTemplateResizeObserver) {
+      modalTemplateResizeObserver.disconnect();
+      modalTemplateResizeObserver = null;
+    }
+    modalTemplateResizeCard = card || null;
+    syncModalTemplateWidth();
+    if (!card || !('ResizeObserver' in window)) return;
+    modalTemplateResizeObserver = new ResizeObserver(syncModalTemplateWidth);
+    modalTemplateResizeObserver.observe(card);
+  }
+  window.addEventListener('resize', syncModalTemplateWidth, { passive:true });
   function sectionToBox(section, className){
     var box = document.createElement('div');
     box.className = 'tp-box' + (className ? ' ' + className : '');
@@ -4464,27 +4990,54 @@ body.modal-open{
     var description = takeSection(sections, used, ['description','purpose','hemodynamic monitoring','angiography','central access']);
     var indications = takeSection(sections, used, ['indication']);
     var outcomes = takeSection(sections, used, ['outcome','evaluation','interpretation','finding','report']);
-    var complications = takeSection(sections, used, ['complication','safety','risk']);
-    var prePost = type === 'diagnostic-procedure' || type === 'nursing-skill' || type === 'therapeutic-procedure'
-      ? takeSectionWhere(sections, used, function(title){
+    var complications = type === 'nursing-skill'
+      ? takeSection(sections, used, ['complication','risk','adverse'])
+      : takeSection(sections, used, ['complication','safety','risk']);
+    var prePost;
+    if (type === 'nursing-skill') {
+      prePost = takeSectionWhere(sections, used, function(title){
+        var hasPhaseLanguage = (title.indexOf('pre') !== -1 && title.indexOf('post') !== -1) ||
+          title.indexOf('intra') !== -1 ||
+          title.indexOf('before') !== -1 ||
+          title.indexOf('during') !== -1 ||
+          title.indexOf('after') !== -1;
+        return title.indexOf('step') !== -1 ||
+          title.indexOf('technique') !== -1 ||
+          title.indexOf('skill performance') !== -1 ||
+          (title.indexOf('nursing intervention') !== -1 && hasPhaseLanguage);
+      });
+    } else if (type === 'diagnostic-procedure' || type === 'therapeutic-procedure') {
+      prePost = takeSectionWhere(sections, used, function(title){
           var hasPhaseLanguage = (title.indexOf('pre') !== -1 && title.indexOf('post') !== -1) ||
             title.indexOf('intra') !== -1 ||
             title.indexOf('before') !== -1 ||
             title.indexOf('during') !== -1 ||
             title.indexOf('after') !== -1;
           return hasPhaseLanguage && (type === 'diagnostic-procedure' || title.indexOf('nursing intervention') !== -1);
-        })
-      : takeSection(sections, used, ['preprocedure','postprocedure','before','during','after','step','nursing action','action','monitoring']);
+        });
+    } else {
+      prePost = takeSection(sections, used, ['preprocedure','postprocedure','before','during','after','step','nursing action','action','monitoring']);
+    }
     var education = takeSection(sections, used, ['education','teaching']);
-    var interventions = type === 'diagnostic-procedure' || type === 'nursing-skill' || type === 'therapeutic-procedure'
-      ? takeSectionWhere(sections, used, function(title){
+    var interventions;
+    if (type === 'nursing-skill') {
+      interventions = takeSectionWhere(sections, used, function(title){
+        return title.indexOf('nursing intervention') !== -1 ||
+          title.indexOf('safety') !== -1 ||
+          title.indexOf('monitor') !== -1 ||
+          title.indexOf('care') !== -1;
+      }) || takeRemaining(sections, used);
+    } else if (type === 'diagnostic-procedure' || type === 'therapeutic-procedure') {
+      interventions = takeSectionWhere(sections, used, function(title){
           return title.indexOf('nursing intervention') !== -1 &&
             title.indexOf('pre') === -1 &&
             title.indexOf('intra') === -1 &&
             title.indexOf('post') === -1;
-        }) || takeRemaining(sections, used)
-      : takeSection(sections, used, ['nursing intervention','nursing care','report']) || takeRemaining(sections, used);
-    if (type !== 'diagnostic-procedure') {
+        }) || takeRemaining(sections, used);
+    } else {
+      interventions = takeSection(sections, used, ['nursing intervention','nursing care','report']) || takeRemaining(sections, used);
+    }
+    if (type !== 'diagnostic-procedure' && type !== 'nursing-skill') {
       if (!sectionHasContent(indications) && !sectionHasContent(outcomes)) layout.classList.add('tp-grid-lean');
       if (!sectionHasContent(description)) layout.classList.add('tp-grid-no-description');
       if (!sectionHasContent(interventions)) layout.classList.add('tp-grid-no-interventions');
@@ -4552,9 +5105,6 @@ body.modal-open{
     right.appendChild(atiBox('Medication Administration', administration));
     right.appendChild(atiBox('Nursing Interventions', nursing, 'med-ni'));
     right.appendChild(atiBox('Client Education', clientEducation, 'med-ce'));
-    if (![complication, contraindication, interaction, evaluation].some(sectionHasContent)) left.classList.add('is-empty');
-    if (![administration, nursing, clientEducation].some(sectionHasContent)) right.classList.add('is-empty');
-    if (left.classList.contains('is-empty') || right.classList.contains('is-empty')) body.classList.add('med-body-single-column');
     body.appendChild(left);
     body.appendChild(right);
     layout.appendChild(body);
@@ -4564,12 +5114,22 @@ body.modal-open{
     var used = [];
     var layout = document.createElement('div');
     layout.className = 'mn-template-layout sd-grid';
+    function takeSystemSection(exactTitles, fallbackWords){
+      return takeSectionWhere(sections, used, function(title){
+        return exactTitles.indexOf(title) !== -1;
+      }) || takeSectionWhere(sections, used, function(title){
+        return hasAny(title, fallbackWords);
+      });
+    }
+    function takeSystemBox(title, exactTitles, fallbackWords, className){
+      return atiBox(title, takeSystemSection(exactTitles, fallbackWords), className);
+    }
     var top = document.createElement('div');
     top.className = 'sd-top-row';
     var topBoxes = [
-      atiBox('Alterations in Health (Diagnosis)', takeSection(sections, used, ['expected','finding','description','alteration'])),
-      atiBox('Pathophysiology Related to Client Problem', takeSection(sections, used, ['pathophysiology'])),
-      atiBox('Health Promotion and Disease Prevention', takeSection(sections, used, ['prevention','health promotion','risk']))
+      takeSystemBox('Alterations in Health (Diagnosis)', ['alterations in health (diagnosis)','alterations in health','diagnosis','disorder / disease process','disorder/disease process','disorder disease process'], ['alteration']),
+      takeSystemBox('Pathophysiology Related to Client Problem', ['pathophysiology related to client problem','pathophysiology'], ['pathophysiology']),
+      takeSystemBox('Health Promotion and Disease Prevention', ['health promotion and disease prevention','health promotion','disease prevention'], ['prevention','health promotion'])
     ];
     top.classList.add('sd-top-visible-' + topBoxes.filter(function(box){
       return !box.classList.contains('empty-tpl-box');
@@ -4579,10 +5139,10 @@ body.modal-open{
     var middle = document.createElement('div');
     middle.className = 'sd-middle';
     var assessmentGroup = atiGroup('Assessment', [
-      atiBox('Risk Factors', takeSection(sections, used, ['risk'])),
-      atiBox('Expected Findings', takeSection(sections, used, ['assessment','expected','finding'])),
-      atiBox('Laboratory Tests', takeSection(sections, used, ['laboratory','labs'])),
-      atiBox('Diagnostic Procedures', takeSection(sections, used, ['diagnostic']))
+      takeSystemBox('Risk Factors', ['risk factors','risk factor'], ['risk']),
+      takeSystemBox('Expected Findings', ['expected findings','expected finding','findings'], ['expected','finding','assessment']),
+      takeSystemBox('Laboratory Tests', ['laboratory tests','laboratory','labs','lab'], ['laboratory','labs','lab']),
+      takeSystemBox('Diagnostic Procedures', ['diagnostic procedures','diagnostic procedure','diagnostic'], ['diagnostic'])
     ], 'assessment-group');
     if (assessmentGroup.classList.contains('tpl-group-visible-0')) layout.classList.add('sd-no-assessment');
     middle.appendChild(assessmentGroup);
@@ -4594,18 +5154,18 @@ body.modal-open{
     safetyLabel.className = 'tpl-group-label';
     safetyLabel.textContent = 'Safety Considerations';
     safetyMain.appendChild(safetyLabel);
-    safetyMain.appendChild(cloneSectionContent(takeSection(sections, used, ['safety','priority','emergency'])));
+    safetyMain.appendChild(cloneSectionContent(takeSystemSection(['safety considerations','safety consideration','safety'], ['safety','priority','emergency'])));
     safetyMain.lastElementChild.className = 'safety-area';
     safety.appendChild(safetyMain);
-    safety.appendChild(atiBox('Complications', takeSection(sections, used, ['complication']), 'sd-complications'));
+    safety.appendChild(takeSystemBox('Complications', ['complications','complication'], ['complication'], 'sd-complications'));
     middle.appendChild(safety);
     layout.appendChild(middle);
     layout.appendChild(atiGroup('Patient-Centered Care', [
-      atiBox('Nursing Care', takeSection(sections, used, ['nursing','care']), 'sd-nursing-care'),
-      atiBox('Medications', takeSection(sections, used, ['medication']), 'sd-medications'),
-      atiBox('Client Education', takeSection(sections, used, ['education','teaching']), 'sd-client-education'),
-      atiBox('Therapeutic Procedures', takeSection(sections, used, ['therapeutic procedure','therapeutic procedures','procedure']), 'sd-therapeutic-procedures'),
-      atiBox('Interprofessional Care', takeSection(sections, used, ['interprofessional','collaboration','referral']) || takeRemaining(sections, used), 'sd-interprofessional-care')
+      takeSystemBox('Nursing Care', ['nursing care','nursing interventions','nursing intervention'], ['nursing'], 'sd-nursing-care'),
+      takeSystemBox('Medications', ['medications','medication'], ['medication'], 'sd-medications'),
+      takeSystemBox('Client Education', ['client education','education','teaching'], ['education','teaching'], 'sd-client-education'),
+      takeSystemBox('Therapeutic Procedures', ['therapeutic procedures','therapeutic procedure'], ['therapeutic','procedure'], 'sd-therapeutic-procedures'),
+      atiBox('Interprofessional Care', takeSystemSection(['interprofessional care','interprofessional'], ['interprofessional','collaboration','referral']) || takeRemaining(sections, used), 'sd-interprofessional-care')
     ], 'patient-care-group'));
     return layout;
   }
@@ -4860,6 +5420,8 @@ body.modal-open{
     clone.insertBefore(buildTemplateMeta(type, title, sourceText, card.getAttribute('data-category-class') || ''), clone.firstChild);
     clone.insertBefore(header, clone.firstChild);
     modalBody.appendChild(clone);
+    observeModalTemplateWidth(clone);
+    requestAnimationFrame(syncModalTemplateWidth);
     var inlinePrint = header.querySelector('.part-print-btn');
     if (inlinePrint) inlinePrint.addEventListener('click', printCurrentModal);
     header.querySelectorAll('[data-template-nav]').forEach(function(button){
@@ -4876,6 +5438,7 @@ body.modal-open{
     modal.classList.remove('open','show');
     modal.setAttribute('aria-hidden', 'true');
     modal.removeAttribute('data-current-template');
+    observeModalTemplateWidth(null);
     setActiveSidebarExample(null);
     document.body.classList.remove('modal-open');
   }
