@@ -1521,6 +1521,10 @@
 .modal-template-card[data-mode="filled"] .empty-tpl-subbox{
   display:none;
 }
+.modal-template-card[data-template-type="system-disorder"][data-mode="filled"] .tpl-group.tpl-group-visible-0,
+.modal-template-card[data-template-type="system-disorder"][data-mode="filled"] .empty-tpl-box{
+  display:flex;
+}
 .modal-template-card[data-template-type="diagnostic-procedure"][data-mode="filled"] .empty-tpl-box,
 .modal-template-card[data-template-type="diagnostic-procedure"][data-mode="filled"] .empty-tpl-subbox{
   display:flex;
@@ -2818,7 +2822,6 @@ body.modal-open{
   .modal-template-card .tpl-group .tpl-group-body,
   .modal-template-card[data-mode="filled"] .tpl-group.tpl-group-visible-2 .tpl-group-body,
   .modal-template-card .patient-care-group .tpl-group-body,
-  .modal-template-card[data-template-type="system-disorder"] .assessment-group .tpl-group-body,
   .modal-template-card[data-template-type="system-disorder"] .patient-care-group .tpl-group-body,
   .modal-template-card[data-mode="filled"] .patient-care-group.tpl-group-visible-2 .tpl-group-body{
     grid-template-columns:1fr;
@@ -3082,7 +3085,6 @@ body.modal-open{
   }
 }
 @container template-card (max-width:680px){
-  .modal-template-card[data-template-type="system-disorder"] .assessment-group .tpl-group-body,
   .modal-template-card[data-template-type="system-disorder"] .patient-care-group .tpl-group-body,
   .modal-template-card[data-template-type="system-disorder"][data-mode="filled"] .patient-care-group.tpl-group-visible-2 .tpl-group-body{
     grid-template-columns:1fr !important;
@@ -3138,16 +3140,68 @@ body.modal-open{
   height:auto !important;
   min-height:auto !important;
 }
-.modal-template-card.is-phone-template[data-template-type="system-disorder"] .assessment-group .tpl-group-body,
 .modal-template-card.is-phone-template[data-template-type="system-disorder"] .patient-care-group .tpl-group-body,
 .modal-template-card.is-phone-template[data-template-type="system-disorder"][data-mode="filled"] .patient-care-group.tpl-group-visible-2 .tpl-group-body{
   grid-template-columns:1fr !important;
+}
+.modal-template-card[data-template-type="system-disorder"] .assessment-group .tpl-group-body,
+.modal-template-card.is-narrow-template[data-template-type="system-disorder"] .assessment-group .tpl-group-body,
+.modal-template-card.is-phone-template[data-template-type="system-disorder"] .assessment-group .tpl-group-body{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  grid-template-areas:none !important;
 }
 .modal-template-card.is-phone-template[data-template-type="system-disorder"] .sd-top-row > .tp-box,
 .modal-template-card.is-phone-template[data-template-type="system-disorder"] .assessment-group .tp-box,
 .modal-template-card.is-phone-template[data-template-type="system-disorder"] .patient-care-group .tp-box{
   height:auto !important;
   min-height:auto !important;
+}
+.modal-template-card.is-narrow-template[data-template-type="system-disorder"] .patient-care-group .tpl-group-body,
+.modal-template-card.is-phone-template[data-template-type="system-disorder"] .patient-care-group .tpl-group-body{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  grid-template-areas:none !important;
+  grid-template-rows:auto !important;
+  gap:var(--tpl-group-gap) !important;
+  align-items:stretch !important;
+}
+.modal-template-card.is-narrow-template[data-template-type="system-disorder"] .patient-care-group .tp-box,
+.modal-template-card.is-phone-template[data-template-type="system-disorder"] .patient-care-group .tp-box{
+  grid-area:auto !important;
+  min-height:auto !important;
+  height:auto !important;
+}
+@media(max-width:900px){
+  .modal-template-card[data-template-type="system-disorder"] .patient-care-group .tpl-group-body,
+  .modal-template-card[data-template-type="system-disorder"][data-mode="filled"] .patient-care-group .tpl-group-body,
+  .modal-template-card[data-template-type="system-disorder"][data-mode="filled"] .patient-care-group.tpl-group-visible-1 .tpl-group-body,
+  .modal-template-card[data-template-type="system-disorder"][data-mode="filled"] .patient-care-group.tpl-group-visible-2 .tpl-group-body{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    grid-template-areas:none !important;
+    grid-template-rows:auto !important;
+    gap:var(--tpl-group-gap) !important;
+    align-items:stretch !important;
+  }
+  .modal-template-card[data-template-type="system-disorder"] .patient-care-group .tp-box{
+    grid-area:auto !important;
+    min-height:auto !important;
+    height:auto !important;
+  }
+}
+@container template-card (max-width:520px){
+  .modal-template-card[data-template-type="system-disorder"] .patient-care-group .tpl-group-body,
+  .modal-template-card[data-template-type="system-disorder"][data-mode="filled"] .patient-care-group .tpl-group-body,
+  .modal-template-card.is-phone-template[data-template-type="system-disorder"] .patient-care-group .tpl-group-body{
+    grid-template-columns:1fr !important;
+    grid-template-areas:none !important;
+    grid-template-rows:auto !important;
+  }
+  .modal-template-card[data-template-type="system-disorder"] .patient-care-group .tp-box{
+    grid-area:auto !important;
+    min-height:auto !important;
+    height:auto !important;
+  }
 }
 @media(max-width:900px){
   .modal-template-card:is([data-template-type="diagnostic-procedure"],[data-template-type="nursing-skill"],[data-template-type="therapeutic-procedure"]) .tp-grid{
@@ -5144,7 +5198,6 @@ body.modal-open{
       takeSystemBox('Laboratory Tests', ['laboratory tests','laboratory','labs','lab'], ['laboratory','labs','lab']),
       takeSystemBox('Diagnostic Procedures', ['diagnostic procedures','diagnostic procedure','diagnostic'], ['diagnostic'])
     ], 'assessment-group');
-    if (assessmentGroup.classList.contains('tpl-group-visible-0')) layout.classList.add('sd-no-assessment');
     middle.appendChild(assessmentGroup);
     var safety = document.createElement('div');
     safety.className = 'tpl-group safety-group';
