@@ -1529,6 +1529,10 @@
 .modal-template-card[data-template-type="diagnostic-procedure"][data-mode="filled"] .empty-tpl-subbox{
   display:flex;
 }
+.modal-template-card[data-template-type="therapeutic-procedure"][data-mode="filled"] .empty-tpl-box,
+.modal-template-card[data-template-type="therapeutic-procedure"][data-mode="filled"] .empty-tpl-subbox{
+  display:flex;
+}
 .modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .considerations{
   min-height:310px;
   height:100%;
@@ -5091,7 +5095,7 @@ body.modal-open{
     } else {
       interventions = takeSection(sections, used, ['nursing intervention','nursing care','report']) || takeRemaining(sections, used);
     }
-    if (type !== 'diagnostic-procedure' && type !== 'nursing-skill') {
+    if (type !== 'diagnostic-procedure' && type !== 'nursing-skill' && type !== 'therapeutic-procedure') {
       if (!sectionHasContent(indications) && !sectionHasContent(outcomes)) layout.classList.add('tp-grid-lean');
       if (!sectionHasContent(description)) layout.classList.add('tp-grid-no-description');
       if (!sectionHasContent(interventions)) layout.classList.add('tp-grid-no-interventions');
