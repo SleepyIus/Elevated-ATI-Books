@@ -3,6 +3,8 @@
 Status: Read-only design canon extracted from the four MN HTML files.
 Scope: Design, structure, navigation, and learning-workflow patterns only. This is not ATI educational content and should not be used as permission to add content in DESIGN-CANON / HOLD-CONTENT mode.
 
+Current build-guide overlay: use `Build Guide Current Overlay.md` as the current 2026-07 design-canon reading layer over the archived Build Guide branch `codex-build-guide-archive-20260707`. If the archived guide conflicts with this checklist or the latest user instruction, follow the latest user instruction and this current design-canon overlay.
+
 ## Core Canon
 
 - [ ] Treat MN as a connected study system, not just a visual style reference.
