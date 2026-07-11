@@ -1376,11 +1376,6 @@
     "assessment safety"
     "patient-care safety";
 }
-.modal-template-card .sd-grid.sd-no-assessment{
-  grid-template-areas:
-    "top top"
-    "patient-care safety";
-}
 .modal-template-card .sd-top-row{
   grid-area:top;
   display:grid;
@@ -4343,7 +4338,6 @@ body.modal-open{
       atiBox('Laboratory Tests', takeSection(sections, used, ['laboratory','labs'])),
       atiBox('Diagnostic Procedures', takeSection(sections, used, ['diagnostic']))
     ], 'assessment-group');
-    if (assessmentGroup.classList.contains('tpl-group-visible-0')) layout.classList.add('sd-no-assessment');
     middle.appendChild(assessmentGroup);
     var safety = document.createElement('div');
     safety.className = 'tpl-group safety-group';
