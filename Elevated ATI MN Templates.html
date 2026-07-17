@@ -425,7 +425,8 @@ body{
   font-size:14px;color:var(--text);
   margin:0;
 }
-.meta-blank{
+.meta-blank,
+.template-meta .meta-value:empty{
   display:inline-block;min-width:120px;
   border-bottom:1px dashed var(--border);
   height:18px;
@@ -1520,6 +1521,62 @@ isolation:isolate;}
   flex:1;
 }
 
+/* Procedure templates: equal desktop rows grow to the largest paired box. */
+.example-card[data-template-type="diagnostic-procedure"] .tp-grid{
+  grid-template-rows:auto repeat(2,minmax(max-content,1fr)) auto;
+}
+.example-card[data-template-type="diagnostic-procedure"] .tp-grid > .considerations{
+  display:grid;
+  grid-template-rows:auto repeat(2,minmax(max-content,1fr));
+  align-items:stretch;
+  height:auto;
+}
+.example-card[data-template-type="diagnostic-procedure"] .tp-grid > .considerations > .tp-subbox{
+  flex:none;
+  min-height:max-content;
+  height:auto;
+}
+.example-card[data-template-type="nursing-skill"] .tp-grid{
+  grid-template-rows:auto repeat(2,minmax(max-content,1fr)) auto;
+}
+.example-card[data-template-type="nursing-skill"] .tp-grid > .considerations{
+  display:grid;
+  grid-template-rows:auto repeat(2,minmax(max-content,1fr));
+  align-items:stretch;
+  height:auto;
+}
+.example-card[data-template-type="nursing-skill"] .tp-grid > .considerations > .tp-subbox{
+  flex:none;
+  min-height:max-content;
+  height:auto;
+}
+.example-card[data-template-type="therapeutic-procedure"] .tp-grid{
+  grid-template-rows:auto repeat(2,minmax(max-content,1fr)) auto;
+}
+.example-card[data-template-type="therapeutic-procedure"] .tp-grid > .considerations{
+  display:grid;
+  grid-template-rows:auto repeat(2,minmax(max-content,1fr));
+  align-items:stretch;
+  height:auto;
+}
+.example-card[data-template-type="therapeutic-procedure"] .tp-grid > .considerations > .tp-subbox{
+  flex:none;
+  min-height:max-content;
+  height:auto;
+}
+@media(max-width:900px){
+  .example-card[data-template-type="diagnostic-procedure"] .tp-grid,
+  .example-card[data-template-type="nursing-skill"] .tp-grid,
+  .example-card[data-template-type="therapeutic-procedure"] .tp-grid{
+    grid-template-rows:none;
+  }
+  .example-card[data-template-type="diagnostic-procedure"] .tp-grid > .considerations,
+  .example-card[data-template-type="nursing-skill"] .tp-grid > .considerations,
+  .example-card[data-template-type="therapeutic-procedure"] .tp-grid > .considerations{
+    grid-template-rows:auto auto auto;
+  }
+}
+
 /* CONNECTOR LINE — between Potential Complications and Nursing Interventions
    Two halves (one per box) meeting in the middle of the 14px grid gap.
    v8: thicker, more prominent (matches G&D connector treatment) */
@@ -1605,6 +1662,10 @@ isolation:isolate;}
   color:var(--text) !important;letter-spacing:0 !important;
 }
 .bc-grid > .tp-box > .content{padding:14px 16px 16px;flex:1}
+#ex-ch11-bishop .bc-grid > .tp-box:first-child .data-table{
+  width:100%;
+  table-layout:fixed;
+}
 @media(max-width:900px){
   .bc-grid{grid-template-columns:1fr}
   .bc-grid > .tp-box{min-height:auto}
@@ -1903,6 +1964,36 @@ isolation:isolate;}
 }
 .tpl-group.safety-group > .tp-box > .content{
   padding:12px 14px 14px;font-size:13px;line-height:1.5;
+}
+
+/* System Disorder: equal Safety rows grow to the larger content block. */
+.example-card[data-template-type="system-disorder"] .safety-group{
+  display:grid !important;
+  grid-template-rows:repeat(2,minmax(max-content,1fr));
+  align-items:stretch;
+  gap:14px;
+}
+.example-card[data-template-type="system-disorder"] .sd-safety-main{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  min-height:max-content;
+}
+.example-card[data-template-type="system-disorder"] .safety-area{
+  flex:none;
+  min-height:max-content;
+}
+.example-card[data-template-type="system-disorder"] .safety-group > .tp-box{
+  margin-top:0;
+  min-height:max-content;
+  height:auto;
+}
+@media(max-width:900px){
+  .example-card[data-template-type="system-disorder"] .safety-group{
+    display:flex !important;
+    flex-direction:column;
+    gap:10px;
+  }
 }
 
 /* CONNECTORS — prominent visible lines (not subtle pseudo-elements) */
@@ -2216,6 +2307,10 @@ isolation:isolate;}
             overflow-x: auto;
             max-width: 100%;
           }
+          #ex-ch11-bishop .bc-grid > .tp-box:first-child .data-table {
+            display: table;
+            overflow-x: visible;
+          }
         }
       
         /* === VERSION BADGE === */
@@ -2226,6 +2321,45 @@ isolation:isolate;}
         }
         .sb-version:hover{opacity:1}
         /* === END VERSION BADGE === */
+
+        /* Typography canon: A1-A9 body text follows the readable A7 Complications box. */
+        .example-card:is(
+          [data-template-type="basic-concept"],
+          [data-template-type="diagnostic-procedure"],
+          [data-template-type="growth-development"],
+          [data-template-type="medication"],
+          [data-template-type="nursing-skill"]
+        ) :is(.tp-box, .tp-subbox) > .content,
+        .example-card:is(
+          [data-template-type="basic-concept"],
+          [data-template-type="diagnostic-procedure"],
+          [data-template-type="growth-development"],
+          [data-template-type="medication"],
+          [data-template-type="nursing-skill"]
+        ) :is(.tp-box, .tp-subbox) > .content :is(p, li, ul, ol){
+          font-family:'DM Sans',sans-serif !important;
+          font-size:16px !important;
+          line-height:1.6 !important;
+          font-weight:400;
+          letter-spacing:0;
+        }
+        /* A9 pre/intra/post merge: book-accent bullets with the established text colors. */
+        .example-card[data-template-type="nursing-skill"]
+          .tp-grid > .considerations > .tp-subbox:nth-child(2) > .content > p{
+          position:relative;
+          padding-left:18px;
+        }
+        .example-card[data-template-type="nursing-skill"]
+          .tp-grid > .considerations > .tp-subbox:nth-child(2) > .content > p::before{
+          content:'';
+          position:absolute;
+          left:0;
+          top:.72em;
+          width:5px;
+          height:5px;
+          border-radius:50%;
+          background:var(--accent2);
+        }
       </style>
 </head>
 <body>
@@ -16445,6 +16579,21 @@ isolation:isolate;}
         // Card stays in unit-body but is CSS-hidden; modal moves it temporarily
         card.classList.add('tab-panel');
         card.setAttribute('data-tab-id', tabId);
+        card.setAttribute('data-template-type', templateId);
+
+        // Normalize A11's first Safety row so it can share content-aware sizing.
+        if (templateId === 'system-disorder') {
+          var safetyGroup = card.querySelector('.safety-group');
+          var safetyLabel = safetyGroup && safetyGroup.querySelector(':scope > .tpl-group-label');
+          var safetyArea = safetyGroup && safetyGroup.querySelector(':scope > .safety-area');
+          if (safetyGroup && safetyLabel && safetyArea && !safetyGroup.querySelector(':scope > .sd-safety-main')) {
+            var safetyMain = document.createElement('div');
+            safetyMain.className = 'sd-safety-main';
+            safetyGroup.insertBefore(safetyMain, safetyLabel);
+            safetyMain.appendChild(safetyLabel);
+            safetyMain.appendChild(safetyArea);
+          }
+        }
 
         // Insert per-example checkbox into the example-header
         var header = card.querySelector('.example-header');

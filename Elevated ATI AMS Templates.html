@@ -939,7 +939,7 @@
   flex-direction:column;
   gap:var(--tpl-group-gap);
   padding:var(--tpl-group-gap);
-  border-radius:8px;
+  border-radius:16px;
 }
 .modal-template-card[data-template-type="nursing-skill"] .tp-grid > .considerations > .tp-subbox{
   flex:0 1 auto;
@@ -949,16 +949,23 @@
 .modal-template-card[data-template-type="nursing-skill"][data-mode="filled"] .tp-grid > .considerations > .empty-tpl-subbox{
   display:flex;
 }
-.modal-template-card[data-template-type="nursing-skill"] .tp-grid .tp-box,
-.modal-template-card[data-template-type="nursing-skill"] .tp-grid .tp-subbox{
-  border-radius:8px;
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .tp-box{
+  border-radius:14px;
   min-height:0;
 }
-.modal-template-card[data-template-type="nursing-skill"] .tp-grid .tp-box > h3,
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid .tp-subbox{
+  border-radius:11px;
+  min-height:0;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .tp-box > h3{
+  padding:10px var(--tpl-box-pad-x);
+  border-top-left-radius:13px;
+  border-top-right-radius:13px;
+}
 .modal-template-card[data-template-type="nursing-skill"] .tp-grid .tp-subbox > h4{
   padding:10px var(--tpl-box-pad-x);
-  border-top-left-radius:7px;
-  border-top-right-radius:7px;
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
 }
 .modal-template-card[data-template-type="nursing-skill"] .tp-grid .tp-box > .content,
 .modal-template-card[data-template-type="nursing-skill"] .tp-grid .tp-subbox > .content{
@@ -1042,6 +1049,18 @@
 .modal-template-card[data-template-type="growth-development"] .gd-grid .hp-parent > .content li,
 .modal-template-card[data-template-type="growth-development"] .gd-grid > .tpl-group > .tpl-group-body > .tp-box > .content li{
   margin-bottom:5px;
+}
+/* Typography canon batch 1: match MN's readable A1/A3 body and A1/A3/A5 heading rhythm. */
+.modal-template-card[data-template-type="basic-concept"] .bc-grid > .tp-box > h3,
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .tp-box > h3,
+.modal-template-card[data-template-type="growth-development"] .gd-grid .tp-box > h3,
+.modal-template-card[data-template-type="growth-development"] .gd-grid .hp-parent > h3{
+  line-height:1.6;
+}
+.modal-template-card[data-template-type="basic-concept"] .bc-grid > .tp-box > .content,
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .tp-box > .content{
+  font-size:16px;
+  line-height:1.6;
 }
 .modal-template-card .considerations-label{
   margin:0;
@@ -1803,6 +1822,10 @@
   font-weight:400;
   letter-spacing:0;
 }
+.modal-template-card[data-template-type="basic-concept"] .bc-grid > .tp-box > .content,
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .tp-box > .content{
+  line-height:1.6;
+}
 .modal-template-card .tp-box > .content p,
 .modal-template-card .tp-subbox > .content p,
 .modal-template-card .safety-area p{
@@ -1910,6 +1933,7 @@ body.modal-open{
   body.printing-template-group .sidebar,
   body.printing-template-group .sidebar-toggle,
   body.printing-template-group .sidebar-overlay,
+  body.printing-template-group .back-home-mobile,
   body.printing-template-group .topbar,
   body.printing-template-group .hero,
   body.printing-template-group .section-divider,
@@ -2040,19 +2064,24 @@ body.modal-open{
 }
 .sb-version:hover{opacity:1}
 .sidebar-theme-toggle{
+  margin-top:12px;
+  background:transparent;
+  border:1px solid var(--border);
+  color:var(--text2);
+  padding:6px 10px;
+  border-radius:6px;
+  font-family:inherit;
+  font-size:11px;
+  font-weight:600;
+  cursor:pointer;
   width:100%;
   display:flex;
   align-items:center;
   justify-content:center;
   gap:6px;
-  margin-top:12px;
-  padding:6px 10px;
-  border-radius:6px;
-  background:transparent;
-  color:var(--text2);
-  font-size:11px;
-  font-weight:600;
+  transition:all .15s;
 }
+.sidebar-theme-toggle:hover{border-color:var(--accent);color:var(--text)}
 .sidebar-progress-wrap{
   padding:12px 16px;
   border-bottom:1px solid var(--border);
@@ -2091,7 +2120,7 @@ body.modal-open{
   gap:5px;
   color:var(--text3);
   font-size:10px;
-  font-weight:600;
+  font-weight:500;
 }
 .legend-dot{
   width:8px;
@@ -2108,8 +2137,13 @@ body.modal-open{
 .sidebar-list{
   flex:1;
   overflow-y:auto;
-  padding:8px 0;
+  padding:8px 0 24px;
+  scrollbar-width:thin;
+  scrollbar-color:var(--border) transparent;
 }
+.sidebar-list::-webkit-scrollbar{width:6px}
+.sidebar-list::-webkit-scrollbar-track{background:transparent}
+.sidebar-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
 .sidebar-section-label{
   padding:14px 16px 4px;
   color:var(--text3);
@@ -2170,7 +2204,7 @@ body.modal-open{
   color:var(--text);
   padding:8px 10px;
   border-radius:6px;
-  font:inherit;
+  font-family:inherit;
   font-size:12px;
   outline:0;
   transition:border-color .15s;
@@ -2248,7 +2282,7 @@ body.modal-open{
 .sb-tpl-example{
   display:block;
   margin-left:-1px;
-  padding:6px 12px;
+  padding:8px 12px;
   border-left:2px solid var(--border-soft);
   border-radius:6px;
   color:var(--text3);
@@ -2262,7 +2296,7 @@ body.modal-open{
   background:var(--accent-soft);
   color:var(--accent);
 }
-.sb-tpl-example.active{font-weight:700}
+.sb-tpl-example.active{font-weight:600}
 .sidebar-toggle{
   display:none;
   position:fixed;
@@ -2288,7 +2322,7 @@ body.modal-open{
   z-index:51;
   align-items:center;
   gap:5px;
-  padding:9px 14px;
+  padding:8px 14px;
   border:1px solid var(--border);
   border-radius:8px;
   background:var(--surface);
@@ -2318,7 +2352,7 @@ body.modal-open{
   display:none;
 }
 .hero{
-  padding:36px 0 16.2px;
+  padding:36px 0 20px;
   border:0;
   border-radius:0;
   background:transparent;
@@ -2348,29 +2382,26 @@ body.modal-open{
 }
 .hero .compare-btn{
   margin-top:22px;
-  transform:none;
 }
 .compare-btn{
   display:inline-flex;
   align-items:center;
   gap:8px;
   padding:10px 20px;
-  margin:22px 0 16px;
+  margin:8px 0 16px;
   border:1px solid var(--border);
   border-radius:8px;
   background:var(--surface);
   color:var(--text2);
-  font:inherit;
+  font-family:inherit;
   font-size:13px;
   font-weight:600;
   cursor:pointer;
-  transform:translateY(-2px);
-  transition:border-color .15s ease,color .15s ease,background .15s ease;
+  transition:all .15s;
 }
 .compare-btn:hover{
   border-color:var(--accent);
   color:var(--accent);
-  background:var(--surface2);
 }
 .section-divider{
   padding-bottom:14px;
@@ -2430,7 +2461,6 @@ body.modal-open{
 }
 .template-grid{
   display:grid;
-  grid-template-columns:1fr;
   gap:14px;
   margin-top:0;
 }
@@ -3299,6 +3329,25 @@ body.modal-open{
     display:none !important;
   }
 }
+/* Typography canon: A1-A7 body text follows MN's readable A7 Complications box. */
+.modal-template-card:is(
+  [data-template-type="basic-concept"],
+  [data-template-type="diagnostic-procedure"],
+  [data-template-type="growth-development"],
+  [data-template-type="medication"]
+) :is(.tp-box, .tp-subbox) > .content,
+.modal-template-card:is(
+  [data-template-type="basic-concept"],
+  [data-template-type="diagnostic-procedure"],
+  [data-template-type="growth-development"],
+  [data-template-type="medication"]
+) :is(.tp-box, .tp-subbox) > .content :is(p, li, ul, ol){
+  font-family:'DM Sans',sans-serif !important;
+  font-size:16px !important;
+  line-height:1.6 !important;
+  font-weight:400;
+  letter-spacing:0;
+}
 </style>
 </head>
 <body>
@@ -3306,14 +3355,14 @@ body.modal-open{
 <button class="sidebar-toggle" id="tplSidebarToggle" type="button" aria-label="Open template navigation" aria-expanded="false">☰</button>
 <div class="sidebar-overlay" id="tplSidebarOverlay"></div>
 <div class="page template-layout">
-  <aside class="template-sidebar" aria-label="AMS template navigation">
+  <aside class="sidebar template-sidebar" id="sidebar" aria-label="AMS template navigation">
     <div class="sidebar-header">
       <a class="back-home" href="Elevated%20ATI%20AMS%20Hub.html">Back to Hub</a>
       <div class="sb-course">ATI AMS</div>
       <div class="sb-title">Active Learning Templates</div>
       <div class="sb-sub">Adult Medical-Surgical Nursing · Edition 11</div>
       <div class="sb-version" title="Suite v3.1.0 · built 2026-07-01">v3.1.0 · 2026-07-01</div>
-      <button class="theme-toggle sidebar-theme-toggle" id="themeToggleSidebar" type="button"><span class="theme-icon">☀️</span> <span class="theme-label">Light Mode</span></button>
+      <button class="sidebar-theme-toggle" id="themeToggleSidebar" type="button"><span class="theme-icon">☀️</span> <span class="theme-label">Light Mode</span></button>
     </div>
     <div class="sidebar-progress-wrap">
       <div class="sidebar-progress"><div class="sidebar-progress-fill" id="tplSidebarProgress" style="width:0%"></div></div>

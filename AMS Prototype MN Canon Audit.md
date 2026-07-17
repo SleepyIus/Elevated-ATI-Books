@@ -4,6 +4,10 @@ Status: Design-canon / HOLD-CONTENT audit only.
 Date: 2026-07-04.
 Scope: Current AMS prototype compared against the MN design canon. This document does not add ATI educational content and does not approve rollout to MN or other books.
 
+Continuity notice (2026-07-15): this file preserves AMS audit evidence and batch history; it is not the current task selector or an independent source of required canon. Private master Build Guide Part 49 consolidates the accepted current conclusions from this audit and is the complete migration reference. Heartbeat continuation has resumed from the current MH queue under Part 49; all older AMS-only heartbeat recommendations in this audit are historical. Update this file only when AMS comparison evidence, audit status, or rollout readiness changes.
+
+Clipping-readiness update (2026-07-17): all 24 MN, MH, and AMS template-family items plus the MN, MH, and AMS landing shell/sidebar/modal chrome items have completed objective clipping QA. The AMS shell passed eight repeated desktop, split-pane/tablet, and phone states with no product repair: page and modal horizontal overflow stayed at `0px`, all eight collapsed headers and their visible children stayed contained, both opened responsive sidebars measured `280px` with `0px` horizontal row/control overflow, and the representative Basic Concept modal's title, labels, buttons, navigation, and borders stayed inside their containers. Tablet and phone modal-body vertical scrolling was intentional; the existing phone example-name line clamps behind the open modal were excluded by the clipping gate. Final cross-book integrity also passed with unchanged MN/MH/AMS payload hashes, parseable scripts, 352 cards and 352 unique IDs, canonical family order/counts, exact standalone/comparison parity, required breakpoints/landmarks, and complete responsive summaries. The clipping automation is paused, and user visual approval remains pending. This audit remains supporting evidence; private master Part 98 and the current overlay select the waiting state.
+
 ## Files Reviewed
 
 - `MN Design Canon Checklist.md`
