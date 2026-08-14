@@ -1258,6 +1258,12 @@ body.modal-open{overflow:hidden}
 }
 /* Specific group variants */
 .tpl-group.purpose-group .tpl-group-body{grid-template-columns:1fr 1fr}
+.example-card[data-template-type="medication"] .purpose-group{padding:10px}
+.example-card[data-template-type="medication"] .purpose-group .tp-box > h3{
+  padding:10px 16px;
+  font-size:15px !important;
+  line-height:17.25px;
+}
 .tpl-group.assessment-group .tpl-group-body{grid-template-columns:1fr 1fr}
 .tpl-group.patient-care-group .tpl-group-body{grid-template-columns:1fr 1fr 1fr}
 @media(max-width:900px){
@@ -1806,7 +1812,7 @@ isolation:isolate;}
 
 /* Content inside Health Promotion parent box */
 .gd-grid > .tpl-group.health-promotion-group > .hp-parent > .content{
-  padding:0 16px 14px;
+  padding:14px 16px;
   font-size:13px;
   line-height:1.5;
 }
@@ -7853,6 +7859,7 @@ isolation:isolate;}
             <dl class="template-meta">
               <dt>Student Name</dt><dd><span class="meta-value"></span></dd>
               <dt>Medication</dt><dd><span class="meta-value">Magnesium sulfate (MgSO₄)</span></dd>
+              <dt>Category Class</dt><dd><span class="meta-value"></span></dd>
               <dt>Review Module Chapter</dt><dd><span class="meta-value always-show">Ch 9 — Medical Conditions</span></dd>
             </dl>
 
@@ -7891,6 +7898,14 @@ isolation:isolate;}
                     <li>Potentiates effects of neuromuscular blockers</li>
                     <li>Concurrent calcium channel blockers (nifedipine) → severe hypotension</li>
                     <li>Concurrent terbutaline / beta-agonists may increase pulmonary edema risk</li>
+                  </ul></div></div>
+                <div class="tp-box"><h3>Evaluation of Medication Effectiveness</h3><div class="content"><ul>
+                    <li>Absence of seizure activity</li>
+                    <li>BP within target range</li>
+                    <li>Stable maternal vitals and FHR</li>
+                    <li>Reflexes 1+ to 2+ (not absent)</li>
+                    <li>RR ≥ 12/min, urine output ≥ 30 mL/hr</li>
+                    <li>For tocolysis: cessation/reduction of contractions</li>
                   </ul></div></div>
               </div>
               <div class="med-col-right">
@@ -7933,14 +7948,6 @@ isolation:isolate;}
                   </ul></div></div>
               </div>
               </div>
-  <div class="tp-box"><h3>Evaluation of Medication Effectiveness</h3><div class="content"><ul>
-                    <li>Absence of seizure activity</li>
-                    <li>BP within target range</li>
-                    <li>Stable maternal vitals and FHR</li>
-                    <li>Reflexes 1+ to 2+ (not absent)</li>
-                    <li>RR ≥ 12/min, urine output ≥ 30 mL/hr</li>
-                    <li>For tocolysis: cessation/reduction of contractions</li>
-                  </ul></div></div>
 </div>
           </div>
 
@@ -7962,6 +7969,7 @@ isolation:isolate;}
             <dl class="template-meta">
               <dt>Student Name</dt><dd><span class="meta-value"></span></dd>
               <dt>Medication</dt><dd><span class="meta-value">Nifedipine</span></dd>
+              <dt>Category Class</dt><dd><span class="meta-value"></span></dd>
               <dt>Review Module Chapter</dt><dd><span class="meta-value always-show">Ch 9 + Ch 10 (dual indication)</span></dd>
             </dl>
 
@@ -7998,6 +8006,12 @@ isolation:isolate;}
                     <li>Beta-agonists (terbutaline) — additive hypotension</li>
                     <li>Grapefruit juice — ↑ nifedipine levels</li>
                     <li>CYP3A4 inhibitors/inducers</li>
+                  </ul></div></div>
+                <div class="tp-box"><h3>Evaluation of Medication Effectiveness</h3><div class="content"><ul>
+                    <li>Tocolytic: cessation or significant reduction in contractions</li>
+                    <li>Antihypertensive: BP within target range without symptomatic hypotension</li>
+                    <li>Stable maternal vitals and FHR</li>
+                    <li>No worsening of preeclampsia signs</li>
                   </ul></div></div>
               </div>
               <div class="med-col-right">
@@ -8039,12 +8053,6 @@ isolation:isolate;}
                   </ul></div></div>
               </div>
               </div>
-  <div class="tp-box"><h3>Evaluation of Medication Effectiveness</h3><div class="content"><ul>
-                    <li>Tocolytic: cessation or significant reduction in contractions</li>
-                    <li>Antihypertensive: BP within target range without symptomatic hypotension</li>
-                    <li>Stable maternal vitals and FHR</li>
-                    <li>No worsening of preeclampsia signs</li>
-                  </ul></div></div>
 </div>
           </div>
 
@@ -8389,6 +8397,7 @@ isolation:isolate;}
             <dl class="template-meta">
               <dt>Student Name</dt><dd><span class="meta-value"></span></dd>
               <dt>Medication / Device</dt><dd><span class="meta-value">Intrauterine Device (IUD)</span></dd>
+              <dt>Category Class</dt><dd><span class="meta-value"></span></dd>
               <dt>Review Module Chapter</dt><dd><span class="meta-value always-show">Ch 1 — Contraception</span></dd>
             </dl>
             <div class="med-grid">
