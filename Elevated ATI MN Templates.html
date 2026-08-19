@@ -42,6 +42,8 @@
   --shadow:0 8px 24px rgba(0,0,0,0.3);
   --modal-bg:rgba(9,11,20,0.85);
   --template-modal-width:1080px;
+  --tpl-modal-title-row-min-height:100.4px;
+  --tpl-modal-title-row-min-height-mobile:104.8px;
 }
 [data-theme="light"]{
   --bg:#faf7f2;
@@ -498,6 +500,14 @@ body{
 .example-card[data-mode="blank"] .tp-subbox{
   min-height:120px;
 }
+.example-card[data-template-type="growth-development"][data-mode="blank"]
+  .health-promotion-group > .hp-parent > .content{
+  display:none;
+}
+.example-card[data-template-type="growth-development"][data-mode="blank"]
+  .health-promotion-group > .hp-parent{
+  min-height:120px;
+}
 .example-card[data-mode="blank"] .meta-value{
   display:inline-block;min-width:120px;
   border-bottom:1px dashed var(--border);
@@ -872,6 +882,7 @@ button:focus-visible,a:focus-visible{
 .modal-title-row{
   display:flex;align-items:flex-start;justify-content:space-between;
   gap:16px;width:100%;margin-bottom:14px;
+  min-height:var(--tpl-modal-title-row-min-height);
 }
 .modal-meta{
   font-size:11px;font-weight:600;letter-spacing:.14em;
@@ -939,6 +950,7 @@ button:focus-visible,a:focus-visible{
   .modal-overlay{padding:0}
   .modal{max-width:100%;border-radius:0;max-height:100vh;height:100vh;border:none}
   .modal-header{padding:16px 18px 0}
+  .modal-title-row{min-height:var(--tpl-modal-title-row-min-height-mobile)}
   .modal-title{font-size:28px}
   .modal-body{padding:20px 18px 40px}
 }
@@ -1412,6 +1424,15 @@ isolation:isolate;}
   flex-grow:1;
 }
 
+/* Blank medication cards keep every writing surface at the canonical 120px. */
+.example-card[data-template-type="medication"][data-mode="blank"] .med-body{
+  align-items:flex-start;
+}
+.example-card[data-template-type="medication"][data-mode="blank"] .med-body > .med-col-left > .tp-box:last-child,
+.example-card[data-template-type="medication"][data-mode="blank"] .med-body > .med-col-right > .tp-box:last-child{
+  flex-grow:0;
+}
+
 @media(max-width:680px){
   .med-body{grid-template-columns:1fr}
 }
@@ -1582,6 +1603,14 @@ isolation:isolate;}
     grid-template-rows:auto auto auto;
   }
 }
+@media(max-width:680px){
+  /* A9 stacked Blank mode keeps both nested Considerations roles as usable
+     writing surfaces instead of collapsing them to their title bands. */
+  .example-card[data-template-type="nursing-skill"][data-mode="blank"]
+    .tp-grid > .considerations > .tp-subbox{
+    min-height:120px;
+  }
+}
 
 /* CONNECTOR LINE — between Potential Complications and Nursing Interventions
    Two halves (one per box) meeting in the middle of the 14px grid gap.
@@ -1606,8 +1635,61 @@ isolation:isolate;}
   border-radius:1px;
   z-index:-1;
 }
+.example-card[data-template-type="nursing-skill"] .tp-grid > .complications::before,
+.example-card[data-template-type="therapeutic-procedure"] .tp-grid > .complications::before{
+  content:'';
+  position:absolute;
+  top:50%;
+  right:calc(-1 * (var(--tp-gap) + 1px));
+  transform:translateY(-50%);
+  width:var(--tp-gap);
+  height:3px;
+  background:var(--text3);
+  border-radius:1px;
+  pointer-events:none;
+  z-index:0;
+}
+@media(max-width:680px){
+  .example-card[data-template-type="nursing-skill"] .tp-grid > .complications::after,
+  .example-card[data-template-type="therapeutic-procedure"] .tp-grid > .complications::after{
+    display:block !important;
+    top:auto;
+    right:auto;
+    bottom:calc(-1 * (var(--tp-gap) + var(--tp-connector-overlap)));
+    left:50%;
+    transform:translateX(-50%);
+    width:3px;
+    height:calc(var(--tp-gap) + 2 * var(--tp-connector-overlap));
+    z-index:-1;
+  }
+  .example-card[data-template-type="nursing-skill"] .tp-grid > .complications::before,
+  .example-card[data-template-type="therapeutic-procedure"] .tp-grid > .complications::before{
+    display:block;
+    top:auto;
+    right:auto;
+    bottom:calc(-1 * (var(--tp-gap) + 1px));
+    left:50%;
+    transform:translateX(-50%);
+    width:3px;
+    height:var(--tp-gap);
+    z-index:0;
+  }
+}
 @media(max-width:680px){
   .tp-grid > .complications::after{display:none}
+  /* A3 official-template connector: rotate the wide horizontal bridge when
+     Potential Complications and Nursing Interventions stack. */
+  .example-card[data-template-type="diagnostic-procedure"] .tp-grid > .complications::after{
+    display:block;
+    top:auto;
+    right:auto;
+    bottom:calc(-1 * (var(--tp-gap) + var(--tp-connector-overlap)));
+    left:50%;
+    transform:translateX(-50%);
+    width:3px;
+    height:calc(var(--tp-gap) + 2 * var(--tp-connector-overlap));
+    z-index:-1;
+  }
 }
 
 
@@ -1683,12 +1765,12 @@ isolation:isolate;}
 .gd-grid{
   display:grid;
   grid-template-columns:1fr;
-  gap:20px;
+  gap:14px;
 }
 .gd-grid > .tpl-group{
   display:flex !important;
   flex-direction:column;
-  gap:12px;
+  gap:14px;
 }
 /* Section divider: label with horizontal lines on either side (like canonical) */
 .gd-grid > .tpl-group > .tpl-group-label{
@@ -1703,11 +1785,46 @@ isolation:isolate;}
 .gd-grid > .tpl-group > .tpl-group-label::after{
   content:'';flex:1;height:1px;background:var(--border);
 }
+/* Canon section-title rails: outer labels that govern nested content regions. */
+.considerations > .considerations-label,
+.considerations > .considerations-top > .considerations-label,
+.purpose-group > .tpl-group-label,
+:is(.assessment-group,.patient-care-group) > .tpl-group-label,
+.safety-group .sd-safety-main > .tpl-group-label,
+.safety-group.sd-safety-legacy > .tpl-group-label{
+  display:flex !important;
+  align-items:center;
+  gap:14px;
+  color:var(--text2) !important;
+  font-size:11px !important;
+  font-weight:700 !important;
+  letter-spacing:.16em !important;
+  text-transform:uppercase;
+  margin:0;
+  padding:0 !important;
+}
+.considerations > .considerations-label::before,
+.considerations > .considerations-label::after,
+.considerations > .considerations-top > .considerations-label::before,
+.considerations > .considerations-top > .considerations-label::after,
+.purpose-group > .tpl-group-label::before,
+.purpose-group > .tpl-group-label::after,
+:is(.assessment-group,.patient-care-group) > .tpl-group-label::before,
+:is(.assessment-group,.patient-care-group) > .tpl-group-label::after,
+.safety-group .sd-safety-main > .tpl-group-label::before,
+.safety-group .sd-safety-main > .tpl-group-label::after,
+.safety-group.sd-safety-legacy > .tpl-group-label::before,
+.safety-group.sd-safety-legacy > .tpl-group-label::after{
+  content:'';
+  flex:1;
+  height:1px;
+  background:var(--border);
+}
 /* Body: 4 columns at full width, 2 at medium, 1 at narrow */
 .gd-grid > .tpl-group > .tpl-group-body{
   display:grid;
   grid-template-columns:repeat(4, minmax(0, 1fr));
-  gap:12px;
+  gap:14px;
 }
 .gd-grid > .tpl-group > .tpl-group-body > .tp-box{
   background:var(--surface);
@@ -1734,6 +1851,7 @@ isolation:isolate;}
   .gd-grid > .tpl-group > .tpl-group-body{grid-template-columns:repeat(2, minmax(0, 1fr))}
 }
 @media(max-width:600px){
+  .gd-grid{gap:14px}
   .gd-grid > .tpl-group > .tpl-group-body{grid-template-columns:1fr}
 }
 
@@ -1775,13 +1893,13 @@ isolation:isolate;}
    Change --hp-connector-height to make the connectors longer or shorter; both the
    strip height AND the lines inside follow automatically. */
 .gd-grid > .tpl-group.health-promotion-group{
-  --hp-connector-height:20px;  /* length of the vertical connectors / visual gap */
+  --hp-connector-height:14px;  /* length of the vertical connectors / visual gap */
   --hp-connector-width:3px;    /* thickness of each line */
 }
 .gd-grid > .tpl-group.health-promotion-group > .hp-connectors{
   display:grid;
   grid-template-columns:repeat(4, minmax(0, 1fr));
-  gap:12px;
+  gap:14px;
   height:var(--hp-connector-height);
   width:100%;
   padding:0;
@@ -1805,7 +1923,7 @@ isolation:isolate;}
 }
 @media(max-width:600px){
   .gd-grid > .tpl-group.health-promotion-group{
-    gap:12px;
+    gap:14px;
   }
   .gd-grid > .tpl-group.health-promotion-group > .hp-connectors{display:none}
 }
@@ -1813,8 +1931,18 @@ isolation:isolate;}
 /* Content inside Health Promotion parent box */
 .gd-grid > .tpl-group.health-promotion-group > .hp-parent > .content{
   padding:14px 16px;
-  font-size:13px;
-  line-height:1.5;
+  font-family:'DM Sans',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  font-weight:400;
+  letter-spacing:0;
+}
+.gd-grid > .tpl-group.health-promotion-group > .hp-parent > .content :is(p, li, ul, ol){
+  font-family:'DM Sans',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  font-weight:400;
+  letter-spacing:0;
 }
 .gd-grid > .tpl-group.health-promotion-group > .hp-parent > .content p{margin:0 0 8px;color:var(--text2)}
 .gd-grid > .tpl-group.health-promotion-group > .hp-parent > .content p:last-child{margin-bottom:0}
@@ -1994,11 +2122,36 @@ isolation:isolate;}
   min-height:max-content;
   height:auto;
 }
+/* Legacy A11 records keep their official outer SAFETY rail and two nested
+   boxes. Treat the body—not the rail—as the equal two-row relationship. */
+.example-card[data-template-type="system-disorder"] .safety-group.sd-safety-legacy{
+  display:flex !important;
+  flex-direction:column;
+  gap:10px;
+}
+.example-card[data-template-type="system-disorder"] .safety-group.sd-safety-legacy > .tpl-group-body{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  grid-template-rows:repeat(2,minmax(max-content,1fr));
+  align-items:stretch;
+  gap:14px;
+  flex:1;
+}
 @media(max-width:900px){
   .example-card[data-template-type="system-disorder"] .safety-group{
     display:flex !important;
     flex-direction:column;
     gap:10px;
+  }
+  /* Stacked A11 Blank keeps both official Safety roles as usable writing
+     surfaces, matching every other direct or nested Blank box. */
+  .example-card[data-template-type="system-disorder"][data-mode="blank"]
+    .safety-group .sd-safety-main,
+  .example-card[data-template-type="system-disorder"][data-mode="blank"]
+    .safety-group > .tp-box,
+  .example-card[data-template-type="system-disorder"][data-mode="blank"]
+    .safety-group.sd-safety-legacy > .tpl-group-body > .tp-box{
+    min-height:120px;
   }
 }
 
@@ -2050,6 +2203,12 @@ isolation:isolate;}
 .modal-print:hover{border-color:var(--accent);color:var(--accent);background:var(--surface2)}
 .modal-print:active{transform:translateY(1px)}
 
+/* Canon endpoint invariant: every on-screen template ends with the same
+   24px trailing guard before the modal shell's 40px bottom padding. */
+.modal-body > .example-card{
+  margin-bottom:24px;
+}
+
 /* When `printing-modal` class is on body, hide everything outside the modal
    so only the worked example prints. */
 @media print{
@@ -2068,9 +2227,24 @@ isolation:isolate;}
     max-height:none!important;overflow:visible!important;
     padding:0!important;
   }
+  body.printing-modal #exampleModal .modal-body > .example-card{
+    margin-bottom:0!important;
+  }
   body.printing-modal #exampleModal .modal-actions,
   body.printing-modal #exampleModal .mode-toggle,
   body.printing-modal #exampleModal .template-modal-nav{display:none!important}
+  /* A11/A15 print output is study-control free: preserve the Worked Example
+     source row while removing progress and injected print controls. */
+  body.printing-modal #exampleModal
+    .example-card[data-template-type="system-disorder"] .example-check,
+  body.printing-modal #exampleModal
+    .example-card[data-template-type="system-disorder"] .tpl-print-btn,
+  body.printing-modal #exampleModal
+    .example-card[data-template-type="concept-analysis"] .example-check,
+  body.printing-modal #exampleModal
+    .example-card[data-template-type="concept-analysis"] .tpl-print-btn{
+    display:none!important;
+  }
   body.printing-modal #exampleModal .example-card{
     box-shadow:none!important;border:none!important;
     padding:0!important;page-break-inside:avoid;
@@ -2294,8 +2468,30 @@ isolation:isolate;}
   .sd-top-row, .sd-middle, .tp-grid, .bc-grid, .dp-grid, .med-grid, .ns-grid{
     grid-template-columns: 1fr 1fr !important;
   }
+  /* A7 keeps its official hierarchy on tablet: Purpose above the two-column body. */
+  .example-card[data-template-type="medication"] .med-grid{
+    grid-template-columns:1fr !important;
+  }
   .example-header{ flex-wrap: wrap; gap: 8px }
   .tpl-print-btn{ order: 99 }
+}
+
+/* A3, A9, and A13 keep their canon 680px stack transitions. The general tablet
+   rule above must not reopen two columns after a connector rotates vertically. */
+@media (max-width:680px) and (min-width:601px){
+  .example-card[data-template-type="diagnostic-procedure"] .tp-grid,
+  .example-card[data-template-type="nursing-skill"] .tp-grid,
+  .example-card[data-template-type="therapeutic-procedure"] .tp-grid{
+    grid-template-columns:1fr !important;
+  }
+}
+
+/* A11 keeps its canon single-column top row at the 900px transition. The
+   general tablet rule above must not reopen the three official top boxes. */
+@media (max-width:900px) and (min-width:601px){
+  .example-card[data-template-type="system-disorder"] .sd-top-row{
+    grid-template-columns:1fr !important;
+  }
 }
 
 
@@ -2370,7 +2566,7 @@ isolation:isolate;}
 </head>
 <body>
 
-  <button class="sidebar-toggle" id="tplSidebarToggle" type="button" aria-label="Open template navigation" aria-expanded="false">☰</button>
+  <button class="sidebar-toggle" id="tplSidebarToggle" type="button" aria-label="Open template navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
   <a class="back-home-mobile" href="Elevated%20ATI%20MN%20Hub.html">Back to Hub</a>
   <div class="sidebar-overlay" id="tplSidebarOverlay"></div>
 
@@ -6303,10 +6499,10 @@ isolation:isolate;}
               <dt>Procedure Name</dt><dd><span class="meta-value">Newborn Screening Tests</span></dd>
               <dt>Review Module Chapter</dt><dd><span class="meta-value always-show">Ch 24 — Nursing Care of Newborns</span></dd>
             </dl>
-            <div class="dp-grid">
-              <div class="tp-box"><h3>Description of Procedure</h3><div class="content"><p><strong>Universal screening of all newborns</strong> for genetic, metabolic, hormonal, and cardiac disorders that, if undetected, can cause significant morbidity or death. Required by all 50 US states (specific panels vary). Performed before hospital discharge, typically at 24-48 hours of life.</p></div></div>
-              <div class="tp-box"><h3>Indications</h3><div class="content"><ul><li><strong>All newborns</strong> — universal screening regardless of risk</li><li>Detection of treatable conditions in asymptomatic newborns</li><li>Conditions screened may include &gt; 30 disorders depending on state</li></ul></div></div>
-              <div class="tp-box interpretation"><h3>Interpretation of Findings</h3><div class="content"><ul><li><strong>Metabolic screen:</strong> abnormal or inadequate samples require repeat and/or confirmatory diagnostic testing; a positive screen is not a diagnosis.</li><li><strong>Hearing screen:</strong> result is pass or refer; refer requires repeat screening and audiology follow-up if persistent.</li><li><strong>CCHD screen:</strong> pass if SpO₂ is ≥ 95% in the right hand and foot and the difference is ≤ 3%; failed screen requires provider evaluation and often echocardiogram.</li><li><strong>Bilirubin screen:</strong> TcB/serum bilirubin is plotted by age in hours to determine risk zone and need for repeat testing or treatment.</li></ul></div></div>
+            <div class="tp-grid">
+              <div class="tp-box description"><h3>Description of Procedure</h3><div class="content"><p><strong>Universal screening of all newborns</strong> for genetic, metabolic, hormonal, and cardiac disorders that, if undetected, can cause significant morbidity or death. Required by all 50 US states (specific panels vary). Performed before hospital discharge, typically at 24-48 hours of life.</p></div></div>
+              <div class="tp-box indications"><h3>Indications</h3><div class="content"><ul><li><strong>All newborns</strong> — universal screening regardless of risk</li><li>Detection of treatable conditions in asymptomatic newborns</li><li>Conditions screened may include &gt; 30 disorders depending on state</li></ul></div></div>
+              <div class="tp-box outcomes"><h3>Interpretation of Findings</h3><div class="content"><ul><li><strong>Metabolic screen:</strong> abnormal or inadequate samples require repeat and/or confirmatory diagnostic testing; a positive screen is not a diagnosis.</li><li><strong>Hearing screen:</strong> result is pass or refer; refer requires repeat screening and audiology follow-up if persistent.</li><li><strong>CCHD screen:</strong> pass if SpO₂ is ≥ 95% in the right hand and foot and the difference is ≤ 3%; failed screen requires provider evaluation and often echocardiogram.</li><li><strong>Bilirubin screen:</strong> TcB/serum bilirubin is plotted by age in hours to determine risk zone and need for repeat testing or treatment.</li></ul></div></div>
               <div class="considerations">
                 <div class="considerations-label">Considerations</div>
                 <div class="tp-subbox"><h4>Nursing Interventions (pre, intra, post)</h4><div class="content"><p><strong>Pre-procedure:</strong></p><ul><li>Educate parents about each screening test and rationale.</li><li>Obtain consent or document informed refusal according to policy.</li><li>Verify newborn has been feeding for 24+ hours when needed for metabolic-screen accuracy.</li><li>Gather supplies: heel warmer, alcohol pads, lancet, filter paper card, gauze, and bandage.</li></ul><p><strong>Intra-procedure:</strong></p><ul><li>For metabolic screening, warm the heel, use the lateral aspect, cleanse and dry skin, wipe away the first drop, fill all filter-paper circles, and avoid squeezing or touching circles.</li><li>For hearing screening, perform OAE or ABR in a quiet environment with the newborn sleeping.</li><li>For CCHD screening, place pulse oximeter on the right hand and either foot at ≥ 24 hours of life.</li><li>For bilirubin screening, obtain TcB or serum bilirubin before discharge and plot results by age in hours.</li></ul><p><strong>Post-procedure:</strong></p><ul><li>Apply pressure to heel-stick site, comfort newborn with sucrose/breastfeeding/swaddling, and document time, site, sample appearance, and tolerance.</li><li>Send metabolic screen to the state lab and communicate immediate hearing/CCHD results.</li><li>Arrange repeat testing or referral for abnormal, refer, failed, or inadequate results.</li></ul></div></div>
@@ -6552,7 +6748,7 @@ isolation:isolate;}
             <div class="tp-grid">
               <div class="tp-box description"><h3>Description of Procedure</h3><div class="content"><p>Quantitative or qualitative measurement of <strong>human chorionic gonadotropin</strong> — a glycoprotein hormone produced by the trophoblast (and later the placenta) — to <strong>confirm pregnancy, monitor early viability, and detect abnormal pregnancy patterns</strong>.</p><p>Detectable in serum as early as <strong>~6–8 days post-conception</strong> (before missed period) and in urine ~1 week later. Expected pattern: <strong>doubles every 48–72 hours in early pregnancy</strong>, peaks at 8–11 weeks, then declines.</p></div></div>
               <div class="tp-box indications"><h3>Indications</h3><div class="content"><ul><li>Suspected pregnancy (positive home test, amenorrhea, presumptive signs)</li><li>Rule out <strong>ectopic pregnancy</strong> (low or slow-rising hCG with pelvic pain)</li><li>Monitor early pregnancy viability (serial draws q48 hr)</li><li>Diagnose / monitor <strong>gestational trophoblastic disease</strong> (hCG abnormally elevated)</li><li>Suspected miscarriage (falling hCG)</li><li>Confirm completion of miscarriage or D&amp;C (hCG should fall to undetectable)</li></ul></div></div>
-              <div class="tp-box interpretation"><h3>Interpretation of Findings</h3><div class="content"><ul><li>Confirmed pregnancy with expected hCG curve</li><li>Appropriate <strong>doubling every 48–72 hr</strong> in early viable IUP</li><li>Correlated with ultrasound: gestational sac visible at hCG ~1,500–2,000 mIU/mL (transvaginal)</li><li>Slow-rising, plateauing, falling, or unexpectedly high hCG patterns require provider follow-up for ectopic pregnancy, pregnancy loss, multiple gestation, or gestational trophoblastic disease.</li></ul></div></div>
+              <div class="tp-box outcomes"><h3>Interpretation of Findings</h3><div class="content"><ul><li>Confirmed pregnancy with expected hCG curve</li><li>Appropriate <strong>doubling every 48–72 hr</strong> in early viable IUP</li><li>Correlated with ultrasound: gestational sac visible at hCG ~1,500–2,000 mIU/mL (transvaginal)</li><li>Slow-rising, plateauing, falling, or unexpectedly high hCG patterns require provider follow-up for ectopic pregnancy, pregnancy loss, multiple gestation, or gestational trophoblastic disease.</li></ul></div></div>
               <div class="considerations">
                 <div class="considerations-label">Considerations</div>
                 <div class="tp-subbox"><h4>Nursing Interventions (pre, intra, post)</h4><div class="content"><p><strong>Pre-procedure:</strong></p><ul><li>Verify client identity, test type ordered, last menstrual period, symptoms, and medication/supplement history.</li><li>Teach that urine testing is qualitative, while serum testing can be quantitative and trended.</li><li>For serial testing, schedule draws about 48 hours apart and use the same lab when possible.</li></ul><p><strong>Intra-procedure:</strong></p><ul><li>Collect urine or serum sample using standard procedure and label accurately.</li><li>Document timing of specimen collection because trends guide interpretation.</li></ul><p><strong>Post-procedure:</strong></p><ul><li>Correlate quantitative results with symptoms and transvaginal ultrasound when hCG reaches the discriminatory range.</li><li>Report concerning trends promptly and provide emotional support when viability, ectopic pregnancy, or loss is being evaluated.</li></ul></div></div>
@@ -6606,7 +6802,7 @@ isolation:isolate;}
                 </div>
               </div>
 
-              <div class="tp-box interpretation">
+              <div class="tp-box outcomes">
                 <h3>Interpretation of Findings</h3>
                 <div class="content">
                   <p><strong>1-hr screen:</strong> &gt; 130–140 mg/dL = positive (cutoff varies by facility).</p>
@@ -6638,7 +6834,7 @@ isolation:isolate;}
                 </div>
               </div>
 
-              <div class="tp-box interventions">
+              <div class="tp-box nursing-interventions">
                 <h3>Nursing Interventions</h3>
                 <div class="content">
                   <ul>
@@ -6693,7 +6889,7 @@ isolation:isolate;}
                 </div>
               </div>
 
-              <div class="tp-box interpretation">
+              <div class="tp-box outcomes">
                 <h3>Interpretation of Findings</h3>
                 <div class="content">
                   <p><strong>Positive culture</strong> = colonization → give IAP in labor.</p>
@@ -6725,7 +6921,7 @@ isolation:isolate;}
                 </div>
               </div>
 
-              <div class="tp-box interventions">
+              <div class="tp-box nursing-interventions">
                 <h3>Nursing Interventions</h3>
                 <div class="content">
                   <ul>
@@ -6781,7 +6977,7 @@ isolation:isolate;}
                 </div>
               </div>
 
-              <div class="tp-box interpretation">
+              <div class="tp-box outcomes">
                 <h3>Interpretation of Findings</h3>
                 <div class="content">
                   <ul>
@@ -6809,7 +7005,7 @@ isolation:isolate;}
                 </div>
               </div>
 
-              <div class="tp-box interventions">
+              <div class="tp-box nursing-interventions">
                 <h3>Nursing Interventions</h3>
                 <div class="content">
                   <ul>
@@ -6870,7 +7066,7 @@ isolation:isolate;}
                 </div>
               </div>
 
-              <div class="tp-box interpretation">
+              <div class="tp-box outcomes">
                 <h3>Interpretation of Findings</h3>
                 <div class="content">
                   <p><strong>Physiologic jaundice (benign):</strong> appears <strong>after 24 hr</strong>, peaks ~day 3–5, resolves by ~day 7 (term).</p>
@@ -6901,7 +7097,7 @@ isolation:isolate;}
                 </div>
               </div>
 
-              <div class="tp-box interventions">
+              <div class="tp-box nursing-interventions">
                 <h3>Nursing Interventions</h3>
                 <div class="content">
                   <ul>
@@ -9249,7 +9445,7 @@ isolation:isolate;}
                 </div>
               </div>
 
-              <div class="tp-box interventions">
+              <div class="tp-box nursing-interventions">
                 <h3>Nursing Interventions</h3>
                 <div class="content">
                   <ul>
@@ -9351,7 +9547,7 @@ isolation:isolate;}
                 </div>
               </div>
 
-              <div class="tp-box interventions">
+              <div class="tp-box nursing-interventions">
                 <h3>Nursing Interventions</h3>
                 <div class="content">
                   <ul>
@@ -9454,7 +9650,7 @@ isolation:isolate;}
                 </div>
               </div>
 
-              <div class="tp-box interventions">
+              <div class="tp-box nursing-interventions">
                 <h3>Nursing Interventions</h3>
                 <div class="content">
                   <ul>
@@ -9556,7 +9752,7 @@ isolation:isolate;}
                 </div>
               </div>
 
-              <div class="tp-box interventions">
+              <div class="tp-box nursing-interventions">
                 <h3>Nursing Interventions</h3>
                 <div class="content">
                   <ul>
@@ -15404,15 +15600,15 @@ isolation:isolate;}
               <dt>Review Module Chapter</dt><dd><span class="meta-value always-show">Ch 13 — Fetal Assessment During Labor</span></dd>
             </dl>
             <div class="tp-grid">
-              <div class="tp-box"><h3>Description of Procedure</h3><div class="content"><p>Noninvasive continuous monitoring of fetal heart rate (FHR) and uterine activity using two abdominal transducers. Standard of care for high-risk pregnancies and many institutional protocols.</p></div></div>
-              <div class="tp-box"><h3>Indications</h3><div class="content"><ul><li>All high-risk pregnancies during labor</li><li>Suspected fetal compromise</li><li>Induction or augmentation of labor</li><li>Maternal medical conditions (diabetes, HTN, preeclampsia)</li><li>VBAC/TOLAC</li><li>Multifetal gestation</li><li>Meconium-stained amniotic fluid</li><li>Preterm labor</li><li>Post-term pregnancy</li><li>Decreased fetal movement</li><li>Antepartum testing (NST, CST)</li></ul></div></div>
+              <div class="tp-box description"><h3>Description of Procedure</h3><div class="content"><p>Noninvasive continuous monitoring of fetal heart rate (FHR) and uterine activity using two abdominal transducers. Standard of care for high-risk pregnancies and many institutional protocols.</p></div></div>
+              <div class="tp-box indications"><h3>Indications</h3><div class="content"><ul><li>All high-risk pregnancies during labor</li><li>Suspected fetal compromise</li><li>Induction or augmentation of labor</li><li>Maternal medical conditions (diabetes, HTN, preeclampsia)</li><li>VBAC/TOLAC</li><li>Multifetal gestation</li><li>Meconium-stained amniotic fluid</li><li>Preterm labor</li><li>Post-term pregnancy</li><li>Decreased fetal movement</li><li>Antepartum testing (NST, CST)</li></ul></div></div>
+              <div class="tp-box outcomes"><h3>Outcomes/Evaluation</h3><div class="content"><ul><li>FHR baseline, variability, accelerations, decelerations, and contraction pattern are continuously assessed and documented.</li><li>Maternal position supports uteroplacental perfusion and avoids prolonged supine positioning.</li><li>Concerning Category II or III patterns are recognized, escalated, and followed by appropriate intrauterine resuscitation or provider-directed intervention.</li></ul></div></div>
               <div class="considerations">
                 <div class="considerations-label">Considerations</div>
                 <div class="tp-subbox"><h4>Nursing Interventions (pre, intra, post)</h4><div class="content"><p><strong>Pre-procedure:</strong></p><ul><li>Verify informed consent and explain the purpose of monitoring.</li><li>Position semi-Fowler or lateral to avoid vena cava compression.</li><li>Empty bladder, perform Leopold maneuvers, identify fetal back, and apply ultrasound gel.</li></ul><p><strong>Intra-procedure:</strong></p><ul><li>Apply ultrasound transducer over fetal back and tocodynamometer over the fundus.</li><li>Secure belts, confirm the tracing is fetal rather than maternal pulse, and reposition transducers as needed.</li><li>Document baseline FHR, variability, accelerations, decelerations, contraction frequency, duration, and intensity by palpation.</li><li>Reassess and document FHR per protocol; notify provider for Category II or III patterns.</li></ul><p><strong>Post-procedure:</strong></p><ul><li>Remove belts/gel when monitoring is discontinued and assess skin comfort.</li><li>Communicate tracing concerns and ongoing monitoring needs during handoff.</li></ul></div></div>
-                <div class="tp-subbox"><h4>Outcomes/Evaluation</h4><div class="content"><ul><li>FHR baseline, variability, accelerations, decelerations, and contraction pattern are continuously assessed and documented.</li><li>Maternal position supports uteroplacental perfusion and avoids prolonged supine positioning.</li><li>Concerning Category II or III patterns are recognized, escalated, and followed by appropriate intrauterine resuscitation or provider-directed intervention.</li></ul></div></div>
                 <div class="tp-subbox"><h4>Client Education</h4><div class="content"><ul><li>Explain what the monitor measures and why continuous monitoring is needed.</li><li>Teach that position changes and transducer adjustment are expected when signal is lost.</li><li>Tell the client the belts should be snug but not painful and that bathroom needs can usually be accommodated.</li><li>Reassure that audible FHR sounds are normal and encourage questions about findings.</li></ul></div></div>
               </div>
-              <div class="tp-box"><h3>Potential Complications</h3><div class="content"><ul><li><strong>Skin irritation</strong> from prolonged elastic belt or gel</li><li>Maternal discomfort from supine position</li><li><strong>Loss of signal</strong> with maternal/fetal movement (frequent repositioning)</li><li>Limited mobility (restricts ambulation)</li><li>Difficulty in obese clients</li><li>Cannot measure exact contraction intensity (need IUPC)</li><li>May increase intervention rate (induced cesarean rate without improving outcomes — controversial)</li></ul></div></div>
+              <div class="tp-box complications"><h3>Potential Complications</h3><div class="content"><ul><li><strong>Skin irritation</strong> from prolonged elastic belt or gel</li><li>Maternal discomfort from supine position</li><li><strong>Loss of signal</strong> with maternal/fetal movement (frequent repositioning)</li><li>Limited mobility (restricts ambulation)</li><li>Difficulty in obese clients</li><li>Cannot measure exact contraction intensity (need IUPC)</li><li>May increase intervention rate (induced cesarean rate without improving outcomes — controversial)</li></ul></div></div>
               <div class="tp-box nursing-interventions"><h3>Nursing Interventions</h3><div class="content"><ul><li>Apply and adjust ultrasound and tocodynamometer transducers for a clear tracing.</li><li>Verify maternal heart rate is not being recorded as FHR.</li><li>Document maternal vital signs, FHR pattern, contraction pattern, maternal position, and client response.</li><li>Encourage position changes and avoid prolonged supine positioning.</li><li>Notify the provider or charge nurse for Category II or III patterns and prepare for indicated interventions.</li></ul></div></div>
             </div>
           </div>
@@ -15437,15 +15633,15 @@ isolation:isolate;}
               <dt>Review Module Chapter</dt><dd><span class="meta-value always-show">Ch 12 — Pain Management</span></dd>
             </dl>
             <div class="tp-grid">
-              <div class="tp-box"><h3>Description of Procedure</h3><div class="content"><p>Single injection of local anesthetic directly into the subarachnoid space (CSF) to provide rapid, complete sensory and motor blockade. Primary use is for scheduled or emergent cesarean delivery.</p></div></div>
-              <div class="tp-box"><h3>Indications</h3><div class="content"><ul><li><strong>Scheduled cesarean delivery</strong> (primary use)</li><li><strong>Emergent cesarean delivery</strong> (when rapid anesthesia needed)</li><li>Postpartum tubal ligation</li><li>Postpartum manual placental extraction</li><li>Surgical repair of complex perineal lacerations</li><li>External cephalic version (occasionally)</li><li>NOT used for labor analgesia (no continuous infusion option; single dose)</li></ul></div></div>
+              <div class="tp-box description"><h3>Description of Procedure</h3><div class="content"><p>Single injection of local anesthetic directly into the subarachnoid space (CSF) to provide rapid, complete sensory and motor blockade. Primary use is for scheduled or emergent cesarean delivery.</p></div></div>
+              <div class="tp-box indications"><h3>Indications</h3><div class="content"><ul><li><strong>Scheduled cesarean delivery</strong> (primary use)</li><li><strong>Emergent cesarean delivery</strong> (when rapid anesthesia needed)</li><li>Postpartum tubal ligation</li><li>Postpartum manual placental extraction</li><li>Surgical repair of complex perineal lacerations</li><li>External cephalic version (occasionally)</li><li>NOT used for labor analgesia (no continuous infusion option; single dose)</li></ul></div></div>
+              <div class="tp-box outcomes"><h3>Outcomes/Evaluation</h3><div class="content"><ul><li>Rapid sensory and motor blockade provides adequate anesthesia for the ordered obstetric procedure.</li><li>Maternal BP, respirations, oxygen saturation, and FHR remain stable or receive prompt intervention.</li><li>Sensation and motor function return as expected, pain is controlled, and complications such as high spinal, urinary retention, or post-dural puncture headache are identified early.</li></ul></div></div>
               <div class="considerations">
                 <div class="considerations-label">Considerations</div>
                 <div class="tp-subbox"><h4>Nursing Interventions (pre, intra, post)</h4><div class="content"><p><strong>Pre-procedure:</strong></p><ul><li>Verify informed consent, allergy history, large-bore IV access, and baseline VS.</li><li>Empty bladder or place Foley as indicated; administer ordered IV fluid bolus before the block.</li><li>Apply continuous fetal and maternal monitoring if antepartum.</li></ul><p><strong>Intra-procedure:</strong></p><ul><li>Position sitting or lateral with back curved outward to open intervertebral spaces.</li><li>Maintain left uterine displacement and monitor BP every 1-2 min for the first 15 min, then per protocol.</li><li>Assess sensory/motor block level, pain relief, FHR pattern, and signs of high spinal or respiratory depression.</li><li>For hypotension, increase IV fluids, position left lateral, apply oxygen, notify anesthesia/provider, and administer vasopressor as prescribed.</li></ul><p><strong>Post-procedure:</strong></p><ul><li>Assess return of sensation and motor function.</li><li>Monitor I&amp;O and urinary retention.</li><li>Continue surveillance for headache, nausea/vomiting, pruritus, respiratory depression, and fetal bradycardia.</li></ul></div></div>
-                <div class="tp-subbox"><h4>Outcomes/Evaluation</h4><div class="content"><ul><li>Rapid sensory and motor blockade provides adequate anesthesia for the ordered obstetric procedure.</li><li>Maternal BP, respirations, oxygen saturation, and FHR remain stable or receive prompt intervention.</li><li>Sensation and motor function return as expected, pain is controlled, and complications such as high spinal, urinary retention, or post-dural puncture headache are identified early.</li></ul></div></div>
                 <div class="tp-subbox"><h4>Client Education</h4><div class="content"><ul><li>Explain that the needle is inserted in the lower back and pressure may be felt, but severe pain should be reported.</li><li>Teach that onset is rapid, legs may feel numb or heavy, and movement returns as the block wears off.</li><li>Report difficulty breathing, chest discomfort, severe nausea, or positional headache immediately.</li><li>Explain that a bladder catheter may remain until sensation returns and activity restrictions vary by protocol.</li></ul></div></div>
               </div>
-              <div class="tp-box"><h3>Potential Complications</h3><div class="content"><ul><li><strong>Maternal hypotension</strong> (most common — more rapid/pronounced than epidural)</li><li><strong>Post-dural puncture headache (PDPH) / spinal headache</strong></li><li><strong>High spinal / total spinal</strong> (rare emergency — respiratory paralysis, cardiovascular collapse)</li><li>Urinary retention</li><li>Pruritus (opioid-related)</li><li>Nausea/vomiting</li><li>Backache at injection site (self-limited)</li><li>Infection (rare)</li><li>Bleeding/hematoma (especially if anticoagulated)</li><li>Neurologic injury (extremely rare with proper technique)</li><li>Fetal bradycardia (from maternal hypotension)</li></ul></div></div>
+              <div class="tp-box complications"><h3>Potential Complications</h3><div class="content"><ul><li><strong>Maternal hypotension</strong> (most common — more rapid/pronounced than epidural)</li><li><strong>Post-dural puncture headache (PDPH) / spinal headache</strong></li><li><strong>High spinal / total spinal</strong> (rare emergency — respiratory paralysis, cardiovascular collapse)</li><li>Urinary retention</li><li>Pruritus (opioid-related)</li><li>Nausea/vomiting</li><li>Backache at injection site (self-limited)</li><li>Infection (rare)</li><li>Bleeding/hematoma (especially if anticoagulated)</li><li>Neurologic injury (extremely rare with proper technique)</li><li>Fetal bradycardia (from maternal hypotension)</li></ul></div></div>
               <div class="tp-box nursing-interventions"><h3>Nursing Interventions</h3><div class="content"><ul><li>Assist with positioning and maintain sterile field support during placement.</li><li>Monitor BP, respiratory status, SpO₂, pain level, block level, and FHR per protocol.</li><li>Maintain left uterine displacement and intervene promptly for hypotension.</li><li>Assess for return of sensation/motor function and urinary retention after the procedure.</li><li>Educate about expected numbness, movement restrictions, and warning signs of spinal headache or respiratory compromise.</li></ul></div></div>
             </div>
           </div>
@@ -15665,10 +15861,10 @@ isolation:isolate;}
             <div class="tp-grid">
               <div class="tp-box description"><h3>Description of Procedure</h3><div class="content"><p>The process of <strong>artificially initiating (induction) or accelerating (augmentation)</strong> labor using chemical and/or mechanical methods. <strong>Bishop score</strong> (0–13) assesses cervical readiness: scores of <strong>≥ 8 are favorable</strong> for induction; lower scores benefit from cervical ripening first.</p><p><strong>Methods include:</strong></p><ul><li>Mechanical: amniotomy, foley catheter / Cook balloon, laminaria</li><li>Pharmacologic: prostaglandins (misoprostol, dinoprostone), <strong>oxytocin</strong> (Pitocin)</li></ul></div></div>
               <div class="tp-box indications"><h3>Indications</h3><div class="content"><p><strong>Induction</strong>:</p><ul><li>Postdates (≥ 42 weeks)</li><li>Hypertensive disorders (gestational HTN, preeclampsia)</li><li>GDM with poor control</li><li>Oligohydramnios, IUGR</li><li>PROM at term without spontaneous labor</li><li>Chorioamnionitis</li><li>Fetal demise</li><li>Maternal medical conditions (chronic HTN, renal disease)</li></ul><p><strong>Augmentation</strong>:</p><ul><li>Hypotonic dysfunctional labor with reassuring FHR</li><li>Prolonged latent or active labor</li><li>Arrested labor with adequate maternal/fetal status</li></ul></div></div>
+              <div class="tp-box outcomes"><h3>Outcomes/Evaluation</h3><div class="content"><ul><li>Adequate contractions established: <strong>3 in 10 minutes</strong>, lasting 40–60 sec, moderate-strong intensity</li><li>Cervical change (dilation, effacement, station)</li><li><strong>Reassuring FHR</strong> maintained (Category I tracing)</li><li>Progression to vaginal delivery</li><li>Maternal and fetal stability throughout</li></ul></div></div>
               <div class="considerations">
                 <div class="considerations-label">Considerations</div>
                 <div class="tp-subbox"><h4>Nursing Interventions (pre, intra, post)</h4><div class="content"><p><strong>Pre-procedure:</strong></p><ul><li>Assess Bishop score before initiating; if &lt; 6, anticipate cervical ripening before oxytocin induction.</li><li>Establish reassuring baseline FHR and contraction pattern with continuous EFM.</li><li>Verify IV access, provider orders, protocol, and contraindications such as malpresentation or high presenting part before amniotomy.</li></ul><p><strong>Intra-procedure:</strong></p><ul><li>Administer oxytocin by infusion pump through the most distal port of a primary IV line.</li><li>Assess maternal vitals, contraction frequency/duration/intensity/resting tone, and FHR at required intervals.</li><li>Stop oxytocin immediately for tachysystole or nonreassuring FHR, reposition lateral, increase IV fluids, apply oxygen as ordered, and notify provider.</li><li>For amniotomy, assess FHR before/after and document fluid color, amount, odor, and presenting-part station.</li></ul><p><strong>Post-procedure:</strong></p><ul><li>Continue maternal-fetal monitoring until labor status is stable.</li><li>Document cervical change, contraction response, oxytocin dose changes, interventions, and client/fetal response.</li></ul></div></div>
-                <div class="tp-subbox"><h4>Outcomes/Evaluation</h4><div class="content"><ul><li>Adequate contractions established: <strong>3 in 10 minutes</strong>, lasting 40–60 sec, moderate-strong intensity</li><li>Cervical change (dilation, effacement, station)</li><li><strong>Reassuring FHR</strong> maintained (Category I tracing)</li><li>Progression to vaginal delivery</li><li>Maternal and fetal stability throughout</li></ul></div></div>
                 <div class="tp-subbox"><h4>Client Education</h4><div class="content"><ul><li>Explain the reason for induction or augmentation and the method being used.</li><li>Teach that continuous fetal and contraction monitoring is expected while oxytocin or other labor-stimulating methods are used.</li><li>Tell the client to report severe pain, pressure, decreased fetal movement, or sudden fluid/bleeding changes.</li><li>Explain that oxytocin may be paused or stopped if contractions become too frequent or the FHR pattern becomes concerning.</li></ul></div></div>
               </div>
               <div class="tp-box complications"><h3>Potential Complications</h3><div class="content"><ul><li><strong>Uterine tachysystole</strong> (&gt; 5 contractions in 10 min averaged over 30 min) → reduced placental perfusion → fetal hypoxia</li><li>Non-reassuring FHR pattern → emergent intervention</li><li><strong>Uterine rupture</strong> — especially with prior cesarean or excessive oxytocin</li><li>Water intoxication (high-dose oxytocin in hypotonic fluid)</li><li>Failed induction → cesarean delivery</li><li>Increased risk of operative delivery (vacuum, forceps)</li><li>Postpartum hemorrhage from uterine fatigue</li><li>Cord prolapse with amniotomy if presenting part high</li></ul></div></div>
@@ -15698,10 +15894,10 @@ isolation:isolate;}
             <div class="tp-grid">
               <div class="tp-box description"><h3>Description of Procedure</h3><div class="content"><p>A spectrum of medical procedures used to address <strong>infertility</strong> by manipulating eggs, sperm, or embryos outside the body. Includes:</p><ul><li><strong>IUI (intrauterine insemination)</strong> — washed sperm injected directly into the uterus around ovulation</li><li><strong>IVF (in vitro fertilization)</strong> — eggs retrieved, fertilized in lab, embryos transferred to uterus</li><li><strong>ICSI (intracytoplasmic sperm injection)</strong> — single sperm injected into single egg (severe male factor)</li><li>Gamete (egg/sperm) or embryo donation</li><li>Gestational surrogacy</li></ul></div></div>
               <div class="tp-box indications"><h3>Indications</h3><div class="content"><ul><li><strong>Infertility</strong> — 1 year of regular unprotected intercourse without pregnancy (6 months if female age ≥ 35)</li><li>Blocked or absent fallopian tubes</li><li>Severe male-factor infertility (low count, motility, morphology)</li><li>Endometriosis</li><li>Ovulatory dysfunction unresponsive to medication</li><li>Advanced maternal age with diminished reserve</li><li>Recurrent pregnancy loss</li><li>Genetic disease in family (preimplantation genetic testing)</li><li>Same-sex couples; single individuals desiring pregnancy</li></ul></div></div>
+              <div class="tp-box outcomes"><h3>Outcomes/Evaluation</h3><div class="content"><ul><li>Successful pregnancy (success rates by age: ~40% per cycle &lt;35, declining to &lt;10% &gt;42)</li><li>Singleton pregnancy preferred to minimize multiple-gestation risks</li><li>Healthy live birth</li><li>Client and partner emotional well-being maintained</li><li>Realistic expectations and informed decision-making throughout cycles</li></ul></div></div>
               <div class="considerations">
                 <div class="considerations-label">Considerations</div>
                 <div class="tp-subbox"><h4>Nursing Interventions (pre, intra, post)</h4><div class="content"><p><strong>Pre-procedure:</strong></p><ul><li>Obtain detailed reproductive history and reinforce realistic success rates by age, number of cycles, cost, and treatment burden.</li><li>Coordinate controlled ovarian stimulation teaching, medication schedule, lab monitoring, and ultrasound appointments.</li><li>Review consent, embryo-transfer plans, single-embryo transfer counseling, and disposition options for unused embryos.</li></ul><p><strong>Intra-procedure/cycle:</strong></p><ul><li>Monitor ultrasound and estradiol results during stimulation and reinforce precise trigger-injection timing.</li><li>Assess daily for OHSS symptoms including rapid weight gain, abdominal distension, decreased urine output, dyspnea, and severe pain.</li><li>Provide emotional support and culturally sensitive counseling throughout retrieval, fertilization, and transfer steps.</li></ul><p><strong>Post-procedure/cycle:</strong></p><ul><li>Reinforce follow-up testing, activity/medication instructions, and reporting of OHSS or ectopic pregnancy symptoms.</li><li>Support grief processing and referral if a cycle is unsuccessful.</li></ul></div></div>
-                <div class="tp-subbox"><h4>Outcomes/Evaluation</h4><div class="content"><ul><li>Successful pregnancy (success rates by age: ~40% per cycle &lt;35, declining to &lt;10% &gt;42)</li><li>Singleton pregnancy preferred to minimize multiple-gestation risks</li><li>Healthy live birth</li><li>Client and partner emotional well-being maintained</li><li>Realistic expectations and informed decision-making throughout cycles</li></ul></div></div>
                 <div class="tp-subbox"><h4>Client Education</h4><div class="content"><ul><li>Explain expected steps, timing, monitoring visits, medication administration, and the need for exact trigger-injection timing.</li><li>Teach OHSS warning signs to report immediately: rapid weight gain, abdominal distension, severe pain, decreased urine output, or dyspnea.</li><li>Discuss multiple-gestation risk, single-embryo transfer, ectopic pregnancy symptoms, and follow-up pregnancy testing.</li><li>Encourage use of counseling/support resources and discussion of ethical, religious, financial, and embryo-disposition concerns.</li></ul></div></div>
               </div>
               <div class="tp-box complications"><h3>Potential Complications</h3><div class="content"><ul><li><strong>Multiple gestation</strong> (twins/triplets+) — major preventable risk; favors single-embryo transfer (eSET)</li><li><strong>Ovarian hyperstimulation syndrome (OHSS)</strong>: abdominal pain, ascites, hemoconcentration, dyspnea — life-threatening when severe; usually resolves but requires monitoring</li><li>Ectopic pregnancy risk increased (~2–5%)</li><li>Heterotopic pregnancy (intrauterine + ectopic simultaneously)</li><li>Procedural complications — bleeding, infection, anesthesia risk during oocyte retrieval</li><li>Significant financial cost (often not insurance-covered)</li><li>Emotional toll — depression, anxiety, relationship strain across cycles</li><li>Disposition of unused embryos — ethical, religious, legal considerations</li></ul></div></div>
@@ -16403,31 +16599,46 @@ isolation:isolate;}
   var sidebar = document.getElementById('sidebar');
   var sidebarToggle = document.getElementById('tplSidebarToggle');
   var sidebarOverlay = document.getElementById('tplSidebarOverlay');
-  function openSidebarPanel(){
-    if (sidebar) sidebar.classList.add('open');
-    if (sidebarOverlay) sidebarOverlay.classList.add('show');
-    if (sidebarToggle) {
-      sidebarToggle.textContent = '×';
-      sidebarToggle.setAttribute('aria-label', 'Close template navigation');
-      sidebarToggle.setAttribute('aria-expanded', 'true');
+  var sidebarSearch = document.getElementById('tplSidebarSearch');
+  function setSidebarPanelOpen(open, moveFocus, restoreFocus){
+    var responsive = window.innerWidth <= 900;
+    if (sidebar) {
+      sidebar.classList.toggle('open', open);
+      if (responsive && !open) {
+        sidebar.setAttribute('aria-hidden', 'true');
+        sidebar.setAttribute('inert', '');
+      } else {
+        sidebar.removeAttribute('aria-hidden');
+        sidebar.removeAttribute('inert');
+      }
     }
+    if (sidebarOverlay) sidebarOverlay.classList.toggle('show', open);
+    if (sidebarToggle) {
+      sidebarToggle.textContent = open ? '×' : '☰';
+      sidebarToggle.setAttribute('aria-label', open ? 'Close template navigation' : 'Open template navigation');
+      sidebarToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    if (open && moveFocus && sidebarSearch) sidebarSearch.focus();
+    if (!open && restoreFocus && responsive && sidebarToggle) sidebarToggle.focus();
   }
-  function closeSidebarPanel(){
-    if (sidebar) sidebar.classList.remove('open');
-    if (sidebarOverlay) sidebarOverlay.classList.remove('show');
-    if (sidebarToggle) {
-      sidebarToggle.textContent = '☰';
-      sidebarToggle.setAttribute('aria-label', 'Open template navigation');
-      sidebarToggle.setAttribute('aria-expanded', 'false');
-    }
+  function closeSidebarPanel(restoreFocus){
+    setSidebarPanelOpen(false, false, restoreFocus === true);
   }
   if (sidebarToggle && sidebar) {
     sidebarToggle.addEventListener('click', function(){
-      if (sidebar.classList.contains('open')) closeSidebarPanel();
-      else openSidebarPanel();
+      var willOpen = !sidebar.classList.contains('open');
+      setSidebarPanelOpen(willOpen, willOpen, !willOpen);
     });
   }
-  if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebarPanel);
+  if (sidebarOverlay) sidebarOverlay.addEventListener('click', function(){ closeSidebarPanel(true); });
+  window.addEventListener('resize', function(){
+    if (window.innerWidth > 900) setSidebarPanelOpen(false, false, false);
+    else setSidebarPanelOpen(sidebar && sidebar.classList.contains('open'), false, false);
+  });
+  document.addEventListener('keydown', function(event){
+    if (event.key === 'Escape' && sidebar && sidebar.classList.contains('open')) closeSidebarPanel(true);
+  });
+  setSidebarPanelOpen(false, false, false);
 
   // ===== Abbreviation tooltips =====
   var tip = document.getElementById('abbrTip');
@@ -16595,6 +16806,10 @@ isolation:isolate;}
           var safetyGroup = card.querySelector('.safety-group');
           var safetyLabel = safetyGroup && safetyGroup.querySelector(':scope > .tpl-group-label');
           var safetyArea = safetyGroup && safetyGroup.querySelector(':scope > .safety-area');
+          var safetyBody = safetyGroup && safetyGroup.querySelector(':scope > .tpl-group-body');
+          if (safetyGroup && safetyLabel && safetyBody && !safetyArea) {
+            safetyGroup.classList.add('sd-safety-legacy');
+          }
           if (safetyGroup && safetyLabel && safetyArea && !safetyGroup.querySelector(':scope > .sd-safety-main')) {
             var safetyMain = document.createElement('div');
             safetyMain.className = 'sd-safety-main';

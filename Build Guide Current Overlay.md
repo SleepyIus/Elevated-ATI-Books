@@ -1,17 +1,17 @@
 # Elevated ATI Build Guide Current Overlay
 
-Status: synchronized repository-safe recovery mirror for private master Build Guide Parts 49-180; the approved MN/MH/AMS template phase is complete, all eight Pediatric focused family reviews are accepted, and the final Pediatric cross-surface handoff is passed.
+Status: synchronized repository-safe recovery mirror for private master Build Guide Parts 49-204; Pediatric is complete and pushed, retrospective Batches 1-4 and focused Batches 5A-5E are objectively passed, and AMS A1, corrected MH A3, corrected AMS A3, and corrected MH A5 have user visual approval. Part 204 expands uniform visible box-spacing review across every remaining MN/MH/AMS template family.
 Mode: DESIGN-CANON / HOLD-CONTENT.
-Scope: Pediatric Nursing Templates section-first design-canon review through A15, including the accepted shared typography, title-strip, spacing, corner, metadata, control, sidebar, comparison-guide, descendant-role, and `40px` true-endpoint contracts; content population remains paused.
-Last continuity update: 2026-08-13.
+Scope: Targeted MN/MH/AMS retrospective review of accepted section-first shell, typography, title-strip, spacing, corner, metadata, control, sidebar, descendant-role, responsive, and `40px` true-endpoint contracts before any Pharmacology rollout; content population remains paused.
+Last continuity update: 2026-08-16.
 
-This file does not approve ATI educational content population. It mirrors the current task and recovery state without private-source material. Private master Part 49 contains the complete authoritative canon, Parts 50-155 preserve the earlier recovery, automation, AI-specification, clipping, rollout, and section-first evidence summarized below, Parts 156-175 record the shared title-strip/spacing consolidation and focused A11/A13 descendant-role work, Parts 176-177 record the comparison endpoint and Pediatric `40px` true-endpoint corrections, Part 178 records focused user confirmation of A13 plus the passed all-family endpoint regression, Part 179 records focused A15 approval and completion of the eight-family visual-review sequence, and Part 180 records the passed final responsive, interaction/accessibility, print, and integrity handoff. This file must remain synchronized after every completed batch.
+This file does not approve ATI educational content population. It mirrors the current task and recovery state without private-source material. Private master Part 49 contains the complete authoritative canon, Parts 50-155 preserve the earlier recovery, automation, AI-specification, clipping, rollout, and section-first evidence summarized below, Parts 156-175 record the shared title-strip/spacing consolidation and focused A11/A13 descendant-role work, Parts 176-177 record the comparison endpoint and Pediatric `40px` true-endpoint corrections, Part 178 records focused user confirmation of A13 plus the passed all-family endpoint regression, Part 179 records focused A15 approval and completion of the eight-family visual-review sequence, Part 180 records the passed final responsive, interaction/accessibility, print, and integrity handoff, Part 181 records the MN/MH/AMS retrospective inventory and queue, Parts 182-184 record the passed landing-page, fixed/responsive sidebar, and modal-top batches, Part 185 records the passed complete shared box-system matrix, Parts 186-187 record the focused MH and AMS A1 passes, Part 188 records AMS A1 user visual approval, Part 189 records the initial focused MH A3 box-system pass, Part 190 records the user-found MH A3 navigation-rhythm correction, Part 191 records the user-found MH A3 metadata-to-first-box gap correction, Part 192 records MH A3 user visual approval, Part 193 records the focused AMS A3 objective correction and pass, Part 194 records the prior AMS A3 user visual approval, Part 195 records the user-found AMS A3 short-box height correction plus repeated no-clipping validation, Part 196 records the file-backed new-task migration checkpoint, Part 197 records the user-found AMS A3 Indications-to-Interpretation flow correction, Part 198 records the user's visual approval of that current repair, Part 199 records the mandatory nine-field response contract, Part 200 records the focused MH A5 objective pass, Part 201 records the user-found narrow Health Promotion gap correction, Part 202 establishes the shared MN/MH `12px` uniform narrow A5 box-gap canon, and Part 203 repairs the temporary comparison's stale hardcoded inner cache keys. This file must remain synchronized after every completed batch.
 
-Current heartbeat: Part 180 supersedes the earlier final-handoff-pending wording. The user confirmed every focused family comparison in the A1-A15 sequence, and the final responsive, interaction/accessibility, print, payload, link, ID, count, storage, and endpoint gates now pass. Automated validation remains distinct from the user's focused visual approvals. The Pediatric design-polish phase is complete; content population remains paused.
+Current heartbeat: Part 204 records user visual approval of corrected MH A5 and explicitly adds visible spacing consistency to every remaining family audit across MN, MH, and AMS. AMS A5 is the active next focused batch. Commit `acef952` remains pushed on synchronized `main`; current guide and retrospective changes are intentionally uncommitted. Pharmacology remains inactive. Content population remains paused.
 
 ## Pediatric Final Handoff Current Update
 
-Part 180 records the final Pediatric handoff. Desktop `1440 x 1000`, tablet `768 x 1000`, and phone `390 x 844` passed without horizontal overflow; drawer, search, modal focus, Filled/Blank tabs, same-family navigation, Escape close/focus restoration, single-card print, family print, full-template print, 179 unique IDs, canonical `12/9/5/13/9/116/9/6` counts, 179 resolving chapter links, storage keys, payload parity, and the prior 1,074-state endpoint matrix all pass. No product or learner-facing file changed during the handoff. The only next project action is deciding whether to commit and push the completed Pediatric and accepted MN design-canon changes.
+Part 180 records the final Pediatric handoff. Desktop `1440 x 1000`, tablet `768 x 1000`, and phone `390 x 844` passed without horizontal overflow; drawer, search, modal focus, Filled/Blank tabs, same-family navigation, Escape close/focus restoration, single-card print, family print, full-template print, 179 unique IDs, canonical `12/9/5/13/9/116/9/6` counts, 179 resolving chapter links, storage keys, payload parity, and the prior 1,074-state endpoint matrix all pass. Commit `acef952` containing this completed work is pushed to `origin/main`.
 
 ## Current Reading Rule
 
@@ -178,6 +178,17 @@ Part 165 records the staged A9 Nursing Skill recheck. The A9-specific correction
 - No migration-critical decision, pending approval, active task, or next action may exist only in chat history.
 - Before ending a batch, confirm that a new task could resume safely from the private master, this overlay, the canon checklist, and the Git diff.
 
+## Required Project Response Format
+
+Every substantive project-work closeout or status update must use exactly these fields in this order, with one blank line between them: `Current mode:`, `Current batch:`, `Files edited:`, `Validation performed:`, `Automation status:`, `Commit/push status:`, `GitHub Desktop should show:`, `TLDR:`, and `Next Recommended Action:`.
+
+- State whether content population is paused or active and include `ATI source support used: none; design-only change.` for design-only work.
+- State that `ati-build-guide-ai-spec-polish`, `ati-template-clipping-qa`, and `ati-pediatric-templates-design-polish` remain paused and unchanged.
+- Use `Files edited: none.` when applicable and clearly state whether the user needs to commit or push.
+- Mention `.DS_Store`, `Teleprompter.html`, and `recovered-codex-screenshots/` only under `GitHub Desktop should show:`.
+- Keep `TLDR:` concise. End with exactly one next recommended action and no prose after it.
+- The action must plainly say whether the user personally needs to do anything, without separate AI/manual categories. Avoid long technical dumps unless needed for a blocker or validation result.
+
 ## Current Rollout Status
 
 AMS and MN Templates have completed their major design-canon alignment. Their accepted comparison work established:
@@ -286,8 +297,8 @@ The Pediatric Nursing Templates family, structure, behavior, clipping, section-f
 - Pediatric shared direct-title-strip consolidation: the user identified recurring narrow primary box headers and selected a consolidated repair. Primary direct template boxes use MN's `47px` title-band contract (`11px` vertical padding, `24px` line height, and the existing one-pixel divider) across A1/A3/A7-body/A9/A11/A13/A15. A5's Health Promotion parent uses that same `47px` band, but its eight direct Expected Growth and Development group headings are an accepted MN exception at `14px / 22.4px / 45.3984375px`, also with `11px` vertical padding. Nested headers and the deliberately compact A7 Medication Purpose headers remain separate. The current 179-card/179-unique-ID product and rebuilt temporary payload match at SHA-256 `fd0f2b8f01087805cd2087ede220ff53ceef7ddc1cc4225749374513efcd40d3`; one script parses, the family counts remain `12/9/5/13/9/116/9/6`, the comparison returns HTTP 200, and `git diff --check` passes. Automated validation is not user approval.
 - Pediatric A5 direct-heading line-height alignment: a staged typography check found a stable `1.6px` direct-heading line-height mismatch. The existing A5 direct-group selector now uses MN's `22.4px` line height while retaining the approved `11px` vertical padding; the Health Promotion parent retains its already-matching `24px` line height. Fresh current-payload QA checked all five A5 cards in Filled and Blank modes: all 80 direct headings measured `14px / 22.4px / 45.3984375px` with zero measured overflow. Automated validation is not user approval.
 - Pediatric shared primary-box spacing consolidation: the user identified recurring inconsistent space between the metadata panel and primary boxes, and requested one repair through A15. A1/A3/A5/A7/A9/A11/A13/A15 now share `--tpl-meta-to-primary-gap:18px` and `--tpl-primary-box-gap:14px`; direct layout grids and family metadata selectors use those shared values. A5's approved `20px` outer / `12px` inner group rhythm and A7 Medication Purpose's `10px` inset / `10px` inner gap remain explicit exceptions. The refreshed product and temporary payload are byte-identical at SHA-256 `c1be617e4ab8a2ed7f721cfeb4d623c764b80ac92cc1bb627dfe373aa1957e73`; the live A1 modal produces two identical `18px` boundary / `14px` gap / `0px` page-overflow readings. Automated validation is not user approval.
-- Current tracked modifications: `Elevated ATI MN Templates.html`, `Elevated ATI PD Templates.html`, `Build Guide Current Overlay.md`, and `MN Design Canon Checklist.md` for the focused MN frame/metadata/body-order/Purpose-header restorations, Pediatric parity corrections, and current section-first continuity.
-- Current branch: `main`, synchronized with `origin/main` after pushed commits `9de1043 Complete template clipping QA and alignment` and `33d0968 Fix AMS template hero button alignment`.
+- Current tracked modifications: `Elevated ATI MH Templates.html` retains the measured Batch 1 landing-role correction, Batch 2 sidebar correction, Batch 5A A1 geometry correction, and Batch 5C A3 geometry, navigation-rhythm, and metadata-gap corrections; `Elevated ATI MN Templates.html` contains the Batch 2 sidebar correction; `Elevated ATI AMS Templates.html` contains the Batch 2 sidebar correction, Batch 3 modal-top correction, Batch 5B A1 geometry correction, and Batch 5D A3 metadata/direct/nested-box correction; `Build Guide Current Overlay.md`, `MN Design Canon Checklist.md`, and `AMS Prototype MN Canon Audit.md` record current retrospective continuity and evidence.
+- Current branch: `main`, synchronized with `origin/main` after pushed commit `acef952 Polish Pediatric and MN template canon`.
 - Known local untracked files: `.DS_Store`, `Teleprompter.html`, and `recovered-codex-screenshots/`; report them only under GitHub Desktop status.
 
 ## Pediatric A13 Descendant-Typography Current Update
@@ -302,6 +313,1074 @@ Part 177 supersedes the implication that comparison scroll synchronization alone
 
 Part 178 records the user's focused confirmation that the A13 endpoint is fixed and extends the same fresh-payload test across every Pediatric template family. All 179 cards in Filled and Blank modes at `1440 x 1000`, `768 x 1000`, and `390 x 844` produced 1,074 stable endpoint states. Every modal body retained `40px` computed bottom padding, reached its true maximum scroll position, and ended within `39.125-40.921875px`, with zero unaccepted element overflow, endpoint failures, or browser errors. The existing A13 Complications horizontal connector and A7 Medication Nursing Interventions vertical connector remain narrowly classified relationship geometry, not clipping. The product required no further edit; product and temporary payload remain byte-identical at SHA-256 `860d781998acaeeeae150d4ed58e0ce84e23bfa68941d0055f3fa5e5294eae3a`. Automated validation is not user approval. The all-family endpoint regression gate is objectively passed; Part 179 later records the completed A15 focused review.
 
+## MN/MH/AMS Retrospective Canon-Delta Audit
+
+- Batch 0 inventory and Batches 1-4 are complete. Batch 1 changed only MH landing-role CSS: hero introduction typography, compact Reset Progress geometry, and footer divider/spacing/typography. Batch 2 synchronized the MN/MH/AMS responsive drawers with `aria-controls`, `aria-expanded`, `aria-hidden`, inert closed state, search focus on open, opener focus restoration on overlay/Escape close, and resize-state synchronization; it also changed MH's legend weight from `600` to the shared `500`. Batch 3 changed only AMS modal-top geometry: desktop title/header spacing, action gap, example-row alignment, Print/toggle line-height behavior, body flex containment, and the full-screen breakpoint. Batch 4 completed the full shared box-system matrix without a product correction. Batch 5A changed only MH A1 geometry, Batch 5B changed only AMS A1 geometry, Batch 5C changed only MH A3 geometry plus the family-scoped navigation rhythm and metadata-to-first-box gap corrected in Parts 190-191, Batch 5D changed only AMS A3 geometry, and Batch 5E changed only MH A5 spacing, corners, title/content padding, and responsive relationship geometry. Part 195 corrects A3 Indications/Outcomes short-card stretching; Part 197 then corrects the user-found external gap by grouping those roles in a natural-height `14px` stack and resetting narrow rows. Both supersede the fresh-approval state from Part 194. Existing learner text, counts, links, storage, order, and subject accents remain unchanged.
+- Audit order: Batch 1 landing page; Batch 2 sidebar; Batch 3 modal top; Batch 4 shared box system; Batch 5 A1/A3/A5; Batch 6 A7/A9; Batch 7 A11/A13/A15; Batch 8 responsive, print, payload, and cross-book integrity.
+- Retrospective queue: `[x]` landing page; `[x]` sidebar; `[x]` modal top; `[x]` shared box system; `[~]` A1/A3/A5 (`AMS A1`, `MH A3`, corrected `AMS A3`, and corrected `MH A5` user visually approved; `MH A1` objectively passed; AMS A5 remains pending); `[ ]` A7/A9 with spacing consistency; `[ ]` A11/A13/A15 with spacing consistency; `[ ]` final A1/A3 spacing regression; `[ ]` responsive/print/payload/integrity.
+- Landing evidence: repeated current-payload measurements at `1440 x 1000`, `768 x 1000`, and `390 x 844` now align same-role intro, Reset Progress, footer, accordion gap/radius, responsive navigation, and endpoint geometry; every book has `0px` horizontal overflow. The AMS phone page remains `5px` shorter solely from subject-text wrapping. Automated QA is not user approval.
+- Sidebar evidence: repeated current-payload desktop measurements align the `280px` fixed panel, `221.78125px` header, `29px` theme control, `75px` progress region, `54.5px` search, `351.28125px` list start, `38.796875px` first family/header, eight groups, `500` legend weight, and shared scrollbar treatment with `0px` horizontal overflow. At `768 x 1000` and `390 x 844`, every closed drawer is `280px` wide at `x=-280px`, hidden and inert with an unexpanded control; opening moves it to `x=0`, removes hidden/inert state, and focuses search; Escape closes it and restores focus to the menu control. Automated QA is not user approval.
+- Modal-top evidence: repeated current-payload desktop, tablet, and phone measurements confirm MN and MH already met the accepted role contract. AMS now uses the same desktop `127.99px` header, `28/32/22px` header padding, `34/37.4px` title, `8px` action gap, `20px` checkbox, `30px` Print control, `37.5px` mode toggle, and top-aligned example row. At `390 x 844`, AMS uses the accepted full-screen shell and `20/18/40px` body padding. All three books pass open, Filled/Blank, Previous/Next, Escape, reopen, and zero-overflow checks. Automated QA is not user approval.
+- Shared box-system evidence: every current MN, MH, and AMS card was measured in Filled and Blank modes at `1440 x 1000`, `768 x 1000`, and `390 x 844`, producing 2,112 card-mode states with no activation or card-ID errors. The accepted shared direct title, descendant typography, gap, nested-gap, and corner roles remain intact; no new book-wide shared mismatch met the correction gate. Greater-than-1px readings were limited to the exact established A3/A9/A13 horizontal and A7 vertical relationship connectors. Family-specific differences, including MN A7 tablet header stretch, remain queued for Batches 5-7. Automated QA is not user approval.
+- Batch 5A MH A1 evidence: all 13 MH A1 cards passed Filled and Blank checks at desktop, tablet, and phone for 78 stable states. The scoped A1 grid now matches MN's `14px` gap, `14px` corners, `280px` desktop Filled minimum, `120px` Blank minimum, `11px 16px` title padding, and 3/2/1 responsive columns; tablet and phone Filled boxes use natural height. Typography remained matching at DM Serif Display `15px / 24px` titles and DM Sans `16px / 25.6px` body text. There were zero unaccepted overflow or activation failures; MH retains 71 unique cards and exact counts `13/6/6/12/6/12/10/6`. Automated QA is not user approval.
+- Batch 5B AMS A1 evidence: all 21 AMS A1 cards passed Filled and Blank checks at desktop, tablet, and phone for 126 stable states. The scoped A1 grid now matches MN's 3/2/1 responsive tracks, `14px` gap, `14px` corners, `280px` desktop Filled minimum, `120px` Blank minimum, and `11px 16px` title padding; tablet and phone Filled boxes use natural height. Direct typography remains DM Serif Display `15px / 24px` and DM Sans `16px / 25.6px`. No unaccepted visible overflow or activation failure occurred; AMS retains 84 unique cards and exact counts `21/8/1/16/4/16/17/1`. Automated QA remains objective evidence, and the user separately visually approved the current AMS A1 comparison in Part 188.
+- Batch 5C MH A3 evidence: all six MH A3 cards passed Filled and Blank checks at desktop, tablet, and phone for 36 stable states. The scoped A3 grid now matches MN's `14px` major gap, `14px` direct corners, `11px 16px` direct-title padding, `16px` Considerations frame with `14px` padding and `10px` inner gap, `11px` nested frames, and `9px 14px` nested-title padding. Direct titles/body remain DM Serif Display `15px / 24px` and DM Sans `16px / 25.6px`; nested titles/body remain `13.5px / 21.6px` and `16px / 25.6px`. User review then exposed a stable 2px Previous/Next top offset missed by the initial pass. The family-scoped `5px` navigation margin now aligns MN and MH exactly at `top 211.578px / bottom 252.773px / height 41.195px`. A second user review found the metadata-to-first-box gap at `12px` in MH versus `18px` in MN; the A3-scoped metadata margin now aligns both at `18px`, with identical `metaBottom 399.46875px` and `firstBoxTop 417.46875px` split-pane landmarks. All six cards in both modes and standalone desktop/tablet/phone target-box checks pass without measured horizontal overflow. MH retains 71 unique cards and exact counts `13/6/6/12/6/12/10/6`; product/local payload SHA-256 is `ea5e30fbcfe093f8e3d27f573b4fb8f2899608c0fd7794e099e163a04a35816e`. Automated QA is objective evidence; the user separately visually approved this corrected current comparison in Part 192.
+- Batch 5D AMS A3 evidence: all eight AMS A3 cards passed Filled and Blank checks at desktop, tablet, and phone for 48 stable states after the metadata/direct/nested-box correction recorded in Part 193. User review later reopened the family because the prototype Indications card stretched to `496.90625px`, leaving `361.71875px` of empty interior below its final line. Part 195 made Indications and Outcomes natural height, but fresh review then found a `144.1875px` external gap between the `79px` GI Endoscopy Indications and Interpretation cards. Part 197 replaces the surviving equal-row separation with a natural-height A3 role stack: the reported gap and all other desktop/tablet/phone Filled/Blank gaps now measure exactly `14px`. All eight cards pass both modes and all three widths for 48 stable states with zero text or structural-box overflow. AMS retains 84 unique cards, exact counts `21/8/1/16/4/16/17/1`, the required storage keys, and all eight A3 IDs; product/local/HTTP payload SHA-256 is `68e27f00f3a566a3b18254ec33181b3adc74f27d76e0c8208e6d8cb0abe3b49b`. The user visually approved this current repaired state in Part 198.
+- Batch 5E MH A5 evidence: all six MH Growth and Development cards passed Filled and Blank checks at `1440`, `1101`, `1100`, `768`, `601`, `600`, and `390px` widths for 84 stable states. The scoped correction aligns MH to MN at an `18px` metadata gap, `20px` primary gap, `12px` child gap, `14px` parent/child corners, accepted title/content padding, DM Serif Display title roles, DM Sans `16px/25.6px` body text, and a four-column wide, two-column tablet, one-column phone relationship layout with the connector hidden only at `600px` and below. Parts 201-202 correct the narrow parent-to-child and cross-group gaps to one uniform `12px` in both books. The user's Part 203 screenshot proved that the outer cachebuster alone did not refresh the helper's hardcoded `mh-a5-after` iframe URLs. The helper now uses `a5-uniform-gap-fix-2` for all three inner frames. At the reproduced `558px` screenshot width, all 13 MN/MH cards passed 26 Filled/Blank states with exact `12px` gaps above and below Health Promotion, hidden connectors, one-column `522px` tracks, and zero overflow. MH and MN product/temporary/HTTP payloads remain byte-identical at SHA-256 `337ed6946ff7b65d574163cc7ebf7dff017d550038037318f8abf713f83480ee` and `e39b030ab7b695ff7641b181addcb8cbb28294c91d9a96ec09f50bbb3039e512`. Automated QA is objective evidence; fresh user visual approval is pending.
+- Part 204 spacing-audit expansion: every remaining book/family batch MUST measure actual visible box-to-box boundaries as well as computed container gaps, treat MN as measurable rather than automatically correct, preserve intentional connector spans and semantic group hierarchy only when explicitly accepted, rebuild the comparison's inner iframe cache keys after payload changes, and recheck A1/A3 spacing across all three books before final handoff.
+- The three protected automations remain paused and unchanged. Pharmacology and content population remain inactive.
+
 ## Next Recommended Action
 
-Run the final Pediatric cross-surface responsive, interaction/accessibility, and print handoff before any commit or push decision.
+Open the repaired AMS-versus-MN A5 comparison for fresh user visual review; do not begin A7 until the user responds.
+
+## Part 205 — AMS A5 Spacing-Consistency Repair
+
+- The user visually approved the Part 204 MN/MH A5 uniform-gap result and expanded the retrospective plan to review spacing in every remaining template family, one book/family per batch.
+- AMS A5 was measured in Filled and Blank modes at `1440`, `1101`, `1100`, `768`, `601`, `600`, and `390px`, with two identical readings more than `300ms` apart in all 14 states.
+- Before repair, AMS A5 used a `14px` metadata-to-primary boundary at every width and retained a `20px` outer section gap at `600px` and below while its stacked child and Health Promotion boundaries used `12px`.
+- The focused A5-only correction changes the metadata boundary to `18px` and the A5 outer grid to `12px` only at `600px` and below. Wide and tablet states retain the accepted `20px` primary/connector relationship, `12px` child gap, 4/2-column tracks, and 20px connector.
+- Post-repair, all 14 states are stable: metadata is `18px`; widths above `600px` retain `20px` outer/connector spacing; widths at or below `600px` have exact `12px` visible boundaries throughout, hidden connectors, one-column tracks, and zero card/page horizontal overflow.
+- The AMS product and local payload are byte-identical at SHA-256 `a0c94f188c86e9e5d16a094a332e4d921228eb0e8a8f2679224764a624111581`; the MN product and local payload remain byte-identical at SHA-256 `e39b030ab7b695ff7641b181addcb8cbb28294c91d9a96ec09f50bbb3039e512`. The comparison helper now embeds `ams-a5-spacing-fix` in all three inner iframe URLs.
+- Automated QA is objective evidence, not user visual approval. Content population remains paused; no ATI educational content changed; no files were staged, committed, or pushed.
+
+## Part 206 — AMS A5 Approval and AMS A7 Spacing-Consistency Repair
+
+- The user visually approved the repaired AMS A5 comparison; AMS A5 is now objectively passed and user visually approved.
+- The next authorized focused batch audited all 16 AMS A7 Medication cards in Filled and Blank modes at `1440`, `768`, and `390px`: 96 before states and 96 post-repair states, each with two identical readings more than `280ms` apart.
+- The only confirmed spacing defect was the metadata-to-Purpose boundary at `14px` instead of the accepted `18px`. Purpose-to-body, all body row/column boundaries, and stacked column boundaries were already uniformly `14px`; the Purpose inset/inner relationship was already `10px`.
+- The A7-only metadata rule now uses `18px`. Post-repair, all 96 states retain exact `18px / 14px / 10px` role spacing, correct row/column or stacked geometry, and zero card/page horizontal overflow.
+- AMS product, temporary, and HTTP payloads match at SHA-256 `fcc3575ee774d4871832eacdcf2a0117178fd89e88a3d30554b3473764ae93c4`; one script parses; 84 cards, 84 unique IDs, exact family counts, and required storage keys remain. The comparison helper uses `ams-a7-spacing-fix` for every inner iframe; HTTP 200 and `git diff --check` pass.
+- AMS A7 is objectively passed and pending fresh user visual approval. Content population remains paused; no ATI educational content changed; no files were staged, committed, or pushed.
+
+## Part 207 — Cross-Book A3 Official Connector Restoration
+
+- MN, Mental Health, and AMS A3 are objectively repaired; fresh user visual approval of the repaired AMS-versus-MN comparison is pending. AMS A7 remains objectively passed and paused at its prior visual gate.
+- The design-only repair restores the official relationship between `Potential Complications` and `Nursing Interventions`. No learner content, official box, card, count, ID, link, storage key, order, or book accent changed.
+- Before repair, the existing desktop connector was horizontal and correct, but responsive rules hid it when A3 changed to a one-column stack. The stacked boxes therefore retained their `14px` gap without the official connecting line.
+- Every A3 implementation now retains its existing horizontal connector in the two-column state and uses a centered `3px × 14px` vertical connector across the exact `14px` gap in the stacked state. The rule is A3-only and does not alter A9 or A13.
+- Representative MN, Mental Health, and AMS cards passed Filled and Blank checks at `1000px` and `600px`, with two identical readings at least `300ms` apart: horizontal bridge at wide width, vertical `3px × 14px` bridge at stacked width, exact `14px` visible boundary, centered geometry, and `0px` card overflow. The live split comparison measures the same vertical geometry in both panes at approximately `522px` card width.
+- Product, temporary, and HTTP-served SHA-256 values match exactly: MN `ca5fcf19e6d1b032f81d0c584d94c6e17f04bb2711dfba334990de49df7fe6df`; Mental Health `2f60f569940418babebb40bbfcd36e5002c0b68953fba129e219e8e4eacff5b6`; AMS `016c9c601aa45446993a7eaa1ca5ae3f8d6c8723bd0c4d3171c1d876f975c056`. Both rebuilt comparison endpoints return HTTP `200`, and `git diff --check` passes.
+- Current visual gate: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=a3-official-connector-fix`. Do not resume AMS A7 or begin another family until the user approves this A3 connector state or reports a specific remaining defect.
+
+## Part 208 — Retrospective Template Spacing Heartbeat Activated
+
+- At the user's explicit request before going away from the keyboard, a new current-task heartbeat was created and activated: `ATI Retrospective Template Spacing Heartbeat` (`ati-retrospective-template-spacing-heartbeat`).
+- It runs every 15 minutes in current task `01a007cd-1a70-7351-8ef3-9ec550270408`, owns only the MN/MH/AMS retrospective template-spacing and official-relationship queue, and performs exactly one book/family batch per run.
+- Its first three batches complete the full-card A3 connector regression for MN, MH, and AMS separately. It then audits MN/MH A7, all three A9/A11/A13/A15 families, the A1/A3 final regressions, and one final cross-book integrity handoff. AMS A7 remains recorded as already objectively passed and is not repeated without a concrete regression.
+- Automated runs may advance the documented objective queue while the user is away, but never become user visual approval. Pending visual gates remain available for the user's return.
+- Content population remains paused. No commit, push, publication, Pharmacology, Hub, Book, Flashcards, or educational-content work is authorized. The heartbeat must pause itself after final integrity.
+- `ati-build-guide-ai-spec-polish`, `ati-template-clipping-qa`, and `ati-pediatric-templates-design-polish` remain paused and unchanged.
+
+## Part 209 — Heartbeat Batch 0 MN A3 Full-Family Pass
+
+- Batch 0 audited all 15 MN A3 cards and found a legacy skeleton-role defect: `ex-ch24-newborn-screening` still used `.dp-grid`, while five A3 cards used noncanonical outcome/intervention role classes. Four of those cards therefore lacked the official connector.
+- One cohesive design-only correction normalized those A3 roles to `.tp-grid`, `.outcomes`, and `.nursing-interventions` as applicable. Learner text, official labels/boxes, counts, IDs, links, storage keys, card order, and accent remain unchanged.
+- All 15 cards passed Filled and Blank checks at `1440`, `768`, `681`, `680`, and `390px`: 150 twice-stable states, exact `14px` relationship gaps, centered `34px × 3px` wide connectors, centered `3px × 14px` stacked connectors, and zero horizontal overflow.
+- Metadata, controls, navigation, endpoints, four inline scripts, 197 cards/unique IDs, family counts `46/15/7/18/15/65/22/9`, direct runtime logs, payload parity, and `git diff --check` pass. MN product/local/HTTP SHA-256 is `eec09db6a7e6488ac0db5291eb3005378311fb8cc43c2ab8d3f8f1c262c8abda`.
+- MN A3 is objectively passed after full-family regression. Fresh user visual approval of the repaired cross-book state remains pending; automated QA is not user approval. The next heartbeat may advance only to Batch 1, MH A3.
+- Content population remains paused. No commit or push occurred. The current heartbeat remains active; the three protected automations remain paused and unchanged.
+
+## Part 210 — Heartbeat Batch 1 MH A3 Full-Family Pass
+
+- All six Mental Health A3 cards passed Filled and Blank at `1440`, `861`, `860`, `768`, and `390px`: 60 twice-stable states. No product correction was required.
+- Wide states retain the accepted two-column layout, exact `14px` visible relationship boundary, and centered `14px × 3px` horizontal bridge. At the exact `860px` breakpoint and below, the official stacked order uses a centered `3px × 14px` vertical bridge across the exact `14px` gap.
+- The `18px` metadata boundary, metadata labels and Student Name line, controls, `1 / 6` through `6 / 6` navigation, direct/nested typography, `14px/16px/11px` corners, endpoints, and objective overflow checks pass. The intentional connector extension is the only measured box scroll-boundary extension.
+- One script, 71 cards/unique card IDs, counts `13/6/6/12/6/12/10/6`, all six A3 links, storage keys, direct runtime logs, product/local/HTTP parity, and `git diff --check` pass. Mental Health SHA-256 remains `2f60f569940418babebb40bbfcd36e5002c0b68953fba129e219e8e4eacff5b6`.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=a3-official-connector-fix-mh-batch1`. MH A3 is objectively passed; fresh user visual approval remains pending and automated QA is not approval.
+- The queue advances only to Batch 2, AMS A3, on the next heartbeat. Content population remains paused; no commit or push occurred; the current heartbeat remains active; and the protected automations remain paused and unchanged.
+
+## Part 211 — Heartbeat Batch 2 AMS A3 Full-Family Pass
+
+- All eight AMS A3 cards, including the retained prototype fixture, passed Filled and Blank at `1440`, exact `821px/820px` card widths, `901`, exact `900`, `768`, and `390px`: 112 twice-stable states. No product correction was required.
+- Wide states retain the accepted two-column layout, exact `14px` visible relationship boundary, and centered `14px × 3px` horizontal bridge. At the exact `820px` card-width transition and below, the official stacked order uses a centered `3px × 14px` vertical bridge across the exact `14px` gap.
+- The `18px` metadata boundary, Student Name/Procedure Name/Review Module Chapter roles, controls, `1 / 8` through `8 / 8` navigation, diagnostic left-stack order, typography, `14px/11px` corners, endpoints, and objective overflow checks pass with zero card/content/page/modal overflow.
+- One script parses; AMS retains 84 cards and 84 unique card IDs with counts `21/8/1/16/4/16/17/1`; all eight A3 IDs, 76 current chapter links, storage keys, direct runtime logs, product/local/HTTP parity, and `git diff --check` pass. AMS SHA-256 remains `016c9c601aa45446993a7eaa1ca5ae3f8d6c8723bd0c4d3171c1d876f975c056`; current MN reference parity is `eec09db6a7e6488ac0db5291eb3005378311fb8cc43c2ab8d3f8f1c262c8abda`.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=a3-official-connector-fix-ams-batch2`. Both repaired A3 cards load from fresh inner cache keys, and the split panes repeat the centered vertical connector across an exact `14px` gap at approximately `525px/526px` card width.
+- AMS A3 is objectively passed after full-family regression. Fresh user visual approval remains pending and automated QA is not approval.
+- The queue advances only to Batch 3, MN A7, on the next heartbeat. Content population remains paused; no commit or push occurred; the current heartbeat remains active; and the protected automations remain paused and unchanged.
+
+## Part 212 — User Return and Heartbeat Pause
+
+- At the user's explicit instruction after returning, `ati-retrospective-template-spacing-heartbeat` is now paused with its name, prompt, 15-minute schedule, target task, and other configuration preserved.
+- The heartbeat stopped after Batch 2, AMS A3, and did not begin Batch 3, MN A7. No product or learner-facing content changed while pausing it.
+- Completed objective work while the user was away: MN A3 full-family pass after one skeleton-role correction; MH A3 full-family pass without a product edit; AMS A3 full-family pass without a product edit. These automated passes are not user visual approval.
+- Immediate review surface: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=a3-official-connector-fix-ams-batch2`. Fresh visual approval of the A3 connector remains pending. AMS A7 also remains objectively passed and pending fresh visual approval.
+- Content population remains paused. No staging, commit, push, or publication occurred; the user does not need to commit or push now.
+- `ati-build-guide-ai-spec-polish`, `ati-template-clipping-qa`, and `ati-pediatric-templates-design-polish` remain paused and unchanged.
+
+## Part 213 — A3 Connector Behind-Box Overlap Correction
+
+- Fresh user review restored the intended connector treatment: the line extends beneath both adjacent boxes and sits behind their surfaces rather than ending exactly at the borders or drawing in front of them.
+- MN, MH, and AMS received the same A3-only correction. Wide bridges are `34px x 3px`; stacked bridges are `3px x 34px`. Both span the exact `14px` visible gap, overlap `10px` beneath each box, and use `z-index:-1`. A9 and A13 are unchanged.
+- Every A3 card passed Filled and Blank checks around its exact wide/narrow transition: 60 MN states at `768/680px`, 24 MH states at `861/860px`, and 32 AMS states at `935/934px` (`821px/820px` card widths). All 116 states were twice-stable, centered, retained exact `14px` visible gaps and official order, and had no objective content/page overflow. The intentional hidden connector overlap is the only scroll-boundary extension.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=a3-connector-behind-boxes`. Split-pane MN and AMS both measure `3px x 34px`, `bottom:-24px`, and `z-index:-1` at an exact `14px` gap.
+- Exact product/local/HTTP SHA-256 parity: MN `889fbbdcd4cbc97c32766f257a0883ba2ab51d1c71db516d357144300446a8f1`, MH `582f60c88b155a45a30dfe915188dee905c18a3b93d3b576f8636804831e03db`, AMS `54c58f6c872afa41fce7cf3d2872b73ab809ad3bde29756776476880478ecea1`. Direct runtime logs, comparison HTTP/cache keys, and `git diff --check` pass.
+- The retrospective heartbeat remains paused, MN A7 did not begin, content population remains paused, and fresh user visual approval of this connector treatment is pending. Nothing was staged, committed, or pushed.
+
+## Part 214 — A3 Approval And MN A7 Tablet Hierarchy Evidence
+
+- The user visually approved the Part 213 behind-box A3 connector treatment across MN, MH, and AMS.
+- Batch 3 audited all 18 MN A7 cards in Filled and Blank at `1440`, `768`, exact `681/680`, and `390px`: 180 before and 180 after states, each twice-stable at least `260ms` apart.
+- A generic tablet rule incorrectly placed Purpose beside the medication body from `768-601px`; at `681px`, four Filled cards overflowed by `5-45px`.
+- One A7-scoped correction keeps `.med-grid` in one outer column on tablet. Purpose remains above the body; the body stays two-column above `680px` and stacks at `680px` and below.
+- Post-repair spacing is exact at `18px` metadata-to-Purpose, `14px` Purpose-to-body/body boundaries, and `10px` Purpose inset/inner gap, with zero card/modal/page horizontal overflow. Split-pane MN repeats the same hierarchy at a `525px` card width.
+- Integrity passes: four scripts; 197 cards/unique IDs; counts `46/15/7/18/15/65/22/9`; all 18 A7 IDs/links; storage key; empty runtime warning/error logs; exact product/local/HTTP SHA-256 `49877f5987649c3c4c7640dde8977ef31b277efb14d4b638c6a4ff618573413a`; and `git diff --check`.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=mn-a7-spacing-fix`. MN A7 is objectively passed and pending fresh user visual approval. MH A7 has not begun.
+
+## Part 215 — MN A7 Approval And Cross-Book A5 Gap Normalization
+
+- The user visually approved the Part 214 MN A7 tablet hierarchy repair. MN A7 is objectively passed and user visually approved.
+- The former A5 `20px/12px` exception is superseded by the user's explicit preference for the common spacing system. MN, MH, and AMS A5 now retain the `18px` metadata boundary and use `14px` for same-level section, parent-to-child, child-to-child, responsive stacked, and visible connector-strip relationships. The separate `10px` nested-group role elsewhere is unchanged.
+- Objective validation covered seven MN cards, six MH cards, and one AMS prototype fixture in Filled and Blank at seven widths from `1440px` through `390px`: 196 twice-stable states, exact 14px visible A5 boundaries, correct 4/2/1 tracks and connector visibility, zero answer leakage, and zero card/box/page overflow.
+- Counts, unique IDs, links, storage, scripts, and direct runtime logs pass. Exact product/temporary/HTTP SHA-256 parity is MN `7982cea4edee4e0621ca9f4be30f1bc142fa129352c9cbf57f59a701da149bef`, MH `a716b3c4d9ca61b66702ca05a1e9097933664be4a5ce99b8321db6dac51fcab0`, and AMS `2bf9355dee1525c13a8d1b447d1c3e811d61e2ecdbbfeeabb8a468fb3e3bc679`; `git diff --check` passes.
+- Current three-pane comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=a5-gap-14-normalization-2`. Fresh user visual approval is pending. MH A7 has not begun.
+- Content population remains paused. Nothing was staged, committed, or pushed. The retrospective heartbeat and the three protected automations remain paused and unchanged.
+
+## Part 216 — Cross-Book A5 User Visual Approval
+
+- The user reviewed the Part 215 three-pane comparison and confirmed that everything appears in order. The normalized A5 spacing across MN, MH, and AMS is objectively passed and user visually approved.
+- The accepted A5 role hierarchy is `18px` metadata spacing, `14px` same-level section/parent/child/stacked and visible connector-strip spacing, and `10px` only for nested-group roles elsewhere. The former `20px/12px` A5 exception remains superseded.
+- No product or learner-facing file changed in this approval record. Part 215's 196 twice-stable states, exact payload hashes, counts, IDs, links, storage, scripts, runtime logs, and `git diff --check` remain current.
+- Approved comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=a5-gap-14-normalization-2`. MH A7 has not begun and requires a separate explicit instruction.
+- Content population remains paused. Nothing was staged, committed, or pushed. The retrospective heartbeat and the three protected automations remain paused and unchanged.
+
+## Part 217 — MH A7 Medication Spacing And Breakpoint Evidence
+
+- The user's explicit instruction began MH A7 only. All 12 cards were checked in Filled and Blank at `1440`, `768`, exact `681/680`, and `390px`, producing 120 twice-stable before states and 120 twice-stable after states.
+- Before repair, MH A7 used `14px` rather than `18px` before the first group, `10px` rather than `14px` between peer medication boxes, and a generic `860px` collapse rather than the accepted `680px` A7 transition.
+- One A7-scoped correction now gives MH exact `18px / 14px / 10px` role spacing, preserves two body columns through `681px`, and stacks at `680px` and below. Purpose-to-body remains `14px`; the nested Purpose relationship remains `10px`; the Nursing Interventions connector derives its `3px x 34px`, `bottom:-24px`, `z-index:-1` geometry from the corrected peer gap.
+- Every post-repair state retains all 9 official boxes, correct Filled/Blank behavior, `16px/25.6px` body typography, and zero page/modal/box/content horizontal overflow. Counts, 71 unique IDs, all 12 A7 IDs, 71 links, one parsed script, storage, and `git diff --check` pass.
+- Exact MH product/temporary/HTTP SHA-256 is `e432a51ee9d418020421dfa8994dd01170c28931d74cf26e1110f2aec4146560`; MN reference parity remains `7982cea4edee4e0621ca9f4be30f1bc142fa129352c9cbf57f59a701da149bef`.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a7-spacing-fix`. MH A7 is objectively passed and pending fresh user visual approval. MH A9 has not begun.
+- Content population remains paused. Nothing was staged, committed, or pushed. The retrospective heartbeat and the three protected automations remain paused and unchanged.
+
+## Part 218 — MH A7 Title-Band And Corner Evidence
+
+- Fresh user review found that MH A7's regular title bands and rounded frames still did not match MN. Current authority and product inspection confirmed that MH A1, A3, and A5 already retain their accepted role-specific title/corner treatments; only the A7 legacy override remained wrong.
+- Equal-width before measurements were exact and twice-stable: MH A7 direct boxes used `8px` frames, `7px` header caps, and `38.25px` title strips, versus MN's `14px`, `13px`, and `47px`. MH Purpose used `10px/8px/7px` legacy corners instead of the accepted `16px` group and `11px` clipped inner frames.
+- One A7-scoped correction in `Elevated ATI MH Templates.html` now gives all seven regular body boxes `14px` frames, `13px` caps, `11px 16px` title padding, `24px` line height, and `47px` one-line strips. Purpose retains its intentional compact exception: `16px` outer group, `11px` inner boxes, square-clipped headers, `10px 16px` padding, `17.25px` line height, and `38.25px` strips.
+- All 12 cards passed Filled and true Blank at `1440`, `768`, exact `681/680`, and `390px`: 120 twice-stable states with exact chrome, spacing, responsive direction, connector geometry, and zero objective overflow or Blank answer leakage.
+- One inline script, 71 cards/unique IDs, counts `13/6/6/12/6/12/10/6`, all 12 A7 IDs, storage keys, and `git diff --check` pass. Exact MH product/temporary/HTTP SHA-256 is `58bdfcc8c4ff2e5c9301b4701eda00ebc027abcecdb1b593b3436da4a6cc39a2`; MN reference parity remains `7982cea4edee4e0621ca9f4be30f1bc142fa129352c9cbf57f59a701da149bef`.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a7-title-corners-fix-2`. MH A7 is objectively passed after the chrome repair and pending fresh user visual approval. MH A9 has not begun.
+- Content population remains paused. Nothing was staged, committed, or pushed. The retrospective heartbeat and the three protected automations remain paused and unchanged.
+
+## Part 219 — Cross-Book Completed-Family Typography Uniformity
+
+- The user visually approved the Part 218 MH A7 box-design repair. MH A7 box spacing, title-band geometry, corners, responsive structure, and connector treatment are objectively passed and user visually approved.
+- The user's typography-uniformity request is implemented as role-based uniformity across the completed A1, A3, A5, and A7 families. Same-role text matches across MN, MH, and AMS while intentional roles remain distinct: primary title `15px / 24px`, A3 nested title `13.5px / 21.6px`, A5 child title `14px / 22.4px`, A7 Purpose title `15px / 17.25px`, and opened body/descendant text DM Sans `16px / 25.6px / 400`.
+- The all-card A7 before audit covered 18 MN, 12 MH, and 16 AMS cards at `1440` and `390px`, for 92 twice-stable Filled states. MN passed. Every MH card rendered the Purpose label at weight `900` instead of `700`; every AMS card had the same label defect and used the compact Purpose `17.25px` line height plus `10px` vertical padding on its seven regular body titles instead of the primary `24px` line height plus `11px` padding.
+- One cohesive A7-only typography correction changed the MH and AMS Purpose labels to the metadata-label `700` role and separated AMS Purpose-title and direct-title rules. AMS Purpose remains compact; all seven regular titles now use the shared `11px 16px` padding and `24px` line height. The special MN `Medication / Device` form, semantic strong weights, body copy, boxes, corners, layout, spacing, connector, counts, IDs, links, storage, order, and accents are unchanged.
+- Post-repair validation covered all 12 MH and 16 AMS A7 cards in Filled and true Blank at `1440` and `390px`: 112 twice-stable states with zero typography-role failures, zero Blank answer leakage, and zero page/card overflow. An additional 18 twice-stable A1/A3/A5 representative desktop/mobile regressions across all three books passed every rendered role and descendant metric.
+- Four MN scripts, one MH script, and one AMS script parse. Current counts remain MN `197` (`46/15/7/18/15/65/22/9`), MH `71` (`13/6/6/12/6/12/10/6`), and AMS `84` (`21/8/1/16/4/16/17/1`). Exact product/temporary/HTTP SHA-256 parity is MN `7982cea4edee4e0621ca9f4be30f1bc142fa129352c9cbf57f59a701da149bef`, MH `943faf8f01ae756ecf18faa666f639d09a0586132ea9fd51079d17c06347c231`, and AMS `05e930cf58e77ff4f52a590688cad1370cc449d5e9b78632a5a714335c2bf9a2`; `git diff --check` passes.
+- Current three-pane comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=a7-typography-uniform`. It opens exact current MN/MH/AMS payloads directly to A7 and provides Purpose and Nursing Interventions alignment controls. Fresh user visual approval of typography is pending. MH A9 did not begin.
+- Content population remains paused. Nothing was staged, committed, or pushed. The retrospective heartbeat and the three protected automations remain paused and unchanged.
+
+## Part 220 — Cross-Book A7 Typography User Approval
+
+- The user reviewed the Part 219 three-pane comparison and confirmed that the typography appears in order. The cross-book A7 typography state is objectively passed and user visually approved.
+- The accepted uniformity is role-based: same-role banners, metadata, group labels, body text, and rendered descendants match across MN, MH, and AMS, while the primary, nested, A5 child, and compact A7 Purpose title roles remain intentionally distinct.
+- No product or learner-facing file changed in this approval record. Part 219's 92-state before inventory, 112-state MH/AMS Filled/Blank post-repair pass, 18-state A1/A3/A5 regression, script/count/integrity checks, exact payload hashes, and `git diff --check` remain current.
+- Approved comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=a7-typography-uniform`. MH A9 has not begun and requires a separate explicit instruction.
+- Content population remains paused. Nothing was staged, committed, or pushed. The retrospective heartbeat and the three protected automations remain paused and unchanged.
+
+## Part 221 — MH A9 Nursing Skill Canon Repair
+
+- The user's separate instruction began MH A9 only. All six cards were measured in Filled and true Blank at `1440`, `768`, exact `681/680`, and `390px`: 60 twice-stable before states and 60 twice-stable after states.
+- Before repair, every card used a `12px` metadata boundary instead of `18px`; direct titles used the compact `38.25px` stack instead of `47px`; nested titles used `10px 16px` padding instead of `9px 14px`; the Considerations label used weight `900` instead of `700`; and the wide Potential Complications bridge ended in front of the borders at `14px x 3px`, `right:-14px`, `z-index:0`. At `768/681px`, a generic narrow rule also hid that bridge despite the retained two-column A9 layout.
+- One cohesive A9-only correction restores the MN role system: exact `18px / 14px / 10px` spacing, DM Serif Display direct titles `15px / 24px` with `11px 16px` padding, nested titles `13.5px / 21.6px` with `9px 14px` padding, label weight `700`, and the behind-box wide bridge at `34px x 3px`, `right:-24px`, `z-index:-1`. Body and rendered descendants were already correct at DM Sans `16px / 25.6px / 400` and did not change.
+- All 60 post-repair states retain three metadata labels, five direct boxes, the Considerations group with two nested boxes, correct Filled/Blank behavior, exact `681/680px` transition, zero answer leakage, and zero card/modal/page horizontal overflow. Wide states retain a centered bridge across the exact `14px` visible gap; `680px` and below stack with an exact `14px` gap and hide the horizontal bridge. The connector pseudo-element's hidden `24px` scroll-boundary extension is intentional decoration, not clipped content.
+- Integrity passes: one inline script parses; MH retains 71 cards and unique IDs with counts `13/6/6/12/6/12/10/6`; all six A9 IDs and storage key `atimh_templates_progress` remain; direct runtime activation succeeds; and `git diff --check` passes. MH product, temporary, and HTTP-served payloads are byte-identical at SHA-256 `e3bc9957285617b622bc6019b7e18f6af0e9363309a18cae4e59c2c76ecbfd6f`; MN reference parity remains `7982cea4edee4e0621ca9f4be30f1bc142fa129352c9cbf57f59a701da149bef`.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a9-canon-fix`. It opens exact MN/MH payloads directly to A9 and provides Description, Considerations, and Potential Complications alignment controls. MH A9 is objectively passed and pending fresh user visual approval. MH A11 did not begin.
+- Content population remains paused. Nothing was staged, committed, or pushed. The retrospective heartbeat and the three protected automations remain paused and unchanged.
+
+## Part 222 — MH A9 Connector Visibility Repair
+
+- Fresh user review correctly rejected Part 221's Potential Complications-to-Nursing Interventions bridge because the visible gap segment relied entirely on the negative layer and was not reliably apparent.
+- The A9 connector now uses two coordinated decorative layers. The existing `34px x 3px`, `right:-24px`, `z-index:-1` bridge remains extended `10px` beneath each adjacent box. A second `14px x 3px`, `right:-14px`, `z-index:0` segment occupies only the open gap, so the line is flush with both borders without drawing over either box surface.
+- All six MH A9 cards passed Filled and true Blank validation at `1440`, `768`, exact `681/680`, and `390px`: 60 twice-stable states with both layers present through `681px`, both horizontal layers hidden at `680px` and below, exact `18px / 14px / 10px` role spacing, correct official order, and zero objective overflow or answer leakage.
+- Integrity passes: one inline script parses; 71 cards and 71 unique card IDs remain with counts `13/6/6/12/6/12/10/6`; all six A9 cards and storage key `atimh_templates_progress` remain; `git diff --check` passes. Product, temporary, and HTTP payloads are byte-identical at SHA-256 `d28ca4b6ce6e69d815a43bc4ce8ef1d1868bdb493534b0441ff5b69b0b275bca`.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a9-connector-visible`. MH A9 is objectively passed after the visibility repair and pending fresh user visual approval. MH A11 did not begin.
+- Content population remains paused. Nothing was staged, committed, or pushed. The retrospective heartbeat and the three protected automations remain paused and unchanged.
+
+## Part 223 — Cross-Book A9 Responsive Connector Repair
+
+- Fresh user review correctly showed that Part 222 still left no Potential Complications-to-Nursing Interventions connector in the split-pane state. Both MN and MH were one-column at approximately `522px` card width, but their A9 horizontal layers were hidden without a vertical replacement.
+- MN, MH, and AMS A9 now preserve the official relationship in both orientations with the accepted two-layer illusion. The long layer extends beneath both box surfaces at `z-index:-1`; a `14px` gap-only layer remains visible at `z-index:0`. MN/MH use the shared `10px` overlap (`34px x 3px` wide; `3px x 34px` stacked). AMS preserves its existing `8px` overlap (`30px x 3px` wide; `3px x 30px` stacked). Every visible boundary remains exactly `14px`.
+- Four legacy MN A9 cards were normalized from the obsolete `.interventions` class to the canonical `.nursing-interventions` role so the official relationship responds consistently: Leopold Maneuvers, Fundal Height Measurement, Magnesium Sulfate Administration, and Phototherapy Administration. Learner text, labels, boxes, counts, IDs, links, storage keys, order, accents, and subject identity did not change.
+- Full-family evidence covers all 15 MN, six MH, and four AMS A9 cards in Filled and Blank. MN passed the complete `1280/681/680/390px` matrix, including a targeted 24-state post-role regression for the four legacy cards. MH passed 48 twice-stable states at `1280/681/680/390px`; AMS passed 32 twice-stable states at `1280/935/934/390px`. Wide and stacked connector geometry, exact gap, official order, Blank behavior, and objective overflow checks pass.
+- Four MN scripts, one MH script, and one AMS script parse. Counts remain MN `197` (`46/15/7/18/15/65/22/9`), MH `71` (`13/6/6/12/6/12/10/6`), and AMS `84` (`21/8/1/16/4/16/17/1`). Product, temporary, and HTTP payload parity is exact at SHA-256 MN `2f5ae61f5969fb7514bd66a75dfb048db3197692d0dcda1eddd5533ff925abbb`, MH `3e0ecae1795f30a4cfb4432857d71f2b9f09b99094035334579a41670065b99e`, and AMS `5eab823be0a69efba4c5aabfb5e77cc1cc53f995253f89f4f627cea0b067e4ed`; all local previews return HTTP `200`; `git diff --check` passes.
+- Current connector-focused comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=a9-stacked-connector-3`. It opens exact current MN/MH payloads and aligns both panes to Potential Complications. MH A9 is objectively passed after responsive connector repair and pending fresh user visual approval. MH A11 did not begin.
+- Branch `main` remains at `acef952339eab701e18762152f73ccddb9494419`, synchronized `0` ahead / `0` behind. Content population remains paused; nothing is staged, committed, or pushed; all four automations remain paused and unchanged.
+
+## Part 224 — A9 Connector Border-Edge Layering Correction
+
+- Fresh magnified user review correctly showed that Part 223's visible stacked connector cap painted one CSS pixel over the lower border of Potential Complications. The `14px` gap-only pseudo-element was positioned at `bottom:-14px`, but its absolute-position containing block ends at the padding edge; the card's `1px` border therefore occupied the same top row.
+- MN, MH, and AMS A9 now offset the visible segment by the card border as well as the gap: `right:-15px` wide and `bottom:-15px` stacked. Its length remains exactly `14px`; the accepted long bridge remains extended beneath both surfaces at `z-index:-1`. The upper cap now begins at the outer border edge instead of painting over the border, and the lower cap ends at the next outer border edge.
+- All 15 MN, six MH, and four AMS A9 cards passed Filled and Blank regression at desktop, exact breakpoints, and phone: 120 MN states at `1280/681/680/390px`, 48 MH states at `1280/681/680/390px`, and 32 AMS states at `1280/935/934/390px`. All 200 readings were twice-stable with correct horizontal/vertical orientation, exact `14px` visible gaps, centered geometry, `-15px` visible-layer offsets, and zero objective card/page/content overflow.
+- Four MN scripts, one MH script, and one AMS script parse. Product, temporary, and HTTP payload parity is exact at SHA-256 MN `d71eda236df711a1087ecadb37b6893e219470167effc5ac060a2f403df90487`, MH `1c53affe43569c7ac2833068545db2d480bf51018d1bc0f1cc488086860f531d`, and AMS `8e0206c92d7a1c15889188c82d052eff1ea494d74d97a2ea5f5c2b1e0f4ced0e`; the comparison returns HTTP `200`; `git diff --check` passes.
+- Current connector-focused comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=a9-connector-border-edge`. It opens exact current MN/MH payloads aligned to Potential Complications. MH A9 is objectively passed after the border-edge correction and pending fresh user visual approval. MH A11 did not begin.
+- Branch `main` remains at `acef952339eab701e18762152f73ccddb9494419`, synchronized `0` ahead / `0` behind. Content population remains paused; nothing is staged, committed, or pushed; all four automations remain paused and unchanged.
+
+## Part 225 — MH/MN A9 Connector User Visual Approval
+
+- The user reviewed the Part 224 border-edge comparison and confirmed that the connector now appears fixed. The MH A9 Potential Complications-to-Nursing Interventions relationship and the displayed MN reference treatment are objectively passed and user visually approved.
+- The approved treatment preserves the exact `14px` visible gap, the `-15px` gap-plus-border endpoint offset, and the longer behind-box bridge without painting the cap over either card border.
+- No product or learner-facing file changed in this approval record. Part 224's 200 twice-stable cross-book Filled/Blank states, script parsing, exact payload hashes, HTTP `200`, and `git diff --check` remain current. AMS A9 remains objectively passed; this MN/MH comparison approval is not relabeled as a separate AMS visual review.
+- Approved comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=a9-connector-border-edge`. MH A11 has not begun and requires a separate explicit instruction.
+
+## Part 226 — MH A11 System Disorder Role-System Repair
+
+- The user's separate instruction began MH A11 only. Stable rendered evidence across all 12 cards showed one repeated legacy role mismatch: `14px` rather than `18px` metadata separation, an undersized Safety rail, `10px/8px` rather than `14px/16px/11px` primary/group/nested corners, compact merged title roles, and `13px` text in primary explanatory boxes that use `16px/1.6` in the accepted MN A11 hierarchy.
+- `Elevated ATI MH Templates.html` received one A11-only role-system correction. A11 now uses the `18px / 14px / 10px` spacing hierarchy, a `2fr/1fr` wide Safety division, `14px/16px/11px` corners, `15px/24px` primary titles, `13.5px/21.6px` nested titles, `16px/25.6px` primary and Patient-Centered Care copy, and dense `13px/19.5px` Assessment/Complications copy. Safety remains `13px` at `1.55`.
+- All 12 cards passed Filled and Blank at `1440`, exact `861/860`, `768`, and `390px`: 120 twice-stable states with correct wide/stacked geometry and zero role, breakpoint, or overflow failure. A separate 24-state all-card/all-mode print pass repeated identically with zero containment failure.
+- The official 14-region skeleton, learner text, labels, order, IDs, links, storage, accent, and subject identity are unchanged. One MH script and one comparison script parse; 71 cards/unique IDs, exact counts `13/6/6/12/6/12/10/6`, and 12 A11 cards remain. Exact payload parity is MN `d71eda236df711a1087ecadb37b6893e219470167effc5ac060a2f403df90487` and MH `335793decefc674a70f9c0a50000a128c641edea7fcee2d0623508b112924f76`; `git diff --check` passes.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a11-canon-fix`. MH A11 is objectively passed and pending fresh user visual approval. MH A13 did not begin.
+- Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** MH A11 now matches the accepted System Disorder role hierarchy and responsive skeleton across all 12 cards.
+
+- Branch `main` remains at `acef952339eab701e18762152f73ccddb9494419`, synchronized `0` ahead / `0` behind. Content population remains paused; nothing is staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**Next Recommendation:** The user should visually review the repaired MH-versus-MN A11 comparison and report approval or the exact remaining mismatch; do not begin MH A13, commit, or push in the same action.
+
+## Part 228 — MH A11 Comparison Paired Vertical Guides Restored
+
+- The temporary MH-versus-MN A11 comparison again includes the established **Vertical guides** control. It reveals synchronized `1px` teal guides in both panes, initially at `50%`; dragging either guide moves both to the same pane-relative percentage.
+- Keyboard movement is synchronized at `1%` with Left/Right, `5%` with Shift+Left/Right, and `0%/100%` with Home/End. Live validation confirmed paired `52%`, `0%`, `100%`, and restored `50%` states.
+- Only `/private/tmp/elevated-ati-template-compare-mh-mn.html` changed. No repository product file or learner content changed. Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a11-canon-fix-guides`.
+- MH A11 remains objectively passed and pending fresh user visual approval. MH A13 did not begin. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** The current MH A11 comparison again has synchronized draggable vertical guides in both panes.
+
+**Next Recommendation:** The user should use the paired guides to review MH A11 and report approval or the first exact mismatch; do not begin MH A13, commit, or push in the same action.
+
+## Part 229 — MH A11 Visible End-Space Repair
+
+- MH System Disorder modal cards now add a `24px` trailing margin to the shared `40px` modal bottom padding, producing approximately `64px` of visible space after the final Patient-Centered Care box.
+- All 12 A11 cards passed Filled and Blank at direct `1280px` and narrow split-pane widths: 48 endpoint states with the new margin and zero modal horizontal overflow. The final `64.35px` measurement repeated identically after `320ms`.
+- Product/temporary MH payload parity is SHA-256 `afd7795be3e8161d58466544a194010e5b73f0dc1f3e4d60d6acb0b2cf6227d1`; MN remains `d71eda236df711a1087ecadb37b6893e219470167effc5ac060a2f403df90487`. HTTP `200` and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a11-end-space-guides-2`. MH A11 remains objectively passed and pending fresh user visual approval. MH A13 did not begin. Content population remains paused. ATI source support used: none; design-only change.
+
+**TLDR:** MH A11 now has a clearly visible approximately `64px` endpoint after its last box.
+
+**Next Recommendation:** The user should visually review the open MH A11 endpoint and report approval or the first exact remaining mismatch; do not begin MH A13, commit, or push in the same action.
+
+## Part 230 — MN A11 Matching End-Space Correction
+
+- Part 229 was incomplete because only MH had the explicit `24px` A11 trailing margin. MN System Disorder modal cards now use the same `24px` margin in addition to the shared `40px` modal bottom padding.
+- All 65 MN A11 cards passed Filled and Blank at direct `1280px` and narrow comparison widths: 260 endpoint states with exact `24px` margins and zero modal horizontal overflow. Direct endpoints measure `63.80–64.24px`; narrow endpoints measure `81.77–82.38px` because the existing `18px` narrow card inset remains visible.
+- The current split pane measures MN `81.96px` and MH `82.25px`. MN retains 197 cards/unique IDs and 65 A11 cards. Exact payload parity is MN `b5f79c38533ed55b270c569114a1e6c180890d30ad66bbb9ed8ffef6c497751c`, MH `afd7795be3e8161d58466544a194010e5b73f0dc1f3e4d60d6acb0b2cf6227d1`.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=a11-end-space-both-guides-2`. HTTP `200` and `git diff --check` pass. MH A13 did not begin. Content population remains paused. ATI source support used: none; design-only change.
+
+**TLDR:** MN and MH A11 now leave matching visible space after their final boxes.
+
+**Next Recommendation:** The user should visually compare the corrected A11 endpoints and report approval or the first exact remaining mismatch; do not begin MH A13, commit, or push in the same action.
+
+## Part 231 — MN/MH A11 User Visual Approval
+
+- The user reviewed the Part 230 endpoint comparison and confirmed that everything appears correct. MH A11 is objectively passed and user visually approved, including its completed design roles and final endpoint spacing.
+- The displayed MN A11 endpoint treatment is also user visually approved. Both books use the explicit `24px` trailing card margin plus the shared `40px` modal bottom padding.
+- No product or learner-facing file changed in this approval record. Part 230's endpoint states, hashes, counts, HTTP `200`, and diff integrity remain current. Approved comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=a11-end-space-both-guides-2`.
+- MH A13 has not begun. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** MH A11 and the matched MN/MH endpoint are user visually approved.
+
+**Next Recommendation:** Wait for the user's separate explicit instruction to begin MH A13; no commit or push is needed now.
+
+## Part 232 — MH A13 Therapeutic Procedure Canon Repair
+
+- The user's separate instruction began MH A13 only. Stable rendered evidence proved the family still used its legacy `12px / 10px / 8px` metadata/gap/corner system, `38.25px` primary banners, `13px / 19.5px` body copy, and a front-layer connector that disappeared in the stacked state.
+- `Elevated ATI MH Templates.html` now applies the accepted A13 roles: `18px` metadata, `14px` peer and `10px` nested gaps, `14px / 16px / 11px` direct/group/nested corners, `47px` primary banners, role-matched nested titles, `16px / 25.6px` body typography, and a two-layer connector whose long bridge sits behind both boxes and rotates vertically at `860px`.
+- All ten cards passed Filled and Blank at `1440`, exact `861/860`, `768`, and `390px`: 100 twice-stable responsive states. Twenty all-card/all-mode print states also passed twice. Official order, Blank behavior, counts, IDs, links, source lines, storage, and zero card/grid/modal overflow remain intact.
+- One product script and one comparison script parse. Exact product/temporary/HTTP parity is MH `cf767fac32366c3a2a8c521962d8b69cc68955deb83467feb9843a5e6951b7eb` and MN `b5f79c38533ed55b270c569114a1e6c180890d30ad66bbb9ed8ffef6c497751c`; HTTP `200` and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a13-canon-fix-2`. MH A13 is objectively passed and pending fresh user visual approval. MH A15 did not begin. Content population remains paused. ATI source support used: none; design-only change.
+
+**TLDR:** MH A13 now matches the accepted procedure-template role system across all ten cards and 120 passing states.
+
+**Next Recommendation:** The user should visually review MH A13 and report approval or the first exact mismatch; do not begin MH A15, commit, or push in the same action.
+
+## Part 233 — MH A13 Paired Horizontal Guides Restored
+
+- The temporary MH-versus-MN A13 comparison now includes a dedicated **Horizontal guides** control alongside the existing outline and paired vertical-guide controls. Enabling it shows a synchronized `1px` teal horizontal guide across each pane.
+- Dragging either horizontal guide moves both to the same pane-relative vertical percentage. Keyboard parity is active with Up/Down at `1%`, Shift+Up/Down at `5%`, and Home/End at `0%/100%`; live validation confirmed both panes moved together from `50%` to `52%`.
+- Only `/private/tmp/elevated-ati-template-compare-mh-mn.html` changed. No repository product file or learner content changed. Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a13-horizontal-guides`.
+- MH A13 remains objectively passed and pending fresh user visual approval. MH A15 did not begin. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** The current MH A13 comparison now has synchronized draggable horizontal guides in both panes.
+
+**Next Recommendation:** The user should use the paired horizontal guide to review MH A13 and report approval or the first exact mismatch; do not begin MH A15, commit, or push in the same action.
+
+## Part 234 — MH A13 Established Horizontal Grid Recovery Correction
+
+- The user correctly rejected Part 233: the established horizontal aid was not a movable paired line. Authority recovery from Part 169 proves that **Guides** renders only a fixed horizontal `16px` grid, while **Vertical guides** is the independent draggable paired control.
+- The temporary MH-versus-MN A13 comparison now restores that exact separation. **Guides** overlays synchronized `1px` teal rules every `16px` across both pane bodies; the incorrect **Horizontal guides** slider, its duplicate elements, and its movement handlers were removed. Existing paired vertical guides remain unchanged.
+- Live visual validation confirmed the repeating grid across both panes, the dedicated slider is absent, and the current MN/MH A13 payloads still open correctly. Only `/private/tmp/elevated-ati-template-compare-mh-mn.html` changed; no repository product file or learner content changed.
+- Corrected comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a13-horizontal-grid`. MH A13 remains objectively passed and pending fresh user visual approval. MH A15 did not begin. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** MH A13 again uses the established fixed `16px` horizontal grid, not a movable horizontal slider.
+
+**Next Recommendation:** The user should review the corrected horizontal grid and report approval or the first exact mismatch; do not begin MH A15, commit, or push in the same action.
+
+## Part 235 — MH A13 Top-Stack Vertical-Parity Correction
+
+- The horizontal grid exposed a stable A13 top-stack mismatch. MH's chapter jump was a plain inline link at `800` weight with no second-row offset, while MN's accepted role is an inline-block at `600` with `2px` top margin. At the focused split width, MH's source row, navigation, and metadata start were therefore offset from MN.
+- `Elevated ATI MH Templates.html` now applies MN's chapter-jump geometry and weight only to Therapeutic Procedure example headers: `display:inline-block`, `margin-top:2px`, and `font-weight:600`. No text, link target, box, official relationship, count, ID, storage key, or other family changed.
+- In the focused comparison, both panes now measure identical top-stack landmarks twice: example-header `20–231.88px`, navigation `173.69–214.88px`, metadata top `249.88px`, `18px` header-to-metadata space, `16px` header bottom padding, and `18px` header bottom margin. Later box endpoints may differ naturally when different titles or metadata values wrap; no typography was shrunk or clamped.
+- All ten MH A13 cards passed Filled and Blank at `1440`, exact `861/860`, `768`, and `390px`: 100 stable states with the corrected link role, exact spacing/corners/typography/connectors, Blank behavior, and zero card/grid/modal overflow. Product, temporary, and HTTP SHA-256 parity is `05d25bf97dbb10c3f89b3ec514994933b1f378c489cace1fc24d12dd7314518c`; MN remains `b5f79c38533ed55b270c569114a1e6c180890d30ad66bbb9ed8ffef6c497751c`; HTTP `200` and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a13-top-stack-parity-3`. The fixed `16px` horizontal grid is enabled. MH A13 remains objectively passed and pending fresh user visual approval. MH A15 did not begin. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** MH A13's source, navigation, and metadata starts now land on the same vertical positions as MN without suppressing natural text wrapping.
+
+**Next Recommendation:** The user should review the corrected MH A13 top stack with the horizontal grid and report approval or the first exact mismatch; do not begin MH A15, commit, or push in the same action.
+
+## Part 236 — MN A13 Official Relationship Connector Completion
+
+- The displayed MN A13 reference lacked the official Potential Complications-to-Nursing Interventions connector. A13 had no visible gap layer or stacked re-enable, and External Fetal Monitoring plus Spinal Block lacked the `complications` relationship class.
+- `Elevated ATI MN Templates.html` now uses the accepted two-layer A13 connector in all 22 cards. Wide is `34px x 3px` with `10px` hidden overlap and a `14px x 3px` border-edge segment; stacked at `680px` is `3px x 34px` plus `3px x 14px`. The long layer stays at `z-index:-1`, so it extends behind the boxes without drawing over them.
+- Focused Filled/Blank checks passed at `1440`, `861`, `681`, exact `680/679`, and `390px` with an exact `14px` visible gap, centered orientation, correct layer sizes, stable measurements, and zero horizontal overflow. Static family audit confirms all 22 MN A13 cards carry both relationship classes.
+- Product/temporary parity is exact at MN SHA-256 `c08092eaa05cf0e01fe7ebe008b8be385b152f047b7c1990002fa7545a62f20a` and MH `05d25bf97dbb10c3f89b3ec514994933b1f378c489cace1fc24d12dd7314518c`; HTTP `200` and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=a13-connector-both-sides-final`, aligned to Potential Complications. Fresh user visual confirmation is pending. MH A15 did not begin. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** Both MN and MH A13 now show the official responsive connector flush between the boxes with the overlap hidden behind them.
+
+**Next Recommendation:** The user should visually confirm the open MN/MH A13 connector boundary; no commit or push is needed.
+
+## Part 237 — MN/MH A13 Matched End-Space Correction
+
+- The user confirmed the A13 connector and then identified that the true endpoint appeared flush after Nursing Interventions. Both panes objectively had only the shared `40px` modal padding and no A13 trailing card margin.
+- `Elevated ATI MN Templates.html` and `Elevated ATI MH Templates.html` now give Therapeutic Procedure cards the approved A11 endpoint treatment: a scoped `24px` card margin plus the existing `40px` modal bottom padding.
+- Two readings `320ms` apart were identical at the current comparison width: MN leaves `64.09px` and MH `63.88px` after Nursing Interventions, with zero horizontal overflow and the repaired connector unchanged.
+- Exact product/temporary parity is MN `7d9d9da2b32fa5f16c08e85914acc4652b6b4c47ba1f5da94b624c880c33d55d` and MH `c170ffebdcd6de99d55f3b2fea8450ef31530d6d47cf0d9adb8cb946ab6a6777`; HTTP `200` and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=a13-end-space-both-final`, left at the true endpoint. Fresh user visual confirmation is pending. MH A15 did not begin. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** Both A13 panes now leave the approved approximately `64px` visible endpoint after their final box.
+
+**Next Recommendation:** The user should visually confirm the open MN/MH A13 bottom endpoint; no commit or push is needed.
+
+## Part 238 — MN/MH A13 User Visual Approval
+
+- The user reviewed the Part 237 true endpoint and confirmed that the expected space is present. MH A13 is now objectively passed and user visually approved, including its top stack, role typography, spacing/corners, official connector, and final endpoint.
+- The displayed MN A13 connector and endpoint treatment are also user visually approved. No product file changed while recording approval; Part 237's `24px + 40px` endpoint treatment, measurements, hashes, HTTP `200`, and diff integrity remain current.
+- Approved comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=a13-end-space-both-final`. MH A15 has not begun and requires a separate explicit instruction. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** MN/MH A13 is visually approved, including its connector and matched bottom space.
+
+**Next Recommendation:** Wait for the user's separate explicit instruction to begin MH A15; no commit or push is needed.
+
+## Part 239 — MH A15 Concept Analysis Visual Review
+
+- The user's separate instruction began MH A15. Stable before evidence proved a `12px` metadata boundary, compact `40.25px / 17.25px` primary banners, `14px / 22.4px` rendered copy, collapsed Blank writing areas, and an overly broad `860px` collapse against the accepted A15 roles.
+- `Elevated ATI MH Templates.html` now gives all six A15 cards the accepted `18px` metadata boundary; exact `14px` gaps/corners; `47px` DM Serif Display `15px / 24px` banners; DM Sans `16px / 25.6px / 400` rendered descendants; natural Filled heights; `120px` Blank areas; equal wide paired rows; and exact two-column `721px` to one-column `720px` behavior.
+- All six cards passed 60 twice-stable Filled/Blank responsive states at `1440`, `768`, exact `721/720`, and `390px`, plus 12 twice-stable print states. Official five-box order, Blank behavior, counts, IDs, links, storage, `40px` modal bottom padding, and zero card/grid/modal overflow remain intact.
+- Exact product/temporary parity is MH SHA-256 `d5ee738997d4e9f8e952586ebdff118deaafce9cb1d1a38a4bd152de568d52df`; MN remains `7d9d9da2b32fa5f16c08e85914acc4652b6b4c47ba1f5da94b624c880c33d55d`. One product script and the comparison script parse, both local pages return HTTP `200`, and `git diff --check` passes.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a15-canon-fix-2`. MH A15 is objectively passed and pending fresh user visual approval. AMS A15 did not begin. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** MH A15 now matches the accepted Concept Analysis spacing, chrome, typography, Blank geometry, and breakpoint contract.
+
+**Next Recommendation:** The user should visually review MH A15 and report approval or the first exact mismatch; no commit or push is needed.
+
+## Part 240 — MN/MH A15 Matched End-Space Correction
+
+- The user identified that Concept Analysis appeared flush after Exemplars. `Elevated ATI MN Templates.html` and `Elevated ATI MH Templates.html` now give A15 cards the same approved endpoint treatment as A11/A13: a scoped `24px` trailing card margin plus the shared `40px` modal bottom padding.
+- At the current split width, two identical readings measure MN `63.88px` and MH `64.27px` visible endpoint space. All nine MN and six MH A15 cards passed Filled and Blank at `557/558px` and exact `390/391px`: 60 twice-stable states with `14px` box gaps and zero modal/card/grid horizontal overflow.
+- Exact product/temporary/served parity is MN SHA-256 `aac39ad52c255c81936058c9507620299186bb3bc377f7f995dd98d041e0b187` and MH `34ed9a37aeb4d0d5feefb6c2209a468f98a1d61b30143585f6439b7ac0eeeb85`; scripts parse, HTTP `200`, unique IDs remain intact, and `git diff --check` passes.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=a15-end-space-both-final`, left at the true endpoint. MH A15 remains objectively passed and pending fresh user visual approval. AMS A15 did not begin. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** Both A15 panes now leave the approved approximately `64px` visible endpoint after Exemplars.
+
+**Next Recommendation:** The user should visually confirm the open MN/MH A15 bottom endpoint; no commit or push is needed.
+
+## Part 241 — MH A15 User Visual Approval
+
+- The user reviewed the Part 240 comparison and confirmed that A15 looks great. MH A15 is now objectively passed and user visually approved, including its accepted box spacing, banners, typography, corners, Blank geometry, responsive breakpoint, and final endpoint space.
+- The displayed MN/MH A15 `24px + 40px` matched endpoint treatment is also user visually approved. No product file changed while recording approval; Part 240's measurements, state coverage, hashes, HTTP response, script parsing, ID integrity, and diff integrity remain current.
+- Approved comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=a15-end-space-both-final`. AMS A15 has not begun and requires a separate explicit instruction. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** MH A15 and its matched MN/MH endpoint are now user visually approved.
+
+**Next Recommendation:** Wait for the user's separate explicit instruction to begin AMS A15; no commit or push is needed.
+
+## Part 242 — AMS A15 Concept Analysis Visual Review
+
+- The user's separate instruction began AMS A15 only. The one retained prototype fixture objectively showed the legacy A15 treatment: `12px` metadata spacing, compact `38.25px / 17.25px` banners, `10px` corners, `24px` body line-height, rigid Filled minimums, collapsed stacked Blank boxes, and only approximately `40px` at the endpoint. Its `14px` peer gap and exact `721/720px` breakpoint were already correct.
+- `Elevated ATI AMS Templates.html` now scopes the approved Concept Analysis roles to AMS A15: `18px` metadata boundary, `14px` gaps/corners, `47px` DM Serif Display `15px / 24px` banners, DM Sans `16px / 25.6px / 400` rendered copy, natural Filled heights, `120px` Blank areas, equal paired wide rows, retained exact `721/720px` transition, and the approved `24px + 40px` endpoint treatment.
+- The fixture passed 10 twice-stable Filled/Blank responsive states at `1440`, `768`, exact `721/720`, and `390px`, plus two twice-stable print states. Five-box order, Blank hiding, layout, typography, endpoint, and zero modal/card/grid overflow pass. The live MN/AMS split comparison repeats exact same-role parity and retains the fixed horizontal grid and paired draggable vertical guides.
+- Exact product/temporary/served parity is AMS SHA-256 `2c4dbf8001a209b367d99a60b78825b2aa80ca654d58ea87a33f98b185a54a33`; MN remains `aac39ad52c255c81936058c9507620299186bb3bc377f7f995dd98d041e0b187`. Scripts parse, HTTP `200`, 84 cards/unique IDs, exact family counts, 76 links, storage, and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=ams-a15-canon-fix`. AMS A15 is objectively passed and pending fresh user visual approval. No later batch began. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** AMS A15 now matches the accepted Concept Analysis role and endpoint system.
+
+**Next Recommendation:** The user should visually review AMS A15 and report approval or the first exact mismatch; no commit or push is needed.
+
+## Part 243 — Cross-Book Modal Top-Stack Canon Repair
+
+- The user identified a recurring vertical offset immediately below the modal title banner. Objective before evidence proved the downstream spacing was already shared, but one-line titles collapsed the title row to `62.99px` and the banner to `127.99px`, while two-line titles used `100.39px` and `165.39px`.
+- `Elevated ATI MN Templates.html`, `Elevated ATI MH Templates.html`, and `Elevated ATI AMS Templates.html` now reserve a two-title-line modal row: `100.4px` at regular widths and `104.8px` on phones, where the kicker itself wraps to two lines. Longer titles remain free to expand naturally; no font shrinking, clamping, hiding, or fixed maximum was introduced.
+- The same pass restored AMS's missing `18px` tablet worked-card inset, so the cross-book banner-to-Worked-Example boundary is now `28px` at `1440`, `46px` at `768`, and `20px` at `390px`. Twice-stable rendered measurements are exact across MN, MH, and AMS: regular banner `165.40px`, phone banner `135.80px`, regular title row `100.40px`, and phone title row `104.80px`.
+- Filled/Blank mode checks preserve the same header geometry in all three books. Scripts parse; card counts remain MN `197`, MH `71`, AMS `84`; link targets and runtime/source ID integrity pass; `git diff --check` passes. Exact product/temporary payload parity is MN `c9877b9e9b65c92dec2bfe3e10fe47bce86f5160e641484c5da095926d24711e`, MH `2a515143bdcf4e81d2690164b24a382391a798ed65555b104e92b8176d3ba0fb`, and AMS `7261da7516f5e98cc9f779c861d7fe81d4de961512fae05efd8e1fd3a1000e3b`.
+- Current exact-payload comparisons: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=top-stack-uniform-final` and `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=top-stack-uniform-final`. Fresh user visual confirmation of the shared top stack is pending. No later batch began. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** MN, MH, and AMS now share one responsive modal title-banner and first-content vertical contract.
+
+**Next Recommendation:** The user should visually confirm the open MH-versus-MN A15 top stack; the user personally does not need to commit or push anything now.
+
+## Part 244 — Worked-Example Source-Row Canon Repair
+
+- The user's horizontal-grid review correctly proved that Part 243 aligned only the modal title banner, not the complete Worked Example stack. MH rendered the chapter jump inline at `800` weight, while MN and AMS reserve it as a separate `inline-block` row with `2px` top margin and `600` weight. The mismatch shortened MH's example header by exactly `3px` and shifted navigation, metadata, and the first template box.
+- `Elevated ATI MH Templates.html` now promotes the already accepted MN/AMS source-jump role to every MH family and removes the obsolete A13-only exception. No learner text, link target, card, box, count, ID, storage key, order, accent, or family geometry changed.
+- In the repaired A15 split comparison, two stable Filled readings and the Blank-mode reading are exact between MN and MH: banner bottom `135.796875px`; Worked Example header `155.796875–356.5703125px`; navigation `298.375–339.5703125px`; metadata `374.5703125–457.8671875px`; first box edge `475.8671875px`. The same-role landmarks also repeat exactly at `1440px` and `768px`; at `390px`, title and metadata boxes expand naturally when their content wraps, while the shared source-jump role remains exact.
+- MH retains 71 current source cards and 71 chapter links, all generated modal jumps inherit the shared selector, and Filled/Blank header geometry is unchanged. MH product/temporary parity is SHA-256 `c23b05b039a770ab91bea945cdb888d545aa2db7abf66d4590a815ace482bbc8`; scripts, counts, IDs, link targets, storage, and `git diff --check` pass.
+- Current exact-payload comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=top-stack-source-row-final`, left on the reported MN Attachment versus MH Coping pair with the horizontal grid enabled. Fresh user visual confirmation is pending. No later batch began. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** The entire MN/MH A15 top stack now aligns; MH's chapter jump was the remaining `3px` defect.
+
+**Next Recommendation:** The user should visually confirm the open gridded MN/MH A15 comparison and report approval or the first remaining mismatch; no commit or push is needed.
+
+## Part 245 — MN/MH Full Top-Stack User Visual Approval
+
+- The user reviewed the Part 244 gridded MN Attachment-versus-MH Coping comparison and confirmed that everything appears in order. The repaired MN/MH modal top stack is now **OBJECTIVELY PASSED AND USER VISUALLY APPROVED** from the title banner through the first template box.
+- Approval includes the shared responsive title-banner reservation, Worked Example inset, label/title/source roles, the chapter jump as a separate `inline-block` row with `2px` offset and `600` weight, navigation placement, divider spacing, metadata placement, and the first-box edge. Natural expansion when different title, source, or metadata text wraps remains intentional.
+- No product or learner-facing file changed while recording approval. Part 244 remains current: exact split landmarks, matching Filled/Blank geometry, twice-stable desktop/tablet checks, 71 MH cards and chapter links, MH product/temporary SHA-256 `c23b05b039a770ab91bea945cdb888d545aa2db7abf66d4590a815ace482bbc8`, parsed scripts, intact counts/IDs/links/storage, HTTP `200`, and passing `git diff --check`.
+- Approved comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=top-stack-source-row-final`. This approval is scoped to the displayed MN/MH top-stack state and does not infer fresh AMS A15 visual approval. AMS A15 remains objectively passed and pending its separate visual review. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** The complete repaired MN/MH top stack is now objectively passed and user visually approved.
+
+**Next Recommendation:** The user should next visually review the current AMS-versus-MN A15 comparison; no commit or push is needed.
+
+## Part 246 — AMS A15 Official Two-Row Metadata Repair
+
+- The user correctly identified that AMS A15 rendered three metadata elements even though the official Concept Analysis template contains only `Student Name` and `Concept Analysis`. The cause was AMS's generic metadata builder appending `Review Module Chapter` to every family.
+- `Elevated ATI AMS Templates.html` now omits that source row only when `type === 'concept-analysis'` and safely assigns source text only when the row exists. Other AMS families retain their established Review Module Chapter metadata.
+- Rendered Filled and Blank checks show exactly two `dt/dd` pairs in AMS A15, in official order, with the same `83.296875px` metadata-box height as MN A15. Scripts parse; AMS remains at 84 cards with intact family counts, runtime IDs, links, and storage. Product and `/private/tmp` payloads are byte-identical at SHA-256 `10fecff338140f04a5ee3f43bbebf70d6fcbb9b2f47f65b9c92b2641f39626c2`; the comparison returns HTTP `200`; `git diff --check` passes.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=ams-a15-official-meta-final`. AMS A15 remains objectively passed and pending fresh user visual approval of the corrected metadata. No later batch began. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** AMS A15 now has the official two metadata rows, matching MN/MH Concept Analysis.
+
+**Next Recommendation:** The user should visually confirm the corrected AMS A15 metadata; no commit or push is needed.
+
+## Part 247 — AMS A15 User Visual Approval
+
+- The user reviewed the Part 246 AMS-versus-MN comparison and confirmed that everything appears in order. AMS A15 is now objectively passed and user visually approved, including its official two-row metadata, shared top-stack roles, spacing, banners, typography, corners, Blank behavior, responsive breakpoint, five official boxes, and endpoint.
+- No product file changed while recording approval. Part 246's Filled/Blank evidence, `83.296875px` metadata parity, non-A15 source-row preservation, 84-card/count/ID/link/storage integrity, exact AMS product/temporary SHA-256 `10fecff338140f04a5ee3f43bbebf70d6fcbb9b2f47f65b9c92b2641f39626c2`, HTTP `200`, and passing `git diff --check` remain current.
+- Approved comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=ams-a15-official-meta-final`. The final cross-book template regression has not begun and requires a separate explicit instruction. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** AMS A15, including its corrected official metadata, is now user visually approved.
+
+**Next Recommendation:** Wait for the user's explicit instruction to begin the final cross-book template regression; no commit or push is needed.
+
+## Part 248 — Final Regression Tranche 1 / MN A13 Skeleton Repair
+
+- Final cross-book regression began in DESIGN-CANON / HOLD-CONTENT. Content population remains paused. ATI source support used: none; design-only change.
+- Four MN A13 cards were proven structurally inconsistent: External Fetal Monitoring, Spinal Block, Induction & Augmentation of Labor, and Assisted Reproductive Technologies nested Outcomes/Evaluation inside Considerations. `Elevated ATI MN Templates.html` now restores Outcomes/Evaluation as the official direct region while preserving all learner text; all 22 MN A13 cards now share six direct regions and two nested Considerations roles.
+- Focused twice-stable Blank evidence is five direct boxes at `120px`, two nested boxes at `91px`, exact `14px` gaps, and zero overflow. The broader representative matrix covered 276 Filled/Blank states across MN/MH/AMS at `1440`, `768`, and `390px`; every state retained exact `14px` row/column gaps, endpoint padding, and zero content/modal overflow.
+- The final handoff is not complete. AMS A9/A13 still use `12px` metadata separation, AMS A11 uses `14px`, and AMS A13 retains a front-layer `14px x 3px` connector at `z-index:0`; at `768px` and `390px` it remains horizontal despite the stacked relationship. These objective AMS defects are queued and were not combined with this batch's completed MN repair.
+- Exact product/temporary parity: MN `5f375c91118f1906fc199bf8e75ff586e8b183366391e5661da7fab2217da574`, MH `c23b05b039a770ab91bea945cdb888d545aa2db7abf66d4590a815ace482bbc8`, AMS `10fecff338140f04a5ee3f43bbebf70d6fcbb9b2f47f65b9c92b2641f39626c2`. Card counts, scripts, IDs, links, storage, MN hash links, HTTP `200`, and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=final-a13-skeleton-repair-248`. Fresh user visual approval of the repaired MN A13 skeleton is pending. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** MN A13's four skeleton outliers are repaired; AMS A9/A11/A13 remain the final regression blocker.
+
+**Next Recommendation:** The user should visually review the open repaired MN A13 comparison and report approval or the first exact mismatch; no commit or push is needed.
+
+## Part 249 — MN A13 Skeleton User Visual Approval
+
+- The user reviewed the Part 248 comparison and confirmed that it passed. MN A13's four repaired outliers and full 22-card official skeleton inventory are now objectively passed and user visually approved.
+- Approval covers six direct regions, two nested Considerations roles, role classes, `14px` spacing, Blank geometry, and zero overflow. It does not approve or alter the separate AMS A9/A11/A13 findings.
+- No product file changed while recording approval. Part 248's 276 responsive states, exact payload hashes, scripts, counts, IDs, links, storage, HTTP `200`, and passing `git diff --check` remain current.
+- Approved comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=final-a13-skeleton-repair-248`. The next permitted family is AMS A9 Nursing Skill only. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** MN A13 is user approved; AMS A9 is the next gated family.
+
+**Next Recommendation:** Wait for the user's explicit instruction to begin AMS A9 Nursing Skill; no commit or push is needed.
+
+## Part 250 — AMS A9 Metadata Boundary Canon Repair
+
+- AMS A9 Nursing Skill now uses the accepted `18px` metadata-to-grid boundary instead of the objectively measured `12px` legacy value. The change is scoped to A9; AMS A11 and A13 remain later gates.
+- All four AMS A9 cards pass Filled and Blank at `1440`, exact `935/934`, `768`, and `390px`: 40 twice-stable states with exact `14px` peer gaps, `14px/11px` corners, accepted typography, endpoint space, zero overflow, and the unchanged official responsive connector.
+- The connector remains horizontal at `935px` with its behind-box bridge and border-edge layer, then rotates to the centered vertical form at `934px` and below across the exact `14px` gap.
+- Exact AMS product/temporary/HTTP SHA-256 is `ae3f940c09039a29eeaf61f53745c2d39290e93e9588f489f6a7385f0bb5887a`; scripts, counts, IDs, links, storage, HTTP `200`, and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=ams-a9-meta-18-final`. AMS A9 is objectively passed and pending fresh user visual approval. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** AMS A9 now matches the accepted metadata boundary without changing its approved connector behavior.
+
+**Next Recommendation:** The user should visually review the open AMS-versus-MN A9 comparison and report approval or the first exact mismatch; no commit or push is needed.
+
+## Part 251 — Cross-Book Modal Endpoint Invariant
+
+- The recurring missing-bottom-space defect is now fixed at the shared shell level rather than per family. Every direct MN, MH, and AMS modal example card receives a `24px` trailing screen margin before the existing `40px` modal padding, producing one exact `64px` endpoint. Print resets the added margin to `0`.
+- The older A11/A13/A15-only endpoint exceptions were removed. First and last examples from all eight families, Filled and Blank, pass at `1440`, `768`, and `390px`: `276/276` twice-stable states with exact `64px` endpoints and no horizontal overflow.
+- Scripts parse; card totals remain MN `197`, MH `71`, AMS `84`; product/temporary parity hashes are MN `ab226df3eb4859f4cf837a732b26578cc0faa034a228a4e2ffd534d02f027e88`, MH `d9372602158c9bad863ad4ef93c4e5fa196ee9fd981e9150da12c5c6e97747eb`, and AMS `317a1e6433ddfc3cd78680fbc3cc5e92a9f272562720d6795b87ff94a6058187`; HTTP and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=global-endpoint-64-final`. Fresh user visual confirmation is pending. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed; all four automations remain paused and unchanged.
+
+**TLDR:** A global `64px` endpoint invariant now prevents the bottom-space defect in every template family.
+
+**Next Recommendation:** The user should visually confirm the open A9 bottom endpoints and report approval or the first remaining mismatch; no commit or push is needed.
+
+## Part 252 — Resumable Retrospective Queue And AMS A9 Typography Repair
+
+- The user authorized a resumable family-by-family repair and retrospective pass while away. One run owns one book/family; a family may continue across multiple `30`-minute wakeups under an approximately `25`-minute soft work cap. Each yield records `IN_PROGRESS`; only a completed objective-pass checkpoint advances the queue. A live ownership marker, unexpected file, contradictory authority record, or changed protected automation forces a no-op/stop instead of overlapping work.
+- The durable queue is AMS A9, AMS A11, AMS A13, then MN/MH/AMS A1, A3, A5, A7, A9, A11, A13, and A15 with completed AMS checkpoints skipped, followed by one final responsive/print/payload/script/count/ID/link/storage/guide/diff handoff. Every family audit includes the complete top stack, metadata and Student Name, direct/nested banners and rendered descendants, spacing/corners, official connectors and breakpoints, Blank geometry, the `64px` outer endpoint, overflow, and print.
+- AMS A9 exposed a prior validator false pass. Before this repair, its primary strips were `38.25px`, nested strips were `42.59375px`, direct copy used `16px / 24px`, nested copy used `13px / 19.5px`, and the Considerations inset was `10px`. The A9-only correction now matches MN: primary `15px / 24px`, `11px 16px`, `47px`; nested `13.5px / 21.6px`, `9px 14px`, `40.59375px`; all direct/nested descendants DM Sans `16px / 25.6px / 400`; nested content `12px 14px 14px`; Considerations `14px` inset, `10px` gap, `16px` frame; direct/nested frames `14px / 11px`.
+- All four AMS A9 cards pass Filled and Blank at `1440`, exact `935/934`, `768`, and `390px`: `40/40` twice-stable states with exact `18px` metadata, `14px` peer spacing, accepted role geometry, zero overflow, and correct horizontal/vertical two-layer connector behavior. Root-card endpoint checks also pass `40/40` with `24px` card margin, `40px` modal padding, and subpixel readings within `63.5546875–64.4765625px`.
+- AMS retains `84` cards and unique IDs, exact counts `21/8/1/16/4/16/17/1`, four A9 cards, and `76` links. The product script parses; product/temporary parity is SHA-256 `80f79405a5824d31df5f731c20ae36cd0e7cdfe9f296607b182ecd67c9885b15`; HTTP is `200`; `git diff --check` passes.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=ams-a9-typography-role-final-2`. AMS A9 is objectively passed and pending fresh user visual approval. AMS A11 is the next objective batch. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed.
+
+**TLDR:** AMS A9's missed banner/body role mismatches are repaired; the guarded retrospective queue is active.
+
+**Next Recommendation:** Continue automatically with AMS A11; the user personally does not need to act, commit, or push.
+
+## Part 253 — AMS A11 System Disorder Objective Pass
+
+- AMS A11's legacy `14px` metadata boundary, compact title strips, `10px/8px` corner family, narrow outer rail, and shrinkable Safety rows are corrected to the accepted System Disorder roles.
+- All 16 cards now use `18px` metadata, `14px` major and `10px` nested gaps, `14px/16px/11px` direct/group/nested corners, `47px` direct and `40.59375px` nested title stacks, and role-matched rendered descendants. Wide A11 uses the accepted `2fr/1fr` division with equal content-aware Safety rows; stacked Safety retains `14px 14px 16px` padding and natural flow.
+- All 16 cards passed true Filled and true Blank at `1440`, exact `935/934`, `861/860`, `768`, and `390px`: `224/224` twice-stable states with exact structure, Student Name writing line, no Blank leakage, zero overflow, and the `24px + 40px` endpoint. Print passed `32/32` twice-stable states with the screen guard reset to `0`.
+- AMS integrity passes at product/temporary SHA-256 `4600ece245a0d170d2be9291b067fae984b0c8923d96be404ae15907ee8ea04d`: one product and one comparison script parse; `84` cards/unique IDs, exact counts `21/8/1/16/4/16/17/1`, `16` A11 cards, `76` resolving links, storage, HTTP `200`, and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=ams-a11-canon-fix`. AMS A11 is objectively passed and pending fresh user visual approval. Batch 2 AMS A13 is next. Content population remains paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed.
+
+**TLDR:** AMS A11 now matches the accepted System Disorder canon across all cards, modes, widths, and print.
+
+**Next Recommendation:** Continue automatically with AMS A13; the user personally does not need to act, commit, or push.
+
+## Part 254 — AMS A13 Screen Repair / Print Guard In Progress
+
+- AMS A13 now matches the accepted screen canon across all 17 cards: 18px metadata; 14px/10px peer/nested gaps; 14px/16px/11px corners; 47px direct and 40.59375px nested strips; DM Sans 16px / 25.6px / 400 rendered descendants; 14px Considerations inset; and the official two-layer connector.
+- All 17 cards passed true Filled and Blank at 1440, exact viewport 935/934 (card-width 821/820px), 768, and 390px: 170/170 twice-stable screen states. The connector is horizontal wide and centered vertical stacked, with its long layer behind the boxes and exact 14px visible gap; Student Name, official order, Blank geometry, overflow, and the approximately 64px endpoint pass.
+- Print inspection found a separate global visibility defect: the active body.printing-modal child rule hides the page ancestor containing #templateModal, producing zero-sized print output. Because this run already used its one cohesive repair on A13 screen canon, Batch 2 is **IN_PROGRESS** and must resume rather than advance.
+- AMS product/temporary parity is SHA-256 84a885863f18c02d1dbd96395b1ad537b21fc8ad309606fcf387203a8128c5c9; one script parses; 84 cards/unique IDs, exact counts 21/8/1/16/4/16/17/1, 17 A13 cards, 80 resolving static links, storage, HTTP 200, and git diff --check pass.
+- Current comparison: http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=ams-a13-canon-fix. Fresh user visual approval remains pending. Content population is paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed.
+
+**TLDR:** AMS A13 screen canon is repaired; its global modal print visibility guard remains the sole unfinished Batch 2 check.
+
+**Next Recommendation:** Resume AMS A13 to repair and validate the global modal print visibility guard; the user personally does not need to act, commit, or push.
+
+## Part 255 — AMS A13 Objective Pass
+
+- AMS modal printing now preserves body > .page.template-layout > .template-main > #templateModal while suppressing non-modal siblings at each ancestor level. The retained page/main ancestors use block layout with zero print margin and padding, so the modal is visible instead of collapsing to a zero rect.
+- All 17 A13 cards passed true Filled and Blank print checks: 34/34 twice-stable states with nonzero print geometry, five direct and two nested boxes, official order, hidden controls, transparent Blank answers, zero screen-endpoint guards, and zero horizontal overflow.
+- The complete A13 screen matrix was repeated after the print repair: 170/170 twice-stable states at 1440, exact 935/934, 768, and 390px retain the accepted spacing, corners, typography, Student Name, responsive two-layer connector, exact 14px gap, endpoint, and overflow contract.
+- AMS product/temporary parity is SHA-256 ad7dae1645a144b7baf0a6e4900e1b8507021074c081d6ff18ba9487e6eb1aae; one script parses; 84 cards/unique IDs, exact counts 21/8/1/16/4/16/17/1, 17 A13 cards, 80 resolving static links, storage, HTTP 200, and git diff --check pass.
+- Current comparison: http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=ams-a13-print-canon-final. AMS A13 is objectively passed and pending fresh user visual approval. Content population is paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed.
+
+**TLDR:** AMS A13 now passes the full responsive screen and modal-print canon.
+
+**Next Recommendation:** Continue automatically with MN A1; the user personally does not need to act, commit, or push.
+
+## Part 256 — MN A1 Basic Concept Objective Pass
+
+- All 46 MN A1 cards passed true Filled and Blank at `1440`, `768`, exact `601/600`, and `390px`: `460/460` twice-stable screen states. The family keeps three columns at desktop, two at tablet and `601px`, and one at `600px` and phone, with exact `18px` metadata, `14px` peer gaps/corners, `47px` direct title strips, DM Sans `16px / 25.6px` rendered copy, `120px` Blank boxes, the `24px + 40px` endpoint, and zero horizontal overflow.
+- The complete top stack passed on all cards: accepted responsive title-row/banner reservations, `28px / 46px / 20px` first Worked Example boundaries, separate `inline-block` chapter-jump row, exact `18px` example-to-metadata and metadata-to-grid gaps, and natural expansion for longer phone titles.
+- Print passed `92/92` twice-stable Filled/Blank states with nonzero modal/card geometry, one-column box flow, hidden controls and Blank answers, zero screen-endpoint guards, and zero horizontal overflow. No MN product correction was needed.
+- MN integrity remains `197` cards/unique IDs, `46` A1 cards, three official boxes per A1 card, `197` nonempty chapter links, no duplicate document IDs, and unchanged storage. Product/temporary/HTTP parity is SHA-256 `ab226df3eb4859f4cf837a732b26578cc0faa034a228a4e2ffd534d02f027e88`; scripts parse, HTTP is `200`, and `git diff --check` passes.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mn-a1-objective-pass-2`. MN A1 is objectively passed and pending fresh user visual approval. Content population is paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed.
+
+**TLDR:** MN A1 already satisfies the full Basic Concept screen and print canon.
+
+**Next Recommendation:** Continue automatically with MH A1; the user personally does not need to act, commit, or push.
+
+## Part 257 — MH A1 Print-Guard Repair And Objective Pass
+
+- All 13 MH A1 cards passed true Filled and Blank screen validation at `1440`, exact `901/900`, `768`, exact `601/600`, and `390px`: `182/182` twice-stable states. The family keeps the accepted `18px` top boundaries, `14px` peer gaps/corners, `47px` direct title strips, DM Sans `16px / 25.6px` copy, `120px` Blank geometry, responsive three/two/one-column flow, the `24px + 40px` endpoint, and zero horizontal overflow.
+- Print had hidden the modal's page ancestor and produced zero geometry. `Elevated ATI MH Templates.html` now preserves the complete page/main/modal ancestor chain, hides only non-modal siblings at each level, and normalizes the retained wrappers for print. No learner content or structural identity changed.
+- Print passed `26/26` twice-stable Filled/Blank states with nonzero page/main/modal/card geometry, three official boxes in order, three print columns, hidden controls and Blank answers, zero screen-endpoint guards, and zero horizontal overflow.
+- MH integrity remains `71` cards/unique source IDs with exact family counts `13/6/6/12/6/12/10/6`, `13` A1 cards, `71` nonempty static chapter links, no duplicate static document IDs, and unchanged storage. Product/temporary/HTTP parity is SHA-256 `fa230e996e9f0381b2e30a049143c897a75baf719266e5324028754a66c54971`; scripts parse, HTTP is `200`, and `git diff --check` passes.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a1-print-guard`. MH A1 is objectively passed and pending fresh user visual approval. Automated QA is not user visual approval. Content population is paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed.
+
+**TLDR:** MH A1 now satisfies the complete Basic Concept screen and print canon.
+
+**Next Recommendation:** Continue automatically with AMS A1; the user personally does not need to act, commit, or push.
+
+## Part 258 — AMS A1 Basic Concept Objective Pass
+
+- All 21 AMS A1 records, including the hidden prototype fixture, passed true Filled and Blank at `1440`, exact `901/900`, `768`, exact `601/600`, and `390px`: `294/294` twice-stable screen states. The family keeps three columns at `1440/901`, two at `900/768/601`, and one at `600/390`, with exact `18px` top boundaries, `14px` peer gaps/corners, `47px` direct title strips, DM Sans `16px / 25.6px` rendered copy, `120px` Blank boxes, `24px + 40px` endpoint roles, and zero horizontal overflow.
+- All 20 learner-facing records preserve the separate source-jump row. The hidden prototype intentionally has no source jump, but its official geometry and responsive/Blank behavior passed and were not changed. No AMS product correction was needed.
+- Print passed `42/42` twice-stable Filled/Blank states with nonzero page/main/modal/card geometry, three official boxes in order, three columns, hidden controls and Blank answers, zero endpoint guards, and zero horizontal overflow.
+- AMS integrity remains `84` cards/unique source IDs with exact family counts `21/8/1/16/4/16/17/1`, three A1 sections per record, `76` nonempty static links, `107` unique static document IDs outside the transient modal clone, and unchanged storage. Product/temporary/HTTP parity is SHA-256 `ad7dae1645a144b7baf0a6e4900e1b8507021074c081d6ff18ba9487e6eb1aae`; scripts parse, HTTP is `200`, and `git diff --check` passes.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=ams-a1-objective-pass`. AMS A1 is objectively passed and pending fresh user visual approval. Automated QA is not user visual approval. Content population is paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed.
+
+**TLDR:** AMS A1 already satisfies the full Basic Concept screen and print canon.
+
+**Next Recommendation:** Continue automatically with MN A3; the user personally does not need to act, commit, or push.
+
+## Part 259 — MN A3 Breakpoint Repair And Objective Pass
+
+- MN A3's later tablet rule was objectively reopening a two-column grid from `601–680px` after the accepted A3 connector had rotated vertically. An A3-scoped tablet override now preserves the family's one-column layout through `680px`, keeping the grid and connector transition synchronized at exact `681/680px`.
+- All 15 MN A3 cards passed true Filled and Blank at `1440`, `768`, exact `681/680`, and `390px`: `150/150` twice-stable screen states. Official five-direct/two-nested order, `18px/14px/10px` spacing roles, `14px/16px/11px` corners, direct/nested title and body typography, Student Name line, Blank geometry, endpoint roles, zero overflow, and the long behind-box connector all pass.
+- The connector is centered `34px x 3px` wide and `3px x 34px` stacked with `10px` hidden overlap beneath both boxes, `z-index:-1`, and an exact visible `14px` gap. Print passed `30/30` twice-stable Filled/Blank states with nonzero geometry, official structure, hidden controls/answers, zero endpoint guards, and zero overflow.
+- MN integrity remains `197` cards/unique IDs with exact family counts `46/15/7/18/15/65/22/9`, `197` nonempty chapter links, no duplicate document IDs, and unchanged storage. Product/temporary/HTTP parity is SHA-256 `81386aec75f6a2918d1eecfe7195f51c2d6d278cc170b77fdf0cb20f2d176a10`; scripts parse, HTTP is `200`, and `git diff --check` passes.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mn-a3-objective-pass`. MN A3 is objectively passed and pending fresh user visual approval. Automated QA is not user visual approval. Content population is paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed.
+
+**TLDR:** MN A3's grid and connector now transition together at the accepted `681/680px` breakpoint.
+
+**Next Recommendation:** Continue automatically with MH A3; the user personally does not need to act, commit, or push.
+
+## Part 260 — MH A3 Print-Control Repair And Objective Pass
+
+- Current mode is **DESIGN-CANON / HOLD-CONTENT**. Content population is paused. ATI source support used: none; design-only change.
+- Batch 7 MH A3 Diagnostic Procedure is complete objectively. Screen geometry already matched canon; print exposed the remaining A3 navigation strip after other modal controls were hidden. One A3-scoped print rule now hides .template-modal-nav without changing any learner content or structural identity.
+- All six cards passed 60/60 twice-stable Filled/Blank screen states at 1440, exact 861/860, 768, and 390px. Official five-direct/two-nested order, 18px/14px/10px spacing, 14px/16px/11px corners, direct/nested title roles, DM Sans 16px / 25.6px descendants, Student Name, Blank hiding, approximately 64px endpoint, zero overflow, and the 34px x 3px wide / 3px x 34px stacked behind-box connector all pass.
+- Print passed 12/12 twice-stable states with nonzero page/main/modal/card geometry, two columns, official structure, all controls and Blank answers hidden, approximately zero endpoint guards, and zero overflow.
+- MH integrity remains 71 cards/unique source IDs with exact counts 13/6/6/12/6/12/10/6, all six A3 IDs, 71 nonempty links, no duplicate static IDs, and unchanged storage. Product/temporary/HTTP parity is SHA-256 840b5c0ebc94d5d00fe56f6f3cac0b3a3595f94e48b92a1b18aa0de184dacde9; scripts parse, HTTP is 200, runtime warnings/errors are empty, and git diff --check passes.
+- Current comparison: http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a3-print-nav-fix-260. MH A3 is objectively passed and pending fresh user visual approval. Automated QA is not user visual approval.
+- Branch main remains at acef952339eab701e18762152f73ccddb9494419, 0 ahead / 0 behind. Exactly the six documented tracked files remain modified. Nothing was staged, committed, or pushed. Batch 8 AMS A3 is next; the retrospective heartbeat remains active, and the three protected automations remain paused and unchanged.
+
+**TLDR:** MH A3 now passes its complete responsive and print canon with the stray print navigation removed.
+
+**Next Recommendation:** Continue automatically with AMS A3; the user personally does not need to act, commit, or push.
+
+## Part 261 — AMS A3 Print-Control Repair And Objective Pass
+
+- Batch 8 AMS A3 Diagnostic Procedure is objectively complete. One A3-scoped print rule now hides the stray `.template-modal-nav`; no learner content or structural identity changed.
+- All eight records passed `112/112` twice-stable Filled/Blank screen states at `1440`, exact `935/934`, exact `901/900`, `768`, and `390px`. Official five-direct/two-nested order, `18px/14px/10px` spacing, `14px/16px/11px` corners, accepted direct/nested typography, Student Name, Blank hiding, approximately `64px` endpoint, and zero overflow pass.
+- The behind-box connector remains `34px x 3px` at card width `821px` and `3px x 34px` at `820px`, with `10px` overlap beneath both boxes, `z-index:-1`, and an exact visible `14px` gap. Print passed `16/16` twice-stable states with nonzero geometry, official structure, hidden controls/answers, zero endpoint guards, and zero overflow.
+- AMS integrity remains `84` cards/unique source IDs with exact counts `21/8/1/16/4/16/17/1`, all eight A3 IDs, `76` nonempty links, no duplicate static IDs, and unchanged storage. Product/temporary/HTTP parity is SHA-256 `b37a2a8dabe50e0a0c35f7256158e69adcb8152120b7983acfa670a4fa05071d`; loaded scripts execute, HTTP is `200`, and `git diff --check` passes.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=ams-a3-print-nav-fix-261`. AMS A3 is objectively passed and pending fresh user visual approval. Automated QA is not user visual approval. Content population is paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed.
+
+**TLDR:** AMS A3 now passes the complete responsive and print canon with its stray print navigation removed.
+
+**Next Recommendation:** Continue automatically with MN A5; the user personally does not need to act, commit, or push.
+
+## Part 262 — MN A5 Typography Repair / Blank Leak Checkpoint
+
+- Batch 9 MN A5 is **IN_PROGRESS**. The Health Promotion parent content and its rendered `p/li/ul/ol` descendants were objectively `13px / 19.5px`; an A5-scoped rule now enforces the recorded DM Sans `16px / 25.6px / 400` role while preserving `14px 16px` padding.
+- The repaired first-card geometry is twice stable: exact `18px` top boundaries, `14px` same-level gaps and connector strip, `34px x 3px` behind-box spans, `14px/16px` corners, `47px` parent and `45.398px` child strips, dashed `120px x 18px` Student Name line, and zero overflow.
+- A true-Blank scan of all seven A5 cards exposed a second objective defect: all eight child contents collapse to `0px`, but the Health Promotion parent answer remains visible at stable heights `79.188–232.156px`. Under the one-correction-per-run gate, this leak is checkpointed for the next heartbeat; Batch 9 must resume and must not advance.
+- Current hashes are MN `d16966ab726708e9e270ed229f8818053d29311c5c836843878a963a1b8d58fc`, MH `840b5c0ebc94d5d00fe56f6f3cac0b3a3595f94e48b92a1b18aa0de184dacde9`, and AMS `b37a2a8dabe50e0a0c35f7256158e69adcb8152120b7983acfa670a4fa05071d`. MN product/temporary/HTTP parity, HTTP `200`, and `git diff --check` pass.
+- Current in-progress comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mn-a5-parent-typography-fix-262`. It loads exact current MN/MH payloads directly to A5 with landmarks plus horizontal and paired draggable vertical guides. This is not an objective pass or user visual approval. Content population is paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed.
+
+**TLDR:** MN A5 typography is repaired, but its Health Promotion parent still leaks answer content in Blank mode.
+
+**Next Recommendation:** Resume MN A5 automatically to repair the Blank parent leak and finish responsive/print validation; the user personally does not need to act, commit, or push.
+
+## Part 263 — MN A5 Blank Parent Repair And Objective Pass
+
+- Batch 9 MN A5 Growth and Development is objectively complete. One A5-scoped Blank rule now hides the Health Promotion parent answer while preserving a `120px` writing surface; the Part 262 Filled parent role remains DM Sans `16px / 25.6px / 400` with `14px 16px` padding. No learner content or structural identity changed.
+- All seven cards passed `98/98` twice-stable Filled/Blank screen states at `1440`, exact `1101/1100`, `768`, exact `601/600`, and `390px`. Exact `18px` top boundaries, `14px` same-level and parent/child gaps, four/two/one-column transitions, accepted title/body typography, `14px/16px` corners, Student Name, nine `120px` Blank writing surfaces, the approximately `64px` endpoint, and zero overflow pass.
+- Print passed `14/14` twice-stable states with nonzero page/main/modal/card geometry, official eight-child-plus-parent structure, hidden controls and Blank answers, zero endpoint guards, and zero overflow.
+- MN integrity remains `197` cards/unique IDs with exact counts `46/15/7/18/15/65/22/9`, all seven A5 IDs, `197` nonempty links, no duplicate rendered IDs, and unchanged storage. Product/temporary/HTTP parity is SHA-256 `16b23b84583cd51d2a75d405c69abf7a9b6edb22987b6edf923e122acd100356`; four product scripts and the comparison script parse, HTTP is `200`, and `git diff --check` passes.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mn-a5-blank-canon-final-263`. MN A5 is objectively passed and pending fresh user visual approval. Automated QA is not user visual approval. Content population is paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed.
+- Batch 10 MH A5 Growth and Development is next. The retrospective heartbeat remains active; `ati-build-guide-ai-spec-polish`, `ati-template-clipping-qa`, and `ati-pediatric-templates-design-polish` remain paused and unchanged.
+
+**TLDR:** MN A5 now passes the complete responsive, Blank, endpoint, typography, and print canon.
+
+**Next Recommendation:** Continue automatically with MH A5; the user personally does not need to act, commit, or push.
+
+## Part 264 — User Return / Retrospective Heartbeat Paused
+
+- `ati-retrospective-template-spacing-heartbeat` is now **PAUSED** at the user's request. Its name, full prompt, heartbeat kind, 30-minute schedule, and target task are preserved. No product work ran after Part 263; Batch 10 MH A5 has not begun.
+- Objective progress remains Batches 0 through 9 complete: AMS A9, AMS A11, AMS A13, MN A1, MH A1, AMS A1, MN A3, MH A3, AMS A3, and MN A5. Automated QA is not user visual approval, so pending fresh visual gates remain pending.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mn-a5-blank-canon-final-263`. MN A5 remains objectively passed and pending fresh user visual approval. Batch 10 MH A5 is the next objective item only after a separate user instruction to resume.
+- Branch `main` remains at `acef952339eab701e18762152f73ccddb9494419`, `0` ahead / `0` behind. Exactly the six documented tracked files remain modified; nothing is staged, committed, or pushed; `git diff --check` passes. Content population is paused. ATI source support used: none; design-only change.
+- `ati-build-guide-ai-spec-polish`, `ati-template-clipping-qa`, and `ati-pediatric-templates-design-polish` remain paused and unchanged.
+
+**TLDR:** The retrospective queue is safely paused after Batch 9; MH A5 has not begun.
+
+**Next Recommendation:** The user should visually review MN A5 and report approval or the first mismatch; the user should not commit or push yet.
+
+## Part 265 — Cross-Book Nested Section-Title Rail Canon
+
+- The A5 `Expected Growth and Development` centered rail is now the shared role for true outer labels governing nested regions: A3 `Considerations`, A7 `Purpose of Medication`, A9 `Considerations`, A11 `Assessment` / `Safety Considerations` / `Patient-Centered Care`, and A13 `Considerations`. MN, MH, and AMS all use `11px / 700 / .16em` uppercase labels, `14px` side gaps, zero label padding, and positive-width `1px` lines. The AMS A3 `.considerations-top` wrapper is included.
+- Approved exclusions remain unchanged: A5 `Health Promotion` is a titled parent box with official connectors, and A1/A15 use direct peer boxes. The new rule matches none of those structures. No educational content or official template relationship changed.
+- Source inventory covered `242` qualifying-family cards. Rendered validation passed `90/90` representative book/family/mode/width states at exact `1440`, `768`, and `390px`, including true Filled and Blank. The exact role, rail geometry, positive line width, and zero overflow pass.
+- Integrity passes at exact product/temporary SHA-256 MN `1c0504c20bb1765fa6762b71a9a648564f2be26d3647ee8da2ff2113b22cf424`, MH `878205c2824242c5fe6575477276f12fb576cc8cf57eb592ae50da9b253277b2`, and AMS `481f2c712dc395454c4abd6732786e45e5de471eaebbaa5d4c7e050d28cda259`; scripts, card/family counts, unique IDs, source links, storage, HTTP `200`, and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-section-rails-mh-mn.html?v=section-title-rails-265`. The correction is objectively passed and pending fresh user visual approval. Content population is paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed.
+- `ati-retrospective-template-spacing-heartbeat` remains paused; Batch 10 MH A5 has not begun. The three protected automations remain paused and unchanged.
+
+**TLDR:** All true nested-group headings now share the approved A5 rail design without changing the approved exclusions.
+
+**Next Recommendation:** The user should visually review the open A11 comparison and report approval or the first mismatch; the user should not commit or push yet.
+
+## Part 266 — Nested Section-Title Rails User Visual Approval
+
+- The user reviewed the Part 265 cross-book A11 comparison and confirmed that the centered nested section-title rail design is liked. The Part 265 rail correction is now **OBJECTIVELY PASSED AND USER VISUALLY APPROVED** across the approved A3, A7, A9, A11, and A13 nested-group roles.
+- The approved exclusions remain unchanged: A5 `Health Promotion` stays a titled parent box with official connectors, while A1 and A15 remain direct peer-box families. A5 `Expected Growth and Development` remains the reference rail.
+- No product file changed while recording approval. Part 265's `90/90` rendered-state evidence, `242`-card source inventory, integrity results, product hashes, and comparison remain current. Content population is paused. ATI source support used: none; design-only change.
+- `ati-retrospective-template-spacing-heartbeat` remains paused; Batch 10 MH A5 has not begun. Nothing was staged, committed, or pushed, and the three protected automations remain paused and unchanged.
+
+**TLDR:** The shared nested section-title rail canon is now user visually approved.
+
+**Next Recommendation:** Wait for a separate user instruction before resuming Batch 10 MH A5; the user should not commit or push yet.
+
+## Part 267 — MH A5 Canon Repair And Objective Pass
+
+- Batch 10 MH A5 Growth and Development is objectively complete. One cohesive A5-only correction now includes exact `1100px` in the two-column interval, uses `14px 14px 16px` non-Health-Promotion group padding, applies DM Sans `16px / 25.6px / 400` to the Health Promotion parent body, and makes Blank hide that answer while preserving the parent and all eight child boxes as `120px` writing surfaces.
+- All six cards passed `84/84` twice-stable Filled/Blank screen states at `1440/1101/1100/768/601/600/390px`. The accepted `18px/14px` boundaries, four/two/one-column transitions, connector strip, title/body roles, `14px` corners, top stack, Student Name line, screen endpoint, and zero-overflow contract pass.
+- Print rendered `12/12` nonempty six-card Filled/Blank PDFs. Representative first/last renders preserve the A5 rail, metadata, child boxes, typography, hidden Blank answers, and writing surfaces without clipping or horizontal overflow.
+- MH integrity remains `71` cards/unique IDs, six A5 cards, all six links, no duplicate IDs, unchanged scripts/storage, and empty runtime errors. Product/temporary/HTTP parity is SHA-256 `117c6b2473d9fccaf2022bccc212e801e90809b7a33392953a39ebc9bd68f6e1`; MN remains `1c0504c20bb1765fa6762b71a9a648564f2be26d3647ee8da2ff2113b22cf424` and AMS `481f2c712dc395454c4abd6732786e45e5de471eaebbaa5d4c7e050d28cda259`. HTTP is `200` and `git diff --check` passes.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a5-canon-batch10`. MH A5 is objectively passed and pending fresh user visual approval. Automated QA is not user visual approval. Content population is paused. ATI source support used: none; design-only change.
+- The retrospective heartbeat and all three protected automations remain paused. Batch 11 AMS A5 is next only after a separate instruction. Nothing was staged, committed, or pushed.
+
+**TLDR:** MH A5 now passes the complete responsive, typography, Blank-writing, endpoint, connector, and print canon.
+
+**Next Recommendation:** The user should visually review the current MH A5 comparison and report approval or the first mismatch; the user should not commit or push yet.
+
+## Part 268 — MH A5 User Visual Approval
+
+- The user reviewed and approved the Part 267 MH A5 comparison. Batch 10 MH A5 is now **OBJECTIVELY PASSED AND USER VISUALLY APPROVED** across all six cards.
+- No product file changed while recording approval. Part 267's `84/84` responsive states, `12/12` print renders, accepted A5 canon, integrity evidence, and product hashes remain current.
+- Approved comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a5-canon-batch10`. Content population is paused. ATI source support used: none; design-only change.
+- The retrospective heartbeat and all three protected automations remain paused. Batch 11 AMS A5 is next only after a separate instruction. Nothing was staged, committed, or pushed.
+
+**TLDR:** MH A5 is objectively passed and user visually approved.
+
+**Next Recommendation:** Wait for a separate user instruction before beginning AMS A5; the user should not commit or push yet.
+
+## Part 269 — Guarded Retrospective Heartbeat Reactivated
+
+- At the user's AFK instruction, `ati-retrospective-template-spacing-heartbeat` is now **ACTIVE** on its preserved 30-minute heartbeat schedule with Part 268 as the exact recovery baseline.
+- Batches 0–10 remain objectively complete; MH A5 remains user visually approved. Batch 11 AMS A5 is the only active next family. The exclusive owner lock, one-family-per-run rule, 25-minute soft cap, incomplete-family resume rule, one-correction limit, and pending visual gates remain enforced.
+- The user-approved MN/MH A5 responsive, spacing, typography, connector, Blank-writing, endpoint, and print contract is now explicit in the AMS A5 evidence gate. The approved nested section-title rail canon and exclusions remain protected.
+- Content population is paused. ATI source support used: none; design-only change. The three protected automations remain paused and unchanged. Nothing was staged, committed, or pushed.
+
+**TLDR:** The guarded heartbeat is active and resumes at AMS A5.
+
+**Next Recommendation:** Let the heartbeat begin AMS A5 automatically; the user personally does not need to act, commit, or push.
+
+## Part 270 — AMS A5 Canon Repair And Objective Pass
+
+- Batch 11 AMS A5 Growth and Development is objectively complete. One cohesive A5-only correction now uses `14px 14px 16px` non-Health-Promotion padding, DM Sans `16px / 25.6px / 400` Health Promotion parent copy with `14px 16px` padding, hidden Blank parent content, and nine exact `120px` Blank writing surfaces.
+- The single source-neutral prototype passed `14/14` twice-stable Filled/Blank screen states at exact `1440/1101/1100/768/601/600/390px`. The approved four/two/one-column transitions, `18px/14px` boundaries, connector strip/layering, rail, typography, corners, Student Name, approximately `64px` endpoint, and zero-overflow contract pass.
+- Filled and Blank print produced nonempty control-free `4`-page and `3`-page PDFs. All seven rendered pages preserve the complete official A5 structure without clipping; Blank hides every answer and retains all nine writing surfaces.
+- AMS integrity remains `84` cards/unique IDs with exact counts `21/8/1/16/4/16/17/1`, one A5 prototype, `76` nonempty links, and unchanged storage. Product/temporary/HTTP parity is SHA-256 `4767ee64df5ffecee1beb54d6cb93e50fc281933907dc21262ac06e99bc6491c`; MN remains `1c0504c20bb1765fa6762b71a9a648564f2be26d3647ee8da2ff2113b22cf424` and MH `117c6b2473d9fccaf2022bccc212e801e90809b7a33392953a39ebc9bd68f6e1`. Scripts, HTTP `200`, comparison parity, and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=ams-a5-canon-batch11`. AMS A5 is objectively passed and pending fresh user visual approval. Automated QA is not user visual approval. Content population is paused. ATI source support used: none; design-only change.
+- Batch 12 MN A7 Medication is next. The retrospective heartbeat remains active; the three protected automations remain paused and unchanged. Nothing was staged, committed, or pushed.
+
+**TLDR:** AMS A5 now passes the complete user-approved cross-book A5 canon.
+
+**Next Recommendation:** Continue automatically with MN A7; the user personally does not need to act, commit, or push.
+
+## Part 271 — MN A7 Blank Writing-Geometry Repair And Objective Pass
+
+- Batch 12 MN A7 Medication is objectively complete. One A7 Blank-only correction prevents the regular columns' Filled equal-bottom growth rule from expanding Client Education to `254px`; every regular Blank Purpose/direct writing surface is now exactly `120px`. Filled behavior and the intentional Medication / Device exception remain unchanged.
+- All 18 cards passed `180/180` twice-stable Filled/Blank states at `1440`, `768`, exact `681/680`, and `390px`. Accepted `18px/14px/10px` spacing roles, approved Purpose rail, metadata, typography, `681/680px` row/stack transition, behind-box Nursing Interventions-to-Client Education connector, approximately `64px` endpoint, hidden Blank answers, and zero overflow pass.
+- Print produced `36/36` nonempty letter PDFs for every card and mode. MN integrity remains `197` cards/unique IDs, exact counts `46/15/7/18/15/65/22/9`, `197` links, `268` unique document IDs, and unchanged storage. Product/temporary/HTTP parity is SHA-256 `6f381c30c44aeb8c5d95212fc19bdfcf54e17d47d8e8a606e55dc86eff98b07f`; MH remains `117c6b2473d9fccaf2022bccc212e801e90809b7a33392953a39ebc9bd68f6e1` and AMS `4767ee64df5ffecee1beb54d6cb93e50fc281933907dc21262ac06e99bc6491c`. HTTP `200` and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mn-a7-blank-geometry-batch12`. MN A7 is objectively passed and pending fresh user visual approval. Automated QA is not user visual approval. Content population is paused. ATI source support used: none; design-only change.
+- Batch 13 MH A7 Medication is next. The retrospective heartbeat remains active; the three protected automations remain paused and unchanged. Nothing was staged, committed, or pushed.
+
+**TLDR:** MN A7 now preserves nine exact `120px` Blank writing surfaces while retaining the approved Filled and device-specific layouts.
+
+**Next Recommendation:** Let the next heartbeat begin MH A7; the user personally does not need to act, commit, or push.
+
+## Part 272 — MH A7 Blank Writing-Geometry Repair And Objective Pass
+
+- Batch 13 MH A7 Medication is objectively complete. One Blank-only correction replaces the inherited `112/116/148/170px` family and Filled alignment surfaces with nine exact `120px` writing surfaces, aligns Blank columns at their natural start, and suppresses only the Blank last-box growth rule. Filled geometry remains unchanged.
+- All 12 cards passed `120/120` twice-stable Filled/Blank states at `1440`, `768`, exact `681/680`, and `390px`. Accepted `18px/14px/10px` roles, approved Purpose rail, metadata, role-matched typography, `681/680px` row/stack transition, behind-box Nursing Interventions-to-Client Education connector, `24px + 40px` endpoint, hidden Blank answers, and zero overflow pass.
+- Print produced `24/24` nonempty three-page letter PDFs. MH integrity remains `71` cards/unique IDs, exact counts `13/6/6/12/6/12/10/6`, `71` links, and unchanged storage. MH product/temporary/HTTP parity is SHA-256 `954376f35b75876ecc76f6912a74c44cbfdc091399a4291fd4add7764ecca0d6`; MN remains `6f381c30c44aeb8c5d95212fc19bdfcf54e17d47d8e8a606e55dc86eff98b07f` and AMS `4767ee64df5ffecee1beb54d6cb93e50fc281933907dc21262ac06e99bc6491c`. HTTP `200`, script parsing, and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a7-blank-geometry-batch13-4`. MH A7 is objectively passed and pending fresh user visual approval. Automated QA is not user visual approval. Content population is paused. ATI source support used: none; design-only change.
+- Batch 14 AMS A7 Medication is next. The retrospective heartbeat remains active; the three protected automations remain paused and unchanged. Nothing was staged, committed, or pushed.
+
+**TLDR:** MH A7 now preserves nine exact `120px` Blank surfaces without changing Filled geometry.
+
+**Next Recommendation:** Let the next heartbeat begin AMS A7; the user personally does not need to act, commit, or push.
+
+## Part 273 — AMS A7 Canon Repair And Objective Pass
+
+- Batch 14 AMS A7 Medication is objectively complete. One cohesive A7-only correction replaces legacy wide 112/116/148/170px and narrow 40.25/49px Blank surfaces with nine exact 120px writing surfaces at every width, aligns Blank columns at their natural start, and suppresses only Blank last-box growth. It also restores the accepted 16px/11px/14px corner hierarchy, 0px/13px nested/direct title-band top corners, and 6px list rhythm. Filled content and official structure remain unchanged.
+- All 16 records passed 160/160 twice-stable Filled/Blank states at 1440, exact 935/934, 768, and 390px. Accepted 18px/14px/10px spacing roles, four metadata rows, Student Name line, centered Purpose rail, role-matched typography, exact row/stack transition, behind-box connector, approximately 64px endpoint, hidden Blank answers, and zero overflow pass.
+- Print produced 32/32 nonempty letter PDFs totaling 97 pages at 3–4 pages per record. AMS integrity remains 84 cards/unique source IDs, exact counts 21/8/1/16/4/16/17/1, all 16 A7 records, 76 links, no duplicate IDs, and unchanged storage. AMS product/temporary/HTTP parity is SHA-256 ede17c7891d03528eeb564da9a4ac437d457a62519f23451f5b7ebab89fcb980; MN remains 6f381c30c44aeb8c5d95212fc19bdfcf54e17d47d8e8a606e55dc86eff98b07f and MH 954376f35b75876ecc76f6912a74c44cbfdc091399a4291fd4add7764ecca0d6. HTTP 200, script parsing, and git diff --check pass.
+- Current comparison: http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=ams-a7-canon-batch14. AMS A7 is objectively passed and pending fresh user visual approval. Automated QA is not user visual approval. Content population is paused. ATI source support used: none; design-only change.
+- Batch 15 MN A9 Nursing Skill is next. The retrospective heartbeat remains active; the three protected automations remain paused and unchanged. Nothing was staged, committed, or pushed.
+
+**TLDR:** AMS A7 now passes the complete Blank-writing, corner, typography, connector, endpoint, responsive, and print canon.
+
+**Next Recommendation:** Let the next heartbeat begin MN A9; the user personally does not need to act, commit, or push.
+
+## Part 274 — MN A9 Stacked Geometry Repair And Objective Pass
+
+- Batch 15 MN A9 Nursing Skill is objectively complete. One cohesive A9 stacked-geometry correction prevents the general tablet rule from reopening two columns at exact `680px` after the official connector rotates vertically, and preserves both nested Considerations boxes as exact `120px` Blank writing surfaces in the stacked state. Wide compact nested Blank geometry, Filled content, and official structure remain unchanged.
+- Pre-repair and post-repair validation each covered all 15 cards in Filled and Blank at `1440`, `768`, exact `681/680`, and `390px`: `150/150` twice-stable states per matrix. The completed matrix preserves five direct/two nested boxes, official order, `18px/14px/10px` spacing roles, accepted title/body typography, `14px/11px` corners, the centered Considerations rail, the wide/stacked behind-box connector, hidden Blank answers, the `24px + 40px` endpoint, and zero overflow.
+- Print produced `30/30` nonempty letter PDFs for every card and mode: Filled `3–6` pages and Blank one page. Representative first/last renders preserve metadata, hierarchy, connector, writing geometry, and containment without clipping or overlap.
+- MN integrity remains `197` cards/unique card IDs with exact counts `46/15/7/18/15/65/22/9`, `197` links, `269` unique rendered IDs without duplicates, four parsing inline scripts, and unchanged storage. MN product/temporary/HTTP parity is SHA-256 `3606e7e75261d3540a192ce7db2e11e26168f29d5c1e8e7650afd8c9dac04207`; MH remains `954376f35b75876ecc76f6912a74c44cbfdc091399a4291fd4add7764ecca0d6` and AMS `ede17c7891d03528eeb564da9a4ac437d457a62519f23451f5b7ebab89fcb980`. HTTP `200`, exact parity, and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mn-a9-canon-batch15`. MN A9 is objectively passed and pending fresh user visual approval. Automated QA is not user visual approval. Batch 16 MH A9 is next. Content population is paused. ATI source support used: none; design-only change. The retrospective heartbeat remains active; the three protected automations remain paused and unchanged. Nothing was staged, committed, or pushed.
+
+**TLDR:** MN A9 now keeps its exact `681/680px` layout/connector transition synchronized and its stacked nested Blank surfaces at `120px`.
+
+**Next Recommendation:** Let the next heartbeat begin MH A9 Nursing Skill; the user personally does not need to act, commit, or push.
+
+## Part 275 — MH A9 Stacked Blank Repair And Objective Pass
+
+- Batch 16 MH A9 Nursing Skill is objectively complete. One cohesive A9-only correction replaces the stacked Blank collapse—five direct boxes at `49px` and two nested Considerations boxes at approximately `95px`—with seven exact `120px` writing surfaces at `680px` and below. Wide compact Blank geometry and Filled learner content remain unchanged.
+- Pre-repair and post-repair validation each covered all six cards in Filled and Blank at `1440`, `768`, exact `681/680`, and `390px`: `60/60` twice-stable states per matrix. The completed family preserves five direct/two nested boxes, three metadata values, official order, `18px/14px/10px` spacing roles, `14px/11px` corners, the centered Considerations rail, DM Serif Display `15px / 24px / 400` direct and `13.5px / 21.6px / 400` nested title roles, DM Sans `16px / 25.6px / 400` body descendants, hidden Blank answers, the wide/stacked behind-box connector, `24px + 40px` endpoint, and zero overflow.
+- Print produced `12/12` nonempty letter PDFs for every card and mode: Filled `3–4` pages and Blank one page. Representative first/last renders preserve title, metadata, rail, nesting, connector, writing geometry, and containment without clipping or overlap.
+- MH integrity remains `71` cards/unique source IDs with exact counts `13/6/6/12/6/12/10/6`, all six A9 cards, `71` links, a parsing inline script, and unchanged storage keys. MH product/temporary/HTTP parity is SHA-256 `b0a914f92f244791c40d24953421077d508551cdd13569c529e632843c8913f4`; MN remains `3606e7e75261d3540a192ce7db2e11e26168f29d5c1e8e7650afd8c9dac04207` and AMS `ede17c7891d03528eeb564da9a4ac437d457a62519f23451f5b7ebab89fcb980`. HTTP `200`, exact parity, and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a9-canon-batch16`. MH A9 is objectively passed and pending fresh user visual approval. Automated QA is not user visual approval. Batch 17 MN A11 is next. Content population is paused. ATI source support used: none; design-only change. The retrospective heartbeat remains active; the three protected automations remain paused and unchanged. Nothing was staged, committed, or pushed.
+
+**TLDR:** MH A9 now preserves seven exact `120px` stacked Blank surfaces while retaining the accepted responsive, connector, typography, endpoint, and print canon.
+
+**Next Recommendation:** Let the next heartbeat begin MN A11 System Disorder; the user personally does not need to act, commit, or push.
+
+## Part 276 — MN A11 Tablet Top-Stack Repair / Legacy Safety Checkpoint
+
+- Batch 17 MN A11 System Disorder remains **IN_PROGRESS**. One A11-only correction prevents the general tablet rule from reopening the official top row at exact `900px`; `.sd-top-row` now remains one column from `900px` through `601px`, while the three-column state at `901px` and above is unchanged.
+- Post-repair validation covered all 65 A11 cards in Filled and Blank at exact `900px` and `768px`: `260/260` twice-stable states. Exact `18px/14px/10px` roles, stacked top boxes, two-column Assessment, one-column Patient-Centered Care, hidden Blank answers, `24px + 40px` endpoint, and horizontal containment pass.
+- A second distinct defect is checkpointed for the next run. `45` cards use the canonical Safety structure, while `20` legacy cards use a direct `.tpl-group-label` plus `.tpl-group-body` wrapper that bypasses Safety normalization. On `ex-ch8-chlamydia` at `1440px`, `.safety-group` renders rows `1434.28px 1434.28px`; both direct wrapper children stretch to `1434.28125px`, while the nested Safety Considerations and Complications boxes are `371.59375px` and `493.59375px`. The same batch must normalize the legacy wrapper without changing learner nodes, labels, relationships, or boxes, then complete `1440`, exact `901/900`, `768`, `390px`, and print validation.
+- MN product/temporary parity is SHA-256 `227eaa52fa31b020861ea3f1799a3c7f44d568f85b50e487e6568dd61967c23b`; MH remains `b0a914f92f244791c40d24953421077d508551cdd13569c529e632843c8913f4` and AMS `ede17c7891d03528eeb564da9a4ac437d457a62519f23451f5b7ebab89fcb980`. HTTP responses are `200`; `git diff --check` passes.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mn-a11-in-progress-276`. Its status is explicitly **In-progress MN A11 loaded**. Automated QA is not user visual approval. Content population is paused. ATI source support used: none; design-only change. The retrospective heartbeat remains active; the three protected automations remain paused and unchanged. Nothing was staged, committed, or pushed.
+
+**TLDR:** MN A11 now preserves its exact `901/900px` top-stack transition; Batch 17 is checkpointed for the remaining 20-card legacy Safety-wrapper defect.
+
+**Next Recommendation:** Let the next heartbeat resume MN A11 and normalize the legacy Safety wrapper without changing learner content; the user personally does not need to act, commit, or push.
+
+## Part 277 — MN A11 Legacy Safety Repaired / Blank Safety Follow-Up
+
+- Batch 17 MN A11 System Disorder remains **IN_PROGRESS**. One cohesive correction now classifies the 20 legacy Safety wrappers without replacing learner nodes, renders the existing outer `SAFETY` label as the approved centered section rail, and renders the existing wrapper body as an equal two-row relationship with a `14px` peer-box gap. The `10px` rail-to-body relationship and all 45 canonical structures remain intact.
+- All 65 cards passed twice-stable Filled and per-card Blank states at `1440px` and exact `901px`, plus all 65 Filled states at exact `900px`: `325/325` passing states. Accepted `18px/14px/10px` spacing roles, typography, corner hierarchy, metadata, Student Name, official order, hidden Blank answers, endpoint, and horizontal containment pass.
+- A separate stacked Blank defect is checkpointed without change because this run used its one-correction allowance. At exact `900px`, the first 16 canonical cards reproduced twice: all other writing surfaces remain `120px`, while canonical `.sd-safety-main` is `31.594px` and direct Complications is `42.594px`. The next run must restore both Safety surfaces to exact `120px`, verify legacy variants, and finish `900/768/390px` plus print validation.
+- MN product/temporary parity is SHA-256 `f6d016a917eec9ecfb2ed3cd31f8433c9dcc2145e8bdadfab99b54b7949f7594`; MH remains `b0a914f92f244791c40d24953421077d508551cdd13569c529e632843c8913f4` and AMS `ede17c7891d03528eeb564da9a4ac437d457a62519f23451f5b7ebab89fcb980`. HTTP `200`, script parsing, resolved links, storage continuity, exact payload parity, and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mn-a11-safety-in-progress-277`. Batch 17 remains in progress. Automated QA is not user visual approval. Content population is paused. ATI source support used: none; design-only change. The retrospective heartbeat remains active; the three protected automations remain paused and unchanged. Nothing was staged, committed, or pushed.
+
+**TLDR:** Legacy Safety hierarchy is repaired; stacked Blank Safety writing geometry remains the active MN A11 gate.
+
+**Next Recommendation:** Let the next heartbeat resume MN A11 and restore the stacked Blank Safety pair to exact `120px`; the user personally does not need to act, commit, or push.
+
+## Part 278 — MN A11 Blank Safety Repaired / Print Audit In Progress
+
+- Batch 17 MN A11 System Disorder remains **IN_PROGRESS**. One A11-only correction restores canonical and legacy Safety roles to exact `120px` writing surfaces in stacked Blank mode at `900px` and below. Wide and Filled geometry, learner content, official labels, relationships, cards, boxes, order, IDs, links, storage, accents, and subject identity remain unchanged.
+- All 65 cards passed `650/650` twice-stable Filled/Blank states at `1440`, exact `901/900`, `768`, and `390px`. The `45` canonical and `20` legacy Safety structures, exact responsive columns, `18px/14px/10px` roles, rails, typography, corners, source/navigation stack, Student Name, hidden Blank answers, `24px + 40px` endpoint, and zero overflow pass. The prior `31.594px`/`42.594px` collapse is gone.
+- MN product/temporary parity is SHA-256 `89447ea244e3ca4e88e36d0932c022ddf045e8819bfdc23a0f3424b9470c1dea`; MH remains `b0a914f92f244791c40d24953421077d508551cdd13569c529e632843c8913f4` and AMS `ede17c7891d03528eeb564da9a4ac437d457a62519f23451f5b7ebab89fcb980`.
+- Print is the only remaining gate. `35/130` PDFs were generated before the soft cap; all 35 are nonempty, readable, at least one page, and `123512–264750` bytes. `/private/tmp/run-mn-a11-print-b17-resume.zsh` skips valid outputs and resumes the remaining 95. Batch 17 must not advance until `130/130`, representative render, hidden-answer/control, script, count, ID, link, storage, payload, HTTP, and `git diff --check` validation pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mn-a11-blank-safety-in-progress-278`. Batch 17 remains in progress. Automated QA is not user visual approval. Content population is paused. ATI source support used: none; design-only change. The retrospective heartbeat remains active; the three protected automations remain paused and unchanged. Nothing was staged, committed, or pushed.
+
+**TLDR:** MN A11 passes the complete responsive screen matrix; its remaining 95 print outputs and final integrity checks are checkpointed.
+
+**Next Recommendation:** Let the next heartbeat resume the missing MN A11 print outputs; the user personally does not need to act, commit, or push.
+
+## Part 279 — MN A11 Print-Control Repair And Objective Pass
+
+- Batch 17 MN A11 System Disorder is objectively complete and pending fresh user visual approval. One A11-scoped print-only correction hides the injected `.tpl-print-btn` and progress `.example-check` while `body.printing-modal` is active. Responsive screen geometry, learner content, official structure, and every other family remain unchanged.
+- The Part 278 screen matrix remains valid: all 65 cards pass `650/650` twice-stable Filled/Blank states at `1440`, exact `901/900`, `768`, and `390px`, including canonical and legacy `120px` stacked Blank Safety roles, accepted spacing/typography/corners/rails, source/navigation, Student Name, endpoint, and zero overflow.
+- Post-correction print produced `130/130` valid PDFs totaling `682` pages. Filled outputs are `4–11` pages and Blank outputs exactly `4`; all are `97117–409354` bytes. All-PDF extraction finds no `Print`, `Filled`, `Blank`, `Previous`, or `Next` control text, and fresh first/final Filled/Blank renders show no study controls, hidden Blank answers, legible structure, and no clipping or overlap.
+- MN integrity remains `197` cards/unique card IDs, `197` nonempty links, `268` unique static IDs without duplicates, four parsing inline scripts, all 65 A11 cards, and unchanged storage. Product/temporary/HTTP parity is SHA-256 `4702c718abd10a32d8d3847a5ed0386217dab87ea0baf4b839ca8e205098f61c`; MH remains `b0a914f92f244791c40d24953421077d508551cdd13569c529e632843c8913f4` and AMS `ede17c7891d03528eeb564da9a4ac437d457a62519f23451f5b7ebab89fcb980`. HTTP `200`, exact parity, and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mn-a11-canon-batch17`. MN A11 is objectively passed and pending fresh user visual approval. Automated QA is not user visual approval. Batch 18 MH A11 is next. Content population is paused. ATI source support used: none; design-only change. The retrospective heartbeat remains active; the three protected automations remain paused and unchanged. Nothing was staged, committed, or pushed.
+
+**TLDR:** MN A11 now passes the complete responsive, Safety, Blank-writing, print-control, payload, and integrity canon.
+
+**Next Recommendation:** Let the next heartbeat begin MH A11 System Disorder; the user personally does not need to act, commit, or push.
+
+## Part 280 — User Return / Retrospective Heartbeat Paused
+
+- Current mode is **DESIGN-CANON / HOLD-CONTENT**. Content population is paused. ATI source support used: none; design-only change.
+- At the user's return, `ati-retrospective-template-spacing-heartbeat` was changed from **ACTIVE** to **PAUSED** through the Codex automation control. Its name, complete prompt, heartbeat kind, 30-minute schedule, and target task remain preserved. No template-family work ran after Part 279, no run lock remains, and Batch 18 MH A11 has not begun.
+- Batches 0 through 17 are objectively complete. Batch 17 MN A11 is the latest completed family and remains pending fresh user visual approval; automated QA is not user visual approval. Remaining objective work is MH A11, MN/MH A13, MN/MH/AMS A15, and the final cross-book integrity handoff.
+- Part 279 remains current: `650/650` twice-stable responsive states, `130/130` nonempty PDFs totaling `682` pages, zero printed control labels, canonical/legacy Safety coverage, clean representative renders, parsing scripts, unique IDs, resolved links, unchanged storage, exact payload parity, HTTP `200`, and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mn-a11-canon-batch17`. Current hashes remain MN `4702c718abd10a32d8d3847a5ed0386217dab87ea0baf4b839ca8e205098f61c`, MH `b0a914f92f244791c40d24953421077d508551cdd13569c529e632843c8913f4`, and AMS `ede17c7891d03528eeb564da9a4ac437d457a62519f23451f5b7ebab89fcb980`.
+- Branch `main`, HEAD `acef952339eab701e18762152f73ccddb9494419`, `0` ahead / `0` behind `origin/main`, the same six expected tracked modifications, and no stage, commit, or push remain the recovery baseline.
+- `ati-build-guide-ai-spec-polish`, `ati-template-clipping-qa`, and `ati-pediatric-templates-design-polish` remain **PAUSED** and unchanged. The paused retrospective automation is SHA-256 `4da9130dc4aad01c40e528fdc56595828603265495ee0d052c64131f03595bc0`.
+
+**TLDR:** The heartbeat is safely paused after objectively completing Batch 17 MN A11; Batch 18 MH A11 has not begun.
+
+**Next Recommendation:** The user should visually review the current MN A11 handoff and report approval or the first mismatch; the user should not commit or push yet.
+
+## Part 281 — MN A11 User Visual Approval
+
+- The user reviewed `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mn-a11-canon-batch17` and explicitly approved MN A11. Batch 17 MN A11 is now objectively passed and user visually approved across all 65 cards.
+- No product file changed. Part 279's `650/650` responsive states, `130/130` PDFs, canonical/legacy Safety normalization, exact Blank-writing geometry, print-control removal, integrity checks, hashes, and payload parity remain current.
+- Content population is paused. ATI source support used: none; design-only change. The retrospective heartbeat and the three protected automations remain paused. Batch 18 MH A11 has not begun. Nothing was staged, committed, or pushed.
+
+**TLDR:** MN A11 is now objectively passed and user visually approved; MH A11 remains next.
+
+**Next Recommendation:** Wait for the user's separate instruction before beginning MH A11; the user personally does not need to act, commit, or push.
+
+## Part 282 — MH A11 Responsive Blank / Print Objective Pass
+
+- Batch 18 MH A11 System Disorder is objectively complete and pending fresh user visual approval. One cohesive A11-only correction aligns MH to the approved exact `901/900px` transition, hides the unwrapped Safety answer children in Blank mode, restores every stacked Blank role to exact `120px`, and removes progress/print/navigation study controls from A11 print while preserving the Worked Example source row.
+- All 12 cards passed `120/120` twice-stable Filled/Blank screen states at `1440`, exact `901/900`, `768`, and `390px`. Exact `18px/14px/10px` spacing, `14px/11px` corners, official order, typography, hidden answers, `24px + 40px` endpoint, and zero overflow pass. At `900px` and below the outer/top/patient relationship is `1/1/1`; at `901px` and above it remains `2/3/3`.
+- Print produced `24/24` nonempty four-page PDFs (`96` pages). Fresh first/final Filled and Blank renders preserve official structure and writing surfaces, hide Blank Safety answers and A11 study controls, and show no clipping or overlap.
+- MH integrity remains `71` source cards/unique source IDs with exact counts `13/6/6/12/6/12/10/6`, all 12 A11 IDs, no unresolved local anchors, and unchanged `atimh_templates_progress` storage. MH product/temporary parity is SHA-256 `c618cdef4114e2cd46c49c1b196ba3d55b0a6a269695a6ad8475c427eb9ef9ba`; MN remains `4702c718abd10a32d8d3847a5ed0386217dab87ea0baf4b839ca8e205098f61c` and AMS `ede17c7891d03528eeb564da9a4ac437d457a62519f23451f5b7ebab89fcb980`. Comparison HTTP is `200`; exact parity and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a11-canon-batch18`. MH A11 is objectively passed and pending fresh user visual approval. Automated QA is not user visual approval. Content population is paused. ATI source support used: none; design-only change. The retrospective heartbeat and the three protected automations remain paused. Batch 19 MN A13 has not begun. Nothing was staged, committed, or pushed.
+
+**TLDR:** MH A11 now passes the approved responsive, Blank Safety/writing, endpoint, print-control, payload, and integrity canon across all 12 cards.
+
+**Next Recommendation:** The user should visually review the current MH A11 comparison and report approval or the first mismatch; the user should not commit or push yet.
+
+## Part 283 — MH A11 User Visual Approval
+
+- The user reviewed `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a11-canon-batch18` and explicitly approved MH A11. Batch 18 MH A11 is now **OBJECTIVELY PASSED AND USER VISUALLY APPROVED** across all 12 cards, including the retained uniform `24px + 40px` endpoint.
+- No product file changed. Part 282's `120/120` twice-stable responsive states, `24/24` four-page PDFs, exact `901/900px` transition, Blank Safety/writing geometry, hidden answers, print-control removal, integrity checks, hashes, and payload parity remain current.
+- Content population is paused. ATI source support used: none; design-only change. The retrospective heartbeat and the three protected automations remain paused. Batch 19 MN A13 has not begun. Nothing was staged, committed, or pushed.
+
+**TLDR:** MH A11 is now objectively passed and user visually approved; MN A13 is next.
+
+**Next Recommendation:** Wait for the user's separate instruction before beginning Batch 19 MN A13; the user personally does not need to act, commit, or push.
+
+## Part 284 — MN A13 Exact Stacked-Breakpoint Repair And Objective Pass
+
+- Batch 19 MN A13 Therapeutic Procedure is objectively complete and pending fresh user visual approval. One A13-only correction adds `.tp-grid` to the existing exact `680–601px` stacked exception: `681px` remains horizontal/two-column, while `680px` and `601px` now use full-width stacked boxes with the centered two-layer vertical connector; `600px` and below remain the accepted phone stack.
+- All 22 cards passed Filled and Blank at `1440`, `768`, exact `681/680`, exact `601/600`, and `390px`: `616/616` states across two identical measurement passes. Official order, two nested Considerations roles, `18px/14px/10px` spacing, `14px/16px/11px` corners, role typography, hidden Blank answers, five exact `120px` direct writing surfaces, accepted compact nested writing geometry, the approximately `64px` endpoint, and zero horizontal overflow pass.
+- Print produced `44/44` nonempty letter PDFs totaling `84` pages. Every card/mode retains the Worked Example row, official three-field metadata, all official roles, Blank reduction, and no study/navigation controls; representative first/long Filled and Blank renders show no clipping or overlap.
+- MN integrity remains `197` cards/unique source IDs with exact counts `46/15/7/18/15/65/22/9`, all 22 A13 cards, `197` resolving sidebar links, `197` resolving source links, unique document IDs, four parsed product scripts, one parsed comparison script, empty runtime errors, and unchanged storage. Product/temporary/HTTP parity is SHA-256 `db5e819f5f748f5f46164814df8e0ef5764ff48390a5d2f6139c202c2efe191b`; MH remains `c618cdef4114e2cd46c49c1b196ba3d55b0a6a269695a6ad8475c427eb9ef9ba` and AMS `ede17c7891d03528eeb564da9a4ac437d457a62519f23451f5b7ebab89fcb980`. HTTP and `git diff --check` pass.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mn-a13-canon-batch19-final`. MN A13 is objectively passed and pending fresh user visual approval; automated QA is not user visual approval. Content population is paused. ATI source support used: none; design-only change. All four automations remain paused. Batch 20 MH A13 has not begun. Nothing was staged, committed, or pushed.
+
+**TLDR:** MN A13 now passes the exact `681/680` and `601/600` responsive relationship plus the full screen, Blank, connector, endpoint, print, payload, and integrity contract across all 22 cards.
+
+**Next Recommendation:** The user should visually review the current MN A13 comparison and report approval or the first mismatch; the user should not commit or push yet.
+
+## Part 285 — MH A13 Blank Geometry Repair / Print-Control Gate
+
+- Batch 20 MH A13 remains in progress. The user-found Blank defect is repaired across all 10 cards: all five direct roles now remain exact `120px` writing surfaces; the wide Considerations parent is `254px` with two `93.203125px` compact nested roles. Filled geometry and all learner content remain unchanged.
+- Twice-stable Filled/Blank screen checks pass at `1440`, exact `861/860`, `768`, exact `681/680`, exact `601/600`, and `390px`, including hidden Blank answers, accepted connector orientation/layering, zero overflow, exact temporary payload parity, HTTP `200`, and `git diff --check`.
+- Print produced `20/20` nonempty three-page PDFs. The official structure, Blank writing geometry, hidden answers, connector, and containment pass, but the progress checkbox and Previous/Next modal navigation remain visible on page 2. This is the sole remaining Batch 20 objective gate and must be handled as the next print-only correction.
+- MH remains `71` cards/unique source IDs with exact family counts `13/6/6/12/6/12/10/6`, all 10 A13 cards, `71` links, no duplicate IDs, and unchanged storage. Current hashes are MN `db5e819f5f748f5f46164814df8e0ef5764ff48390a5d2f6139c202c2efe191b`, MH `49e54d71200f5258c1d2a8614e7f9d4eda7d90d76150b80606bcd4be8d749b6b`, and AMS `ede17c7891d03528eeb564da9a4ac437d457a62519f23451f5b7ebab89fcb980`.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a13-blank-canon-batch20`. Automated QA is not user visual approval. Content population is paused. ATI source support used: none; design-only change. All four automations remain paused. Nothing was staged, committed, or pushed.
+
+**TLDR:** MH A13 Blank screen geometry now matches the accepted writing-surface canon; print study controls remain the only gate.
+
+**Next Recommendation:** The user should review the repaired MH A13 Blank screen and report approval or the first mismatch; the user should not commit or push yet.
+
+## Part 286 — MH A13 Blank Screen User Visual Approval
+
+- The user explicitly approved the repaired MH A13 Blank screen comparison. Preserve the five exact `120px` direct writing surfaces, compact nested Considerations roles, hidden answers, connector geometry, and responsive containment documented in Part 285.
+- This approval does not close Batch 20. A13 print still shows the progress checkbox and Previous/Next modal navigation; one print-only correction plus regenerated `20/20` PDF and final integrity validation remain required.
+- No product file changed. Current comparison remains `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a13-blank-canon-batch20`. Content population is paused. ATI source support used: none; design-only change. All four automations remain paused. Nothing was staged, committed, or pushed.
+
+**TLDR:** MH A13 Blank screen is user visually approved; print controls remain the sole open gate.
+
+**Next Recommendation:** Wait for the user's separate instruction before finishing the A13 print-only correction; the user should not commit or push yet.
+
+## Part 287 — MH A13 Nested Blank Repair / Prior Approval Withdrawn
+
+- The user withdrew Part 286 approval after identifying stacked MH A13 Blank nested Considerations roles at `42.59375px` title-only height. MH A13 is not user visually approved; Batch 20 remains in progress.
+- Both nested roles now retain exact `120px` writing surfaces in stacked screen and modal print. All 10 cards retain five exact `120px` direct surfaces, two exact `120px` stacked nested surfaces, hidden answers, and zero overflow; wide screen keeps the accepted compact nested relationship.
+- Responsive checks pass `1440`, exact `861/860`, `768`, exact `681/680`, exact `601/600`, and `390px`. Regenerated print passes `20/20` nonempty three-page PDFs with both nested Blank writing surfaces visible. The progress checkbox and Previous/Next navigation remain the sole separate print-control gate.
+- MH remains `71` cards/unique source IDs with exact counts `13/6/6/12/6/12/10/6`, all `10` A13 cards, `71` links, zero duplicate static IDs, and unchanged storage. Product/temporary/HTTP parity is SHA-256 `daceebac4374f1c48ce64a2fc93c6b8693d0beff65bcc28a345332f02689acf3`; product/comparison HTTP and `git diff --check` pass. Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a13-nested-blank-batch20-2`. Automated QA is not user visual approval. Content population is paused. ATI source support used: none; design-only change. All automations remain paused; nothing was staged, committed, or pushed.
+
+**TLDR:** MH A13 nested Blank roles now preserve usable writing space on stacked screen and in print; approval is reopened.
+
+**Next Recommendation:** The user should review the corrected nested Blank comparison and report approval or the first mismatch; the user should not commit or push yet.
+
+## Part 288 Current Gate — Heartbeat Reactivated / MH A13 Print Controls Next
+
+- `ati-retrospective-template-spacing-heartbeat` is **ACTIVE** every 30 minutes with a Part 287/288 recovery baseline. The three protected automations remain **PAUSED** and unchanged.
+- Batch 20 MH A13 remains in progress. Preserve all repaired direct and stacked nested Blank writing surfaces, hidden answers, connector layering, and intentional wide compact nested geometry. The only documented objective defect is print-only visibility of the progress checkbox and Previous/Next modal navigation.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a13-nested-blank-batch20-2`. Current hashes remain MN `db5e819f5f748f5f46164814df8e0ef5764ff48390a5d2f6139c202c2efe191b`, MH `daceebac4374f1c48ce64a2fc93c6b8693d0beff65bcc28a345332f02689acf3`, and AMS `ede17c7891d03528eeb564da9a4ac437d457a62519f23451f5b7ebab89fcb980`.
+- Complete Batches 20–24 before considering another book. Proceed beyond the current books only if the final objective audit proves an already canon-defined design-only book is necessary; otherwise pause and wait. Content population remains paused. ATI source support used: none; design-only change.
+
+**Next Recommendation:** Let the heartbeat resume Batch 20 MH A13 at the print-control gate; the user personally does not need to do anything and must not commit or push now.
+
+## Part 289 Current Gate — Heartbeat Paused / MH A13 Preserved
+
+- `ati-retrospective-template-spacing-heartbeat` is **PAUSED** by explicit user instruction. Its 30-minute schedule, Part 287/288 recovery prompt, and target task are preserved. The three protected automations remain **PAUSED** and unchanged.
+- Batch 20 MH A13 remains in progress at the print-only study-control gate. Preserve the repaired five direct and two stacked nested exact `120px` Blank roles and intentional compact wide nested geometry. Fresh user visual approval remains pending.
+- No product file changed and no new book began. Content population is paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed.
+
+**Next Recommendation:** Wait for the user's separate instruction before resuming Batch 20; the user personally does not need to commit or push.
+
+## Part 290 Current Gate — MH A13 Complete / Render-First Regimen Active
+
+- Batch 20 **MH A13 Therapeutic Procedure** is objectively complete. The A13 print-only correction suppresses progress, injected print, and Previous/Next modal controls while retaining the Worked Example source row. The prior five direct and two stacked nested exact `120px` Blank surfaces remain intact; wide nested roles remain intentionally compact.
+- All 10 cards pass `180/180` twice-stable Filled/Blank rendered states across `1440`, exact `861/860`, `768`, exact `681/680`, exact `601/600`, and `390px`, including spacing, corners, typography, official order, connector, hidden answers, endpoint, and overflow. Freshly named print outputs pass `20/20` PDFs, three pages each (`60` pages), with no study controls; all pages were rasterized and visually checked.
+- MH integrity passes `71` cards/unique IDs, exact counts `13/6/6/12/6/12/10/6`, 10 A13 cards, `71` resolving links, no duplicate static IDs, script parsing, unchanged storage, exact payload parity, HTTP `200`, and `git diff --check`. Current hashes are MN `db5e819f5f748f5f46164814df8e0ef5764ff48390a5d2f6139c202c2efe191b`, MH `e382ec4c944fa0bf14287ca95a03d949d843cbfde9f94a89ca7eb5add2f221c0`, and AMS `ede17c7891d03528eeb564da9a4ac437d457a62519f23451f5b7ebab89fcb980`.
+- The user accepted the **render-first objective equivalence regimen**. Routine family passes may advance without per-family user review only after fresh versioned code/DOM, computed-style, twice-stable geometry, screenshot/raster, actual PDF, payload, script, count, ID, link, storage, and diff evidence passes. Pre-existing QA outputs cannot count as fresh evidence. Automated QA is never user visual approval; user review remains required for conflicting evidence, subjective/new canon decisions, and the final representative handoff.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a13-canon-batch20-final`. Batch 21 **MN A15 Concept Analysis** is next but unstarted. `ati-retrospective-template-spacing-heartbeat` and the three protected automations remain **PAUSED** and unchanged. Content population is paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed.
+
+**Next Recommendation:** Begin Batch 21 MN A15 under the render-first objective regimen; the user personally does not need to act, commit, or push.
+
+## Part 291 Current Gate — Render-First Heartbeat Active
+
+- `ati-retrospective-template-spacing-heartbeat` is **ACTIVE** on the preserved 30-minute schedule and target task under an updated Part 290 recovery prompt. The prompt enforces one book/family per run, fresh versioned code/DOM, twice-stable geometry, screenshot/raster, and actual newly generated PDF evidence, and automatic queue advance only after the complete objective gate passes. Its automation TOML SHA-256 is `63030e6a5cd2036ac18dca4bb828abbe6539886f5e34c67dc4263e8286cdc10a`.
+- Batch 21 **MN A15 Concept Analysis** is active next and unstarted. Automated QA remains distinct from user visual approval; evidence conflicts, subjective/new-canon decisions, and the final representative cross-book handoff stop for the user.
+- Recovery remains branch `main`, HEAD `acef952339eab701e18762152f73ccddb9494419`, `0` ahead / `0` behind `origin/main`, exactly the same six tracked modifications, unchanged product hashes, and no stage, commit, or push. The current comparison remains `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=mh-a13-canon-batch20-final`.
+- `ati-build-guide-ai-spec-polish`, `ati-template-clipping-qa`, and `ati-pediatric-templates-design-polish` remain **PAUSED** and byte-unchanged. Content population is paused. ATI source support used: none; design-only change.
+
+**Next Recommendation:** Let the active heartbeat begin Batch 21 MN A15; the user personally does not need to act, commit, or push.
+
+## Part 292 Current Gate — MN A15 Complete / MH A15 Next
+
+- Batch 21 **MN A15 Concept Analysis** is objectively complete without a product correction. All nine cards pass Filled and Blank at `1440`, `768`, exact `721/720`, and `390px`: `90/90` twice-stable states, correct role typography and `14px` corners, five hidden-answer `120px` Blank surfaces per card, zero overflow, and the approximately `64px` endpoint. Automated QA is not user visual approval.
+- Fresh evidence is isolated under `/private/tmp/mn-a15-b21-292`: 36 new screenshots, 18 new PDFs totaling 28 pages, and 28 new PDF rasters. Representative wide/phone, first/last, Blank/Filled, and multipage outputs are legible and unclipped.
+- Integrity passes `197` MN cards/unique card IDs, `269` unique DOM IDs, nine A15 cards, nine tab/progress keys, nine resolving source links, four parseable scripts, unchanged storage keys, exact temporary payload parity, HTTP `200`, and `git diff --check`. Product hashes remain MN `db5e819f5f748f5f46164814df8e0ef5764ff48390a5d2f6139c202c2efe191b`, MH `e382ec4c944fa0bf14287ca95a03d949d843cbfde9f94a89ca7eb5add2f221c0`, and AMS `ede17c7891d03528eeb564da9a4ac437d457a62519f23451f5b7ebab89fcb980`.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mn-a15-mh-b21-292.html?v=mn-a15-b21-292-compare-fresh`. It uses exact current payloads and reports **Completed MN A15 loaded**.
+- Recovery remains branch `main`, HEAD `acef952339eab701e18762152f73ccddb9494419`, `0` ahead / `0` behind, exactly the same six tracked modifications, and no stage/commit/push. The retrospective heartbeat remains **ACTIVE**; the three protected automations remain **PAUSED** and byte-unchanged. Content population is paused. ATI source support used: none; design-only change.
+
+**Next Recommendation:** Let the active heartbeat begin Batch 22 MH A15; the user personally does not need to act, commit, or push.
+
+## Part 293 Current Gate — MH A15 Complete / AMS A15 Next
+
+- Batch 22 **MH A15 Concept Analysis** is objectively complete after one A15-scoped print-only correction. Fresh first/final PDF and twice-stable print-media evidence showed the progress checkbox and Previous/Next strip still visible; the existing A11/A13 control-free print rule now also covers A15 while retaining the Worked Example source row. No screen geometry, learner content, official structure, IDs, links, storage, accent, or other family changed.
+- All six cards pass Filled and Blank at `1440`, `768`, exact `721/720`, and `390px`: `60/60` twice-stable states. The accepted two-to-one column transition, `14px` corners, role typography/padding, five hidden-answer exact `120px` Blank surfaces, zero overflow, and approximately `64px` endpoint pass.
+- Fresh evidence under `/private/tmp/mh-a15-b22-293` includes 24 post-repair screenshots, `12/12` nonempty PDFs totaling 20 pages, and 20 fresh rasters. First/final controls are now `display:none`, extracted PDFs contain none of the Print/Filled/Blank/Previous/Next labels, and representative Filled/Blank pages are legible and unclipped.
+- Integrity passes `71` MH cards/unique card IDs, exact family counts `13/6/6/12/6/12/10/6`, `92` unique DOM IDs, six A15 cards/progress keys, six resolving source links, one parseable script, unchanged storage, exact temporary/HTTP payload parity, HTTP `200`, and `git diff --check`. Current hashes are MN `db5e819f5f748f5f46164814df8e0ef5764ff48390a5d2f6139c202c2efe191b`, MH `fb71575b0746719aa240a48f9d4e3742e525ecba7a1a65c245414a2067cbf2be`, and AMS `ede17c7891d03528eeb564da9a4ac437d457a62519f23451f5b7ebab89fcb980`.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-a15-mn-b22-293-post.html?v=mh-a15-b22-293-post-repair`. It reports **Completed MH A15 loaded**. Automated QA is not user visual approval. The retrospective heartbeat remains active; the three protected automations remain paused and byte-unchanged. Content population is paused. ATI source support used: none; design-only change. Nothing was staged, committed, or pushed.
+
+**Next Recommendation:** Let the active heartbeat begin Batch 23 AMS A15; the user personally does not need to act, commit, or push.
+
+## Part 294 Current Gate — AMS A15 Complete / Final Integrity Audit Next
+
+- Batch 23 **AMS A15 Concept Analysis** is objectively complete after one A15-scoped print-only correction. Fresh print evidence showed the progress checkbox and Previous/Next navigation still visible; AMS A15 now follows the accepted control-free print canon while retaining the Worked Example/source row. Screen geometry, official structure, learner content, counts, IDs, links, storage, accent, and other families are unchanged. Automated QA is not user visual approval.
+- The source-neutral A15 fixture passes Filled and Blank at `1440`, `768`, exact `721/720`, and `390px`: `10/10` twice-stable states. The accepted column transition, `18px` metadata separation, `14px` gaps/corners, role typography/padding, exact two-row metadata, five official roles, five hidden-answer exact `120px` Blank writing surfaces, zero overflow, and exact `64px` endpoint pass.
+- Fresh evidence under `/private/tmp/ams-a15-b23-294` includes four post-repair screen screenshots, two new Letter PDFs totaling four pages, and four fresh PDF rasters. Print controls now compute to `display:none`; extracted PDFs contain no Print/Filled/Blank/Previous/Next/browser-header labels; all pages preserve official roles and usable Blank space without clipping or overlap.
+- Integrity passes `84` AMS cards/unique card IDs, the labeled family counts `21/8/1/16/4/16/17/1`, `105` unique DOM IDs, exactly one A15 fixture, five official titles in order, `76` resolving source links, one parseable product script, one parseable comparison script, unchanged storage, empty direct-run runtime errors, exact temporary/HTTP payload parity, HTTP `200`, and `git diff --check`. Current hashes are MN `db5e819f5f748f5f46164814df8e0ef5764ff48390a5d2f6139c202c2efe191b`, MH `fb71575b0746719aa240a48f9d4e3742e525ecba7a1a65c245414a2067cbf2be`, and AMS `8321c142e9d62e247d1e098b56702d8ed187492facfd4c451f56eaa4fb21f213`.
+- Current comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-a15-mn-b23-294.html?v=ams-a15-b23-294-post-2`. It reports **Completed AMS A15 loaded**. Recovery remains `main` at `acef952339eab701e18762152f73ccddb9494419`, `0/0`, exactly six expected tracked modifications, and no stage/commit/push/new book. The retrospective heartbeat remains active; all three protected automations remain paused and byte-unchanged. Batch 24 final cross-book integrity handoff is active next and unstarted.
+
+**Next Recommendation:** Let the active heartbeat begin Batch 24 final cross-book integrity audit; the user personally does not need to act, commit, or push.
+
+## Part 295 Current Gate — Final Integrity Complete / User Review Pending
+
+- Batch 24 is **OBJECTIVELY COMPLETE**; Batches 0–24 are objectively complete. Preserve all existing user-visual-approval distinctions. Automated QA is not user visual approval.
+- Fresh cross-book evidence under `/private/tmp/cross-book-b24-295` passed representative MN/MH/AMS A15 Filled/Blank at `1440`, `768`, and `390px`: all `18/18` comparison states and all `6/6` corrected MN states were twice stable, contained, overflow-free, answer-free in Blank, and retained the exact `64px` endpoint. Twelve fresh screen captures were inspected.
+- Fresh MN A15 print revealed one existing-canon defect: progress and injected Print remained visible. One A15 print-only correction now applies the accepted A11/A13/MH/AMS control-free rule to MN while preserving the Worked Example/source row. No educational content, official structure, count, link, storage, identity, screen geometry, or other family changed.
+- Six fresh final PDFs and all page rasters pass: MN `3/1`, MH `2/1`, and AMS `3/1` Filled/Blank pages. All are nonempty, unclipped, structurally complete, free of Print/Filled/Blank/Previous/Next/browser-header labels, and preserve usable Blank surfaces. Corrected MN controls twice compute to `display:none`.
+- Final integrity passes MN `197` cards / `270` unique IDs / `197` links / `4` scripts; MH `71` / `92` / `71` / `1`; AMS `84` / `105` / `76` / `1`; exact family counts, no duplicate IDs or bad links, unchanged storage, exact temporary/HTTP payload parity, HTTP `200`, and `git diff --check`. Final hashes are MN `2aa966a6c94a5b59fb37a7d530a4fc6d23b5bda6aad94b4ece6aa7d73e7e10c9`, MH `fb71575b0746719aa240a48f9d4e3742e525ecba7a1a65c245414a2067cbf2be`, and AMS `8321c142e9d62e247d1e098b56702d8ed187492facfd4c451f56eaa4fb21f213`.
+- Final comparison: `http://127.0.0.1:8766/cross-book-b24-295/elevated-ati-final-cross-book-a15-b24-295.html?v=b24-295-final`. The retrospective heartbeat is paused at SHA-256 `644a0219a75eec685b801e8669f3da6d14bfd7bda7b7ffc543ea3b32407d0bc1` for this final visual handoff; all three protected automations remain paused and byte-unchanged. Recovery is `main`, HEAD `acef952339eab701e18762152f73ccddb9494419`, `0/0`, exactly six expected tracked modifications, no stage/commit/push, and no objectively necessary new book.
+
+**Next Recommendation:** The user should personally review the final cross-book comparison and report approval or the first mismatch; the user should not commit or push yet.
+
+## Part 296 Current Gate — Two-Pane Final Review / MN A15 First
+
+- The user rejected the three-column final-review page and specified one template family/pair at a time. This changes only the temporary review interface; product files and objective Batch 24 evidence remain unchanged.
+- Step 1 comparison: `http://127.0.0.1:8766/cross-book-b24-295/elevated-ati-review-mn-a15-vs-mh-b24-296.html?v=b24-296-two-pane`. It presents exact current MN A15 and MH A15 payloads in two equal panes, opens the intended representative cards, and synchronizes Filled/Blank. Fresh visible checks passed both modes; the page is left in Filled.
+- Stop after this pair. Do not show MN/MH/AMS simultaneously and do not advance to another template/pair before the user approves MN A15 or reports the first mismatch.
+- Batches 0–24 remain objectively complete; final user visual approval is pending. Product hashes, paused automation states, recovery state, and no-stage/no-commit/no-push status remain as documented in Part 295.
+
+**Next Recommendation:** The user should review only the MN A15 Filled comparison and report approval or the first mismatch; the user should not review another template yet.
+
+## Part 297 Current Gate — MN A15 Filled Approved / Blank Next
+
+- The user explicitly approved MN A15 Filled against the MH reference and accepted the shared `24px + 40px = 64px` on-screen endpoint. This endpoint is cross-family canon, not A15-specific.
+- MN A15 Blank is the only active visual-review step. Do not advance to another template family/pair until it is resolved.
+- No product or canon value changed. Batches 0–24 remain objectively complete; hashes, paused automations, recovery state, and no-stage/no-commit/no-push status remain current.
+- Comparison: `http://127.0.0.1:8766/cross-book-b24-295/elevated-ati-review-mn-a15-vs-mh-b24-296.html?v=b24-296-two-pane`.
+
+**Next Recommendation:** The user should switch the current comparison to Blank and review only MN A15 Blank; no other template should be reviewed yet.
+
+## Part 298 Current Gate — MN A15 Approved / MH A15 Filled Next
+
+- The user approved MN A15 Blank; MN A15 is now user visually approved in Filled and Blank with the shared `64px` endpoint retained.
+- Active comparison: `http://127.0.0.1:8766/cross-book-b24-295/elevated-ati-review-mh-a15-vs-mn-b24-298.html?v=b24-298-two-pane`. Exact current MH is left, approved MN is right, and Filled/Blank synchronization passed fresh visible checks. The page is left in Filled.
+- Review only MH A15 Filled. Do not advance to Blank or another template/pair until the user resolves it.
+- No product change; objective completion, hashes, paused automations, recovery state, and no-stage/no-commit/no-push status remain current.
+
+**Next Recommendation:** The user should review only MH A15 Filled and report approval or the first mismatch; no other mode or template should be reviewed yet.
+
+## Part 299 Current Gate — MH A15 Filled Approved / Blank Next
+
+- The user explicitly approved MH A15 Filled against MN. MH A15 Blank is the only active visual-review step.
+- Continue at `http://127.0.0.1:8766/cross-book-b24-295/elevated-ati-review-mh-a15-vs-mn-b24-298.html?v=b24-298-two-pane`; switch to Blank and review only the left MH pane.
+- No product change; objective completion, hashes, paused automations, recovery state, and no-stage/no-commit/no-push status remain current.
+
+**Next Recommendation:** The user should switch the current comparison to Blank and review only MH A15 Blank; no other template should be reviewed yet.
+
+## Part 300 Current Gate — MH A15 Approved / AMS A15 Filled Next
+
+- The user approved MH A15 Blank; MH A15 is now user visually approved in Filled and Blank.
+- Active comparison: `http://127.0.0.1:8766/cross-book-b24-295/elevated-ati-review-ams-a15-vs-mn-b24-300.html?v=b24-300-two-pane`. Exact current AMS is left, approved MN is right, and Filled/Blank synchronization passed fresh visible checks. The page is left in Filled.
+- Review only AMS A15 Filled. Do not advance to Blank or final approval until the user resolves it.
+- No product change; objective completion, hashes, paused automations, recovery state, and no-stage/no-commit/no-push status remain current.
+
+**Next Recommendation:** The user should review only AMS A15 Filled and report approval or the first mismatch; no other mode should be reviewed yet.
+
+## Part 301 Current Gate — AMS A15 Filled Approved / Blank Final
+
+- The user explicitly approved AMS A15 Filled against MN. AMS A15 Blank is the only remaining representative visual-review step.
+- Continue at `http://127.0.0.1:8766/cross-book-b24-295/elevated-ati-review-ams-a15-vs-mn-b24-300.html?v=b24-300-two-pane`; switch to Blank and review only the left AMS pane.
+- No product change; objective completion, hashes, paused automations, recovery state, and no-stage/no-commit/no-push status remain current.
+
+**Next Recommendation:** The user should switch the current comparison to Blank and review only AMS A15 Blank; no other action should be taken yet.
+
+## Part 302 Current Gate — Final Representative Visual Review Complete
+
+- The user approved AMS A15 Blank. MN A15, MH A15, and AMS A15 are now user visually approved in Filled and Blank under the one-template/two-pane protocol.
+- This completes the final representative cross-book visual handoff after Batches 0–24 objectively passed. Do not retroactively label any other automated family pass as user visually approved.
+- No product file changed during the review. Final hashes remain MN `2aa966a6c94a5b59fb37a7d530a4fc6d23b5bda6aad94b4ece6aa7d73e7e10c9`, MH `fb71575b0746719aa240a48f9d4e3742e525ecba7a1a65c245414a2067cbf2be`, and AMS `8321c142e9d62e247d1e098b56702d8ed187492facfd4c451f56eaa4fb21f213`.
+- The retrospective heartbeat and three protected automations remain paused. Recovery remains `main`, HEAD `acef952339eab701e18762152f73ccddb9494419`, `0/0`, six expected tracked modifications, and no stage/commit/push/new book.
+
+**Next Recommendation:** Perform a read-only final diff/status review, then wait for separate user authorization before any commit or push; the user does not need to inspect another template.
