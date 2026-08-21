@@ -837,25 +837,33 @@
 /* Canon A1 Basic Concept: official 3-column ATI layout, styled with MN modal discipline and book accent colors. */
 .modal-template-card[data-template-type="basic-concept"]{
   max-width:var(--tpl-template-width);
-  margin:0 auto;
+  margin:0 auto 24px;
 }
 .modal-template-card[data-template-type="basic-concept"] > dl.template-meta{
   margin-bottom:18px;
 }
 .modal-template-card[data-template-type="basic-concept"] .bc-grid{
-  gap:12px;
+  gap:14px;
 }
 .modal-template-card[data-template-type="basic-concept"] .bc-grid .tp-box{
-  min-height:330px;
-  border-radius:10px;
+  min-height:280px;
+  border-radius:14px;
 }
 .modal-template-card[data-template-type="basic-concept"] .bc-grid .tp-box > h3{
-  padding:10px 14px;
+  padding:11px 16px;
+  line-height:24px;
 }
 .modal-template-card[data-template-type="basic-concept"] .bc-grid .tp-box > .content{
   padding:var(--tpl-box-pad-y) var(--tpl-box-pad-x) calc(var(--tpl-box-pad-y) + 2px);
-  font-size:var(--tpl-dense-body-size);
-  line-height:1.5;
+  font-size:16px;
+  line-height:1.6;
+  font-weight:400;
+  letter-spacing:0;
+}
+.modal-template-card[data-template-type="basic-concept"] .bc-grid .tp-box > .content :where(p, li, table, th, td){
+  font-size:inherit !important;
+  line-height:inherit;
+  letter-spacing:0;
 }
 .modal-template-card[data-template-type="basic-concept"] .bc-grid .tp-box > .content li{
   margin-bottom:9px;
@@ -1694,38 +1702,48 @@
 }
 .modal-template-card[data-template-type="concept-analysis"]{
   max-width:var(--tpl-template-width);
-  margin:0 auto;
+  margin:0 auto 24px;
 }
 .modal-template-card[data-template-type="concept-analysis"] > dl.template-meta{
-  margin-bottom:12px;
+  margin-bottom:18px;
 }
 .modal-template-card[data-template-type="concept-analysis"] .ca-grid{
-  gap:12px;
+  gap:14px;
   align-items:stretch;
 }
-.modal-template-card[data-template-type="concept-analysis"] .ca-grid > .defining{
-  min-height:112px;
-}
-.modal-template-card[data-template-type="concept-analysis"] .ca-grid > .antecedents,
-.modal-template-card[data-template-type="concept-analysis"] .ca-grid > .consequences,
-.modal-template-card[data-template-type="concept-analysis"] .ca-grid > .related,
-.modal-template-card[data-template-type="concept-analysis"] .ca-grid > .exemplars{
-  min-height:240px;
-  height:100%;
-}
 .modal-template-card[data-template-type="concept-analysis"] .ca-grid .tp-box{
-  border-radius:10px;
+  min-height:0;
+  height:auto;
+  border-radius:14px;
 }
 .modal-template-card[data-template-type="concept-analysis"] .ca-grid .tp-box > h3{
-  padding:10px var(--tpl-box-pad-x);
+  padding:11px var(--tpl-box-pad-x);
+  font-family:'DM Serif Display',serif;
+  font-size:15px;
+  line-height:24px;
+  font-weight:400;
+  letter-spacing:0;
 }
 .modal-template-card[data-template-type="concept-analysis"] .ca-grid .tp-box > .content{
   padding:var(--tpl-box-pad-y) var(--tpl-box-pad-x) calc(var(--tpl-box-pad-y) + 2px);
-  font-size:var(--tpl-dense-body-size);
-  line-height:1.5;
+  font-family:'DM Sans',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  font-weight:400;
+  letter-spacing:0;
+}
+.modal-template-card[data-template-type="concept-analysis"] .ca-grid .tp-box > .content p,
+.modal-template-card[data-template-type="concept-analysis"] .ca-grid .tp-box > .content ul,
+.modal-template-card[data-template-type="concept-analysis"] .ca-grid .tp-box > .content ol,
+.modal-template-card[data-template-type="concept-analysis"] .ca-grid .tp-box > .content li{
+  font:inherit;
+  letter-spacing:0;
 }
 .modal-template-card[data-template-type="concept-analysis"] .ca-grid .content li{
   margin-bottom:7px;
+}
+.modal-template-card[data-template-type="concept-analysis"][data-mode="blank"] .ca-grid .tp-box{
+  min-height:120px;
 }
 .modal-template-card .ca-grid > .defining{grid-area:defining}
 .modal-template-card .ca-grid > .antecedents{grid-area:antecedents}
@@ -1771,7 +1789,21 @@ body.modal-open{
   overflow:hidden;
 }
 @media print{
-  body.printing-modal > *:not(#templateModal){display:none!important}
+  /* Keep the modal's complete ancestor chain in print layout. The modal is
+     nested under .page > .template-main, so hide siblings at each ancestor. */
+  body.printing-modal > *:not(.page.template-layout),
+  body.printing-modal > .page.template-layout > *:not(.template-main),
+  body.printing-modal > .page.template-layout > .template-main > *:not(#templateModal){
+    display:none!important;
+  }
+  body.printing-modal > .page.template-layout,
+  body.printing-modal > .page.template-layout > .template-main{
+    display:block!important;
+    width:100%!important;
+    min-height:0!important;
+    margin:0!important;
+    padding:0!important;
+  }
   body.printing-modal #templateModal{
     position:static!important;
     display:block!important;
@@ -1792,9 +1824,14 @@ body.modal-open{
     overflow:visible!important;
     padding:0!important;
   }
+  body.printing-modal #templateModal .modal-body > .example-card{
+    margin-bottom:0!important;
+  }
   body.printing-modal #templateModal .modal-actions,
   body.printing-modal #templateModal .mode-toggle,
-  body.printing-modal #templateModal .part-print-btn{
+  body.printing-modal #templateModal .part-print-btn,
+  body.printing-modal #templateModal .example-check,
+  body.printing-modal #templateModal .template-modal-nav{
     display:none!important;
   }
   body.printing-modal #templateModal .example-card{
@@ -1806,6 +1843,21 @@ body.modal-open{
   body.printing-modal #templateModal .tp-box,
   body.printing-modal #templateModal .tpl-group{
     page-break-inside:avoid;
+  }
+  body.printing-modal #templateModal .modal-template-card[data-template-type="basic-concept"],
+  body.printing-modal #templateModal .modal-template-card[data-template-type="basic-concept"] .tp-box{
+    break-inside:auto;
+    page-break-inside:auto;
+  }
+  body.printing-modal #templateModal .modal-template-card[data-template-type="basic-concept"] .tp-box > h3{
+    break-after:avoid-page;
+    page-break-after:avoid;
+  }
+  body.printing-modal #templateModal .modal-template-card[data-template-type="basic-concept"] .bc-grid{
+    display:block;
+  }
+  body.printing-modal #templateModal .modal-template-card[data-template-type="basic-concept"] .bc-grid > .tp-box + .tp-box{
+    margin-top:14px;
   }
   body.printing-template-group{
     background:#fff!important;
@@ -2577,6 +2629,1058 @@ body.modal-open{
   .modal-template-card .med-body{flex-direction:column}
   .modal-template-card .med-ni::after,
   .modal-template-card .tp-grid > .complications::after{display:none}
+}
+@media(max-width:860px){
+  .modal-body:has(> .modal-template-card[data-template-type="basic-concept"]){
+    padding-bottom:40px;
+  }
+  .modal-body:has(> .modal-template-card[data-template-type="concept-analysis"]){
+    padding-bottom:40px;
+  }
+  .modal-template-card[data-template-type="basic-concept"] .bc-grid .tp-box{
+    min-height:auto;
+  }
+}
+.modal-template-card[data-template-type="basic-concept"][data-mode="blank"] .bc-grid .tp-box{
+  min-height:120px;
+}
+@media(min-width:601px) and (max-width:900px){
+  .modal-template-card[data-template-type="basic-concept"] .bc-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media(max-width:600px){
+  .modal-template-card[data-template-type="basic-concept"] .bc-grid{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+@media(min-width:721px) and (max-width:860px){
+  .modal-template-card[data-template-type="concept-analysis"] .ca-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-areas:
+      "defining defining"
+      "antecedents consequences"
+      "related exemplars";
+  }
+}
+/* Retrospective A3 existing-canon repair: shared procedure geometry, writing surfaces, rail, and connector. */
+.modal-template-card[data-template-type="diagnostic-procedure"]{
+  margin:0 auto 24px;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] > dl.template-meta{
+  margin-bottom:18px;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid{
+  --tp-gap:14px;
+  --tp-connector-overlap:10px;
+  gap:var(--tp-gap);
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-areas:
+    "description description"
+    "indications considerations"
+    "outcomes considerations"
+    "complications nursing-interventions";
+  align-items:stretch;
+  isolation:isolate;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .tp-box{
+  min-height:0;
+  height:auto;
+  border-radius:14px;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .tp-box > h3{
+  padding:11px 16px;
+  line-height:24px;
+  border-top-left-radius:13px;
+  border-top-right-radius:13px;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .tp-box > .content{
+  padding:14px 16px 16px;
+  font-family:var(--tpl-font-body);
+  font-size:16px;
+  font-weight:400;
+  line-height:1.6;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .considerations{
+  min-height:0;
+  height:auto;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  padding:10px;
+  border-radius:16px;
+  align-items:stretch;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .considerations .considerations-top{
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .considerations .tp-subbox,
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .considerations .client-education{
+  flex:0 0 auto;
+  min-height:0;
+  height:auto;
+  border-radius:11px;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid .tp-subbox > h4{
+  padding:9px 14px;
+  line-height:21.6px;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid .tp-subbox > .content{
+  padding:12px 14px 14px;
+  font-family:var(--tpl-font-body);
+  font-size:16px;
+  font-weight:400;
+  line-height:1.6;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid :is(.tp-box,.tp-subbox) > .content :where(p,li,ul,ol,table,th,td){
+  font-family:inherit !important;
+  font-size:inherit !important;
+  line-height:inherit !important;
+  font-weight:400;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .considerations-label{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin:0;
+  padding:0;
+  color:var(--text2);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.16em;
+  line-height:1.2;
+  text-align:center;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .considerations-label::before,
+.modal-template-card[data-template-type="diagnostic-procedure"] .considerations-label::after{
+  content:"";
+  flex:1 1 0;
+  min-width:0;
+  height:1px;
+  background:var(--border);
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .complications::after{
+  display:block;
+  top:50%;
+  right:calc(-1 * (var(--tp-gap) + var(--tp-connector-overlap)));
+  bottom:auto;
+  left:auto;
+  width:calc(var(--tp-gap) + 2 * var(--tp-connector-overlap));
+  height:3px;
+  transform:translateY(-50%);
+  z-index:-1;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"][data-mode="blank"] .tp-grid > .tp-box,
+.modal-template-card[data-template-type="diagnostic-procedure"][data-mode="blank"] .tp-grid > .considerations .tp-subbox{
+  min-height:120px;
+}
+@media(max-width:860px){
+  .modal-body:has(> .modal-template-card[data-template-type="diagnostic-procedure"]){
+    padding-bottom:40px;
+  }
+  .modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid{
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:
+      "description"
+      "considerations"
+      "indications"
+      "outcomes"
+      "complications"
+      "nursing-interventions";
+  }
+  .modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .complications::after{
+    display:block;
+    top:auto;
+    right:auto;
+    bottom:calc(-1 * (var(--tp-gap) + var(--tp-connector-overlap)));
+    left:50%;
+    width:3px;
+    height:calc(var(--tp-gap) + 2 * var(--tp-connector-overlap));
+    transform:translateX(-50%);
+  }
+}
+/* Retrospective A7 existing-canon repair: shared Medication hierarchy,
+   responsive transition, section rail, writing surfaces, and endpoint. */
+.modal-template-card[data-template-type="medication"]{
+  margin:0 auto 24px;
+}
+.modal-template-card[data-template-type="medication"] > dl.template-meta{
+  margin-bottom:18px;
+}
+.modal-template-card[data-template-type="medication"] .med-grid{
+  gap:14px;
+}
+.modal-template-card[data-template-type="medication"] .purpose-group{
+  padding:10px;
+  border-radius:16px;
+}
+.modal-template-card[data-template-type="medication"] .purpose-group > .tpl-group-label{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin:0;
+  padding:0;
+  color:var(--text2);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.16em;
+  line-height:1.2;
+  text-align:center;
+  text-transform:uppercase;
+}
+.modal-template-card[data-template-type="medication"] .purpose-group > .tpl-group-label::before,
+.modal-template-card[data-template-type="medication"] .purpose-group > .tpl-group-label::after{
+  content:"";
+  flex:1 1 0;
+  min-width:0;
+  height:1px;
+  background:var(--border);
+}
+.modal-template-card[data-template-type="medication"] .purpose-group .tpl-group-body{
+  gap:10px;
+}
+.modal-template-card[data-template-type="medication"] .purpose-group .tp-box{
+  min-height:0;
+  border-radius:11px;
+}
+.modal-template-card[data-template-type="medication"] .med-body{
+  --med-gap:14px;
+  --connector-overlap:10px;
+  gap:var(--med-gap);
+  align-items:stretch;
+}
+.modal-template-card[data-template-type="medication"] .med-col-left,
+.modal-template-card[data-template-type="medication"] .med-col-right{
+  gap:var(--med-gap);
+}
+.modal-template-card[data-template-type="medication"] .med-col-right{
+  position:relative;
+  isolation:isolate;
+}
+.modal-template-card[data-template-type="medication"] .med-body .tp-box{
+  min-height:0;
+  border-radius:14px;
+  overflow:visible;
+  position:relative;
+  z-index:auto;
+}
+.modal-template-card[data-template-type="medication"] .med-col-right .tp-box{
+  min-height:0;
+}
+.modal-template-card[data-template-type="medication"] .purpose-group .tp-box > h3,
+.modal-template-card[data-template-type="medication"] .purpose-group .tp-box > h4{
+  padding:10px 16px;
+  border-top-left-radius:0;
+  border-top-right-radius:0;
+  line-height:17.25px;
+}
+.modal-template-card[data-template-type="medication"] .med-body .tp-box > h3{
+  padding:11px 16px;
+  border-top-left-radius:13px;
+  border-top-right-radius:13px;
+  line-height:24px;
+}
+.modal-template-card[data-template-type="medication"] .med-grid .tp-box > .content,
+.modal-template-card[data-template-type="medication"] .med-body .tp-box > .content{
+  padding:14px 16px 16px;
+  font-family:var(--tpl-font-body);
+  font-size:16px;
+  line-height:1.6;
+  font-weight:400;
+  letter-spacing:0;
+}
+.modal-template-card[data-template-type="medication"] .med-grid .tp-box > .content :where(p,li,ul,ol,table,th,td){
+  font-family:inherit !important;
+  font-size:inherit !important;
+  line-height:inherit !important;
+  font-weight:400;
+  letter-spacing:0;
+}
+.modal-template-card[data-template-type="medication"] .med-grid .content li,
+.modal-template-card[data-template-type="medication"] .med-body .content li{
+  margin-bottom:6px;
+}
+.modal-template-card[data-template-type="medication"] .med-ni::after{
+  display:block;
+  width:3px;
+  height:calc(var(--med-gap) + 2 * var(--connector-overlap));
+  z-index:-1;
+}
+.modal-template-card[data-template-type="medication"][data-mode="blank"] .med-grid .tp-box{
+  height:120px;
+  min-height:120px;
+  max-height:120px;
+}
+.modal-template-card[data-template-type="medication"][data-mode="blank"] .med-body{
+  align-items:flex-start;
+}
+.modal-template-card[data-template-type="medication"][data-mode="blank"] .med-col-left > .tp-box:last-child,
+.modal-template-card[data-template-type="medication"][data-mode="blank"] .med-col-right > .tp-box:last-child{
+  flex-grow:0;
+}
+@media(min-width:681px) and (max-width:860px){
+  .modal-template-card[data-template-type="medication"] .med-body{
+    flex-direction:row;
+  }
+}
+@media(max-width:680px){
+  .modal-template-card[data-template-type="medication"] .med-body{
+    flex-direction:column;
+  }
+}
+@media(max-width:860px){
+  .modal-body:has(> .modal-template-card[data-template-type="medication"]){
+    padding-bottom:40px;
+  }
+}
+/* Retrospective A9 existing-canon repair: official Nursing Skill hierarchy,
+   681/680 transition, section rail, writing surfaces, connector, and endpoint. */
+.modal-template-card[data-template-type="nursing-skill"]{
+  margin:0 auto 24px;
+}
+.modal-template-card[data-template-type="nursing-skill"] > dl.template-meta{
+  margin-bottom:18px;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid{
+  --tp-gap:14px;
+  --tp-connector-overlap:10px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-areas:
+    "description description"
+    "indications considerations"
+    "outcomes considerations"
+    "complications nursing-interventions";
+  gap:var(--tp-gap);
+  align-items:stretch;
+  isolation:isolate;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .tp-box{
+  min-height:0;
+  height:auto;
+  border-radius:14px;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .tp-box > h3{
+  padding:11px 16px;
+  border-top-left-radius:13px;
+  border-top-right-radius:13px;
+  font-family:var(--tpl-font-display);
+  font-size:15px;
+  line-height:24px;
+  font-weight:400;
+  letter-spacing:0;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .tp-box > .content{
+  padding:14px 16px 16px;
+  font-family:var(--tpl-font-body);
+  font-size:16px;
+  line-height:1.6;
+  font-weight:400;
+  letter-spacing:0;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .considerations{
+  min-height:0;
+  height:auto;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:10px;
+  padding:14px;
+  border-radius:16px;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .considerations > .considerations-label{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin:0;
+  padding:0;
+  color:var(--text2);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.16em;
+  line-height:1.2;
+  text-align:center;
+  text-transform:uppercase;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .considerations > .considerations-label::before,
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .considerations > .considerations-label::after{
+  content:"";
+  flex:1 1 0;
+  min-width:0;
+  height:1px;
+  background:var(--border);
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .considerations > .tp-subbox{
+  flex:0 1 auto;
+  min-height:0;
+  height:auto;
+  border-radius:11px;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .considerations > .tp-subbox > h4{
+  padding:9px 14px;
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  font-family:var(--tpl-font-display);
+  font-size:13.5px;
+  line-height:21.6px;
+  font-weight:400;
+  letter-spacing:0;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .considerations > .tp-subbox > .content{
+  padding:12px 14px 14px;
+  font-family:var(--tpl-font-body);
+  font-size:16px;
+  line-height:1.6;
+  font-weight:400;
+  letter-spacing:0;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid :is(.tp-box,.tp-subbox) > .content :where(p,li,ul,ol,table,th,td){
+  font-family:inherit !important;
+  font-size:inherit !important;
+  line-height:inherit !important;
+  font-weight:400;
+  letter-spacing:0;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid .content li{
+  margin-bottom:6px;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .complications{
+  position:relative;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .complications::after{
+  display:block;
+  top:50%;
+  right:calc(-1 * (var(--tp-gap) + var(--tp-connector-overlap)));
+  bottom:auto;
+  left:auto;
+  width:calc(var(--tp-gap) + 2 * var(--tp-connector-overlap));
+  height:3px;
+  transform:translateY(-50%);
+  z-index:-1;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .complications::before{
+  content:"";
+  position:absolute;
+  top:50%;
+  right:calc(-1 * (var(--tp-gap) + 1px));
+  width:var(--tp-gap);
+  height:3px;
+  transform:translateY(-50%);
+  background:var(--text3);
+  border-radius:1px;
+  pointer-events:none;
+  z-index:0;
+}
+.modal-template-card[data-template-type="nursing-skill"][data-mode="blank"] .tp-grid > .tp-box,
+.modal-template-card[data-template-type="nursing-skill"][data-mode="blank"] .tp-grid > .considerations > .tp-subbox{
+  min-height:120px;
+}
+@media(min-width:681px) and (max-width:860px){
+  .modal-template-card[data-template-type="nursing-skill"] .tp-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media(max-width:680px){
+  .modal-template-card[data-template-type="nursing-skill"] .tp-grid{
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:
+      "description"
+      "considerations"
+      "indications"
+      "outcomes"
+      "complications"
+      "nursing-interventions";
+  }
+  .modal-template-card[data-template-type="nursing-skill"] .tp-grid > .complications::after{
+    top:auto;
+    right:auto;
+    bottom:calc(-1 * (var(--tp-gap) + var(--tp-connector-overlap)));
+    left:50%;
+    width:3px;
+    height:calc(var(--tp-gap) + 2 * var(--tp-connector-overlap));
+    transform:translateX(-50%);
+    z-index:-1;
+  }
+  .modal-template-card[data-template-type="nursing-skill"] .tp-grid > .complications::before{
+    top:auto;
+    right:auto;
+    bottom:calc(-1 * (var(--tp-gap) + 1px));
+    left:50%;
+    width:3px;
+    height:var(--tp-gap);
+    transform:translateX(-50%);
+    z-index:0;
+  }
+}
+@media(max-width:860px){
+  .modal-body:has(> .modal-template-card[data-template-type="nursing-skill"]){
+    padding-bottom:40px;
+  }
+}
+
+/* Retrospective A11 existing-canon repair: shared endpoint, exact responsive
+   transition, section rails, role hierarchy, equal care columns, and Blank
+   writing surfaces while preserving Pharm content and identity. */
+.modal-template-card[data-template-type="system-disorder"]{
+  margin:0 auto 24px;
+}
+.modal-template-card[data-template-type="system-disorder"] > dl.template-meta{
+  margin-bottom:18px;
+}
+.modal-template-card[data-template-type="system-disorder"] .sd-grid{
+  grid-template-columns:2fr 1fr;
+  gap:14px;
+}
+.modal-template-card[data-template-type="system-disorder"] .sd-top-row,
+.modal-template-card[data-template-type="system-disorder"][data-mode="filled"] .sd-top-row{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+.modal-template-card[data-template-type="system-disorder"] .sd-top-row > .tp-box{
+  min-height:120px;
+  border-radius:14px;
+}
+.modal-template-card[data-template-type="system-disorder"] .assessment-group,
+.modal-template-card[data-template-type="system-disorder"] .patient-care-group{
+  border-radius:16px;
+  padding:14px 14px 16px;
+  gap:10px;
+}
+.modal-template-card[data-template-type="system-disorder"] .assessment-group .tpl-group-body{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.modal-template-card[data-template-type="system-disorder"] .assessment-group .tp-box,
+.modal-template-card[data-template-type="system-disorder"] .patient-care-group .tp-box{
+  min-height:168px;
+  border-radius:11px;
+}
+.modal-template-card[data-template-type="system-disorder"] .safety-group{
+  min-height:100%;
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  grid-template-rows:repeat(2,minmax(max-content,1fr));
+  gap:14px;
+  padding:14px 14px 16px;
+  border-radius:16px;
+}
+.modal-template-card[data-template-type="system-disorder"] .sd-safety-main{
+  grid-row:1;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  min-height:max-content;
+  padding:0;
+}
+.modal-template-card[data-template-type="system-disorder"] .safety-area{
+  flex:none;
+  min-width:0;
+  min-height:max-content;
+  overflow-wrap:anywhere;
+  padding:4px 4px 0;
+  font-size:var(--tpl-dense-body-size);
+  line-height:1.55;
+}
+.modal-template-card[data-template-type="system-disorder"] .safety-group > .tp-box{
+  min-height:168px;
+  border-radius:11px;
+}
+.modal-template-card[data-template-type="system-disorder"] .safety-group > .sd-complications{
+  grid-row:2;
+  min-height:max-content;
+  height:auto;
+  border-radius:11px;
+}
+.modal-template-card[data-template-type="system-disorder"] .patient-care-group .tpl-group-body,
+.modal-template-card[data-template-type="system-disorder"][data-mode="filled"] .patient-care-group .tpl-group-body{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-areas:
+    "nursing-care medications client-education"
+    "therapeutic-procedures medications interprofessional-care";
+  gap:10px;
+}
+.modal-template-card[data-template-type="system-disorder"]
+  .sd-grid .tpl-group > .tpl-group-label,
+.modal-template-card[data-template-type="system-disorder"]
+  .sd-grid .safety-group .sd-safety-main > .tpl-group-label{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin:0;
+  padding:0;
+  color:var(--text2);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.16em;
+  line-height:1.2;
+  text-align:center;
+  text-transform:uppercase;
+}
+.modal-template-card[data-template-type="system-disorder"]
+  .sd-grid .tpl-group > .tpl-group-label::before,
+.modal-template-card[data-template-type="system-disorder"]
+  .sd-grid .tpl-group > .tpl-group-label::after,
+.modal-template-card[data-template-type="system-disorder"]
+  .sd-grid .safety-group .sd-safety-main > .tpl-group-label::before,
+.modal-template-card[data-template-type="system-disorder"]
+  .sd-grid .safety-group .sd-safety-main > .tpl-group-label::after{
+  content:"";
+  flex:1 1 0;
+  min-width:0;
+  height:1px;
+  background:var(--border);
+}
+.modal-template-card[data-template-type="system-disorder"] .sd-grid .tp-box > h3{
+  padding:11px var(--tpl-box-pad-x);
+}
+.modal-template-card[data-template-type="system-disorder"] .sd-grid .tpl-group .tp-box > h3{
+  padding:9px 14px;
+  font-size:13.5px;
+  line-height:1.6;
+}
+.modal-template-card[data-template-type="system-disorder"] .sd-top-row > .tp-box > .content,
+.modal-template-card[data-template-type="system-disorder"] .patient-care-group .tp-box > .content{
+  padding:var(--tpl-box-pad-y) var(--tpl-box-pad-x) calc(var(--tpl-box-pad-y) + 2px);
+  font-family:"DM Sans",sans-serif;
+  font-size:16px;
+  font-weight:400;
+  line-height:1.6;
+}
+.modal-template-card[data-template-type="system-disorder"][data-mode="blank"] .safety-area > *{
+  display:none;
+}
+.modal-template-card[data-template-type="system-disorder"][data-mode="blank"] .assessment-group .tp-box,
+.modal-template-card[data-template-type="system-disorder"][data-mode="blank"] .safety-group > .sd-complications,
+.modal-template-card[data-template-type="system-disorder"][data-mode="blank"] .patient-care-group .tp-box{
+  min-height:120px;
+}
+@media screen and (max-width:900px){
+  .modal-template-card[data-template-type="system-disorder"] .sd-grid{
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:"top" "assessment" "safety" "patient-care";
+  }
+  .modal-template-card[data-template-type="system-disorder"] .sd-top-row,
+  .modal-template-card[data-template-type="system-disorder"][data-mode="filled"] .sd-top-row{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .modal-template-card[data-template-type="system-disorder"] .safety-group{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    padding:14px 14px 16px;
+  }
+  .modal-template-card[data-template-type="system-disorder"] .patient-care-group .tpl-group-body,
+  .modal-template-card[data-template-type="system-disorder"][data-mode="filled"] .patient-care-group .tpl-group-body{
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:
+      "nursing-care"
+      "medications"
+      "client-education"
+      "therapeutic-procedures"
+      "interprofessional-care";
+  }
+  .modal-template-card[data-template-type="system-disorder"][data-mode="blank"] .sd-safety-main,
+  .modal-template-card[data-template-type="system-disorder"][data-mode="blank"] .safety-group > .sd-complications,
+  .modal-template-card[data-template-type="system-disorder"][data-mode="blank"] .patient-care-group .tp-box{
+    height:120px;
+    min-height:120px;
+  }
+}
+@media screen and (max-width:860px){
+  .modal-body:has(> .modal-template-card[data-template-type="system-disorder"]){
+    padding-bottom:40px;
+  }
+}
+
+/* Retrospective A13 existing-canon repair: exact 901/900 orientation,
+   shared endpoint, Considerations rail, descendant typography, Blank writing
+   surfaces, and two-layer Potential Complications relationship connector. */
+.modal-template-card[data-template-type="therapeutic-procedure"]{
+  margin:0 auto 24px;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] > dl.template-meta{
+  margin-bottom:18px;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid{
+  --tp-gap:14px;
+  --tp-connector-overlap:10px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-areas:
+    "description description"
+    "indications considerations"
+    "outcomes considerations"
+    "complications nursing-interventions";
+  gap:var(--tp-gap);
+  align-items:stretch;
+  isolation:isolate;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .tp-box{
+  min-height:0;
+  height:auto;
+  border-radius:14px;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .tp-box > h3{
+  padding:11px 16px;
+  border-top-left-radius:13px;
+  border-top-right-radius:13px;
+  font-family:var(--tpl-font-display);
+  font-size:15px;
+  line-height:24px;
+  font-weight:400;
+  letter-spacing:0;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .tp-box > .content{
+  padding:14px 16px 16px;
+  font-family:var(--tpl-font-body);
+  font-size:16px;
+  line-height:1.6;
+  font-weight:400;
+  letter-spacing:0;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .considerations{
+  min-height:0;
+  height:auto;
+  display:grid;
+  grid-template-rows:auto repeat(2,minmax(max-content,1fr));
+  align-items:stretch;
+  gap:10px;
+  padding:14px;
+  border-radius:16px;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"]
+  .tp-grid > .considerations > .considerations-label{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin:0;
+  padding:0;
+  color:var(--text2);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.16em;
+  line-height:1.2;
+  text-align:center;
+  text-transform:uppercase;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"]
+  .tp-grid > .considerations > .considerations-label::before,
+.modal-template-card[data-template-type="therapeutic-procedure"]
+  .tp-grid > .considerations > .considerations-label::after{
+  content:"";
+  flex:1 1 0;
+  min-width:0;
+  height:1px;
+  background:var(--border);
+}
+.modal-template-card[data-template-type="therapeutic-procedure"]
+  .tp-grid > .considerations > .tp-subbox{
+  min-height:max-content;
+  height:auto;
+  border-radius:11px;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"]
+  .tp-grid > .considerations > .tp-subbox > h4{
+  padding:9px 14px;
+  border-top-left-radius:0;
+  border-top-right-radius:0;
+  font-family:var(--tpl-font-display);
+  font-size:13.5px;
+  line-height:21.6px;
+  font-weight:400;
+  letter-spacing:0;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"]
+  .tp-grid > .considerations > .tp-subbox > .content{
+  padding:12px 14px 14px;
+  font-family:var(--tpl-font-body);
+  font-size:16px;
+  line-height:1.6;
+  font-weight:400;
+  letter-spacing:0;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"]
+  .tp-grid :is(.tp-box,.tp-subbox) > .content :where(p,li,ul,ol,table,th,td){
+  font-family:inherit !important;
+  font-size:inherit !important;
+  line-height:inherit !important;
+  font-weight:400;
+  letter-spacing:0;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid .content li{
+  margin-bottom:6px;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .complications,
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .nursing-interventions{
+  overflow:visible;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .complications::after{
+  display:block;
+  top:50%;
+  right:calc(-1 * (var(--tp-gap) + var(--tp-connector-overlap)));
+  bottom:auto;
+  left:auto;
+  width:calc(var(--tp-gap) + 2 * var(--tp-connector-overlap));
+  height:3px;
+  transform:translateY(-50%);
+  z-index:-1;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .complications::before{
+  content:"";
+  position:absolute;
+  top:50%;
+  right:calc(-1 * (var(--tp-gap) + 1px));
+  bottom:auto;
+  left:auto;
+  width:var(--tp-gap);
+  height:3px;
+  transform:translateY(-50%);
+  border-radius:1px;
+  background:var(--text3);
+  pointer-events:none;
+  z-index:0;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"][data-mode="blank"]
+  .tp-grid > .tp-box{
+  min-height:120px;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"][data-mode="blank"]
+  .tp-grid > .considerations{
+  min-height:0;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"][data-mode="blank"]
+  .tp-grid > .considerations > .tp-subbox{
+  min-height:0;
+  height:auto;
+}
+@media screen and (max-width:900px){
+  .modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid{
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:
+      "description"
+      "considerations"
+      "indications"
+      "outcomes"
+      "complications"
+      "nursing-interventions";
+  }
+  .modal-template-card[data-template-type="therapeutic-procedure"][data-mode="blank"]
+    .tp-grid > .tp-box,
+  .modal-template-card[data-template-type="therapeutic-procedure"][data-mode="blank"]
+    .tp-grid > .considerations > .tp-subbox{
+    height:120px;
+    min-height:120px;
+  }
+  .modal-template-card[data-template-type="therapeutic-procedure"]
+    .tp-grid > .complications::after{
+    top:auto;
+    right:auto;
+    bottom:calc(-1 * (var(--tp-gap) + var(--tp-connector-overlap)));
+    left:50%;
+    width:3px;
+    height:calc(var(--tp-gap) + 2 * var(--tp-connector-overlap));
+    transform:translateX(-50%);
+    z-index:-1;
+  }
+  .modal-template-card[data-template-type="therapeutic-procedure"]
+    .tp-grid > .complications::before{
+    top:auto;
+    right:auto;
+    bottom:calc(-1 * (var(--tp-gap) + 1px));
+    left:50%;
+    width:3px;
+    height:var(--tp-gap);
+    transform:translateX(-50%);
+    z-index:0;
+  }
+}
+@media screen and (max-width:860px){
+  .modal-body:has(> .modal-template-card[data-template-type="therapeutic-procedure"]){
+    padding-bottom:40px;
+  }
+}
+@media print{
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="system-disorder"] .tpl-group{
+    break-inside:auto;
+    page-break-inside:auto;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="system-disorder"] .tp-box{
+    break-inside:auto;
+    page-break-inside:auto;
+    height:auto;
+    align-self:start;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="system-disorder"] .safety-group{
+    min-height:0;
+    height:auto;
+    align-self:start;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="system-disorder"] .patient-care-group{
+    padding-bottom:0;
+    border-bottom-width:0;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="system-disorder"] .tpl-group-label,
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="system-disorder"] .tp-box > h3{
+    break-after:avoid-page;
+    page-break-after:avoid;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="system-disorder"]
+    .patient-care-group .sd-interprofessional-care > .content{
+    padding-bottom:0;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="system-disorder"]
+    .patient-care-group .sd-interprofessional-care > .content li:last-child{
+    margin-bottom:0;
+  }
+
+  /* A13 print fragmentation: use the existing canonical stacked Filled
+     orientation so long procedure regions paginate without empty spanning-grid
+     fragments. Blank keeps its compact two-column writing worksheet. */
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="therapeutic-procedure"],
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid,
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .tp-box,
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .considerations,
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .considerations > .tp-subbox{
+    break-inside:auto;
+    page-break-inside:auto;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid{
+    grid-template-rows:auto;
+    align-items:start;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="therapeutic-procedure"][data-mode="filled"] .tp-grid{
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:
+      "description"
+      "considerations"
+      "indications"
+      "outcomes"
+      "complications"
+      "nursing-interventions";
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .tp-box,
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .considerations,
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .considerations > .tp-subbox{
+    min-height:0;
+    height:auto;
+    align-self:start;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="therapeutic-procedure"][data-mode="blank"] .tp-grid > .tp-box,
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="therapeutic-procedure"][data-mode="blank"]
+    .tp-grid > .considerations > .tp-subbox{
+    min-height:120px;
+    height:120px;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="therapeutic-procedure"][data-mode="filled"]
+    .tp-grid > .complications::after{
+    top:auto;
+    right:auto;
+    bottom:calc(-1 * (var(--tp-gap) + var(--tp-connector-overlap)));
+    left:50%;
+    width:3px;
+    height:calc(var(--tp-gap) + 2 * var(--tp-connector-overlap));
+    transform:translateX(-50%);
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="therapeutic-procedure"][data-mode="filled"]
+    .tp-grid > .complications::before{
+    top:auto;
+    right:auto;
+    bottom:calc(-1 * (var(--tp-gap) + 1px));
+    left:50%;
+    width:3px;
+    height:var(--tp-gap);
+    transform:translateX(-50%);
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .tp-box > h3,
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .considerations > .considerations-label,
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid > .considerations > .tp-subbox > h4{
+    break-after:avoid-page;
+    page-break-after:avoid;
+  }
+
+  /* A15 print fragmentation: allow long Filled Concept Analysis boxes to
+     paginate naturally without terminal textless grid-surface fragments.
+     Use the canonical stacked Filled order and preserve the exact compact
+     two-column Blank worksheet. */
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="concept-analysis"],
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="concept-analysis"] .ca-grid,
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="concept-analysis"] .ca-grid > .tp-box{
+    break-inside:auto;
+    page-break-inside:auto;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="concept-analysis"] .ca-grid{
+    grid-template-rows:auto;
+    align-items:start;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="concept-analysis"] .ca-grid > .tp-box{
+    min-height:0;
+    height:auto;
+    align-self:start;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="concept-analysis"] .ca-grid > .tp-box > h3{
+    break-after:avoid-page;
+    page-break-after:avoid;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="concept-analysis"][data-mode="filled"] .ca-grid{
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:
+      "defining"
+      "antecedents"
+      "consequences"
+      "related"
+      "exemplars";
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="concept-analysis"][data-mode="filled"] .ca-grid > .tp-box{
+    display:block;
+    overflow:visible;
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="concept-analysis"][data-mode="filled"] .ca-grid > .tp-box > .content{
+    flex:none;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="concept-analysis"][data-mode="blank"] .ca-grid > .tp-box{
+    min-height:120px;
+    height:120px;
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
 }
 </style>
 </head>

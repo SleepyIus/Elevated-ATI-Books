@@ -1384,3 +1384,674 @@ Open the repaired AMS-versus-MN A5 comparison for fresh user visual review; do n
 - The retrospective heartbeat and three protected automations remain paused. Recovery remains `main`, HEAD `acef952339eab701e18762152f73ccddb9494419`, `0/0`, six expected tracked modifications, and no stage/commit/push/new book.
 
 **Next Recommendation:** Perform a read-only final diff/status review, then wait for separate user authorization before any commit or push; the user does not need to inspect another template.
+
+## Part 305 Current Gate — PD / Pharm Automated Design-Canon Queue Authorized
+
+- The user authorized automated existing-canon checking and repair for the two suites not included in the completed MN/MH/AMS retrospective: **Pediatric Nursing (PD)** and **Pharmacology (Pharm)**. Mode remains **DESIGN-CANON / HOLD-CONTENT**; content population is paused and ATI source support used is none.
+- Only `ati-retrospective-template-spacing-heartbeat` may own this continuation. It retains the 30-minute schedule and exact single-family-per-run discipline. `ati-build-guide-ai-spec-polish`, `ati-template-clipping-qa`, and `ati-pediatric-templates-design-polish` remain **PAUSED** and byte-unchanged.
+- Recovery baseline is `main`, HEAD and `origin/main` `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`, with unrelated untracked `.DS_Store`, `Teleprompter.html`, and `recovered-codex-screenshots/` untouched. Initial hashes are PD `860d781998acaeeeae150d4ed58e0ce84e23bfa68941d0055f3fa5e5294eae3a` and Pharm `baba8f5df8fc66b7f1e48ffad56de5fb871976c2d94807e41c4774e84ca96bac`.
+- PD inventory is `179` cards across A1 `12`, A3 `9`, A5 `5`, A7 `13`, A9 `9`, A11 `116`, A13 `9`, and A15 `6`. Pharm inventory is `249` cards across A1 `1`, A3 `3`, A7 `141`, A9 `18`, A11 `35`, A13 `9`, and A15 `42`; Pharm has no A5 and no A5 item may be invented.
+- Ordered objective queue: Batches 0–7 PD A1/A3/A5/A7/A9/A11/A13/A15; Batches 8–14 Pharm A1/A3/A7/A9/A11/A13/A15; Batch 15 final PD/Pharm integrity and representative two-pane review handoff. Batch 0 **PD A1 Basic Concept** is active first.
+- Use finalized MN/MH/AMS family-specific code, DOM roles, measurements, screenshots, PDFs, and authority files as the design reference. Preserve all PD/Pharm learner content, official structures, counts, IDs, links, storage, order, accents, and subject identity. Automated QA is not user visual approval.
+- Only `Elevated ATI PD Templates.html`, `Elevated ATI Pharm Templates.html`, and this overlay may change. Do not stage, commit, push, publish, or modify MN/MH/AMS product files during this queue.
+
+**Next Recommendation:** Let the guarded heartbeat begin Batch 0 PD A1; the user personally does not need to act during routine objective batches.
+
+## Part 306 Current Gate — PD / Pharm Heartbeat Active
+
+- `ati-retrospective-template-spacing-heartbeat` is **ACTIVE** at SHA-256 `5c0c866c50e34dd68897690ddd64c548244e7191aedac558cd4aad13dae9bf56`, with its preserved name, 30-minute schedule, target task, and the Part 305 PD/Pharm queue and guardrails.
+- Batch 0 **PD A1 Basic Concept** remains active first. No product file changed during setup. Repository recovery remains `main`, HEAD/origin `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`; this overlay is the only tracked modification, and the unrelated untracked entries remain untouched.
+- The three protected automations remain **PAUSED** and byte-unchanged. No content work, stage, commit, push, or publication occurred.
+
+**Next Recommendation:** Let the active heartbeat run Batch 0 PD A1; the user personally does not need to act during routine objective batches.
+
+## Part 307 Current Gate — PD A1 In Progress After Endpoint Repair
+
+- Batch 0 **PD A1 Basic Concept** remains **IN_PROGRESS** and must resume. One A1-only correction restored the shared `24px` card guard, changing the stable screen endpoint from approximately `40.27px` to `63.52–64.49px` with the modal body's `40px` trailing padding.
+- Fresh post-repair evidence covered all 12 A1 cards in Filled and Blank at `1440`, exact `901/900`, `768`, exact `601/600`, and `390px`: `168/168` twice-stable states. The official three-box order, `18px` metadata boundary, `14px` gaps/corners, accepted title/body roles, hidden Blank answers, and zero horizontal overflow pass. Fresh screenshots are in `/private/tmp/pd-a1-b0-307/screens/`.
+- Two later corrections remain. PD A1 still uses the legacy `860px` stack, yielding three columns at `900px` and one at `768/601px`; finalized A1 canon requires `3` columns at `901px`, `2` at `900/768/601px`, and `1` at `600px` and below. Narrow Blank boxes also collapse to `49px` rather than `120px`. After that responsive/Blank correction passes, a separate run must repair the print ancestor chain: current real print state makes page/main/modal/card all `0 x 0` because the body-level print selector hides the modal's `.page.template-layout` ancestor.
+- PD hash is now `589feb2119bcf20b87ed1416148f276ada04cfa8ea833b366782e8aebb44e50b`; Pharm remains `baba8f5df8fc66b7f1e48ffad56de5fb871976c2d94807e41c4774e84ca96bac`. Inventory, unique IDs, links, storage keys, script parsing, exact payload parity, HTTP, and `git diff --check` pass. Current comparison: `http://127.0.0.1:8766/pd-a1-b0-307/pd-a1-vs-mn-307-post.html?v=pd-a1-b0-307-post`.
+- Recovery remains `main`, HEAD/origin `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`, with only this overlay and PD Templates modified; unrelated untracked files remain untouched. The retrospective heartbeat stays active and all three protected automations remain paused and byte-unchanged.
+
+**Next Recommendation:** Resume only PD A1 with the cohesive responsive/Blank correction, rerun all 168 states, and defer the separate print-shell correction to a later A1 run; the user personally does not need to act.
+
+## Part 308 Current Gate — Heartbeat Cadence Is 20 Minutes
+
+- At the user's explicit request, `ati-retrospective-template-spacing-heartbeat` remains **ACTIVE** and now runs every `20` minutes with an approximately `15`-minute soft work cap. Its updated TOML SHA-256 is `fabe91bde2388f0fe0d197c315074e424d489741d29945c4a4ede392200693d2`.
+- The guarded queue and recovery state are unchanged: Batch 0 **PD A1 Basic Concept** remains active at the Part 307 checkpoint. The automation name, target task, ownership gates, restrictions, notification behavior, and remaining prompt content were preserved.
+- All three protected automations remain paused and byte-unchanged. No product file, learner content, comparison, git state, stage, commit, or push changed for this cadence update.
+
+**Next Recommendation:** Let the 20-minute heartbeat resume PD A1 from Part 307; the user personally does not need to act.
+
+## Part 309 Current Gate — PD A1 Responsive / Blank Geometry Fixed; Print Next
+
+- Batch 0 **PD A1 Basic Concept** remains **IN_PROGRESS** and must resume. One A1-only correction now enforces finalized responsive and Blank geometry: three columns through exact `901px`, two columns from exact `900px` through `601px`, one column at `600px` and below, and `120px` Blank direct-writing surfaces at every width. The Part 307 `24px` card guard remains intact. No learner content, official structure, count, ID, link, storage, order, accent, identity, or other family changed.
+- Fresh all-card evidence covers 12 A1 cards in Filled and Blank at `1440`, exact `901/900`, `768`, exact `601/600`, and `390px`: `168/168` twice-stable states pass the `3/2/1` column contract, exact three-box order, `18px` metadata boundary, `14px` gaps/corners, accepted title/body roles, hidden Blank answers, exact `120px` Blank surfaces, zero overflow, and approximately `64px` endpoint. Fresh desktop/tablet/phone CDP rasters under `/private/tmp/pd-a1-b0-309/rasters/` were inspected and are legible and unclipped.
+- The separate print-shell defect remains deferred under the one-correction rule. Fresh print media again makes `.page.template-layout` `display:none` and page/main/modal/card stable at `0 x 0`; `Page.printToPDF` reports `Printing is not available`. The next run must repair only this ancestor-chain print path and complete new PDF/raster evidence before Batch 0 can pass.
+- Integrity passes `179` PD cards / `179` unique card IDs, exact family counts `12/9/5/13/9/116/9/6`, `200` unique static IDs, `183` resolving local links, one parseable script, unchanged storage, exact temporary parity, HTTP `200`, and `git diff --check`. PD hash is `9b8d1bf8eb538dc42e38deda9f463f9ca8e63e057c46566638e55c0316ad3656`; Pharm remains `baba8f5df8fc66b7f1e48ffad56de5fb871976c2d94807e41c4774e84ca96bac`.
+- Current comparison: `http://127.0.0.1:8766/pd-a1-b0-309/pd-a1-vs-mn-309.html?v=pd-a1-b0-309`. Recovery remains `main`, HEAD/origin `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`, with only this overlay and PD Templates modified; unrelated untracked files remain untouched. The retrospective heartbeat remains active on its 20-minute schedule, and all three protected automations remain paused and byte-unchanged. Nothing was staged, committed, or pushed.
+
+**Next Recommendation:** Resume only PD A1 for the existing-canon print-shell correction and full all-card/PDF recheck; the user personally does not need to act.
+
+## Part 310 Current Gate — PD A1 Objectively Complete / PD A3 Next
+
+- Batch 0 **PD A1 Basic Concept** is **OBJECTIVELY COMPLETE**. One cohesive print-only correction preserves the modal's complete ancestor chain, resets the print shell and screen card guard, and suppresses progress, print, mode, and Previous/Next controls. No educational content, official relationship, inventory, ID, link, storage, screen design, accent, subject identity, or other family changed. Automated QA is not user visual approval.
+- Fresh all-card screen evidence passes `168/168` twice-stable Filled/Blank states across `1440`, exact `901/900`, `768`, exact `601/600`, and `390px`, including the finalized `3/2/1` grid, official three-box order, accepted spacing/typography, exact `120px` Blank surfaces, zero overflow, and approximately `64px` endpoint. Fresh desktop/tablet/phone screenshots were inspected under `/private/tmp/pd-a1-b0-310/screens/`.
+- Print evidence passes `24/24` twice-stable all-card/mode states with nonzero shell geometry, three columns, hidden screen controls, Filled content visible, Blank answers absent, and zero overflow. Twenty-four new nonempty PDFs total `82` pages; every page was rasterized and inspected through six contact sheets plus representative full-size pages. Text extraction contains no Print/Filled/Blank/Previous/Next controls, and no clipping or overlap remains.
+- Integrity passes `179` PD cards / `179` unique card IDs, exact family counts `12/9/5/13/9/116/9/6`, `200` unique static IDs, `179` resolving card source links, exact A1 title order, one parseable script, unchanged storage, exact temporary parity, HTTP `200`, and `git diff --check`.
+- Recovery: PD `af831447d4ef0bc434c69923e4bf3d6a4d30f176029886011c2b7d3d47c60c1f`; Pharm `baba8f5df8fc66b7f1e48ffad56de5fb871976c2d94807e41c4774e84ca96bac`; comparison `http://127.0.0.1:8766/pd-a1-b0-310/pd-a1-vs-mn-310.html?v=pd-a1-b0-310`; branch `main`; HEAD/origin `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`; `0/0`; only this overlay and PD Templates modified; unrelated untracked entries untouched. The retrospective heartbeat remains active on its 20-minute schedule; all three protected automations remain paused and byte-unchanged. Nothing was staged, committed, or pushed. Batch 1 **PD A3 Diagnostic Procedure** is next and unstarted.
+
+**Next Recommendation:** Let the active heartbeat begin PD A3; the user personally does not need to act, commit, or push.
+
+## Part 311 Current Gate — PD A3 Objectively Complete / PD A5 Next
+
+- Batch 1 **PD A3 Diagnostic Procedure** is **OBJECTIVELY COMPLETE** and pending user visual approval. One cohesive A3-only existing-canon correction adds the shared `24px` card guard, approved centered Considerations rail, and isolated behind-box relationship connector: `34px × 3px` at `861px` and above, rotating to `3px × 34px` at `860px` and below. PD's established exact `861/860px` layout transition is preserved. No educational content, official structure, inventory, link, ID, storage, accent, identity, or other family changed. Automated QA is not user visual approval.
+- Fresh all-card screen evidence passes `90/90` twice-stable Filled/Blank states across `1440`, exact `861/860`, `768`, and `390px`, including the official seven-role order, `18px/14px/10px` spacing hierarchy, `14px/16px/11px` corners, role-matched typography, centered rail, correct wide/stacked connector orientation, hidden Blank answers, `120px` direct/nested writing minimums, zero overflow, and approximately `64px` endpoint. Fresh desktop/tablet/phone visuals were inspected under `/private/tmp/pd-a3-b1-311/screens/`.
+- Print evidence passes `18/18` twice-stable all-card/mode states with nonzero shell geometry, two columns, hidden screen controls, Filled content visible, Blank answers absent, zero overflow, approved rail, and connector geometry. Eighteen fresh nonempty PDFs total `63` pages; all pages were rasterized and inspected through six contact sheets plus representative full-size pages. Extracted text contains no Print/Filled/Blank/Previous/Next controls, and no clipping or overlap remains.
+- Integrity passes `179` PD cards / `179` unique card IDs, exact family counts `12/9/5/13/9/116/9/6`, `203` unique static IDs, `179` resolving card source links, the exact nine A3 IDs, one parseable script, unchanged storage, exact temporary parity, HTTP `200`, and `git diff --check`.
+- Recovery: PD `1e69c51332f5bacb05aca730d34fa45cf091393521ee7e1f6da9886b89064637`; Pharm `baba8f5df8fc66b7f1e48ffad56de5fb871976c2d94807e41c4774e84ca96bac`; comparison `http://127.0.0.1:8766/pd-a3-b1-311/pd-a3-vs-mn-311.html?v=pd-a3-b1-311`; branch `main`; HEAD/origin `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`; `0/0`; only this overlay and PD Templates modified; unrelated untracked entries untouched. The retrospective heartbeat remains active on its 20-minute schedule; all three protected automations remain paused and byte-unchanged. Nothing was staged, committed, or pushed. Batch 2 **PD A5 Growth and Development** is next and unstarted.
+
+**Next Recommendation:** Let the active heartbeat begin PD A5; the user personally does not need to act, commit, or push.
+
+## Part 312 Current Gate — PD A5 Objectively Complete / PD A7 Next
+
+- Batch 2 **PD A5 Growth and Development** is **OBJECTIVELY COMPLETE** and pending user visual approval. One cohesive A5-only existing-canon correction aligns the shared `24px + 40px` endpoint, `14px` grid/group/connector spacing, approved `14px` peer/parent corners, role-specific padding, and Growth and Development connector geometry while preserving PD content, readable type, official structure, inventory, links, IDs, storage, order, accent, identity, and every other family. Automated QA is not user visual approval.
+- Fresh screen evidence passes all five A5 cards in Filled and Blank: `70/70` twice-stable states at `1440`, exact `1101/1100`, `768`, exact `601/600`, and `390px`, including the approved `4/2/1` column transitions, centered section rail, nine exact `120px` hidden-answer Blank surfaces, `18px` metadata, accepted typography, zero overflow, and exact `64px` endpoint.
+- Print evidence passes `10/10` twice-stable all-card/mode states. Ten fresh nonempty PDFs total `40` pages; all pages were rasterized and inspected through ten contact sheets, one combined master, and representative full-size pages. Content and Blank writing surfaces are legible without clipping/overlap; screen controls are absent.
+- Integrity passes `179` cards, exact family counts `12/9/5/13/9/116/9/6`, `200` unique static IDs, `179` resolving source links, exact five-card A5 order, one parseable script, unchanged storage, exact temporary parity, HTTP `200`, and `git diff --check`.
+- Recovery: PD `bdf4465ccac88fa4c76ecdeae9f38c3432d3dc3c980f6254c6617dddee22eff2`; Pharm `baba8f5df8fc66b7f1e48ffad56de5fb871976c2d94807e41c4774e84ca96bac`; comparison `http://127.0.0.1:8766/pd-a5-b2-312/pd-a5-vs-mh-312.html?v=pd-a5-b2-312`; branch `main`; HEAD/origin `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`; `0/0`; only this overlay and PD Templates modified; unrelated untracked entries untouched. The retrospective heartbeat remains active on its 20-minute schedule; all three protected automations remain paused and byte-unchanged. Nothing was staged, committed, or pushed. Batch 3 **PD A7 Medication** is next and unstarted.
+
+**Next Recommendation:** Let the active heartbeat begin PD A7; the user personally does not need to act, commit, or push.
+
+## Part 313 Current Gate — PD A7 Objectively Complete / PD A9 Next
+
+- Batch 3 **PD A7 Medication** is **OBJECTIVELY COMPLETE** and pending user visual approval. One cohesive A7-only existing-canon correction added the missing `24px` card guard, restoring the shared `24px + 40px` screen endpoint without changing learner content, official roles, inventory, links, IDs, storage, order, accent, subject identity, or any other family. Automated QA is not user visual approval.
+- Fresh all-card screen evidence passes all 13 A7 cards in Filled and Blank: `130/130` twice-stable states at `1440`, `768`, exact `681/680`, and `390px`. The established row/stack transition, `18px/14px/10px` hierarchy, approved corners and typography, official Purpose/body roles, `3px x 34px` behind-box connector, nine exact `120px` hidden-answer Blank writing surfaces, zero overflow, and approximately `63.52–64.49px` endpoint pass.
+- Print evidence passes `26/26` twice-stable all-card/mode states. Twenty-six fresh nonempty PDFs total `102` pages (`39` Blank and `63` Filled); all pages were rasterized and inspected through 26 contact sheets, one combined master, and representative full-size pages. Content and writing surfaces are legible without clipping/overlap, Blank answers are absent, and screen controls are absent.
+- Integrity passes `179` PD cards, exact family counts `12/9/5/13/9/116/9/6`, `203` unique static IDs, `179` resolving card source links, exact 13-card A7 order, one parseable script, unchanged storage, exact payload parity, HTTP `200`, and `git diff --check`.
+- Recovery: PD `37f74223120af4acedb5080c5c6638c9ee537d3652b8a39db4231c17f1ad1cc8`; Pharm `baba8f5df8fc66b7f1e48ffad56de5fb871976c2d94807e41c4774e84ca96bac`; comparison `http://127.0.0.1:8766/pd-a7-b3-313/pd-a7-vs-mn-313.html?v=pd-a7-b3-313`; branch `main`; HEAD/origin `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`; `0/0`; only this overlay and PD Templates modified; unrelated untracked entries untouched. The retrospective heartbeat remains active at 20 minutes; all protected automations remain paused and byte-unchanged. Nothing was staged, committed, or pushed. Batch 4 **PD A9 Nursing Skill** is next and unstarted.
+
+**Next Recommendation:** Let the active heartbeat begin PD A9; the user personally does not need to act, commit, or push.
+
+## Part 314 Current Gate — PD A9 Objectively Complete / PD A11 Next
+
+- Batch 4 **PD A9 Nursing Skill** is **OBJECTIVELY COMPLETE** and pending user visual approval. One cohesive A9-only existing-canon correction added the shared `24px` screen card guard, approved centered Considerations rail, and isolated two-layer relationship connector in both the wide and stacked orientations while preserving PD's established exact `681/680px` transition. No educational content, official structure, inventory, link, ID, storage, accent, identity, other family, or Pharm changed. Automated QA is not user visual approval.
+- Fresh all-card screen evidence passes all nine A9 cards in Filled and Blank: `90/90` twice-stable states at `1440`, `768`, exact `681/680`, and `390px`, including the two-to-one-column transition, approximately `63.52–64.48px` endpoint, centered `11px / 700` rail, `34px × 3px` wide and `3px × 34px` stacked isolated connectors with visible gap layers, hidden Blank answers, `120px` writing minimums, and zero overflow. Fresh desktop/tablet/phone output was inspected under `/private/tmp/pd-a9-b4-314/screens/`.
+- Print evidence passes `18/18` twice-stable all-card/mode states. Eighteen fresh footerless PDFs total `53` pages; every page was rasterized and inspected through `18` per-PDF contact sheets, one combined master, and representative full-size pages. Content and writing surfaces are legible without clipping or overlap, Blank answers are absent, and screen-control text is absent.
+- Integrity passes `179` PD cards, exact family counts `12/9/5/13/9/116/9/6`, `203` unique static IDs, `179` resolving card source links, exact nine-card A9 order, one parseable script, unchanged storage, exact payload parity, HTTP `200`, and `git diff --check`.
+- Recovery: PD `81223191f3606c81dbea137726a8392cb0ba1ec280e26b8a12698db00e5e4f3c`; Pharm `baba8f5df8fc66b7f1e48ffad56de5fb871976c2d94807e41c4774e84ca96bac`; comparison `http://127.0.0.1:8766/pd-a9-b4-314/pd-a9-vs-mh-314.html?v=pd-a9-b4-314`; comparison SHA-256 `19583fdd9bdd9cb28d7788ed30fb3d224cc492038045d3359de561ef3e99d049`; branch `main`; HEAD/origin `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`; `0/0`; only this overlay and PD Templates modified; unrelated untracked entries untouched. The retrospective heartbeat remains active at 20 minutes; all protected automations remain paused and byte-unchanged. Nothing was staged, committed, or pushed. Batch 5 **PD A11 System Disorder** is next and unstarted.
+
+**Next Recommendation:** Let the active heartbeat begin PD A11; the user personally does not need to act, commit, or push.
+
+## Part 315 Overlay — PD A11 Repair Applied / Final Gate Pending (2026-08-19)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 5 **PD A11 System Disorder** is **IN_PROGRESS** and must resume; automated QA is not user visual approval.
+- Fresh pre-repair evidence covered all `116` A11 cards in Filled and Blank at `1440`, exact `901/900`, `768`, and `390px`: `1,160/1,160` twice-stable states. Exact stable mismatches were the missing `24px` card guard, legacy outer-label roles without centered rails, `10px` top corners, approximately `118px` Blank top surfaces, unequal wide Patient-Centered Care columns, visible learner answers in Blank Safety on all cards, and a `42.594px` Blank Safety Complications surface at `900px` and below.
+- One cohesive A11-only correction restored the `24px + 40px` endpoint contract, `14px / 120px` top boxes, equal wide Patient-Centered Care thirds, approved centered `11px / 700` rails, DM Sans `16px / 1.6 / 400` Patient-Centered Care copy, hidden Blank Safety answers, and `120px` Blank minimums for Assessment, Safety Complications, and Patient-Centered Care. A same-run cascade refinement preserved the established one-column state at exact `900px`. Learner content, official structure, inventory, links, IDs, storage, order, PD accent/identity, other families, and Pharm are unchanged.
+- The first post-repair payload passed fresh all-card/mode twice-stable scans at `1440` and `901px` (`464/464` states). Its exact `900px` scan (`232/232` states) exposed the cascade ordering issue while otherwise passing answer hiding, Blank minimums, endpoint, and overflow; the final `post2` payload contains that refinement and is byte-identical to the current product. Remaining work is the complete fresh `post2` all-width rerun, screenshot inspection, print DOM, PDF/raster inspection, structural integrity recheck, and fresh two-pane comparison. No PDFs were generated this run.
+- Recovery: PD `d45412a01c443b345b0b2be59997e193f778c48218215074c51ccb3770a1134a`; Pharm `baba8f5df8fc66b7f1e48ffad56de5fb871976c2d94807e41c4774e84ca96bac`; current A11 QA `http://127.0.0.1:8766/pd-a11-b5-315/pd-current-post2-315.html?v=pd-a11-b5-315-post2`; current available comparison `http://127.0.0.1:8766/pd-a9-b4-314/pd-a9-vs-mh-314.html?v=pd-a9-b4-314`; branch `main`; HEAD/origin `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`; `0/0`; only this overlay and PD Templates modified; unrelated untracked files untouched; `git diff --check` passes; nothing staged, committed, or pushed.
+- The retrospective heartbeat remains **ACTIVE** at 20 minutes and SHA-256 `fabe91bde2388f0fe0d197c315074e424d489741d29945c4a4ede392200693d2`; all three protected automations remain **PAUSED** and byte-unchanged.
+
+**Next Recommendation:** Resume only PD A11 from the exact current `post2` payload and finish the fresh screen/print/PDF/integrity/comparison gate; the user personally does not need to act.
+
+## Part 316 Overlay — PD A11 Fresh Gate Finds Two Blank Interior Print Pages (2026-08-19)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 5 **PD A11 System Disorder** remains **IN_PROGRESS** and must resume; automated QA is not user visual approval.
+- One cohesive A11-only selector-specificity refinement completed the intended existing-canon roles that Part 315's cascade did not reach: all Assessment/Safety/Patient outer labels now render as centered `11px / 700` rails with zero label padding and visible side lines, and Patient-Centered Care body copy now renders DM Sans `16px / 25.6px / 400` with `14px 16px 16px` padding. Learner content, official structure, inventory, links, IDs, storage, order, accent, identity, other families, and Pharm remain unchanged.
+- Fresh post-refinement screen evidence passes all `116` A11 cards in Filled and Blank at `1440`, exact `901/900`, `768`, and `390px`: `1,160/1,160` twice-stable states with zero failures. Approved wide/stacked transitions, equal thirds, rails, Patient typography, hidden Blank answers, `120px` Blank minimums, zero overflow, `24px` card margin, and approximately `63.51–64.5px` endpoint pass. Six representative fresh screenshots were inspected.
+- Fresh print DOM evidence passes `232/232` twice-stable card/mode states. Exactly `232` fresh nonempty footerless PDFs total `1,456` pages; all pages were rasterized into `232` per-PDF contacts and `20` masters. Structural integrity passes `179` unique cards with counts `12/9/5/13/9/116/9/6`, `201` unique static IDs, `179` resolving card source links, exact A11 first/last IDs, one parseable script, unchanged storage, and exact payload parity.
+- The PDF/raster gate found one unresolved objective print defect: Filled `tpl-pd-ch42-bpd` contains a fully blank dark interior page 6 between populated pages 5 and 7, and Filled `tpl-pd-ch44-adhd` contains a fully blank dark interior page 5 between populated pages 4 and 6. No second correction was attempted because this run already used its single correction. Batch 5 cannot advance until the print pagination cause is objectively established, repaired under existing canon if supported, and revalidated.
+- Recovery: PD `f558f8ee3678e27acd2672e7627ec78bb382b54d795faa58d8bc7bd3d1d9a955`; Pharm `baba8f5df8fc66b7f1e48ffad56de5fb871976c2d94807e41c4774e84ca96bac`; exact A11 QA `http://127.0.0.1:8766/pd-a11-b5-316/pd-current-post2-316.html?v=pd-a11-b5-316-post2`; current available comparison `http://127.0.0.1:8766/pd-a9-b4-314/pd-a9-vs-mh-314.html?v=pd-a9-b4-314`; branch `main`; HEAD/origin `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`; `0/0`; only this overlay and PD Templates modified; preserved unrelated untracked files remain untouched; `git diff --check` passes; nothing staged, committed, or pushed. The retrospective heartbeat remains active at 20 minutes; all protected automations remain paused and byte-unchanged.
+
+**Next Recommendation:** Resume only PD A11, diagnose and repair the two blank interior Filled print pages, then rerun print/PDF evidence and finish comparison; the user personally does not need to act.
+
+## Part 317 Overlay — PD A11 Blank Print Pages Repaired / Full Rerun Pending (2026-08-19)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 5 **PD A11 System Disorder** remains **IN_PROGRESS** and must resume; automated QA is not user visual approval.
+- Fresh computed print evidence traced the blank pages to the global `.tpl-group` print `break-inside/page-break-inside:avoid` rule acting on oversized A11 groups. BPD groups measured approximately `1216.281px`, `4948.359px`, and `3718.078px`; ADHD groups measured approximately `1367.781px`, `4334.406px`, and `2952.625px`. One cohesive A11-only print correction now allows System Disorder groups to fragment naturally with `break-inside:auto` and `page-break-inside:auto`.
+- Exact-current-product Filled PDFs verify the focused repair: BPD is now `14` pages instead of `15`, and ADHD is now `9` instead of `10`; their former blank interior pages carry the continuing Safety/Patient-Centered Care content. Fresh affected-page rasters were inspected without the prior blank sheets, clipping, overlap, or answer leakage. Learner content, official structure, inventory, links, IDs, storage, screen design, accent, identity, other families, and Pharm remain unchanged.
+- The complete post-correction family gate is still pending. A fresh all-card screen rerun exceeded the execution window before a durable result file was written, so the next run must persist scan chunks by width/card subset, then repeat all `232` print states, all `232` PDFs/rasters, integrity, exact payload parity, HTTP, diff, and the fresh two-pane comparison. No second correction was attempted and Batch 5 did not advance.
+- Recovery: PD `66558e54636dcdaa1d278ee55b20896cbe8349f185d6d08cb64f7919754dfd12`; Pharm `baba8f5df8fc66b7f1e48ffad56de5fb871976c2d94807e41c4774e84ca96bac`; exact A11 QA `http://127.0.0.1:8766/pd-a11-b5-317/pd-current-post-317.html?v=pd-a11-b5-317-post`; current available comparison `http://127.0.0.1:8766/pd-a9-b4-314/pd-a9-vs-mh-314.html?v=pd-a9-b4-314`; branch `main`; HEAD/origin `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`; `0/0`; only this overlay and PD Templates modified; preserved unrelated untracked files remain untouched; exact payload parity, HTTP `200`, and `git diff --check` pass; nothing staged, committed, or pushed. The retrospective heartbeat remains active at 20 minutes; all protected automations remain paused and byte-unchanged.
+
+**Next Recommendation:** Resume only PD A11 with chunk-persisted all-card screen evidence and finish the full print/PDF, integrity, and comparison gates; the user personally does not need to act.
+
+## Part 318 Overlay — PD A11 Fresh Rerun Finds Near-Empty Filled Print Pages (2026-08-19)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 5 **PD A11 System Disorder** remains **IN_PROGRESS** and must resume; no product correction was applied in this run, and automated QA is not user visual approval.
+- Fresh exact-current-product screen evidence passes all `1,160/1,160` states for 116 cards × Filled/Blank × `1440`, exact `901/900`, `768`, and `390px`, twice stable at least `280ms` apart. The established transitions, approved rails and Patient-Centered Care roles, hidden Blank answers, `120px` Blank minimums, zero overflow, `24px` card margin, and `64px` endpoint pass. Fresh print DOM likewise passes all `232/232` states with A11 group fragmentation `auto`, three columns, hidden controls, and absent Blank answers.
+- The PDF marker was run once immediately before generation. Exactly `232` nonempty PDFs were generated and all `1,387` pages were rasterized into `232` per-PDF contacts and `20` masters. The former blank BPD and ADHD interior sheets remain fixed at `14` and `9` pages respectively.
+- Batch 5 cannot complete because direct inspection found ten low-variance Filled page remnants: `tpl-pd-ch42-bpd` p10, `tpl-pd-ch36-diphtheria` p7, `tpl-pd-ch14-head-injury` p3, `tpl-pd-ch40-brain-tumor` p5, `tpl-pd-ch43-anaphylaxis` p5, `tpl-pd-ch13-seizures` p6, `tpl-pd-ch34-gh-def` p10, `tpl-pd-ch42-nec` p9, `tpl-pd-ch40-all` p8, and `tpl-pd-ch33-t2dm` p8. Four are border-only/textless and six carry only one rail or short fragment. The supported cause candidate is the remaining global `.tp-box { page-break-inside:avoid; }` print rule after A11 groups were allowed to split. A family-scoped child-box correction requires the next guarded run and a full rerun.
+- Integrity passes `179` cards and unique IDs, exact counts `12/9/5/13/9/116/9/6`, `201` unique static IDs, `179` resolving source links, exact A11 endpoints, one parseable script, unchanged storage, and exact payload parity. Recovery: PD `66558e54636dcdaa1d278ee55b20896cbe8349f185d6d08cb64f7919754dfd12`; Pharm `baba8f5df8fc66b7f1e48ffad56de5fb871976c2d94807e41c4774e84ca96bac`; exact A11 QA `http://127.0.0.1:8766/pd-a11-b5-318/pd-current-318.html?v=pd-a11-b5-318`; current available comparison `http://127.0.0.1:8766/pd-a9-b4-314/pd-a9-vs-mh-314.html?v=pd-a9-b4-314`; branch `main`; HEAD/origin `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`; `0/0`; only this overlay and PD Templates modified; preserved unrelated untracked files untouched; HTTP `200` and `git diff --check` pass; nothing staged, committed, or pushed. The retrospective heartbeat remains active at 20 minutes; all protected automations remain paused and byte-unchanged.
+
+**Next Recommendation:** Resume only PD A11, validate and if supported apply one family-scoped child-box print-fragmentation correction, then rerun the complete screen, print/PDF, integrity, and comparison gates; the user personally does not need to act.
+
+## Part 319 Overlay — PD A11 Child-Box Print Repair Leaves One Textless Page (2026-08-19)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 5 **PD A11 System Disorder** remains **IN_PROGRESS** and must resume; automated QA is not user visual approval.
+- One cohesive A11-only print correction now allows child `.tp-box` fragmentation with automatic height/start alignment, gives Safety natural print height, removes Patient-Centered Care's trailing print-only padding/border, and keeps group labels/direct box titles with their following content. A tested outer-card fragmentation override worsened pagination and was removed. Screen roles, content, structure, inventory, links, IDs, storage, order, accent, other families, and Pharm remain unchanged.
+- Fresh screen evidence still passes all `1,160/1,160` A11 states twice stably because the correction is print-only. The PDF marker was run once. A complete `232`-PDF rerun produced `1,225` raster pages and reduced the low-variance set to hemophilia p7 and growth-hormone-deficiency p9; targeted exact-current rerenders after the final refinement fixed hemophilia, while growth-hormone-deficiency Filled p9 remains nearly solid and textless at variance approximately `0.102`. The complete exact-current all-PDF/print-DOM and Blank visual rerun therefore remains outstanding.
+- Integrity passes `179` cards and unique IDs, exact counts `12/9/5/13/9/116/9/6`, `201` unique static IDs, `179` resolving links, exact A11 endpoints, one parseable script, unchanged storage, exact payload parity, HTTP `200`, and `git diff --check`. Recovery: PD `29e3295d9f88c5898bf39a2e8a15ab06631927ea84a58e5baf688a14ef984c72`; Pharm `baba8f5df8fc66b7f1e48ffad56de5fb871976c2d94807e41c4774e84ca96bac`; QA `http://127.0.0.1:8766/pd-a11-b5-319/pd-current-319.html?v=pd-a11-b5-319`; current available comparison `http://127.0.0.1:8766/pd-a9-b4-314/pd-a9-vs-mh-314.html?v=pd-a9-b4-314`; branch `main`; HEAD/origin `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`; `0/0`; only this overlay and PD Templates modified; unrelated untracked files untouched; nothing staged, committed, or pushed. The retrospective heartbeat remains active at 20 minutes; all protected automations remain paused and byte-unchanged.
+
+**Next Recommendation:** Resume only PD A11, diagnose growth-hormone-deficiency's remaining textless page, and rerun the full exact-current print/PDF, Blank visual, integrity, and comparison gates; the user personally does not need to act.
+
+## Part 320 Overlay — PD A11 Objectively Complete / PD A13 Next (2026-08-19)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 5 **PD A11 System Disorder** is **OBJECTIVELY COMPLETE** after the complete fresh render-first gate; automated QA is not user visual approval. Batch 6 **PD A13 Therapeutic Procedure** is active next and unstarted.
+- Stable exact-current print geometry traced growth-hormone-deficiency's final textless page to `28px` of terminal whitespace: `14px` bottom padding on `.sd-interprofessional-care > .content` plus `14px` bottom margin on its final list item. One cohesive A11-only print correction removes only those two terminal bottom spacers. Screen styling, learner content, official structure, inventory, links, IDs, storage, order, accent, identity, other families, and Pharm remain unchanged.
+- Fresh final screen evidence passes all `1,160/1,160` states for 116 cards × Filled/Blank × `1440`, exact `901/900`, `768`, and `390px`, twice stably. Fresh print DOM passes all `232/232` card/mode states. Exactly `232` new PDFs total `1,222` rasterized pages; all per-PDF contacts and `20` master sheets were inspected. No fully blank or low-variance pages remain, all Filled pages contain usable text, and Blank output preserves writing geometry without learner answers.
+- Integrity passes `179` unique cards with counts `12/9/5/13/9/116/9/6`, `201` unique static IDs, all `179` source links, exact A11 endpoints, one parseable script, unchanged storage, exact payload parity, HTTP `200`, and `git diff --check`. Recovery: PD `f9969014423bb5dc392843bf2285bd3ee52740260331d2d02f85582ada410fb1`; Pharm `baba8f5df8fc66b7f1e48ffad56de5fb871976c2d94807e41c4774e84ca96bac`; QA `http://127.0.0.1:8766/pd-a11-b5-320/pd-current-320.html?v=pd-a11-b5-320`; comparison `http://127.0.0.1:8766/pd-a11-b5-320/pd-a11-vs-mh-320.html?v=pd-a11-b5-320`; branch `main`; HEAD/origin `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`; `0/0`; only this overlay and PD Templates are tracked modifications. The pre-existing untracked files remain untouched; a new unrelated untracked `.gitignore` appeared during the run and was also left byte-untouched. Nothing was staged, committed, or pushed.
+- The retrospective heartbeat remains **ACTIVE** at 20 minutes and SHA-256 `fabe91bde2388f0fe0d197c315074e424d489741d29945c4a4ede392200693d2`; all three protected automations remain **PAUSED** and byte-unchanged.
+
+**Next Recommendation:** Start only Batch 6 PD A13 Therapeutic Procedure with a fresh unique render-first gate; the user personally does not need to act.
+
+## Part 321 Overlay — PD A13 Objectively Complete / PD A15 Next (2026-08-19)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 6 **PD A13 Therapeutic Procedure** is **OBJECTIVELY COMPLETE** after the complete fresh render-first gate; automated QA is not user visual approval. Batch 7 **PD A15 Concept Analysis** is active next and unstarted.
+- One cohesive A13-only existing-canon correction restores the shared `24px + 40px = 64px` screen endpoint, centered `11px / 700` Considerations rail, readable DM Sans `16px / 25.6px / 400` nested copy, official `34px` behind plus `14px` gap connector layers with exact `901/900` orientation, five direct `120px` Blank surfaces, and compact wide nested surfaces that become `120px` when stacked. Content, official structure, inventory, links, IDs, storage, order, accent, identity, other families, and Pharm remain unchanged.
+- Fresh final screen evidence passes all `90/90` states for nine cards × Filled/Blank × `1440`, exact `901/900`, `768`, and `390px`, twice stably. Fresh print DOM passes all `18/18` card/mode states. Exactly `18` new PDFs total `60` rasterized pages; fresh Filled/Blank contact sheets were visually inspected without clipping, overlap, or Blank learner answers.
+- Integrity passes `179` unique cards with counts `12/9/5/13/9/116/9/6`, `201` unique static IDs, all `179` source links, exact A13 endpoints, one parseable script, unchanged storage, exact payload parity, HTTP `200`, and `git diff --check`. Recovery: PD `f8a4a8ca27fb0eebad04a9253d7dc29f01ff78587c7b5e64acff044e5cb4bc13`; Pharm `baba8f5df8fc66b7f1e48ffad56de5fb871976c2d94807e41c4774e84ca96bac`; QA `http://127.0.0.1:8766/pd-a13-b6-321/pd-current-321.html?v=pd-a13-b6-321`; comparison `http://127.0.0.1:8766/pd-a13-b6-321/pd-a13-vs-mh-321.html?v=pd-a13-b6-321`; branch `main`; HEAD/origin `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`; `0/0`; only this overlay and PD Templates are tracked modifications. Untracked files remain untouched. Nothing was staged, committed, or pushed.
+- The retrospective heartbeat remains **ACTIVE** at 20 minutes and SHA-256 `fabe91bde2388f0fe0d197c315074e424d489741d29945c4a4ede392200693d2`; all three protected automations remain **PAUSED** and byte-unchanged.
+
+**Next Recommendation:** Start only Batch 7 PD A15 Concept Analysis with a fresh unique render-first gate; the user personally does not need to act.
+
+## Part 322 Overlay — PD A15 Objectively Complete / Pharm A1 Next (2026-08-20)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 7 **PD A15 Concept Analysis** is **OBJECTIVELY COMPLETE**; automated QA is not user visual approval, and historical PD A15 visual approval is not relabeled as approval of this new endpoint render. Batch 8 **Pharm A1 Basic Concept** is active next and unstarted.
+- Fresh pre-repair evidence isolated one exact A15 defect: `margin-bottom:0` left only approximately `40px` beneath the card. One A15-only correction restores the accepted `24px` card guard plus `40px` shell padding. All six cards otherwise retained the finalized five-box order, `14px` gap/corners, `15px / 24px` titles, DM Sans `16px / 25.6px` bodies, exact `721/720px` transition, and `120px` Blank writing surfaces. No content, structure, inventory, identity, other family, or Pharm change occurred.
+- Fresh screen evidence passes `60/60` card/mode/width states twice stably; fresh print DOM passes `12/12` states. Exactly `12` new PDFs total `24` rasterized pages; Filled and Blank contact sheets were inspected without clipping, overlap, overflow, or learner-answer leakage.
+- Integrity passes `179` unique cards with counts `12/9/5/13/9/116/9/6`, `201` unique static IDs, all `179` source links, exact A15 endpoints, one parseable script, unchanged storage, exact payload parity, HTTP `200`, and `git diff --check`. Recovery: PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm `baba8f5df8fc66b7f1e48ffad56de5fb871976c2d94807e41c4774e84ca96bac`; QA `http://127.0.0.1:8766/pd-a15-b7-322/pd-current-322.html?v=pd-a15-b7-322`; comparison `http://127.0.0.1:8766/pd-a15-b7-322/pd-a15-vs-mh-322.html?v=pd-a15-b7-322`; `main`; HEAD/origin `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`; `0/0`; only this overlay and PD Templates are tracked modifications. Existing untracked files, including the newly appeared unrelated `Study Tool Content Synthesis Guide.md`, remain untouched. Nothing was staged, committed, or pushed.
+- The retrospective heartbeat remains **ACTIVE** at 20 minutes and SHA-256 `fabe91bde2388f0fe0d197c315074e424d489741d29945c4a4ede392200693d2`; protected automations remain **PAUSED** and byte-unchanged.
+
+**Next Recommendation:** Start only Batch 8 Pharm A1 Basic Concept with a fresh unique render-first gate; the user personally does not need to act.
+
+## Part 323 Overlay — Pharm A1 Screen Repaired / Print Shell Must Resume (2026-08-20)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 8 **Pharm A1 Basic Concept** is **IN_PROGRESS** and must resume; automated QA is not user visual approval. Do not advance to Pharm A3.
+- Fresh pre-repair evidence on the sole A1 card proved legacy spacing, typography, Blank-height, and breakpoint mismatches. One A1-only existing-canon correction restores the exact `24px + 40px = 64px` endpoint, `18px` metadata gap, `14px` peer gap/corners, `15px / 24px` title strips, DM Sans `16px / 25.6px / 400` body copy, exact three/two/one-column transitions at `901/900` and `601/600px`, and three `120px` Blank writing surfaces. No educational content, official structure, inventory, links, IDs, storage, accent, identity, PD, or other Pharm family changed.
+- Fresh exact-current screen evidence passes all `14/14` Filled/Blank states at `1440`, exact `901/900`, `768`, exact `601/600`, and `390px`, twice stably. Answers are hidden in Blank, overflow is zero, and fresh desktop Filled, exact-`900px` Blank, and phone Blank images were inspected without clipping or overlap.
+- Fresh print-media DOM evidence found the separate remaining defect: the legacy modal print selector hides the modal's `.page.template-layout` ancestor, so both Filled and Blank render at `0 x 0`; navigation and the progress checkbox also remain visible. This run already used its one correction, so no print edit or PDF generation occurred. Resume with the finalized shared ancestor/control print shell, then rerun print DOM, PDFs/rasters, integrity, and comparison.
+- Integrity passes `249` unique Pharm cards with counts `1/3/141/18/35/9/42`, `277` unique IDs, all `249` source links, the exact A1 ID and three official sections, zero runtime errors, unchanged storage, exact temporary/HTTP parity, HTTP `200`, and `git diff --check`. Recovery: PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm `aa103cecc2490dc5735864742ddc7c1b8d9ed1d8d8a105a2101039dc083f8140`; current QA `http://127.0.0.1:8766/pharm-a1-b8-323/pharm-current-post2-323.html?v=pharm-a1-b8-323-post2`; current available comparison `http://127.0.0.1:8766/pd-a15-b7-322/pd-a15-vs-mh-322.html?v=pd-a15-b7-322`; `main`; HEAD/origin `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`; `0/0`; only this overlay plus PD and Pharm Templates are tracked modifications. Preserved untracked files remain untouched. Nothing was staged, committed, or pushed.
+- The retrospective heartbeat remains **ACTIVE** at 20 minutes and SHA-256 `fabe91bde2388f0fe0d197c315074e424d489741d29945c4a4ede392200693d2`; protected automations remain **PAUSED** and byte-unchanged.
+
+**Next Recommendation:** Resume only Batch 8 Pharm A1 with the existing shared print-shell correction and complete the fresh print/PDF, integrity, and comparison gates; the user personally does not need to act.
+
+## Part 324 Overlay — Pharm A1 Print Shell Repaired / Filled Pagination Must Resume (2026-08-20)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 8 **Pharm A1 Basic Concept** remains **IN_PROGRESS** and must resume; automated QA is not user visual approval. Do not advance to Pharm A3.
+- One cohesive print-only correction restores the complete modal ancestor chain, removes the screen-only card bottom guard in print, and hides modal actions, mode, print/progress, and Previous/Next controls. No educational content, official structure, inventory, links, IDs, storage, accent, identity, PD, screen design, or other Pharm family changed.
+- Fresh exact-current screen rechecks pass all `14/14` Filled/Blank states at `1440`, exact `901/900`, `768`, exact `601/600`, and `390px`, twice stably. Breakpoints, spacing, typography, three exact `120px` Blank boxes, hidden Blank answers, and zero horizontal overflow remain intact; fourteen fresh viewport screenshots were generated and representative desktop, breakpoint, and phone images were inspected.
+- Fresh print DOM is twice-stable and nonzero in both modes with screen controls absent. The PDF marker ran once and the final directory contains exactly two nonempty Letter PDFs. Blank is one correct answer-free page. Filled is four pages and exposes a separate objective pagination defect: page 1 is effectively empty, page 2 contains only the top stack with a large empty remainder, and content boxes begin on pages 3–4. The supported cause is the retained global `page-break-inside:avoid` on the oversized `.example-card` and `.tp-box` descendants. The one-correction gate prevented a second edit in this run.
+- Integrity passes `249` unique Pharm cards, counts `1/3/141/18/35/9/42`, the sole A1 ID, `269` unique source-level static IDs with no duplicates, all `249` links, one parseable script, unchanged storage, exact product/temporary/HTTP parity at SHA-256 `8723e206f925576b70062aedff1e8e5a6e6bd18841c3a1ed6a88b56bdab463ac`, HTTP `200`, and `git diff --check`. Part 323's `277` static-ID figure was a measurement-record error, not an ID deletion. PD remains `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; QA `http://127.0.0.1:8766/pharm-a1-b8-324/pharm-current-324.html?v=pharm-a1-b8-324`; print harness `http://127.0.0.1:8766/pharm-a1-b8-324/pharm-print-harness-324.html?v=pharm-a1-b8-324-pdfs`; current comparison remains `http://127.0.0.1:8766/pd-a15-b7-322/pd-a15-vs-mh-322.html?v=pd-a15-b7-322`. Branch/HEAD/origin remain unchanged at `main` / `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`; only this overlay plus PD and Pharm Templates are tracked modifications; preserved untracked files remain untouched; nothing was staged, committed, or pushed.
+- The retrospective heartbeat remains **ACTIVE** at 20 minutes and SHA-256 `fabe91bde2388f0fe0d197c315074e424d489741d29945c4a4ede392200693d2`; protected automations remain **PAUSED** and byte-unchanged.
+
+**Next Recommendation:** Resume only Batch 8 Pharm A1 with one supported print-fragmentation correction, then rerun both print-DOM states, both PDFs/rasters, integrity, and the fresh two-pane comparison before advancement; the user personally does not need to act.
+
+## Part 325 Overlay — Pharm A1 Objectively Complete / Pharm A3 Next (2026-08-20)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 8 **Pharm A1 Basic Concept** is **OBJECTIVELY COMPLETE** after the complete fresh render-first gate; automated QA is not user visual approval. Batch 9 **Pharm A3 Diagnostic Procedure** is active next and unstarted.
+- One cohesive A1-only print correction lets the oversized A1 card and boxes fragment naturally, keeps box titles with following content, and uses the established single-column print arrangement with `14px` peer separation. Screen design, educational content, official structure, inventory, links, IDs, storage, accent, identity, PD, and every other Pharm family are unchanged.
+- Fresh screen evidence passes all `14/14` Filled/Blank states at `1440`, exact `901/900`, `768`, exact `601/600`, and `390px`, twice stably. The `3/2/1` columns, `14px` gaps, `24px + 40px` endpoint, three exact `120px` Blank boxes, hidden answers, and zero overflow pass; fourteen fresh screenshots were generated and representative desktop, breakpoint, and phone images were inspected.
+- Fresh print geometry is twice stable. Exactly two new Letter PDFs were generated under the already-recorded single operation marker: Filled is now two continuous content-bearing pages and Blank is one answer-free page. All three raster pages were inspected with no empty/border-only sheet, clipping, overlap, or visible screen controls.
+- Integrity passes `249` unique cards, counts `1/3/141/18/35/9/42`, sole A1 ID `ex-ch43-principles-of-antimicrobial-therapy`, `269` unique static IDs, all `249` source links, one parseable script, unchanged storage, exact product/temporary/HTTP parity at Pharm SHA-256 `0fc07643c8bf1d67aaa4d301238ff6991a70d976fb93ff5a3252c516582f7234`, HTTP `200`, and `git diff --check`. PD remains `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`. Current QA is `http://127.0.0.1:8766/pharm-a1-b8-325/pharm-current-325.html?v=pharm-a1-b8-325-screen-final`; current comparison is `http://127.0.0.1:8766/pharm-a1-b8-325/pharm-a1-vs-mn-325.html?v=pharm-a1-b8-325-final`. Branch/HEAD/origin remain unchanged at `main` / `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`; only this overlay plus PD and Pharm Templates are tracked modifications; preserved untracked files remain untouched; nothing was staged, committed, or pushed.
+- The retrospective heartbeat remains **ACTIVE** at 20 minutes and SHA-256 `fabe91bde2388f0fe0d197c315074e424d489741d29945c4a4ede392200693d2`; protected automations remain **PAUSED** and byte-unchanged.
+
+**Next Recommendation:** Let the heartbeat begin only Batch 9 Pharm A3 Diagnostic Procedure on the next wakeup; the user personally does not need to act, commit, or push.
+
+## Part 326 Overlay — Pharm A3 Objectively Complete / Pharm A7 Next (2026-08-20)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 9 **Pharm A3 Diagnostic Procedure** is **OBJECTIVELY COMPLETE** after the complete fresh render-first gate and remains pending user visual approval; automated QA is not user visual approval. Batch 10 **Pharm A7 Medication** is active next and unstarted.
+- Stable pre-repair evidence on all three A3 cards showed the legacy no-card-guard endpoint, `12px` metadata boundary, `10px` peer gap, `8px` corners, `13px / 19.5px` direct/nested copy, block Considerations label, short `10px x 3px` connector, malformed two-column phone layout, and missing finalized Blank nested writing geometry. One cohesive A3-only existing-canon correction restores the shared `24px + 40px` endpoint, `18px` metadata, `14px` peer gap, `14px/16px/11px` corner hierarchy, DM Sans `16px / 25.6px / 400` copy, centered `11px / 700` Considerations rail, exact `861/860px` transition, `34px` behind-box connector in both orientations, and exact `120px` direct/nested Blank surfaces. Educational content, official structure, inventory, links, IDs, storage, accent, identity, PD, and other Pharm families are unchanged.
+- Fresh screen evidence passes all `30/30` Filled/Blank states at `1440`, exact `861/860`, `768`, and `390px`, twice stably. Breakpoints, spacing, corners, type, official six-region order, centered rail, connector layer/orientation, hidden Blank answers, exact `120px` writing surfaces, card/shell endpoint roles, and zero overflow pass; twelve final screenshots plus representatives were inspected.
+- Fresh print DOM passes all `6/6` card/mode states twice stably. The PDF marker ran exactly once before generation; six new Letter PDFs total `21` rasterized pages (`12` Filled and `9` Blank), and complete Filled/Blank contact sheets were inspected without clipping, overlap, answer leakage, or visible screen controls.
+- Integrity passes `249` cards, counts `1/3/141/18/35/9/42`, the exact three A3 IDs/order, `269` unique source IDs, all `249` links, one parseable script, unchanged storage, exact body and payload parity, HTTP `200`, and `git diff --check`. PD remains `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm is `86f493c192e05032481aad2bc429a44db68394a8fc4d8473ba26ea9629c7f752`; QA is `http://127.0.0.1:8766/pharm-a3-b9-326/pharm-current-326.html?v=pharm-a3-b9-326-final`; current comparison is `http://127.0.0.1:8766/pharm-a3-b9-326/pharm-a3-vs-mn-326.html?v=pharm-a3-b9-326-final`. Branch/HEAD/origin remain `main` / `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`; only this overlay plus PD and Pharm Templates are tracked modifications; unrelated untracked files remain untouched; nothing was staged, committed, or pushed.
+- The retrospective heartbeat remains **ACTIVE** at 20 minutes and SHA-256 `fabe91bde2388f0fe0d197c315074e424d489741d29945c4a4ede392200693d2`; protected automations remain **PAUSED** and byte-unchanged.
+
+**Next Recommendation:** Let the heartbeat begin only Batch 10 Pharm A7 Medication on the next wakeup; the user personally does not need to act, commit, or push.
+
+## Part 327 Overlay — Pharm A7 Repair / Objective Gate In Progress (2026-08-20)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 10 **Pharm A7 Medication** is **IN_PROGRESS** and must resume; automated QA is not user visual approval. Do not advance to Pharm A9.
+- Fresh pre-repair evidence passed twice-stable measurement capture for all `1,410/1,410` states (141 cards × Filled/Blank × `1440`, `768`, exact `681/680`, and `390px`) and isolated the legacy endpoint, metadata, gap, corner, typography, Purpose-label, connector, breakpoint, and Blank-surface mismatch. One cohesive A7-only correction restores the finalized `24px + 40px` endpoint roles, `18px` metadata, `14px` gaps, `16px/14px/11px` corners, DM Sans `16px / 25.6px / 400` copy, centered `11px / 700` Purpose rail, `3px x 34px` isolated connector, exact `681/680px` transition, and nine exact `120px` Blank writing surfaces without changing educational content, official structure, inventory, IDs, storage, accent, identity, PD, or other Pharm families.
+- Fresh post-correction evidence passes all `846/846` states at `1440` and exact `681/680px`, twice stably: wide row through `681px`, stacked at `680px`, correct endpoint roles, spacing/corners/type/rail/connector, nine answer-free `120px` Blank boxes, and zero overflow. Fresh in-app Filled and Blank renders were inspected without clipping or overlap.
+- Preliminary integrity passes `249` cards, counts `1/3/141/18/35/9/42`, preserved order, A7 endpoints `ex-ch5-gentamicin` / `ex-ch10-risperidone`, `269` unique static IDs, all `249` links, one parseable script, unchanged storage, exact payload parity, and exact body parity. Recovery hashes: PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm `ffc2a373d23b648c9512a68b650c93177028563310bf6abd1bb1dd7aa6a8ac7a`.
+- Resume only A7 with the missing `768/390px` all-card post gate, durable screenshots, print DOM, `282` new PDFs/rasters and visual inspection, final integrity/HTTP/diff, and fresh two-pane comparison. No PDF marker or PDF generation occurred. Current QA: `http://127.0.0.1:8766/pharm-a7-b10-327/pharm-current-post-327.html?v=pharm-a7-b10-327-post`; current available comparison remains `http://127.0.0.1:8766/pharm-a3-b9-326/pharm-a3-vs-mn-326.html?v=pharm-a3-b9-326-final`.
+- Branch/HEAD/origin remain `main` / `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`; only this overlay plus PD and Pharm Templates are tracked modifications; all unrelated untracked files remain untouched; nothing was staged, committed, or pushed. The retrospective heartbeat remains **ACTIVE** at 20 minutes and all three protected automations remain **PAUSED** and byte-unchanged.
+
+**Next Recommendation:** Resume only Batch 10 Pharm A7 at `768` and `390px`, then finish print/PDF and the fresh comparison; the user personally does not need to act, commit, or push.
+
+## Part 328 Overlay — Pharm A7 Screen Gate Complete / Print Gate Must Resume (2026-08-20)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 10 **Pharm A7 Medication** remains **IN_PROGRESS** and must resume; automated QA is not user visual approval. Do not advance to Pharm A9. No product correction was made in this run.
+- Fresh exact-current `768/390px` testing passes all `564/564` card/mode/width states twice stably. Together with Part 327's `846/846` current-product states at `1440` and exact `681/680px`, the complete post-repair responsive screen gate now passes `1,410/1,410` states across all 141 A7 cards in Filled/Blank. The accepted endpoint, spacing, corners, typography, centered Purpose rail, isolated connector, exact breakpoint, nine `120px` Blank surfaces, hidden answers, and zero horizontal overflow pass.
+- Twelve fresh desktop/tablet/phone Filled/Blank top and endpoint screenshots were generated under `/private/tmp/pharm-a7-b10-328/screens/`; representative desktop Filled/Blank, tablet Blank, and phone Blank renders were inspected without clipping, overlap, answer leakage, connector/rail defects, or responsive collapse. Integrity re-passes `249` cards, exact counts `1/3/141/18/35/9/42`, preserved order, exact 141-card A7 endpoints, `269` unique static IDs, all `249` links, one parseable script, unchanged storage, exact payload parity, and body parity.
+- Remaining mandatory work is all `282` fresh print DOM states, exactly `282` new PDFs and complete raster inspection, final integrity/HTTP/diff, and a fresh two-pane A7 comparison. No PDF marker or PDF generation occurred.
+- Recovery hashes remain PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm `ffc2a373d23b648c9512a68b650c93177028563310bf6abd1bb1dd7aa6a8ac7a`. Exact payload: `/private/tmp/pharm-a7-b10-328/pharm-current-328.html`; QA: `http://127.0.0.1:8766/pharm-a7-b10-328/pharm-qa-current-328.html?v=pharm-a7-b10-328-current`; current comparison remains `http://127.0.0.1:8766/pharm-a3-b9-326/pharm-a3-vs-mn-326.html?v=pharm-a3-b9-326-final`. Branch/HEAD/origin remain `main` / `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`; only this overlay plus PD and Pharm Templates are tracked modifications; unrelated untracked files remain untouched; nothing was staged, committed, or pushed. The heartbeat remains active at 20 minutes, and all protected automations remain paused and byte-unchanged.
+
+**Next Recommendation:** Resume only Batch 10 with a fresh exact-current print harness and complete the all-state print/PDF/raster gate before final integrity and comparison; the user personally does not need to act.
+
+## Part 329 Overlay — Pharm A7 Print DOM Complete / PDF-Raster Gate Must Resume (2026-08-20)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 10 **Pharm A7 Medication** remains **IN_PROGRESS** and must resume; automated QA is not user visual approval. Do not advance to Pharm A9. No product correction was made.
+- The fresh exact-current print harness passes all `282/282` A7 card/mode states twice stably. Every state has a nonzero print ancestor chain, accepted two-column Medication print flow, `14px` body gap, two-column Purpose group, visible Filled content, absent Blank answers, nine Blank writing surfaces at or above `120px`, hidden screen controls, the isolated `3px x 34px` connector at `z-index:-1`, and zero document/shell horizontal overflow. There are zero print-DOM failures.
+- Exact payload parity, Pharm SHA-256, HTTP `200`, and `git diff --check` pass. No PDF marker or PDF generation occurred; all `282` fresh PDFs, every-page rasterization/visual inspection, final integrity, and the fresh two-pane A7 comparison remain mandatory.
+- Recovery remains PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm `ffc2a373d23b648c9512a68b650c93177028563310bf6abd1bb1dd7aa6a8ac7a`; exact payload `/private/tmp/pharm-a7-b10-329/pharm-current-329.html`; print harness `/private/tmp/pharm-a7-b10-329/pharm-print-harness-329.html`; print result `/private/tmp/pharm-a7-b10-329/results/print-gate-329.json`; QA `http://127.0.0.1:8766/pharm-a7-b10-329/pharm-print-harness-329.html?v=pharm-a7-b10-329-print`; current comparison remains `http://127.0.0.1:8766/pharm-a3-b9-326/pharm-a3-vs-mn-326.html?v=pharm-a3-b9-326-final`. Branch/HEAD/origin remain unchanged at `main` / `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`; only this overlay plus PD and Pharm Templates are tracked modifications; unrelated untracked files remain untouched; nothing was staged, committed, or pushed. The heartbeat remains active at 20 minutes; all protected automations remain paused and byte-unchanged.
+
+**Next Recommendation:** Resume only Batch 10 by running the PDF marker exactly once immediately before all `282` fresh PDFs, then rasterize and inspect every page before final integrity and comparison; the user personally does not need to act.
+
+## Part 330 Overlay — Pharm A7 PDF Corpus Generated / Raster Gate Must Resume (2026-08-20)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 10 **Pharm A7 Medication** remains **IN_PROGRESS** and must resume; automated QA is not user visual approval. Do not advance to Pharm A9. No product correction was made.
+- The PDF marker ran successfully exactly once immediately before generation. The exact-current harness produced exactly `282` nonempty Letter PDFs (`141` Filled and `141` Blank) totaling `1,017` pages, with page-count distribution `3:185`, `4:36`, `5:49`, `6:11`, `7:1` and file sizes from `81,429` to `184,015` bytes.
+- All `16` pages from the first and last A7 cards in Filled/Blank were freshly rasterized and inspected in one contact sheet. Content and Blank writing geometry are legible without clipping, overlap, or answer leakage. The banner-only opening page matches the finalized PD A7 print reference and is the established family print pattern, not a new Pharm-only defect.
+- Remaining work is complete rasterization/visual inspection of all `1,017` pages, all-PDF control/answer checks, final integrity/HTTP/diff, and the fresh two-pane A7 comparison. Batch 10 cannot advance yet.
+- Recovery remains PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm `ffc2a373d23b648c9512a68b650c93177028563310bf6abd1bb1dd7aa6a8ac7a`; payload `/private/tmp/pharm-a7-b10-330/pharm-current-330.html`; print harness `/private/tmp/pharm-a7-b10-330/pharm-print-harness-330.html`; generation manifest `/private/tmp/pharm-a7-b10-330/results/pdf-generation-330.json`; PDFs `/private/tmp/pharm-a7-b10-330/pdfs/`; representative contact `/private/tmp/pharm-a7-b10-330/rasters/representative-contact-330.png`; QA `http://127.0.0.1:8766/pharm-a7-b10-330/pharm-print-harness-330.html?v=pharm-a7-b10-330-pdf`; current comparison remains `http://127.0.0.1:8766/pharm-a3-b9-326/pharm-a3-vs-mn-326.html?v=pharm-a3-b9-326-final`. Branch/HEAD/origin and permitted tracked/untracked states remain unchanged; nothing was staged, committed, or pushed. The heartbeat remains active at 20 minutes, and all protected automations remain paused and byte-unchanged.
+
+**Next Recommendation:** Resume only Batch 10 by rasterizing and visually inspecting all `1,017` PDF pages, then complete text, integrity, and comparison gates; the user personally does not need to act.
+
+## Part 331 Overlay — Pharm A7 Objectively Complete / Pharm A9 Next (2026-08-20)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 10 **Pharm A7 Medication** is **OBJECTIVELY COMPLETE** after the complete fresh render-first gate and remains pending user visual approval; automated QA is not user visual approval. Batch 11 **Pharm A9 Nursing Skill** is active next and unstarted. No product correction was made.
+- All `1,017/1,017` pages from the `282` exact-current PDFs were freshly rasterized into `13` unique contact sheets and visually inspected without clipping, overlap, malformed rails/connectors, empty interior pages, or Blank answer leakage. All `282/282` PDFs also passed text extraction with zero failures, replacement characters, or exact-line screen-control/progress hits.
+- Final integrity passes `249` cards, counts `1/3/141/18/35/9/42`, preserved order, 141 A7 IDs/endpoints, `269` unique static IDs, all `249` links, one parseable script, unchanged storage, exact body/payload parity, HTTP `200`, and `git diff --check`. Fresh two-pane Pharm/MN A7 Filled and Blank comparison output is twice stable, mode-synchronized, loaded, visible, overflow-free, and visually inspected.
+- Recovery remains PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm `ffc2a373d23b648c9512a68b650c93177028563310bf6abd1bb1dd7aa6a8ac7a`; payload `/private/tmp/pharm-a7-b10-331/pharm-current-331.html`; raster/contact manifest `/private/tmp/pharm-a7-b10-331/results/raster-contact-manifest-331.json`; text audit `/private/tmp/pharm-a7-b10-331/results/pdf-text-audit-331.json`; integrity `/private/tmp/pharm-a7-b10-331/results/integrity-current-331.json`; comparison audit `/private/tmp/pharm-a7-b10-331/results/comparison-audit-331.json`; current comparison `http://127.0.0.1:8766/pharm-a7-b10-331/pharm-a7-vs-mn-331.html?v=pharm-a7-b10-331-final`. Branch/HEAD/origin remain `main` / `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`; only overlay + PD + Pharm Templates are tracked modifications; preserved untracked files remain untouched; nothing was staged, committed, or pushed. The heartbeat remains active at 20 minutes; all protected automations remain paused and byte-unchanged.
+
+**Next Recommendation:** Begin only Batch 11 Pharm A9 Nursing Skill with a fresh exact-current payload on the next heartbeat; the user personally does not need to act, commit, or push.
+
+## Part 332 Overlay — Pharm A9 Responsive Repair / Screen Gate Complete / Print Gate Must Resume (2026-08-20)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 11 **Pharm A9 Nursing Skill** is **IN_PROGRESS** and must resume; automated QA is not user visual approval. Do not advance to Batch 12.
+- Fresh pre-repair evidence covered all 18 A9 cards in Filled/Blank at `1440`, `768`, exact `681/680`, and `390px`; all `180/180` states were twice stable. It proved one family-wide legacy mismatch: `0px` card guard, `12px` metadata spacing, `10px` gaps, `8px` direct/nested corners, dense `13px / 19.5px` copy, an unrailed `10px / 900` Considerations label, gap-only connector, noncanonical Blank heights, and a late A9 two-column rule that collapsed tablet/phone direct boxes into approximately `2px` tracks.
+- One cohesive A9-only correction restores the finalized `24px + 40px` endpoint, `18px/14px/10px` spacing, `16px/14px/11px` corners, `15px / 24px` and `13.5px / 21.6px` title roles, DM Sans `16px / 25.6px / 400` copy, centered Considerations rail, exact `681/680px` transition, isolated `34px x 3px` / `3px x 34px` connector plus visible gap layer, and seven exact `120px` stacked Blank surfaces. Content, official structure, inventory, IDs, storage, accent, identity, PD, and other Pharm families remain unchanged.
+- The fresh post gate passes all `180/180` states twice stably with exact `24px` margin, `64px` endpoint, required spacing/corners/type/rail, correct wide/stacked order and connector orientation, zero Blank answers, exact phone Blank geometry, and zero horizontal overflow. Fresh desktop/tablet/phone first/last screenshots were generated and representative pre/post output inspected. Preliminary integrity passes `249` cards, counts `1/3/141/18/35/9/42`, preserved order, 18 A9 IDs, `269` unique IDs, all `249` links, one parseable script, unchanged storage, payload parity, body parity, and `git diff --check`.
+- Remaining work is the all-`36`-state print DOM gate, exactly `36` new PDFs with every page raster/text/visual inspection, final integrity/HTTP/diff, and a fresh two-pane A9 comparison. No PDF marker or PDF generation occurred.
+- Recovery: PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm `2976ec87f3aaa07f779f8ecf9ec01700027ac6420cf831ec64c060a303364b25`; product payload `/private/tmp/pharm-a9-b11-332/pharm-current-post-332.html`; screen result `/private/tmp/pharm-a9-b11-332/results/screen-post-332.json`; integrity `/private/tmp/pharm-a9-b11-332/results/integrity-current-332.json`; QA `http://127.0.0.1:8766/pharm-a9-b11-332/pharm-qa-post-332.html?v=pharm-a9-b11-332-post&qaCard=0&qaMode=filled`; current comparison remains `http://127.0.0.1:8766/pharm-a7-b10-331/pharm-a7-vs-mn-331.html?v=pharm-a7-b10-331-final`. Branch/HEAD/origin and permitted tracked/untracked states remain unchanged; nothing was staged, committed, or pushed. Heartbeat remains active at 20 minutes; protected automations remain paused and byte-unchanged.
+
+**Next Recommendation:** Resume only Batch 11 with a fresh exact-current A9 print harness and complete all `36` print DOM/PDF/raster states before final integrity and comparison; the user personally does not need to act.
+
+## Part 333 Overlay — Pharm A9 Objectively Complete / Pharm A11 Next (2026-08-20)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 11 **Pharm A9 Nursing Skill** is **OBJECTIVELY COMPLETE** after the complete fresh gate and remains pending user visual approval; automated QA is not user visual approval. Batch 12 **Pharm A11 System Disorder** is active next and unstarted. No product correction was made.
+- The fresh exact-current print harness passes all `36/36` A9 card/mode states twice stably with nonzero print ancestors, loaded fonts, official two-column order, five direct plus two nested boxes, finalized spacing/corner/type/rail roles, visible Filled content, absent Blank answers, writing surfaces at or above `120px`, hidden controls, correct two-layer connector, and zero overflow.
+- The PDF marker ran exactly once immediately before generation. Exactly `36` nonempty PDFs (`18` Filled and `18` Blank) total `86` freshly rasterized pages with distribution `1:18`, `3:12`, `5:5`, `7:1` and sizes `77,887–173,701` bytes. Complete Filled/Blank contact sheets and representative full-size pages were inspected without clipping, overlap, missing content, malformed rails/connectors, or Blank answer leakage. The long Filled equal-row continuation matches the finalized MN A9 reference.
+- All `36/36` PDFs extract with zero failures, replacement characters, or screen-control/progress hits. Final integrity passes `249` cards, counts `1/3/141/18/35/9/42`, preserved order, 18 A9 IDs, `269` unique IDs, all `249` links, one parseable script, unchanged storage, body/payload parity, HTTP `200`, and `git diff --check`. Fresh exact-current Pharm/MN A9 Filled/Blank comparison is synchronized, twice stable, loaded, visible, zero-overflow, and visually inspected.
+- Recovery: PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm `2976ec87f3aaa07f779f8ecf9ec01700027ac6420cf831ec64c060a303364b25`; payload `/private/tmp/pharm-a9-b11-333/pharm-current-333.html`; print result `/private/tmp/pharm-a9-b11-333/results/print-gate-333.json`; raster manifest `/private/tmp/pharm-a9-b11-333/results/raster-contact-manifest-333.json`; text audit `/private/tmp/pharm-a9-b11-333/results/pdf-text-audit-333.json`; integrity `/private/tmp/pharm-a9-b11-333/results/integrity-current-333.json`; comparison audit `/private/tmp/pharm-a9-b11-333/results/comparison-audit-333.json`; current comparison `http://127.0.0.1:8766/pharm-a9-b11-333/pharm-a9-vs-mn-333.html?v=pharm-a9-b11-333-final`. Branch/HEAD/origin and permitted tracked/untracked states remain unchanged; nothing was staged, committed, or pushed. Heartbeat remains active at 20 minutes; protected automations remain paused and byte-unchanged.
+
+**Next Recommendation:** Begin only Batch 12 Pharm A11 System Disorder with a fresh exact-current payload on the next heartbeat; the user personally does not need to act.
+
+## Part 334 Overlay — Pharm A11 Pre-Repair Screen Audit Complete / Repair Must Resume (2026-08-20)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 12 **Pharm A11 System Disorder** is **IN_PROGRESS** and must resume; automated QA is not user visual approval. Do not advance to Batch 13. No product correction was made.
+- Fresh exact-current render-first evidence covers every A11 card: all `350/350` states across 35 cards, Filled/Blank, `1440`, exact `901/900`, `768`, and `390px` were twice stable at least `300ms` apart. It proves one cohesive legacy mismatch: no `24px` guard, only `36–40px` endpoint, `14px` metadata spacing, specificity-broken narrow columns with up to `58px` modal overflow, `10px/8px` corners, `13px / 19.5px` copy, unrailed `10px / 900` group labels, unequal Patient-Centered Care columns, visible Blank Safety copy, and content-driven rather than `120px` Blank writing geometry.
+- Six fresh screenshots were generated; desktop Filled, exact-`900px` Blank, and phone Blank were inspected and corroborate the measured dense hierarchy, Blank answer leakage, malformed narrow layout, and overflow. The correction and all post-repair screen, print/PDF/raster, final integrity, and comparison work remain outstanding.
+- Recovery: PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm `2976ec87f3aaa07f779f8ecf9ec01700027ac6420cf831ec64c060a303364b25`; exact pre payload `/private/tmp/pharm-a11-b12-334/pharm-current-pre-334.html`; result `/private/tmp/pharm-a11-b12-334/results/screen-pre-334.json`; QA `http://127.0.0.1:8766/pharm-a11-b12-334/pharm-qa-pre-334.html?v=pharm-a11-b12-334-pre&qaCard=0&qaMode=filled`; current comparison remains `http://127.0.0.1:8766/pharm-a9-b11-333/pharm-a9-vs-mn-333.html?v=pharm-a9-b11-333-final`. Branch/HEAD/origin and permitted tracked/untracked states remain unchanged; nothing was staged, committed, or pushed. Heartbeat remains active at 20 minutes; protected automations remain paused and byte-unchanged.
+
+**Next Recommendation:** Resume only Batch 12 with one A11-only existing-canon correction, then rerun the complete all-card responsive gate before print/PDF/integrity/comparison; the user personally does not need to act.
+
+## Part 335 Overlay — Pharm A11 Screen and Print-DOM Gates Complete / PDFs Next (2026-08-20)
+
+- Batch 12 **Pharm A11 System Disorder** remains **IN_PROGRESS** and must resume; automated QA is not user visual approval. Do not advance to Batch 13.
+- One cohesive A11-only correction restores the finalized `64px` endpoint, spacing/corner/type/rail hierarchy, equal Patient-Centered Care thirds, exact `901/900px` transition, hidden Blank Safety copy, stacked `120px` writing surfaces, and zero overflow without changing content, official structure, inventory, IDs, storage, accent, identity, PD, or other Pharm families.
+- All `350/350` exact-current post-repair screen states pass twice stably across 35 cards, Filled/Blank, `1440`, exact `901/900`, `768`, and `390px`. Six fresh screenshots were captured and representative desktop Filled, exact-`900px` Blank, and phone Blank output was inspected without collapse, clipping, or answer leakage. All `70/70` fresh print-DOM states also pass twice stably with nonzero ancestors, official geometry and counts, centered rails, hidden controls, absent Blank answers, writing surfaces at or above `120px`, zero print margin, and zero overflow.
+- Integrity passes `249` cards, counts `1/3/141/18/35/9/42`, preserved order, 35 A11 IDs, `269` unique IDs, all links, script, storage, payload/body parity, HTTP `200`, and `git diff --check`. No PDF marker or PDF generation occurred; all `70` PDFs, complete raster/text/visual inspection, final integrity, and fresh A11 comparison remain.
+- Recovery: PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm `5088b610409edc32be3c9521089ccd388697c7c424a78769651e95ecbc9c1a96`; payload `/private/tmp/pharm-a11-b12-335/pharm-current-post-335.html`; screen `/private/tmp/pharm-a11-b12-335/results/screen-post-335.json`; print result `/private/tmp/pharm-a11-b12-335/results/print-gate-335.json`; integrity `/private/tmp/pharm-a11-b12-335/results/integrity-current-335.json`; QA `http://127.0.0.1:8766/pharm-a11-b12-335/pharm-current-post-335.html?v=pharm-a11-b12-335-post`; current comparison remains `http://127.0.0.1:8766/pharm-a9-b11-333/pharm-a9-vs-mn-333.html?v=pharm-a9-b11-333-final`. Repository and automation recovery remain otherwise unchanged; nothing was staged, committed, or pushed.
+
+**Next Recommendation:** Resume only Batch 12 with the one-time PDF marker and all `70` fresh PDFs, then inspect every rasterized page before final integrity and comparison; the user personally does not need to act.
+
+## Part 336 Overlay — Pharm A11 PDF Corpus Complete / Four Print Fragments Must Resume (2026-08-20)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 12 **Pharm A11 System Disorder** remains **IN_PROGRESS** and must resume; automated QA is not user visual approval. Do not advance to Batch 13. No product file changed.
+- The PDF marker ran successfully exactly once. After restoring the fresh harness's missing uniquely named A11 opener dependency, generation resumed without repeating the marker and produced exactly `70` nonempty Letter PDFs (`35` Filled, `35` Blank), totaling `560` pages with distribution `3:35`, `11:2`, `12:6`, `13:21`, `14:2`, `15:4` and sizes `84,036–293,410` bytes.
+- All `560/560` pages were freshly rasterized and scanned through `24` labeled contact sheets, with representative pages inspected full-size. All `70/70` PDFs extract cleanly with zero failures, replacement characters, screen-control/progress hits, or Blank learner-answer leakage; every page is Letter size and all `105` Blank pages retain answer-free A11 writing geometry.
+- Four Filled print fragments fail the page gate: `ex-ch16-insomnia` page 7 and `ex-ch18-allergic-rhinitis` page 8 are fully textless interstitial pages before Patient-Centered Care; `ex-ch28-gerd` page 12 and `ex-ch46-urinary-tract-infection` page 11 are fully textless terminal Patient-Centered Care fragments. Full-size rasters confirm the exact defects. The next run must diagnose `.patient-care-group` / adjacent grid fragmentation, apply at most one cohesive print correction, and repeat the complete `70`-PDF/raster/text/page gate before final integrity and comparison.
+- Recovery: PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm `5088b610409edc32be3c9521089ccd388697c7c424a78769651e95ecbc9c1a96`; payload `/private/tmp/pharm-a11-b12-336/pharm-current-336.html`; print harness `/private/tmp/pharm-a11-b12-336/pharm-print-harness-336.html`; generation `/private/tmp/pharm-a11-b12-336/results/pdf-generation-336.json`; raster manifest `/private/tmp/pharm-a11-b12-336/results/raster-contact-manifest-336.json`; text audit `/private/tmp/pharm-a11-b12-336/results/pdf-text-audit-336.json`; page audit `/private/tmp/pharm-a11-b12-336/results/page-text-audit-336.json`; QA `http://127.0.0.1:8766/pharm-a11-b12-336/pharm-current-336.html?v=pharm-a11-b12-336-current`; current comparison remains the Part 333 A9 URL. Repository and automation recovery remain otherwise unchanged; nothing was staged, committed, or pushed.
+
+**Next Recommendation:** Resume only Batch 12 by diagnosing and repairing the four A11 Patient-Centered-Care-adjacent textless print fragments, then regenerate and inspect all `70` PDFs before final integrity and comparison; the user personally does not need to act.
+
+## Part 337 Overlay — Pharm A11 Objectively Complete / Pharm A13 Next (2026-08-20)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 12 **Pharm A11 System Disorder** is **OBJECTIVELY COMPLETE** after the complete fresh gate and remains pending user visual approval; automated QA is not user visual approval. Batch 13 **Pharm A13 Therapeutic Procedure** is active next and unstarted.
+- One cohesive A11-only print correction matches finalized shared System Disorder fragmentation roles: groups and child boxes may fragment naturally, boxes use automatic height/start alignment, Safety uses natural height, Patient-Centered Care drops trailing print-only border/padding, titles retain page-break cohesion, and terminal Interprofessional Care drops only trailing print spacing. Learner content, official structure, inventory, links, IDs, storage, order, accent, identity, PD, other Pharm families, and screen styling are unchanged.
+- All `350/350` screen states and `70/70` print-DOM states re-pass twice stably. The one-time marker preceded exactly `70` fresh nonempty Letter PDFs totaling `419` pages with distribution `3:35`, `7:1`, `8:7`, `9:21`, `10:4`, `11:2`. All `419` pages were rasterized and inspected through `19` contacts plus full-size former-defect boundaries. There are zero empty or under-`12`-character pages, zero non-Letter pages, no clipping/overlap, and no Blank answer leakage. All PDFs extract cleanly with zero failures, replacement characters, control/progress hits, or Blank-answer leaks.
+- Final integrity passes `249` cards, counts `1/3/141/18/35/9/42`, preserved order, 35 A11 IDs, `269` unique static IDs, all links, script, storage, exact product/payload and body parity, HTTP `200`, and `git diff --check`. Fresh Pharm/MH A11 Filled/Blank comparison is synchronized, twice stable, loaded, visible, zero-overflow, and visually inspected.
+- Recovery: PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm `78d91f34f65f5fa7f944938049c2215604e3b24b6b7b13c564a8a4e1d0c07a3f`; payload `/private/tmp/pharm-a11-b12-337/pharm-current-337.html`; results under `/private/tmp/pharm-a11-b12-337/results/`; comparison `http://127.0.0.1:8766/pharm-a11-b12-337/pharm-a11-vs-mh-337.html?v=pharm-a11-b12-337-final`. Repository and automation recovery remain otherwise unchanged; nothing was staged, committed, or pushed.
+
+**Next Recommendation:** Start only Batch 13 Pharm A13 Therapeutic Procedure with a new unique exact-current payload on the next wakeup; the user personally does not need to act, commit, or push.
+
+## Part 338 Overlay — Pharm A13 Screen/Print-DOM Gates Complete / Four Filled Print Fragments Must Resume (2026-08-20)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 13 **Pharm A13 Therapeutic Procedure** is **IN_PROGRESS** and must resume; automated QA is not user visual approval. Do not advance to Batch 14.
+- All `90/90` pre-repair states twice stably proved one cohesive legacy mismatch across nine cards, Filled/Blank, `1440`, exact `901/900`, `768`, and `390px`. One A13-only correction restores the finalized PD A13 endpoint, `18px/14px/10px` hierarchy, exact responsive areas/order, corners/type/centered Considerations rail, two-layer connector, and direct/nested Blank writing geometry while preserving learner content and all structural identity.
+- All `90/90` post screen states and `18/18` print-DOM states pass twice stably with official geometry/order, hidden Blank answers, loaded fonts, correct rails/connectors, required writing surfaces, and zero overflow. Twenty-six fresh screen renders and complete contacts were inspected.
+- The PDF marker ran exactly once before exactly `18` fresh nonempty Letter PDFs totaling `67` rasterized pages. The nine Blank PDFs are one answer-free page each. Four exact Filled page-6 fragments are visually textless and contain only empty A13 grid surfaces, with `0` extracted characters: `ex-ch1-pharmacokinetics-and-routes-of-administration`, `ex-ch27-blood-and-blood-products`, `ex-ch15-malignant-hyperthermia`, and `ex-ch13-status-epilepticus`. A second cohesive correction was not attempted in this run.
+- Integrity passes `249` cards, counts `1/3/141/18/35/9/42`, preserved order and all nine A13 IDs, `269` unique IDs, all links, script, storage, and exact payload/body parity. Fresh Pharm/MH A13 comparison is synchronized, twice stable, loaded, visible, zero-overflow, and inspected.
+- Recovery: PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm `a2f66b223948d0e8cc4425d3ab5965f25f6f51d6c41d018db80198e9a4bb0d75`; payload `/private/tmp/pharm-a13-b13-338/pharm-current-338.html`; results under `/private/tmp/pharm-a13-b13-338/results/`; comparison `http://127.0.0.1:8766/pharm-a13-b13-338/pharm-a13-vs-mh-338.html?v=pharm-a13-b13-338-final`; QA `http://127.0.0.1:8766/pharm-a13-b13-338/pharm-qa-post-338.html?v=pharm-a13-b13-338-final&qaCard=0&qaMode=filled`. Repository and automation recovery remain otherwise unchanged; nothing was staged, committed, or pushed.
+
+**Next Recommendation:** Resume only Batch 13 with `.tp-grid` / Considerations-repeat-row print-fragmentation diagnosis, one supported A13 print-only correction, and a complete fresh `18`-PDF/raster/text gate; the user personally does not need to act.
+
+## Part 339 Overlay — Pharm A13 Objectively Complete / Pharm A15 Next (2026-08-20)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 13 **Pharm A13 Therapeutic Procedure** is **OBJECTIVELY COMPLETE** after the complete fresh gate and remains pending user visual approval; automated QA is not user visual approval. Batch 14 **Pharm A15 Concept Analysis** is active next and unstarted.
+- One cohesive A13-only print correction resolves Part 338's repeated-row fragments by using the established canonical stacked A13 order and vertical two-layer connector for Filled print while preserving the compact two-column Blank worksheet, horizontal connector, and exact writing geometry. Grid/child boxes fragment naturally with automatic height/start alignment and cohesive labels/headings. Screen styling, learner content, official structure, inventory, links, counts, IDs, storage, order, accent, identity, PD, and every other Pharm family remain unchanged.
+- All `90/90` screen states and `18/18` print-DOM states re-pass twice stably. Twenty-six exact-final screen renders and three rebuilt contacts were inspected. The PDF marker ran exactly once before first generation; exactly `18` final nonempty Letter PDFs total `46` rasterized pages with distribution `1:9`, `4:8`, `5:1`. All five final PDF contacts were inspected. Per-page text is `379–2,338` characters with zero empty or under-`12`-character pages, zero failures, zero non-Letter pages, no clipping/overlap, and no Blank answer leakage.
+- Final integrity passes `249` cards, counts `1/3/141/18/35/9/42`, preserved order and all nine A13 IDs, `269` unique IDs, all links, script, unchanged storage, exact payload/body parity, HTTP `200`, and `git diff --check`. Fresh exact-final Pharm/MH A13 Filled/Blank comparison is synchronized, twice stable, loaded, visible, zero-overflow, and visually inspected.
+- Recovery: PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm `b4e3a28c3702a1834e6a9552971d100ff408b9a4da30b731beca04f50484ad8e`; payload `/private/tmp/pharm-a13-b13-339/pharm-current-final-339.html`; final results under `/private/tmp/pharm-a13-b13-339/results/`; comparison `http://127.0.0.1:8766/pharm-a13-b13-339/pharm-a13-vs-mh-339.html?v=pharm-a13-b13-339-final`; QA `http://127.0.0.1:8766/pharm-a13-b13-339/pharm-qa-final-339.html?v=pharm-a13-b13-339-final-screen&qaCard=0&qaMode=filled`. Branch/HEAD/origin remain `main` / `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`, with only overlay + PD + Pharm Templates tracked modifications; unrelated untracked files remain untouched; heartbeat remains active every 20 minutes and all protected automations remain paused and byte-unchanged; nothing was staged, committed, or pushed.
+
+**Next Recommendation:** Start only Batch 14 Pharm A15 Concept Analysis with a new unique exact-current payload on the next wakeup; the user personally does not need to act, commit, or push.
+
+## Part 340 Overlay — Pharm A15 Screen and Print-DOM Gates Complete / PDFs Next (2026-08-20)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 14 **Pharm A15 Concept Analysis** is **IN_PROGRESS** and must resume; automated QA is not user visual approval. Do not advance to Batch 15.
+- All `420/420` pre-repair states twice stably proved one cohesive A15 legacy mismatch across `42` cards, Filled/Blank, `1440`, `768`, exact `721/720`, and `390px`. One A15-only correction restores the finalized shared `24px + 40px` endpoint, `18px/14px` spacing, exact `721/720px` transition, five `14px`-radius auto-height boxes, established title/body roles, and five exact `120px` Blank surfaces. An objective first-post `60px` narrow endpoint was refined within the same correction. Learner content and all structural/subject identity remain preserved.
+- All `420/420` exact-final screen states and `84/84` print-DOM states pass twice stably with loaded fonts, official two-column/stack behavior, exact spacing/corner/type roles, hidden Blank answers, required writing surfaces, hidden print controls, zero print margin, and zero overflow. Twenty exact-final screen renders and three complete contacts were inspected without clipping, overlap, malformed columns, or answer leakage.
+- Preliminary integrity passes `249` cards, counts `1/3/141/18/35/9/42`, preserved order and all `42` A15 IDs, `269` unique IDs, all links, script, unchanged storage, exact payload/body parity, HTTP `200`, and `git diff --check`. No PDF marker ran and no PDF was generated; exactly `84` PDFs, complete page raster/text/visual inspection, final integrity, and the fresh A15 comparison remain.
+- Recovery: PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm `8660141ef25c1730cb6a86aa58eb436060318f1d9bc8471bfebfc8778d55269d`; payload `/private/tmp/pharm-a15-b14-340/pharm-current-final-340.html`; screen `/private/tmp/pharm-a15-b14-340/results/screen-final-340.json`; print `/private/tmp/pharm-a15-b14-340/results/print-gate-final-340.json`; integrity `/private/tmp/pharm-a15-b14-340/results/integrity-current-340.json`; QA `http://127.0.0.1:8766/pharm-a15-b14-340/pharm-qa-final-340.html?v=pharm-a15-b14-340-final-screen&qaCard=0&qaMode=filled`; current comparison remains `http://127.0.0.1:8766/pharm-a13-b13-339/pharm-a13-vs-mh-339.html?v=pharm-a13-b13-339-final`. Branch/HEAD/origin remain `main` / `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`, with only overlay + PD + Pharm Templates tracked modifications; unrelated untracked files remain untouched; heartbeat remains active every 20 minutes and all protected automations remain paused and byte-unchanged; nothing was staged, committed, or pushed.
+
+**Next Recommendation:** Resume only Batch 14 by running the PDF marker exactly once immediately before generating all `84` fresh PDFs, then rasterize and inspect every page before final integrity and comparison; the user personally does not need to act.
+
+## Part 341 Overlay — Pharm A15 Print Fragmentation Repaired / Complete Refined Gate Next (2026-08-20)
+
+- Mode remains **DESIGN-CANON / HOLD-CONTENT** with no ATI source use. Batch 14 **Pharm A15 Concept Analysis** remains **IN_PROGRESS** and must resume; automated QA is not user visual approval. Do not advance to Batch 15.
+- The PDF marker ran exactly once. After rejecting an incomplete shell-inclusive harness, an exact-product harness generated `84` Letter PDFs totaling `197` pages; all nine complete contact sheets were inspected. The `42` Blank PDFs were one answer-free page each. Four exact Filled terminal pages were textless grid fragments: `ex-ch43-culture-sensitivity-selection` page 4, `ex-ch11-antidepressant-bbw-adolescents` page 4, `ex-ch49-herbal-supplements-interactions` page 4, and `ex-ch25-anticoagulation-bleeding-risk` page 5.
+- One cohesive A15-only print correction first restored natural card/grid/box fragmentation and heading cohesion. The complete rerun removed those four pages but exposed one remaining textless cross-column fragment at `ex-ch43-antimicrobial-hypersensitivity` page 3. The same correction was refined to the established stacked Filled print orientation in official order while preserving the compact two-column Blank worksheet and exact `120px` boxes. A focused refined diagnostic now yields two text-bearing pages (`1,074`/`1,560` compact characters) with no empty fragment.
+- The intermediate product passed all `420/420` screen and `84/84` print-DOM states twice stably and produced twenty screenshots, but the subsequent supported stacked refinement means the next run must repeat the complete fresh exact-current gate. Preliminary refined integrity passes all counts, IDs, links, script, storage, payload/body parity, and `git diff --check`.
+- Recovery: PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; refined Pharm `e6391f3df869d6dbe3876fc44d9268f9d830f61501b2f7ab2a36d89592aade80`; payload `/private/tmp/pharm-a15-b14-341/pharm-current-refined-341.html`; refined integrity `/private/tmp/pharm-a15-b14-341/results/integrity-refined-341.json`; PDF/raster/page evidence under `/private/tmp/pharm-a15-b14-341/results/`; QA `http://127.0.0.1:8766/pharm-a15-b14-341/pharm-current-refined-341.html?v=pharm-a15-b14-341-refined`; current comparison remains `http://127.0.0.1:8766/pharm-a13-b13-339/pharm-a13-vs-mh-339.html?v=pharm-a13-b13-339-final`. Branch/HEAD/origin remain `main` / `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`, with only overlay + PD + Pharm Templates tracked modifications; unrelated untracked files remain untouched; heartbeat remains active every 20 minutes and all protected automations remain paused and byte-unchanged; nothing was staged, committed, or pushed.
+
+**Next Recommendation:** Resume only Batch 14 in a fresh unique run with the complete exact-current screen/print/`84`-PDF/raster/text/integrity/comparison gate; the user personally does not need to act.
+
+## Part 342 Overlay — Pharm A15 Objectively Complete / Final PD-Pharm Integrity Next (2026-08-20)
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active with no ATI source use. Content population is paused; automated QA is not user visual approval.
+
+Current batch:
+- Batch 14 **Pharm A15 Concept Analysis** is **OBJECTIVELY COMPLETE** after the complete fresh render-first gate and remains pending user visual approval. Batch 15 final PD/Pharm responsive, print, payload, script, count, unique-ID, link, storage, guide, recovery, git-diff integrity, and representative two-pane user-review handoff is active next and unstarted.
+- The first exact-current corpus exposed textless Filled terminal surfaces at `ex-ch6-pregnancy-lactation` page 3 and `ex-ch11-antidepressant-bbw-adolescents` page 3. One cohesive A15-only refinement makes Filled print boxes block/non-flex surfaces with visible overflow and whole-box page cohesion in official stacked order; Blank remains the canonical compact two-column worksheet with exact `120px` surfaces. A first post corpus removed the textless pages but exposed short orphan continuations, so page cohesion was refined within the same supported correction. Learner content and all structural/subject identity remain preserved.
+
+Files edited:
+- Repository edits this run are `Elevated ATI Pharm Templates.html` and `Build Guide Current Overlay.md`. No PD, MH, MN, AMS, educational-content, checklist, audit, source, or archive file was edited.
+
+Validation performed:
+- Final Pharm SHA-256 is `d6701819a745efac6f7bd15da4e8a5b1e33b053ea32cb1ade5d8ede4b208321d`; PD remains `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`. Exact-current product/payload byte parity passes.
+- All `420/420` screen states and `84/84` print-DOM states pass twice stably with the canonical endpoint, spacing, exact `721/720px` transition, corners/type, official Filled/Blank orientation, five exact `120px` Blank surfaces, hidden controls/answers, loaded fonts, and zero overflow. Twenty screenshots and three complete screen contacts were inspected without defect.
+- The PDF marker ran exactly once before the first generation and was not repeated for refinements. The final `84` nonempty Letter PDFs (`42` Filled, `42` Blank) total `160` freshly rasterized pages with distribution `1:42`, `2:8`, `3:34`, sizes `65,563–150,787` bytes, and per-page text `586–3,127` characters. All pages and seven contacts were inspected; audits report zero failures, non-Letter pages, under-`12` pages, textless/orphan surfaces, clipping/overlap, control leakage, or Blank answer leakage.
+- Integrity passes `249` cards, exact counts `1/3/141/18/35/9/42`, all `42` A15 IDs, `269` unique IDs, all links, one parseable script, unchanged storage, exact payload/body parity, HTTP `200`, and `git diff --check`. Fresh synchronized, twice-stable, zero-overflow Filled/Blank comparison was inspected: `http://127.0.0.1:8766/pharm-a15-b14-342-final/pharm-a15-vs-mh-342-final.html?v=pharm-a15-b14-342-final-compare`. Recovery evidence is under `/private/tmp/pharm-a15-b14-342-final/`.
+
+Automation status:
+- The retrospective heartbeat remains **ACTIVE** every 20 minutes at `fabe91bde2388f0fe0d197c315074e424d489741d29945c4a4ede392200693d2`; the three protected automations remain **PAUSED** and byte-unchanged at `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, and `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`.
+
+Commit/push status:
+- Nothing was staged, committed, pushed, merged, reset, reverted, published, or populated. Branch/HEAD/origin remain `main` / `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly three tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI PD Templates.html`, and `Elevated ATI Pharm Templates.html`. Preserved unrelated untracked `.DS_Store`, `.gitignore`, `Study Tool Content Synthesis Guide.md`, `Study Tool Synthesis Guide v2/`, `Teleprompter.html`, and `recovered-codex-screenshots/` remain untouched.
+
+TLDR:
+- Pharm A15 passes the complete responsive, Blank-writing, print/PDF/raster, payload, integrity, and two-pane comparison gate; Batch 15 is next.
+
+Next Recommended Action:
+- On the next wakeup, begin only Batch 15 final PD/Pharm integrity and representative two-pane user-review handoff; the user personally does not need to act, commit, or push.
+
+## Part 343 Overlay — Final PD/Pharm Integrity Complete / Representative User Review Pending (2026-08-20)
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population is paused; ATI source support used: none; design-only work. Automated QA is not user visual approval.
+
+Current batch:
+- Batch 15 is **OBJECTIVELY COMPLETE**. All ordered PD/Pharm Batches 0–15 are complete; only the user's representative two-pane visual review remains. No new subject or content-population phase is authorized.
+
+Files edited:
+- No product file changed in Batch 15. Private master Part 343 was written first, followed by this overlay and the private handoff. No protected product, content, checklist, audit, source, archive, or unrelated file was edited.
+
+Validation performed:
+- Exact hashes are PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49` and Pharm `d6701819a745efac6f7bd15da4e8a5b1e33b053ea32cb1ade5d8ede4b208321d`; both fresh payloads and the comparison return HTTP `200` with exact byte/body parity.
+- Fresh representative PD/Pharm A15 evidence passes all `20/20` Filled/Blank states twice stably across `1440`, `768`, exact `721/720`, and `390px`, including loaded fonts, complete top stack, `64px` endpoint, `18px/14px` spacing, exact transition, canonical corners/type, five exact `120px` Blank surfaces, hidden answers, and zero overflow. Direct screenshots and Filled/Blank comparison views were inspected.
+- The PDF marker ran exactly once before four fresh nonempty Letter PDFs totaling eight rasterized pages. All pages/contact output were inspected; PDF, extraction, page-size, control/replacement-character, and Blank-answer audits pass with zero failures.
+- Final integrity passes `428` total cards and `470` unique static IDs with zero cross-book card-ID duplicates: PD `179` cards, counts `12/9/5/13/9/116/9/6`, `201` unique static IDs, all `179` links, script, and storage; Pharm `249` cards, counts `1/3/141/18/35/9/42`, no A5, `269` unique static IDs, all `249` links, script, and storage. Order, payload parity, HTTP, and `git diff --check` pass.
+- Recovery is `/private/tmp/pd-pharm-final-b15-343/`; results are under `results/`. Exact-current review: `http://127.0.0.1:8766/pd-pharm-final-b15-343/pd-vs-pharm-a15-final-343.html?v=pd-pharm-final-b15-343-review`.
+
+Automation status:
+- `ati-retrospective-template-spacing-heartbeat` is **PAUSED** at `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`, with prompt/schedule/target/name and all other fields preserved. The three protected automations remain **PAUSED** and byte-unchanged at `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, and `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`.
+
+Commit/push status:
+- Nothing was staged, committed, pushed, merged, reset, reverted, published, or populated. Branch/HEAD/origin remain `main` / `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly three tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI PD Templates.html`, and `Elevated ATI Pharm Templates.html`. Preserved unrelated untracked `.DS_Store`, `.gitignore`, `Study Tool Content Synthesis Guide.md`, `Study Tool Synthesis Guide v2/`, `Teleprompter.html`, and `recovered-codex-screenshots/` remain untouched.
+
+TLDR:
+- All 16 objective PD/Pharm design-canon batches are complete and the owning heartbeat is paused; representative user visual approval remains pending.
+
+Next Recommended Action:
+- The user must personally review the exact-current PD/Pharm A15 Filled comparison first, toggle Blank, and report either approval or the first visible mismatch; do not commit or push yet.
+
+## Part 344 Overlay — Established Featureful Comparison Restored / User Review Still Pending (2026-08-20)
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active with no ATI source use. Content population is paused; automated QA is not user visual approval.
+
+Current batch:
+- Batches 0–15 remain objectively complete. The user's visual-review feedback is resolved by replacing the one-off Part 343 shell with the established featureful dark two-pane comparison design. User visual approval remains pending.
+
+Files edited:
+- Only the temporary comparison wrapper, private master, this overlay, and private handoff changed. Neither PD nor Pharm product changed; no protected or unrelated file was edited.
+
+Validation performed:
+- Restored controls are synchronized Filled/Blank, Align Both to Top, Defining Characteristics, Antecedents, Related Concepts, Sync Once, proportional Sync Scroll, horizontal Guides, and linked movable Vertical Guides, with established full-height dark panes and persistent subject/card labels.
+- Browser verification passes mode synchronization, alignment, guide activation, linked vertical-guide position, clean default reset, visible side-by-side presentation, ready status, and HTTP `200`. Wrapper SHA-256 is `3a09ff3f03de61924b098518b64fc6027df9605b287f55d3def91c8a99a0f0e8`; review URL remains `http://127.0.0.1:8766/pd-pharm-final-b15-343/pd-vs-pharm-a15-final-343.html?v=pd-pharm-final-b15-343-review`.
+- Products remain byte-identical to accepted Part 322/342 files: PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm `d6701819a745efac6f7bd15da4e8a5b1e33b053ea32cb1ade5d8ede4b208321d`. `git diff --check` passes.
+
+Automation status:
+- The owning heartbeat remains **PAUSED** and byte-unchanged at `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`; all three protected automations remain **PAUSED** and byte-unchanged at their documented hashes.
+
+Commit/push status:
+- Nothing was staged, committed, pushed, merged, reset, reverted, published, or populated. Branch/HEAD/origin remain `main` / `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly three tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI PD Templates.html`, and `Elevated ATI Pharm Templates.html`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- The established featureful comparison is restored at the same URL without product changes; user review remains the only open gate.
+
+Next Recommended Action:
+- The user must review the restored PD/Pharm A15 comparison using Filled/Blank, alignment, scroll-sync, and guide controls, then report approval or the first visible mismatch; do not commit or push yet.
+
+## Comparative Mode Design Contract — Canonical Requirement
+
+This contract governs every future Elevated ATI visual-comparison handoff unless the latest explicit user instruction changes it.
+
+1. **MN is the fixed left shared-canon reference.** Every design-canon comparison must place the exact finalized MN product in the clearly labeled left pane unless the user explicitly directs otherwise. A matching finalized MH or AMS family may be used only when the user or established family evidence specifically requires it; it must never silently replace MN.
+2. **Exactly two panes are visible at a time, in fixed order.** The left pane is MN reference; the right pane is the current target. A multi-target, cross-book, or final review uses a pair selector or sequential two-pane links that change only the right current-file pane. It must never reverse the MN/current order or display a third simultaneous comparison pane unless the user explicitly requests that change.
+3. **The established featureful dark shell is preserved in a compact disclosure.** The header keeps the loading/ready/error status visible and places the full control set inside a clearly labeled `Comparison options` disclosure that is collapsed by default. Expanding the disclosure overlays the comparison instead of permanently increasing header height or shrinking the panes. Required controls remain synchronized Filled/Blank; a pair selector that changes only the right target when more than one target is in scope; Align All to Top; family landmark alignment controls; Sync Once; proportional continuous Sync Scroll; horizontal Guides; linked movable Vertical Guides; persistent pane/book/card labels; and full-height equal panes. Controls may be added when explicitly requested, but must not be removed, renamed in a way that loses their purpose, or replaced by a reduced shell without explicit user approval.
+4. **Comparison inputs and roles are exact.** Each pane must load a fresh, byte-verified product payload through a unique cache-busted `127.0.0.1` URL: finalized MN on the left and exact-current target on the right. The shell must open the intended family/card and map equivalent semantic roles without changing learner text, product files, accents, or subject identity.
+5. **The shell is itself a gated artifact.** Before handoff, verify the expected pane count/order/labels, exact payload mapping, collapsed-default options state, visible status, compact header geometry, expanded overlay geometry without pane reflow, every control inside the disclosure, Filled and Blank synchronization across every pane, top and landmark alignment, one-time and continuous scroll synchronization, horizontal and linked vertical guides, loaded fonts, stable ready state, equal visible panes, and HTTP success. Inspect fresh collapsed and expanded screenshots. Automated checks are evidence only and never user visual approval.
+6. **No silent comparison regression.** Requested comparison features and orientation are persistent workflow requirements, not disposable temporary QA scaffolding. Never increase or reduce the canonical two-pane display, move MN away from the left, omit MN, restyle the established shell, remove a requested feature, or substitute a different reference because a later checkpoint says only “comparison” or “handoff.” Any proposed contract change is subjective and requires explicit user approval first.
+
+## Part 345 Recovery Addendum — Comparative Mode Contract Established / MN Restored to Final Review
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active with content population paused and no ATI source use. Automated QA is not user visual approval.
+
+Current batch:
+- Batches 0–15 remain objectively complete and paused for representative user review. The comparison-only regression is corrected: the final handoff now uses the canonical three-pane PD / MN / Pharm design. The root cause was an incorrect interpretation of “PD/Pharm two-pane handoff” as permission to omit MN and replace the established comparison contract; there was no product or design-canon reason to omit MN.
+
+Files edited:
+- The temporary comparison wrapper, private master first, this repository overlay, and the private handoff. A byte-identical temporary MN payload was added under `/private/tmp`. No product, educational-content, checklist, audit, archive, automation, or unrelated file changed.
+
+Validation performed:
+- The same review path now presents three equal full-height panes in canonical order: PD current `Respiratory Distress`, MN shared-canon `Tissue Perfusion · Fetal Oxygenation`, and Pharm current `Medication Adherence`. MN temporary payload and product are byte-identical at `2aa966a6c94a5b59fb37a7d530a4fc6d23b5bda6aad94b4ece6aa7d73e7e10c9`.
+- Browser validation passes three intended pane labels and payloads, exact MN exemplar selection, synchronized Filled and Blank across all three cards, Align All to Top, landmark alignment, Sync Once, proportional Sync Scroll, horizontal Guides, three linked Vertical Guides, loaded/ready status, equal visible panes, and fresh screenshot inspection. Wrapper SHA-256 is `d27809b2641e167f914dc4d3cbe83771434b78cbedacb78f3b0d4fbbef5a0962`; comparison and all payloads return HTTP `200` at `http://127.0.0.1:8766/pd-pharm-final-b15-343/pd-vs-pharm-a15-final-343.html?v=pd-pharm-final-b15-345-review`.
+- Product hashes remain PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`, MN `2aa966a6c94a5b59fb37a7d530a4fc6d23b5bda6aad94b4ece6aa7d73e7e10c9`, and Pharm `d6701819a745efac6f7bd15da4e8a5b1e33b053ea32cb1ade5d8ede4b208321d`; `git diff --check` passes.
+
+Automation status:
+- `ati-retrospective-template-spacing-heartbeat` remains **PAUSED** and byte-unchanged at `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`; the three protected automations remain **PAUSED** and byte-unchanged at their documented hashes.
+
+Commit/push status:
+- Nothing was staged, committed, pushed, merged, reset, reverted, published, or populated. Branch/HEAD/origin remain `main` / `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly three tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI PD Templates.html`, and `Elevated ATI Pharm Templates.html`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- Comparative mode is now a permanent non-regression contract, MN is restored as the center shared-canon reference, and the full requested comparison toolset is available at the same review path with no product change.
+
+Next Recommended Action:
+- The user must review the corrected three-pane PD / MN / Pharm comparison and report approval or the first visible mismatch; do not commit or push yet.
+
+## Part 346 Recovery Addendum — Two-Pane-Only Comparative Mode Restored
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active with content population paused and no ATI source use. Automated QA is not user visual approval.
+
+Current batch:
+- Batches 0–15 remain objectively complete and paused for representative user review. The latest explicit user instruction supersedes the Part 345 three-pane interpretation: comparative mode now displays exactly two panes at a time. The final handoff provides switchable `PD vs MN` and `Pharm vs MN` pairs while MN remains the shared-canon reference.
+- Root cause: Part 345 overcorrected the earlier MN omission by displaying PD, MN, and Pharm simultaneously. The correct multi-target pattern is sequential/switchable two-pane target/MN pairs, not a three-pane view.
+
+Files edited:
+- The temporary comparison wrapper, private master first, this repository overlay, and the private handoff. No product, educational-content, checklist, audit, archive, automation, or unrelated file changed.
+
+Validation performed:
+- The comparison contains exactly two visible sections and exactly two iframes. `PD vs MN` loads PD `Respiratory Distress` beside MN `Tissue Perfusion · Fetal Oxygenation`; `Pharm vs MN` replaces only the target pane with Pharm `Medication Adherence`. Pair selection, labels, target payload, and ready status update correctly while MN remains fixed.
+- Browser checks pass pair switching in both directions, Filled and Blank synchronization for each pair, mode preservation during pair changes, Align All to Top, landmark alignment, Sync Once, proportional Sync Scroll, horizontal Guides, two linked Vertical Guides, clean default state, equal full-height panes, and screenshot inspection. Wrapper SHA-256 is `cda004c441b93762c16f8a700758fdaf03fb0610f64347e5e561284bdff77912`; HTTP `200` passes at `http://127.0.0.1:8766/pd-pharm-final-b15-343/pd-vs-pharm-a15-final-343.html?v=pd-pharm-final-b15-346-review`.
+- Product hashes remain PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`, MN `2aa966a6c94a5b59fb37a7d530a4fc6d23b5bda6aad94b4ece6aa7d73e7e10c9`, and Pharm `d6701819a745efac6f7bd15da4e8a5b1e33b053ea32cb1ade5d8ede4b208321d`; `git diff --check` passes.
+
+Automation status:
+- `ati-retrospective-template-spacing-heartbeat` remains **PAUSED** and byte-unchanged at `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`; the three protected automations remain **PAUSED** and byte-unchanged at their documented hashes.
+
+Commit/push status:
+- Nothing was staged, committed, pushed, merged, reset, reverted, published, or populated. Branch/HEAD/origin remain `main` / `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly three tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI PD Templates.html`, and `Elevated ATI Pharm Templates.html`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- Comparative mode is now canonically two panes only, with switchable PD/MN and Pharm/MN pairs and the complete requested comparison toolset preserved.
+
+Next Recommended Action:
+- The user must review both two-pane pair selections and report approval or the first visible mismatch; do not commit or push yet.
+
+## Part 347 Recovery Addendum — Established MN-Left Comparison Orientation Recovered
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active with content population paused and no ATI source use. Automated QA is not user visual approval.
+
+Current batch:
+- Batches 0–15 remain objectively complete and paused for representative user review. The latest explicit user instruction corrects the remaining comparison-shell regression: MN is fixed on the left and the selected current file is fixed on the right. `PD vs MN` and `Pharm vs MN` remain two-pane pair choices, but the selector changes only the right pane.
+- Root cause: Part 346 corrected the pane count but retained the improvised target-left/MN-right order instead of recovering the established orientation from prior comparison artifacts.
+
+Files edited:
+- The temporary comparison wrapper, private master first, this repository overlay, and the private handoff. No product, educational-content, checklist, audit, archive, automation, or unrelated file changed.
+
+Validation performed:
+- Source recovery inspected the actual feature-complete comparison artifacts `/private/tmp/mh-a5-compare-http-b10.html`, `/private/tmp/elevated-ati-template-compare-ams-mn-http-b11.html`, and `/private/tmp/elevated-ati-template-compare-ams-a15-mn-b23-294.html`. Each uses equal `1fr 1fr` panes with `MN REFERENCE` on the left and the current file on the right, plus landmark alignment, Sync Once, Sync Scroll, Guides, and Vertical Guides. Fresh browser DOM checks and screenshot inspection confirmed the recovered pattern.
+- The current wrapper now has exactly two sections/iframes in fixed MN-left/current-right order. `PD vs MN` shows MN Tissue Perfusion left and PD Respiratory Distress right; `Pharm vs MN` keeps MN left and replaces only the right pane with Pharm Medication Adherence. Heading, pane label, payload, pair state, and ready status update correctly.
+- Browser checks pass pair switching in both directions, synchronized Filled/Blank, mode preservation, Align All to Top, landmark alignment, left-source Sync Once, proportional Sync Scroll, horizontal Guides, two linked Vertical Guides, clean defaults, equal panes, and screenshot inspection. Wrapper SHA-256 is `113a60cbb8b7639900399dcf4e6433ad4c8d1275867f7e976635139bca88f160`; HTTP `200` passes at `http://127.0.0.1:8766/pd-pharm-final-b15-343/pd-vs-pharm-a15-final-343.html?v=pd-pharm-final-b15-347-review`.
+- Product hashes remain PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`, MN `2aa966a6c94a5b59fb37a7d530a4fc6d23b5bda6aad94b4ece6aa7d73e7e10c9`, and Pharm `d6701819a745efac6f7bd15da4e8a5b1e33b053ea32cb1ade5d8ede4b208321d`; `git diff --check` passes.
+
+Automation status:
+- `ati-retrospective-template-spacing-heartbeat` remains **PAUSED** and byte-unchanged at `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`; the three protected automations remain **PAUSED** and byte-unchanged at their documented hashes.
+
+Commit/push status:
+- Nothing was staged, committed, pushed, merged, reset, reverted, published, or populated. Branch/HEAD/origin remain `main` / `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly three tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI PD Templates.html`, and `Elevated ATI Pharm Templates.html`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- The established comparison design is restored from prior artifacts: MN fixed left, current file right, exactly two equal panes, switchable PD/Pharm target, and all requested comparison tools preserved.
+
+Next Recommended Action:
+- The user must review the restored MN-left `PD vs MN` and `Pharm vs MN` pairs and report approval or the first visible mismatch; do not commit or push yet.
+
+## Part 348 Recovery Addendum — Comparison Options Collapsible / Pane Space Preserved
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active with content population paused and no ATI source use. Automated QA is not user visual approval.
+
+Current batch:
+- Batches 0–15 remain objectively complete and paused for representative user review. The user-approved MN-left/current-right two-pane layout is unchanged. Only the control presentation changed: all options now live inside a compact `Comparison options` disclosure that is collapsed by default.
+
+Files edited:
+- The temporary comparison wrapper, private master first, this repository overlay, and the private handoff. No product, educational-content, pane order, pair behavior, checklist, audit, archive, automation, or unrelated file changed.
+
+Validation performed:
+- Collapsed default passes exactly two MN-left/current-right panes, visible ready status, hidden option controls, and compact `113.984375px` header/main boundary instead of the prior persistent `154px` control header. The disclosure summary remains keyboard-accessible and clearly labeled.
+- Expanded state exposes all `12` established option controls in an overlay while header height and main boundary remain exactly unchanged; the panes do not reflow or shrink. Collapsing hides the controls again while preserving selected pair, Filled/Blank mode, guide state, and ready status.
+- Browser interaction passes `PD vs MN` / `Pharm vs MN`, synchronized Filled/Blank, alignment, Sync Once, proportional Sync Scroll, Guides, Vertical Guides, collapsed/expanded state, and fresh screenshot inspection. Wrapper SHA-256 is `73db051c9a44a3de3e2b5cb992faccb0ddbca6601846238b2d4bfc7c8ce45427`; HTTP `200` passes at `http://127.0.0.1:8766/pd-pharm-final-b15-343/pd-vs-pharm-a15-final-343.html?v=pd-pharm-final-b15-348-review`.
+- Product hashes remain PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`, MN `2aa966a6c94a5b59fb37a7d530a4fc6d23b5bda6aad94b4ece6aa7d73e7e10c9`, and Pharm `d6701819a745efac6f7bd15da4e8a5b1e33b053ea32cb1ade5d8ede4b208321d`; `git diff --check` passes.
+
+Automation status:
+- `ati-retrospective-template-spacing-heartbeat` remains **PAUSED** and byte-unchanged at `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`; the three protected automations remain **PAUSED** and byte-unchanged at their documented hashes.
+
+Commit/push status:
+- Nothing was staged, committed, pushed, merged, reset, reverted, published, or populated. Branch/HEAD/origin remain `main` / `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly three tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI PD Templates.html`, and `Elevated ATI Pharm Templates.html`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- The approved two-pane comparison now has a collapsed-by-default options disclosure, preserving substantially more vertical viewing space while retaining every established control.
+
+Next Recommended Action:
+- The user must review the collapsed and expanded `Comparison options` states in both pair selections and report approval or the first visible mismatch; do not commit or push yet.
+
+## Part 349 Recovery Addendum — PD/Pharm Representative Comparison User-Approved
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population is paused; ATI source support used: none. The completed PD/Pharm design-canon queue remains closed and no additional subject or phase is authorized.
+
+Current batch:
+- Batches 0–15 are objectively complete, and the representative comparison review gate is now **USER-APPROVED** by the latest explicit instruction on `2026-08-20`. Approval covers the current two-pane comparison shell: exact finalized MN fixed left, selected PD or Pharm current file right, two equal panes, pair switching that changes only the right pane, synchronized Filled/Blank, alignment/sync/guide tools, visible status, and the collapsed-by-default `Comparison options` overlay.
+- Automated QA remains distinct from user approval; this checkpoint records the explicit approval rather than inferring it from automation.
+
+Files edited:
+- Private master first, this repository overlay, and the private handoff. The comparison wrapper and all product files are byte-unchanged from Part 348. No content, checklist, audit, archive, automation, or unrelated file changed.
+
+Validation performed:
+- Approval continuity is explicit and unambiguous: the user responded `Approved` to the Part 348 comparison handoff. Current wrapper remains SHA-256 `73db051c9a44a3de3e2b5cb992faccb0ddbca6601846238b2d4bfc7c8ce45427` at `http://127.0.0.1:8766/pd-pharm-final-b15-343/pd-vs-pharm-a15-final-343.html?v=pd-pharm-final-b15-348-review`.
+- Product hashes remain PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`, MN `2aa966a6c94a5b59fb37a7d530a4fc6d23b5bda6aad94b4ece6aa7d73e7e10c9`, and Pharm `d6701819a745efac6f7bd15da4e8a5b1e33b053ea32cb1ade5d8ede4b208321d`; repository recovery remains `main`, HEAD/origin `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`, with `git diff --check` passing.
+
+Automation status:
+- `ati-retrospective-template-spacing-heartbeat` remains **PAUSED** and byte-unchanged at `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`; `ati-build-guide-ai-spec-polish`, `ati-template-clipping-qa`, and `ati-pediatric-templates-design-polish` remain **PAUSED** and byte-unchanged at their documented hashes.
+
+Commit/push status:
+- Nothing was staged, committed, pushed, merged, reset, reverted, published, or populated. No commit or push is authorized by the visual approval alone.
+
+GitHub Desktop should show:
+- Exactly three tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI PD Templates.html`, and `Elevated ATI Pharm Templates.html`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- The complete PD/Pharm design-canon queue and its final representative comparison are objectively complete and explicitly user-approved; all work remains paused and uncommitted.
+
+Next Recommended Action:
+- The user must explicitly authorize the next phase or repository action; until then, remain paused with no commit or push.
+
+## Part 350 Recovery Addendum — Approved PD/Pharm Design-Canon Checkpoint Committed and Pushed
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population is paused; ATI source support used: none. This checkpoint preserves the completed design work and does not activate another subject or phase.
+
+Current batch:
+- Batches 0–15 and the representative comparison review remain objectively complete and user-approved. After the assistant recommended a checkpoint commit/push, the latest explicit user instruction `Procced` authorizes that exact repository action.
+
+Files edited:
+- The repository checkpoint contains exactly `Build Guide Current Overlay.md`, `Elevated ATI PD Templates.html`, and `Elevated ATI Pharm Templates.html`. The private master and private handoff record recovery outside the repository. Untracked `.DS_Store`, `.gitignore`, `AGENTS.md`, `Study Tool Content Synthesis Guide.md`, `Study Tool Synthesis Guide v2/`, `Teleprompter.html`, and `recovered-codex-screenshots/` remain excluded and untouched.
+
+Validation performed:
+- Immediately before staging, branch `main`, HEAD, and refreshed `origin/main` were synchronized at `c3b67eb734fd7777da5c1a83c44d4d5d0d3d74cc`, `0/0`; the index was empty; the only tracked modifications were the three approved files; and `git diff --check` passed.
+- Final product hashes are PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49` and Pharm `d6701819a745efac6f7bd15da4e8a5b1e33b053ea32cb1ade5d8ede4b208321d`. The approved comparison remains `/private/tmp/pd-pharm-final-b15-343/pd-vs-pharm-a15-final-343.html` at `73db051c9a44a3de3e2b5cb992faccb0ddbca6601846238b2d4bfc7c8ce45427` with finalized MN left, current file right, and collapsed comparison options.
+- Post-operation validation confirms the checkpoint commit is current `HEAD` and `origin/main`, `0/0`, with no tracked modifications or staged files. Exact commit identity is recoverable from `git rev-parse HEAD` and is recorded in the private handoff after the operation.
+
+Automation status:
+- `ati-retrospective-template-spacing-heartbeat` remains **PAUSED** and byte-unchanged at `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`; the three protected automations remain **PAUSED** and byte-unchanged at their documented hashes.
+
+Commit/push status:
+- Exactly the three approved tracked files were committed with message `Finalize PD and Pharm design canon` and pushed to `origin/main`. Nothing else was staged, committed, pushed, published, or populated.
+
+GitHub Desktop should show:
+- No tracked modifications and no staged files after refresh. The preserved unrelated untracked files remain visible only as untracked and were not included in the checkpoint.
+
+TLDR:
+- The objectively complete and user-approved PD/Pharm design canon is preserved in a focused checkpoint on `origin/main`; content population remains paused.
+
+Next Recommended Action:
+- The user does not need to act now; explicitly authorize a separate next phase before any additional product or content work begins.

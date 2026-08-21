@@ -886,7 +886,7 @@
 /* Canon A1 Basic Concept: official 3-column ATI layout, styled with MN modal discipline and book accent colors. */
 .modal-template-card[data-template-type="basic-concept"]{
   max-width:var(--tpl-template-width);
-  margin:0 auto;
+  margin:0 auto 24px;
 }
 .modal-template-card[data-template-type="basic-concept"] > dl.template-meta{
   margin-bottom:var(--tpl-meta-to-primary-gap);
@@ -1326,7 +1326,7 @@
 /* Canon A7 Medication: official Purpose group plus left/right medication body, adapted to the MN modal shell with book accent colors. */
 .modal-template-card[data-template-type="medication"]{
   max-width:var(--tpl-template-width);
-  margin:0 auto;
+  margin:0 auto 24px;
 }
 .modal-template-card[data-template-type="medication"] > dl.template-meta{
   margin-bottom:var(--tpl-meta-to-primary-gap);
@@ -1991,7 +1991,7 @@
 }
 .modal-template-card[data-template-type="concept-analysis"]{
   max-width:var(--tpl-template-width);
-  margin:0 auto;
+  margin:0 auto 24px;
 }
 .modal-template-card[data-template-type="concept-analysis"] > dl.template-meta{
   margin-bottom:var(--tpl-meta-to-primary-gap);
@@ -2074,7 +2074,22 @@ body.modal-open{
 }
 @media print{
   .back-home-mobile{display:none!important}
-  body.printing-modal > *:not(#templateModal){display:none!important}
+  /* Keep the modal's complete ancestor chain in print layout. The modal is
+     nested under .page > .template-main, so hiding every non-modal body child
+     also hides the modal itself. Suppress siblings at each ancestor instead. */
+  body.printing-modal > *:not(.page.template-layout),
+  body.printing-modal > .page.template-layout > *:not(.template-main),
+  body.printing-modal > .page.template-layout > .template-main > *:not(#templateModal){
+    display:none!important;
+  }
+  body.printing-modal > .page.template-layout,
+  body.printing-modal > .page.template-layout > .template-main{
+    display:block!important;
+    width:100%!important;
+    min-height:0!important;
+    margin:0!important;
+    padding:0!important;
+  }
   body.printing-modal #templateModal{
     position:static!important;
     display:block!important;
@@ -2095,9 +2110,14 @@ body.modal-open{
     overflow:visible!important;
     padding:0!important;
   }
+  body.printing-modal #templateModal .modal-body > .example-card{
+    margin-bottom:0!important;
+  }
   body.printing-modal #templateModal .modal-actions,
   body.printing-modal #templateModal .mode-toggle,
-  body.printing-modal #templateModal .part-print-btn{
+  body.printing-modal #templateModal .part-print-btn,
+  body.printing-modal #templateModal .example-check,
+  body.printing-modal #templateModal .template-modal-nav{
     display:none!important;
   }
   body.printing-modal #templateModal .example-card{
@@ -3065,6 +3085,19 @@ body.modal-open{
   }
   .modal-template-card .tp-grid > .complications::after{display:none}
 }
+.modal-template-card[data-template-type="basic-concept"][data-mode="blank"] .bc-grid .tp-box{
+  min-height:120px;
+}
+@media(min-width:601px) and (max-width:900px){
+  .modal-template-card[data-template-type="basic-concept"] .bc-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media(max-width:600px){
+  .modal-template-card[data-template-type="basic-concept"] .bc-grid{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
 @media(min-width:721px) and (max-width:860px){
   .modal-template-card[data-template-type="concept-analysis"] .ca-grid{
     grid-template-columns:1fr 1fr;
@@ -3117,6 +3150,446 @@ body.modal-open{
   .hero h1{
     font-size:32px;
     line-height:1.05;
+  }
+}
+
+/* Retrospective A3 canon: preserve the established PD 861/860 layout while
+   matching the finalized procedure-family endpoint, section rail, and
+   behind-box relationship connector. */
+.modal-template-card[data-template-type="diagnostic-procedure"]{
+  margin:0 auto 24px;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid{
+  isolation:isolate;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .complications,
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .nursing-interventions{
+  overflow:visible;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .complications::after{
+  display:block;
+  top:50%;
+  right:calc(-1 * (var(--tp-gap) + var(--tp-connector-overlap)));
+  bottom:auto;
+  left:auto;
+  width:calc(var(--tp-gap) + 2 * var(--tp-connector-overlap));
+  height:3px;
+  transform:translateY(-50%);
+  z-index:-1;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"]
+  .considerations > .considerations-label,
+.modal-template-card[data-template-type="diagnostic-procedure"]
+  .considerations > .considerations-top > .considerations-label{
+  display:flex !important;
+  align-items:center;
+  gap:14px;
+  margin:0;
+  padding:0 !important;
+  color:var(--text2) !important;
+  font-size:11px !important;
+  font-weight:700 !important;
+  letter-spacing:.16em !important;
+  text-transform:uppercase;
+}
+.modal-template-card[data-template-type="diagnostic-procedure"]
+  .considerations > .considerations-label::before,
+.modal-template-card[data-template-type="diagnostic-procedure"]
+  .considerations > .considerations-label::after,
+.modal-template-card[data-template-type="diagnostic-procedure"]
+  .considerations > .considerations-top > .considerations-label::before,
+.modal-template-card[data-template-type="diagnostic-procedure"]
+  .considerations > .considerations-top > .considerations-label::after{
+  content:'';
+  flex:1;
+  height:1px;
+  background:var(--border);
+}
+@media screen and (max-width:860px){
+  .modal-template-card[data-template-type="diagnostic-procedure"] .tp-grid > .complications::after{
+    display:block !important;
+    top:auto;
+    right:auto;
+    bottom:calc(-1 * (var(--tp-gap) + var(--tp-connector-overlap)));
+    left:50%;
+    width:3px;
+    height:calc(var(--tp-gap) + 2 * var(--tp-connector-overlap));
+    transform:translateX(-50%);
+    z-index:-1;
+  }
+}
+
+/* Retrospective A5 canon: preserve PD learner content and readable type while
+   matching the approved Growth and Development spacing, corner, connector,
+   responsive, Blank-writing, and screen-endpoint geometry. */
+.modal-template-card[data-template-type="growth-development"]{
+  margin:0 auto 24px;
+}
+.modal-template-card[data-template-type="growth-development"] .gd-grid{
+  gap:14px;
+}
+.modal-template-card[data-template-type="growth-development"]
+  .gd-grid > .tpl-group:not(.health-promotion-group){
+  padding:14px 14px 16px;
+  gap:14px;
+}
+.modal-template-card[data-template-type="growth-development"]
+  .gd-grid > .tpl-group > .tpl-group-body{
+  gap:14px;
+}
+.modal-template-card[data-template-type="growth-development"]
+  .gd-grid > .tpl-group > .tpl-group-body > .tp-box{
+  border-radius:14px;
+}
+.modal-template-card[data-template-type="growth-development"]
+  .gd-grid > .tpl-group > .tpl-group-body > .tp-box > h3{
+  padding:11px 14px;
+}
+.modal-template-card[data-template-type="growth-development"]
+  .gd-grid > .tpl-group > .tpl-group-body > .tp-box > .content{
+  padding:14px 14px 16px;
+}
+.modal-template-card[data-template-type="growth-development"] .gd-grid .hp-parent{
+  border-radius:14px;
+}
+.modal-template-card[data-template-type="growth-development"] .gd-grid .hp-parent > .content{
+  padding:14px 16px;
+}
+.modal-template-card[data-template-type="growth-development"]
+  .gd-grid > .tpl-group.health-promotion-group{
+  --hp-connector-height:14px;
+}
+.modal-template-card[data-template-type="growth-development"] .gd-grid .hp-connectors{
+  gap:14px;
+}
+@media(max-width:600px){
+  .modal-template-card[data-template-type="growth-development"]
+    .gd-grid > .tpl-group.health-promotion-group{
+    gap:14px;
+  }
+}
+
+/* Retrospective A9 canon: retain PD learner content and the established
+   681/680 transition while matching the approved endpoint, section rail,
+   and two-layer Potential Complications relationship connector. */
+.modal-template-card[data-template-type="nursing-skill"]{
+  margin:0 auto 24px;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid{
+  isolation:isolate;
+}
+.modal-template-card[data-template-type="nursing-skill"]
+  .considerations > .considerations-label{
+  display:flex !important;
+  align-items:center;
+  gap:14px;
+  margin:0;
+  padding:0 !important;
+  color:var(--text2) !important;
+  font-size:11px !important;
+  font-weight:700 !important;
+  letter-spacing:.16em !important;
+  text-transform:uppercase;
+}
+.modal-template-card[data-template-type="nursing-skill"]
+  .considerations > .considerations-label::before,
+.modal-template-card[data-template-type="nursing-skill"]
+  .considerations > .considerations-label::after{
+  content:'';
+  flex:1;
+  height:1px;
+  background:var(--border);
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .complications,
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .nursing-interventions{
+  overflow:visible;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .complications::after{
+  display:block;
+  top:50%;
+  right:calc(-1 * (var(--tp-gap) + var(--tp-connector-overlap)));
+  bottom:auto;
+  left:auto;
+  width:calc(var(--tp-gap) + 2 * var(--tp-connector-overlap));
+  height:3px;
+  transform:translateY(-50%);
+  z-index:-1;
+}
+.modal-template-card[data-template-type="nursing-skill"] .tp-grid > .complications::before{
+  content:'';
+  position:absolute;
+  top:50%;
+  right:calc(-1 * (var(--tp-gap) + 1px));
+  transform:translateY(-50%);
+  width:var(--tp-gap);
+  height:3px;
+  border-radius:1px;
+  background:var(--text3);
+  pointer-events:none;
+  z-index:0;
+}
+@media screen and (max-width:680px){
+  .modal-template-card[data-template-type="nursing-skill"] .tp-grid > .complications::after{
+    display:block !important;
+    top:auto;
+    right:auto;
+    bottom:calc(-1 * (var(--tp-gap) + var(--tp-connector-overlap)));
+    left:50%;
+    width:3px;
+    height:calc(var(--tp-gap) + 2 * var(--tp-connector-overlap));
+    transform:translateX(-50%);
+    z-index:-1;
+  }
+  .modal-template-card[data-template-type="nursing-skill"] .tp-grid > .complications::before{
+    display:block;
+    top:auto;
+    right:auto;
+    bottom:calc(-1 * (var(--tp-gap) + 1px));
+    left:50%;
+    width:3px;
+    height:var(--tp-gap);
+    transform:translateX(-50%);
+    z-index:0;
+  }
+}
+
+/* Retrospective A11 canon: preserve PD learner content and the established
+   901/900 transition while matching the approved endpoint, section rails,
+   wide relationship proportions, readable role typography, and Blank
+   writing-surface contract. */
+.modal-template-card[data-template-type="system-disorder"]{
+  margin:0 auto 24px;
+}
+.modal-template-card[data-template-type="system-disorder"] .sd-top-row > .tp-box{
+  min-height:120px;
+  border-radius:14px;
+}
+.modal-template-card[data-template-type="system-disorder"]
+  .patient-care-group .tpl-group-body,
+.modal-template-card[data-template-type="system-disorder"][data-mode="filled"]
+  .patient-care-group .tpl-group-body{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+.modal-template-card[data-template-type="system-disorder"]
+  .sd-grid .tpl-group > .tpl-group-label,
+.modal-template-card[data-template-type="system-disorder"]
+  .sd-grid .safety-group .sd-safety-main > .tpl-group-label{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin:0;
+  padding:0;
+  color:var(--text2);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.modal-template-card[data-template-type="system-disorder"]
+  .sd-grid .tpl-group > .tpl-group-label::before,
+.modal-template-card[data-template-type="system-disorder"]
+  .sd-grid .tpl-group > .tpl-group-label::after,
+.modal-template-card[data-template-type="system-disorder"]
+  .sd-grid .safety-group .sd-safety-main > .tpl-group-label::before,
+.modal-template-card[data-template-type="system-disorder"]
+  .sd-grid .safety-group .sd-safety-main > .tpl-group-label::after{
+  content:'';
+  flex:1;
+  height:1px;
+  background:var(--border);
+}
+.modal-template-card[data-template-type="system-disorder"]
+  .sd-grid .patient-care-group .tpl-group-body > .tp-box > .content{
+  padding:var(--tpl-box-pad-y) var(--tpl-box-pad-x) calc(var(--tpl-box-pad-y) + 2px);
+  font-family:'DM Sans',sans-serif;
+  font-size:16px;
+  font-weight:400;
+  line-height:1.6;
+}
+.modal-template-card[data-template-type="system-disorder"][data-mode="blank"]
+  .safety-area > *{
+  display:none;
+}
+.modal-template-card[data-template-type="system-disorder"][data-mode="blank"]
+  .assessment-group .tp-box,
+.modal-template-card[data-template-type="system-disorder"][data-mode="blank"]
+  .safety-group > .sd-complications,
+.modal-template-card[data-template-type="system-disorder"][data-mode="blank"]
+  .patient-care-group .tp-box{
+  min-height:120px;
+}
+@media screen and (max-width:900px){
+  .modal-template-card[data-template-type="system-disorder"]
+    .patient-care-group .tpl-group-body,
+  .modal-template-card[data-template-type="system-disorder"][data-mode="filled"]
+    .patient-care-group .tpl-group-body{
+    grid-template-columns:1fr;
+  }
+  .modal-template-card[data-template-type="system-disorder"][data-mode="blank"]
+    .sd-safety-main,
+  .modal-template-card[data-template-type="system-disorder"][data-mode="blank"]
+    .safety-group > .sd-complications,
+  .modal-template-card[data-template-type="system-disorder"][data-mode="blank"]
+    .patient-care-group .tp-box{
+    height:120px;
+    min-height:120px;
+  }
+}
+
+/* Retrospective A13 canon: preserve PD learner content and the established
+   901/900 transition while matching the approved endpoint, centered
+   Considerations rail, readable descendant typography, Blank writing
+   geometry, and two-layer Potential Complications relationship connector. */
+.modal-template-card[data-template-type="therapeutic-procedure"]{
+  margin:0 auto 24px;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"] .tp-grid{
+  isolation:isolate;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"]
+  .tp-grid > .considerations > .considerations-label{
+  display:flex !important;
+  align-items:center;
+  gap:14px;
+  margin:0;
+  padding:0 !important;
+  color:var(--text2) !important;
+  font-size:11px !important;
+  font-weight:700 !important;
+  letter-spacing:.16em !important;
+  text-transform:uppercase;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"]
+  .tp-grid > .considerations > .considerations-label::before,
+.modal-template-card[data-template-type="therapeutic-procedure"]
+  .tp-grid > .considerations > .considerations-label::after{
+  content:'';
+  flex:1;
+  height:1px;
+  background:var(--border);
+}
+.modal-template-card[data-template-type="therapeutic-procedure"]
+  .tp-grid .tp-subbox > .content{
+  font-family:'DM Sans',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  font-weight:400;
+  letter-spacing:0;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"][data-mode="blank"]
+  .tp-grid > .considerations{
+  min-height:0;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"][data-mode="blank"]
+  .tp-grid > .considerations > .tp-subbox{
+  min-height:0;
+  height:auto;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"]
+  .tp-grid > .complications,
+.modal-template-card[data-template-type="therapeutic-procedure"]
+  .tp-grid > .nursing-interventions{
+  overflow:visible;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"]
+  .tp-grid > .complications::after{
+  display:block;
+  top:50%;
+  right:calc(-1 * (var(--tp-gap) + var(--tp-connector-overlap)));
+  bottom:auto;
+  left:auto;
+  width:calc(var(--tp-gap) + 2 * var(--tp-connector-overlap));
+  height:3px;
+  transform:translateY(-50%);
+  z-index:-1;
+}
+.modal-template-card[data-template-type="therapeutic-procedure"]
+  .tp-grid > .complications::before{
+  content:'';
+  position:absolute;
+  top:50%;
+  right:calc(-1 * (var(--tp-gap) + 1px));
+  bottom:auto;
+  left:auto;
+  width:var(--tp-gap);
+  height:3px;
+  transform:translateY(-50%);
+  border-radius:1px;
+  background:var(--text3);
+  pointer-events:none;
+  z-index:0;
+}
+@media screen and (max-width:900px){
+  .modal-template-card[data-template-type="therapeutic-procedure"][data-mode="blank"]
+    .tp-grid > .considerations > .tp-subbox{
+    height:120px;
+    min-height:120px;
+  }
+  .modal-template-card[data-template-type="therapeutic-procedure"]
+    .tp-grid > .complications::after{
+    display:block !important;
+    top:auto;
+    right:auto;
+    bottom:calc(-1 * (var(--tp-gap) + var(--tp-connector-overlap)));
+    left:50%;
+    width:3px;
+    height:calc(var(--tp-gap) + 2 * var(--tp-connector-overlap));
+    transform:translateX(-50%);
+    z-index:-1;
+  }
+  .modal-template-card[data-template-type="therapeutic-procedure"]
+    .tp-grid > .complications::before{
+    display:block;
+    top:auto;
+    right:auto;
+    bottom:calc(-1 * (var(--tp-gap) + 1px));
+    left:50%;
+    width:3px;
+    height:var(--tp-gap);
+    transform:translateX(-50%);
+    z-index:0;
+  }
+}
+@media print{
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="system-disorder"] .tpl-group{
+    break-inside:auto;
+    page-break-inside:auto;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="system-disorder"] .tp-box{
+    break-inside:auto;
+    page-break-inside:auto;
+    height:auto;
+    align-self:start;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="system-disorder"] .safety-group{
+    min-height:0;
+    height:auto;
+    align-self:start;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="system-disorder"] .patient-care-group{
+    padding-bottom:0;
+    border-bottom-width:0;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="system-disorder"] .tpl-group-label,
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="system-disorder"] .tp-box > h3{
+    break-after:avoid-page;
+    page-break-after:avoid;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="system-disorder"]
+    .patient-care-group .sd-interprofessional-care > .content{
+    padding-bottom:0;
+  }
+  body.printing-modal #templateModal
+    .modal-template-card[data-template-type="system-disorder"]
+    .patient-care-group .sd-interprofessional-care > .content li:last-child{
+    margin-bottom:0;
   }
 }
 </style>
