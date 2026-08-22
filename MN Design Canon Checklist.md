@@ -85,7 +85,7 @@ Recovery rule: the private `Elevated_ATI_Build_Guide_v3.md` Part 49 is self-cont
   - MH A9 retrospective evidence: all six current MH Nursing Skill cards now use the current MN role contract: `18px` metadata boundary, `14px` direct gap, `10px` nested gap, `47px` direct title stack, `40.59375px` nested title stack, DM Sans `16px / 25.6px` body/descendant text, and the `16px / 14px / 11px` group/direct/nested corner hierarchy. Above `680px`, Potential Complications uses a coordinated connector: a `34px x 3px`, `right:-24px`, `z-index:-1` bridge overlaps `10px` beneath each box, while a `14px x 3px`, `right:-14px`, `z-index:0` segment fills only the open gap so the relationship is visibly flush without drawing over either box. At `680px` and below both horizontal layers are hidden. All 60 Filled/Blank states pass; fresh user visual approval remains pending and does not authorize MH A11 or content work.
   - Procedure-family box-sizing canon: at wide and split-pane widths, A3/A9/A13 may preserve equal left/right rows, but each paired row must grow to the larger real content requirement. AMS A3 is the accepted content-imbalance exception: `Indications` and `Interpretation of Findings` form a natural-height role stack with an exact `14px` gap, while the wide spanning Considerations relationship and lower Potential Complications-to-Nursing Interventions row remain intact; do not move unused row space between those two short cards. Direct Considerations subboxes use natural minimum heights and must not shrink inside a constrained flex parent or clip overflow. When A3/A9/A13 are narrow, the Considerations area becomes a plain MN-style vertical stack and A3's stacked rows return to automatic sizing. Remove desktop subgrid, fixed heights, and nested min-heights for direct subboxes, diagnostic `considerations-top`, and client-education boxes. A9/A13 may hide their horizontal Potential Complications-to-Nursing Interventions connector when the procedure grid becomes one column; A3 is the official-relationship exception and rotates that bridge vertically using the behind-box overlap canon below.
   - Template box-spacing canon: opened-template major/sibling boxes use a `14px` gap, nested grouped boxes use a `10px` gap, and metadata-to-first-primary-content uses an `18px` boundary. Growth and Development is no longer a `20px/12px` exception: its same-level section, parent-to-child, child-to-child, responsive stacked, and visible connector-strip relationships use `14px` at every breakpoint. Do not leave per-template one-off gap overrides unless the template has a measured official geometry reason.
-  - Modal top-stack canon: every opened MN/MH/AMS template reserves the same title-banner role before its Worked Example stack. At regular widths, `.modal-title-row` has a `100.4px` minimum and the `28px 32px 22px` header produces a `165.4px` minimum banner. At `600px` and below, the row minimum is `104.8px` because the `11px` kicker can wrap to two lines beside the actions and the `28px` title role reserves two lines; `16px 18px 0` header padding produces a `135.8px` minimum banner. Longer titles may expand naturally and must never be shrunk, clamped, or hidden. The first Worked Example edge uses the established responsive inset: `28px` desktop, `46px` split-pane/tablet (`28px` body padding plus `18px` card inset), and `20px` phone. The chapter jump is its own source row in every book: `display:inline-block`, `margin-top:2px`, and medium `600` weight. Preserve the responsive source-to-navigation row gap (`10px` tablet, `14px` split/phone, including the navigation's `2px` margin), `16px` example-header bottom padding, `18px` divider-to-metadata spacing, and natural title/source wrapping.
+  - Modal top-stack canon: every opened MN/MH/AMS template uses a natural-height title-banner role before its Worked Example stack. `.modal-title-row` must not have a fixed height or minimum height: one-line titles collapse to their actual kicker/title/actions stack, while two-line and longer titles expand naturally. Titles must never be shrunk, clamped, hidden, or capped to mask wrapping. Preserve the responsive header padding (`28px 32px 22px` at regular widths and `16px 18px 0` at `600px` and below), the `14px` title-row margin, and the established first Worked Example inset (`28px` desktop, `46px` split-pane/tablet from `28px` body padding plus `18px` card inset, and `20px` phone). The chapter jump is its own source row in every book: `display:inline-block`, `margin-top:2px`, and medium `600` weight. Preserve the responsive source-to-navigation row gap (`10px` tablet, `14px` split/phone, including the navigation's `2px` margin), `16px` example-header bottom padding, `18px` divider-to-metadata spacing, and natural title/source wrapping.
   - Template landing rhythm canon: use MN's main-page hero text metrics and a fixed five-line hero description rhythm so the print button, `Templates` divider, search panel, and first accordion land consistently across books. Match MN's rendered divider-to-search and search-to-first-accordion spacing; when every lower landmark shares the same measured offset, fix the single upstream hero-height source instead of tuning each lower box separately. At desktop and split-pane widths, every collapsed template accordion renders at 92px outer height with a 90px header, 18px 22px header padding, 14px flex gap, and an 8px progress track. Keep the accordion header controls as direct flex children in MN order: caret, title, A-page badge, row print button, studied count, progress track. The A-page badge uses `surface2` over the transparent header/group surface so its box remains visibly distinct, and main accordion separation comes from the grid's single `14px` gap with no duplicate group margin. This preserves page-badge and print-control placement across pane widths. If a print button needs tiny visual adjustment after the section landmarks align, use non-layout paint adjustment such as `transform`, not font or margin changes that can move the downstream divider/search/card stack. When another book's DOM/CSS structure differs, use measured rendered offsets rather than copying similar-looking CSS values. Do not add extra wrappers around the lower `Templates` stack if they change MN's natural margin-collapsing rhythm. For rollout books, generate the main template groups as MN-style `unit-accordion` / `unit-header` / `unit-body` blocks rather than hybrid book-specific wrapper classes; keep the Growth and Development main accordion row visually consistent with the other template rows, including the progress bar.
   - Template utility text canon: low-priority controls such as `Reset All Progress` should match MN's quiet text-button treatment: transparent background, inherited font family, 11px size, and normal weight. Do not let shared action-button classes make utility text look bold or boxed.
   - Template visual-token canon: repeated template controls and metadata should inherit MN's quiet treatment: DM Sans UI text, normal/medium weights for low-priority buttons and source links, 10px metadata labels with 0.14em tracking and 700 weight, 14px metadata values, border-soft metadata cards, and no extra bolding unless a template heading or learner-facing emphasis needs it. Preserve each book's accent color and template-specific geometry/navigation.
@@ -305,9 +305,9 @@ Recovery rule: the private `Elevated_ATI_Build_Guide_v3.md` Part 49 is self-cont
 - The single retained AMS prototype fixture passed 10 twice-stable responsive states and two print states with correct order, typography, spacing, Blank behavior, endpoint space, and no horizontal overflow. Learner content and identity-bearing data remain unchanged.
 - Current exact-payload comparison: `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=ams-a15-canon-fix`. AMS A15 is objectively passed and pending fresh user visual approval. No later batch began. Content population remains paused. ATI source support used: none; design-only change.
 
-## Part 243 Current Gate — Cross-Book Modal Top-Stack Visual Review
+## Part 243 Historical Gate — Cross-Book Modal Top-Stack Visual Review (Superseded by Part 352)
 
-- MN, MH, and AMS now use one responsive title-banner contract: `100.4px` minimum title row and `165.4px` minimum banner above `600px`; `104.8px` row and `135.8px` banner at `600px` and below. Longer titles expand naturally.
+- Historical evidence: MN, MH, and AMS temporarily used a `100.4px` minimum title row above `600px` and a `104.8px` minimum at `600px` and below. The user explicitly superseded that fixed two-line reservation in Part 352 after it produced visible empty space on a one-line MN A1 title.
 - The first Worked Example edge is exact across books at all required widths: `28px` desktop, `46px` split-pane/tablet, and `20px` phone. AMS now includes the missing `18px` tablet card inset already used by MN/MH.
 - Twice-stable Filled/Blank rendered checks, scripts, counts, IDs, links, payload parity, and diff integrity pass. Current comparisons: `http://127.0.0.1:8766/elevated-ati-template-compare-mh-mn.html?v=top-stack-uniform-final` and `http://127.0.0.1:8766/elevated-ati-template-compare-ams-mn.html?v=top-stack-uniform-final`. Fresh user visual confirmation is pending. Content population remains paused. ATI source support used: none; design-only change.
 
@@ -820,3 +820,129 @@ Current comparison: `http://127.0.0.1:8766/cross-book-b24-295/elevated-ati-revie
 - [x] Retrospective and protected automations paused; no stage/commit/push.
 
 **Next Recommendation:** Perform a read-only final diff/status review, then wait for separate user authorization before any commit or push; the user does not need to inspect another template.
+
+## Part 352 Current Gate — Natural Modal Title-Row Shared Canon
+
+- [x] User explicitly rejected the fixed two-line title reservation after reviewing MN A1 `Fourth Stage of Labor Care` at the exact `557px` split pane.
+- [x] MN, MH, and AMS no longer define or apply regular/mobile modal title-row minimum heights.
+- [x] One-line MN and PD A1 title banners both measure `87.390625px` at the reported split width in Filled and Blank.
+- [x] Longer MN titles expand naturally; `Skin and Breast Changes During Pregnancy` increases from a one-line `56.390625px` row to an `87.1875px` two-line row without shrinking, clamping, hiding, or a maximum.
+- [x] MH and AMS representative one-line rows compute natural/auto minimums and load without browser script errors.
+- [x] Product/temporary parity, focused diffs, HTTP, and `git diff --check` pass; automations remain paused; nothing staged, committed, pushed, or populated.
+- [x] User visually approved the corrected PD A1 versus MN A1 title banner in Part 353.
+
+Current comparison: `http://127.0.0.1:8766/pd-a1-user-review-352/pd-a1-vs-mn-review-352.html?v=pd-a1-review-352-fixed`.
+
+**Next Recommendation:** The user should review the corrected one-line MN A1 banner and report approval or the first remaining mismatch; do not advance the family queue or commit/push first.
+
+## Part 353 Current Gate — Full MN/MH/AMS Natural Title-Row Audit
+
+- [x] MN: all 197 cards across A1/A3/A5/A7/A9/A11/A13/A15 passed Filled and Blank at `1440px`, `768px`, and `390px`.
+- [x] MH: all 71 cards across all eight families passed the same responsive Filled/Blank matrix.
+- [x] AMS: all 84 cards, including all eight prototype fixtures, passed the same responsive Filled/Blank matrix.
+- [x] The combined audit covers 2,112 responsive states and 4,224 twice-stable measurements. Every title row computes natural/zero minimum height and `max-height:none`; every title/actions stack remains contained, collision-free, and free of artificial row excess.
+- [x] One-line desktop titles collapse to the actual `62.9922px` shared row where applicable. Split-pane and phone titles expand only when wrapping requires it, up to `166.375px`, with no clamp, shrink, hiding, or fixed reservation.
+- [x] The corrected PD A1 versus MN A1 comparison is explicitly user-approved. Review advances exactly one family to PD A3 versus MN A3.
+- [ ] Fresh user visual approval of PD A3 versus MN A3.
+
+Current comparison: `http://127.0.0.1:8766/pd-a3-user-review-353/pd-a3-vs-mn-review-353.html?v=pd-a3-review-353`.
+
+**Next Recommendation:** The user should review PD A3 against the finalized MN A3 reference and report approval or the first visible mismatch; do not advance the family queue or commit/push first.
+
+## Part 354 Current Gate — PD A3 Approved / PD A5 Active
+
+- [x] PD A3 Diagnostic Procedure versus finalized MN A3 is explicitly user-approved.
+- [x] The next review advances exactly one family to PD A5 Growth and Development versus finalized MN A5.
+- [x] Fresh A5 comparison uses exactly two panes: MN `Newborn Physical Development` fixed left and PD `Toddler (1–3 years)` fixed right.
+- [x] No pair selector; ten retained controls; options collapsed by default; Filled/Blank, Expected Growth and Development / Health Promotion / Immunizations alignment, Sync Once/Scroll, Guides, and linked Vertical Guides pass.
+- [x] Exact `720px / 720px` desktop panes and responsive `768px` / `390px` one-column layouts have zero horizontal overflow. Responsive measurements are twice-stable; both title rows retain natural `min-height:0px`, containment, and collision-free wrapping.
+- [x] Exact payload parity, HTTP `200`, wrapper integrity, clean Filled/top/options-collapsed handoff, paused automations, and no stage/commit/push pass.
+- [ ] Fresh user visual approval of PD A5 versus MN A5.
+
+Current comparison: `http://127.0.0.1:8766/pd-a5-user-review-354/pd-a5-vs-mn-review-354.html?v=pd-a5-review-354`.
+
+**Next Recommendation:** The user should review PD A5 against the finalized MN A5 reference and report approval or the first visible mismatch; do not advance to PD A7, commit, push, or start content population first.
+
+## Part 355 Current Gate — PD A5 Approved / PD A7 Active
+
+- [x] PD A5 Growth and Development versus finalized MN A5 is explicitly user-approved.
+- [x] The next review advances exactly one family to PD A7 Medication versus finalized MN A7.
+- [x] Fresh A7 comparison uses exactly two panes: MN `Methotrexate (Trexall)` fixed left and PD `Digoxin (Lanoxin)` fixed right.
+- [x] No pair selector; ten retained controls; options collapsed by default; Filled/Blank, Purpose of Medication / Medication Administration / Nursing Interventions alignment, Sync Once/Scroll, Guides, and linked Vertical Guides pass.
+- [x] Exact `720px / 720px` desktop panes and responsive `768px` / `390px` one-column layouts have zero horizontal overflow. Responsive measurements are twice-stable; both title rows retain natural `min-height:0px`, containment, and collision-free wrapping.
+- [x] Exact payload parity, HTTP `200`, wrapper integrity, clean Filled/top/options-collapsed handoff, paused automations, and no stage/commit/push pass.
+- [ ] Fresh user visual approval of PD A7 versus MN A7.
+
+Current comparison: `http://127.0.0.1:8766/pd-a7-user-review-355/pd-a7-vs-mn-review-355.html?v=pd-a7-review-355`.
+
+**Next Recommendation:** The user should review PD A7 against the finalized MN A7 reference and report approval or the first visible mismatch; do not advance to PD A9, commit, push, or start content population first.
+
+## Part 356 Current Gate — PD A7 Approved / PD A9 Active
+
+- [x] PD A7 Medication versus finalized MN A7 is explicitly user-approved.
+- [x] The next review advances exactly one family to PD A9 Nursing Skill versus finalized MN A9.
+- [x] Fresh A9 comparison uses exactly two panes: MN `Fundal Massage` fixed left and PD `Seizure Precautions` fixed right.
+- [x] No pair selector; ten retained controls; options collapsed by default; Filled/Blank, Description of Skill / Considerations / Nursing Interventions alignment, Sync Once/Scroll, Guides, and linked Vertical Guides pass.
+- [x] Exact `720px / 720px` desktop panes and responsive `768px` / `390px` one-column layouts have zero horizontal overflow. Responsive measurements are twice-stable; both title rows retain natural `min-height:0px`, containment, and collision-free wrapping.
+- [x] Exact payload parity, HTTP `200`, wrapper integrity, clean Filled/top/options-collapsed handoff, paused automations, and no stage/commit/push pass.
+- [ ] Fresh user visual approval of PD A9 versus MN A9.
+
+Current comparison: `http://127.0.0.1:8766/pd-a9-user-review-356/pd-a9-vs-mn-review-356.html?v=pd-a9-review-356`.
+
+**Next Recommendation:** The user should review PD A9 against the finalized MN A9 reference and report approval or the first visible mismatch; do not advance to PD A11, commit, push, or start content population first.
+
+## Part 357 Current Gate — PD A9 Approved / PD A11 Active
+
+- [x] PD A9 Nursing Skill versus finalized MN A9 is explicitly user-approved.
+- [x] The next review advances exactly one family to PD A11 System Disorder versus finalized MN A11.
+- [x] Fresh A11 comparison uses exactly two panes: MN `Placenta Previa` fixed left and PD `Sickle Cell Anemia` fixed right.
+- [x] No pair selector; ten retained controls; options collapsed by default; Filled/Blank, Alterations in Health / Assessment / Patient-Centered Care alignment, Sync Once/Scroll, Guides, and linked Vertical Guides pass.
+- [x] Exact `720px / 720px` desktop panes and responsive `768px` / `390px` one-column layouts have zero horizontal overflow. Responsive measurements are twice-stable; both title rows retain natural `min-height:0px`, containment, and collision-free wrapping.
+- [x] Exact payload parity, HTTP `200`, wrapper integrity, clean Filled/top/options-collapsed handoff, paused automations, and no stage/commit/push pass.
+- [ ] Fresh user visual approval of PD A11 versus MN A11.
+
+Current comparison: `http://127.0.0.1:8766/pd-a11-user-review-357/pd-a11-vs-mn-review-357.html?v=pd-a11-review-357`.
+
+**Next Recommendation:** The user should review PD A11 against the finalized MN A11 reference and report approval or the first visible mismatch; do not advance to PD A13, commit, push, or start content population first.
+
+## Part 358 Current Gate — PD A11 Approved / PD A13 Active
+
+- [x] PD A11 System Disorder versus finalized MN A11 is explicitly user-approved.
+- [x] The next review advances exactly one family to PD A13 Therapeutic Procedure versus finalized MN A13.
+- [x] Fresh A13 comparison uses exactly two panes: MN `Leopold Maneuvers` fixed left and PD `Phototherapy for Neonatal Hyperbilirubinemia` fixed right.
+- [x] No pair selector; ten retained controls; options collapsed by default; Filled/Blank, Description of Procedure / Considerations / Nursing Interventions alignment, Sync Once/Scroll, Guides, and linked Vertical Guides pass.
+- [x] Exact `720px / 720px` desktop panes and responsive `768px` / `390px` one-column layouts have zero horizontal overflow. Responsive measurements are twice-stable; both title rows retain natural `min-height:0px`, containment, and collision-free wrapping, including the long PD phone title.
+- [x] Exact payload parity, HTTP `200`, wrapper integrity, clean Filled/top/options-collapsed handoff, paused automations, and no stage/commit/push pass.
+- [ ] Fresh user visual approval of PD A13 versus MN A13.
+
+Current comparison: `http://127.0.0.1:8766/pd-a13-user-review-358/pd-a13-vs-mn-review-358.html?v=pd-a13-review-358`.
+
+**Next Recommendation:** The user should review PD A13 against the finalized MN A13 reference and report approval or the first visible mismatch; do not advance to PD A15, commit, push, or start content population first.
+
+## Part 359 Current Gate — PD A13 Approved / PD A15 Active
+
+- [x] PD A13 Therapeutic Procedure versus finalized MN A13 is explicitly user-approved.
+- [x] The next review advances exactly one family to PD A15 Concept Analysis versus finalized MN A15.
+- [x] Fresh A15 comparison uses exactly two panes: MN `Maternal-Newborn Attachment` fixed left and PD `Respiratory Distress` fixed right.
+- [x] No pair selector; ten retained controls; options collapsed by default; Filled/Blank, Defining Characteristics / Antecedents / Related Concepts alignment, Sync Once/Scroll, Guides, and linked Vertical Guides pass.
+- [x] Exact `720px / 720px` desktop panes and responsive `768px` / `390px` one-column layouts have zero horizontal overflow. Responsive measurements are twice-stable; both title rows retain natural `min-height:0px`, containment, and collision-free wrapping.
+- [x] Exact payload parity, HTTP `200`, wrapper integrity, clean Filled/top/options-collapsed handoff, paused automations, and no stage/commit/push pass.
+- [ ] Fresh user visual approval of PD A15 versus MN A15.
+
+Current comparison: `http://127.0.0.1:8766/pd-a15-user-review-359/pd-a15-vs-mn-review-359.html?v=pd-a15-review-359`.
+
+**Next Recommendation:** The user should review PD A15 against the finalized MN A15 reference and report approval or the first visible mismatch; do not advance to Pharm A1, commit, push, or start content population first.
+
+## Part 360 Current Gate — PD A15 Approved / Pharm A1 Active
+
+- [x] PD A15 Concept Analysis versus finalized MN A15 is explicitly user-approved; all seven Pediatric family reviews are approved.
+- [x] The next review advances exactly one family to Pharm A1 Basic Concept versus finalized MN A1.
+- [x] Fresh Pharm A1 comparison uses exactly two panes: MN `Fourth Stage of Labor Care` fixed left and Pharm `Principles of Antimicrobial Therapy` fixed right.
+- [x] No pair selector; ten retained controls; options collapsed by default; Filled/Blank, Related Content / Underlying Principles / Nursing Interventions alignment, Sync Once/Scroll, Guides, and linked Vertical Guides pass.
+- [x] Exact `720px / 720px` desktop panes and responsive `768px` / `390px` one-column layouts have zero horizontal overflow. Responsive measurements are twice-stable; both title rows retain natural expansion, containment, and collision-free wrapping, including the long Pharm phone title.
+- [x] Exact payload parity, HTTP `200`, wrapper integrity, clean Filled/top/options-collapsed handoff, paused automations, and no stage/commit/push pass.
+- [ ] Fresh user visual approval of Pharm A1 versus MN A1.
+
+Current comparison: `http://127.0.0.1:8766/pharm-a1-user-review-360/pharm-a1-vs-mn-review-360.html?v=pharm-a1-review-360`.
+
+**Next Recommendation:** The user should review Pharm A1 against the finalized MN A1 reference and report approval or the first visible mismatch; do not advance to Pharm A3, commit, push, or start content population first.

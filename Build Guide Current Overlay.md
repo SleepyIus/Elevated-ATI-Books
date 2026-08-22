@@ -2055,3 +2055,795 @@ TLDR:
 
 Next Recommended Action:
 - The user does not need to act now; explicitly authorize a separate next phase before any additional product or content work begins.
+
+## Part 351 Recovery Addendum — Visual Review Reset / Separate PD A1 Review Restored
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. The objective PD/Pharm design-canon automation is complete; content population remains paused and ATI source support used remains none. Automated QA is not user visual approval.
+
+Current batch:
+- The latest explicit user instruction resets the workflow to the immediate post-automation state. Batches 0–15 remain objectively complete, but the user visual-review record is reset to **PENDING**. The Part 349/350 statement that the PD/Pharm books were user-approved is superseded because the user approved the comparison-shell presentation, not the finished books or every family.
+- Visual review restarts at exactly one book and one family: **Review 0 — PD A1 Basic Concept compared with MN A1 Basic Concept**. The review queue is: 0 PD A1, 1 PD A3, 2 PD A5, 3 PD A7, 4 PD A9, 5 PD A11, 6 PD A13, 7 PD A15, 8 Pharm A1, 9 Pharm A3, 10 Pharm A7, 11 Pharm A9, 12 Pharm A11, 13 Pharm A13, 14 Pharm A15. Only explicit family approval advances this visual-review queue.
+- Each review uses its own fresh comparison page with exactly two panes: finalized MN fixed left and the current book/family fixed right. Cross-book selectors, combined PD/Pharm review pages, and three-pane comparisons are prohibited. Comparison options remain collapsed by default and retain Filled/Blank, semantic landmark alignment, Sync Once, proportional Sync Scroll, Guides, and linked Vertical Guides.
+
+Files edited:
+- This overlay, the private master first, the private handoff, and the fresh temporary wrapper `/private/tmp/pd-a1-user-review-351/pd-a1-vs-mn-review-351.html`. Exact byte-identical MN and PD payload copies were created under `/private/tmp/pd-a1-user-review-351/`. No product, educational-content, checklist, audit, archive, automation, or unrelated file changed.
+
+Validation performed:
+- Fresh review URL: `http://127.0.0.1:8766/pd-a1-user-review-351/pd-a1-vs-mn-review-351.html?v=pd-a1-review-351`. It contains exactly two equal panes and two iframes, MN fixed left and PD fixed right, no `[data-pair]` controls, and a collapsed-by-default options disclosure whose expansion does not change the `113.984375px` header/main boundary.
+- The left representative is MN `Skin and Breast Changes During Pregnancy`; the right representative is PD `Atraumatic Care`. Both exact A1 modal cards load in Filled and Blank. Align Both to Top and all three A1 landmarks (`Related Content`, `Underlying Principles`, `Nursing Interventions`) work; Sync Once and proportional Sync Scroll pass; horizontal Guides and linked Vertical Guides pass; the clean handoff state is Filled, top-aligned, guides off, sync off, and options collapsed.
+- Wrapper SHA-256 is `401d23a63a4846487d20a993a156e1989b682d78e8f8d889b74307de2abca0dd`; wrapper and both payloads return HTTP `200`. Temporary payload hashes match the product files exactly: MN `2aa966a6c94a5b59fb37a7d530a4fc6d23b5bda6aad94b4ece6aa7d73e7e10c9` and PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm remains `d6701819a745efac6f7bd15da4e8a5b1e33b053ea32cb1ade5d8ede4b208321d`.
+- Repository recovery before this documentation correction was `main`, HEAD/origin `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`, `0/0`, with no tracked or staged changes. The completed product checkpoint remains intact and is not reverted.
+
+Automation status:
+- `ati-retrospective-template-spacing-heartbeat` and all three protected automations remain **PAUSED** and byte-unchanged at their documented hashes. No automation is reactivated by the visual-review reset.
+
+Commit/push status:
+- No new commit or push is authorized. Existing checkpoint `2c089144df4a04b2dbdf86ebdbb697f7381e70e3` remains on `main` and `origin/main`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated in Part 351.
+
+GitHub Desktop should show:
+- Exactly one tracked modification after this recovery: `Build Guide Current Overlay.md`. The PD, Pharm, and MN product files remain clean. Preserved unrelated untracked files remain untouched.
+
+TLDR:
+- The completed PD/Pharm product work is preserved, the mistaken full-book approval record is withdrawn, and visual review restarts correctly with a separate two-pane MN-left / PD-right A1 comparison.
+
+Next Recommended Action:
+- The user must review PD A1 versus MN A1 at the fresh comparison URL and either approve this family or identify the first visible mismatch; no other family, commit, push, or content phase may begin first.
+
+## Part 352 Recovery Addendum — Natural Modal Title-Row Shared Canon
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population remains paused and ATI source support used remains none. The latest explicit user instruction `Fix it` authorizes the shared-canon correction recommended immediately beforehand: one-line modal title banners use natural height, while longer titles expand normally.
+
+Current batch:
+- Visual Review 0 remains **PD A1 Basic Concept compared with MN A1 Basic Concept** and remains pending user approval. The user's report identified excess empty space in MN's one-line `Fourth Stage of Labor Care` title banner at the exact `557px` split pane. The former Part 243/245 fixed two-title-line reservation is superseded by this explicit user correction.
+- Shared current canon now prohibits a fixed or minimum modal title-row height in MN, MH, and AMS. Preserve the existing title typography, kicker, action controls, responsive header padding, `14px` title-row margin, and natural wrapping. One-line titles collapse to their content height; two-line and longer titles expand without shrinking, clamping, hiding, or maximum-height constraints.
+
+Files edited:
+- `Elevated ATI MN Templates.html`, `Elevated ATI MH Templates.html`, `Elevated ATI AMS Templates.html`, `MN Design Canon Checklist.md`, this overlay, the private master first, the private handoff, and fresh temporary evidence under `/private/tmp/pd-a1-user-review-352/` and `/private/tmp/title-canon-352/`. PD and Pharm product files, educational content, cards, IDs, links, storage, order, accents, automations, archives, and unrelated files were not changed.
+
+Validation performed:
+- Exact before evidence at the reported `557px` MN pane was title row `104.796875px`, actual one-line title stack `56.390625px`, and complete header `135.796875px`; the fixed reservation created approximately `48.4px` of empty space. After correction, MN `Fourth Stage of Labor Care` measures row `56.390625px`, computed minimum `0px`, and header `87.390625px`, exactly matching PD `Atraumatic Care` in Filled and Blank.
+- Natural expansion remains intact: the two-line MN `Skin and Breast Changes During Pregnancy` title measures `61.59375px`, expands the row to `87.1875px`, and expands the header to `118.1875px`, with no minimum or clamp. MH `Therapeutic Communication` and AMS `Health Risk and Adherence Support` smoke tests both compute natural/auto title-row minimums, `62.9921875px` one-line rows, `127.9921875px` regular-width headers, and no browser script errors.
+- Fresh review URL: `http://127.0.0.1:8766/pd-a1-user-review-352/pd-a1-vs-mn-review-352.html?v=pd-a1-review-352-fixed`. It opens the exact reported MN one-line card on the left and PD A1 on the right, with exactly two panes, no pair selector, collapsed options, synchronized Filled/Blank, and a clean top-aligned handoff state. Wrapper SHA-256 is `c5cc325ca1e4cb9f174ace6aea014eb0cf5e7879faf49e1c76326437e8c4c2bd`; wrapper and payloads return HTTP `200`.
+- Final product/temporary parity hashes are MN `cfcc745ba711dbe546529b6fb74940542b6647ff571ca07f0cc683fd52eff698`, MH `78f949727e08d8a96a208ea5264281013550d0fba55ea48122ed2777bc62b2fa`, and AMS `2c7f5f5eef1e77e99386cdcec0b27edc41e8a6d5e8206bc6caf58c104e29eaac`. PD remains `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm remains `d6701819a745efac6f7bd15da4e8a5b1e33b053ea32cb1ade5d8ede4b208321d`. Focused diffs contain only removal of the two obsolete title-row tokens and their regular/mobile minimum-height declarations in each shared-canon product; `git diff --check` passes.
+
+Automation status:
+- `ati-retrospective-template-spacing-heartbeat` and all three protected automations remain **PAUSED** and byte-unchanged at their documented hashes. No automation was reactivated or edited.
+
+Commit/push status:
+- No new commit or push is authorized. Existing checkpoint `2c089144df4a04b2dbdf86ebdbb697f7381e70e3` remains current on `main` and `origin/main`, synchronized `0/0`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `MN Design Canon Checklist.md`, `Elevated ATI MN Templates.html`, `Elevated ATI MH Templates.html`, and `Elevated ATI AMS Templates.html`. PD and Pharm remain clean. Preserved unrelated untracked files remain untouched.
+
+TLDR:
+- The obsolete fixed two-line title reservation is removed from MN/MH/AMS; the reported MN one-line banner now matches PD exactly while longer titles still expand naturally.
+
+Next Recommended Action:
+- The user must review the refreshed MN `Fourth Stage of Labor Care` versus PD `Atraumatic Care` A1 comparison and either approve the corrected title banner or identify the first remaining visible mismatch; do not advance the family queue or commit/push first.
+
+## Part 353 Recovery Addendum — PD A1 Approved / Shared Title Audit Passed / PD A3 Review Active
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population remains paused and ATI source support used remains none.
+
+Current batch:
+- The user's explicit `Approved` closes **Visual Review 0 — PD A1 Basic Concept compared with MN A1 Basic Concept** as user-approved. The queue advances exactly one family to **Visual Review 1 — PD A3 Diagnostic Procedure compared with MN A3 Diagnostic Procedure**, pending user approval.
+- The promised shared-title verification is complete: every MN, MH, and AMS card was scanned in Filled and Blank at `1440px`, `768px`, and `390px`. MN 197 + MH 71 + AMS 84 produced 2,112 responsive states and 4,224 twice-stable measurements across all 24 book/family combinations. Every state had a natural/zero title-row minimum, `max-height:none`, exact containment, no title/action collision, no artificial row excess, and an identical repeat result.
+
+Files edited:
+- The private master first, `MN Design Canon Checklist.md`, this overlay, the private handoff, and fresh temporary evidence under `/private/tmp/title-canon-audit-353/` and `/private/tmp/pd-a3-user-review-353/`. No product file changed in Part 353.
+
+Validation performed:
+- Active comparison: `http://127.0.0.1:8766/pd-a3-user-review-353/pd-a3-vs-mn-review-353.html?v=pd-a3-review-353`. It opens finalized MN `Hysterosalpingography (HSG)` left and current PD `Electroencephalogram (EEG)` right.
+- The wrapper has exactly two panes/two iframes, no pair selector, ten controls, collapsed options, synchronized Filled/Blank, A3 semantic alignment controls, Sync Once/Scroll, Guides, and linked Vertical Guides. All controls pass; the handoff state is Filled, top-aligned, guides and sync off, options collapsed.
+- At `1440 x 1000`, panes are exact `720px / 720px`; at `768 x 1000` and `390 x 844`, the established responsive layout retains both panes in one column. All widths have zero horizontal overflow and collision-free natural title rows. Wrapper SHA-256 is `73ba01217349a1964e77338bb6b8500765da3883753aa2d4c3f4fc5cad9d9d6c`; HTTP returns `200`.
+- Temporary payloads exactly match MN `cfcc745ba711dbe546529b6fb74940542b6647ff571ca07f0cc683fd52eff698` and PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`.
+
+Automation status:
+- The retrospective heartbeat and all three protected automations remain **PAUSED** and byte-unchanged at their documented hashes.
+
+Commit/push status:
+- No new commit or push is authorized. `main` and `origin/main` remain at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`, synchronized `0/0`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: this overlay, `MN Design Canon Checklist.md`, and the MN/MH/AMS template files from Part 352. PD and Pharm remain clean; preserved untracked files remain untouched.
+
+TLDR:
+- PD A1 is approved, the natural-height title correction passes every MN/MH/AMS card, and the validated PD A3 comparison is now open.
+
+Next Recommended Action:
+- The user must review PD A3 versus MN A3 and either approve the family or identify the first visible mismatch; do not advance, commit, push, or start content population first.
+
+## Part 354 Recovery Addendum — PD A3 Approved / PD A5 Review Active
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population remains paused and ATI source support used remains none.
+
+Current batch:
+- The user's explicit `approved` closes **Visual Review 1 — PD A3 Diagnostic Procedure compared with MN A3 Diagnostic Procedure** as user-approved. The queue advances exactly one family to **Visual Review 2 — PD A5 Growth and Development compared with MN A5 Growth and Development**, pending user approval.
+
+Files edited:
+- The private master first, `MN Design Canon Checklist.md`, this overlay, the private handoff, and fresh exact temporary evidence under `/private/tmp/pd-a5-user-review-354/`. No product file changed in Part 354.
+
+Validation performed:
+- Active comparison: `http://127.0.0.1:8766/pd-a5-user-review-354/pd-a5-vs-mn-review-354.html?v=pd-a5-review-354`. It opens finalized MN `Newborn Physical Development` left and current PD `Toddler (1–3 years)` right.
+- The wrapper has exactly two panes/two iframes, no pair selector, ten controls, collapsed options, synchronized Filled/Blank, A5 Expected Growth and Development / Health Promotion / Immunizations alignment controls, Sync Once/Scroll, Guides, and linked Vertical Guides. All controls pass; the handoff state is Filled, top-aligned, guides and sync off, options collapsed.
+- At `1440 x 1000`, panes are exact `720px / 720px`; at `768 x 1000` and `390 x 844`, the established responsive layout retains both panes in one column. All widths have zero horizontal overflow. Twice-stable responsive measurements are identical; MN and PD title rows remain natural at `min-height:0px`, contained, and collision-free.
+- Wrapper SHA-256 is `1aee2191930e9a8dc5c3b0abd30af7fa9cdc73c043e2b1854f63e396f06fca0d`; wrapper and payloads return HTTP `200`. Temporary payloads exactly match MN `cfcc745ba711dbe546529b6fb74940542b6647ff571ca07f0cc683fd52eff698` and PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`.
+
+Automation status:
+- The retrospective heartbeat and all three protected automations remain **PAUSED** and byte-unchanged at their documented hashes.
+
+Commit/push status:
+- No new commit or push is authorized. `main` and `origin/main` remain at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`, synchronized `0/0`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: this overlay, `MN Design Canon Checklist.md`, and the MN/MH/AMS template files from Part 352. PD and Pharm remain clean; preserved untracked files remain untouched.
+
+TLDR:
+- PD A3 is approved and the validated, separate two-pane PD A5 comparison is now open; no product file changed.
+
+Next Recommended Action:
+- The user must review PD A5 versus MN A5 and either approve the family or identify the first visible mismatch; do not advance to PD A7, commit, push, or start content population first.
+
+## Part 355 Recovery Addendum — PD A5 Approved / PD A7 Review Active
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population remains paused and ATI source support used remains none.
+
+Current batch:
+- The user's explicit `Approved` closes **Visual Review 2 — PD A5 Growth and Development compared with MN A5 Growth and Development** as user-approved. The queue advances exactly one family to **Visual Review 3 — PD A7 Medication compared with MN A7 Medication**, pending user approval.
+
+Files edited:
+- The private master first, `MN Design Canon Checklist.md`, this overlay, the private handoff, and fresh exact temporary evidence under `/private/tmp/pd-a7-user-review-355/`. No product file changed in Part 355.
+
+Validation performed:
+- Active comparison: `http://127.0.0.1:8766/pd-a7-user-review-355/pd-a7-vs-mn-review-355.html?v=pd-a7-review-355`. It opens finalized MN `Methotrexate (Trexall)` left and current PD `Digoxin (Lanoxin)` right.
+- The wrapper has exactly two panes/two iframes, no pair selector, ten controls, collapsed options, synchronized Filled/Blank, A7 Purpose of Medication / Medication Administration / Nursing Interventions alignment controls, Sync Once/Scroll, Guides, and linked Vertical Guides. All controls pass; the handoff state is Filled, top-aligned, guides and sync off, options collapsed.
+- At `1440 x 1000`, panes are exact `720px / 720px`; at `768 x 1000` and `390 x 844`, the established responsive layout retains both panes in one column. All widths have zero horizontal overflow. Twice-stable responsive measurements are identical; MN and PD title rows remain natural at `min-height:0px`, contained, and collision-free.
+- Wrapper SHA-256 is `a8e46cddbbb293db157ab853281a6e7ba504086dd24d0755430a42f422eab90b`; wrapper and payloads return HTTP `200`. Temporary payloads exactly match MN `cfcc745ba711dbe546529b6fb74940542b6647ff571ca07f0cc683fd52eff698` and PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`.
+
+Automation status:
+- The retrospective heartbeat and all three protected automations remain **PAUSED** and byte-unchanged at their documented hashes.
+
+Commit/push status:
+- No new commit or push is authorized. `main` and `origin/main` remain at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`, synchronized `0/0`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: this overlay, `MN Design Canon Checklist.md`, and the MN/MH/AMS template files from Part 352. PD and Pharm remain clean; preserved untracked files remain untouched.
+
+TLDR:
+- PD A5 is approved and the validated, separate two-pane PD A7 comparison is now open; no product file changed.
+
+Next Recommended Action:
+- The user must review PD A7 versus MN A7 and either approve the family or identify the first visible mismatch; do not advance to PD A9, commit, push, or start content population first.
+
+## Part 356 Recovery Addendum — PD A7 Approved / PD A9 Review Active
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population remains paused and ATI source support used remains none.
+
+Current batch:
+- The user's explicit `Approved` closes **Visual Review 3 — PD A7 Medication compared with MN A7 Medication** as user-approved. The queue advances exactly one family to **Visual Review 4 — PD A9 Nursing Skill compared with MN A9 Nursing Skill**, pending user approval.
+
+Files edited:
+- The private master first, `MN Design Canon Checklist.md`, this overlay, the private handoff, and fresh exact temporary evidence under `/private/tmp/pd-a9-user-review-356/`. No product file changed in Part 356.
+
+Validation performed:
+- Active comparison: `http://127.0.0.1:8766/pd-a9-user-review-356/pd-a9-vs-mn-review-356.html?v=pd-a9-review-356`. It opens finalized MN `Fundal Massage` left and current PD `Seizure Precautions` right.
+- The wrapper has exactly two panes/two iframes, no pair selector, ten controls, collapsed options, synchronized Filled/Blank, A9 Description of Skill / Considerations / Nursing Interventions alignment controls, Sync Once/Scroll, Guides, and linked Vertical Guides. All controls pass; the handoff state is Filled, top-aligned, guides and sync off, options collapsed.
+- At `1440 x 1000`, panes are exact `720px / 720px`; at `768 x 1000` and `390 x 844`, the established responsive layout retains both panes in one column. All widths have zero horizontal overflow. Twice-stable responsive measurements are identical; MN and PD title rows remain natural at `min-height:0px`, contained, and collision-free.
+- Wrapper SHA-256 is `de2da01fc5ca24cbfcd381c99ea6e710177fc8d770c6ae0d3968da11f158054b`; wrapper and payloads return HTTP `200`. Temporary payloads exactly match MN `cfcc745ba711dbe546529b6fb74940542b6647ff571ca07f0cc683fd52eff698` and PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`.
+
+Automation status:
+- The retrospective heartbeat and all three protected automations remain **PAUSED** and byte-unchanged at their documented hashes.
+
+Commit/push status:
+- No new commit or push is authorized. `main` and `origin/main` remain at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`, synchronized `0/0`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: this overlay, `MN Design Canon Checklist.md`, and the MN/MH/AMS template files from Part 352. PD and Pharm remain clean; preserved untracked files remain untouched.
+
+TLDR:
+- PD A7 is approved and the validated, separate two-pane PD A9 comparison is now open; no product file changed.
+
+Next Recommended Action:
+- The user must review PD A9 versus MN A9 and either approve the family or identify the first visible mismatch; do not advance to PD A11, commit, push, or start content population first.
+
+## Part 357 Recovery Addendum — PD A9 Approved / PD A11 Review Active
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population remains paused. ATI source support used: none; design-only change.
+
+Current batch:
+- The user's explicit `Approved` closes **Visual Review 4 — PD A9 Nursing Skill compared with MN A9 Nursing Skill** as user-approved. The queue advances exactly one family to **Visual Review 5 — PD A11 System Disorder compared with MN A11 System Disorder**, pending user approval.
+
+Files edited:
+- The private master first, `MN Design Canon Checklist.md`, this overlay, the private handoff, and fresh exact temporary evidence under `/private/tmp/pd-a11-user-review-357/`. No product file changed in Part 357.
+
+Validation performed:
+- Active comparison: `http://127.0.0.1:8766/pd-a11-user-review-357/pd-a11-vs-mn-review-357.html?v=pd-a11-review-357`. It opens finalized MN `Placenta Previa` left and current PD `Sickle Cell Anemia` right.
+- The wrapper has exactly two panes/two iframes, no pair selector, ten controls, collapsed options, synchronized Filled/Blank, A11 Alterations in Health / Assessment / Patient-Centered Care alignment controls, Sync Once/Scroll, Guides, and linked Vertical Guides. All controls pass; the handoff state is Filled, top-aligned, guides and sync off, options collapsed.
+- At `1440 x 1000`, panes are exact `720px / 720px`; at `768 x 1000` and `390 x 844`, the established responsive layout retains both panes in one column. All widths have zero horizontal overflow. Twice-stable responsive measurements are identical; MN and PD title rows remain natural at `min-height:0px`, contained, and collision-free.
+- Wrapper SHA-256 is `b38086aa652d3d9e4fa5ef90f8a9633cda82bd8f1c94a0b38f9af139e625f324`; wrapper and payloads return HTTP `200`. Temporary payloads exactly match MN `cfcc745ba711dbe546529b6fb74940542b6647ff571ca07f0cc683fd52eff698` and PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`.
+
+Automation status:
+- The retrospective heartbeat and all three protected automations remain **PAUSED** and byte-unchanged at their documented hashes.
+
+Commit/push status:
+- No new commit or push is authorized. `main` and `origin/main` remain at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`, synchronized `0/0`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: this overlay, `MN Design Canon Checklist.md`, and the MN/MH/AMS template files from Part 352. PD and Pharm remain clean; preserved untracked files remain untouched.
+
+TLDR:
+- PD A9 is approved and the validated, separate two-pane PD A11 comparison is now open; no product file changed.
+
+Next Recommended Action:
+- The user must review PD A11 versus MN A11 and either approve the family or identify the first visible mismatch; do not advance to PD A13, commit, push, or start content population first.
+
+## Part 358 Recovery Addendum — PD A11 Approved / PD A13 Review Active
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population remains paused. ATI source support used: none; design-only change.
+
+Current batch:
+- The user's explicit `Approved` closes **Visual Review 5 — PD A11 System Disorder compared with MN A11 System Disorder** as user-approved. The queue advances exactly one family to **Visual Review 6 — PD A13 Therapeutic Procedure compared with MN A13 Therapeutic Procedure**, pending user approval.
+
+Files edited:
+- The private master first, `MN Design Canon Checklist.md`, this overlay, the private handoff, and fresh exact temporary evidence under `/private/tmp/pd-a13-user-review-358/`. No product file changed in Part 358.
+
+Validation performed:
+- Active comparison: `http://127.0.0.1:8766/pd-a13-user-review-358/pd-a13-vs-mn-review-358.html?v=pd-a13-review-358`. It opens finalized MN `Leopold Maneuvers` left and current PD `Phototherapy for Neonatal Hyperbilirubinemia` right.
+- The wrapper has exactly two panes/two iframes, no pair selector, ten controls, collapsed options, synchronized Filled/Blank, A13 Description of Procedure / Considerations / Nursing Interventions alignment controls, Sync Once/Scroll, Guides, and linked Vertical Guides. All controls pass; the handoff state is Filled, top-aligned, guides and sync off, options collapsed.
+- At `1440 x 1000`, panes are exact `720px / 720px`; at `768 x 1000` and `390 x 844`, the established responsive layout retains both panes in one column. All widths have zero horizontal overflow. Twice-stable responsive measurements are identical; MN and PD title rows remain natural at `min-height:0px`, contained, and collision-free, including the long PD phone title.
+- Wrapper SHA-256 is `07d385e0f53690a7d86550a73d524fac8e7a3204100dd3b8805bbc053f530e87`; wrapper and payloads return HTTP `200`. Temporary payloads exactly match MN `cfcc745ba711dbe546529b6fb74940542b6647ff571ca07f0cc683fd52eff698` and PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`.
+
+Automation status:
+- The retrospective heartbeat and all three protected automations remain **PAUSED** and byte-unchanged at their documented hashes.
+
+Commit/push status:
+- No new commit or push is authorized. `main` and `origin/main` remain at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`, synchronized `0/0`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: this overlay, `MN Design Canon Checklist.md`, and the MN/MH/AMS template files from Part 352. PD and Pharm remain clean; preserved untracked files remain untouched.
+
+TLDR:
+- PD A11 is approved and the validated, separate two-pane PD A13 comparison is now open; no product file changed.
+
+Next Recommended Action:
+- The user must review PD A13 versus MN A13 and either approve the family or identify the first visible mismatch; do not advance to PD A15, commit, push, or start content population first.
+
+## Part 359 Recovery Addendum — PD A13 Approved / PD A15 Review Active
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population remains paused. ATI source support used: none; design-only change.
+
+Current batch:
+- The user's explicit `Approved` closes **Visual Review 6 — PD A13 Therapeutic Procedure compared with MN A13 Therapeutic Procedure** as user-approved. The queue advances exactly one family to **Visual Review 7 — PD A15 Concept Analysis compared with MN A15 Concept Analysis**, pending user approval.
+
+Files edited:
+- The private master first, `MN Design Canon Checklist.md`, this overlay, the private handoff, and fresh exact temporary evidence under `/private/tmp/pd-a15-user-review-359/`. No product file changed in Part 359.
+
+Validation performed:
+- Active comparison: `http://127.0.0.1:8766/pd-a15-user-review-359/pd-a15-vs-mn-review-359.html?v=pd-a15-review-359`. It opens finalized MN `Maternal-Newborn Attachment` left and current PD `Respiratory Distress` right.
+- The wrapper has exactly two panes/two iframes, no pair selector, ten controls, collapsed options, synchronized Filled/Blank, A15 Defining Characteristics / Antecedents / Related Concepts alignment controls, Sync Once/Scroll, Guides, and linked Vertical Guides. All controls pass; the handoff state is Filled, top-aligned, guides and sync off, options collapsed.
+- At `1440 x 1000`, panes are exact `720px / 720px`; at `768 x 1000` and `390 x 844`, the established responsive layout retains both panes in one column. All widths have zero horizontal overflow. Twice-stable responsive measurements are identical; MN and PD title rows remain natural at `min-height:0px`, contained, and collision-free.
+- Wrapper SHA-256 is `097154cdf624cff8bbdc18cec58470993d4ee2b1baeb1d5e59d15d1ed572f028`; wrapper and payloads return HTTP `200`. Temporary payloads exactly match MN `cfcc745ba711dbe546529b6fb74940542b6647ff571ca07f0cc683fd52eff698` and PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`.
+
+Automation status:
+- The retrospective heartbeat and all three protected automations remain **PAUSED** and byte-unchanged at their documented hashes.
+
+Commit/push status:
+- No new commit or push is authorized. `main` and `origin/main` remain at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`, synchronized `0/0`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: this overlay, `MN Design Canon Checklist.md`, and the MN/MH/AMS template files from Part 352. PD and Pharm remain clean; preserved untracked files remain untouched.
+
+TLDR:
+- PD A13 is approved and the validated, separate two-pane PD A15 comparison is now open; no product file changed.
+
+Next Recommended Action:
+- The user must review PD A15 versus MN A15 and either approve the family or identify the first visible mismatch; do not advance to Pharm A1, commit, push, or start content population first.
+
+## Part 360 Recovery Addendum — PD A15 Approved / Pharm A1 Review Active
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population remains paused. ATI source support used: none; design-only change.
+
+Current batch:
+- The user's explicit `Approve` closes **Visual Review 7 — PD A15 Concept Analysis compared with MN A15 Concept Analysis** as user-approved, completing all seven Pediatric family reviews. The queue advances exactly one family to **Visual Review 8 — Pharm A1 Basic Concept compared with MN A1 Basic Concept**, pending user approval.
+
+Files edited:
+- The private master first, `MN Design Canon Checklist.md`, this overlay, the private handoff, and fresh exact temporary evidence under `/private/tmp/pharm-a1-user-review-360/`. No product file changed in Part 360.
+
+Validation performed:
+- Active comparison: `http://127.0.0.1:8766/pharm-a1-user-review-360/pharm-a1-vs-mn-review-360.html?v=pharm-a1-review-360`. It opens finalized MN `Fourth Stage of Labor Care` left and current Pharm `Principles of Antimicrobial Therapy` right.
+- The wrapper has exactly two panes/two iframes, no pair selector, ten controls, collapsed options, synchronized Filled/Blank, A1 Related Content / Underlying Principles / Nursing Interventions alignment controls, Sync Once/Scroll, Guides, and linked Vertical Guides. All controls pass; the handoff state is Filled, top-aligned, guides and sync off, options collapsed.
+- At `1440 x 1000`, panes are exact `720px / 720px`; at `768 x 1000` and `390 x 844`, the established responsive layout retains both panes in one column. All widths have zero horizontal overflow. Twice-stable responsive measurements are identical; MN and Pharm title rows remain natural, contained, and collision-free, including the long Pharm phone title.
+- Wrapper SHA-256 is `a8475fd0d87ef60c44e6cb419f3a5b9cba465bdf11a5950df4f17d00301115f0`; wrapper and payloads return HTTP `200`. Temporary payloads exactly match MN `cfcc745ba711dbe546529b6fb74940542b6647ff571ca07f0cc683fd52eff698` and Pharm `d6701819a745efac6f7bd15da4e8a5b1e33b053ea32cb1ade5d8ede4b208321d`.
+
+Automation status:
+- The retrospective heartbeat and all three protected automations remain **PAUSED** and byte-unchanged at their documented hashes.
+
+Commit/push status:
+- No new commit or push is authorized. `main` and `origin/main` remain at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`, synchronized `0/0`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: this overlay, `MN Design Canon Checklist.md`, and the MN/MH/AMS template files from Part 352. PD and Pharm remain clean; preserved untracked files remain untouched.
+
+TLDR:
+- PD A15 is approved, all Pediatric family reviews are complete, and the validated two-pane Pharm A1 comparison is now open; no product file changed.
+
+Next Recommended Action:
+- The user must review Pharm A1 versus MN A1 and either approve the family or identify the first visible mismatch; do not advance to Pharm A3, commit, push, or start content population first.
+
+## Part 361 Recovery Addendum — Pharm A1 Title-Banner Spacing Corrected / Review Active
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population remains paused. ATI source support used: none; design-only change. Automated validation remains distinct from user visual approval.
+
+Current batch:
+- **Visual Review 8 — Pharm A1 Basic Concept compared with MN A1 Basic Concept remains pending user approval.** The user's explicit `Please fix pharm` authorizes the reported shared modal-title spacing correction; do not advance to Pharm A3.
+
+Files edited:
+- Private master first, `Elevated ATI Pharm Templates.html`, this overlay, the private handoff, and fresh exact evidence under `/private/tmp/pharm-a1-user-review-361/`.
+- Pharm's `.modal-title-row` now preserves the canonical `14px` bottom spacing and responsive `.modal-head` now uses `display:block; padding:16px 18px 0`. No learner text, cards, IDs, links, storage, order, accent, or other product file changed.
+
+Validation performed:
+- At exact paired widths `557px / 558px`, MN `Paternal Adaptation to Parenthood` and Pharm `Principles of Antimicrobial Therapy` now both measure header `118.1875px`, title row `87.1875px`, and two-line title `61.59375px`, with `16px 18px 0` padding, `14px` spacing, natural `min-height:0px`, `max-height:none`, zero overflow, and identical twice-stable Filled/Blank reads.
+- Pane widths `390`, `558`, `600`, `601`, `860`, `861`, and `1440px` preserve natural content-driven expansion and zero horizontal overflow. At `390px`, the longer Pharm title naturally occupies three lines; it is not fixed, clamped, hidden, or compressed.
+- Fresh review: `http://127.0.0.1:8766/pharm-a1-user-review-361/pharm-a1-vs-mn-review-361.html?v=pharm-a1-review-361-fixed-final`. It has exactly two panes/two iframes, no pair selector, ten controls, collapsed options, synchronized Filled/Blank, A1 alignment controls, and clean Filled/top-aligned/sync-off/guides-off state; wrapper and payloads return HTTP `200`.
+- Exact Pharm product/payload hash is `d781c095bf0d2bad70d43f2dab90c8d48cd0a2e9586f5975a411da055eac5fcc`; MN remains `cfcc745ba711dbe546529b6fb74940542b6647ff571ca07f0cc683fd52eff698`; wrapper is `3af41508c0a94dad2a7cc09d9b6db318d0b33fd626a0f13d2924aa20a4caaabb`. One inline script parses; `249` cards, `269/269` unique IDs, inventory `1/3/141/18/35/9/42`, focused CSS-only diff, HTTP, and `git diff --check` pass.
+
+Automation status:
+- `ati-retrospective-template-spacing-heartbeat` and the three protected automations remain **PAUSED** and byte-unchanged at their Part 360 documented hashes. No automation was reactivated or edited.
+
+Commit/push status:
+- No commit or push is authorized. `main` and `origin/main` remain synchronized at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: this overlay, `MN Design Canon Checklist.md`, `Elevated ATI MN Templates.html`, `Elevated ATI MH Templates.html`, `Elevated ATI AMS Templates.html`, and now `Elevated ATI Pharm Templates.html`. PD remains clean; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- The reported Pharm two-line title banner now matches MN's established natural-height spacing exactly; Pharm A1 remains pending fresh user review.
+
+Next Recommended Action:
+- The user must review the corrected Pharm A1 versus MN A1 comparison and either approve it or report the first remaining visible mismatch; do not advance to Pharm A3, commit, push, or start content population first.
+
+## Part 362 Recovery Addendum — Pharm A1 Worked-Example Top Stack Corrected / Review Active
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population remains paused. ATI source support used: none; design-only change. Automated validation remains distinct from user visual approval.
+
+Current batch:
+- **Visual Review 8 — Pharm A1 Basic Concept compared with MN A1 Basic Concept remains pending user approval.** The user's explicit `Fix it` authorizes the reported worked-example top-stack correction; do not advance to Pharm A3.
+
+Files edited:
+- Private master first, `Elevated ATI Pharm Templates.html`, this overlay, the private handoff, and fresh exact evidence under `/private/tmp/pharm-a1-user-review-362/`.
+- Pharm navigation is now a direct `.example-header` child on its canonical full-width row below; `.example-controls` contains only checkbox, Print, and Filled/Blank and aligns from the information top. The approved Part 361 natural-height title-banner correction remains intact. No learner text, cards, IDs, links, storage, order, accent, or other product file changed.
+
+Validation performed:
+- At exact paired widths `557px / 558px`, MN and Pharm title banners remain equal at `118.1875px`; both information blocks and every first-row control begin at `138.1875px`; both navigation blocks are direct full-width rows below. Filled and Blank are twice-stable and zero-overflow. The `3px` total header difference is the exact natural information-height difference, not a warped control row.
+- Pane widths `390`, `558`, `600`, `601`, `860`, `861`, and `1440px` preserve product breakpoints, natural expansion, direct navigation, and zero horizontal overflow.
+- Fresh review: `http://127.0.0.1:8766/pharm-a1-user-review-362/pharm-a1-vs-mn-review-362.html?v=pharm-a1-review-362-fixed-final`. It has exactly two panes/two iframes, no pair selector, ten controls, collapsed options, synchronized Filled/Blank, sync/guides off, zero wrapper overflow, and a clean Filled handoff; wrapper and payloads return HTTP `200`.
+- Exact Pharm product/payload hash is `5b0532d75b67ea5ad2a0cc805775b2fc1fcdbdea3e4b5895b90d81e43828427e`; MN is `cfcc745ba711dbe546529b6fb74940542b6647ff571ca07f0cc683fd52eff698`; wrapper is `5994ccdf08f42a5979e7e9a02e3c0d9522e0cbb57fd61eca0574caf8c5e87208`. One inline script parses; `249` cards, `269/269` unique IDs, inventory `1/3/141/18/35/9/42`, focused diff, HTTP, and `git diff --check` pass.
+
+Automation status:
+- `ati-retrospective-template-spacing-heartbeat` and the three protected automations remain **PAUSED** and byte-unchanged at their Part 361 documented hashes. No automation was reactivated or edited.
+
+Commit/push status:
+- No commit or push is authorized. `main` and `origin/main` remain synchronized at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: this overlay, `MN Design Canon Checklist.md`, `Elevated ATI MN Templates.html`, `Elevated ATI MH Templates.html`, `Elevated ATI AMS Templates.html`, and `Elevated ATI Pharm Templates.html`. PD remains clean; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- Pharm's worked-example top area now follows the established information/controls row with navigation below, without altering the approved title banner; Pharm A1 remains pending fresh user review.
+
+Next Recommended Action:
+- The user must review the corrected Pharm A1 versus MN A1 comparison and either approve it or report the first remaining visible mismatch; do not advance to Pharm A3, commit, push, or start content population first.
+
+## Part 363 Recovery Addendum — Full Pharm Established-Canon Audit
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population is paused; ATI source support used: none. This was a design-only scan, not an authorized Pharm correction.
+
+Current batch:
+- **Visual Review 8 — Pharm A1 versus finalized MN A1 remains pending.** The queue does not advance. Four mismatch clusters were found: wide modal padding on all `249` cards; Worked Example source/link presentation on all `249` cards plus learner-facing `ALS in book` on `102`; A7 Purpose and metadata label typography on all `141` A7 cards; and a three-row A15 metadata inventory on all `42` A15 cards where the established contract specifies exactly two rows.
+- A15 is a rule/inventory conflict requiring the user's decision before its third `Review Module Chapter` row may be removed. No product repair was applied during this scan.
+
+Files edited:
+- Private master first, this overlay, and the private handoff. QA artifacts exist only under `/private/tmp/pharm-full-scan-363/`. No product, checklist, content, source, card, ID, link, storage, automation, archive, or unrelated file changed.
+
+Validation performed:
+- All `249` Pharm cards, Filled and Blank, passed the structural/containment scan at `1440`, exact `901/900`, `861/860`, `768`, `721/720`, `681/680`, `601/600`, and `390px`: `6,474` states, each twice-stable. Family breakpoint transitions, official order/connectors, hidden Blank answers, writing surfaces, natural title rows, `24px + 40px` endpoints, fonts, runtime, and zero overflow/clipping pass.
+- Established-rule mismatches are exact: desktop header `24px 28px 14px` versus MN `28px 32px 22px`; modal link `inline / 0px / 800` versus `inline-block / 2px / 600`; A7 Purpose label `11px / 13.2px / 700 / 1.76px` versus `10px / 16px / 700 / 1.4px`; A7 metadata-label weight `800` versus `700`; and A15's extra metadata row.
+- Fourteen fresh exact-current representative PDFs cover all seven families in Filled/Blank. All are nonempty Letter PDFs totaling `48` rasterized pages with zero text, page-size, replacement-character, control, or raster failures; all 14 contact sheets were inspected without clipping, overlap, empty terminal fragments, malformed connectors, or Blank answer leakage.
+- Integrity passes `249` cards, inventory `1/3/141/18/35/9/42` with no A5, `249` runtime rows/links, `278/278` unique runtime IDs, zero empty links, one loading inline script, zero runtime errors, preserved storage, exact Pharm SHA-256 `5b0532d75b67ea5ad2a0cc805775b2fc1fcdbdea3e4b5895b90d81e43828427e`, synchronized `main`/origin at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`, and `git diff --check`.
+- Current two-pane review remains `http://127.0.0.1:8766/pharm-a1-user-review-362/pharm-a1-vs-mn-review-362.html?v=pharm-a1-review-362-fixed-final`, with MN fixed left, Pharm A1 fixed right, and options collapsed.
+
+Automation status:
+- The retrospective heartbeat and all three protected automations remain **PAUSED** and byte-unchanged at hashes `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`, `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, and `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`.
+
+Commit/push status:
+- No commit or push is authorized. Nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: this overlay, `MN Design Canon Checklist.md`, MN/MH/AMS template files, and Pharm Templates. PD remains clean; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- Pharm's responsive, Blank, endpoint, runtime, and representative print surfaces pass; wide header padding, source presentation, A7 labels, and A15 metadata do not fully match established canon. Pharm was not altered by this scan.
+
+Next Recommended Action:
+- The user must authorize a staged Pharm repair and decide whether A15 should remove `Review Module Chapter` to match the official two-row canon or preserve the current three-row metadata inventory as a documented exception; do not resume approval, commit/push, or content population first.
+
+## Part 364 Recovery Addendum — Accepted Pharm Canon Repairs Completed / Pharm A1 Review Reopened
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population remains paused. ATI source support used: none; design-only repair. The user's explicit acceptance authorizes all three objective mismatch-cluster corrections and the A15 two-row metadata change; automated validation remains distinct from user visual approval.
+
+Current batch:
+- **Visual Review 8 — Pharm A1 Basic Concept compared with MN A1 Basic Concept remains pending fresh user approval.** Do not advance to Pharm A3. The full Pharm repair is objectively complete, but it does not itself approve any Pharm family.
+
+Files edited:
+- Private master first, `Elevated ATI Pharm Templates.html`, this overlay, the private handoff, fresh exact QA payloads under `/private/tmp/pharm-full-repair-365/`, and the established-format review under `/private/tmp/pharm-a1-user-review-366/`.
+- Pharm now uses canonical wide modal-head padding `28px 32px 22px` at `601px` and above and canonical phone padding `16px 18px 0` at `600px` and below; the source link is a separate `inline-block` row with `2px` top margin and weight `600`; the learner-facing runtime source removes the internal trailing `ALS in book` label without changing stored card/source text; A7 Purpose and metadata labels use the established role typography; and A15 now renders only Student Name and Concept Analysis metadata rows. Learner text, cards, IDs, links, storage, order, accents, and all other product files remain unchanged.
+
+Validation performed:
+- Fresh Pharm SHA-256 is `dd74791b0ed79f8717c56afee7b919fec54927eaa7c0e4caa0266f3132f6b198`, exact between product and temporary payload. The focused Part 363-to-Part 364 diff contains only the accepted CSS/runtime presentation and A15 inventory changes.
+- Every `249` Pharm card in Filled and Blank was scanned at `1440`, exact `901/900`, `861/860`, `768`, `721/720`, `681/680`, `601/600`, and `390px`: all `6,474` states were twice-stable at least `270ms` apart with zero runtime errors. The accepted modal-padding, source-link/internal-label, A7 label-role, and A15 metadata mismatches are absent. Remaining diagnostics are already-adjudicated natural/family distinctions, not new defects.
+- Fourteen fresh representative PDFs cover all seven families and both modes: `49` rasterized Letter pages with zero empty, replacement-character, screen-control, non-Letter, or raster failures. All 14 contact sheets and full-scale A1/A15 Filled/Blank sheets were visually inspected without clipping, overlap, malformed geometry, Blank answer leakage, or empty terminal fragments.
+- Integrity passes `249` cards/unique row keys, inventory `1/3/141/18/35/9/42`, `278/278` unique HTML IDs, `249` template links with zero empty hrefs, one loading script, zero runtime errors, unchanged storage keys, and `git diff --check`.
+- Active comparison: `http://127.0.0.1:8766/pharm-a1-user-review-366/pharm-a1-vs-mn-review-366.html?v=pharm-a1-review-366`. It preserves finalized MN fixed left, current Pharm fixed right, exactly two panes/two iframes, no pair selector, ten retained controls, collapsed options, synchronized Filled/Blank, A1 alignment controls, sync/guides off, and a clean Filled/top-aligned handoff. Wrapper and payloads return HTTP `200`; wrapper SHA-256 is `fdacd03d124048308511544f91369dd08668ed8fff84bf5a9517d8da3dda5087`; MN remains `cfcc745ba711dbe546529b6fb74940542b6647ff571ca07f0cc683fd52eff698`.
+
+Automation status:
+- The retrospective heartbeat and all three protected automations remain **PAUSED** and byte-unchanged at hashes `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`, `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, and `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`. No automation was reactivated or edited.
+
+Commit/push status:
+- No commit or push is authorized. `main` and `origin/main` remain synchronized at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`, `0/0`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: this overlay, `MN Design Canon Checklist.md`, MN/MH/AMS template files, and Pharm Templates. PD remains clean; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- All user-authorized Pharm canon repairs and the A15 two-row metadata change are complete and pass the full responsive, runtime, integrity, and print gates. The fresh approved-format MN-left / Pharm-A1-right comparison is open for visual approval.
+
+Next Recommended Action:
+- The user must review the reopened Pharm A1 versus MN A1 comparison and either approve it or report the first remaining visible mismatch; do not advance to Pharm A3, commit/push, or start content population first.
+
+## Part 365 Recovery Addendum — Pharm A1 Approved / Pharm A3 Review Active
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population remains paused. ATI source support used: none; design-only review handoff.
+
+Current batch:
+- The user's explicit `Approved` closes **Visual Review 8 — Pharm A1 Basic Concept compared with MN A1 Basic Concept** as user-approved. The queue advances exactly one family to **Visual Review 9 — Pharm A3 Diagnostic Procedure compared with MN A3 Diagnostic Procedure**, pending fresh user approval. Do not advance to Pharm A7.
+
+Files edited:
+- Private master first, this overlay, the private handoff, and exact fresh payloads plus wrapper under `/private/tmp/pharm-a3-user-review-367/`.
+- No product changed in Part 365. Pharm remains exact at the user-authorized Part 364 state.
+
+Validation performed:
+- Active comparison: `http://127.0.0.1:8766/pharm-a3-user-review-367/pharm-a3-vs-mn-review-367.html?v=pharm-a3-review-367`. Finalized MN `Hysterosalpingography (HSG)` is fixed left; current Pharm `Therapeutic Drug Monitoring (Peak & Trough)` is fixed right.
+- Exactly two panes/two iframes, no pair selector, ten retained controls, collapsed options, synchronized Filled/Blank, A3-specific Description / Considerations / Nursing Interventions alignment, Sync Once, proportional Sync Scroll, Guides, and linked Vertical Guides pass. Clean handoff is Filled, top-aligned, options collapsed, sync/guides off, with zero wrapper overflow.
+- Current Pharm places every `Open chapter` link on its own line; the stale Part 362 payload is superseded. Part 364 already supplies exhaustive twice-stable all-card/mode/width evidence for all three Pharm A3 cards.
+- Wrapper/payload HTTP is `200`. Wrapper SHA-256 is `8bc12cb62f00915640a6b85eb18d3a79923d7da72fe01ad18677e8bbd71e32eb`; payload hashes exactly match MN `cfcc745ba711dbe546529b6fb74940542b6647ff571ca07f0cc683fd52eff698` and Pharm `dd74791b0ed79f8717c56afee7b919fec54927eaa7c0e4caa0266f3132f6b198`; `git diff --check` passes.
+
+Automation status:
+- The retrospective heartbeat and all three protected automations remain **PAUSED** and byte-unchanged at hashes `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`, `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, and `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`.
+
+Commit/push status:
+- No commit or push is authorized. `main` and `origin/main` remain synchronized at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`, `0/0`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: this overlay, checklist, MN/MH/AMS template files, and Pharm Templates. PD remains clean; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- Pharm A1 is user-approved; the exact next MN-left / Pharm-A3-right review is validated and open without any product change.
+
+Next Recommended Action:
+- The user must review Pharm A3 against MN A3 and either approve it or report the first visible mismatch; do not advance to Pharm A7, commit/push, or start content population first.
+
+## Part 366 Recovery Addendum — Pharm A3 Approved / Pharm A7 Review Active
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population is paused; ATI source support used: none.
+
+Current batch:
+- The user's `Approved` closes **Visual Review 9 — Pharm A3 versus MN A3** as user-approved. Pharm has no A5, so the queue correctly advances to **Visual Review 10 — Pharm A7 versus MN A7**, pending fresh user approval. Do not advance to Pharm A9.
+
+Files edited:
+- Private master first, this overlay, the private handoff, and exact fresh comparison artifacts under `/private/tmp/pharm-a7-user-review-368/`.
+- No product changed. Pharm remains at SHA-256 `dd74791b0ed79f8717c56afee7b919fec54927eaa7c0e4caa0266f3132f6b198` with the accepted Part 364 canon repairs.
+
+Validation performed:
+- Active comparison: `http://127.0.0.1:8766/pharm-a7-user-review-368/pharm-a7-vs-mn-review-368.html?v=pharm-a7-review-368`. MN `Methotrexate (Trexall)` is fixed left and Pharm `Gentamicin` is fixed right.
+- Exactly two panes/two iframes, no pair selector, all ten controls, collapsed options, synchronized Filled/Blank, A7 alignment controls, Sync Once, proportional Sync Scroll, Guides, and linked Vertical Guides pass. Clean handoff is Filled/top, options collapsed, sync/guides off, and zero overflow.
+- All controls were exercised. Two clean geometry reads `350ms` apart were identical, and fresh screenshot inspection passed. Part 364 already supplies exhaustive all-width/mode evidence for all `141` Pharm A7 cards and representative print evidence.
+- Wrapper/payload HTTP is `200`. Wrapper SHA-256 is `40118762b82c74ef096842dc49f66b4f72b75f1f85aaa76168c70a5013d7a8a2`; payload hashes exactly match MN `cfcc745ba711dbe546529b6fb74940542b6647ff571ca07f0cc683fd52eff698` and Pharm `dd74791b0ed79f8717c56afee7b919fec54927eaa7c0e4caa0266f3132f6b198`.
+
+Automation status:
+- The retrospective heartbeat and all three protected automations remain **PAUSED** and byte-unchanged at hashes `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`, `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, and `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`.
+
+Commit/push status:
+- No commit or push is authorized. `main` and `origin/main` remain synchronized at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`, `0/0`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: this overlay, checklist, MN/MH/AMS template files, and Pharm Templates. PD remains clean; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- Pharm A3 is user-approved; the exact next MN-left / Pharm-A7-right review is validated and open without any product change.
+
+Next Recommended Action:
+- The user must review Pharm A7 against MN A7 and either approve it or report the first visible mismatch; do not advance to Pharm A9, commit/push, or start content population first.
+
+## Part 367 Recovery Addendum — Pharm A7 Approved / Pharm A9 Review Active
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population is paused; ATI source support used: none.
+
+Current batch:
+- The user's `Approved` closes **Visual Review 10 — Pharm A7 versus MN A7** as user-approved. The queue advances to **Visual Review 11 — Pharm A9 versus MN A9**, pending fresh user approval. Do not advance to Pharm A11.
+
+Files edited:
+- Private master first, this overlay, the private handoff, and exact fresh comparison artifacts under `/private/tmp/pharm-a9-user-review-369/`.
+- No product changed. Pharm remains at SHA-256 `dd74791b0ed79f8717c56afee7b919fec54927eaa7c0e4caa0266f3132f6b198` with the accepted Part 364 canon repairs.
+
+Validation performed:
+- Active comparison: `http://127.0.0.1:8766/pharm-a9-user-review-369/pharm-a9-vs-mn-review-369.html?v=pharm-a9-review-369`. MN `Fundal Massage` is fixed left and Pharm `Safe Medication Administration and Error Reduction` is fixed right.
+- Exactly two panes/two iframes, no pair selector, all ten controls, collapsed options, synchronized Filled/Blank, A9 alignment controls, Sync Once, proportional Sync Scroll, Guides, and linked Vertical Guides pass. Clean handoff is Filled/top, options collapsed, sync/guides off, and zero overflow.
+- All controls were exercised. Two clean geometry reads `350ms` apart were identical, and fresh screenshot inspection passed. Part 364 already supplies exhaustive all-width/mode evidence for all `18` Pharm A9 cards and representative print evidence.
+- Wrapper/payload HTTP is `200`. Wrapper SHA-256 is `4d37f9c3fb03a219d1afad84fad1564b9f62a7099aef3d288d01d99972a257a7`; payload hashes exactly match MN `cfcc745ba711dbe546529b6fb74940542b6647ff571ca07f0cc683fd52eff698` and Pharm `dd74791b0ed79f8717c56afee7b919fec54927eaa7c0e4caa0266f3132f6b198`.
+
+Automation status:
+- The retrospective heartbeat and all three protected automations remain **PAUSED** and byte-unchanged at hashes `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`, `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, and `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`.
+
+Commit/push status:
+- No commit or push is authorized. `main` and `origin/main` remain synchronized at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`, `0/0`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: this overlay, checklist, MN/MH/AMS template files, and Pharm Templates. PD remains clean; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- Pharm A7 is user-approved; the exact next MN-left / Pharm-A9-right review is validated and open without any product change.
+
+Next Recommended Action:
+- The user must review Pharm A9 against MN A9 and either approve it or report the first visible mismatch; do not advance to Pharm A11, commit/push, or start content population first.
+
+## Part 368 Recovery Addendum — Pharm A9 Approved / Pharm A11 Review Active
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population is paused; ATI source support used: none.
+
+Current batch:
+- The user's `Approved` closes **Visual Review 11 — Pharm A9 versus MN A9** as user-approved. The queue advances to **Visual Review 12 — Pharm A11 versus MN A11**, pending fresh user approval. Do not advance to Pharm A13.
+
+Files edited:
+- Private master first, this overlay, the private handoff, and exact fresh comparison artifacts under `/private/tmp/pharm-a11-user-review-370/`.
+- No product changed. Pharm remains at SHA-256 `dd74791b0ed79f8717c56afee7b919fec54927eaa7c0e4caa0266f3132f6b198` with the accepted Part 364 canon repairs.
+
+Validation performed:
+- Active comparison: `http://127.0.0.1:8766/pharm-a11-user-review-370/pharm-a11-vs-mn-review-370.html?v=pharm-a11-review-370`. MN `Placenta Previa` is fixed left and Pharm `Individual Considerations of Medication Administration` is fixed right.
+- Exactly two panes/two iframes, no pair selector, all ten controls, collapsed options, synchronized Filled/Blank, A11 alignment controls, Sync Once, proportional Sync Scroll, Guides, and linked Vertical Guides pass. Clean handoff is Filled/top, options collapsed, sync/guides off, and zero overflow.
+- All controls were exercised. Two clean geometry reads `350ms` apart were identical, and fresh screenshot inspection passed. Part 364 already supplies exhaustive all-width/mode evidence for all `35` Pharm A11 cards and representative print evidence.
+- Wrapper/payload HTTP is `200`. Wrapper SHA-256 is `276da3a0bedd43c755d63ea209f2b44d7a4a755d1e6cc16c70c7e2b37e6f2c62`; payload hashes exactly match MN `cfcc745ba711dbe546529b6fb74940542b6647ff571ca07f0cc683fd52eff698` and Pharm `dd74791b0ed79f8717c56afee7b919fec54927eaa7c0e4caa0266f3132f6b198`.
+
+Automation status:
+- The retrospective heartbeat and all three protected automations remain **PAUSED** and byte-unchanged at hashes `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`, `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, and `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`.
+
+Commit/push status:
+- No commit or push is authorized. `main` and `origin/main` remain synchronized at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`, `0/0`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: this overlay, checklist, MN/MH/AMS template files, and Pharm Templates. PD remains clean; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- Pharm A9 is user-approved; the exact next MN-left / Pharm-A11-right review is validated and open without any product change.
+
+Next Recommended Action:
+- The user must review Pharm A11 against MN A11 and either approve it or report the first visible mismatch; do not advance to Pharm A13, commit/push, or start content population first.
+
+## Part 369 Recovery Addendum — Pharm A11 Approved / Pharm A13 Review Active
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population is paused; ATI source support used: none.
+
+Current batch:
+- The user's `Approved` closes **Visual Review 12 — Pharm A11 versus MN A11** as user-approved. The queue advances to **Visual Review 13 — Pharm A13 versus MN A13**, pending fresh user approval. Do not advance to Pharm A15.
+
+Files edited:
+- Private master first, this overlay, the private handoff, and exact fresh comparison artifacts under `/private/tmp/pharm-a13-user-review-371/`.
+- No product changed. Pharm remains at SHA-256 `dd74791b0ed79f8717c56afee7b919fec54927eaa7c0e4caa0266f3132f6b198` with the accepted Part 364 canon repairs.
+
+Validation performed:
+- Active comparison: `http://127.0.0.1:8766/pharm-a13-user-review-371/pharm-a13-vs-mn-review-371.html?v=pharm-a13-review-371`. MN `Leopold Maneuvers` is fixed left and Pharm `Pharmacokinetics and Routes of Administration` is fixed right.
+- Exactly two panes/two iframes, no pair selector, all ten controls, collapsed options, synchronized Filled/Blank, A13 alignment controls, Sync Once, proportional Sync Scroll, Guides, and linked Vertical Guides pass. Clean handoff is Filled/top, options collapsed, sync/guides off, and zero overflow.
+- All controls were exercised. Two clean geometry reads `350ms` apart were identical, and fresh screenshot inspection passed. Part 364 already supplies exhaustive all-width/mode evidence for all `9` Pharm A13 cards and representative print evidence.
+- Wrapper/payload HTTP is `200`. Wrapper SHA-256 is `f5f25b7c5a6147c9ad11d3ea7ba16ccd5482e0648c318d7f39661fff63a79387`; payload hashes exactly match MN `cfcc745ba711dbe546529b6fb74940542b6647ff571ca07f0cc683fd52eff698` and Pharm `dd74791b0ed79f8717c56afee7b919fec54927eaa7c0e4caa0266f3132f6b198`.
+
+Automation status:
+- The retrospective heartbeat and all three protected automations remain **PAUSED** and byte-unchanged at hashes `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`, `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, and `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`.
+
+Commit/push status:
+- No commit or push is authorized. `main` and `origin/main` remain synchronized at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`, `0/0`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: this overlay, checklist, MN/MH/AMS template files, and Pharm Templates. PD remains clean; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- Pharm A11 is user-approved; the exact next MN-left / Pharm-A13-right review is validated and open without any product change.
+
+Next Recommended Action:
+- The user must review Pharm A13 against MN A13 and either approve it or report the first visible mismatch; do not advance to Pharm A15, commit/push, or start content population first.
+
+## Part 370 Recovery Addendum — Pharm A13 Natural-Height Repair / Review Reopened
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population is paused; ATI source support used: none. The user's `proceed` authorizes one scoped Pharm A13 design correction; automated validation is not user approval.
+
+Current batch:
+- **Visual Review 13 — Pharm A13 versus finalized MN A13 remains active and pending fresh user approval.** Do not advance to Pharm A15.
+
+Files edited:
+- Private master first, `Elevated ATI Pharm Templates.html`, this overlay, the private handoff, `/private/tmp/pharm-a13-user-review-372/`, and `/private/tmp/pharm-a13-print-372/`.
+- Pharm A13 now gives Nursing Interventions and Client Education content-sized rows with `align-content:start`; MN and all non-Pharm products are unchanged by this repair. No learner text or product inventory changed.
+
+Validation performed:
+- On `ex-ch1-pharmacokinetics-and-routes-of-administration`, the stable `837.6328125px` equal rows and `351.125px` Client Education void are replaced by natural `760.8515625px` and `506.5078125px` rows with only the intended `20px` endpoint padding and exact `10px` nested gap.
+- All nine A13 cards passed Filled/Blank at `1440`, `901/900`, `861/860`, `768`, `721/720`, `681/680`, `601/600`, and `390 x 844`: `234` states / `468` twice-stable readings, zero title overflow, zero unapproved clipping, zero horizontal overflow, exact nested gaps, and no unexpected runtime errors. Fresh Filled/Blank Letter PDFs produced five inspected raster pages with no print defect.
+- One script, `249` cards/unique card IDs, exact counts `1/3/141/18/35/9/42`, `249` links, `249` unique runtime row keys, `278` unique runtime IDs, storage keys, payload parity, HTTP `200`, and `git diff --check` pass. The focused Part 369-to-current product delta is only the approved A13 row-sizing correction.
+- Active comparison: `http://127.0.0.1:8766/pharm-a13-user-review-372/pharm-a13-vs-mn-review-372.html?v=pharm-a13-review-372-fixed`. The approved two-pane design remains intact and is left Filled/top with options collapsed and sync/guides off. Wrapper SHA-256 is `fd7c8bd8fc502e1f9dec70ec8ec3384454e78d79512a5768d6e8dde549b111db`; MN remains `cfcc745ba711dbe546529b6fb74940542b6647ff571ca07f0cc683fd52eff698`; corrected Pharm is `3a0736c863f8bc15967f5bc93802da6887863a549ae405eae17bcaefeccb38c8`.
+
+Automation status:
+- The retrospective heartbeat and all three protected automations remain **PAUSED** and byte-unchanged at hashes `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`, `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, and `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`.
+
+Commit/push status:
+- No commit or push is authorized. `main` and `origin/main` remain synchronized at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`, `0/0`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: this overlay, checklist, MN/MH/AMS templates, and Pharm Templates. PD remains clean; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- The Pharm A13 empty stretch is fixed and the complete fresh screen/print gate passes; fresh user visual approval is still required.
+
+Next Recommended Action:
+- The user must review the corrected Pharm A13 comparison and either approve it or report the first remaining visible mismatch; do not advance to Pharm A15, commit/push, or start content population first.
+
+## Part 371 Recovery Addendum — MN A13 Typography Correction / Review Reopened
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population is paused; ATI source support used: none. `Please correct MN` authorizes this scoped MN A13 typography correction only.
+
+Current batch:
+- **Visual Review 13 — Pharm A13 versus finalized MN A13 remains active and pending fresh user approval.** Do not advance to Pharm A15.
+
+Files edited:
+- Private master first, `Elevated ATI MN Templates.html`, this overlay, the private handoff, and `/private/tmp/pharm-a13-user-review-373/`.
+- MN A13 direct and nested body copy now shares `DM Sans 16px / 1.6 / 400`; nested descendants inherit that role instead of restoring `13px / 19.5px`. Direct and nested heading roles remain unchanged. Content and product inventory are unchanged.
+
+Validation performed:
+- All `22` distinct MN A13 cards passed Filled/Blank at `1440`, `768`, exact `681/680`, and `390 x 844`: `220` states / `440` twice-stable readings, exact heading/body roles, zero Blank leakage, and correct two-column/one-column breakpoint behavior.
+- One separate pre-existing `390px` modal-header overflow is isolated on `ex-ch12-epidural`: the `390px` modal has `396px` scroll width and its action row extends about `6.1px`; the card itself does not overflow and the typography correction did not cause it. It remains unmodified pending separate authorization.
+- Screen inspection and representative print-media DOM checks pass. No fresh PDF is claimed because the in-app browser does not expose `Page.printToPDF`.
+- Static integrity passes: `197` cards/unique card IDs, exact counts `46/15/7/18/15/65/22/9`, `268` unique static IDs, four scripts parse, local links resolve, payload parity/HTTP `200`, and `git diff --check` pass.
+- Active comparison: `http://127.0.0.1:8766/pharm-a13-user-review-373/pharm-a13-vs-mn-review-373.html?v=mn-a13-typography-373-review`. Wrapper SHA-256 `6eb8381dcfe5456331efa2b08fea06e23e59271e2936852e42248778788dc9d7`; corrected MN `aab451e2d6131e2aae939e7a7433d08e3e5f2fbfc43d3b8af7e1c7de44150657`; unchanged Pharm `3a0736c863f8bc15967f5bc93802da6887863a549ae405eae17bcaefeccb38c8`.
+
+Automation status:
+- The retrospective heartbeat and all three protected automations remain **PAUSED** and byte-unchanged at hashes `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`, `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, and `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`.
+
+Commit/push status:
+- No commit or push is authorized. `main` and `origin/main` remain synchronized at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`, `0/0`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: this overlay, checklist, MN/MH/AMS templates, and Pharm Templates. PD remains clean; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MN A13 nested body typography is corrected across all 22 cards. One unrelated 390px Epidural modal-header overflow is documented and intentionally not bundled into this repair.
+
+Next Recommended Action:
+- The user must review the corrected MN-versus-Pharm A13 comparison and decide whether to authorize the separate MN 390px Epidural modal-header correction before approving Visual Review 13; do not advance to Pharm A15, commit/push, or start content population first.
+
+## Part 372 Recovery Addendum — Pharm A13 Approved / Pharm A15 Review Active
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population is paused; ATI source support used: none.
+
+Current batch:
+- The user's `Approved` closes **Visual Review 13 — Pharm A13 versus finalized MN A13** as user-approved. The separately documented MN `390px` Epidural modal-header overflow remains unchanged. **Visual Review 14 — Pharm A15 versus finalized MN A15** is now active and pending fresh user approval.
+
+Files edited:
+- Private master first, this overlay, the private handoff, and `/private/tmp/pharm-a15-user-review-374/`.
+- No product changed. MN remains SHA-256 `aab451e2d6131e2aae939e7a7433d08e3e5f2fbfc43d3b8af7e1c7de44150657`; Pharm remains `3a0736c863f8bc15967f5bc93802da6887863a549ae405eae17bcaefeccb38c8`.
+
+Validation performed:
+- Active comparison: `http://127.0.0.1:8766/pharm-a15-user-review-374/pharm-a15-vs-mn-review-374.html?v=pharm-a15-review-374`. MN `Maternal-Newborn Attachment` is fixed left and Pharm `Medication Adherence` is fixed right.
+- Exactly two panes/two iframes, no pair selector, all ten retained controls, collapsed options, synchronized Filled/Blank, A15 alignment controls, Sync Once, proportional Sync Scroll, Guides, and linked Vertical Guides pass. Every control was exercised; clean handoff is Filled/top with options collapsed and sync/guides off.
+- Two geometry reads `350ms` apart are identical; wrapper and payloads have zero horizontal overflow. Fresh screenshot inspection passes. Wrapper/payload HTTP is `200`, payload parity is exact, and `git diff --check` passes.
+- Wrapper SHA-256 `3ab96ff3f15747fb4e41ba13991bb7563a944643e1ba756ac4eabcf2263028a4`; exact MN/Pharm payload hashes match the products above.
+
+Automation status:
+- The retrospective heartbeat and all three protected automations remain **PAUSED** and byte-unchanged at hashes `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`, `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, and `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`.
+
+Commit/push status:
+- No commit or push is authorized. `main` and `origin/main` remain synchronized at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`, `0/0`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: this overlay, checklist, MN/MH/AMS templates, and Pharm Templates. PD remains clean; unrelated untracked files remain untouched.
+
+TLDR:
+- Pharm A13 is user-approved; the final MN-left / Pharm-A15-right family review is validated and open without a product change.
+
+Next Recommended Action:
+- The user must review Pharm A15 against MN A15 and either approve it or report the first visible mismatch; do not begin the final Batch 15 handoff, commit/push, or start content population first.
+
+## Part 373 Recovery Addendum — PD/Pharm Retrospective Complete / All Family Reviews Approved
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population is paused; ATI source support used: none. The guarded retrospective is complete and paused.
+
+Current batch:
+- The user's `Approved` closes **Visual Review 14 — Pharm A15 versus finalized MN A15**. All fifteen valid reviews are user-approved: PD A1/A3/A5/A7/A9/A11/A13/A15 and Pharm A1/A3/A7/A9/A11/A13/A15; Pharm has no A5. Batch 15 final integrity closeout is **COMPLETE**.
+- The documented finalized-MN `390px` Epidural modal-header overflow remains an accepted exception outside PD/Pharm product completion; no separate MN repair was authorized.
+
+Files edited:
+- Private master first, this overlay, the private handoff, and `/private/tmp/pd-pharm-final-b15-375/`. No product changed.
+- Exact current hashes: PD `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`; Pharm `3a0736c863f8bc15967f5bc93802da6887863a549ae405eae17bcaefeccb38c8`; MN reference `aab451e2d6131e2aae939e7a7433d08e3e5f2fbfc43d3b8af7e1c7de44150657`. Fresh payload parity and HTTP `200` pass.
+
+Validation performed:
+- Runtime integrity passes: PD `179` rows/study targets with inventory `12/9/5/13/9/116/9/6`; Pharm `249` with `1/3/141/18/35/9/42`; all row keys are unique with zero cross-book duplicates; every `179/249` internal target resolves; empty hrefs are zero; runtime IDs are unique `233/233` and `278/278`; source IDs are unique `203/203` and `269/269`.
+- Both single scripts parse. Required storage keys are unchanged. `git diff --check` passes.
+- The approved A15 review remains `http://127.0.0.1:8766/pharm-a15-user-review-374/pharm-a15-vs-mn-review-374.html?v=pharm-a15-review-374`. At `1440`, `768`, and `390px`, twice-stable measurements pass with exactly two iframes, collapsed options, synchronized Filled mode, and zero horizontal overflow.
+- Print coverage reconciles exactly: current PD equals Part 343's inspected PDF payload; Part 364 covers unchanged Pharm families including A15; the only later Pharm delta is A13 row sizing, covered by Part 370's current-hash Filled/Blank Letter PDFs and rasters.
+- Master, overlay, and handoff agree on completion, approvals, hashes, automation state, repository state, and next action. The comparison contract remains MN left/current target right, exactly two panes, and collapsed featureful options.
+
+Automation status:
+- The retrospective heartbeat and all three protected automations remain **PAUSED** and byte-unchanged at hashes `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`, `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, and `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`.
+
+Commit/push status:
+- No commit or push is authorized. `main` and `origin/main` remain synchronized at `2c089144df4a04b2dbdf86ebdbb697f7381e70e3`, `0/0`; nothing was staged, committed, pushed, merged, reset, reverted, published, or populated.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: this overlay, checklist, MN/MH/AMS templates, and Pharm Templates. PD remains clean; unrelated untracked files remain untouched.
+
+TLDR:
+- The PD/Pharm retrospective, final integrity gate, and all fifteen valid family reviews are complete. Automations remain paused and no content population or publication began.
+
+Next Recommended Action:
+- The user does not need to act now; the completed retrospective remains paused, with commit/push and content population still unauthorized.
+
+## Part 374 Recovery Addendum — MN Mobile Header Exception Repaired / Repository Checkpoint Authorized
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. Content population is paused; ATI source support used: none. The user's explicit `Please proceed with the sequence recommended` authorizes the previously recommended MN mobile-header repair, fresh revalidation, and one repository commit/push checkpoint. It does not authorize content population or a new subject.
+
+Current batch:
+- The completed PD/Pharm retrospective remains closed. The separate finalized-MN `390px` Epidural modal-header exception is now objectively repaired by allowing the mobile title flex item to shrink to its available width. Existing wrapping contains long tokens while both action controls remain unchanged and visible. Learner content and product inventory are unchanged.
+
+Files edited:
+- Private master first, repository `Elevated ATI MN Templates.html`, this overlay, the private handoff, and fresh unique QA artifacts under `/private/tmp/mn-epidural-header-fix-376/`, `/private/tmp/mn-epidural-header-fix-376-after/`, and `/private/tmp/pharm-a15-checkpoint-376/`.
+- The only Part 374 product delta is `@media(max-width:600px){.modal-title-row > :first-child{min-width:0}}` in MN. Exact current product hashes are MN `0c41317332217bcc30cfaf37278fb2a134cb3c8153329d809293c20651905048`, PD unchanged `d9d25e932e60527c0de5314003700ee3eab9f9bbc0e73817cc21c5b907b23c49`, and Pharm unchanged `3a0736c863f8bc15967f5bc93802da6887863a549ae405eae17bcaefeccb38c8`.
+
+Validation performed:
+- Stable before evidence on MN A13 `ex-ch12-epidural` at `390 x 844`: modal/header `390px` client versus `396px` scroll width, title row `354px` versus `378px`, title flex item `282.1px` with `min-width:auto`, and the `80px` action group ending at `x=396.1px`.
+- After correction, Filled and Blank are twice stable: modal/header `390/390`, title row and card `354/354`, title flex item and title `258/258` with `min-width:0`, and the unchanged action group ends at `x=372px`. Fresh screenshot inspection confirms the complete title and both controls are visible without clipping or collision.
+- All `22` MN A13 cards passed Filled and Blank at `390 x 844`: `44` states / `88` twice-stable measurements, equal client/scroll widths for modal/header/title row/title/card, action endpoint `x=372px`, zero failures. The affected card also passes exact `600/601`, `768`, and `1440px` checks; the scoped rule ends at `600px`.
+- Exact pre/post payload comparison contains only the single CSS declaration. Current MN has `270/270` unique static IDs, `197` resolving internal targets, four parsing inline scripts, and no missing targets. PD, Pharm, MH, and AMS retain unique IDs and parsing scripts; PD/Pharm storage keys are unchanged. `git diff --check` passes.
+- Fresh exact-current two-pane handoff: `http://127.0.0.1:8766/pharm-a15-checkpoint-376/pharm-a15-vs-mn-checkpoint-376.html?v=pharm-a15-checkpoint-376`. It preserves MN fixed left, Pharm fixed right, exactly two iframes, collapsed feature controls, and zero horizontal overflow at twice-stable `1440`, `768`, and `390px`. Wrapper SHA-256 is `95c275ed33ad8254ced471bcc9fce8902d19b3a9a54343a3e4279ba8709b8b63`.
+
+Automation status:
+- The retrospective heartbeat and all three protected automations remain **PAUSED** and byte-unchanged at hashes `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`, `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, and `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`.
+
+Commit/push status:
+- The user explicitly authorized one checkpoint commit and push. This addendum is the checkpoint payload: stage exactly the six tracked files already in scope, commit once, push `main` to `origin/main`, and never stage the preserved untracked files.
+
+GitHub Desktop should show:
+- After the checkpoint succeeds, no tracked modifications and `main` synchronized with `origin/main`; only preserved unrelated untracked files remain visible.
+
+TLDR:
+- The last accepted MN mobile-header exception is repaired and fully revalidated. The approved PD/Pharm retrospective plus this correction are ready for the authorized checkpoint.
+
+Next Recommended Action:
+- Codex must create and push the single authorized checkpoint now, keep automations/content paused, and report the exact commit SHA; the user does not need to act unless push fails.

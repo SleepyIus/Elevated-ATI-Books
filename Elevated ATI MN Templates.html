@@ -42,8 +42,6 @@
   --shadow:0 8px 24px rgba(0,0,0,0.3);
   --modal-bg:rgba(9,11,20,0.85);
   --template-modal-width:1080px;
-  --tpl-modal-title-row-min-height:100.4px;
-  --tpl-modal-title-row-min-height-mobile:104.8px;
 }
 [data-theme="light"]{
   --bg:#faf7f2;
@@ -882,7 +880,6 @@ button:focus-visible,a:focus-visible{
 .modal-title-row{
   display:flex;align-items:flex-start;justify-content:space-between;
   gap:16px;width:100%;margin-bottom:14px;
-  min-height:var(--tpl-modal-title-row-min-height);
 }
 .modal-meta{
   font-size:11px;font-weight:600;letter-spacing:.14em;
@@ -950,7 +947,7 @@ button:focus-visible,a:focus-visible{
   .modal-overlay{padding:0}
   .modal{max-width:100%;border-radius:0;max-height:100vh;height:100vh;border:none}
   .modal-header{padding:16px 18px 0}
-  .modal-title-row{min-height:var(--tpl-modal-title-row-min-height-mobile)}
+  .modal-title-row > :first-child{min-width:0}
   .modal-title{font-size:28px}
   .modal-body{padding:20px 18px 40px}
 }
@@ -2542,6 +2539,28 @@ isolation:isolate;}
           font-family:'DM Sans',sans-serif !important;
           font-size:16px !important;
           line-height:1.6 !important;
+          font-weight:400;
+          letter-spacing:0;
+        }
+        /* A13 typography canon: direct and nested Therapeutic Procedure copy
+           share the readable 16px / 1.6 body role. Descendant rules inherit
+           that role instead of restoring the legacy compact nested size. */
+        .example-card[data-template-type="therapeutic-procedure"]
+          .tp-grid > .tp-box > .content,
+        .example-card[data-template-type="therapeutic-procedure"]
+          .tp-grid > .considerations > .tp-subbox > .content{
+          font-family:'DM Sans',sans-serif !important;
+          font-size:16px !important;
+          line-height:1.6 !important;
+          font-weight:400;
+          letter-spacing:0;
+        }
+        .example-card[data-template-type="therapeutic-procedure"]
+          .tp-grid :is(.tp-box, .tp-subbox) > .content
+          :where(p, li, ul, ol, table, th, td){
+          font-family:inherit !important;
+          font-size:inherit !important;
+          line-height:inherit !important;
           font-weight:400;
           letter-spacing:0;
         }
