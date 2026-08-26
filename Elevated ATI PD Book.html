@@ -114,6 +114,7 @@ body{
   padding:18px 16px 14px;
   border-bottom:1px solid var(--border);
   flex-shrink:0;
+  line-height:1.6;
 }
 .back-home{
   display:inline-flex;align-items:center;gap:6px;
@@ -160,7 +161,7 @@ body{
 /* Sidebar nav — flat list of sections */
 .sidebar-list{
   flex:1;overflow-y:auto;
-  padding:8px 0;
+  padding:8px 0 24px;
   scrollbar-width:thin;
   scrollbar-color:var(--border) transparent;
 }
@@ -169,15 +170,17 @@ body{
 .sidebar-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
 .sidebar-section-label{
   padding:14px 16px 4px;
-  font-size:10px;font-weight:700;
+  font-size:10px;font-weight:800;
+  line-height:1.6;
   letter-spacing:.12em;text-transform:uppercase;
   color:var(--text3);
 }
 .sidebar-item{
-  padding:8px 16px;font-size:13px;
+  padding:9px 10px;font-size:13px;font-weight:600;
+  line-height:1.6;
   color:var(--text2);cursor:pointer;
   display:flex;align-items:center;gap:8px;
-  border-radius:6px;margin:0 8px;
+  border-radius:7px;margin:0 8px 2px;
   text-decoration:none;
   transition:background .12s,color .12s;
 }
@@ -201,7 +204,8 @@ body{
 .nav-section{margin-bottom:2px}
 .nav-section-label{
   padding:14px 16px 4px;
-  font-size:10px;font-weight:700;
+  font-size:10px;font-weight:800;
+  line-height:1.6;
   letter-spacing:.12em;text-transform:uppercase;
   color:var(--text3);
   cursor:pointer;display:flex;align-items:center;gap:8px;
@@ -209,7 +213,7 @@ body{
 }
 .nav-section-label:hover{color:var(--text2)}
 .nav-section-label .caret{
-  font-size:14px;transition:transform .2s;
+  font-size:14px;line-height:16px;transition:transform .2s;
   color:var(--text2);flex-shrink:0;order:-1;
 }
 .nav-section.collapsed .nav-section-label .caret{transform:rotate(-90deg)}
@@ -256,7 +260,7 @@ body{
 .sidebar-overlay.show{display:block}
 .sidebar-toggle{
   display:none;position:fixed;
-  top:66px;left:14px;z-index:50;
+  top:14px;right:14px;left:auto;z-index:50;
   background:var(--surface);
   border:1px solid var(--border);color:var(--text);
   width:40px;height:40px;border-radius:8px;
@@ -266,14 +270,14 @@ body{
 @media(max-width:900px){
   .sidebar{transform:translateX(-100%);transition:transform .25s}
   .sidebar.open{transform:translateX(0)}
-  .sidebar-header{padding-top:116px}
+  .sidebar-header{padding-top:72px}
   .sidebar-header .back-home{display:none}
-  .main-content{margin-left:0;padding:124px 24px 60px}
+  .main-content{margin-left:0;padding:92px 24px 60px}
   .sidebar-toggle{display:flex}
   .back-home-mobile{display:flex}
 }
 @media(max-width:600px){
-  .main-content{padding:124px 16px 60px}
+  .main-content{padding:92px 16px 60px}
 }
 
 /* HEADER */
@@ -1067,7 +1071,7 @@ body.modal-open{overflow:hidden}
 
 /* Sidebar search */
 .sidebar-search{
-  position:relative;padding:16px 12px 12px;
+  position:relative;padding:10px 16px;
 }
 #searchInput{
   width:100%;background:var(--bg);
@@ -1079,7 +1083,7 @@ body.modal-open{overflow:hidden}
 #searchInput:focus{border-color:var(--accent)}
 #searchInput::placeholder{color:var(--text3)}
 #searchResults{
-  position:absolute;top:calc(100% - 1px);left:12px;right:12px;
+  position:absolute;top:calc(100% - 1px);left:16px;right:16px;
   background:var(--surface);border:1px solid var(--border);border-top:0;
   border-radius:0 0 8px 8px;max-height:400px;overflow-y:auto;
   z-index:20;display:none;
@@ -2345,7 +2349,7 @@ article.exercise.nclex-hidden{ display: none !important }
 </head>
 <body>
 
-<button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Toggle navigation">☰</button>
+<button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Open book navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
 <a class="back-home-mobile" href="Elevated%20ATI%20PD%20Hub.html">Back to Hub</a>
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
@@ -21148,21 +21152,51 @@ antipyretics, with development of other Manifestations</p>
   var sidebar = document.getElementById('sidebar');
   var sidebarToggle = document.getElementById('sidebarToggle');
   var sidebarOverlay = document.getElementById('sidebarOverlay');
+  var sidebarSearch = document.getElementById('searchInput');
+  var sidebarList = sidebar ? sidebar.querySelector('.sidebar-list') : null;
+  function setSidebarPanelOpen(open, moveFocus, restoreFocus){
+    var responsive = window.innerWidth <= 900;
+    if (sidebar) {
+      sidebar.classList.toggle('open', open);
+      if (responsive && !open) {
+        sidebar.setAttribute('aria-hidden', 'true');
+        sidebar.setAttribute('inert', '');
+      } else {
+        sidebar.removeAttribute('aria-hidden');
+        sidebar.removeAttribute('inert');
+      }
+    }
+    if (sidebarOverlay) sidebarOverlay.classList.toggle('show', open);
+    if (sidebarToggle) {
+      sidebarToggle.textContent = open ? '×' : '☰';
+      sidebarToggle.setAttribute('aria-label', open ? 'Close book navigation' : 'Open book navigation');
+      sidebarToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    if (open && sidebarList) sidebarList.scrollTop = 0;
+    if (open && moveFocus && sidebarSearch) sidebarSearch.focus();
+    if (!open && restoreFocus && responsive && sidebarToggle) sidebarToggle.focus();
+  }
   function openSidebarPanel(){
-    sidebar.classList.add('open');
-    sidebarOverlay.classList.add('show');
+    setSidebarPanelOpen(true, true, false);
   }
-  function closeSidebarPanel(){
-    sidebar.classList.remove('open');
-    sidebarOverlay.classList.remove('show');
+  function closeSidebarPanel(restoreFocus){
+    setSidebarPanelOpen(false, false, restoreFocus === true);
   }
-  if (sidebarToggle) {
+  if (sidebarToggle && sidebar) {
     sidebarToggle.addEventListener('click', function(){
-      if (sidebar.classList.contains('open')) closeSidebarPanel();
-      else openSidebarPanel();
+      var willOpen = !sidebar.classList.contains('open');
+      setSidebarPanelOpen(willOpen, willOpen, !willOpen);
     });
   }
-  if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebarPanel);
+  if (sidebarOverlay) sidebarOverlay.addEventListener('click', function(){ closeSidebarPanel(true); });
+  window.addEventListener('resize', function(){
+    if (window.innerWidth > 900) setSidebarPanelOpen(false, false, false);
+    else setSidebarPanelOpen(sidebar && sidebar.classList.contains('open'), false, false);
+  });
+  document.addEventListener('keydown', function(event){
+    if (event.key === 'Escape' && sidebar && sidebar.classList.contains('open')) closeSidebarPanel(true);
+  });
+  setSidebarPanelOpen(false, false, false);
 
   // ===== Sidebar unit collapse =====
   document.querySelectorAll('[data-toggle-section]').forEach(function(label){

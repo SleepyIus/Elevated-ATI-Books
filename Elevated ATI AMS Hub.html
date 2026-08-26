@@ -178,7 +178,7 @@ a{color:inherit;text-decoration:none}
 .hero-sub{position:relative;max-width:640px;color:var(--text2);margin:0;font-size:16px;line-height:1.6}
 .stats{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(4,minmax(0,1fr));
   gap:14px;
   margin-bottom:36px;
 }
@@ -536,7 +536,7 @@ a{color:inherit;text-decoration:none}
 .review-queue-sub{font-size:13px;color:var(--text2)}
 .units-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(4,minmax(0,1fr));
   gap:12px;
   margin-bottom:36px;
 }
@@ -580,21 +580,21 @@ a{color:inherit;text-decoration:none}
   font-size:11px;
   margin-top:6px;
 }
-@media(max-width:860px){
-  .primary-grid,.types-grid{grid-template-columns:1fr}
-  .stats,.units-grid{grid-template-columns:repeat(2,1fr)}
-  .hero h1{font-size:32px}
+@media(max-width:960px){.primary-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:720px){
+  .stats,.units-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .types-grid{grid-template-columns:1fr}
   .hero-eyebrow{letter-spacing:.10em}
   .hero-sub,.tool-desc,.unit-card p{overflow-wrap:anywhere}
-  .topbar{align-items:flex-start;flex-direction:column}
-  .topbar-left{flex-wrap:wrap}
-  .topbar-brand span{overflow-wrap:anywhere}
   .page{max-width:100vw;padding:18px 16px 60px;overflow-x:hidden}
   .progress-bar{width:100%}
   .progress-text{text-align:left;min-width:0}
 }
-@media(max-width:520px){
-  .stats,.units-grid{grid-template-columns:1fr}
+@media(max-width:680px){.primary-grid{grid-template-columns:1fr}}
+@media(max-width:600px){
+  .hero h1{font-size:30px}
+  .hero{padding:28px 22px}
+  .topbar-home span{display:none}
 }
 </style>
 </head>

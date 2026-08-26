@@ -962,3 +962,26 @@ Current comparison: `http://127.0.0.1:8766/pd-a15-user-review-359/pd-a15-vs-mn-r
 Current comparison: `http://127.0.0.1:8766/pharm-a1-user-review-360/pharm-a1-vs-mn-review-360.html?v=pharm-a1-review-360`.
 
 **Next Recommendation:** The user should review Pharm A1 against the finalized MN A1 reference and report approval or the first visible mismatch; do not advance to Pharm A3, commit, push, or start content population first.
+
+## Part 514 Reusable Gate — Shared Product Navigation Roles
+
+- [x] Responsive Book, Templates, and Flashcards surfaces with an off-canvas navigation panel use the shared mobile rail: visible `Back to Hub` fixed at `14px` top/left and a `40px` hamburger fixed at `14px` top/right. The responsive sidebar header begins at `72px`; main content begins at `92px`.
+- [x] Menu controls expose honest `☰`/`×`, retain a surface-accurate accessible noun (`book`, `template`, or `flashcard navigation`), synchronize `aria-expanded`, and reference their controlled panel. Closed panels are `aria-hidden=true` plus `inert`; open focuses search and resets panel scroll; Escape/overlay close restores toggle focus.
+- [x] Shared side-navigation roles are: fixed `280px` rail; `18px 16px 14px` header padding; search wrapper `10px 16px`; search field `247px x 33.5px`; section labels DM Sans `10px/800/16px` with `14px 16px 4px` padding; rows DM Sans `13px/600/20.8px` with `9px 10px` padding, `0 8px 2px` margin, and `7px` corners; list padding `8px 0 24px`; scrollbar `6px`.
+- [x] Hub topbars retain a row composition with Home left and theme right. At `600px` and below, Home may collapse to its arrow while retaining the `Back to all subjects` title. Hub stat/unit tracks use `minmax(0,1fr)` so long subject-specific text wraps without horizontal overflow.
+- [x] Shared-role equality does not flatten surface hierarchy: main display typography remains surface-specific, accessible menu nouns remain accurate, and natural subject-title wrapping may change downstream content height. Do not shrink, clamp, hide, or rewrite subject identity to force content-dependent endpoints.
+- [x] Part 514 fresh browser QA covers all 20 products at desktop and phone with zero horizontal overflow; exact Book, Pharm Templates, and AMS Hub breakpoint pairs pass. Automated QA remains separate from user visual approval.
+
+Current review: `http://127.0.0.1:51421/navigation-review-514.html?v=review-514-clean`.
+
+**Next Recommendation:** The user should review the single Part 514 launcher and approve the shared navigation parity or name one exact issue; do not commit, push, publish, or begin learner-state migration first.
+
+## Part 515 Approval Gate — Shared Product Navigation
+
+- [x] User visually reviewed the Part 514 launcher and reported, “Everything seems okay now.”
+- [x] Shared mobile rail, button terminology, drawer accessibility, side-navigation typography/spacing, Hub shrink-safe grids, and AMS responsive composition are objectively passed and user approved.
+- [x] No product changed while recording approval; Part 514 hashes and evidence remain current.
+- [x] Learner-state backup/import/reset migration remains a separate paused scope.
+- [ ] Local checkpoint commit for the 14 approved tracked files requires explicit authorization; push/publication requires a later separate instruction.
+
+**Next Recommendation:** Ask the user to authorize or decline one local checkpoint commit; do not push, publish, or begin learner-state migration first.

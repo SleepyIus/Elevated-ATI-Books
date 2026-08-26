@@ -7165,3 +7165,133 @@ TLDR:
 
 Next Recommended Action:
 - **The user does not need to act; keep the verified local checkpoint unpushed and the completed heartbeat paused.**
+
+## Part 512 — Accessible Mobile Drawer Retrospective Objective Pass
+
+Current mode:
+- **SHARED-SURFACE EXISTING-CANON PROPAGATION / HOLD-CLINICAL-CONTENT — OBJECTIVE GATE COMPLETE; USER VISUAL REVIEW PENDING.** ATI source support used: none; design-only change. Flashcards remain complete/live/paused; Night Shift disabled.
+
+Current batch:
+- The user approved the Part 511 recommendation. The existing accessible drawer contract is now propagated to the five Books and Pharm Templates without changing their established `900px` and `860px` responsive breakpoints.
+
+Files edited:
+- `Elevated ATI MN Book.html`, `Elevated ATI MH Book.html`, `Elevated ATI PD Book.html`, `Elevated ATI Pharm Book.html`, `Elevated ATI AMS Book.html`, `Elevated ATI Pharm Templates.html`, and this overlay.
+- No clinical wording, inventory, stable ID, anchor, href, storage-key literal, progress/learner state, or unrelated surface changed. Only Pharm Templates gains one new collision-free panel ID for its toggle relationship.
+
+Validation performed:
+- All `21` inline scripts parse; href and localStorage literal sequences match the exact pre-edit baselines; every pre-existing ID remains in exact order; breakpoints remain exact; and `git diff --check` passes. Static report SHA-256: `8d419bd4b6cdf0a8d73a9b20b2f7a4d6cdb57132093f7d0472955fa18146664f`.
+- Fresh runtime QA passes all six at exact `901/900` or `861/860`, plus `768`, `601`, `600`, and `390 x 844`: synchronized controls/state, closed hidden/inert, honest `☰`/`×` labels, search focus, scroll reset, Escape/overlay/toggle close with focus restoration, zero overflow, zero captured browser errors, and focused print regression. Representative MN Book and Pharm Templates screenshots were inspected. Runtime report SHA-256: `122cc81d919e0b3300519ae024024ad0a85f89cf1da5437646207e9b2be32efe`.
+- Read-only visual launcher: `http://127.0.0.1:51223/drawer-review-512.html?v=drawer-review-512-clean`.
+
+Automation status:
+- Flashcards heartbeat remains **PAUSED** at Part 510 and unchanged, configuration SHA-256 `0a5868b8e29f6aee516944f602a3f3b05f04ce98b3c296688116af155fc86bde`. Night Shift and `ati-build-guide-ai-spec-polish`, `ati-template-clipping-qa`, `ati-pediatric-templates-design-polish`, and `ati-retrospective-template-spacing-heartbeat` remain paused and unchanged. No new automation was created.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, reset, reverted, or published. Local/origin `main` remain `82c18dfb2a887edad6378947b79ee2cd0cbb63e3` at `0/0`.
+
+GitHub Desktop should show:
+- Exactly seven tracked modifications: the six approved products plus this overlay. Preserve unrelated `.DS_Store`, `Teleprompter.html`, `recovered-codex-screenshots/`, `NUR2460-main/`, and all other untracked files.
+
+TLDR:
+- The six-file accessible drawer migration is objectively complete and awaiting user visual approval; broad redesign and clinical content remain out of scope.
+
+Next Recommended Action:
+- **The user must act by reviewing `http://127.0.0.1:51223/drawer-review-512.html?v=drawer-review-512-clean`, then approving it or naming one exact issue; do not commit or push yet.**
+
+## Part 513 — Cross-Surface Uniformity Audit Paused for Learner-State Approval
+
+Current mode:
+- **SHARED-SURFACE UNIFORMITY AUDIT / HOLD-CLINICAL-CONTENT — READ-ONLY PASS WITH A LEARNER-STATE STOP.** Part 512 remains objectively passed and uncommitted; Flashcards and automations remain paused; Night Shift disabled.
+
+Current batch:
+- Audited the exact current 20 Book/Templates/Flashcards/Hub products for family visual parity, responsive overflow, drawer state, and Hub backup/import/reset coverage.
+
+Files edited:
+- Part 513 changes no product, Hub, storage key, import/reset behavior, clinical content, learner state, or checklist. Evidence: `/private/tmp/shared-uniformity-audit-513.md` SHA-256 `5f1117e61d4a7c72b8f7a366dec9fedc9cb82d814141d7d07bd3a6ca9847d040`; machine inventory `/private/tmp/shared-uniformity-audit-513.json` SHA-256 `8e517213feea928870088f4f6e6acc264e9037216b6e6e8015e89c4c3a4df052`. Continuity only is updated in the private master first, this overlay, and the private handoff.
+
+Validation performed:
+- Books, Templates, and Flashcards pass representative desktop/phone shared fonts, theme, zero-overflow, and closed-drawer state checks. Four Hubs pass `1440/900/600/390`.
+- Exact visual defect: MH Hub overflows `15px` at `390 x 844` because long unit titles cannot shrink in its two-column grid.
+- Exact hidden contract defect: Hub backup/import/reset allowlists omit some existing Book bookmarks/highlights/notes, current Template state, and current versioned Flashcards filter state. Pharm Hub also uses stale Template keys and says `Elevated MN hub` in backup metadata.
+- Learner-state boundary: MN, MH, and Pharm actively share `nur2460_last_chapter` and `nur2460_nclex_done`. A blind backup/import/reset edit can cross subjects, so no state code changed. Correction requires a subject-scoped, read-compatible migration and isolated preservation QA. Shared `nur2460_theme` remains intentional.
+- Branch/HEAD/origin remain `main` / `82c18dfb2a887edad6378947b79ee2cd0cbb63e3`, `0/0`, with the same seven Part 512 tracked modifications.
+
+Automation status:
+- Flashcards heartbeat and all four protected automations are verified **PAUSED**; Night Shift disabled; no automation changed.
+
+Commit/push status:
+- Nothing staged, committed, pushed, published, reset, reverted, or destructively changed.
+
+GitHub Desktop should show:
+- Same seven Part 512 tracked modifications: five Books, Pharm Templates, and this overlay. Preserve all unrelated untracked files.
+
+TLDR:
+- Visible family design is nearly uniform, with one MH phone-overflow defect. The more important gap is incomplete, collision-prone Hub backup coverage for existing learner annotations and current UI state.
+
+Next Recommended Action:
+- **The user must approve or decline one bounded five-subject Hub learner-state contract retrospective; if approved, prove a collision-safe migration before any state edit, then correct the separate MH phone overflow afterward.**
+
+## Part 514 — Shared Navigation and Side-Panel Parity Objective Pass
+
+Current mode:
+- **SHARED-SURFACE VISUAL-CANON PROPAGATION / HOLD-CLINICAL-CONTENT — OBJECTIVE GATE COMPLETE; USER VISUAL REVIEW PENDING.** Part 513 learner-state correction remains separately paused. Flashcards remain complete/live/paused; Night Shift disabled.
+
+Current batch:
+- Audited all 20 exact current products for shared element placement, button terminology, typography, spacing, and side-navigation design, then corrected only proven existing-canon visual drift.
+- Books now use the established phone rail and shared navigation tokens. Pharm Templates now includes the shared mobile Back-to-Hub/menu rail and exact panel rhythm. PD Templates now synchronizes icon and Escape closure. Hub tracks are shrink-safe, MH phone overflow is removed, and AMS Hub uses the established responsive topbar/grid/title behavior.
+
+Files edited:
+- Five Books, PD Templates, Pharm Templates, and five Hubs, plus this overlay and the reusable checklist clarification. No Flashcards product required a correction.
+- No clinical wording, inventory, stable ID, anchor, storage key, learner schedule/history, bookmark/note/highlight payload, Focus membership, Hub allowlist, import/export/reset logic, or learner data changed.
+
+Validation performed:
+- Fresh browser QA covers all 20 products at `1440 x 1000` and `390 x 844`, with `0px` horizontal overflow throughout. Books pass exact `901/900` and `601/600`; Pharm Templates passes `861/860` and `601/600`; AMS Hub passes `961/960`, `721/720`, `681/680`, and `601/600`.
+- All five Book and Template phone drawers pass top-left `Back to Hub`, top-right 40px menu, honest `☰`/`×`, surface-accurate Open/Close labels, hidden/inert closed state, search focus, Escape close, and focus restoration. Flashcards remain the exact passing shared reference.
+- Shared side-navigation roles now measure exactly: 280px rail; `18/16/14` header; `10/16` search wrapper; `247 x 33.5` search; `10/800/16` labels; `13/600/20.8` rows; `9/10` padding; `0/8/2` margin; 7px corners; `8/0/24` list; 6px scrollbar. Surface-specific main typography and natural title wrapping remain intentional.
+- All 27 inline scripts in the 12 touched products parse; the known AMS Book duplicate ID is pre-existing in HEAD; and `git diff --check` passes.
+- Evidence report: `/private/tmp/shared-navigation-uniformity-514/report.md`, SHA-256 `4e4aad8cdff2f132d02201bafbe5aa47ed2ad7a1ade66b6122e2f9136c1b1a5b`. Review URL: `http://127.0.0.1:51421/navigation-review-514.html?v=review-514-clean`, launcher SHA-256 `f810921f97ba3972a86976eda3de427f335dc236902c4e99d6d0833358d31805`.
+
+Automation status:
+- Flashcards heartbeat, Night Shift, and all protected automations remain **PAUSED** and unchanged. No automation was created.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, reset, reverted, or published. Local/origin `main` remain `82c18dfb2a887edad6378947b79ee2cd0cbb63e3`, `0/0`.
+
+GitHub Desktop should show:
+- Five Books, five Hubs, PD Templates, Pharm Templates, this overlay, and `MN Design Canon Checklist.md` modified. Preserve all unrelated untracked files.
+
+TLDR:
+- Shared placement, terminology, sidebar typography, and spacing are objectively uniform where the roles are shared. Content-driven wrapping and surface-specific accessible nouns remain intentional. Learner-state migration is still separate and paused.
+
+Next Recommended Action:
+- **The user must review the one Part 514 launcher, then approve the visual parity or name one exact issue; do not commit or push yet.**
+
+## Part 515 — Shared Navigation Parity User Approved
+
+Current mode:
+- **SHARED-SURFACE VISUAL-CANON PROPAGATION / HOLD-CLINICAL-CONTENT — OBJECTIVELY PASSED AND USER VISUALLY APPROVED.** Learner-state contract work remains separately paused.
+
+Current batch:
+- The user reviewed the Part 514 launcher and reported, “Everything seems okay now.” This approves the current shared element placement, button terminology, typography, spacing, side-navigation roles, Hub phone-grid correction, and AMS responsive composition.
+
+Files edited:
+- No product file changed during approval recording. This overlay, the private master/handoff, and checklist approval state are synchronized only.
+
+Validation performed:
+- Approval preflight confirms branch `main`, exact HEAD/origin `82c18dfb2a887edad6378947b79ee2cd0cbb63e3`, `0/0`, the same 14 authorized tracked modifications, unchanged Part 514 product hashes, preserved untracked files, and clean `git diff --check`.
+- Part 514 objective evidence remains current: all 20 products pass desktop/phone with zero overflow, exact breakpoint pairs and drawer behavior pass, and 27 touched scripts parse.
+
+Automation status:
+- Flashcards heartbeat, Night Shift, and all protected automations remain **PAUSED** and unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, or published. The approved batch remains local and uncommitted.
+
+GitHub Desktop should show:
+- Fourteen approved tracked modifications: five Books, five Hubs, PD Templates, Pharm Templates, this overlay, and the checklist. Preserve all unrelated untracked files.
+
+TLDR:
+- Shared visual/navigation parity is objectively passed and user approved.
+
+Next Recommended Action:
+- **The user must explicitly authorize or decline one local checkpoint commit for these 14 approved tracked files; do not push or publish yet.**

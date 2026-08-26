@@ -7575,6 +7575,7 @@ body.modal-open{
     }
     if (sidebarOverlay) sidebarOverlay.classList.toggle('show', open);
     if (sidebarToggle) {
+      sidebarToggle.textContent = open ? '×' : '☰';
       sidebarToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       sidebarToggle.setAttribute('aria-label', open ? 'Close template navigation' : 'Open template navigation');
     }
@@ -8492,6 +8493,9 @@ body.modal-open{
   window.addEventListener('resize', function(){
     if (window.innerWidth > 860) setSidebarPanelOpen(false, false, false);
     else setSidebarPanelOpen(sidebarPanel && sidebarPanel.classList.contains('open'), false, false);
+  });
+  document.addEventListener('keydown', function(event){
+    if (event.key === 'Escape' && sidebarPanel && sidebarPanel.classList.contains('open')) closeSidebarPanel(true);
   });
   document.querySelectorAll('[data-status-filter]').forEach(function(button){
     button.addEventListener('click', function(){
