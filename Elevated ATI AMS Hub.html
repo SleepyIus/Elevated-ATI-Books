@@ -895,8 +895,53 @@ a{color:inherit;text-decoration:none}
   var LAST_CH_KEY = 'atiams_last_chapter';
   var LAST_TPL_KEY = 'atiams_last_template';
   var PICKUP_DISMISS_KEY = 'atiams_pickup_dismissed';
-  var SYNC_KEYS = [THEME_KEY, BOOK_KEY, TPL_KEY, FC_KEY, FOCUS_DECK_KEY, 'atiams_last_chapter', 'atiams_last_template', 'atiams_bookmarks', 'atiams_nclex_done', 'atiams_highlights', 'atiams_highlights_tomb', 'atiams_fc_filters'];
+  var SYNC_KEYS = [THEME_KEY, BOOK_KEY, TPL_KEY, FC_KEY, FOCUS_DECK_KEY, 'atiams_last_chapter', 'atiams_last_template', 'atiams_bookmarks', 'atiams_nclex_done', 'atiams_highlights', 'atiams_highlights_tomb', 'atiams_fc_filters_v2', 'atiams_fc_filters'];
   window.AMS_SYNC_KEYS = SYNC_KEYS;
+  var BACKUP_FORMAT = 'elevated-ati-local-backup-v2';
+  var BACKUP_SUBJECT = 'AMS';
+  var BACKUP_SOURCE = 'Elevated ATI AMS hub';
+  var LEGACY_IMPORT_MAP = {};
+  var LEGACY_IMPORT_MARKERS = {};
+  var LEGACY_RESET_KEYS = [];
+  var RESET_MIGRATION_MARKERS = [];
+
+  function backupRawValue(value){
+    return typeof value === 'string' ? value : JSON.stringify(value);
+  }
+  function buildBackup(){
+    var backup = { _meta: { format: BACKUP_FORMAT, subject: BACKUP_SUBJECT, source: BACKUP_SOURCE, exportedAt: new Date().toISOString() } };
+    SYNC_KEYS.forEach(function(key){
+      try { backup[key] = localStorage.getItem(key); } catch(e){ backup[key] = null; }
+    });
+    return backup;
+  }
+  function restoreBackup(backup){
+    if (!backup || typeof backup !== 'object' || Array.isArray(backup)) throw new Error('Invalid backup');
+    if (backup._meta && backup._meta.format === BACKUP_FORMAT && backup._meta.subject && backup._meta.subject !== BACKUP_SUBJECT) throw new Error('Wrong subject');
+    var staged = {};
+    var markersToClear = {};
+    SYNC_KEYS.forEach(function(key){
+      if (Object.prototype.hasOwnProperty.call(backup, key) && backup[key] !== null && backup[key] !== undefined) staged[key] = backupRawValue(backup[key]);
+    });
+    Object.keys(LEGACY_IMPORT_MAP).forEach(function(oldKey){
+      var newKey = LEGACY_IMPORT_MAP[oldKey];
+      if (staged[newKey] === undefined && localStorage.getItem(newKey) === null && backup[oldKey] !== null && backup[oldKey] !== undefined) {
+        staged[newKey] = backupRawValue(backup[oldKey]);
+        if (LEGACY_IMPORT_MARKERS[oldKey]) markersToClear[LEGACY_IMPORT_MARKERS[oldKey]] = true;
+      }
+    });
+    var previous = {};
+    Object.keys(staged).forEach(function(key){ previous[key] = localStorage.getItem(key); });
+    Object.keys(markersToClear).forEach(function(key){ previous[key] = localStorage.getItem(key); });
+    try {
+      Object.keys(staged).forEach(function(key){ localStorage.setItem(key, staged[key]); });
+      Object.keys(markersToClear).forEach(function(key){ localStorage.removeItem(key); });
+    } catch(err) {
+      Object.keys(previous).forEach(function(key){ if (previous[key] === null) localStorage.removeItem(key); else localStorage.setItem(key, previous[key]); });
+      throw err;
+    }
+    return Object.keys(staged).length;
+  }
 
   function loadJson(key){
     try {
@@ -1099,10 +1144,7 @@ a{color:inherit;text-decoration:none}
 
   var exportBtn = document.getElementById('exportBtn');
   if (exportBtn) exportBtn.addEventListener('click', function(){
-    var backup = { _meta:{ source:'Elevated AMS hub', exportedAt:new Date().toISOString() } };
-    SYNC_KEYS.forEach(function(key){
-      try { backup[key] = localStorage.getItem(key); } catch(e){ backup[key] = null; }
-    });
+    var backup = buildBackup();
     var blob = new Blob([JSON.stringify(backup, null, 2)], { type:'application/json' });
     var url = URL.createObjectURL(blob);
     var a = document.createElement('a');
@@ -1126,14 +1168,10 @@ a{color:inherit;text-decoration:none}
       reader.onload = function(){
         try {
           var backup = JSON.parse(reader.result);
-          SYNC_KEYS.forEach(function(key){
-            if (Object.prototype.hasOwnProperty.call(backup, key) && backup[key] !== null) {
-              localStorage.setItem(key, backup[key]);
-            }
-          });
+          var restored = restoreBackup(backup);
           updateProgress();
           showStorageKeys();
-          setStatus('AMS backup imported.');
+          setStatus('Restored ' + restored + ' AMS key(s).');
         } catch(err) {
           setStatus('Could not import that backup file.');
         }
@@ -1150,6 +1188,8 @@ a{color:inherit;text-decoration:none}
       if (key === THEME_KEY) return;
       try { localStorage.removeItem(key); } catch(e){}
     });
+    LEGACY_RESET_KEYS.forEach(function(key){ try { localStorage.removeItem(key); } catch(e){} });
+    RESET_MIGRATION_MARKERS.forEach(function(key){ try { localStorage.setItem(key, '1'); } catch(e){} });
     updateProgress();
     showStorageKeys();
     setStatus('AMS progress reset. Theme was preserved.');

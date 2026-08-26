@@ -985,3 +985,35 @@ Current review: `http://127.0.0.1:51421/navigation-review-514.html?v=review-514-
 - [ ] Local checkpoint commit for the 14 approved tracked files requires explicit authorization; push/publication requires a later separate instruction.
 
 **Next Recommendation:** Ask the user to authorize or decline one local checkpoint commit; do not push, publish, or begin learner-state migration first.
+
+## Part 518 Reusable Gate — Subject-Scoped Learner State
+
+- [x] Every Hub backup allowlist inventories all current Book annotations and last location, Templates progress/last location/filter state when present, Flashcards schedule/versioned and compatible legacy filters, Focus membership, and the intentionally shared theme.
+- [x] Backups store raw localStorage strings so export/import preserves exact bytes. New backups carry format and subject markers; a wrong-subject v2 backup is rejected before writes. Older object-valued backups remain compatible through deterministic JSON serialization.
+- [x] Import stages writes and restores prior bytes if a write fails. Automatic migration never deletes legacy bytes and never overwrites an existing scoped key.
+- [x] A shared legacy last-chapter value may be copied only when both its chapter ID and chapter title match the current Book. Shared completion entries may be copied only when their embedded chapter title belongs uniquely to that subject; ambiguous entries remain untouched in legacy storage.
+- [x] Copy-once markers are internal and excluded from learner backups. Subject reset sets them so cleared state cannot rehydrate from a shared legacy key; importing an old subject backup clears only the matching marker required for validated staging.
+- [x] Subject reset removes only that subject's current state and safe subject-specific legacy keys. It preserves `nur2460_theme`, unrelated-subject state, and all untouched shared legacy bytes that cannot be attributed safely.
+- [x] Part 518 fresh QA passes five-Hub exact inventories and byte round trips, rollback and reset isolation, `6/6` MN/MH/Pharm browser migration checks, 21 parse-clean scripts, exact non-script markup parity, HTTP, and diff integrity. Automated QA remains distinct from user approval.
+
+Current review: `http://127.0.0.1:51822/state-review-518.html?v=state-review-518-clean`.
+
+**Next Recommendation:** The user should review the single Part 518 launcher and approve the learner-state contract or name one exact issue; do not commit or push first.
+
+## Part 519 Approval Gate — Subject-Scoped Learner State
+
+- [x] User reviewed the Part 518 launcher and explicitly replied, “Approved.”
+- [x] Five-Hub backup/import/reset coverage, MN/MH/Pharm validated copy-only migration, ambiguous legacy-entry preservation, and PD/Pharm reset-rehydration guards are objectively passed and user approved.
+- [x] All ten approved product hashes remain unchanged; no product changed while recording approval.
+- [ ] One local checkpoint commit for the 12 approved tracked files requires explicit authorization; push/publication requires a later separate instruction.
+
+**Next Recommendation:** Ask the user to authorize or decline one local checkpoint commit; do not push or publish first.
+
+## Part 520 Checkpoint Gate — Subject-Scoped Learner State
+
+- [x] User's second explicit “approved” authorizes one local checkpoint commit for the exact 12 Part 519 approved tracked files.
+- [x] No product changed after approval; exact product hashes and Part 518 evidence remain current.
+- [ ] Verify exact staged/commit membership and post-commit clean tracked state.
+- [ ] Push/publication requires a separate later instruction.
+
+**Next Recommendation:** Create and verify the local checkpoint commit, then keep it unpushed.

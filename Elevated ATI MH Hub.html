@@ -712,7 +712,7 @@ a{color:inherit;text-decoration:none}
   var TPL_KEY = 'atimh_templates_progress';
   var FC_KEY = 'atimh_fc_schedule';
   var FOCUS_DECK_KEY = 'atimh_fc_collections_v1';
-  var LAST_CH_KEY = 'nur2460_last_chapter';
+  var LAST_CH_KEY = 'atimh_last_chapter';
   var LAST_TPL_KEY = 'atimh_last_template';
   var PICKUP_DISMISS_KEY = 'atimh_pickup_dismissed';
   var SYNC_KEYS = [
@@ -723,9 +723,66 @@ a{color:inherit;text-decoration:none}
     LAST_CH_KEY,
     LAST_TPL_KEY,
     'nur2460_atimh_bookmarks',
-    'nur2460_nclex_done',
+    'nur2460_atimh_highlights',
+    'nur2460_atimh_highlights_tomb',
+    'atimh_nclex_done',
+    'atimh_fc_filters_v2',
+    'atimh_fc_filters',
+    'atimh_legacy_last_chapter_v1',
+    'atimh_legacy_nclex_done_v1',
     THEME_KEY
   ];
+  var BACKUP_FORMAT = 'elevated-ati-local-backup-v2';
+  var BACKUP_SUBJECT = 'MH';
+  var BACKUP_SOURCE = 'Elevated ATI MH hub';
+  var LEGACY_IMPORT_MAP = {
+    'nur2460_last_chapter': 'atimh_legacy_last_chapter_v1',
+    'nur2460_nclex_done': 'atimh_legacy_nclex_done_v1'
+  };
+  var LEGACY_IMPORT_MARKERS = {
+    'nur2460_last_chapter': 'atimh_last_chapter_migrated_v1',
+    'nur2460_nclex_done': 'atimh_nclex_done_migrated_v1'
+  };
+  var LEGACY_RESET_KEYS = ['atimh_theme'];
+  var RESET_MIGRATION_MARKERS = ['atimh_last_chapter_migrated_v1', 'atimh_nclex_done_migrated_v1'];
+
+  function backupRawValue(value){
+    return typeof value === 'string' ? value : JSON.stringify(value);
+  }
+  function buildBackup(){
+    var backup = { _meta: { format: BACKUP_FORMAT, subject: BACKUP_SUBJECT, source: BACKUP_SOURCE, exportedAt: new Date().toISOString() } };
+    SYNC_KEYS.forEach(function(key){
+      try { backup[key] = localStorage.getItem(key); } catch(e){ backup[key] = null; }
+    });
+    return backup;
+  }
+  function restoreBackup(backup){
+    if (!backup || typeof backup !== 'object' || Array.isArray(backup)) throw new Error('Invalid backup');
+    if (backup._meta && backup._meta.format === BACKUP_FORMAT && backup._meta.subject && backup._meta.subject !== BACKUP_SUBJECT) throw new Error('Wrong subject');
+    var staged = {};
+    var markersToClear = {};
+    SYNC_KEYS.forEach(function(key){
+      if (Object.prototype.hasOwnProperty.call(backup, key) && backup[key] !== null && backup[key] !== undefined) staged[key] = backupRawValue(backup[key]);
+    });
+    Object.keys(LEGACY_IMPORT_MAP).forEach(function(oldKey){
+      var newKey = LEGACY_IMPORT_MAP[oldKey];
+      if (staged[newKey] === undefined && localStorage.getItem(newKey) === null && backup[oldKey] !== null && backup[oldKey] !== undefined) {
+        staged[newKey] = backupRawValue(backup[oldKey]);
+        if (LEGACY_IMPORT_MARKERS[oldKey]) markersToClear[LEGACY_IMPORT_MARKERS[oldKey]] = true;
+      }
+    });
+    var previous = {};
+    Object.keys(staged).forEach(function(key){ previous[key] = localStorage.getItem(key); });
+    Object.keys(markersToClear).forEach(function(key){ previous[key] = localStorage.getItem(key); });
+    try {
+      Object.keys(staged).forEach(function(key){ localStorage.setItem(key, staged[key]); });
+      Object.keys(markersToClear).forEach(function(key){ localStorage.removeItem(key); });
+    } catch(err) {
+      Object.keys(previous).forEach(function(key){ if (previous[key] === null) localStorage.removeItem(key); else localStorage.setItem(key, previous[key]); });
+      throw err;
+    }
+    return Object.keys(staged).length;
+  }
 
   // ===== Theme toggle =====
   var themeBtn = document.getElementById('themeToggle');
@@ -934,7 +991,7 @@ a{color:inherit;text-decoration:none}
   function setStatus(msg){ var s=document.getElementById('storageStatus'); if(s) s.textContent = msg; }
   var exportBtn = document.getElementById('exportBtn');
   if (exportBtn) exportBtn.addEventListener('click', function(){
-    var backup = {}; SYNC_KEYS.forEach(function(k){ try { var v=localStorage.getItem(k); if(v!==null) backup[k]=v; } catch(e){} });
+    var backup = buildBackup();
     var blob = new Blob([JSON.stringify(backup,null,2)], {type:'application/json'});
     var a = document.createElement('a'); a.href = URL.createObjectURL(blob);
     a.download = 'elevated-ati-mh-backup.json'; a.click();
@@ -949,8 +1006,8 @@ a{color:inherit;text-decoration:none}
       reader.onload = function(ev){
         try {
           var backup = JSON.parse(ev.target.result);
-          Object.keys(backup).forEach(function(k){ if (SYNC_KEYS.indexOf(k)!==-1){ try { localStorage.setItem(k, backup[k]); } catch(e){} } });
-          setStatus('Backup imported.'); updateProgressUI(); renderKeysList();
+          var restored = restoreBackup(backup);
+          setStatus('Restored ' + restored + ' Mental Health key(s).'); updateProgressUI(); renderKeysList();
         } catch(err){ setStatus('Import failed — invalid file.'); }
       };
       reader.readAsText(file);
@@ -959,8 +1016,10 @@ a{color:inherit;text-decoration:none}
   var resetBtn = document.getElementById('resetBtn');
   if (resetBtn) resetBtn.addEventListener('click', function(){
     if (!confirm('Reset all Mental Health progress, including Focus Deck, on this device? This cannot be undone.')) return;
-    SYNC_KEYS.forEach(function(k){ if (k!=='nur2460_theme'){ try { localStorage.removeItem(k); } catch(e){} } });
-    setStatus('Progress reset.'); updateProgressUI(); renderKeysList(); 
+    SYNC_KEYS.forEach(function(k){ if (k !== THEME_KEY){ try { localStorage.removeItem(k); } catch(e){} } });
+    LEGACY_RESET_KEYS.forEach(function(k){ try { localStorage.removeItem(k); } catch(e){} });
+    RESET_MIGRATION_MARKERS.forEach(function(k){ try { localStorage.setItem(k, '1'); } catch(e){} });
+    setStatus('Mental Health progress reset. Theme was preserved.'); updateProgressUI(); renderKeysList();
     var p=document.getElementById('pickupPanel'); if(p) p.hidden=true;
   });
 

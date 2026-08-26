@@ -19152,7 +19152,29 @@ THERAPEUTIC USES:</strong> Describe four.</li>
 
 
   // ===== BATCH 2: cross-tool linking + last-chapter tracking =====
-  var LAST_CH_KEY = 'nur2460_last_chapter';
+  var LAST_CH_KEY = 'atipharm_last_chapter';
+  var LEGACY_LAST_CH_KEY = 'nur2460_last_chapter';
+  var LEGACY_LAST_CH_IMPORT_KEY = 'atipharm_legacy_last_chapter_v1';
+  var LAST_CH_MIGRATION_KEY = 'atipharm_last_chapter_migrated_v1';
+  (function migrateLegacyLastChapterState(){
+    try {
+      if (localStorage.getItem(LAST_CH_KEY) !== null || localStorage.getItem(LAST_CH_MIGRATION_KEY) === '1') return;
+      var candidates = [LEGACY_LAST_CH_IMPORT_KEY, LEGACY_LAST_CH_KEY];
+      for (var i = 0; i < candidates.length; i++) {
+        var raw = localStorage.getItem(candidates[i]);
+        if (raw === null) continue;
+        var data = JSON.parse(raw);
+        var chapter = data && data.id ? document.getElementById(data.id) : null;
+        var heading = chapter ? chapter.querySelector('.chapter-name') : null;
+        if (heading && data.name && heading.textContent.trim() === String(data.name).trim()) {
+          localStorage.setItem(LAST_CH_KEY, raw);
+          return;
+        }
+      }
+    } catch(e){} finally {
+      try { localStorage.setItem(LAST_CH_MIGRATION_KEY, '1'); } catch(e){}
+    }
+  })();
   function recordLastChapter(chapterId, chapterName){
     try {
       var data = { id: chapterId, name: chapterName, ts: Date.now() };
@@ -19559,10 +19581,41 @@ THERAPEUTIC USES:</strong> Describe four.</li>
 
 <script>
   // ===== BATCH 3: NCLEX FILTER + ANSWERED TRACKING =====
-  var NCLEX_DONE_KEY = 'nur2460_nclex_done';
+  var NCLEX_DONE_KEY = 'atipharm_nclex_done';
+  var LEGACY_NCLEX_DONE_KEY = 'nur2460_nclex_done';
+  var LEGACY_NCLEX_IMPORT_KEY = 'atipharm_legacy_nclex_done_v1';
+  var NCLEX_MIGRATION_KEY = 'atipharm_nclex_done_migrated_v1';
+  var LEGACY_NCLEX_AMBIGUOUS_TITLES = {
+    'Bipolar Disorders': true,
+    'Depressive Disorders': true,
+    'Medications for Children and Adolescents Who Have Mental Health Issues': true,
+    'Psychotic Disorders': true
+  };
   function loadNclexDone(){
-    try { return JSON.parse(localStorage.getItem(NCLEX_DONE_KEY) || '{}'); }
-    catch(e){ return {}; }
+    try {
+      var scopedRaw = localStorage.getItem(NCLEX_DONE_KEY);
+      if (scopedRaw !== null) return JSON.parse(scopedRaw || '{}');
+      if (localStorage.getItem(NCLEX_MIGRATION_KEY) === '1') return {};
+      var currentTitles = {};
+      document.querySelectorAll('#chapterPool > .chapter .chapter-name').forEach(function(el){
+        currentTitles[el.textContent.trim()] = true;
+      });
+      var migrated = {};
+      [LEGACY_NCLEX_DONE_KEY, LEGACY_NCLEX_IMPORT_KEY].forEach(function(sourceKey){
+        var legacyRaw = localStorage.getItem(sourceKey);
+        if (legacyRaw === null) return;
+        var legacy = JSON.parse(legacyRaw || '{}');
+        Object.keys(legacy).forEach(function(key){
+          var splitAt = key.lastIndexOf('::');
+          var title = splitAt === -1 ? '' : key.slice(0, splitAt);
+          if (currentTitles[title] && !LEGACY_NCLEX_AMBIGUOUS_TITLES[title]) migrated[key] = legacy[key];
+        });
+      });
+      localStorage.setItem(NCLEX_DONE_KEY, JSON.stringify(migrated));
+      localStorage.setItem(NCLEX_MIGRATION_KEY, '1');
+      return migrated;
+    }
+    catch(e){ try { localStorage.setItem(NCLEX_MIGRATION_KEY, '1'); } catch(ignore){} return {}; }
   }
   function saveNclexDone(d){
     try { localStorage.setItem(NCLEX_DONE_KEY, JSON.stringify(d)); } catch(e){}

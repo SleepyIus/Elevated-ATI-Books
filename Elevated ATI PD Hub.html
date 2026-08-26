@@ -743,7 +743,6 @@ a{color:inherit;text-decoration:none}
     var __oldData = localStorage.getItem(__oldTplKey);
     if (__oldData !== null && localStorage.getItem(__newTplKey) === null) {
       localStorage.setItem(__newTplKey, __oldData);
-      localStorage.removeItem(__oldTplKey);
     }
   } catch(e){}
 
@@ -755,14 +754,61 @@ a{color:inherit;text-decoration:none}
     'atipd_bookmarks',
     'atipd_fc_schedule',
     'atipd_fc_collections_v1',
+    'atipd_fc_filters_v2',
     'atipd_fc_filters',
     'atipd_last_chapter',
     'atipd_last_template',
     'atipd_nclex_done',
     'atipd_templates_progress',
-    'atipd_tpl_filters',
-    'atipd_theme'
+    'nur2460_atipd_highlights',
+    'nur2460_atipd_highlights_tomb',
+    'nur2460_theme'
   ];
+  var BACKUP_FORMAT = 'elevated-ati-local-backup-v2';
+  var BACKUP_SUBJECT = 'PD';
+  var BACKUP_SOURCE = 'Elevated ATI PD hub';
+  var LEGACY_IMPORT_MAP = { 'atipd_tpl_progress': 'atipd_templates_progress' };
+  var LEGACY_IMPORT_MARKERS = {};
+  var LEGACY_RESET_KEYS = ['atipd_tpl_progress', 'atipd_tpl_filters', 'atipd_theme'];
+  var RESET_MIGRATION_MARKERS = ['atipd_fc_shared_legacy_migrated_v1'];
+
+  function backupRawValue(value){
+    return typeof value === 'string' ? value : JSON.stringify(value);
+  }
+  function buildBackup(){
+    var backup = { _meta: { format: BACKUP_FORMAT, subject: BACKUP_SUBJECT, source: BACKUP_SOURCE, exportedAt: new Date().toISOString() } };
+    SYNC_KEYS.forEach(function(key){
+      try { backup[key] = localStorage.getItem(key); } catch(e){ backup[key] = null; }
+    });
+    return backup;
+  }
+  function restoreBackup(backup){
+    if (!backup || typeof backup !== 'object' || Array.isArray(backup)) throw new Error('Invalid backup');
+    if (backup._meta && backup._meta.format === BACKUP_FORMAT && backup._meta.subject && backup._meta.subject !== BACKUP_SUBJECT) throw new Error('Wrong subject');
+    var staged = {};
+    var markersToClear = {};
+    SYNC_KEYS.forEach(function(key){
+      if (Object.prototype.hasOwnProperty.call(backup, key) && backup[key] !== null && backup[key] !== undefined) staged[key] = backupRawValue(backup[key]);
+    });
+    Object.keys(LEGACY_IMPORT_MAP).forEach(function(oldKey){
+      var newKey = LEGACY_IMPORT_MAP[oldKey];
+      if (staged[newKey] === undefined && localStorage.getItem(newKey) === null && backup[oldKey] !== null && backup[oldKey] !== undefined) {
+        staged[newKey] = backupRawValue(backup[oldKey]);
+        if (LEGACY_IMPORT_MARKERS[oldKey]) markersToClear[LEGACY_IMPORT_MARKERS[oldKey]] = true;
+      }
+    });
+    var previous = {};
+    Object.keys(staged).forEach(function(key){ previous[key] = localStorage.getItem(key); });
+    Object.keys(markersToClear).forEach(function(key){ previous[key] = localStorage.getItem(key); });
+    try {
+      Object.keys(staged).forEach(function(key){ localStorage.setItem(key, staged[key]); });
+      Object.keys(markersToClear).forEach(function(key){ localStorage.removeItem(key); });
+    } catch(err) {
+      Object.keys(previous).forEach(function(key){ if (previous[key] === null) localStorage.removeItem(key); else localStorage.setItem(key, previous[key]); });
+      throw err;
+    }
+    return Object.keys(staged).length;
+  }
 
   // ===== Theme toggle =====
   var __pdOldTheme = localStorage.getItem('atipd_theme');
@@ -771,7 +817,6 @@ a{color:inherit;text-decoration:none}
       if (localStorage.getItem('nur2460_theme') === null) {
         localStorage.setItem('nur2460_theme', __pdOldTheme);
       }
-      localStorage.removeItem('atipd_theme');
     } catch(e){}
   }
   var THEME_KEY = 'nur2460_theme';
@@ -946,16 +991,12 @@ a{color:inherit;text-decoration:none}
   // Export backup
   var exportBtn = document.getElementById('exportBtn');
   if (exportBtn) exportBtn.addEventListener('click', function(){
-    var backup = { _meta: { source: 'Elevated PD hub', exportedAt: new Date().toISOString() } };
-    SYNC_KEYS.forEach(function(k){
-      var v = localStorage.getItem(k);
-      backup[k] = v ? JSON.parse(v) : null;
-    });
+    var backup = buildBackup();
     var blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
     var url = URL.createObjectURL(blob);
     var a = document.createElement('a');
     a.href = url;
-    a.download = 'nur2460-backup-' + new Date().toISOString().slice(0,10) + '.json';
+    a.download = 'elevated-ati-pd-backup.json';
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
     URL.revokeObjectURL(url);
     status.textContent = '✓ Backup downloaded.';
@@ -972,13 +1013,7 @@ a{color:inherit;text-decoration:none}
     reader.onload = function(ev){
       try {
         var backup = JSON.parse(ev.target.result);
-        var restored = 0;
-        SYNC_KEYS.forEach(function(k){
-          if (backup[k] !== undefined && backup[k] !== null){
-            localStorage.setItem(k, typeof backup[k] === 'string' ? backup[k] : JSON.stringify(backup[k]));
-            restored++;
-          }
-        });
+        var restored = restoreBackup(backup);
         status.textContent = '✓ Restored ' + restored + ' key(s) from backup.';
         updateProgressUI();
         renderKeysList();
@@ -993,12 +1028,11 @@ a{color:inherit;text-decoration:none}
   // Reset all
   var resetBtn = document.getElementById('resetBtn');
   if (resetBtn) resetBtn.addEventListener('click', function(){
-    if (!confirm('Erase ALL local progress for NUR 2460 (chapter book, templates, flashcards, Focus Deck, theme)? This cannot be undone.')) return;
-    SYNC_KEYS.forEach(function(k){ try { localStorage.removeItem(k); } catch(e){} });
-    status.textContent = '✓ All progress cleared.';
-    // Reset theme to dark (default)
-    document.documentElement.removeAttribute('data-theme');
-    applyThemeUI();
+    if (!confirm('Erase all Pediatric Nursing progress, notes, bookmarks, flashcard state, and Focus Deck membership on this device? Theme is preserved. This cannot be undone.')) return;
+    SYNC_KEYS.forEach(function(k){ if (k !== THEME_KEY) { try { localStorage.removeItem(k); } catch(e){} } });
+    LEGACY_RESET_KEYS.forEach(function(k){ try { localStorage.removeItem(k); } catch(e){} });
+    RESET_MIGRATION_MARKERS.forEach(function(k){ try { localStorage.setItem(k, '1'); } catch(e){} });
+    status.textContent = '✓ Pediatric Nursing progress cleared. Theme was preserved.';
     updateProgressUI();
     renderKeysList();
   });

@@ -1252,6 +1252,7 @@ button{font-family:'DM Sans',sans-serif}
   // Earlier builds used shared or pharm-prefixed filter keys. Keep migration bridges so existing
   // progress is recoverable while the current shell uses subject-specific flashcard state.
   try {
+    var __sharedLegacyMigrationKey = 'atipharm_fc_shared_legacy_migrated_v1';
     var __salvage = [
       ['nur2460_pharm_theme',       'nur2460_theme'],
       ['nur2460_pharm_fc_schedule', 'atipharm_fc_schedule'],
@@ -1264,27 +1265,33 @@ button{font-family:'DM Sans',sans-serif}
         if (localStorage.getItem(sharedKey) === null) {
           localStorage.setItem(sharedKey, orphanData);
         }
-        localStorage.removeItem(orphanKey);
       }
     });
-    var sharedFilterData = localStorage.getItem('nur2460_fc_filters');
-    if (sharedFilterData !== null && localStorage.getItem('atipharm_fc_filters') === null) {
-      localStorage.setItem('atipharm_fc_filters', sharedFilterData);
+    if (localStorage.getItem(__sharedLegacyMigrationKey) !== '1') {
+      var sharedFilterData = localStorage.getItem('nur2460_fc_filters');
+      if (sharedFilterData !== null && localStorage.getItem('atipharm_fc_filters') === null) {
+        localStorage.setItem('atipharm_fc_filters', sharedFilterData);
+      }
+      var sharedScheduleData = localStorage.getItem('nur2460_fc_schedule');
+      if (sharedScheduleData !== null && localStorage.getItem('atipharm_fc_schedule') === null) {
+        localStorage.setItem('atipharm_fc_schedule', sharedScheduleData);
+      }
+      localStorage.setItem(__sharedLegacyMigrationKey, '1');
     }
   } catch(e){}
 
   var SYNC_KEYS = [
     'nur2460_atipharm_progress',
-    'nur2460_atipharm_templates_progress',
-    'nur2460_fc_schedule',
-    'nur2460_fc_filters',
+    'atipharm_templates_progress',
+    'atipharm_fc_schedule',
+    'atipharm_fc_filters_v2',
     'atipharm_fc_filters',
     'atipharm_fc_collections_v1',
     'nur2460_theme'
   ];
 
   var THEME_KEY = 'nur2460_theme';
-  try{if(localStorage.getItem('nur2460_fc_schedule')!==null&&localStorage.getItem('atipharm_fc_schedule')===null){localStorage.setItem('atipharm_fc_schedule',localStorage.getItem('nur2460_fc_schedule'));}}catch(e){} var FC_KEY = 'atipharm_fc_schedule';
+  var FC_KEY = 'atipharm_fc_schedule';
   var COLLECTION_KEY = 'atipharm_fc_collections_v1';
   var FOCUS_COLLECTION_ID = 'focus';
 

@@ -7295,3 +7295,96 @@ TLDR:
 
 Next Recommended Action:
 - **The user must explicitly authorize or decline one local checkpoint commit for these 14 approved tracked files; do not push or publish yet.**
+
+## Part 518 — Five-Subject Learner-State Contract Objective Pass
+
+Current mode:
+- **SHARED LEARNER-STATE CONTRACT RETROSPECTIVE / HOLD-CLINICAL-CONTENT — OBJECTIVE PASS; USER REVIEW PENDING.** The user explicitly authorized the previously paused Part 513 state correction. Shared navigation remains approved/live; automations and Night Shift remain paused.
+
+Current batch:
+- Complete all five Hub backup/import/reset allowlists and behavior; subject-scope legacy MN/MH/Pharm Book last-chapter and NCLEX-completion state by validated copy-only migration; prevent PD/Pharm Flashcards from repopulating reset state from formerly shared keys.
+
+Files edited:
+- MN, MH, and Pharm Books; all five Hubs; PD and Pharm Flashcards; this overlay; the private master/handoff; and the reusable checklist clarification.
+- No clinical wording, stable record identity, visible product HTML, design token, bookmark/note/highlight payload, learner schedule/history, Focus membership, or real learner data changed.
+
+Validation performed:
+- Matrix `/private/tmp/shared-learner-state-518/matrix.md` SHA-256 `7932803025c5d7775875968996cdb07e1cd7174296852fbe3f781d3ecc7616c2` records Implemented/Not-applicable reasons before implementation.
+- All five Hubs pass exact current key inventories; raw-string byte-exact round trip; v2 subject rejection; old backup compatibility; synthetic rollback; subject-only reset; shared-theme and unrelated-state preservation. Static report SHA-256 `596de291b511abd9cc339d2caf89a126756df899122a3d9791d0c6b1cca5866a`.
+- MN/MH/Pharm pass `6/6` fresh isolated browser migration checks, including ambiguous-title exclusion, untouched legacy bytes, and prevention of reset rehydration. All five Hub storage panels load with uniform Export backup, Import backup, and Reset all progress controls.
+- All ten changed products have exact non-script markup parity with HEAD; all `21` scripts parse; all exact product URLs return HTTP `200`; and `git diff --check` passes. Runtime report SHA-256 `05b090a2c73196fa31bc1193b436e45af5fe3ffaf4b1c500a7b8aae4c124aa05`.
+- Single review: `http://127.0.0.1:51822/state-review-518.html?v=state-review-518-clean`.
+
+Automation status:
+- Flashcards heartbeat, Night Shift, and all protected automations remain **PAUSED** and unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, or published. HEAD/origin remain exact `511d07b9bed62978d04c121fa3ed124913c2c3c7`, `0/0`, before this local batch.
+
+GitHub Desktop should show:
+- Ten modified product files, this overlay, and `MN Design Canon Checklist.md`; preserve unrelated untracked files.
+
+TLDR:
+- The five-subject learner-state contract is collision-safe and objectively passed, but still awaits user review.
+
+Next Recommended Action:
+- **The user must review the single Part 518 launcher and approve it or name one exact issue; do not commit or push yet.**
+
+## Part 519 — Learner-State Contract User Approved
+
+Current mode:
+- **SHARED LEARNER-STATE CONTRACT RETROSPECTIVE / HOLD-CLINICAL-CONTENT — OBJECTIVELY PASSED AND USER APPROVED.** The user reviewed Part 518 and explicitly replied, “Approved.”
+
+Current batch:
+- Record approval of the exact five-Hub backup/import/reset contract, collision-safe MN/MH/Pharm Book migration, and PD/Pharm Flashcards reset-rehydration safeguards.
+
+Files edited:
+- No product changed during approval recording. Private master first, then this overlay, private handoff, and checklist approval state are synchronized.
+
+Validation performed:
+- Branch `main`; exact HEAD/origin `511d07b9bed62978d04c121fa3ed124913c2c3c7`; `0/0`; all ten approved product hashes unchanged; no staged files; unrelated untracked files preserved; `git diff --check` passes.
+- Part 518 evidence remains current: five-Hub byte-preservation/reset isolation, `6/6` isolated Book migration checks, 21 parse-clean scripts, exact non-script parity, and HTTP `200`.
+
+Automation status:
+- Flashcards heartbeat, Night Shift, and all protected automations remain **PAUSED** and unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, or published. The approved batch remains local and uncommitted.
+
+GitHub Desktop should show:
+- Twelve approved tracked modifications: ten product files, this overlay, and `MN Design Canon Checklist.md`; preserve unrelated untracked files.
+
+TLDR:
+- The five-subject learner-state contract is objectively passed and user approved.
+
+Next Recommended Action:
+- **The user must explicitly authorize or decline one local checkpoint commit for the 12 approved tracked files; do not push or publish yet.**
+
+## Part 520 — Approved Learner-State Checkpoint Authorized
+
+Current mode:
+- **SHARED LEARNER-STATE CONTRACT RETROSPECTIVE / HOLD-CLINICAL-CONTENT — PASSED, USER APPROVED, LOCAL CHECKPOINT AUTHORIZED.** The user's second “approved” authorizes the recommended local commit only.
+
+Current batch:
+- Stage exactly the 12 Part 519 approved tracked files and create one local checkpoint commit named `Checkpoint shared learner-state contract`.
+
+Files edited:
+- No product content changed after approval. This overlay records only the authorized checkpoint boundary.
+
+Validation performed:
+- Require exact 12-file membership, unchanged product hashes, no staged/additional tracked files, clean `git diff --check`, branch `main`, HEAD/origin `511d07b9bed62978d04c121fa3ed124913c2c3c7`, and preserved unrelated untracked files before commit.
+
+Automation status:
+- Flashcards heartbeat, Night Shift, and all protected automations remain **PAUSED** and unchanged.
+
+Commit/push status:
+- Local checkpoint authorized. Push/publication remains unauthorized.
+
+GitHub Desktop should show:
+- After commit, local `main` one commit ahead of origin, no tracked changes, and preserved unrelated untracked files.
+
+TLDR:
+- Create one local commit for the exact approved learner-state batch and keep it unpushed.
+
+Next Recommended Action:
+- **The user does not need to act during checkpoint creation; verify the local commit and do not push or publish it.**

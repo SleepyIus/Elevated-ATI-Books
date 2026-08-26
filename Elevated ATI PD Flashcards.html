@@ -1243,6 +1243,7 @@ button{font-family:'DM Sans',sans-serif}
   // This migration copies (does not delete) any existing user data to the correct atipd_ keys
   // so progress isn't lost. The old nur2460_* keys remain — they are MN's namespace.
   try {
+    var __pdMigrationKey = 'atipd_fc_shared_legacy_migrated_v1';
     var __pdMigrations = [
       ['nur2460_fc_schedule', 'atipd_fc_schedule'],
       ['nur2460_fc_filters',  'atipd_fc_filters']
@@ -1253,21 +1254,25 @@ button{font-family:'DM Sans',sans-serif}
       if (localStorage.getItem('nur2460_theme') === null) {
         localStorage.setItem('nur2460_theme', __pdOldTheme);
       }
-      localStorage.removeItem('atipd_theme');
     }
-    __pdMigrations.forEach(function(pair){
-      var oldKey = pair[0], newKey = pair[1];
-      var oldData = localStorage.getItem(oldKey);
-      if (oldData !== null && localStorage.getItem(newKey) === null) {
-        localStorage.setItem(newKey, oldData);
-      }
-    });
+    if (localStorage.getItem(__pdMigrationKey) !== '1') {
+      __pdMigrations.forEach(function(pair){
+        var oldKey = pair[0], newKey = pair[1];
+        var oldData = localStorage.getItem(oldKey);
+        if (oldData !== null && localStorage.getItem(newKey) === null) {
+          localStorage.setItem(newKey, oldData);
+        }
+      });
+      localStorage.setItem(__pdMigrationKey, '1');
+    }
   } catch(e){}
 
   var SYNC_KEYS = [
     'atipd_book_progress',
     'atipd_templates_progress',
     'atipd_fc_schedule',
+    'atipd_fc_filters_v2',
+    'atipd_fc_filters',
     'atipd_fc_collections_v1',
     'nur2460_theme'
   ];
