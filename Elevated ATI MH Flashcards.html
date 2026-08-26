@@ -37,6 +37,11 @@
   --prompt-judgment:#e8a838; --prompt-judgment-bg:rgba(232,168,56,0.10);
   --prompt-principle:#a78bfa; --prompt-principle-bg:rgba(167,139,250,0.10);
   --prompt-priority:#e05c6a; --prompt-priority-bg:rgba(224,92,106,0.10);
+  --retrieval-recall:#84cc16;
+  --retrieval-recognize:#fbbf24;
+  --retrieval-act:#2dd4bf;
+  --retrieval-apply:#a78bfa;
+  --retrieval-tag-text:#111827;
 }
 
 /* === SIDEBAR LAYOUT (matches book/templates) === */
@@ -45,6 +50,7 @@
   width:280px; min-width:280px;
   background:var(--surface);
   border-right:1px solid var(--border);
+  line-height:1.6;
   display:flex; flex-direction:column;
   position:fixed; top:0; left:0; bottom:0;
   overflow:hidden; z-index:10;
@@ -52,7 +58,9 @@
 }
 .sidebar-overlay{
   display:none; position:fixed; inset:0;
-  background:rgba(0,0,0,0.5); z-index:9;
+  background:rgba(0,0,0,.4);
+  backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);
+  z-index:9; transition:opacity .25s;
 }
 .sidebar-overlay.show{display:block}
 .sidebar-header{
@@ -67,13 +75,18 @@
   letter-spacing:.03em; transition:color .15s;
 }
 .back-home:hover{color:var(--accent)}
+.back-home::before{content:'←';font-size:13px}
 .back-home-mobile{
-  display:none; position:fixed; top:14px; right:16px;
-  z-index:50; font-size:12px; font-weight:600;
+  display:none; position:fixed; top:14px; left:14px;
+  z-index:51; font-size:11px; font-weight:600;
   color:var(--text2); text-decoration:none;
-  padding:6px 10px; background:var(--surface);
-  border:1px solid var(--border); border-radius:6px;
+  letter-spacing:.03em; align-items:center; gap:5px;
+  padding:8px 14px; background:var(--surface);
+  border:1px solid var(--border); border-radius:8px;
+  transition:color .15s,border-color .15s;
 }
+.back-home-mobile:hover{color:var(--accent);border-color:var(--accent)}
+.back-home-mobile::before{content:'←';font-size:12px}
 .sb-course{
   font-size:10px; font-weight:600; letter-spacing:.18em;
   text-transform:uppercase; color:var(--accent); margin-bottom:4px;
@@ -92,37 +105,45 @@
   cursor:pointer; display:flex; align-items:center; gap:6px;
   width:100%; justify-content:center; transition:all .15s;
 }
-#themeToggle:hover{border-color:var(--accent); color:var(--accent)}
-.sidebar-search{padding:0 12px 12px}
+#themeToggle:hover{border-color:var(--accent); color:var(--text)}
+.sidebar-search{
+  position:relative;
+  padding:10px 16px;
+  border-bottom:1px solid var(--border);
+}
 #sidebarSearchInput{
   width:100%; background:var(--bg);
   border:1px solid var(--border); color:var(--text);
   padding:8px 10px; border-radius:6px;
   font-family:inherit; font-size:12px; outline:none;
-  box-sizing:border-box;
+  box-sizing:border-box; transition:border-color .15s;
 }
 #sidebarSearchInput:focus{border-color:var(--accent)}
+#sidebarSearchInput::placeholder{color:var(--text3)}
 .sidebar-list{
   flex:1; overflow-y:auto;
-  padding:8px 0;
+  padding:8px 0 24px;
   scrollbar-width:thin;
   scrollbar-color:var(--border) transparent;
 }
+.sidebar-list::-webkit-scrollbar{width:6px}
+.sidebar-list::-webkit-scrollbar-track{background:transparent}
+.sidebar-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
 .sb-nav-section{padding:6px 0; border-bottom:1px solid var(--border-soft, rgba(255,255,255,0.06))}
 .sb-nav-section:last-child{border-bottom:none}
 .sb-nav-label{
-  font-size:10px; font-weight:600; letter-spacing:.14em;
+  font-size:10px; font-weight:800; letter-spacing:.12em;
   text-transform:uppercase; color:var(--text3);
-  padding:8px 16px 6px;
+  padding:14px 16px 4px;
 }
 .sb-nav-item{
-  display:block; width:100%;
-  padding:7px 16px;
+  display:block; width:calc(100% - 16px);
+  padding:9px 10px; margin:0 8px 2px;
   background:transparent; border:none;
   color:var(--text2); text-align:left;
-  font-family:inherit; font-size:12.5px;
-  cursor:pointer; transition:all .12s;
-  border-left:2px solid transparent;
+  font:inherit; font-size:13px; font-weight:600;
+  cursor:pointer; transition:background .15s,color .15s;
+  border-radius:7px;
 }
 .sb-nav-item:hover{
   background:var(--surface2);
@@ -130,8 +151,8 @@
 }
 .sb-nav-item.active{
   color:var(--accent);
-  background:var(--accent-soft, rgba(45,212,191,0.12));
-  border-left-color:var(--accent);
+  background:var(--surface2);
+  font-weight:600;
 }
 
 .main-content{
@@ -142,20 +163,24 @@
 }
 
 .mobile-menu-toggle{
-  display:none; position:fixed; top:12px; left:12px;
-  z-index:50; width:38px; height:38px;
+  display:none; position:fixed; top:14px; right:14px; left:auto;
+  z-index:50; width:40px; height:40px;
   background:var(--surface); border:1px solid var(--border);
   border-radius:8px; color:var(--text);
   font-size:18px; cursor:pointer; padding:0;
+  align-items:center; justify-content:center;
 }
 
 @media (max-width:900px){
-  .sidebar{transform:translateX(-100%)}
+  .sidebar{transform:translateX(-100%); transition:transform .25s}
   .sidebar.open{transform:translateX(0)}
-  .main-content{margin-left:0; padding:64px 18px 60px}
-  .mobile-menu-toggle{display:flex; align-items:center; justify-content:center}
-  .back-home-mobile{display:inline-block}
+  .sidebar-header{padding-top:72px}
+  .sidebar-header .back-home{display:none}
+  .main-content{margin-left:0; padding:92px 24px 60px}
+  .mobile-menu-toggle{display:flex}
+  .back-home-mobile{display:flex}
 }
+@media (max-width:600px){.main-content{padding:92px 16px 60px}}
 
 [data-theme="light"]{
   --bg:#faf7f2;
@@ -175,6 +200,11 @@
   --prompt-judgment:#b87418; --prompt-judgment-bg:rgba(184,116,24,0.10);
   --prompt-principle:#7c3aed; --prompt-principle-bg:rgba(124,58,237,0.10);
   --prompt-priority:#c0384a; --prompt-priority-bg:rgba(192,56,74,0.10);
+  --retrieval-recall:#4d7c0f;
+  --retrieval-recognize:#a16207;
+  --retrieval-act:#0f766e;
+  --retrieval-apply:#6d28d9;
+  --retrieval-tag-text:#fff;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -256,27 +286,38 @@ button{font-family:'DM Sans',sans-serif}
   padding:28px 28px 24px;position:relative;
   border-left-width:5px;
 }
-.flashcard-content{border-left-color:var(--prompt-content)}
-.flashcard-judgment{border-left-color:var(--prompt-judgment)}
-.flashcard-principle{border-left-color:var(--prompt-principle)}
-.flashcard-priority{border-left-color:var(--prompt-priority)}
-.flashcard-head{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.flashcard-recall{border-left-color:var(--retrieval-recall)}
+.flashcard-recognize{border-left-color:var(--retrieval-recognize)}
+.flashcard-act{border-left-color:var(--retrieval-act)}
+.flashcard-apply{border-left-color:var(--retrieval-apply)}
+.flashcard-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:18px}
+.flashcard-labels{
+  display:flex;align-items:center;gap:8px;flex:1 1 auto;min-width:0;flex-wrap:wrap;
+}
 .flashcard-tag{
   display:inline-block;font-size:10px;font-weight:700;
   text-transform:uppercase;letter-spacing:0.12em;
-  padding:3px 9px;border-radius:5px;color:var(--bg);
+  padding:3px 9px;border-radius:5px;color:var(--retrieval-tag-text);
 }
-.flashcard-content .flashcard-tag{background:var(--prompt-content)}
-.flashcard-judgment .flashcard-tag{background:var(--prompt-judgment)}
-.flashcard-principle .flashcard-tag{background:var(--prompt-principle)}
-.flashcard-priority .flashcard-tag{background:var(--prompt-priority)}
+.flashcard-recall .flashcard-tag{background:var(--retrieval-recall)}
+.flashcard-recognize .flashcard-tag{background:var(--retrieval-recognize)}
+.flashcard-act .flashcard-tag{background:var(--retrieval-act)}
+.flashcard-apply .flashcard-tag{background:var(--retrieval-apply)}
+.flashcard-flag{
+  display:inline-block;font-size:9px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.09em;
+  padding:2px 7px;border:1px solid var(--border);border-radius:999px;
+  color:var(--text2);background:transparent;
+}
+.flashcard-flag-warning{border-color:var(--prompt-priority);color:var(--prompt-priority)}
+.flashcard-flag-calculation{border-color:var(--retrieval-apply);color:var(--retrieval-apply)}
 .flashcard-ch{
   font-size:11px;color:var(--text3);font-weight:600;
   background:var(--surface2);padding:3px 8px;border-radius:5px;
 }
 .flashcard-due{
   font-size:11px;color:var(--text2);
-  margin-left:auto;font-style:italic;
+  margin-left:auto;flex:0 0 auto;font-style:italic;line-height:22px;
 }
 .flashcard-q{
   font-family:'DM Serif Display',serif;font-weight:400;font-size:19px;line-height:1.4;
@@ -339,6 +380,8 @@ button{font-family:'DM Sans',sans-serif}
 .filter-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;font-weight:600}
 .browse-list{display:flex;flex-direction:column;gap:8px}
 .browse-item{
+  display:block;width:100%;font:inherit;color:inherit;text-align:left;
+  appearance:none;-webkit-appearance:none;
   padding:14px 16px;background:var(--surface);
   border:1px solid var(--border);border-radius:10px;
   border-left-width:4px;
@@ -350,10 +393,93 @@ button{font-family:'DM Sans',sans-serif}
 .browse-item-q{font-size:14px;color:var(--text);font-weight:500;line-height:1.4}
 .browse-item-due{font-size:11px;color:var(--text3);margin-left:auto}
 .browse-item-due.due-now{color:var(--prompt-priority);font-weight:600}
-.browse-content{border-left-color:var(--prompt-content)}
-.browse-judgment{border-left-color:var(--prompt-judgment)}
-.browse-principle{border-left-color:var(--prompt-principle)}
-.browse-priority{border-left-color:var(--prompt-priority)}
+.browse-recall{border-left-color:var(--retrieval-recall)}
+.browse-recognize{border-left-color:var(--retrieval-recognize)}
+.browse-act{border-left-color:var(--retrieval-act)}
+.browse-apply{border-left-color:var(--retrieval-apply)}
+.browse-recall .flashcard-tag{background:var(--retrieval-recall)}
+.browse-recognize .flashcard-tag{background:var(--retrieval-recognize)}
+.browse-act .flashcard-tag{background:var(--retrieval-act)}
+.browse-apply .flashcard-tag{background:var(--retrieval-apply)}
+
+/* FOCUS DECK + REVIEW QUEUE CONTROLS */
+.flashcard-footer-actions{
+  display:flex;align-items:center;justify-content:flex-end;gap:8px;
+  margin-left:auto;flex-wrap:wrap;
+}
+.flashcard-utilities{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  margin:10px 0 6px;
+}
+.flashcard-utilities .flashcard-source-link{margin:0}
+.collection-toggle{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  min-height:34px;padding:7px 11px;background:transparent;
+  border:1px solid var(--border);border-radius:8px;color:var(--text2);
+  font-size:12px;font-weight:600;line-height:1;cursor:pointer;
+  transition:background .15s,border-color .15s,color .15s,transform .15s;
+}
+.collection-toggle:hover,
+.collection-toggle[aria-pressed="true"]{
+  border-color:var(--accent);color:var(--accent);background:var(--accent-soft);
+}
+.collection-toggle-icon{font-size:16px;line-height:1}
+.flashcard-shuffle,.flashcard-restore,.flashcard-skip{
+  background:var(--surface2);border:1px solid var(--border);color:var(--text2);
+  font-size:12px;padding:6px 12px;border-radius:7px;cursor:pointer;
+}
+.flashcard-shuffle{color:var(--accent);border-color:var(--accent)}
+.flashcard-shuffle:not(:disabled):hover{color:var(--accent2);border-color:var(--accent2);background:var(--accent-soft)}
+.flashcard-restore:hover{color:var(--text);border-color:var(--text2)}
+.flashcard-skip:not(:disabled):hover{color:var(--text2);border-color:var(--text3)}
+.flashcard-shuffle:disabled,.flashcard-restore:disabled,.flashcard-skip:disabled{
+  cursor:not-allowed;opacity:.42;color:var(--text3);border-color:var(--border-soft);background:transparent;
+}
+.browse-item{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:10px;
+  padding:0;cursor:default;overflow:hidden;
+}
+.browse-item-open{
+  min-width:0;padding:14px 0 14px 16px;background:transparent;border:0;
+  color:inherit;font:inherit;text-align:left;cursor:pointer;
+}
+.browse-item .collection-toggle{
+  width:36px;height:36px;min-height:36px;padding:0;margin:11px 11px 0 0;
+}
+.collection-toolbar{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  margin-bottom:14px;padding:14px 16px;background:var(--surface);
+  border:1px solid var(--border);border-radius:10px;flex-wrap:wrap;
+}
+.collection-summary{min-width:180px;flex:1}
+.collection-summary strong{display:block;color:var(--text);font-size:14px}
+.collection-summary span{display:block;color:var(--text3);font-size:11px;margin-top:2px}
+.collection-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.collection-review-btn{
+  border:1px solid var(--accent);border-radius:8px;padding:8px 12px;
+  background:var(--accent);color:var(--bg);font-size:12px;font-weight:700;
+  cursor:pointer;
+}
+.collection-review-btn.collection-review-secondary{background:transparent;color:var(--accent)}
+.collection-review-btn:disabled{cursor:not-allowed;opacity:.45;transform:none}
+.collection-review-btn:not(:disabled):hover{background:var(--accent2);border-color:var(--accent2)}
+.collection-review-btn.collection-review-secondary:not(:disabled):hover{color:var(--bg)}
+.collection-filter-note{font-size:11px;color:var(--text3);margin:0 0 10px}
+.sr-only{
+  position:absolute!important;width:1px!important;height:1px!important;
+  padding:0!important;margin:-1px!important;overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;
+}
+@media (max-width:600px){
+  .tabs{gap:3px}
+  .tab{padding:9px 6px;font-size:12px}
+  .tab-count{margin-left:3px;padding:1px 5px}
+  .collection-actions{width:100%}
+  .collection-review-btn{flex:1}
+}
+@media print{
+  .collection-toggle,.collection-toolbar,.flashcard-footer-actions{display:none!important}
+}
 
 /* COMPLETION SCREEN */
 .completion{
@@ -543,6 +669,33 @@ button{font-family:'DM Sans',sans-serif}
   text-align: center;
   padding: 6px 8px;
 }
+.filter-advanced{
+  margin:12px 0;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:var(--bg);
+}
+.filter-advanced summary{
+  cursor:pointer;
+  list-style:none;
+  padding:10px 12px;
+  color:var(--text2);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.filter-advanced summary::-webkit-details-marker{display:none}
+.filter-advanced summary::after{
+  content:'▾';
+  float:right;
+  color:var(--text3);
+  transition:transform .15s;
+}
+.filter-advanced[open] summary::after{transform:rotate(180deg)}
+.filter-advanced[open] summary{border-bottom:1px solid var(--border)}
+.filter-advanced-body{padding:0 12px 12px}
+.filter-help{margin:7px 0 0;color:var(--text3);font-size:11px}
 .filter-actions{
   display: flex;
   align-items: center;
@@ -807,12 +960,75 @@ button{font-family:'DM Sans',sans-serif}
         }
         .sb-version:hover{opacity:1}
         /* === END VERSION BADGE === */
+
+        /* === PRINT: study content only; collapsed screen state must not hide answers === */
+        @media print{
+          @page{size:Letter;margin:.5in}
+          html,body{
+            background:#fff!important;
+            color:#111827!important;
+            min-height:0!important;
+          }
+          body{
+            -webkit-print-color-adjust:exact;
+            print-color-adjust:exact;
+          }
+          .layout{display:block;min-height:0}
+          .sidebar,
+          .sidebar-overlay,
+          .mobile-menu-toggle,
+          .back-home-mobile,
+          .deck-actions,
+          .filter-panel,
+          .session-panel,
+          .deck-stats,
+          .tabs,
+          .flashcard-reveal,
+          .flashcard-rating,
+          .flashcard-footer,
+          .review-progress,
+          .footer,
+          .kbd-help-overlay{display:none!important}
+          .main-content{
+            width:100%!important;
+            max-width:none!important;
+            margin:0!important;
+            padding:0!important;
+          }
+          .hero{
+            margin:0 0 18px!important;
+            padding:18px 20px!important;
+            background:#fff!important;
+            border:1px solid #cbd5e1!important;
+            box-shadow:none!important;
+            break-inside:avoid;
+            page-break-inside:avoid;
+          }
+          .hero h1,
+          .hero-sub,
+          .flashcard-q,
+          .flashcard-a{color:#111827!important}
+          .card-stage{min-height:0!important}
+          .flashcard{
+            background:#fff!important;
+            border-color:#94a3b8!important;
+            box-shadow:none!important;
+            break-inside:avoid;
+            page-break-inside:avoid;
+          }
+          .flashcard-a{
+            display:block!important;
+            background:#f3f4f6!important;
+            border:1px solid #d1d5db!important;
+          }
+          .flashcard-due{display:none!important}
+        }
       </style>
 </head>
 <body>
 
 
-<button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Open menu">☰</button>
+<button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Open flashcard navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
 <a class="back-home-mobile" href="Elevated%20ATI%20MH%20Hub.html">Back to Hub</a>
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
@@ -820,7 +1036,7 @@ button{font-family:'DM Sans',sans-serif}
 
   <aside class="sidebar" id="sidebar" aria-label="Flashcards navigation">
     <div class="sidebar-header">
-      <a class="back-home" href="Elevated%20ATI%20MH%20Hub.html">← Back to Hub</a>
+      <a class="back-home" href="Elevated%20ATI%20MH%20Hub.html">Back to Hub</a>
       <div class="sb-course">NUR 2460 · ATI</div>
       <div class="sb-title">Flashcards</div>
       <div class="sb-sub">Spaced Repetition Review</div>
@@ -829,7 +1045,7 @@ button{font-family:'DM Sans',sans-serif}
     </div>
 
     <div class="sidebar-search">
-      <input id="sidebarSearchInput" type="text" placeholder="Search cards…" autocomplete="off">
+      <input id="sidebarSearchInput" type="search" placeholder="Search cards…" autocomplete="off" aria-label="Search flashcards">
     </div>
 
     <nav class="sidebar-list" aria-label="Quick filters">
@@ -844,10 +1060,11 @@ button{font-family:'DM Sans',sans-serif}
         <button class="sb-nav-item" type="button" data-quick-filter="unit" data-value="emergencies">Psychiatric Emergencies (Ch 29–33)</button>
       </div>
       <div class="sb-nav-section">
-        <div class="sb-nav-label">Type</div>
-        <button class="sb-nav-item" type="button" data-quick-filter="type-toggle" data-value="concept">Concept</button>
-        <button class="sb-nav-item" type="button" data-quick-filter="type-toggle" data-value="calc">Calculation</button>
-        <button class="sb-nav-item" type="button" data-quick-filter="type-toggle" data-value="warning">Warning</button>
+        <div class="sb-nav-label">Retrieval</div>
+        <button class="sb-nav-item" type="button" data-quick-filter="retrieval-toggle" data-value="recall">Recall</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="retrieval-toggle" data-value="recognize">Recognize</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="retrieval-toggle" data-value="act">Act</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="retrieval-toggle" data-value="apply">Apply</button>
       </div>
       <div class="sb-nav-section">
         <div class="sb-nav-label">Status</div>
@@ -939,17 +1156,31 @@ button{font-family:'DM Sans',sans-serif}
         </div>
       </div>
       <div class="filter-row">
-        <div class="filter-label">Type</div>
-        <div class="filter-chips" data-filter-group="type" data-multi="true">
-          <button class="filter-chip" data-value="concept" type="button">Concept</button>
-          <button class="filter-chip" data-value="calc" type="button">Calculation</button>
-          <button class="filter-chip" data-value="warning" type="button">Warning</button>
-          <button class="filter-chip" data-value="CONTENT" type="button">Content</button>
-          <button class="filter-chip" data-value="JUDGMENT" type="button">Judgment</button>
-          <button class="filter-chip" data-value="PRINCIPLE" type="button">Principle</button>
-          <button class="filter-chip" data-value="PRIORITY" type="button">Priority</button>
+        <div class="filter-label">Primary retrieval</div>
+        <div class="filter-chips" data-filter-group="retrieval" data-multi="true">
+          <button class="filter-chip" data-value="recall" type="button">Recall</button>
+          <button class="filter-chip" data-value="recognize" type="button">Recognize</button>
+          <button class="filter-chip" data-value="act" type="button">Act</button>
+          <button class="filter-chip" data-value="apply" type="button">Apply</button>
         </div>
       </div>
+      <details class="filter-advanced">
+        <summary>Advanced card attributes</summary>
+        <div class="filter-advanced-body">
+          <div class="filter-row">
+            <div class="filter-label">Secondary attributes</div>
+            <div class="filter-chips" data-filter-group="flag" data-multi="true">
+              <button class="filter-chip" data-value="warning" type="button">Warning</button>
+              <button class="filter-chip" data-value="numeric" type="button">Numeric</button>
+              <button class="filter-chip" data-value="sequence" type="button">Sequence</button>
+              <button class="filter-chip" data-value="comparison" type="button">Comparison</button>
+              <button class="filter-chip" data-value="mnemonic" type="button">Mnemonic</button>
+              <button class="filter-chip" data-value="calculation" type="button">Calculation</button>
+            </div>
+            <p class="filter-help">Warning preserves the prior alert designation; it is not a new source certification. Multiple selections match any chosen attribute.</p>
+          </div>
+        </div>
+      </details>
       <div class="filter-row">
         <div class="filter-label">Status</div>
         <div class="filter-chips" data-filter-group="status" data-multi="false">
@@ -999,6 +1230,7 @@ button{font-family:'DM Sans',sans-serif}
   <div class="tabs">
     <button class="tab active" data-tab="review" type="button">Review <span class="tab-count" id="tabCountDue">0</span></button>
     <button class="tab" data-tab="browse" type="button">Browse <span class="tab-count" id="tabCountAll">0</span></button>
+    <button class="tab" data-tab="collection" type="button">Focus <span class="tab-count" id="tabCountCollection">0</span></button>
   </div>
 
   <div class="card-stage" id="stage"></div>
@@ -1040,11 +1272,15 @@ button{font-family:'DM Sans',sans-serif}
     'atimh_book_progress',
     'atimh_templates_progress',
     'atimh_fc_schedule',
+    'atimh_fc_filters_v2',
+    'atimh_fc_collections_v1',
     'nur2460_theme'
   ];
 
   var THEME_KEY = 'nur2460_theme';
   var FC_KEY = 'atimh_fc_schedule';
+  var COLLECTION_KEY = 'atimh_fc_collections_v1';
+  var FOCUS_COLLECTION_ID = 'focus';
 
   // ===== Theme =====
   var themeBtn = document.getElementById('themeToggle');
@@ -1072,6 +1308,44 @@ button{font-family:'DM Sans',sans-serif}
   }
   function saveSchedule(s){
     try { localStorage.setItem(FC_KEY, JSON.stringify(s)); } catch(e){}
+  }
+
+  function emptyCollectionState(){
+    return { version: 1, collections: { focus: { name: 'Focus Deck', cardIds: [] } } };
+  }
+
+  function loadCollectionState(){
+    var fallback = emptyCollectionState();
+    try {
+      var raw = localStorage.getItem(COLLECTION_KEY);
+      if (!raw) return fallback;
+      var parsed = JSON.parse(raw);
+      var collections = parsed && parsed.version === 1 && parsed.collections;
+      var source = collections && (collections[FOCUS_COLLECTION_ID] || collections.reviewer);
+      if (!source || !Array.isArray(source.cardIds)) return fallback;
+      var seen = {};
+      fallback.collections[FOCUS_COLLECTION_ID].cardIds = source.cardIds.filter(function(id){
+        if (typeof id !== 'string' || !id || seen[id]) return false;
+        seen[id] = true;
+        return true;
+      });
+      return fallback;
+    } catch(e){ return fallback; }
+  }
+
+  function saveCollectionState(state){
+    try { localStorage.setItem(COLLECTION_KEY, JSON.stringify(state)); } catch(e){}
+  }
+  function getCollectionIds(){ return loadCollectionState().collections[FOCUS_COLLECTION_ID].cardIds.slice(); }
+  function isCollected(cardId){ return getCollectionIds().indexOf(cardId) !== -1; }
+  function toggleCollected(cardId){
+    var state = loadCollectionState();
+    var ids = state.collections[FOCUS_COLLECTION_ID].cardIds;
+    var index = ids.indexOf(cardId);
+    var added = index === -1;
+    if (added) ids.push(cardId); else ids.splice(index, 1);
+    saveCollectionState(state);
+    return added;
   }
 
   // === STARTER DECK (from book mid-read prompts) ===
@@ -1675,6 +1949,648 @@ button{font-family:'DM Sans',sans-serif}
     { id: 'fc-ch33-written-discharge', ch: 'ch33', type: 'concept', anchor: 'ch33-discharge', q: 'What discharge teaching supports a sexual assault survivor?', a: 'Provide <strong>written follow-up instructions, 24-hr hotline numbers, referrals, and scheduled follow-up</strong> because verbal teaching may not be retained.' },
     { id: 'fc-ch30-c-ssrs', ch: 'ch30', type: 'concept', anchor: 'ch30', q: 'What is the Columbia Suicide Severity Rating Scale (C-SSRS)?', a: 'A widely used, validated tool for <strong>structured suicide risk assessment</strong>. The C-SSRS asks about <strong>ideation, intensity of ideation, behavior, and lethality</strong>, and classifies risk on a continuum — passive wishes for death → active ideation → active ideation with plan and intent → recent suicidal behavior — which then guides the intensity of safety measures. <strong>Asking directly does not increase risk.</strong>' }
     ];
+
+  // Complete registry: all 593 STARTER_DECK records in exact source order.
+  // Metadata is joined to the learner record by stable ID at read time.
+  var RETRIEVAL_TAXONOMY_REGISTRY = [
+    { id: 'fc-ch1-mse', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch1-mood-affect', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch1-mmse', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch1-thought', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch2-ethics', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch2-confidentiality', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch2-admission', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch2-torts', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch3-therapeutic-comm', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch3-blocks', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch4-mature', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch4-repression', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch4-displacement', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch4-regression', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch5-milieu', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch5-transference', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch5-empathy', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch6-prevention', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch6-acute-criteria', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch7-cbt', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch7-behavioral', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch7-exposure', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch7-psychoanalysis', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch8-phases', retrieval: 'recall', flags: ['sequence'] },
+    { id: 'fc-ch8-leadership', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch8-therapeutic-factors', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch8-family', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch9-relaxation', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch9-cognitive', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch9-resilience', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch10-ect-indications', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch10-ect-care', retrieval: 'recall', flags: ['sequence'] },
+    { id: 'fc-ch10-ect-complications', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch10-tms', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch11-levels', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch11-ocd', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch11-panic', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch11-meds', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch12-ptsd-asd', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch12-trauma-care', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch12-dissociative', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch13-mdd', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch13-priority', retrieval: 'act', flags: [] },
+    { id: 'fc-ch13-antidepressants', retrieval: 'act', flags: ['numeric'] },
+    { id: 'fc-ch14-mania', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch14-milieu', retrieval: 'act', flags: [] },
+    { id: 'fc-ch14-meds', retrieval: 'act', flags: [] },
+    { id: 'fc-ch15-pos-neg', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch15-hallucinations', retrieval: 'act', flags: [] },
+    { id: 'fc-ch15-delusions', retrieval: 'act', flags: [] },
+    { id: 'fc-ch16-clusters', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch16-borderline', retrieval: 'act', flags: [] },
+    { id: 'fc-ch17-delirium-dementia', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch17-safe-env', retrieval: 'act', flags: [] },
+    { id: 'fc-ch17-meds', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch18-screening', retrieval: 'recall', flags: ['mnemonic'] },
+    { id: 'fc-ch18-alcohol-withdrawal', retrieval: 'act', flags: [] },
+    { id: 'fc-ch18-opioid', retrieval: 'act', flags: ['comparison'] },
+    { id: 'fc-ch18-stimulants', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch19-anorexia-bulimia', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch19-refeeding', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch19-care', retrieval: 'act', flags: [] },
+    { id: 'fc-ch20-somatic', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch20-care', retrieval: 'act', flags: [] },
+    { id: 'fc-ch21-benzos', retrieval: 'act', flags: [] },
+    { id: 'fc-ch21-buspirone', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch21-ssri-anx', retrieval: 'act', flags: [] },
+    { id: 'fc-ch22-ssri', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch22-maoi', retrieval: 'act', flags: ['numeric'] },
+    { id: 'fc-ch22-bupropion', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch22-onset', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch23-lithium-range', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch23-lithium-tox', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch23-other', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch24-eps', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch24-nms', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch24-atypical', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch24-clozapine', retrieval: 'act', flags: [] },
+    { id: 'fc-ch25-stimulants', retrieval: 'act', flags: [] },
+    { id: 'fc-ch25-atomoxetine', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch25-ssri-youth', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch26-disulfiram', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch26-naltrexone', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch26-opioid-tx', retrieval: 'act', flags: ['comparison'] },
+    { id: 'fc-ch27-grief-types', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch27-stages', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch27-worden', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch27-care', retrieval: 'act', flags: [] },
+    { id: 'fc-ch28-adhd', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch28-odd-conduct', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch28-autism', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch28-youth-depression', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch29-phases', retrieval: 'recall', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch29-intervention', retrieval: 'act', flags: [] },
+    { id: 'fc-ch29-types', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch30-asking', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch30-risk', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch30-precautions', retrieval: 'act', flags: [] },
+    { id: 'fc-ch30-energy', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch31-cycle', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch31-deescalation', retrieval: 'act', flags: [] },
+    { id: 'fc-ch31-restraint', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch32-cycle', retrieval: 'recall', flags: ['sequence'] },
+    { id: 'fc-ch32-reporting', retrieval: 'act', flags: [] },
+    { id: 'fc-ch32-safety', retrieval: 'act', flags: [] },
+    { id: 'fc-ch33-survivor', retrieval: 'act', flags: [] },
+    { id: 'fc-ch33-care', retrieval: 'act', flags: [] },
+    { id: 'fc-ch33-reactions', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch1-mental-health-def', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch1-holistic', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch1-safety-screen', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch1-dsm-nanda', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch1-appearance-behavior', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch1-lifespan-tools', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch1-insight-judgment', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch1-perception', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch1-speech', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch1-milieu-therapy', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch1-psychobiological', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch1-smi', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch1-headsss-components', retrieval: 'recall', flags: ['mnemonic'] },
+    { id: 'fc-ch2-client-rights', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch2-least-restrictive', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch2-duty-to-warn', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch2-restraint-monitoring', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch2-negligence-malpractice', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch2-intentional-torts', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch2-involuntary-criteria', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch2-informed-consent', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch2-advance-directive', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch2-restraint-time-limits', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch2-restraint-never', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch2-informal-admission', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch2-temporary-emergency', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch2-objective-documentation', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch3-comm-levels', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch3-nonverbal', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch3-silence', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch3-active-listening', retrieval: 'recall', flags: ['mnemonic'] },
+    { id: 'fc-ch3-open-ended', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch3-restating-reflecting', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch3-clarifying', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch3-why-questions', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch3-false-reassurance', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch3-giving-advice', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch3-verbal-components', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch3-therapeutic-not-social', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch3-age-adaptations', retrieval: 'act', flags: ['comparison'] },
+    { id: 'fc-ch3-projective-presupposition', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch3-presenting-reality', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch3-offering-self-touch', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch4-anxiety-levels', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch4-anxiety-care', retrieval: 'act', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch4-always-healthy', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch4-adaptive-maladaptive', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch4-denial', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch4-rationalization', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch4-sublimation', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch4-compensation-undoing', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch4-identification', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch4-intellectualization', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch4-dissociation-conversion', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch4-splitting', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch4-acute-chronic-anxiety', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch4-severe-panic-care', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch5-relationship-phases', retrieval: 'recall', flags: ['sequence'] },
+    { id: 'fc-ch5-orientation-phase', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch5-working-phase', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch5-termination-phase', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch5-therapeutic-vs-social', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch5-boundaries', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch5-milieu-elements', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch5-physical-safety', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch5-trust-building', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch5-self-awareness', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch5-team-responsibilities', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch5-community-meetings', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch5-relationship-factors', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch5-room-assignment-safety', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch5-testing-behaviors', retrieval: 'act', flags: [] },
+    { id: 'fc-ch6-care-continuum', retrieval: 'recall', flags: ['sequence', 'comparison'] },
+    { id: 'fc-ch6-primary-prevention', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch6-secondary-prevention', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch6-tertiary-prevention', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch6-act', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch6-partial-hospitalization', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch6-nami', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch6-deinstitutionalization', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch6-forensic-nursing', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch6-case-management', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch6-advocacy', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch6-acute-goals', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch6-discharge-from-admission', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch6-community-mental-health-centers', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch6-psychosocial-rehab-home-care', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch6-rn-vs-aprn', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch7-cbt-vs-psychoanalysis', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch7-free-association', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch7-operant-conditioning', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch7-systematic-desensitization', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch7-aversion-therapy', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch7-modeling', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch7-biofeedback', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch7-dream-transference', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch7-monitoring-thoughts', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch7-psychodynamic-ipt', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch7-dbt', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch7-response-prevention', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch7-token-economy', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch7-relaxation-techniques', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch8-group-benefits', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch8-member-roles', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch8-initial-phase', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch8-working-phase-group', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch8-family-system', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch8-triangulation', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch8-dysfunctional-patterns', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch8-scapegoating', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch8-group-confidentiality', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch8-group-process-norm', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch8-open-closed-groups', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch8-acute-vs-outpatient', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch8-discipline-guidelines', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch8-family-therapy-nursing-role', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch9-eustress-distress', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch9-gas', retrieval: 'recall', flags: ['sequence'] },
+    { id: 'fc-ch9-acute-vs-chronic-stress', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch9-progressive-relaxation', retrieval: 'recall', flags: ['sequence'] },
+    { id: 'fc-ch9-diaphragmatic-breathing', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch9-assertiveness', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch9-mindfulness', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch9-guided-imagery', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch9-exercise-stress', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch9-journaling', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch9-cumulative-stress', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch9-protective-factors-full', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch9-screening-tools', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch9-acute-findings', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch9-psychosis-relaxation-caution', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch10-ect-course', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch10-ect-meds', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch10-ect-preprocedure', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch10-ect-postprocedure', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch10-ect-memory', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch10-tms-details', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch10-vns', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch10-ect-consent', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch10-brain-stim-comparison', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch10-ect-risk-conditions', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch10-ect-not-useful', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch10-ect-benzodiazepines', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch10-tms-contraindications', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch10-vns-magnet-dyspnea', retrieval: 'act', flags: [] },
+    { id: 'fc-ch11-gad', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch11-panic-attack-care', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch11-phobia', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch11-ocd-care', retrieval: 'act', flags: [] },
+    { id: 'fc-ch11-bdd', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch11-ssri-anxiety', retrieval: 'act', flags: ['comparison'] },
+    { id: 'fc-ch11-benzo-caution', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch11-anxiety-communication', retrieval: 'act', flags: [] },
+    { id: 'fc-ch11-agoraphobia', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch11-medical-substance-mimics', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch11-screening-tools', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch11-panic-duration-criteria', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch11-hoarding-disorder', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch11-social-anxiety', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch12-ptsd-symptoms', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch12-asd', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch12-ptsd-care', retrieval: 'act', flags: [] },
+    { id: 'fc-ch12-depersonalization-derealization', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch12-dissociative-amnesia', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch12-did', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch12-grounding', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch12-nurse-self-care', retrieval: 'act', flags: [] },
+    { id: 'fc-ch12-flashback-care', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch12-trauma-triggers', retrieval: 'act', flags: [] },
+    { id: 'fc-ch12-abuse-reporting-prevention', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch12-ptsd-screening', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch12-ptsd-comorbidity-risk', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch12-prolonged-exposure', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch12-emdr-contraindications', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch13-suicide-risk-timing', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch13-dysthymia', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch13-pmdd', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch13-risk-factors-depression', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch13-treatment-phases', retrieval: 'recall', flags: ['sequence'] },
+    { id: 'fc-ch13-anhedonia', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch13-depression-communication', retrieval: 'act', flags: [] },
+    { id: 'fc-ch13-depression-nursing', retrieval: 'act', flags: [] },
+    { id: 'fc-ch13-somatic-depression', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch13-seasonal-affective', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch13-mdd-specifiers', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch13-older-adult-depression', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch13-screening-tools', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch13-ssri-serotonin-syndrome', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch13-maoi-tyramine', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch14-bipolar-spectrum', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch14-hypomania', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch14-mania-nutrition', retrieval: 'act', flags: [] },
+    { id: 'fc-ch14-mania-safety', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch14-limit-setting', retrieval: 'act', flags: [] },
+    { id: 'fc-ch14-lithium-range', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch14-lithium-teaching', retrieval: 'act', flags: ['numeric'] },
+    { id: 'fc-ch14-anticonvulsant-mood', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch14-relapse-signs', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch14-ect-mania', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch14-rapid-cycling', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch14-mood-disorders-questionnaire', retrieval: 'recall', flags: ['sequence'] },
+    { id: 'fc-ch14-care-phases', retrieval: 'recall', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch14-physical-exhaustion', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch14-bipolar-depression-meds', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch15-schizophrenia-onset', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch15-command-hallucinations', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch15-delusion-types', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch15-word-salad', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch15-eps', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch15-nms', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch15-antipsychotic-types', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch15-anosognosia', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch15-milieu-psychosis', retrieval: 'act', flags: [] },
+    { id: 'fc-ch15-clozapine-monitoring', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch15-disorder-duration', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch15-cognitive-affective-findings', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch15-catatonic-features', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch15-aims-whodas', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch15-manifestation-management', retrieval: 'act', flags: [] },
+    { id: 'fc-ch16-cluster-a', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch16-cluster-b', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch16-cluster-c', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch16-splitting', retrieval: 'act', flags: [] },
+    { id: 'fc-ch16-antisocial', retrieval: 'act', flags: [] },
+    { id: 'fc-ch16-borderline-self-injury', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch16-narcissistic', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch16-dependent', retrieval: 'act', flags: [] },
+    { id: 'fc-ch16-avoidant', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch16-common-features', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch16-nurse-self-assessment', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch16-paranoid-distrust', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch16-histrionic-boundaries', retrieval: 'act', flags: [] },
+    { id: 'fc-ch16-ocpd-task-impairment', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch16-realistic-choices-control', retrieval: 'act', flags: [] },
+    { id: 'fc-ch16-medication-symptom-relief', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch17-delirium-features', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch17-dementia-features', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch17-donepezil', retrieval: 'act', flags: [] },
+    { id: 'fc-ch17-sundowning', retrieval: 'act', flags: [] },
+    { id: 'fc-ch17-delirium-priority', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch17-caregiver-support', retrieval: 'act', flags: [] },
+    { id: 'fc-ch17-memantine', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch17-wandering', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch17-reversible-causes', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch17-dementia-deficits', retrieval: 'recall', flags: ['mnemonic'] },
+    { id: 'fc-ch17-defense-mechanisms', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch17-delirium-types', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch17-screening-tools', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch17-cholinesterase-safety', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch17-antipsychotics-last-resort', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch18-su-disorder-def', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch18-alcohol-withdrawal-timeline', retrieval: 'recall', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch18-benzo-withdrawal-seizure', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch18-wernicke', retrieval: 'recall', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch18-disulfiram', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch18-naltrexone', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch18-opioid-withdrawal', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch18-recovery-family', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch18-older-adult-substance', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch18-denial-defense', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch18-standardized-tools', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch18-sedative-toxicity-antidotes', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch18-hallucinogen-flashbacks', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch18-dual-diagnosis', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch19-anorexia-features', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch19-bulimia-features', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch19-binge-eating', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch19-cognitive-distortions', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch19-meal-observation', retrieval: 'act', flags: [] },
+    { id: 'fc-ch19-therapeutic-approach-ed', retrieval: 'act', flags: [] },
+    { id: 'fc-ch19-ed-medical-risk', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch19-bulimia-electrolytes', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch19-ed-assessment', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch19-ed-comorbidity', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch19-risk-factors', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch19-screening-tools', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch19-acute-care-red-flags', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch19-desensitization', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch19-dietitian-structure', retrieval: 'act', flags: [] },
+    { id: 'fc-ch20-illness-anxiety', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch20-conversion', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch20-factitious', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch20-malingering', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch20-somatic-risk-factors', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch20-coping-focus', retrieval: 'act', flags: [] },
+    { id: 'fc-ch20-la-belle-indifference', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch20-symptom-limits', retrieval: 'act', flags: [] },
+    { id: 'fc-ch20-dont-confront', retrieval: 'act', flags: [] },
+    { id: 'fc-ch20-secondary-gain', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch20-factitious-by-proxy', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch20-phq15', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch20-reattribution-stages', retrieval: 'recall', flags: ['sequence'] },
+    { id: 'fc-ch20-illness-anxiety-types', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch20-psych-factors-medical', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch20-factitious-team-communication', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch21-benzo-mechanism', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch21-benzo-antidote', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch21-buspirone-onset', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch21-ssri-anxiety-teaching', retrieval: 'act', flags: [] },
+    { id: 'fc-ch21-serotonin-syndrome', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch21-ssri-bruxism', retrieval: 'act', flags: [] },
+    { id: 'fc-ch21-snri', retrieval: 'act', flags: [] },
+    { id: 'fc-ch21-hydroxyzine', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch21-propranolol-anxiety', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch21-benzo-elderly', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch21-benzo-toxicity-priority', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch21-benzo-paradoxical-amnesia', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch21-buspirone-interactions', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch21-ssri-bleeding-risk', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch21-duloxetine-hepatic-caution', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch22-tca-effects', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch22-tca-management', retrieval: 'act', flags: [] },
+    { id: 'fc-ch22-maoi-tyramine', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch22-ssri-first-line', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch22-mirtazapine', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch22-suicidality-warning', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch22-discontinuation-syndrome', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch22-snri-depression', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch22-switch-to-mania', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch22-tca-limited-supply-ecg', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch22-ssri-food-morning', retrieval: 'act', flags: [] },
+    { id: 'fc-ch22-maoi-decongestant-meperidine', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch22-trazodone-priapism', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch22-effectiveness-markers', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch23-lithium-uses', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch23-lithium-acute-maint', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch23-lithium-interactions', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch23-lithium-sodium', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch23-lithium-adverse', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch23-valproate-monitoring', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch23-carbamazepine-monitoring', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch23-lamotrigine-rash', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch23-lithium-early-toxicity', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch23-lithium-acute-dose', retrieval: 'apply', flags: ['numeric'] },
+    { id: 'fc-ch23-lithium-level-timing', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch23-lithium-renal-thyroid', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch23-carbamazepine-interactions', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch23-lamotrigine-interactions', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch23-antipsychotics-role', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch24-typical-vs-atypical', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch24-eps-management', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch24-tardive-dyskinesia', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch24-acute-dystonia', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch24-metabolic-monitoring', retrieval: 'act', flags: [] },
+    { id: 'fc-ch24-adherence-antipsychotic', retrieval: 'act', flags: [] },
+    { id: 'fc-ch24-antipsychotic-anticholinergic', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch24-depot-injection', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch24-odt-forms', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch24-potency-profile', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch24-nms-response', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch24-qt-ecg', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch24-atypical-food-admin', retrieval: 'act', flags: ['numeric'] },
+    { id: 'fc-ch24-antipsychotic-contraindications', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch25-tca-children-toxicity', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch25-methylphenidate-patch', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch25-stimulant-appetite', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch25-stimulant-timing', retrieval: 'act', flags: [] },
+    { id: 'fc-ch25-atomoxetine-hepatotoxicity', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch25-fluoxetine-children', retrieval: 'act', flags: ['numeric'] },
+    { id: 'fc-ch25-pediatric-suicidality', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch25-stimulant-rebound', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch25-drug-holidays', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch25-tca-anticholinergic-peds', retrieval: 'act', flags: [] },
+    { id: 'fc-ch25-stimulant-contraindications', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch25-stimulant-safety-storage', retrieval: 'act', flags: [] },
+    { id: 'fc-ch25-atomoxetine-interactions', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch25-alpha2-rebound', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch25-pediatric-atypical-monitoring', retrieval: 'act', flags: [] },
+    { id: 'fc-ch26-alcohol-withdrawal-meds', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch26-acamprosate', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch26-clonidine-opioid', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch26-methadone', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch26-buprenorphine', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch26-nicotine-replacement', retrieval: 'act', flags: ['numeric'] },
+    { id: 'fc-ch26-varenicline', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch26-naltrexone-opioid-free', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch26-naloxone', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch26-bupropion-cessation', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch26-alcohol-withdrawal-timeline', retrieval: 'recall', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch26-disulfiram-liver-alert', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch26-naltrexone-depot-meals', retrieval: 'act', flags: ['numeric'] },
+    { id: 'fc-ch26-nicotine-patch-safety', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch26-varenicline-safety-screen', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch27-engel-stages', retrieval: 'recall', flags: ['sequence'] },
+    { id: 'fc-ch27-normal-grief', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch27-complicated-grief', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch27-grief-factors', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch27-therapeutic-presence', retrieval: 'act', flags: [] },
+    { id: 'fc-ch27-anticipatory-grief', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch27-disenfranchised-grief', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch27-palliative-hospice', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch27-validate-anger', retrieval: 'act', flags: [] },
+    { id: 'fc-ch27-types-of-loss', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch27-bowlby-stages', retrieval: 'recall', flags: ['sequence'] },
+    { id: 'fc-ch27-complicated-risk-factors', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch27-communication-avoid', retrieval: 'act', flags: ['comparison'] },
+    { id: 'fc-ch27-abandonment-isolation', retrieval: 'act', flags: [] },
+    { id: 'fc-ch28-odd-management', retrieval: 'act', flags: [] },
+    { id: 'fc-ch28-conduct-disorder', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch28-adhd-onset', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch28-autism-care-mh', retrieval: 'act', flags: [] },
+    { id: 'fc-ch28-adolescent-depression-signs', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch28-youth-suicide-screen', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch28-behavioral-strategies', retrieval: 'act', flags: [] },
+    { id: 'fc-ch28-tourette', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch28-separation-anxiety-disorder', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch28-diagnosis-impediments', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch28-resiliency-protective', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch28-disruptive-mood-dysregulation', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch28-intermittent-explosive', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch28-primary-prevention', retrieval: 'act', flags: [] },
+    { id: 'fc-ch29-crisis-def', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch29-maturational-crisis', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch29-situational-crisis', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch29-adventitious-crisis', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch29-crisis-safety', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch29-crisis-meds', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch29-crisis-duration', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch29-de-escalation', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch29-debriefing', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch29-crisis-coping', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch29-crisis-assessment', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch29-risk-protective-factors', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch29-phase-four', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch29-care-levels', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch29-action-plan', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch30-warning-signs', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch30-risk-assessment-priority', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch30-levels-of-observation', retrieval: 'act', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch30-environmental-safety', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch30-safety-plan', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch30-protective-factors', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch30-high-risk-groups', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch30-postvention', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch30-no-dismiss', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch30-prevention-levels', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch30-overt-covert-clues', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch30-observation-documentation', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch30-no-suicide-contract-limits', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch31-anger-vs-aggression', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch31-assertive-vs-aggressive', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch31-preassault-signs', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch31-safe-response-angry', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch31-assault-priority', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch31-postassault', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch31-limit-setting-anger', retrieval: 'act', flags: [] },
+    { id: 'fc-ch31-harm-to-self', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch31-anger-triggers', retrieval: 'act', flags: [] },
+    { id: 'fc-ch31-milieu-safety-anger', retrieval: 'act', flags: [] },
+    { id: 'fc-ch31-less-restrictive-first', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch31-restraint-risks', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch31-post-incident-documentation', retrieval: 'act', flags: [] },
+    { id: 'fc-ch31-aggression-risk-factors', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch31-haloperidol-monitoring', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch32-types-of-violence', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch32-risk-factors-violence', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch32-child-abuse-indicators', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch32-shaken-baby', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch32-survivor-autonomy', retrieval: 'act', flags: [] },
+    { id: 'fc-ch32-elder-abuse', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch32-mandatory-reporting', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch32-trauma-informed-care', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch32-assessment-violence', retrieval: 'act', flags: [] },
+    { id: 'fc-ch32-intergenerational', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch32-violence-and-mental-illness', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch32-leaving-risk', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch32-infant-bruising', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch32-nursing-history-abuse', retrieval: 'act', flags: [] },
+    { id: 'fc-ch32-community-violence-response', retrieval: 'act', flags: [] },
+    { id: 'fc-ch33-rape-definition', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch33-rape-trauma-acute', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch33-sane', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch33-consent-priority', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch33-prophylaxis', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch33-preserve-evidence', retrieval: 'act', flags: [] },
+    { id: 'fc-ch33-documentation-assault', retrieval: 'act', flags: [] },
+    { id: 'fc-ch33-therapeutic-comm-assault', retrieval: 'act', flags: [] },
+    { id: 'fc-ch33-assault-myths', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch33-long-term-followup', retrieval: 'act', flags: [] },
+    { id: 'fc-ch33-no-typical-survivor', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch33-acute-stress-ptsd-timing', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch33-silent-reaction', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch33-nurse-self-assessment', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch33-written-discharge', retrieval: 'act', flags: ['numeric'] },
+    { id: 'fc-ch30-c-ssrs', retrieval: 'recall', flags: ['sequence'] }
+  ];
+
+  var STARTER_BY_ID = {};
+  STARTER_DECK.forEach(function(card){ STARTER_BY_ID[card.id] = card; });
+  var RETRIEVAL_BY_ID = {};
+  RETRIEVAL_TAXONOMY_REGISTRY.forEach(function(meta){ RETRIEVAL_BY_ID[meta.id] = meta; });
+
+  function hydrateCard(card){
+    var source = STARTER_BY_ID[card.id];
+    var meta = RETRIEVAL_BY_ID[card.id];
+    return Object.assign({}, card, {
+      legacyType: card.legacyType || card.type || (source && source.type) || 'concept',
+      retrieval: (meta && meta.retrieval) || card.retrieval || 'recall',
+      flags: meta ? meta.flags.slice() : (Array.isArray(card.flags) ? card.flags.slice() : [])
+    });
+  }
+
+  var RETRIEVAL_LABELS = {
+    recall: 'Recall',
+    recognize: 'Recognize',
+    act: 'Act',
+    apply: 'Apply'
+  };
+  var FLAG_LABELS = {
+    warning: 'Warning',
+    numeric: 'Numeric',
+    sequence: 'Sequence',
+    comparison: 'Comparison',
+    mnemonic: 'Mnemonic',
+    calculation: 'Calculation'
+  };
+
+  function getCollectedCards(dueOnly){
+    var schedule = loadSchedule();
+    var now = Date.now();
+    return getCollectionIds().map(function(cardId){
+      var stored = schedule[cardId];
+      if (!stored || !stored.nextReview) return null;
+      return hydrateCard(Object.assign({ id: cardId }, stored));
+    }).filter(function(card){
+      if (!card) return false;
+      return !dueOnly || new Date(card.nextReview).getTime() <= now;
+    });
+  }
+
   function loadStarterDeck(){
     var s = loadSchedule();
     var now = new Date().toISOString();
@@ -1699,16 +2615,30 @@ button{font-family:'DM Sans',sans-serif}
     var schedule = loadSchedule();
     var card = schedule[cardId];
     if (!card) return null;
+    // The MH book has produced both the older reps/ef records and the newer
+    // repetitions/easeFactor records. Keep each record in its existing schema
+    // while applying the same SM-2 update so learner history stays compatible.
+    var usesLongSchema = Object.prototype.hasOwnProperty.call(card, 'repetitions') ||
+                         Object.prototype.hasOwnProperty.call(card, 'easeFactor');
+    var reps = usesLongSchema ? (card.repetitions || 0) : (card.reps || 0);
+    var ef = usesLongSchema ? (card.easeFactor || 2.5) : (card.ef || 2.5);
     if (rating >= 3){
-      if (card.reps === 0) card.interval = 1;
-      else if (card.reps === 1) card.interval = 6;
-      else card.interval = Math.round(card.interval * card.ef);
-      card.reps = (card.reps || 0) + 1;
+      if (reps === 0) card.interval = 1;
+      else if (reps === 1) card.interval = 6;
+      else card.interval = Math.round(card.interval * ef);
+      reps += 1;
     } else {
-      card.reps = 0;
+      reps = 0;
       card.interval = 1;
     }
-    card.ef = Math.max(1.3, (card.ef || 2.5) + 0.1 - (5 - rating) * (0.08 + (5 - rating) * 0.02));
+    ef = Math.max(1.3, ef + 0.1 - (5 - rating) * (0.08 + (5 - rating) * 0.02));
+    if (usesLongSchema){
+      card.repetitions = reps;
+      card.easeFactor = ef;
+    } else {
+      card.reps = reps;
+      card.ef = ef;
+    }
     card.nextReview = new Date(Date.now() + card.interval * 86400000).toISOString();
     card.lastRated = new Date().toISOString();
     schedule[cardId] = card;
@@ -1719,7 +2649,10 @@ button{font-family:'DM Sans',sans-serif}
   // ===== State =====
   var currentTab = 'review';
   var reviewQueue = [];
+  var reviewQueueBaseline = [];
   var reviewIndex = 0;
+  var reviewMode = 'due';
+  var reviewQueueShuffled = false;
   var sessionRated = 0;
 
   function getDeck(){
@@ -1727,7 +2660,7 @@ button{font-family:'DM Sans',sans-serif}
     var cards = [];
     for (var k in schedule){
       if (schedule[k] && schedule[k].nextReview) {
-        var card = Object.assign({ id: k }, schedule[k]);
+        var card = hydrateCard(Object.assign({ id: k }, schedule[k]));
         cards.push(card);
       }
     }
@@ -1761,6 +2694,7 @@ button{font-family:'DM Sans',sans-serif}
     document.getElementById('statDone').className = 'deck-stat-value ' + (getReviewedToday() > 0 ? 'zero' : 'zero');
     document.getElementById('tabCountDue').textContent = due.length;
     document.getElementById('tabCountAll').textContent = filtered.length;
+    document.getElementById('tabCountCollection').textContent = getCollectionIds().length;
     if (typeof updateFilterCounters === 'function') updateFilterCounters();
   }
 
@@ -1779,21 +2713,72 @@ button{font-family:'DM Sans',sans-serif}
     return 'due in ' + days + ' days';
   }
 
+  function buildFlagBadges(card){
+    return (card.flags || []).map(function(flag){
+      var label = FLAG_LABELS[flag] || flag;
+      return '<span class="flashcard-flag flashcard-flag-' + escapeHtml(flag) + '">' + escapeHtml(label) + '</span>';
+    }).join('');
+  }
+
+  function buildCollectionButton(cardId, compact){
+    var collected = isCollected(cardId);
+    var label = collected ? 'Remove from Focus Deck' : 'Add to Focus Deck';
+    return '<button class="collection-toggle' + (compact ? ' collection-toggle-browse' : '') + '" type="button" ' +
+      'data-action="toggle-collection" data-card-id="' + escapeHtml(cardId) + '" ' +
+      'aria-pressed="' + String(collected) + '" aria-label="' + label + '" title="' + label + '">' +
+      '<span class="collection-toggle-icon" aria-hidden="true">' + (collected ? '★' : '☆') + '</span>' +
+      (compact ? '<span class="sr-only">' + label + '</span>' : '<span class="collection-toggle-label">' + (collected ? 'In Focus Deck' : 'Add to Focus Deck') + '</span>') +
+    '</button>';
+  }
+
+  function syncCollectionButtons(cardId){
+    var collected = isCollected(cardId);
+    var label = collected ? 'Remove from Focus Deck' : 'Add to Focus Deck';
+    document.querySelectorAll('[data-action="toggle-collection"]').forEach(function(button){
+      if (button.getAttribute('data-card-id') !== cardId) return;
+      button.setAttribute('aria-pressed', String(collected));
+      button.setAttribute('aria-label', label);
+      button.title = label;
+      var icon = button.querySelector('.collection-toggle-icon');
+      if (icon) icon.textContent = collected ? '★' : '☆';
+      var text = button.querySelector('.collection-toggle-label');
+      if (text) text.textContent = collected ? 'In Focus Deck' : 'Add to Focus Deck';
+      var hidden = button.querySelector('.sr-only');
+      if (hidden) hidden.textContent = label;
+    });
+    updateStats();
+  }
+
   function buildFlashcardHTML(card){
-    var typeKey = (card.type || 'content').toLowerCase();
+    var retrievalKey = (card.retrieval || 'recall').toLowerCase();
+    var retrievalLabel = RETRIEVAL_LABELS[retrievalKey] || 'Recall';
     var chLabel = (card.ch || 'ch?').toUpperCase().replace('CH','Ch ');
     var anchor = card.anchor || card.ch || 'ch1';
+    var hasMultipleCards = reviewQueue.length > 1;
+    var queueControlDisabled = hasMultipleCards ? '' : ' disabled aria-disabled="true"';
+    var queueLabel = reviewMode === 'collection-all'
+      ? 'in Focus Deck'
+      : (reviewMode === 'collection-due'
+        ? 'in Focus Deck and due'
+        : (reviewMode === 'browse' ? 'from Browse' : 'due today'));
+    if (reviewQueueShuffled) queueLabel += ' · shuffled';
     return '' +
-      '<div class="flashcard flashcard-' + typeKey + '" data-card-id="' + card.id + '">' +
+      '<div class="flashcard flashcard-' + retrievalKey + '" data-card-id="' + card.id + '">' +
         '<div class="flashcard-head">' +
-          '<span class="flashcard-tag">' + escapeHtml(card.type || 'CONTENT') + '</span>' +
-          '<span class="flashcard-ch">' + chLabel + '</span>' +
+          '<div class="flashcard-labels">' +
+            '<span class="flashcard-tag">' + escapeHtml(retrievalLabel) + '</span>' +
+            buildFlagBadges(card) +
+            '<span class="flashcard-ch">' + chLabel + '</span>' +
+          '</div>' +
           '<span class="flashcard-due">' + dueLabel(card) + '</span>' +
         '</div>' +
         '<div class="flashcard-q">' + (card.q || '(question not stored — re-rate in chapter book)') + '</div>' +
         '<button class="flashcard-reveal" type="button" data-action="reveal">Reveal answer<span class="kbd-hint">Space</span></button>' +
         '<div class="flashcard-a">' + (card.a || '(answer not stored)') + '</div>' +
-        '<a class="flashcard-source-link" href="Elevated%20ATI%20MH%20Book.html#' + (card.anchor || '') + '" target="_self">📖 Open in book</a>' +
+        '<div class="flashcard-utilities">' +
+          '<a class="flashcard-source-link" href="Elevated%20ATI%20MH%20Book.html#' + (card.anchor || '') + '" target="_self">📖 Open in book</a>' +
+          buildCollectionButton(card.id, false) +
+        '</div>' +
         '<div class="flashcard-rating">' +
           '<button class="flashcard-rate flashcard-rate-hard" type="button" data-action="rate" data-value="0">Hard<span class="flashcard-rate-small">+1 day</span><span class="kbd-hint">1</span></button>' +
           '<button class="flashcard-rate flashcard-rate-good" type="button" data-action="rate" data-value="3">Good<span class="flashcard-rate-small">extend</span><span class="kbd-hint">2</span></button>' +
@@ -1801,30 +2786,100 @@ button{font-family:'DM Sans',sans-serif}
         '</div>' +
         '<div class="flashcard-footer">' +
           '<a class="flashcard-open" href="Elevated%20ATI%20MH%20Book.html#' + anchor + '">Open in chapter ↗</a>' +
-          '<button class="flashcard-skip" type="button" data-action="skip">Skip →</button>' +
+          '<div class="flashcard-footer-actions">' +
+            '<button class="flashcard-shuffle" type="button" data-action="shuffle"' + queueControlDisabled +
+              ' title="' + (hasMultipleCards ? 'Randomize this review queue without changing card schedules' : 'Shuffle needs at least two cards') +
+              '" aria-label="Shuffle current review queue">⇄ Shuffle</button>' +
+            (reviewQueueShuffled
+              ? '<button class="flashcard-restore" type="button" data-action="restore-order" title="Restore the order used before this session was shuffled" aria-label="Restore pre-shuffle review order">Restore order</button>'
+              : '') +
+            '<button class="flashcard-skip" type="button" data-action="skip"' + queueControlDisabled +
+              ' title="' + (hasMultipleCards ? 'Skip to the next card in this review queue' : 'Skip is unavailable because this review has only one card') +
+              '" aria-label="Skip to next card">Skip →</button>' +
+          '</div>' +
         '</div>' +
       '</div>' +
-      '<div class="review-progress">Card ' + (reviewIndex + 1) + ' of ' + reviewQueue.length + ' due today · ' + sessionRated + ' rated this session</div>';
+      '<div class="review-progress" role="status" aria-live="polite">Card ' + (reviewIndex + 1) + ' of ' + reviewQueue.length + ' ' +
+        queueLabel +
+        ' · ' + sessionRated + ' rated this session</div>';
   }
 
-  function renderReview(){
+  function shuffleReviewQueue(){
+    if (reviewQueue.length < 2) return;
+    if (!reviewQueueShuffled) reviewQueueBaseline = reviewQueue.slice();
+    var currentId = reviewQueue[reviewIndex] && reviewQueue[reviewIndex].id;
+    var shuffled = reviewQueue.slice();
+    for (var i = shuffled.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = shuffled[i];
+      shuffled[i] = shuffled[j];
+      shuffled[j] = temp;
+    }
+    if (shuffled[0] && shuffled[0].id === currentId){
+      var differentIndex = shuffled.findIndex(function(card, index){
+        return index > 0 && card.id !== currentId;
+      });
+      if (differentIndex > 0){
+        var first = shuffled[0];
+        shuffled[0] = shuffled[differentIndex];
+        shuffled[differentIndex] = first;
+      }
+    }
+    reviewQueue = shuffled;
+    reviewIndex = 0;
+    reviewQueueShuffled = true;
+    renderReview();
+  }
+
+  function restoreReviewQueueOrder(){
+    if (!reviewQueueShuffled) return;
+    var currentId = reviewQueue[reviewIndex] && reviewQueue[reviewIndex].id;
+    var remainingIds = new Set(reviewQueue.map(function(card){ return card.id; }));
+    var baselineIds = new Set(reviewQueueBaseline.map(function(card){ return card.id; }));
+    var restored = reviewQueueBaseline.filter(function(card){ return remainingIds.has(card.id); });
+    reviewQueue.forEach(function(card){
+      if (!baselineIds.has(card.id)) restored.push(card);
+    });
+    reviewQueue = restored;
+    var restoredIndex = reviewQueue.findIndex(function(card){ return card.id === currentId; });
+    reviewIndex = restoredIndex >= 0 ? restoredIndex : 0;
+    reviewQueueShuffled = false;
+    reviewQueueBaseline = reviewQueue.slice();
+    renderReview();
+  }
+
+  function renderReview(queueOverride, modeOverride){
     var stage = document.getElementById('stage');
-    reviewQueue = getDueCards();
+    if (Array.isArray(queueOverride)){
+      reviewQueue = queueOverride.slice();
+      reviewQueueBaseline = reviewQueue.slice();
+      reviewQueueShuffled = false;
+      reviewMode = modeOverride || 'selected';
+    } else if (reviewMode === 'due' && !reviewQueueShuffled){
+      reviewQueue = getDueCards();
+      reviewQueueBaseline = reviewQueue.slice();
+    }
 
     if (reviewQueue.length === 0){
       var deck = getDeck();
-      var icon = deck.length === 0 ? '📚' : '✨';
-      var heading = deck.length === 0 ? 'No flashcards yet' : 'All caught up!';
-      var desc = deck.length === 0
+      var collectionSession = reviewMode === 'collection-all' || reviewMode === 'collection-due';
+      var icon = collectionSession ? '★' : (deck.length === 0 ? '📚' : '✨');
+      var heading = collectionSession ? 'Focus review complete' : (deck.length === 0 ? 'No flashcards yet' : 'All caught up!');
+      var desc = collectionSession
+        ? 'Your cards remain in Focus Deck. Ratings update their normal schedule without removing them from Focus Deck.'
+        : (deck.length === 0
         ? 'Open the chapter book and answer the mid-read prompts (Reveal → Hard / Good / Easy). Rated cards automatically appear here on their schedule.'
-        : 'You have ' + deck.length + ' card' + (deck.length === 1 ? '' : 's') + ' in your deck, but none are due yet. Come back later or browse the deck.';
+        : 'You have ' + deck.length + ' card' + (deck.length === 1 ? '' : 's') + ' in your deck, but none are due yet. Come back later or browse the deck.');
       stage.innerHTML =
         '<div class="empty-state">' +
           '<div class="empty-state-icon">' + icon + '</div>' +
           '<h2>' + heading + '</h2>' +
           '<p>' + desc + '</p>' +
-          (deck.length === 0 ? '<button class="load-starter-btn" type="button" data-action="load-starter">📥 Load starter deck (' + STARTER_DECK.length + ' cards)</button>' + '<a class="start-link" href="Elevated%20ATI%20MH%20Book.html">Open chapter book →</a>' : '') +
+          (collectionSession ? '<button class="start-link" type="button" data-action="return-collection">Back to Focus Deck</button>' :
+            (deck.length === 0 ? '<button class="load-starter-btn" type="button" data-action="load-starter">📥 Load starter deck (' + STARTER_DECK.length + ' cards)</button>' + '<a class="start-link" href="Elevated%20ATI%20MH%20Book.html">Open chapter book →</a>' : '')) +
         '</div>';
+      var returnButton = stage.querySelector('[data-action="return-collection"]');
+      if (returnButton) returnButton.addEventListener('click', function(){ setTab('collection'); });
       return;
     }
 
@@ -1846,18 +2901,84 @@ button{font-family:'DM Sans',sans-serif}
         rateCard(card.id, value);
         sessionRated++;
         updateStats();
-        // Advance to next due card (re-fetch queue)
-        reviewQueue = getDueCards();
-        if (reviewIndex >= reviewQueue.length) reviewIndex = reviewQueue.length - 1;
+        if (reviewMode === 'collection-all' || reviewMode === 'collection-due' || reviewMode === 'browse' || reviewQueueShuffled){
+          reviewQueue.splice(reviewIndex, 1);
+          if (reviewIndex >= reviewQueue.length) reviewIndex = 0;
+        } else {
+          // Advance to next due card (re-fetch queue)
+          reviewMode = 'due';
+          reviewQueue = getDueCards();
+          if (reviewIndex >= reviewQueue.length) reviewIndex = Math.max(0, reviewQueue.length - 1);
+        }
         renderReview();
-      } else if (act === 'skip'){
+      } else if (act === 'shuffle'){
+        shuffleReviewQueue();
+      } else if (act === 'restore-order'){
+        restoreReviewQueueOrder();
+      } else if (act === 'skip' && reviewQueue.length > 1){
         reviewIndex = (reviewIndex + 1) % reviewQueue.length;
         renderReview();
+      } else if (act === 'toggle-collection'){
+        toggleCollected(card.id);
+        syncCollectionButtons(card.id);
       }
     });
   }
 
-  var browseFilter = { ch: '', type: '', sort: 'due-asc' };
+  var browseFilter = { ch: '', retrieval: '', sort: 'due-asc' };
+
+  function buildBrowseItemHTML(card){
+    var retrievalKey = (card.retrieval || 'recall').toLowerCase();
+    var retrievalLabel = RETRIEVAL_LABELS[retrievalKey] || 'Recall';
+    var due = new Date(card.nextReview);
+    var ms = due - new Date();
+    var dueText = dueLabel(card);
+    var dueClass = ms <= 0 ? 'due-now' : '';
+    var chLabel = (card.ch || 'ch?').toUpperCase().replace('CH','Ch ');
+    return '' +
+      '<div class="browse-item browse-' + retrievalKey + '" data-card-id="' + escapeHtml(card.id) + '">' +
+        '<button class="browse-item-open" type="button" data-action="open-card" data-card-id="' + escapeHtml(card.id) + '">' +
+          '<div class="browse-item-head">' +
+            '<span class="flashcard-tag">' + escapeHtml(retrievalLabel) + '</span>' +
+            buildFlagBadges(card) +
+            '<span class="flashcard-ch">' + chLabel + '</span>' +
+            '<span class="browse-item-due ' + dueClass + '">' + dueText + '</span>' +
+          '</div>' +
+          '<div class="browse-item-q">' + (card.q || '(question not stored)') + '</div>' +
+        '</button>' +
+        buildCollectionButton(card.id, true) +
+      '</div>';
+  }
+
+  function openCardFromList(cardId, listQueue, listMode){
+    var schedule = loadSchedule();
+    var card = schedule[cardId];
+    if (!card) return;
+    var queue = Array.isArray(listQueue) && listQueue.length
+      ? listQueue.slice()
+      : [hydrateCard(Object.assign({ id: cardId }, card))];
+    var selectedIndex = queue.findIndex(function(item){ return item.id === cardId; });
+    reviewIndex = selectedIndex >= 0 ? selectedIndex : 0;
+    setTab('review', queue, listMode || 'selected');
+  }
+
+  function attachCardListHandlers(options){
+    options = options || {};
+    var stage = document.getElementById('stage');
+    stage.querySelectorAll('[data-action="open-card"]').forEach(function(button){
+      button.addEventListener('click', function(){
+        openCardFromList(button.getAttribute('data-card-id'), options.queue, options.mode);
+      });
+    });
+    stage.querySelectorAll('[data-action="toggle-collection"]').forEach(function(button){
+      button.addEventListener('click', function(){
+        var cardId = button.getAttribute('data-card-id');
+        toggleCollected(cardId);
+        syncCollectionButtons(cardId);
+        if (typeof options.onCollectionChange === 'function') options.onCollectionChange();
+      });
+    });
+  }
 
   function renderBrowse(){
     var stage = document.getElementById('stage');
@@ -1873,18 +2994,20 @@ button{font-family:'DM Sans',sans-serif}
       return;
     }
 
-    // Get unique chapters & types for filters
+    // Get unique chapters and primary retrieval types for filters
     var chs = [...new Set(deck.map(function(c){ return c.ch; }))].filter(Boolean).sort(function(a,b){
       var na = parseInt(a.replace('ch',''), 10);
       var nb = parseInt(b.replace('ch',''), 10);
       return na - nb;
     });
-    var types = [...new Set(deck.map(function(c){ return c.type; }))].filter(Boolean);
+    var retrievals = ['recall', 'recognize', 'act', 'apply'].filter(function(value){
+      return deck.some(function(card){ return card.retrieval === value; });
+    });
 
     // Filter
     var filtered = deck.filter(function(c){
       if (browseFilter.ch && c.ch !== browseFilter.ch) return false;
-      if (browseFilter.type && c.type !== browseFilter.type) return false;
+      if (browseFilter.retrieval && c.retrieval !== browseFilter.retrieval) return false;
       return true;
     });
 
@@ -1906,10 +3029,10 @@ button{font-family:'DM Sans',sans-serif}
             return '<option value="' + c + '"' + (browseFilter.ch === c ? ' selected' : '') + '>' + label + '</option>';
           }).join('') +
         '</select>' +
-        '<select class="filter-select" id="filterType">' +
-          '<option value="">All types</option>' +
-          types.map(function(t){
-            return '<option value="' + t + '"' + (browseFilter.type === t ? ' selected' : '') + '>' + t + '</option>';
+        '<select class="filter-select" id="filterRetrieval">' +
+          '<option value="">All retrieval types</option>' +
+          retrievals.map(function(value){
+            return '<option value="' + value + '"' + (browseFilter.retrieval === value ? ' selected' : '') + '>' + RETRIEVAL_LABELS[value] + '</option>';
           }).join('') +
         '</select>' +
         '<select class="filter-select" id="filterSort">' +
@@ -1919,59 +3042,106 @@ button{font-family:'DM Sans',sans-serif}
         '</select>' +
       '</div>';
 
-    var listHtml = '<div class="browse-list">' + filtered.map(function(card){
-      var typeKey = (card.type || 'content').toLowerCase();
-      var due = new Date(card.nextReview);
-      var ms = due - new Date();
-      var dueText = dueLabel(card);
-      var dueClass = ms <= 0 ? 'due-now' : '';
-      var chLabel = (card.ch || 'ch?').toUpperCase().replace('CH','Ch ');
-      return '' +
-        '<div class="browse-item browse-' + typeKey + '" data-card-id="' + card.id + '">' +
-          '<div class="browse-item-head">' +
-            '<span class="flashcard-tag">' + escapeHtml(card.type || 'CONTENT') + '</span>' +
-            '<span class="flashcard-ch">' + chLabel + '</span>' +
-            '<span class="browse-item-due ' + dueClass + '">' + dueText + '</span>' +
-          '</div>' +
-          '<div class="browse-item-q">' + (card.q || '(question not stored)') + '</div>' +
-        '</div>';
-    }).join('') + '</div>';
+    var listHtml = '<div class="browse-list">' + filtered.map(buildBrowseItemHTML).join('') + '</div>';
 
     stage.innerHTML = filtersHtml + listHtml;
 
     document.getElementById('filterCh').addEventListener('change', function(e){
       browseFilter.ch = e.target.value; renderBrowse();
     });
-    document.getElementById('filterType').addEventListener('change', function(e){
-      browseFilter.type = e.target.value; renderBrowse();
+    document.getElementById('filterRetrieval').addEventListener('change', function(e){
+      browseFilter.retrieval = e.target.value; renderBrowse();
     });
     document.getElementById('filterSort').addEventListener('change', function(e){
       browseFilter.sort = e.target.value; renderBrowse();
     });
 
-    // Click on browse item: switch to review tab and show that card
-    stage.querySelectorAll('.browse-item').forEach(function(el){
-      el.addEventListener('click', function(){
-        var cardId = el.getAttribute('data-card-id');
-        var schedule = loadSchedule();
-        var card = schedule[cardId];
-        if (!card) return;
-        // Build a synthetic queue of just this card
-        reviewQueue = [Object.assign({ id: cardId }, card)];
+    attachCardListHandlers({ queue: filtered, mode: 'browse' });
+  }
+
+  function renderCollection(){
+    var stage = document.getElementById('stage');
+    var savedIds = getCollectionIds();
+    var allCards = getCollectedCards(false);
+    var filteredCards = applyFilters(allCards);
+    var dueCards = filteredCards.filter(function(card){
+      return new Date(card.nextReview).getTime() <= Date.now();
+    });
+
+    if (savedIds.length === 0){
+      stage.innerHTML =
+        '<div class="empty-state">' +
+          '<div class="empty-state-icon">☆</div>' +
+          '<h2>Your Focus Deck is empty</h2>' +
+          '<p>Add cards while reviewing or browsing. Focus Deck membership is separate from due dates, ratings, and mastery.</p>' +
+          '<button class="start-link" type="button" data-action="browse-for-collection">Browse cards</button>' +
+        '</div>';
+      stage.querySelector('[data-action="browse-for-collection"]').addEventListener('click', function(){ setTab('browse'); });
+      return;
+    }
+
+    if (allCards.length === 0){
+      stage.innerHTML =
+        '<div class="empty-state">' +
+          '<div class="empty-state-icon">★</div>' +
+          '<h2>Your Focus Deck is preserved</h2>' +
+          '<p>' + savedIds.length + ' Focus Deck card ID' + (savedIds.length === 1 ? ' is' : 's are') + ' still stored. Load the starter deck to make the cards available again.</p>' +
+          '<button class="load-starter-btn" type="button" data-action="load-starter">📥 Load starter deck (' + STARTER_DECK.length + ' cards)</button>' +
+        '</div>';
+      return;
+    }
+
+    var toolbar =
+      '<div class="collection-toolbar">' +
+        '<div class="collection-summary">' +
+          '<strong>' + filteredCards.length + ' card' + (filteredCards.length === 1 ? '' : 's') + ' in Focus Deck</strong>' +
+          '<span>' + dueCards.length + ' due now · ratings keep using the normal schedule</span>' +
+        '</div>' +
+        '<div class="collection-actions">' +
+          '<button class="collection-review-btn" type="button" data-action="review-collection" data-scope="all"' + (filteredCards.length ? '' : ' disabled') + '>Review all</button>' +
+          '<button class="collection-review-btn collection-review-secondary" type="button" data-action="review-collection" data-scope="due"' + (dueCards.length ? '' : ' disabled') + '>Review due</button>' +
+        '</div>' +
+      '</div>' +
+      (filteredCards.length !== allCards.length ? '<p class="collection-filter-note">Showing the cards that match your active filters.</p>' : '');
+
+    var list = filteredCards.length
+      ? '<div class="browse-list">' + filteredCards.map(buildBrowseItemHTML).join('') + '</div>'
+      : '<div class="empty-state"><div class="empty-state-icon">🔍</div><h2>No Focus cards match</h2><p>Clear or adjust the active filters to see your Focus Deck.</p></div>';
+
+    stage.innerHTML = toolbar + list;
+    attachCardListHandlers({
+      queue: filteredCards,
+      mode: 'collection-all',
+      onCollectionChange: function(){ renderCollection(); }
+    });
+    stage.querySelectorAll('[data-action="review-collection"]').forEach(function(button){
+      button.addEventListener('click', function(){
+        var dueOnly = button.getAttribute('data-scope') === 'due';
+        var queue = dueOnly ? dueCards.slice() : filteredCards.slice();
         reviewIndex = 0;
-        setTab('review');
+        setTab('review', queue, dueOnly ? 'collection-due' : 'collection-all');
       });
     });
   }
 
   // ===== Tabs =====
-  function setTab(name){
+  function setTab(name, reviewOverride, modeOverride){
     currentTab = name;
     document.querySelectorAll('.tab').forEach(function(t){
       t.classList.toggle('active', t.getAttribute('data-tab') === name);
     });
-    if (name === 'review') renderReview();
-    else renderBrowse();
+    if (name === 'review'){
+      reviewQueueShuffled = false;
+      if (!Array.isArray(reviewOverride)) reviewMode = 'due';
+      renderReview(reviewOverride, modeOverride);
+    } else if (name === 'browse') renderBrowse();
+    else renderCollection();
+  }
+
+  function renderActiveTab(){
+    if (currentTab === 'review') renderReview();
+    else if (currentTab === 'browse') renderBrowse();
+    else renderCollection();
   }
 
   document.querySelectorAll('.tab').forEach(function(t){
@@ -1983,23 +3153,27 @@ button{font-family:'DM Sans',sans-serif}
     if (e.key && SYNC_KEYS.indexOf(e.key) === -1) return;
     updateStats();
     if (currentTab === 'review') renderReview();
-    else renderBrowse();
+    else if (currentTab === 'browse') renderBrowse();
+    else renderCollection();
   });
   document.addEventListener('visibilitychange', function(){
     if (!document.hidden){
       updateStats();
       if (currentTab === 'review') renderReview();
-      else renderBrowse();
+      else if (currentTab === 'browse') renderBrowse();
+      else renderCollection();
     }
   });
 
   // ===== FILTERS =====
-  var FILTER_STATE_KEY = 'atimh_fc_filters';
+  var FILTER_STATE_KEY = 'atimh_fc_filters_v2';
+  var LEGACY_FILTER_STATE_KEY = 'atimh_fc_filters';
   var filterState = {
     search: '',
     unit: 'all',
     chapters: [],   // array of chapter numbers as strings
-    types: [],      // array: ['concept', 'calc', 'warning']
+    retrievals: [], // array: ['recall', 'recognize', 'act', 'apply']
+    flags: [],      // secondary attributes; OR within this group
     status: 'all'   // 'all' | 'new' | 'learning' | 'mature' | 'due'
   };
   
@@ -2008,7 +3182,22 @@ button{font-family:'DM Sans',sans-serif}
       var raw = localStorage.getItem(FILTER_STATE_KEY);
       if (raw) {
         var parsed = JSON.parse(raw);
-        filterState = Object.assign(filterState, parsed);
+        filterState = Object.assign(filterState, parsed, {
+          chapters: Array.isArray(parsed.chapters) ? parsed.chapters : [],
+          retrievals: Array.isArray(parsed.retrievals) ? parsed.retrievals : [],
+          flags: Array.isArray(parsed.flags) ? parsed.flags : []
+        });
+      } else {
+        // Preserve compatible search/unit/chapter/status choices from the old Type UI.
+        var legacyRaw = localStorage.getItem(LEGACY_FILTER_STATE_KEY);
+        if (legacyRaw){
+          var legacy = JSON.parse(legacyRaw);
+          filterState.search = legacy.search || '';
+          filterState.unit = legacy.unit || 'all';
+          filterState.chapters = Array.isArray(legacy.chapters) ? legacy.chapters : [];
+          filterState.status = legacy.status || 'all';
+          saveFilterState();
+        }
       }
     } catch(e){}
   }
@@ -2056,14 +3245,20 @@ button{font-family:'DM Sans',sans-serif}
       if (filterState.chapters.length > 0){
         if (filterState.chapters.indexOf(chNum) === -1) return false;
       }
-      // Types (multi)
-      if (filterState.types.length > 0){
-        var t = (c.type || 'concept').toLowerCase();
-        if (filterState.types.indexOf(t) === -1) return false;
+      // Primary retrieval types (multi; OR within the group)
+      if (filterState.retrievals.length > 0){
+        var retrieval = (c.retrieval || 'recall').toLowerCase();
+        if (filterState.retrievals.indexOf(retrieval) === -1) return false;
+      }
+      // Secondary attributes (multi; OR within the group)
+      if (filterState.flags.length > 0){
+        var cardFlags = Array.isArray(c.flags) ? c.flags : [];
+        var hasSelectedFlag = filterState.flags.some(function(flag){ return cardFlags.indexOf(flag) !== -1; });
+        if (!hasSelectedFlag) return false;
       }
       // Status
       if (filterState.status !== 'all'){
-        var reps = c.repetitions || 0;
+        var reps = typeof c.repetitions === 'number' ? c.repetitions : (c.reps || 0);
         var lastRated = c.lastRated;
         if (filterState.status === 'new' && lastRated) return false;
         if (filterState.status === 'learning' && reps >= 3) return false;
@@ -2082,7 +3277,8 @@ button{font-family:'DM Sans',sans-serif}
     if (filterState.search) n++;
     if (filterState.unit !== 'all') n++;
     if (filterState.chapters.length > 0) n++;
-    if (filterState.types.length > 0) n++;
+    if (filterState.retrievals.length > 0) n++;
+    if (filterState.flags.length > 0) n++;
     if (filterState.status !== 'all') n++;
     return n;
   }
@@ -2098,8 +3294,10 @@ button{font-family:'DM Sans',sans-serif}
         if (groupName === 'unit') active = (filterState.unit === val);
         else if (groupName === 'status') active = (filterState.status === val);
         else if (groupName === 'chapter') active = filterState.chapters.indexOf(val) !== -1;
-        else if (groupName === 'type') active = filterState.types.indexOf(val) !== -1;
+        else if (groupName === 'retrieval') active = filterState.retrievals.indexOf(val) !== -1;
+        else if (groupName === 'flag') active = filterState.flags.indexOf(val) !== -1;
         chip.classList.toggle('active', active);
+        chip.setAttribute('aria-pressed', String(active));
       });
     });
     var searchInput = document.getElementById('filterSearch');
@@ -2152,7 +3350,8 @@ button{font-family:'DM Sans',sans-serif}
             // Multi select — toggle
             var arr;
             if (groupName === 'chapter') arr = filterState.chapters;
-            else if (groupName === 'type') arr = filterState.types;
+            else if (groupName === 'retrieval') arr = filterState.retrievals;
+            else if (groupName === 'flag') arr = filterState.flags;
             else arr = [];
             var idx = arr.indexOf(val);
             if (idx === -1) arr.push(val);
@@ -2161,8 +3360,7 @@ button{font-family:'DM Sans',sans-serif}
           saveFilterState();
           applyFilterStateToUI();
           reviewIndex = 0;
-          renderReview();
-          renderBrowse();
+          renderActiveTab();
           updateStats();
         });
       });
@@ -2178,8 +3376,7 @@ button{font-family:'DM Sans',sans-serif}
           saveFilterState();
           updateFilterCounters();
           reviewIndex = 0;
-          renderReview();
-          renderBrowse();
+          renderActiveTab();
           updateStats();
         }, 200);
       });
@@ -2188,12 +3385,11 @@ button{font-family:'DM Sans',sans-serif}
     var clearBtn = document.getElementById('filterClear');
     if (clearBtn){
       clearBtn.addEventListener('click', function(){
-        filterState = { search: '', unit: 'all', chapters: [], types: [], status: 'all' };
+        filterState = { search: '', unit: 'all', chapters: [], retrievals: [], flags: [], status: 'all' };
         saveFilterState();
         applyFilterStateToUI();
         reviewIndex = 0;
-        renderReview();
-        renderBrowse();
+        renderActiveTab();
         updateStats();
       });
     }
@@ -2228,9 +3424,10 @@ button{font-family:'DM Sans',sans-serif}
     }
     var resetBtn = e.target.closest('[data-action="reset-deck"]');
     if (resetBtn){
-      if (confirm('Reset deck? This will remove ALL cards and progress. This cannot be undone.')){
+      if (confirm('Reset deck? This will remove ALL cards and progress. Your Focus Deck will be preserved. This cannot be undone.')){
         try { localStorage.removeItem(FC_KEY); } catch(err){}
         try { localStorage.removeItem(FILTER_STATE_KEY); } catch(err){}
+        try { localStorage.removeItem(LEGACY_FILTER_STATE_KEY); } catch(err){}
         window.location.reload();
       }
       return;
@@ -2349,6 +3546,21 @@ button{font-family:'DM Sans',sans-serif}
         if (btn){ e.preventDefault(); btn.click(); return; }
       }
     }
+
+    if (currentTab === 'review' && card && key === 'c' && !e.metaKey && !e.ctrlKey && !e.altKey){
+      var collectionButton = card.querySelector('[data-action="toggle-collection"]');
+      if (collectionButton){ e.preventDefault(); collectionButton.click(); return; }
+    }
+
+    if (currentTab === 'review' && card && key === 's' && !e.metaKey && !e.ctrlKey && !e.altKey){
+      if (e.shiftKey){
+        var restoreButton = card.querySelector('[data-action="restore-order"]');
+        if (restoreButton){ e.preventDefault(); restoreButton.click(); return; }
+      } else {
+        var shuffleButton = card.querySelector('[data-action="shuffle"]');
+        if (shuffleButton && !shuffleButton.disabled){ e.preventDefault(); shuffleButton.click(); return; }
+      }
+    }
     
     if (currentTab === 'review'){
       if (e.key === 'ArrowRight' || key === 'n'){
@@ -2440,15 +3652,13 @@ button{font-family:'DM Sans',sans-serif}
         banner.remove();
         applyFilterStateToUI();
         if (typeof reviewIndex !== 'undefined') reviewIndex = 0;
-        if (typeof renderReview === 'function') renderReview();
-        if (typeof renderBrowse === 'function') renderBrowse();
+        if (typeof renderActiveTab === 'function') renderActiveTab();
         if (typeof updateStats === 'function') updateStats();
       });
       // Apply UI/render now
       applyFilterStateToUI();
       if (typeof reviewIndex !== 'undefined') reviewIndex = 0;
-      if (typeof renderReview === 'function') renderReview();
-      if (typeof renderBrowse === 'function') renderBrowse();
+      if (typeof renderActiveTab === 'function') renderActiveTab();
       if (typeof updateStats === 'function') updateStats();
     }
   }
@@ -2481,7 +3691,7 @@ button{font-family:'DM Sans',sans-serif}
     if (deck.length === 0){
       // Use starter deck if user hasn't loaded yet
       deck = STARTER_DECK.map(function(c){
-        return { id: c.id, q: c.q, a: c.a, ch: c.ch, type: c.type, anchor: c.anchor };
+        return hydrateCard({ id: c.id, q: c.q, a: c.a, ch: c.ch, type: c.type, anchor: c.anchor });
       });
     }
     if (deck.length === 0){
@@ -2493,7 +3703,7 @@ button{font-family:'DM Sans',sans-serif}
     deck.forEach(function(c){
       var front = escapeCsvField(c.q || '');
       var back = escapeCsvField(c.a || '');
-      var tags = (c.ch ? c.ch + ' ' : '') + (c.type || 'concept');
+      var tags = [c.ch || '', c.retrieval || 'recall'].concat(c.flags || []).filter(Boolean).join(' ');
       lines.push(front + ',' + back + ',' + escapeCsvField(tags));
     });
     var csv = lines.join('\n');
@@ -2522,18 +3732,48 @@ button{font-family:'DM Sans',sans-serif}
   var sidebar = document.getElementById('sidebar');
   var sidebarOverlay = document.getElementById('sidebarOverlay');
   var mobileToggle = document.getElementById('mobileMenuToggle');
-  if (mobileToggle){
+  var sidebarSearch = document.getElementById('sidebarSearchInput');
+  var sidebarList = sidebar ? sidebar.querySelector('.sidebar-list') : null;
+  function setSidebarPanelOpen(open, moveFocus, restoreFocus){
+    var responsive = window.innerWidth <= 900;
+    if (sidebar){
+      sidebar.classList.toggle('open', open);
+      if (responsive && !open){
+        sidebar.setAttribute('aria-hidden', 'true');
+        sidebar.setAttribute('inert', '');
+      } else {
+        sidebar.removeAttribute('aria-hidden');
+        sidebar.removeAttribute('inert');
+      }
+    }
+    if (sidebarOverlay) sidebarOverlay.classList.toggle('show', open);
+    if (mobileToggle){
+      mobileToggle.textContent = open ? '×' : '☰';
+      mobileToggle.setAttribute('aria-label', open ? 'Close flashcard navigation' : 'Open flashcard navigation');
+      mobileToggle.setAttribute('aria-expanded', String(open));
+    }
+    if (open && sidebarList) sidebarList.scrollTop = 0;
+    if (open && moveFocus && sidebarSearch) sidebarSearch.focus();
+    if (!open && restoreFocus && responsive && mobileToggle) mobileToggle.focus();
+  }
+  function closeSidebarPanel(restoreFocus){
+    setSidebarPanelOpen(false, false, restoreFocus === true);
+  }
+  if (mobileToggle && sidebar){
     mobileToggle.addEventListener('click', function(){
-      if (sidebar) sidebar.classList.add('open');
-      if (sidebarOverlay) sidebarOverlay.classList.add('show');
+      var willOpen = !sidebar.classList.contains('open');
+      setSidebarPanelOpen(willOpen, willOpen, !willOpen);
     });
   }
-  if (sidebarOverlay){
-    sidebarOverlay.addEventListener('click', function(){
-      if (sidebar) sidebar.classList.remove('open');
-      sidebarOverlay.classList.remove('show');
-    });
-  }
+  if (sidebarOverlay) sidebarOverlay.addEventListener('click', function(){ closeSidebarPanel(true); });
+  window.addEventListener('resize', function(){
+    if (window.innerWidth > 900) setSidebarPanelOpen(false, false, false);
+    else setSidebarPanelOpen(sidebar && sidebar.classList.contains('open'), false, false);
+  });
+  document.addEventListener('keydown', function(event){
+    if (event.key === 'Escape' && sidebar && sidebar.classList.contains('open')) closeSidebarPanel(true);
+  });
+  setSidebarPanelOpen(false, false, false);
   
   // Sidebar quick-filter buttons (mirror the in-panel filter chips)
   document.addEventListener('click', function(e){
@@ -2546,23 +3786,21 @@ button{font-family:'DM Sans',sans-serif}
       filterState.unit = value;
     } else if (group === 'status'){
       filterState.status = value;
-    } else if (group === 'type-toggle'){
-      var idx = filterState.types.indexOf(value);
-      if (idx === -1) filterState.types.push(value);
-      else filterState.types.splice(idx, 1);
+    } else if (group === 'retrieval-toggle'){
+      var idx = filterState.retrievals.indexOf(value);
+      if (idx === -1) filterState.retrievals.push(value);
+      else filterState.retrievals.splice(idx, 1);
     }
     saveFilterState();
     applyFilterStateToUI();
     if (typeof reviewIndex !== 'undefined') reviewIndex = 0;
-    if (typeof renderReview === 'function') renderReview();
-    if (typeof renderBrowse === 'function') renderBrowse();
+    if (typeof renderActiveTab === 'function') renderActiveTab();
     if (typeof updateStats === 'function') updateStats();
     updateSidebarActiveStates();
     
     // Close sidebar on mobile after selection
     if (window.innerWidth <= 900){
-      if (sidebar) sidebar.classList.remove('open');
-      if (sidebarOverlay) sidebarOverlay.classList.remove('show');
+      closeSidebarPanel(true);
     }
   });
   
@@ -2573,13 +3811,13 @@ button{font-family:'DM Sans',sans-serif}
       var active = false;
       if (group === 'unit') active = (filterState.unit === value);
       else if (group === 'status') active = (filterState.status === value);
-      else if (group === 'type-toggle') active = filterState.types.indexOf(value) !== -1;
+      else if (group === 'retrieval-toggle') active = filterState.retrievals.indexOf(value) !== -1;
       btn.classList.toggle('active', active);
+      btn.setAttribute('aria-pressed', String(active));
     });
   }
   
   // Sidebar search - mirror to main filter search
-  var sidebarSearch = document.getElementById('sidebarSearchInput');
   if (sidebarSearch){
     var sidebarSearchTimer;
     sidebarSearch.addEventListener('input', function(){
@@ -2588,8 +3826,7 @@ button{font-family:'DM Sans',sans-serif}
         filterState.search = sidebarSearch.value;
         saveFilterState();
         if (typeof reviewIndex !== 'undefined') reviewIndex = 0;
-        if (typeof renderReview === 'function') renderReview();
-        if (typeof renderBrowse === 'function') renderBrowse();
+        if (typeof renderActiveTab === 'function') renderActiveTab();
         if (typeof updateStats === 'function') updateStats();
         // Also sync the in-panel search input
         var mainSearch = document.getElementById('filterSearch');
@@ -2997,6 +4234,18 @@ button{font-family:'DM Sans',sans-serif}
     <div class="kbd-help-row">
       <span>Previous card</span>
       <div class="kbd-help-keys"><span class="kbd-help-key">←</span><span class="kbd-help-key">P</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Shuffle current review queue</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">S</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Restore pre-shuffle order</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">Shift</span><span class="kbd-help-key">S</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Add / remove from Focus Deck</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">C</span></div>
     </div>
     <div class="kbd-help-row">
       <span>Toggle filter panel</span>

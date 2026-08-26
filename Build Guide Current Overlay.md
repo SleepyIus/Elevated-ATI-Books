@@ -2847,3 +2847,4321 @@ TLDR:
 
 Next Recommended Action:
 - Codex must create and push the single authorized checkpoint now, keep automations/content paused, and report the exact commit SHA; the user does not need to act unless push fails.
+
+## Part 375 Recovery Addendum — Flashcards Reopened / MN Sidebar Canon Active
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. The user's current instructions explicitly reopen Flashcards for design review, beginning with finalized MN as the rule-setting reference. Clinical content population remains paused; ATI source support used: none.
+
+Current batch:
+- **MN Flashcards — Sidebar Canon, IN USER REVIEW.** The finalized MN Templates sidebar is the family-specific reference. One cohesive Flashcards correction aligns the shared sidebar chrome while preserving Flashcards-specific Unit/Type/Status filters and the full review workflow.
+
+Files edited:
+- `Elevated ATI MN Flashcards.html`: sidebar CSS, header/search semantics, navigation-row treatment, and responsive drawer behavior only.
+- `MN Design Canon Checklist.md`: records the reopened Flashcards state and the same-subject Templates-sidebar contract.
+- `Build Guide Current Overlay.md`: this recovery and review checkpoint.
+- No starter-card question/answer, chapter, anchor, type, order, learner-state key, scheduling data, or cross-tool destination changed. Current MN Flashcards SHA-256 is `75fa6854a469500a9014357f4417b17e81bf9e50392466016c55b7cc0432e360`.
+
+Validation performed:
+- The starter payload hash is byte-identical before/after: `6e723ec4f34a181daa52bf1b2e462dcebc9e9ca3a1de22d6cffd75261abafbd8`. All `492/492` card IDs remain unique with exact type inventory `334 concept / 153 warning / 5 calc`; all card anchors resolve in the MN Book; all `30/30` static IDs remain unique; `atimn_fc_schedule`, `nur2460_fc_filters`, and `nur2460_theme` remain present; all inline scripts parse; `git diff --check` passes.
+- Desktop `1440 x 1000`, tablet `768 x 1000`, and phone `390 x 844` sidebar measurements repeated identically after `350ms`, with zero page horizontal overflow. Desktop retains the fixed `280px` rail. Tablet and phone retain the `280px` open drawer, `40px` right menu control, left Back-to-Hub pill, `92px` main top inset, blurred overlay, focused search on open, accurate label/icon/`aria-expanded`, Escape close, hidden/inert closed state, and focus restoration.
+- Fresh full-width isolated-storage review: `http://127.0.0.1:8766/mn-flashcards-sidebar-review-380/Elevated%20ATI%20MN%20Flashcards.html?v=mn-sidebar-canon-380`. Automated QA is not user visual approval.
+
+Automation status:
+- No automation configuration was touched. The retrospective heartbeat and all three protected automations remain under their documented **PAUSED** state; content population was not activated.
+
+Commit/push status:
+- No staging, commit, or push is authorized. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0` before this uncommitted Flashcards checkpoint.
+
+GitHub Desktop should show:
+- Exactly three tracked modifications: this overlay, `MN Design Canon Checklist.md`, and `Elevated ATI MN Flashcards.html`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MN Flashcards now uses the finalized Templates sidebar chrome and responsive drawer contract without changing its 492-card payload, learning state, or flashcard-specific navigation semantics.
+
+Next Recommended Action:
+- The user must review the updated full-width MN Flashcards sidebar and either approve this first Flashcards canon rule or report the first visible mismatch; do not compare PD/Pharm, propagate the sidebar, commit, push, or begin content population first.
+
+## Part 376 Recovery Addendum — MN Flashcards Sidebar Typography Aligned
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. This is a sidebar-only typography follow-up within the user-authorized MN Flashcards review; clinical content population remains paused and ATI source support used is none.
+
+Current batch:
+- **MN Flashcards — Sidebar Canon, IN USER REVIEW.** The rendered typography audit found that the header families/sizes already matched finalized MN Templates, while the Flashcards rail inherited `1.65` line height instead of `1.6` and inactive filter names used weight `500` instead of the Templates primary-navigation weight `600`.
+
+Files edited:
+- `Elevated ATI MN Flashcards.html`: scopes the Templates `1.6` line-height contract to the sidebar and aligns all Unit/Type/Status navigation names to DM Sans `13px`/`600`; no main-content typography changed.
+- `MN Design Canon Checklist.md`: makes the Flashcards sidebar typography metrics explicit.
+- `Build Guide Current Overlay.md`: this typography checkpoint.
+- Current MN Flashcards SHA-256 is `79c430aeecd1ad05db8a3fe9f450823161b7147193e9fa35972875e0053bd3ec`.
+
+Validation performed:
+- Computed-style comparison against exact `Elevated ATI MN Templates.html` confirms matching sidebar typography: DM Sans UI text; DM Serif Display `22px`/`400` title at `1.1`; `10px`/`800`/`0.12em` section labels; `13px`/`600`/`20.8px` primary navigation names; `11px`/`600` Back to Hub and theme control; `11px`/`400` subtitle; and `12px`/`400` search text.
+- Two fresh measurements `350ms` apart were identical with a `280px` rail and zero page horizontal overflow. Fresh visual inspection passed. The exact `492/492` starter records and unique IDs remain intact with `334 concept / 153 warning / 5 calc`; the starter payload is byte-identical to `HEAD`; all inline scripts parse; required storage keys remain present; and `git diff --check` passes.
+- Fresh isolated-storage review: `http://127.0.0.1:8766/mn-flashcards-typography-review-382/Elevated%20ATI%20MN%20Flashcards%20Typography%20382.html?v=mn-sidebar-type-382`. Automated QA is not user visual approval.
+
+Automation status:
+- No automation configuration was touched. The retrospective heartbeat and all three protected automations remain under their documented **PAUSED** state; content population was not activated.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0` before this uncommitted Flashcards checkpoint.
+
+GitHub Desktop should show:
+- Exactly three tracked modifications: this overlay, `MN Design Canon Checklist.md`, and `Elevated ATI MN Flashcards.html`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MN Flashcards now matches the finalized MN Templates sidebar typography as well as its sidebar layout and responsive behavior, without changing the Flashcards body typography, payload, storage, or learner state.
+
+Next Recommended Action:
+- The user must review and approve the refreshed MN Flashcards sidebar typography or report the first visible mismatch; do not propagate to PD/Pharm, begin broader Flashcards canon decisions, commit, push, or activate content population first.
+
+## Part 377 Recovery Addendum — MN Flashcards Retrieval Taxonomy Migrated / User Review Active
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. This is an MN Flashcards design-and-classification migration using the authorized existing card payload only; no ATI source or outside clinical content was used, and content population remains paused.
+
+Current batch:
+- **MN Flashcards — Retrieval Taxonomy, IN USER REVIEW.** The user approved replacing the low-information Concept/Warning/Calculation primary labels with four separate retrieval targets while retaining important attributes independently. Objective implementation and QA are complete; automated QA is not user visual approval.
+
+Files edited:
+- `Elevated ATI MN Flashcards.html`: all 492 stable card records now carry one canonical primary retrieval target plus zero or more approved secondary attributes; Review, Browse, sidebar, main filters, CSV tags, colors, and read-time learner-state hydration use the new schema. Filter refresh now preserves the active Review/Browse tab.
+- `MN Design Canon Checklist.md`: records the reusable Flashcards taxonomy and learner-state migration contract.
+- `Build Guide Current Overlay.md`: this checkpoint.
+- Questions, answers, chapters, source anchors, card IDs, card order, SM-2 data, schedule key, source destinations, and clinical wording are unchanged. Current MN Flashcards SHA-256 is `f309edeaee7dac2929c37763e9c1228cdb87eb510e48cd2f532412c0ecbccf61`.
+
+Validation performed:
+- Exact primary inventory: 492/492 unique IDs — Recall 291, Recognize 60, Act 95, Apply 46. Exact overlapping secondary inventory: Warning 153, Numeric 73, Sequence 39, Comparison 30, Mnemonic 12, Calculation 2. Every secondary filter returns the exact count; Warning + Calculation returns the correct OR union of 155.
+- All 492 cards have required question, answer, chapter, source anchor, legacy-type recovery value, primary retrieval value, and attribute array; all 492 anchors resolve in `Elevated ATI MN Book.html`; all 30 static HTML IDs are unique; both inline scripts parse; required schedule/theme keys remain present; compatible old filters migrate to `nur2460_fc_filters_v2` without rewriting the learner schedule.
+- Isolated browser QA loaded all 492 cards, exercised all four primary filters and six secondary filters, verified Review reveal/rating controls, Browse rendering and Browse-to-Review handoff, dark/light category colors, `1280 x 720` visible geometry, zero horizontal overflow, and zero runtime logs. Label contrast is at least `4.92:1` in both themes.
+- Fresh isolated-storage review derived from the exact product: `http://127.0.0.1:8766/mn-flashcards-taxonomy-review-385/Elevated%20ATI%20MN%20Flashcards%20Taxonomy%20385.html?v=mn-taxonomy-385`. Only the temporary review copy's storage-key namespace differs, preventing QA/review from reading or writing the learner's real schedule. Advanced attributes are collapsed by default. Automated QA is not user visual approval.
+- `git diff --check` passes. QA artifacts remain only under `/private/tmp`.
+
+Automation status:
+- No automation configuration was touched. The retrospective heartbeat and three protected automations remain under their documented **PAUSED** recovery state; content population was not activated.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly three tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MN Flashcards now separates what a learner must do (Recall/Recognize/Act/Apply) from overlapping attributes, reserves Calculation for the two genuine computation cards, keeps legacy Warning visible without recertifying it, and preserves existing learner schedules through stable-ID hydration.
+
+Next Recommended Action:
+- The user must visually review the fresh MN Flashcards taxonomy page and either approve it or report the first visible mismatch; do not propagate this taxonomy to another book, commit/push, or activate content population first.
+
+## Part 378 Recovery Addendum — MN Flashcards Retrieval Taxonomy User-Approved
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. No ATI source or outside clinical content was used, and content population remains paused.
+
+Current batch:
+- **MN Flashcards — Retrieval Taxonomy, USER-APPROVED.** On 2026-08-22 the user explicitly approved the completed Recall / Recognize / Act / Apply primary taxonomy and the collapsed secondary-attribute design.
+
+Files edited:
+- `Elevated ATI MN Flashcards.html`, `MN Design Canon Checklist.md`, and `Build Guide Current Overlay.md` remain the only tracked modifications for this flashcard-canon checkpoint. No clinical wording, card identity, source anchor, order, or learner schedule was changed.
+
+Validation performed:
+- The isolated-storage review loaded all 492 cards and retained the objective counts and QA results recorded in Part 377. The review page visibly showed the four primary retrieval filters, the collapsed Advanced card attributes control, Apply and Calculation badges on the first computation card, and no horizontal overflow or runtime logs.
+- Current review: `http://127.0.0.1:8766/mn-flashcards-taxonomy-review-385/Elevated%20ATI%20MN%20Flashcards%20Taxonomy%20385.html?v=mn-taxonomy-385`.
+
+Automation status:
+- No automation configuration was touched. The retrospective heartbeat and three protected automations remain under their documented **PAUSED** recovery state.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly three tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- The MN Flashcards design and retrieval taxonomy are now the user-approved flashcard reference for subsequent book comparisons; automated QA and user approval are recorded separately.
+
+Next Recommended Action:
+- The user does not need to act now; next perform a read-only MN-versus-MH Flashcards comparison using this approved MN canon, and do not propagate changes to MH or another book without presenting the differences for user direction.
+
+## Part 379 Recovery Addendum — MN / MH Flashcards Read-Only Comparison Active
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. This run compares visual and interaction design only; it does not authorize clinical rewriting or content population.
+
+Current batch:
+- **Flashcards design comparison — MN fixed left / MH fixed right, IN USER REVIEW.** The approved MN Flashcards file is the reference and the exact current MH Flashcards file is the target. No MH repair has been applied.
+
+Files edited:
+- No Flashcards product file changed in this comparison run. `Build Guide Current Overlay.md` records the checkpoint; all comparison payloads and the wrapper remain under `/private/tmp` with isolated storage keys.
+- Exact products remain MN SHA-256 `f309edeaee7dac2929c37763e9c1228cdb87eb510e48cd2f532412c0ecbccf61` and MH SHA-256 `7f87efd506ab74bc0d66605d85e8cb5665601cca4975369e902a5bc0b3ddf94a`.
+
+Validation performed:
+- Fresh comparison: `http://127.0.0.1:8766/mn-vs-mh-flashcards-review-386/mn-vs-mh-flashcards-review-386.html?v=mn-mh-flashcards-386`. It has exactly two equal panes/two iframes, MN fixed left, MH fixed right, no pair selector, and collapsed-by-default options. All 12 retained/adapted controls pass: synchronized Review/Browse, open/close Filters, open/close Navigation, Reveal answers, Align top, Sync once, proportional Sync scroll, Guides, and linked Vertical guides. Clean handoff is Review/top with options, sync, and guides off.
+- Isolated decks load 492 MN cards and 593 MH cards; both sets have unique card IDs, all source anchors resolve in their respective Book files, both scripts parse, and the wrapper and payloads return HTTP `200` with zero horizontal overflow at the checked wide and split-pane geometries.
+- Shared core design is materially aligned: DM Sans body, DM Serif Display display text, `32px/35.2px` hero title, `18px` hero corners, `8px` primary-button corners, `10px` filter-panel corners, `8px` session-panel corners, `12px` stat/tab corners, `16px` review-card corners, and shared dark surfaces/borders. Subject accents correctly remain MN orange and MH green.
+- Objective MH deviations from approved MN are now exposed rather than repaired: sidebar items are square `12.5px/400/7px 16px` rows instead of MN rounded `13px/600/9px 10px` inset rows; sidebar labels/search spacing and course identity differ; narrow layouts reverse the menu/back controls and use MH `64px 18px` main padding instead of MN `92px 24px`; MH retains the old mixed Type system and no secondary attributes instead of Recall/Recognize/Act/Apply plus collapsed attributes; MH starter cards do not receive MN's retrieval-colored left rail; and MH displays both `Open in book` and `Open in chapter` on Review cards.
+- Two source-less `MutationObserver.observe` console entries appeared once per embedded iframe. Neither exact Flashcards file contains a MutationObserver, so these are recorded as comparison-environment injection noise rather than attributed to product code.
+
+Automation status:
+- No automation configuration was touched. The retrospective heartbeat and three protected automations remain under their documented **PAUSED** recovery state.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly three tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MN and MH share the same main Flashcards architecture, typography, surfaces, and most corner tokens. The visible drift is concentrated in MH's sidebar, narrow-layout top geometry, taxonomy/badges, card rail, and duplicate source-link presentation.
+
+Next Recommended Action:
+- The user must review the two-pane MN/MH Flashcards comparison and either authorize one cohesive MH existing-canon repair covering the listed deviations or report the first difference that should intentionally remain MH-specific.
+
+## Part 380 Recovery Addendum — Flashcards Narrow Vertical Rhythm Established
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. This is an existing-canon layout correction only; no ATI source or outside clinical content was used, and content population remains paused.
+
+Current batch:
+- **MN / MH Flashcards — narrow split-pane vertical top stack corrected, IN USER REVIEW.** In response to the user's visible mismatch report, MH now follows the approved MN vertical rhythm at every content viewport at or below `900px`.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: aligns only the narrow fixed utility controls and main-content top inset with MN. The menu begins at `14px`, is `40px` high, and ends at `54px`; the Back to Hub control begins at `14px`; and main content/hero begins at `92px`.
+- `MN Design Canon Checklist.md`: records the exact reusable Flashcards narrow vertical-rhythm rule.
+- `Build Guide Current Overlay.md`: records this checkpoint. `Elevated ATI MN Flashcards.html` retains the user's previously approved taxonomy/sidebar work and was not changed by this correction.
+- Clinical wording, card questions/answers, card IDs, card order, source anchors, storage keys, learner schedules, counts, taxonomy, subject accent, and horizontal utility orientation are unchanged. Current products are MN SHA-256 `f309edeaee7dac2929c37763e9c1228cdb87eb510e48cd2f532412c0ecbccf61` and MH SHA-256 `f5b94c050df7beea83c7b0204cecd5ae782e20a739edaed17d70c7f77f34149b`.
+
+Validation performed:
+- Twice-stable rendered measurements pass at wrapper viewports `1440 x 1000`, `768 x 1000`, and `390 x 844`: both panes report menu `top 14px / bottom 54px / height 40px`, main `padding-top 92px`, hero `top 92px`, and exact MN/MH hero-top delta `0px`. This establishes a `38px` clear vertical interval from the menu baseline at `54px` to the hero at `92px`.
+- A twice-stable desktop control at `2240 x 1000` confirms the `>900px` layout remains unchanged: both panes retain main `padding-top 36px`, hero `top 36px`, hidden mobile utilities, and a `0px` hero-top delta.
+- The exact current MH deck still contains `593/593` unique card IDs — `466` legacy concept cards and `127` legacy warning cards — and the comparison reports `data-qa-ready=true`. The isolated MH payload SHA-256 is `cb457e6538dbfa2800145e9de034873ba8d42faddb61f9bacbd4752e17c7866c`.
+- Refreshed comparison: `http://127.0.0.1:8766/mn-vs-mh-flashcards-review-386/mn-vs-mh-flashcards-review-386.html?v=mn-mh-flashcards-386`. Automated QA is not user visual approval.
+
+Automation status:
+- No automation configuration was touched. The retrospective heartbeat and three protected automations remain under their documented **PAUSED** recovery state.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- The Flashcards narrow vertical rule is now exact: controls start at `14px`, the `40px` menu ends at `54px`, and the hero starts at `92px`, producing the same top stack in MN and MH without changing card content or learner state.
+
+Next Recommended Action:
+- The user must visually review the refreshed two-pane comparison and either approve this vertical-rhythm rule or report the first remaining vertical mismatch; do not broaden the MH repair, commit, push, or activate content population first.
+
+## Part 381 Recovery Addendum — Flashcards Narrow Utility Controls Matched
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. This is a non-clinical utility-control correction only; card tagging and broader MH alignment remain separate, unstarted batches.
+
+Current batch:
+- **MN / MH Flashcards — narrow Back to Hub and hamburger controls matched, IN USER REVIEW.** The user reported that the verticals appeared acceptable but identified MH's reversed utility-control placement. MH now follows the approved MN arrangement exactly.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: places Back to Hub at the upper left and the `40px` hamburger at the upper right; matches MN's `14px` horizontal/top insets, Back to Hub arrow, `11px/600` text, `8px` corner radius, border, spacing, and flex alignment.
+- `MN Design Canon Checklist.md`: makes the Flashcards narrow utility-control placement and appearance rule explicit.
+- `Build Guide Current Overlay.md`: records this checkpoint. No card questions, answers, IDs, order, sources, storage keys, schedule/history data, taxonomy, filters, or subject accent changed. Current MH SHA-256 is `dd5a8ce6fd565e5b7d44a95ed18a234aa9bbc3bb1ef914d2f06012145a5db73b`.
+
+Validation performed:
+- Twice-stable rendered measurements pass at wrapper viewports `1440 x 1000`, `768 x 1000`, and `390 x 844`. In both MN and MH, Back to Hub is `left 14px`, `top 14px`, `114.88px x 37.8px`, `11px/600`, and `8px` radius; the hamburger is `40px x 40px`, `top 14px`, `right 14px` (fractional iframe split rounds equally), `18px`, and `8px` radius. MN/MH Back-left and menu-right-inset deltas are `0px` at every checked width.
+- The established hero `top 92px` vertical rhythm remains intact. The comparison reports `data-qa-ready=true`, and the exact isolated MH payload SHA-256 is `19a30df222778d09ee62207db9c1ed4a6e28daa4da611a59cc87553d0c94e264`.
+- Refreshed comparison: `http://127.0.0.1:8766/mn-vs-mh-flashcards-review-386/mn-vs-mh-flashcards-review-386.html?v=mn-mh-flashcards-386`. Automated QA is not user visual approval.
+
+Automation status:
+- No automation configuration was touched. The retrospective heartbeat and three protected automations remain under their documented **PAUSED** recovery state.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH now uses the same narrow utility arrangement as MN: arrowed Back to Hub fixed upper-left and a matching hamburger fixed upper-right, with exact placement and visual tokens.
+
+Next Recommended Action:
+- The user must visually review the refreshed comparison and either approve the matched utility controls or report the first remaining mismatch; do not begin MH card tagging, broaden the design repair, commit, push, or activate content population first.
+
+## Part 382 Recovery Addendum — MH Flashcards Sidebar Canon Corrected
+
+Current mode:
+- **DESIGN-CANON / HOLD-CONTENT** remains active. This batch changes sidebar presentation and drawer behavior only; no ATI source or outside clinical content was used, and MH card tagging remains a separate unstarted batch.
+
+Current batch:
+- **MH Flashcards — complete sidebar chrome and narrow drawer behavior aligned with approved MN, IN USER REVIEW.** MH retains its own Mental Health course identity, green accent, Unit/Type/Status labels, counts, links, and legacy taxonomy content.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: matches MN's `280px` rail, unitless `1.6` line height, blurred overlay, header/theme/search rhythm, `8px 0 24px` scroll-list padding, explicit thin/`6px` scrollbar, `10px/800/0.12em` section labels, and rounded inset `13px/600` navigation rows with `9px 10px` padding, `0 8px 2px` margins, and `7px` corners. Active rows now use the quiet surface treatment while retaining the MH accent text.
+- The same file now matches MN's narrow drawer contract: synchronized close icon/label/`aria-expanded`, hidden/inert closed drawer, search focus on open, overlay and Escape close, filter-selection close, toggle focus restoration, and deterministic `.sidebar-list` reset to `scrollTop=0` on every open.
+- `MN Design Canon Checklist.md`: makes the open-at-top requirement explicit. `Build Guide Current Overlay.md` records this checkpoint. No card questions, answers, IDs, order, source anchors, schedule/history data, storage keys, filter values, or subject accent changed.
+- Current products are MN SHA-256 `f309edeaee7dac2929c37763e9c1228cdb87eb510e48cd2f532412c0ecbccf61` and MH SHA-256 `2317bb5c4a487f5848365f8fe812919d6b7206ede74b484ed6a13473bd148af0`.
+
+Validation performed:
+- Twice-stable rendered comparison passes at wrapper viewports `1440 x 1000`, `768 x 1000`, and `390 x 844`: closed and open sidebar signatures have exact MN/MH parity for rail position/width, search block, section labels, row size/typography/corners/margins, list padding, overlay blur/color, scroll position, close control, and accessibility state. At equal-width tablet/phone panes, both closed rails are `left -280px`, both open rails are `left 0px`, and both open at `scrollTop=0`.
+- A twice-stable `2240 x 1000` desktop control confirms both `280px` rails remain visible with no `aria-hidden` or `inert`; first-row geometry and typography are identical and mobile controls remain non-operative/hidden by CSS.
+- Interaction QA passes: opening focuses sidebar search; a deliberately scrolled MH list reopens at `scrollTop=0`; Escape, overlay click, menu-toggle click, and a quick-filter selection all close the drawer, restore focus to the hamburger, remove the overlay, set `aria-expanded=false`, restore `☰`, and leave the selected row active.
+- Static integrity remains exact: `593/593` unique MH card IDs, `593` source anchors with none missing from `Elevated ATI MH Book.html`, `25/25` unique static HTML IDs, original schedule/filter/theme keys present, and no isolated comparison keys in the product. The exact isolated MH payload SHA-256 is `cbf1047048f74c0d73c5e5cd479106f4319f4bdff39b25326cb3b027c96d1fac` and the wrapper reports `data-qa-ready=true`.
+- Refreshed comparison: `http://127.0.0.1:8766/mn-vs-mh-flashcards-review-386/mn-vs-mh-flashcards-review-386.html?v=mn-mh-flashcards-386`. Automated QA is not user visual approval.
+
+Automation status:
+- No automation configuration was touched. The retrospective heartbeat and three protected automations remain under their documented **PAUSED** recovery state.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH's sidebar now uses the approved MN visual and interaction canon while preserving MH-specific navigation content and learner state; the drawer no longer opens at a stale mid-list position.
+
+Next Recommended Action:
+- The user must visually review the corrected open MH sidebar against MN and either approve it or report the first remaining sidebar mismatch; do not begin MH card tagging, alter another Flashcards file, commit, push, or activate content population first.
+
+## Part 383 Recovery Addendum — MN Flashcards Canon Standard Frozen / AFK Automation Active
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** The user authorized analysis of the approved MN Flashcards implementation, establishment of reusable standards, and guarded automation while AFK. MN is a pattern reference only; no ATI source, web source, model-background clinical content, or cross-subject clinical borrowing is authorized.
+
+Current batch:
+- **MN canon freeze COMPLETE; MH retrieval-taxonomy registry ACTIVE NEXT.** The ordered automation queue is MH -> PD -> Pharm -> AMS -> final cross-subject gate. Each heartbeat works on one subject and one bounded phase only; taxonomy registry work is limited to at most 40 contiguous stable-order cards per run and cannot expose a mixed old/new learner UI.
+
+Files edited:
+- `Elevated ATI MN Flashcards.html`: adds the missing deterministic `.sidebar-list` reset to `scrollTop=0` on every narrow drawer open. This completes the already approved drawer contract without changing learner content, card identity, taxonomy, sources, order, or storage.
+- `MN Design Canon Checklist.md`: freezes the retrieval-decision, secondary-attribute, record/state, visual-token, AFK-automation, and full-gate standards.
+- `Build Guide Current Overlay.md`: records this checkpoint. `Elevated ATI MH Flashcards.html` retains the previously authorized Part 380-382 changes and is unchanged by this setup run.
+
+Validation performed:
+- Static MN integrity passes: `492/492` unique card IDs, all required card fields present, every source anchor resolves in `Elevated ATI MN Book.html`, `30/30` static IDs are unique, both inline scripts parse, original schedule/filter/theme keys remain present, and no isolated QA key appears in the product. Taxonomy remains Recall `291`, Recognize `60`, Act `95`, Apply `46`; overlapping Warning `153`, Numeric `73`, Sequence `39`, Comparison `30`, Mnemonic `12`, Calculation `2`.
+- Fresh isolated-storage product: `http://127.0.0.1:8766/mn-flashcards-standard-383/Elevated%20ATI%20MN%20Flashcards%20Standard%20383.html?v=mn-flashcards-standard-383`. At `390 x 844`, a deliberately scrolled drawer moved to `scrollTop=167.5` and reopened at exact `scrollTop=0`, with search focused, synchronized accessibility state, Back to Hub at `14px` top/left, the `40px` menu at `14px` top/right, hero at `92px`, and zero horizontal overflow.
+- Twice-stable responsive geometry passes at `2240 x 1000`, `1440 x 1000`, `901 x 1000`, `900 x 1000`, `768 x 1000`, `601 x 1000`, `600 x 1000`, and `390 x 844`. Desktop through `901px` keeps the `280px` visible rail and hero at `36px`; `900px` and below keeps the closed rail at `-280px`, hero at `92px`, and controls at `14px`; `601px` uses `24px` main side padding while `600px` and below uses `16px`. Every checked state has zero horizontal overflow. Temporary viewport overrides were reset after QA.
+- Current baseline: branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`; MN SHA-256 `6026c760ca71135f93314bb46e5c59aeed460bfb7a4560afa75ee2bf99e732da`; MH `2317bb5c4a487f5848365f8fe812919d6b7206ede74b484ed6a13473bd148af0`; PD `b98c8499854a761eb487a73da5e17b2781783213ab97c974d11ae6e0f8e40eda`; Pharm `9e0bd414cf6813373cb29e7bef351ff0bd5d56c958437ac479cb3fb9e3cb9d9a`; AMS `8eb1728ef107db8820c47c7933386652ddd0a37c0f3175c50a8d666464779f27`.
+
+Automation status:
+- New heartbeat `ati-flashcards-canon-migration-heartbeat` / **ATI Flashcards Canon Migration Heartbeat** is **ACTIVE**, attached to the current task, scheduled every 20 minutes, and configured to surface failed runs while routine checkpoints remain quiet. Activation config SHA-256 is `474b1dab120ab872549e82e5629420a13dc3cc42296960d92fb8eb2ff0dacb77`.
+- It may advance only after complete phase gates and must stop for ambiguous classification, missing/unreadable same-subject anchors, clinical-content needs, subjective/new-canon choices, learner-state risk, unexpected tracked changes, continuity conflict, missing fresh evidence, or final representative review. Automated QA never equals user visual approval.
+- Protected automations remain **PAUSED** and byte-unchanged: `ati-build-guide-ai-spec-polish` `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`; `ati-template-clipping-qa` `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`; `ati-pediatric-templates-design-polish` `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`; and `ati-retrospective-template-spacing-heartbeat` `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- The MN Flashcards design is now a measurable canon covering visual tokens, responsive/sidebar behavior, retrieval taxonomy, stable records, learner-state-safe migration, and full QA. The guarded AFK heartbeat begins with MH only and cannot silently rewrite clinical content or learner state.
+
+Next Recommended Action:
+- The user does not need to act now; allow the dedicated Flashcards heartbeat to begin the MH retrieval-taxonomy registry and intervene only if it reports a blocker or final representative review.
+
+## Part 384 Recovery Addendum — MH Retrieval Registry Batch 1 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** No clinical wording or outside content source was used.
+
+Current batch:
+- **MH phase C retrieval-taxonomy registry IN PROGRESS; contiguous source-order records 1–40 COMPLETE.** Coverage is `fc-ch1-mse` through `fc-ch12-trauma-care`; record 41 `fc-ch12-dissociative` is next. The registry remains inactive, so the legacy Type learner UI is unchanged.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: adds only the inactive stable-ID registry for records 1–40. Questions, answers, anchors, IDs/order, legacy Type, links, subject identity, and learner state are unchanged.
+- `Build Guide Current Overlay.md` records this checkpoint. `Elevated ATI MN Flashcards.html` and `MN Design Canon Checklist.md` retain earlier authorized changes and are not changed in Part 384.
+
+Validation performed:
+- MH remains `593/593` required records and unique IDs with `593/593` same-subject anchors resolved; both inline scripts parse.
+- Registry checks pass: `40/40` unique IDs, exact deck-prefix order, one valid primary target per entry, valid independent attributes, and exact legacy-warning preservation. No registry data is consumed by learner UI or storage.
+- `git diff --check` passes. Branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`. Current MH SHA-256 is `cd455afad2d233861eaf0a8f8c2260fe6d363b6abbdc417e26a8223f28a2b6bd`; other product hashes remain at Part 383. No visual comparison was generated because the partial registry is intentionally dormant.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at config SHA-256 `474b1dab120ab872549e82e5629420a13dc3cc42296960d92fb8eb2ff0dacb77`. All protected automations remain **PAUSED** and byte-unchanged at their Part 383 hashes.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH registry records 1–40 are complete, validated, and dormant; clinical content and learner behavior remain unchanged.
+
+Next Recommended Action:
+- The user does not need to act; resume MH phase C at record 41 `fc-ch12-dissociative` and process at most the next 40 contiguous cards.
+
+## Part 385 Recovery Addendum — MH Retrieval Registry Batch 2 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** No clinical wording or outside content source changed.
+
+Current batch:
+- **MH phase C retrieval-taxonomy registry IN PROGRESS; records 41–80 COMPLETE, cumulative 1–80 COMPLETE.** New coverage is `fc-ch12-dissociative` through `fc-ch25-atomoxetine`; record 81 `fc-ch25-ssri-youth` is next. The registry remains inactive and the legacy learner UI is unchanged.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: extends only the inactive stable-ID taxonomy registry by 40 entries. All card content, anchors, identity/order, legacy Type, links, and learner state remain unchanged.
+- `Build Guide Current Overlay.md` records this checkpoint. MN Flashcards and the checklist retain earlier authorized changes and are not changed in Part 385.
+
+Validation performed:
+- MH remains `593/593` required records and unique IDs with `593/593` MH Book anchors resolved; both inline scripts parse.
+- Registry passes cumulative `80/80` unique IDs in exact deck-prefix order, valid primary/attribute vocabularies, one primary per record, and exact legacy-warning preservation. Current tally: Recall `63`, Act `17`; Comparison `26`, Numeric `9`, Sequence `2`, Mnemonic `1`.
+- No registry metadata reaches learner UI or storage; `git diff --check` passes. Branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`. Current MH SHA-256 is `81e66fba86af65053585df1446f45770b5b28aff752d4806bf51268c9411ea5b`. No visual comparison was generated because the registry remains dormant.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at config SHA-256 `474b1dab120ab872549e82e5629420a13dc3cc42296960d92fb8eb2ff0dacb77`; all protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH records 41–80 are classified; cumulative 1–80 are validated and dormant with learner behavior unchanged.
+
+Next Recommended Action:
+- The user does not need to act; resume MH phase C at record 81 `fc-ch25-ssri-youth` and process at most the next 40 contiguous cards.
+
+## Part 386 Recovery Addendum — MH Retrieval Registry Batch 3 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** No clinical wording or outside content source changed.
+
+Current batch:
+- **MH phase C retrieval-taxonomy registry IN PROGRESS; records 81–120 COMPLETE, cumulative 1–120 COMPLETE.** New coverage is `fc-ch25-ssri-youth` through `fc-ch1-smi`; record 121 `fc-ch1-headsss-components` is next. The registry remains inactive and the legacy learner UI is unchanged.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: extends only the inactive stable-ID taxonomy registry by 40 entries. All card content, anchors, identity/order, legacy Type, links, and learner state remain unchanged.
+- `Build Guide Current Overlay.md` records this checkpoint. MN Flashcards and the checklist retain earlier authorized changes and are not changed in Part 386.
+
+Validation performed:
+- MH remains `593/593` required records and unique IDs with `593/593` MH Book anchors resolved, `30/30` unique static IDs, and both inline scripts parsing.
+- Registry passes cumulative `120/120` unique exact-prefix IDs, valid primary/attribute vocabularies, one primary per record, and exact legacy-warning preservation. Tally: Recall `94`, Act `26`; Comparison `36`, Numeric `11`, Sequence `4`, Mnemonic `1`, Warning `1`.
+- No registry metadata reaches learner UI or storage; `git diff --check` passes. Branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`. Current MH SHA-256 is `7a6486f3b8694004ecc010325897d6bf7057977dfc3d5bb1a15c329efa2a53e3`. No visual comparison was generated because the registry remains dormant.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at config SHA-256 `474b1dab120ab872549e82e5629420a13dc3cc42296960d92fb8eb2ff0dacb77`; all protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH records 81–120 are classified; cumulative 1–120 are validated and dormant with learner behavior unchanged.
+
+Next Recommended Action:
+- The user does not need to act; resume MH phase C at record 121 `fc-ch1-headsss-components` and process at most the next 40 contiguous cards.
+
+## Part 387 Recovery Addendum — MH Retrieval Registry Batch 4 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** No clinical wording or outside content source changed.
+
+Current batch:
+- **MH phase C retrieval-taxonomy registry IN PROGRESS; records 121–160 COMPLETE, cumulative 1–160 COMPLETE.** New coverage is `fc-ch1-headsss-components` through `fc-ch4-identification`; record 161 `fc-ch4-intellectualization` is next. The registry remains inactive and the legacy learner UI is unchanged.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: extends only the inactive stable-ID taxonomy registry by 40 entries. All card content, anchors, identity/order, legacy Type, links, and learner state remain unchanged.
+- `Build Guide Current Overlay.md` records this checkpoint. MN Flashcards and the checklist retain earlier authorized changes and are not changed in Part 387.
+
+Validation performed:
+- MH remains `593/593` required records and unique IDs with `593/593` MH Book anchors resolved, `30/30` unique static IDs, and both inline scripts parsing.
+- Registry passes cumulative `160/160` unique exact-prefix IDs, valid primary/attribute vocabularies, one primary per record, and exact legacy-warning preservation. Tally: Recall `128`, Act `32`; Comparison `48`, Numeric `13`, Sequence `5`, Mnemonic `3`, Warning `12`.
+- No registry metadata reaches learner UI or storage; `git diff --check` passes. Branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`. Current MH SHA-256 is `e3bb05810f0ae443d4fe2a414694a672f71fe3984a3e7915a170afc884a8677d`. No visual comparison was generated because the registry remains dormant.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at config SHA-256 `474b1dab120ab872549e82e5629420a13dc3cc42296960d92fb8eb2ff0dacb77`; all protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH records 121–160 are classified; cumulative 1–160 are validated and dormant with learner behavior unchanged.
+
+Next Recommended Action:
+- The user does not need to act; resume MH phase C at record 161 `fc-ch4-intellectualization` and process at most the next 40 contiguous cards.
+
+## Part 388 Recovery Addendum — MH Retrieval Registry Batch 5 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** No clinical wording or outside content source changed.
+
+Current batch:
+- **MH phase C retrieval-taxonomy registry IN PROGRESS; records 161–200 COMPLETE, cumulative 1–200 COMPLETE.** New coverage is `fc-ch4-intellectualization` through `fc-ch7-systematic-desensitization`; record 201 `fc-ch7-aversion-therapy` is next. The registry remains inactive and the legacy learner UI is unchanged.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: extends only the inactive stable-ID taxonomy registry by 40 entries. All card content, anchors, identity/order, legacy Type, links, and learner state remain unchanged.
+- `Build Guide Current Overlay.md` records this checkpoint. MN Flashcards and the checklist retain earlier authorized changes and are not changed in Part 388.
+
+Validation performed:
+- The three modular Study Tool Synthesis Guide v2 files were read completely in required order before this classification batch.
+- MH remains `593/593` required records and unique IDs with `593/593` MH Book anchors resolved, `30/30` unique static IDs, and both inline scripts parsing.
+- Registry passes cumulative `200/200` unique exact-prefix IDs, valid primary/attribute vocabularies, one primary per record, and exact legacy-warning preservation. Tally: Recall `166`, Act `34`; Comparison `55`, Numeric `13`, Sequence `7`, Mnemonic `3`, Warning `16`.
+- No registry metadata reaches learner UI or storage; `git diff --check` passes. Branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`. Current MH SHA-256 is `982d522522caae246fbdcdc67348312fd120701c6a899445d3413c8072c10a5a`. No visual comparison was generated because the registry remains dormant.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at config SHA-256 `474b1dab120ab872549e82e5629420a13dc3cc42296960d92fb8eb2ff0dacb77`; all protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH records 161–200 are classified; cumulative 1–200 are validated and dormant with learner behavior unchanged.
+
+Next Recommended Action:
+- The user does not need to act; resume MH phase C at record 201 `fc-ch7-aversion-therapy` and process at most the next 40 contiguous cards.
+
+## Part 389 Recovery Addendum — MH Retrieval Registry Batch 6 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** No clinical wording or outside content source changed.
+
+Current batch:
+- **MH phase C retrieval-taxonomy registry IN PROGRESS; records 201–240 COMPLETE, cumulative 1–240 COMPLETE.** New coverage is `fc-ch7-aversion-therapy` through `fc-ch10-ect-course`; record 241 `fc-ch10-ect-meds` is next. The registry remains inactive and the legacy learner UI is unchanged.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: extends only the inactive stable-ID taxonomy registry by 40 entries. All card content, anchors, identity/order, legacy Type, links, and learner state remain unchanged.
+- `Build Guide Current Overlay.md` records this checkpoint. MN Flashcards and the checklist retain earlier authorized changes and are not changed in Part 389.
+
+Validation performed:
+- MH remains `593/593` required records and unique IDs with `593/593` MH Book anchors resolved, `30/30` unique static IDs, and both inline scripts parsing.
+- Registry passes cumulative `240/240` unique exact-prefix IDs, valid primary/attribute vocabularies, one primary per record, and exact legacy-warning preservation. Tally: Recall `205`, Act `35`; Comparison `61`, Numeric `14`, Sequence `9`, Mnemonic `3`, Warning `17`.
+- No registry metadata reaches learner UI or storage; `git diff --check` passes. Branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`. Current MH SHA-256 is `1c4bd8c807b17b0d74fb3f52034a7474d6d538247399c06b023b1850a09948b2`. No visual comparison was generated because the registry remains dormant.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at config SHA-256 `474b1dab120ab872549e82e5629420a13dc3cc42296960d92fb8eb2ff0dacb77`; all protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH records 201–240 are classified; cumulative 1–240 are validated and dormant with learner behavior unchanged.
+
+Next Recommended Action:
+- The user does not need to act; resume MH phase C at record 241 `fc-ch10-ect-meds` and process at most the next 40 contiguous cards.
+
+## Part 390 Recovery Addendum — MH Retrieval Registry Batch 7 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** No clinical wording or outside content source changed.
+
+Current batch:
+- **MH phase C retrieval-taxonomy registry IN PROGRESS; records 241–280 COMPLETE, cumulative 1–280 COMPLETE.** New coverage is `fc-ch10-ect-meds` through `fc-ch12-ptsd-comorbidity-risk`; record 281 `fc-ch12-prolonged-exposure` is next. The registry remains inactive and the legacy learner UI is unchanged.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: extends only the inactive stable-ID taxonomy registry by 40 entries. All card content, anchors, identity/order, legacy Type, links, and learner state remain unchanged.
+- `Build Guide Current Overlay.md` records this checkpoint. MN Flashcards and the checklist retain earlier authorized changes and are not changed in Part 390.
+
+Validation performed:
+- MH remains `593/593` required records and unique IDs with `593/593` MH Book anchors resolved, `30/30` unique static IDs, and both inline scripts parsing.
+- Registry passes cumulative `280/280` unique exact-prefix IDs, valid primary/attribute vocabularies, one primary per record, and exact legacy-warning preservation. Tally: Recall `231`, Act `49`; Comparison `65`, Numeric `21`, Sequence `10`, Mnemonic `3`, Warning `26`.
+- No registry metadata reaches learner UI or storage; `git diff --check` passes. Branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`. Current MH SHA-256 is `0a10da4019afcf8e265784b5774d8036b788fa35c6e433aece48be081c373deb`. No visual comparison was generated because the registry remains dormant.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at config SHA-256 `474b1dab120ab872549e82e5629420a13dc3cc42296960d92fb8eb2ff0dacb77`; all protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH records 241–280 are classified; cumulative 1–280 are validated and dormant with learner behavior unchanged.
+
+Next Recommended Action:
+- The user does not need to act; resume MH phase C at record 281 `fc-ch12-prolonged-exposure` and process at most the next 40 contiguous cards.
+
+## Part 391 Recovery Addendum — MH Retrieval Registry Batch 8 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** No clinical wording or outside content source changed.
+
+Current batch:
+- **MH phase C retrieval-taxonomy registry IN PROGRESS; records 281–320 COMPLETE, cumulative 1–320 COMPLETE.** New coverage is `fc-ch12-prolonged-exposure` through `fc-ch15-anosognosia`; record 321 `fc-ch15-milieu-psychosis` is next. The registry remains inactive and the legacy learner UI is unchanged.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: extends only the inactive stable-ID taxonomy registry by 40 entries. All card content, anchors, identity/order, legacy Type, links, and learner state remain unchanged.
+- `Build Guide Current Overlay.md` records this checkpoint. MN Flashcards and the checklist retain earlier authorized changes and are not changed in Part 391.
+
+Validation performed:
+- MH remains `593/593` required records and unique IDs with `593/593` MH Book anchors resolved, `30/30` unique static IDs, and both inline scripts parsing.
+- Registry passes cumulative `320/320` unique exact-prefix IDs, valid primary/attribute vocabularies, one primary per record, and exact legacy-warning preservation. Tally: Recall `262`, Act `58`; Comparison `70`, Numeric `28`, Sequence `13`, Mnemonic `3`, Warning `36`.
+- No registry metadata reaches learner UI or storage; `git diff --check` passes. Branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`. Current MH SHA-256 is `5e6961e9f8c386c1849e1858363548ea42c0b5a2072bc01a3751c1a7a352927a`. No visual comparison was generated because the registry remains dormant.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at config SHA-256 `474b1dab120ab872549e82e5629420a13dc3cc42296960d92fb8eb2ff0dacb77`; all protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH records 281–320 are classified; cumulative 1–320 are validated and dormant with learner behavior unchanged.
+
+Next Recommended Action:
+- The user does not need to act; resume MH phase C at record 321 `fc-ch15-milieu-psychosis` and process at most the next 40 contiguous cards.
+
+## Part 392 Recovery Addendum — MH Retrieval Registry Batch 9 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** No clinical wording or outside content source changed.
+
+Current batch:
+- **MH phase C retrieval-taxonomy registry IN PROGRESS; records 321–360 COMPLETE, cumulative 1–360 COMPLETE.** New coverage is `fc-ch15-milieu-psychosis` through `fc-ch18-alcohol-withdrawal-timeline`; record 361 `fc-ch18-benzo-withdrawal-seizure` is next. The registry remains inactive and the legacy learner UI is unchanged.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: extends only the inactive stable-ID taxonomy registry by 40 entries. All card content, anchors, identity/order, legacy Type, links, and learner state remain unchanged.
+- `Build Guide Current Overlay.md` records this checkpoint. MN Flashcards and the checklist retain earlier authorized changes and are not changed in Part 392.
+
+Validation performed:
+- MH remains `593/593` required records and unique IDs with `593/593` MH Book anchors resolved, `30/30` unique static IDs, and both inline scripts parsing.
+- Registry passes cumulative `360/360` unique exact-prefix IDs, valid primary/attribute vocabularies, one primary per record, and exact legacy-warning preservation. Tally: Recall `287`, Act `73`; Comparison `74`, Numeric `31`, Sequence `14`, Mnemonic `4`, Warning `44`.
+- No registry metadata reaches learner UI or storage; `git diff --check` passes. Branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`. Current MH SHA-256 is `1dae70aead670e33411fa6814843756d6eea230ab3780bf7da7ec1ce6ef48a49`. No visual comparison was generated because the registry remains dormant.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at config SHA-256 `474b1dab120ab872549e82e5629420a13dc3cc42296960d92fb8eb2ff0dacb77`; all protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH records 321–360 are classified; cumulative 1–360 are validated and dormant with learner behavior unchanged.
+
+Next Recommended Action:
+- The user does not need to act; resume MH phase C at record 361 `fc-ch18-benzo-withdrawal-seizure` and process at most the next 40 contiguous cards.
+
+## Part 393 Recovery Addendum — MH Retrieval Registry Batch 10 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** No clinical wording or outside content source changed.
+
+Current batch:
+- **MH phase C retrieval-taxonomy registry IN PROGRESS; records 361–400 COMPLETE, cumulative 1–400 COMPLETE.** New coverage is `fc-ch18-benzo-withdrawal-seizure` through `fc-ch20-reattribution-stages`; record 401 `fc-ch20-illness-anxiety-types` is next. The registry remains inactive and the legacy learner UI is unchanged.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: extends only the inactive stable-ID taxonomy registry by 40 entries. All card content, anchors, identity/order, legacy Type, links, and learner state remain unchanged.
+- `Build Guide Current Overlay.md` records this checkpoint. MN Flashcards and the checklist retain earlier authorized changes and are not changed in Part 393.
+
+Validation performed:
+- MH remains `593/593` required records and unique IDs with `593/593` MH Book anchors resolved, `30/30` unique static IDs, and both inline scripts parsing.
+- Registry passes cumulative `400/400` unique exact-prefix IDs, valid primary/attribute vocabularies, one primary per record, and exact legacy-warning preservation. Tally: Recall `319`, Act `81`; Comparison `79`, Numeric `32`, Sequence `16`, Mnemonic `4`, Warning `53`.
+- No registry metadata reaches learner UI or storage; `git diff --check` passes. Branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`. Current MH SHA-256 is `5279ff6e90ccb816915398ec5b6566a49926055ede22de36a88d7e231fddce4c`. No visual comparison was generated because the registry remains dormant.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at config SHA-256 `474b1dab120ab872549e82e5629420a13dc3cc42296960d92fb8eb2ff0dacb77`; all protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH records 361–400 are classified; cumulative 1–400 are validated and dormant with learner behavior unchanged.
+
+Next Recommended Action:
+- The user does not need to act; resume MH phase C at record 401 `fc-ch20-illness-anxiety-types` and process at most the next 40 contiguous cards.
+
+## Part 394 Recovery Addendum — MH Retrieval Registry Batch 11 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** No clinical wording or outside content source changed.
+
+Current batch:
+- **MH phase C retrieval-taxonomy registry IN PROGRESS; records 401–440 COMPLETE, cumulative 1–440 COMPLETE.** New coverage is `fc-ch20-illness-anxiety-types` through `fc-ch23-lamotrigine-rash`; record 441 `fc-ch23-lithium-early-toxicity` is next. The registry remains inactive and the legacy learner UI is unchanged.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: extends only the inactive stable-ID taxonomy registry by 40 entries. All card content, anchors, identity/order, legacy Type, links, and learner state remain unchanged.
+- `Build Guide Current Overlay.md` records this checkpoint. MN Flashcards and the checklist retain earlier authorized changes and are not changed in Part 394.
+
+Validation performed:
+- MH remains `593/593` required records and unique IDs with `593/593` MH Book anchors resolved, `30/30` unique static IDs, and both inline scripts parsing.
+- Registry passes cumulative `440/440` unique exact-prefix IDs, valid primary/attribute vocabularies, one primary per record, and exact legacy-warning preservation. Tally: Recall `343`, Act `97`; Comparison `83`, Numeric `35`, Sequence `16`, Mnemonic `4`, Warning `74`.
+- No registry metadata reaches learner UI or storage; `git diff --check` passes. Branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`. Current MH SHA-256 is `544ca21d386de7e47c72bbfcd309731b089a94aaf0c718553627da40449a8f60`. No visual comparison was generated because the registry remains dormant.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at config SHA-256 `474b1dab120ab872549e82e5629420a13dc3cc42296960d92fb8eb2ff0dacb77`; all protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH records 401–440 are classified; cumulative 1–440 are validated and dormant with learner behavior unchanged.
+
+Next Recommended Action:
+- The user does not need to act; resume MH phase C at record 441 `fc-ch23-lithium-early-toxicity` and process at most the next 40 contiguous cards.
+
+## Part 395 Recovery Addendum — MH Retrieval Registry Batch 12 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** No clinical wording or outside content source changed.
+
+Current batch:
+- **MH phase C retrieval-taxonomy registry IN PROGRESS; records 441–480 COMPLETE, cumulative 1–480 COMPLETE.** New coverage is `fc-ch23-lithium-early-toxicity` through `fc-ch26-methadone`; record 481 `fc-ch26-buprenorphine` is next. The registry remains inactive and the legacy learner UI is unchanged.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: extends only the inactive stable-ID taxonomy registry by 40 entries. All card content, anchors, identity/order, legacy Type, links, and learner state remain unchanged.
+- `Build Guide Current Overlay.md` records this checkpoint. MN Flashcards and the checklist retain earlier authorized changes and are not changed in Part 395.
+
+Validation performed:
+- MH remains `593/593` required records and unique IDs with `593/593` MH Book anchors resolved, `30/30` unique static IDs, and both inline scripts parsing.
+- Registry passes cumulative `480/480` unique exact-prefix IDs, valid primary/attribute vocabularies, one primary per record, and exact legacy-warning preservation. Tally: Recall `363`, Act `116`, Apply `1`; Comparison `87`, Numeric `44`, Sequence `18`, Mnemonic `4`, Warning `91`.
+- No registry metadata reaches learner UI or storage; `git diff --check` passes. Branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`. Current MH SHA-256 is `499bd18fe5f7c8221c7e04bdba714374417d18ab477331c7768c1f9e15460093`. No visual comparison was generated because the registry remains dormant.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at config SHA-256 `474b1dab120ab872549e82e5629420a13dc3cc42296960d92fb8eb2ff0dacb77`; all protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH records 441–480 are classified; cumulative 1–480 are validated and dormant with learner behavior unchanged.
+
+Next Recommended Action:
+- The user does not need to act; resume MH phase C at record 481 `fc-ch26-buprenorphine` and process at most the next 40 contiguous cards.
+
+## Part 396 Recovery Addendum — MH Retrieval Registry Batch 13 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** No clinical wording or outside content source changed.
+
+Current batch:
+- **MH phase C retrieval-taxonomy registry IN PROGRESS; records 481–520 COMPLETE, cumulative 1–520 COMPLETE.** New coverage is `fc-ch26-buprenorphine` through `fc-ch29-crisis-def`; record 521 `fc-ch29-maturational-crisis` is next. The registry remains inactive and the legacy learner UI is unchanged.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: extends only the inactive stable-ID taxonomy registry by 40 entries. All card content, anchors, identity/order, legacy Type, links, and learner state remain unchanged.
+- `Build Guide Current Overlay.md` records this checkpoint. MN Flashcards and the checklist retain earlier authorized changes and are not changed in Part 396.
+
+Validation performed:
+- MH remains `593/593` required records and unique IDs with `593/593` MH Book anchors resolved, `30/30` unique static IDs, and both inline scripts parsing.
+- Registry passes cumulative `520/520` unique exact-prefix IDs, valid primary/attribute vocabularies, one primary per record, and exact legacy-warning preservation. Tally: Recall `387`, Act `132`, Apply `1`; Comparison `89`, Numeric `51`, Sequence `21`, Mnemonic `4`, Warning `102`.
+- No registry metadata reaches learner UI or storage; `git diff --check` passes. Branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`. Current MH SHA-256 is `5f4cf383fe8dd7f8a26b4feff8139f5a4de31a3ebff720dbcb908d55381b3f63`. No visual comparison was generated because the registry remains dormant.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at config SHA-256 `474b1dab120ab872549e82e5629420a13dc3cc42296960d92fb8eb2ff0dacb77`; all protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH records 481–520 are classified; cumulative 1–520 are validated and dormant with learner behavior unchanged.
+
+Next Recommended Action:
+- The user does not need to act; resume MH phase C at record 521 `fc-ch29-maturational-crisis` and process at most the next 40 contiguous cards.
+
+## Part 397 Recovery Addendum — MH Retrieval Registry Batch 14 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** No clinical wording or outside content source changed.
+
+Current batch:
+- **MH phase C retrieval-taxonomy registry IN PROGRESS; records 521–560 COMPLETE, cumulative 1–560 COMPLETE.** New coverage is `fc-ch29-maturational-crisis` through `fc-ch31-post-incident-documentation`; record 561 `fc-ch31-aggression-risk-factors` is next. The registry remains inactive and the legacy learner UI is unchanged.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: extends only the inactive stable-ID taxonomy registry by 40 entries. All card content, anchors, identity/order, legacy Type, links, and learner state remain unchanged.
+- `Build Guide Current Overlay.md` records this checkpoint. MN Flashcards and the checklist retain earlier authorized changes and are not changed in Part 397.
+
+Validation performed:
+- MH remains `593/593` required records and unique IDs with `593/593` MH Book anchors resolved, `30/30` unique static IDs, and both inline scripts parsing.
+- Registry passes cumulative `560/560` unique exact-prefix IDs, valid primary/attribute vocabularies, one primary per record, and exact legacy-warning preservation. Tally: Recall `413`, Act `146`, Apply `1`; Comparison `97`, Numeric `54`, Sequence `21`, Mnemonic `4`, Warning `119`.
+- No registry metadata reaches learner UI or storage; `git diff --check` passes. Branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`. Current MH SHA-256 is `34f7b456285b5a08d771979252f6001581990305da950c94a8f7cae89405e2a8`. No visual comparison was generated because the registry remains dormant.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at config SHA-256 `474b1dab120ab872549e82e5629420a13dc3cc42296960d92fb8eb2ff0dacb77`; all protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH records 521–560 are classified; cumulative 1–560 are validated and dormant with learner behavior unchanged.
+
+Next Recommended Action:
+- The user does not need to act; resume MH phase C at record 561 `fc-ch31-aggression-risk-factors` and process the remaining 33 contiguous cards.
+
+## Part 398 Recovery Addendum — MH Retrieval Registry Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** No clinical wording or outside content source changed.
+
+Current batch:
+- **MH phase C retrieval-taxonomy registry COMPLETED; all records 1–593 COMPLETE.** Final coverage is `fc-ch31-aggression-risk-factors` through `fc-ch30-c-ssrs`. The full registry remains inactive, the legacy learner UI is unchanged, and MH phase D taxonomy activation/UI migration is next.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: completes only the inactive stable-ID taxonomy registry with the final 33 entries. All card content, anchors, identity/order, legacy Type, links, and learner state remain unchanged.
+- `Build Guide Current Overlay.md` records this checkpoint. MN Flashcards and the checklist retain earlier authorized changes and are not changed in Part 398.
+
+Validation performed:
+- MH remains `593/593` required records and unique IDs with exact baseline/current STARTER_DECK payload parity, `593/593` MH Book anchors resolved, `30/30` unique static IDs, and both inline scripts parsing.
+- The completed registry passes `593/593` unique exact-order IDs, valid primary/attribute vocabularies, one primary per record, and exact legacy-warning preservation. Final tally: Recall `434`, Act `158`, Apply `1`; Comparison `101`, Numeric `57`, Sequence `22`, Mnemonic `4`, Warning `127`.
+- No registry metadata reaches learner UI or storage; `git diff --check` passes. Branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`. Current MH SHA-256 is `a2afd2f6630a164a82ade718fe836882cea7438a62408896cefd9f6128424a55`. No visual comparison was generated because the registry remains dormant.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at config SHA-256 `474b1dab120ab872549e82e5629420a13dc3cc42296960d92fb8eb2ff0dacb77`; all protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH phase C is objectively complete: all 593 cards have one validated dormant primary retrieval target and validated independent attributes, with exact learner-content parity.
+
+Next Recommended Action:
+- The user does not need to act; begin only MH phase D taxonomy activation and UI migration from this completed registry.
+
+## Part 399 Recovery Addendum — MH Taxonomy Activation and UI Migration Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** MH taxonomy metadata now drives the learner-facing Flashcards design through the completed stable-ID registry. No clinical wording or outside content source changed.
+
+Current batch:
+- **MH phase D taxonomy activation and UI migration COMPLETED.** The legacy Type surface is replaced by MN-canon primary retrieval controls (`Recall`, `Recognize`, `Act`, `Apply`) and independent advanced attributes (`Warning`, `Numeric`, `Sequence`, `Comparison`, `Mnemonic`, `Calculation`). Phase E full static/runtime/responsive/learner-state QA is next.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: activates stable-ID read-time hydration, retrieval/attribute Review and Browse styling, shared filters, taxonomy-aware CSV tags, accessible sidebar quick filters, and versioned filter-state migration while preserving stable content, identity, links, storage, and schedule/history records.
+- `Build Guide Current Overlay.md` records this checkpoint. MN Flashcards and the checklist retain earlier authorized changes and are not changed in Part 399.
+
+Validation performed:
+- Static integrity passes: `593/593` STARTER_DECK records and unique IDs, exact baseline/current `id/ch/type/anchor/q/a` parity, `593/593` exact-order registry records, valid vocabularies, `593/593` MH Book anchors, both inline scripts, and `git diff --check`.
+- Fresh isolated-storage Chrome QA loaded all `593` cards without writing taxonomy into schedule records. Versioned filter migration retained only compatible values. Filter semantics passed (`Act=158`, `Recall+Apply=435`, `Warning|Numeric=171`, `Act∩Warning=64`), as did Review/Browse handoff, retrieval Browse choices, 594-line taxonomy-tagged CSV, light theme, drawer focus/state/reset/Escape, HTTP, and zero runtime errors.
+- Responsive checks passed at `2240×1000`, `1440×1000`, `901×1000`, `900×1000`, `768×1000`, `601×1000`, `600×1000`, and `390×844`, including paired stable measurements, no horizontal overflow, exact breakpoints, and visual inspection of wide/phone screenshots under `/private/tmp/mh-phase-d-399/`.
+- Branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`. Current MH SHA-256 is `bab9ec1240fecf1d93e97e6a9e5cff8fba9eddc049ec7d40a3f944fa2442438d`; other product hashes remain unchanged. No two-pane comparison was generated because phase F remains the user-review handoff.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at config SHA-256 `474b1dab120ab872549e82e5629420a13dc3cc42296960d92fb8eb2ff0dacb77`; all protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH now uses the approved retrieval taxonomy throughout Review, Browse, filters, badges, and CSV without rewriting clinical content or existing learner schedules.
+
+Next Recommended Action:
+- The user does not need to act; run only MH phase E full static/runtime/responsive/learner-state QA next, including print/PDF and broader interaction coverage.
+
+## Part 400 Recovery Addendum — MH Phase E QA In Progress
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** MH remains the only active target; no clinical wording or outside content source changed.
+
+Current batch:
+- **MH phase E full static/runtime/responsive/learner-state QA is IN PROGRESS.** One cohesive learner-state repair now lets the Flashcards rater safely read and update both MH Book schedule schemas (`reps`/`ef` and `repetitions`/`easeFactor`) without converting records; mature/learning filters now recognize both schemas.
+- The fresh gate found one remaining exact print defect: collapsed `.flashcard-a` stays `display:none`, `.deck-actions` stays visible, and the Letter PDF splits the review card across two pages. Phase E cannot advance; the print repair is the next run's one allowed correction.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: changes only schema-compatible SM-2 rating and status derivation. Learner schedules are not bulk rewritten; explicitly rated cards retain their original schema and all content/history fields.
+- `Build Guide Current Overlay.md` records this yielded checkpoint. MN Flashcards and the checklist retain earlier authorized changes and are unchanged in Part 400.
+
+Validation performed:
+- Static integrity passes: `593/593` required and unique records, exact HEAD payload/order parity, `593/593` exact-order taxonomy registry, expected taxonomy tallies, `593/593` MH Book anchors, two parse-clean scripts, unique static IDs, local link targets, and preserved storage identities.
+- Fresh isolated Chrome passes starter load/storage shape, compatible-only filter migration, non-mutating taxonomy hydration, every primary/secondary filter plus OR/AND unions, unit/chapter/search/status, Review/Browse handoff, reveal-without-mastery, keyboard, 594-row CSV payload/tags, HTTP links, theme persistence, drawer accessibility/focus/reset/overlay/quick-filter behavior, and zero runtime errors.
+- Both schedule schemas pass rating from two repetitions to mature state with schema/content/history preservation. Stable 100%-zoom paired measurements and no overflow pass at `2240×1000`, `1440×1000`, `901/900×1000`, `768×1000`, `601/600×1000`, and `390×844`; wide/tablet/phone screenshots were visually inspected and pass.
+- Print/PDF was generated and inspected but fails the exact collapsed-content/control/page-break contract above. Fresh artifacts and report are under `/private/tmp/mh-phase-e-400/`. `git diff --check` passes. Current MH SHA-256 is `f4da4466aae5197907d57114cb627fb4ae0d0d1871b18c9bd701fdb52e0b1672`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at config SHA-256 `474b1dab120ab872549e82e5629420a13dc3cc42296960d92fb8eb2ff0dacb77`; all protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, or push occurred. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- Rating and mature-status behavior now safely supports both existing MH schedule schemas; all tested gates pass except the documented print contract, so phase E remains in progress.
+
+Next Recommended Action:
+- The user does not need to act; resume only MH phase E next heartbeat, apply the cohesive print-media repair, regenerate/inspect the PDF, and rerun the complete fresh gate before advancing.
+
+## Part 401 Recovery Addendum — MH Phase E Full Objective Gate Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** MH remains the only active target; no clinical wording or outside content source changed.
+
+Current batch:
+- **MH phase E full static/runtime/responsive/learner-state QA is COMPLETED.** One cohesive print-media repair exposes the complete collapsed question and answer in print, removes interactive controls, and keeps the representative Letter review card on one page. MH phase F fresh MN-left/MH-right two-pane user-review handoff is next.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html`: adds only the bounded print-media contract while retaining Part 400's dual schedule-schema compatibility and all learner-facing screen behavior.
+- `Build Guide Current Overlay.md` records this completed checkpoint. MN Flashcards and the checklist retain earlier authorized changes and are unchanged in Part 401.
+
+Validation performed:
+- Static integrity passes: `593/593` required and unique records, exact HEAD payload/order parity, `593/593` exact-order taxonomy registry with expected counts, `593/593` MH Book anchors, two parse-clean scripts, preserved storage keys, compatible-only filter migration, non-mutating taxonomy hydration, local links, and clean `git diff --check`.
+- Fresh isolated Chrome QA passes every primary and secondary taxonomy filter plus OR/AND unions, unit/chapter/search/status, Review/Browse handoff, reveal and keyboard behavior, both schedule schemas through mature rating without schema conversion, 594-row CSV, HTTP links, theme persistence, drawer accessibility/focus/reset/overlay/quick-filter behavior, and zero runtime or console errors.
+- Stable paired 100%-zoom measurements and no horizontal overflow pass at `2240×1000`, `1440×1000`, `901/900×1000`, `768×1000`, `601/600×1000`, and `390×844`. Fresh wide, tablet, and phone screenshots were visually inspected and pass.
+- Fresh Letter PDF is exactly one page and was raster-inspected: the question, complete answer, and source link are legible; interactive controls are absent; the review card does not split. Evidence is under `/private/tmp/mh-phase-e-401/`. Current MH SHA-256 is `f96a84d842336a215624a2f5ee98af5fb9d21e374f14c4701c4ee25dbd56f62f`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at config SHA-256 `474b1dab120ab872549e82e5629420a13dc3cc42296960d92fb8eb2ff0dacb77`; all protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, or push occurred. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH phase E now passes the complete objective gate, including dual-schema learner-state preservation and a one-page, fully legible print contract.
+
+Next Recommended Action:
+- The user does not need to act; run only MH phase F next heartbeat to generate the fresh MN-left/MH-right two-pane representative review handoff.
+
+## Part 402 Recovery Addendum — MH Phase F User-Review Handoff Ready
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** MH is objectively complete through its bounded phase F handoff. Automated conformance remains separate from user visual approval; no clinical wording or outside content source changed.
+
+Current batch:
+- **MH phase F fresh MN-left/MH-right two-pane user-review handoff COMPLETED; USER VISUAL REVIEW REQUIRED.** The queue is stopped before PD. The current comparison is http://127.0.0.1:8882/mn-vs-mh-flashcards-review-402/mn-vs-mh-flashcards-review-402.html?v=mn-mh-flashcards-402.
+
+Files edited:
+- No Flashcards product changed in Part 402. Exact-current MN and MH copies, the read-only comparison wrapper, and its report exist only under `/private/tmp/mn-vs-mh-flashcards-review-402/`.
+- `Build Guide Current Overlay.md` records this review stop. The private master and handoff carry the same recovery state; `MN Design Canon Checklist.md` is unchanged because no reusable canon was added.
+
+Validation performed:
+- Comparison inputs byte-match the exact current products: MN SHA-256 `6026c760ca71135f93314bb46e5c59aeed460bfb7a4560afa75ee2bf99e732da`; MH SHA-256 `f96a84d842336a215624a2f5ee98af5fb9d21e374f14c4701c4ee25dbd56f62f`. Wrapper, MN frame, and MH frame each return HTTP `200` from `127.0.0.1`.
+- Fresh isolated handoff reports `Ready · exact MN 492 / MH 593 · review` and `data-qa-ready=true`. Two identical outer measurements more than 250 ms apart pass at `2240x1000`, browser scale `1`, with no horizontal overflow. The aligned Review state and synchronized Browse state were visually inspected.
+- Comparison controls pass: Review and Browse switch both panes, open/close Filters synchronizes both panes, Reveal answers exposes both answers, and the final handoff returns to aligned Review with comparison options closed. Both sidebars and cards show the shared Retrieval model rather than the old MH Type surface.
+- Fresh standalone loads of both exact copied products have no warning/error console entries. The embedded in-app comparison records one browser-harness `MutationObserver` signal that is absent from both product sources and standalone loads; deck readiness, rendering, and every tested comparison control remain unaffected. The handoff report is `/private/tmp/mn-vs-mh-flashcards-review-402/review-402-report.json`.
+- `git diff --check` passes. Branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`; all product hashes remain at Part 401.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` is intentionally **PAUSED** pending user visual review at config SHA-256 `2a0f4827715e1b1693615104920a8792fc0aab4a60d3c51c0793cd19e8e1d9ab`.
+- `ati-build-guide-ai-spec-polish`, `ati-template-clipping-qa`, `ati-pediatric-templates-design-polish`, and `ati-retrospective-template-spacing-heartbeat` remain **PAUSED** and byte-unchanged at their documented hashes.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH now matches the approved MN Flashcards design and retrieval-taxonomy canon through the complete objective gate and a fresh exact-current two-pane handoff. PD has not started; user visual approval is the required boundary.
+
+Next Recommended Action:
+- The user must visually review the live MN-left/MH-right comparison and either approve MH or identify a specific correction; keep the heartbeat paused and do not begin PD until that response.
+
+## Part 403 Recovery Addendum — MH User Approved / PD Queue Released
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** The user explicitly approved the Part 402 MN-left/MH-right visual handoff. MH design-canon and retrieval-taxonomy phases A–F are now objectively complete and user-approved.
+
+Current batch:
+- **MH USER VISUAL APPROVAL RECORDED; queue advances to PD phase A preflight/inventory next.** This approval checkpoint does not combine PD product work. The Part 402 comparison remains the approved MH evidence at http://127.0.0.1:8882/mn-vs-mh-flashcards-review-402/mn-vs-mh-flashcards-review-402.html?v=mn-mh-flashcards-402.
+
+Files edited:
+- No Flashcards product changed in Part 403. `Build Guide Current Overlay.md`, the private master, and the private handoff record the approval and queue transition. `MN Design Canon Checklist.md` is unchanged because no new canon was requested.
+
+Validation performed:
+- Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`; `git diff --check` passes. Expected tracked modifications remain exactly overlay, MH Flashcards, MN Flashcards, and checklist.
+- Product hashes remain MN `6026c760ca71135f93314bb46e5c59aeed460bfb7a4560afa75ee2bf99e732da`, approved MH `f96a84d842336a215624a2f5ee98af5fb9d21e374f14c4701c4ee25dbd56f62f`, untouched PD `b98c8499854a761eb487a73da5e17b2781783213ab97c974d11ae6e0f8e40eda`, Pharm `9e0bd414cf6813373cb29e7bef351ff0bd5d56c958437ac479cb3fb9e3cb9d9a`, and AMS `8eb1728ef107db8820c47c7933386652ddd0a37c0f3175c50a8d666464779f27`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` is **ACTIVE** again at config SHA-256 `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`; its next bounded run is PD phase A only.
+- `ati-build-guide-ai-spec-polish`, `ati-template-clipping-qa`, `ati-pediatric-templates-design-polish`, and `ati-retrospective-template-spacing-heartbeat` remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- MH is approved. The guarded queue is active again and will begin only PD preflight/inventory next; no PD content or product file changed in this approval checkpoint.
+
+Next Recommended Action:
+- The user does not need to act; allow the guarded heartbeat to begin PD phase A and intervene only if it reports a stop condition or the next representative review.
+
+## Part 404 Recovery Addendum — PD Phase A Preflight/Inventory Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** MH remains objectively complete and user-approved. PD is now the only active target; no PD clinical wording, card data, Book content, or learner state changed in this read-only phase.
+
+Current batch:
+- **PD phase A preflight/inventory COMPLETED.** The untouched PD Flashcards product has 747 source-order cards spanning chapters 1–44. PD phase B existing-canon design parity is next; taxonomy classification and learner-facing taxonomy activation have not begun.
+
+Files edited:
+- No Flashcards product changed in Part 404. `Build Guide Current Overlay.md`, the private master, and the private handoff record the completed inventory. `MN Design Canon Checklist.md` is unchanged because no reusable canon decision was needed.
+- Fresh inventory evidence exists only under `/private/tmp/pd-phase-a-404/`, including `pd-phase-a-404-report.json` and its read-only inventory script.
+
+Validation performed:
+- Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`; expected tracked modifications remain exactly overlay, MH Flashcards, MN Flashcards, and checklist; `git diff --check` passes. Preserved unrelated untracked files remain untouched.
+- PD Flashcards SHA-256 remains `b98c8499854a761eb487a73da5e17b2781783213ab97c974d11ae6e0f8e40eda`; the same-subject PD Book SHA-256 is `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`. The product contains exactly `747/747` unique stable IDs with no duplicate IDs or missing required fields; the exact record fields are `id`, `ch`, `type`, `anchor`, `q`, and `a`.
+- Source-order boundaries are position 1 `fc-ch1-fcc` and position 747 `fc-ch44-stimulant-monitoring`. Legacy Type totals are Concept `501`, Calculation `27`, and Warning `219`. Every chapter `ch1`–`ch44` is represented, and all `747/747` same-subject Book anchors resolve.
+- Static inventory passes `30/30` unique document IDs and two parse-clean inline scripts. Existing storage identity and migration behavior are preserved: `atipd_fc_schedule`, `atipd_fc_filters`, shared `nur2460_theme`, and the documented legacy-key copies. Review, Browse, Reveal, Hard/Good/Easy, Skip, CSV, keyboard controls, theme, filters, source links, URL-hash chapter selection, and storage/visibility synchronization are all present.
+- Objective phase-B parity gaps are recorded without changing the product: the narrow utility placement/sizing and top rhythm predate the approved 900/600 canon; the drawer lacks the approved hidden/inert, ARIA, Escape, focus restoration/search focus, and scroll-reset contract; sidebar rows use the older rhythm; and print media is absent. Legacy Type remains the active learner taxonomy, correctly unchanged until a complete future registry and bounded activation phase.
+- The three modular Study Tool Synthesis Guide v2 files remain the governing method from the active continuation. This inventory made no clinical classification and used no outside or model-background clinical content.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at config SHA-256 `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- `ati-build-guide-ai-spec-polish`, `ati-template-clipping-qa`, `ati-pediatric-templates-design-polish`, and `ati-retrospective-template-spacing-heartbeat` remain **PAUSED** and byte-unchanged at their documented hashes.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly four tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, and `MN Design Canon Checklist.md`; PD Flashcards remains unmodified and preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase A is objectively complete: 747 unique cards and all 747 Book anchors are intact, the legacy/runtime/storage surface is inventoried, and the exact existing-canon gaps for phase B are bounded without exposing mixed taxonomy UI.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should begin only PD phase B existing-canon design parity with at most one cohesive approved-canon correction.
+
+## Part 405 Recovery Addendum — PD Phase B Accessible Drawer Correction Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active target. No clinical wording, card identity/order, legacy Type, source anchor, subject accent, link, storage identity, learner schedule, review history, or progress record changed.
+
+Current batch:
+- **PD phase B existing-canon design parity is IN PROGRESS.** Exactly one cohesive approved-canon correction is complete: the `900px`-and-below utility controls and sidebar now implement the accessible MN drawer contract. The separate sidebar visual-rhythm and print contracts remain for later bounded runs, so phase B does not advance.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: moves Back to Hub to `14px` top/left, moves the `40×40` hamburger to `14px` top/right, establishes the `92px` narrow main top rhythm with `24px` tablet and `16px` phone horizontal padding, and adds synchronized icon/label/`aria-expanded`, hidden/inert closed state, search focus, sidebar-list top reset, Escape/overlay/quick-filter close, and focus restoration. No retrieval-taxonomy UI was introduced.
+- `Build Guide Current Overlay.md`, the private master, and the private handoff record the yielded phase-B checkpoint. `MN Design Canon Checklist.md` is unchanged because the correction applies already-approved canon.
+
+Validation performed:
+- Static integrity passes exact pre-change/current parity for all `747` ordered `id/ch/type/anchor/q/a` records, `747/747` unique stable IDs, no missing fields or duplicate IDs, `747/747` resolving PD Book anchors, `30/30` unique document IDs, and two parse-clean inline scripts. Original `atipd_fc_schedule`, `atipd_fc_filters`, and shared `nur2460_theme` identities remain present.
+- Fresh isolated HTTP/Chrome QA at `2240×1000`, `1440×1000`, exact `901/900×1000`, `768×1000`, exact `601/600×1000`, and `390×844` passes with two identical measurements at least 300 ms apart, browser scale `1`, HTTP `200`, zero horizontal overflow, and zero console/page errors.
+- Desktop widths retain the `280px` fixed sidebar and `36px 32px 80px` main padding. Narrow widths show the exact utility geometry and `92px` main top rhythm; the exact `601/600` pair switches from `24px` to `16px` horizontal padding. Closed drawers are hidden/inert; open drawers are exactly `280px` wide at `x=0` and focus the search after resetting the list to top.
+- Representative workflows at `900px` and `390px` pass open/close synchronization, Escape, overlay close, quick-filter close, and focus restoration. Fresh stable screenshots at `1440px`, open `900px`, and closed/open `390px` were visually inspected; the drawer, overlay, mobile utilities, and underlying layout are unclipped and conformant. Evidence is `/private/tmp/pd-phase-b-405/pd-phase-b-405-report.json` with four inspected PNGs in the same directory.
+- `git diff --check` and the focused PD diff pass. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD Flashcards SHA-256 is `c4e18b654a7e0d5e96995a427f72afe99fd1834fc0bfb9c17419f907f6b6f784`; the PD Book and all other product hashes remain unchanged from Part 404.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at config SHA-256 `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- `ati-build-guide-ai-spec-polish` remains **PAUSED** at `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`; `ati-template-clipping-qa` remains **PAUSED** at `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`; `ati-pediatric-templates-design-polish` remains **PAUSED** at `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`; and `ati-retrospective-template-spacing-heartbeat` remains **PAUSED** at `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD now has the approved narrow utility placement and complete accessible drawer behavior with exact content/storage parity, but phase B remains in progress for the separate sidebar visual rhythm and later print contract.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase B with one cohesive approved-canon sidebar header/theme/search/list/row rhythm correction, then run a fresh focused gate.
+
+## Part 406 Recovery Addendum — PD Phase B Sidebar Visual Rhythm Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. No clinical wording, card record, legacy Type, anchor, order, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase B existing-canon design parity remains IN PROGRESS.** Exactly one cohesive correction is complete: the full sidebar header/theme/search/list/label/inset-row rhythm now matches the approved MN roles. The separate print contract remains; phase B does not advance in this run.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: adds the approved sidebar line-height and single desktop Back-to-Hub arrow; theme/search rhythm; `8px 0 24px` list padding; 6px thin scrollbar; `10px/800/0.12em` labels; and inset `13px/600` rows with `9px 10px` padding, `0 8px 2px` margins, and 7px corners. Active rows use the shared surface role. The duplicate arrow seen in the first fresh render was removed within this same cohesive correction and the complete gate was regenerated.
+- `Build Guide Current Overlay.md`, the private master, and the private handoff record the yielded checkpoint. `MN Design Canon Checklist.md` is unchanged because no new canon was created.
+
+Validation performed:
+- Static integrity passes exact Part-405/current parity for all `747` ordered `id/ch/type/anchor/q/a` records, `747/747` unique IDs and resolving PD Book anchors, no missing/duplicate records, `30/30` unique document IDs, two parse-clean scripts, and preserved `atipd_fc_schedule`, `atipd_fc_filters`, and `nur2460_theme` identities.
+- Fresh isolated HTTP/Chrome QA passes twice-stable measurements at `2240×1000`, `1440×1000`, exact `901/900×1000`, `768×1000`, exact `601/600×1000`, and `390×844`, with 300 ms separation, HTTP `200`, zero horizontal overflow, and zero console/page errors.
+- At every viewport, computed sidebar roles pass: desktop/narrow header padding `18px 16px 14px` / `72px 16px 14px`; theme margin/font `12px 0 0`, `11px/600`; search wrapper `10px 16px` with divider; input `8px 10px`, 12px, 6px corners; list `8px 0 24px`; labels `10px/800/1.2px` with `14px 16px 4px`; and rows `263px` rendered width with `9px 10px` padding, `0 8px 2px` margin, `13px/600`, and 7px corners.
+- The Part-405 accessible drawer gate was repeated at `900px` and `390px`: hidden/inert closed state, exact open geometry, reset/focus, synchronized glyph/label/ARIA, Escape, overlay, quick-filter close, and focus restoration all pass. Fresh desktop, open-tablet, closed-phone, and open-phone screenshots were inspected; the single arrow, labels, inset active rows, separators, search, scrollbar surface, and drawer containment are visually conformant. Evidence is `/private/tmp/pd-phase-b-406/pd-phase-b-406-report.json` and the four inspected PNGs in that directory.
+- `git diff --check` and focused PD diff pass. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD SHA-256 is `7287cddf176c8d0aab599556b98f9c93d5da751c466d255ee126412ea0ae2c87`; the PD Book and every other product hash remain unchanged from Part 405.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD now has the approved sidebar rhythm and retained accessible drawer behavior with exact content/storage parity. Phase B remains open only for its separate print contract and completion gate.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase B with one cohesive approved-canon print correction, regenerate and inspect a fresh PDF, and complete the fresh phase-B gate before any advance.
+
+## Part 407 Recovery Addendum — PD Phase B Print Contract and Completion Gate Passed
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. No clinical wording, card identity/order, legacy Type, source anchor, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase B existing-canon design parity COMPLETED.** Exactly one cohesive correction was applied in this run: the approved learner-complete, control-free Letter print contract. PD phase C retrieval-taxonomy registry is next; no classification or learner-facing taxonomy activation began in Part 407.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: adds the approved print-only layout reset, hides navigation/study controls, preserves the hero and representative study card, forces the collapsed answer visible, and keeps hero/card blocks together for print.
+- The private v3 master, this overlay, and the private handoff record the completed phase-B checkpoint. `MN Design Canon Checklist.md` is unchanged because the print behavior applies already-approved canon.
+
+Validation performed:
+- Static integrity passes exact Part-406/current parity for all `747` ordered `id/ch/type/anchor/q/a` records, `747/747` unique stable IDs and resolving PD Book anchors, no missing/duplicate records, `30/30` unique document IDs, two parse-clean scripts, and preserved `atipd_fc_schedule`, `atipd_fc_filters`, and `nur2460_theme` identities. Current PD SHA-256 is `8ab75cc559b9a41adceab00f57d239f8c8b52aa295c24964ea81ac4e9e7a9e46`; the exact Part-406 baseline is `7287cddf176c8d0aab599556b98f9c93d5da751c466d255ee126412ea0ae2c87`.
+- Fresh isolated HTTP/Chrome QA repeats the complete phase-B responsive/canon matrix at `2240×1000`, `1440×1000`, exact `901/900×1000`, `768×1000`, exact `601/600×1000`, and `390×844`. All eight viewports produced two identical measurements 300 ms apart at browser scale `1`, HTTP `200`, zero horizontal overflow, and zero console/page errors.
+- The complete approved desktop/narrow/sidebar contract remains intact: fixed `280px` desktop sidebar and `36px 32px 80px` main padding; `92px` narrow main top rhythm; exact `601/600` horizontal-padding switch; hidden/inert closed drawer; synchronized icon/label/ARIA; search focus and scroll reset; Escape, overlay, quick-filter close, and focus restoration; approved header/theme/search/list/label/row computed roles. Fresh wide, open-tablet, closed-phone, and open-phone screenshots were visually inspected and are unclipped.
+- Fresh print-media measurements are twice identical 300 ms apart: main margin/padding reset to zero; the hero and `fc-ch1-fcc` card retain nonzero geometry and `break-inside: avoid`; the unrevealed answer is visible; sidebar, deck actions, filters, session/stats/tabs, reveal/rating/footer/progress/due controls, and keyboard overlay are absent. The fresh PDF is one Letter page, exact representative question and answer text are extractable, and no interactive controls appear. Its 144-DPI Poppler raster was visually inspected with no clipping or overlap.
+- Evidence is `/private/tmp/pd-phase-b-407/pd-phase-b-407-report.json`, `/private/tmp/pd-phase-b-407/pd-phase-b-407-print.pdf`, its raster, and four inspected responsive PNGs. `git diff --check` and final focused integrity pass. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. The PD Book and every other product hash remain unchanged.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase B is objectively complete: accessible responsive utilities/drawer, shared sidebar visual rhythm, and learner-complete print now pass together with exact content/storage parity. Taxonomy remains inactive and unchanged.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should begin only PD phase C with the first contiguous registry batch, positions 1–40 (`fc-ch1-fcc` through `fc-ch10-atraumatic`), and stop rather than force any materially ambiguous classification.
+
+## Part 408 Recovery Addendum — PD Phase C Registry Positions 1–40 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. Classification used only each existing PD card and its same-subject Book anchor; no clinical wording, card identity/order, legacy Type, anchor, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase C retrieval-taxonomy registry is IN PROGRESS.** Positions 1–40, `fc-ch1-fcc` through `fc-ch10-atraumatic`, are complete. The partial registry is embedded but disconnected from the learner UI. Exactly 707 records remain; no taxonomy activation is authorized before complete validation.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: adds only the 40 stable-ID registry entries in exact source order; learner UI, filters, storage, scheduling, and content remain unchanged.
+- The private v3 master, this overlay, and the private handoff record the yielded checkpoint. `MN Design Canon Checklist.md` is unchanged because no reusable canon clarification was needed.
+
+Validation performed:
+- The three modular Study Tool Synthesis Guide v2 files were read in governing order before classification. Whole-card review and same-subject Book context resolved the batch without materially ambiguous classification; no outside or model-background clinical source was used.
+- Fresh registry QA passes `40/40` unique entries in exact deck order with one allowed primary each: Recall `37`, Recognize `0`, Act `3`, Apply `0`; attributes Warning `4`, Numeric `26`, Sequence `0`, Comparison `1`, Mnemonic `2`, Calculation `0`. Warning exactly preserves the four legacy Warning cards.
+- Exact Part-407/current payload parity passes for all `747` ordered records; `747/747` stable IDs remain unique; `747/747` PD Book anchors resolve; two scripts parse cleanly; the registry has no learner-facing reference; storage identity is unchanged; and removing only the registry reproduces Part 407 byte for byte. Fresh isolated HTTP at `127.0.0.1:8896` returned `200` and byte-matched the current product. Evidence is under `/private/tmp/pd-phase-c-408/`.
+- `git diff --check` passes. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD SHA-256 is `45c69422b3b501f28d6cff609bdc62f753b385a3ac84fe5a6c3f542856ad2085`; PD Book SHA-256 remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase C has a validated, disconnected registry for positions 1–40 with exact content/storage parity. The learner continues to see the complete legacy Type UI; 707 cards remain before activation.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase C with positions 41–80 (`fc-ch10-stranger-infant` through `fc-ch20-dig-toxicity`) and stop rather than force any materially ambiguous classification.
+
+## Part 409 Recovery Addendum — PD Phase C Registry Positions 41–80 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. Classification used only each existing PD card and its same-subject Book anchor; no clinical wording, card identity/order, legacy Type, anchor, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase C retrieval-taxonomy registry is IN PROGRESS.** Positions 41–80, `fc-ch10-stranger-infant` through `fc-ch20-dig-toxicity`, are complete. The inactive registry now covers positions 1–80 and remains disconnected from the learner UI. Exactly 667 records remain; no taxonomy activation is authorized before complete validation.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: extends only the inactive stable-ID registry from 40 to 80 exact source-order records and updates its range comment; learner UI, filters, storage, scheduling, and content remain unchanged.
+- The private v3 master, this overlay, and the private handoff record the yielded checkpoint. `MN Design Canon Checklist.md` is unchanged because no reusable canon clarification was needed.
+
+Validation performed:
+- The active continuation already documents governing-order review of the three modular Study Tool Synthesis Guide v2 files. Whole-card review and same-subject Book context resolved positions 41–80 without materially ambiguous classification; no outside or model-background clinical source was used.
+- Fresh batch QA passes `40/40` unique entries in exact deck order with one allowed primary each: Recall `30`, Recognize `0`, Act `10`, Apply `0`; attributes Warning `12`, Numeric `21`, Sequence `3`, Comparison `2`, Mnemonic `1`, Calculation `0`. Warning exactly preserves the 12 legacy Warning cards. Cumulative 1–80 totals are Recall `67`, Recognize `0`, Act `13`, Apply `0`; Warning `16`, Numeric `47`, Sequence `3`, Comparison `3`, Mnemonic `3`, Calculation `0`.
+- Exact Part-408/current payload parity passes for all `747` ordered records; `747/747` stable IDs remain unique; `747/747` PD Book anchors resolve; positions 1–40 metadata remains unchanged; two scripts parse cleanly; the registry has no learner-facing reference; storage identity is unchanged; and all bytes outside the registry match Part 408. Fresh isolated HTTP at `127.0.0.1:8897` returned `200` and byte-matched the current product. Evidence is under `/private/tmp/pd-phase-c-409/`.
+- `git diff --check` passes. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD SHA-256 is `d4546a52fae457ceb08e75e208702ebf4d1792998bfd4ea15d9e3a4110e5c25c`; PD Book SHA-256 remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase C has a validated, disconnected registry through positions 1–80 with exact content/storage parity. The learner continues to see the complete legacy Type UI; 667 cards remain before activation.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase C with positions 81–120 (`fc-ch21-sickle-crisis` through `fc-ch34-measles`) and stop rather than force any materially ambiguous classification.
+
+## Part 410 Recovery Addendum — PD Phase C Registry Positions 81–120 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. Classification used only each existing PD card and its same-subject Book anchor; no clinical wording, card identity/order, legacy Type, anchor, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase C retrieval-taxonomy registry is IN PROGRESS.** Positions 81–120, `fc-ch21-sickle-crisis` through `fc-ch34-measles`, are complete. The inactive registry now covers positions 1–120 and remains disconnected from the learner UI. Exactly 627 records remain; no taxonomy activation is authorized before complete validation.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: extends only the inactive stable-ID registry from 80 to 120 exact source-order records and updates its range comment; learner UI, filters, storage, scheduling, and content remain unchanged.
+- The private v3 master, this overlay, and the private handoff record the yielded checkpoint. `MN Design Canon Checklist.md` is unchanged because no reusable canon clarification was needed.
+
+Validation performed:
+- The active continuation already documents governing-order review of the three modular Study Tool Synthesis Guide v2 files. Whole-card review and same-subject Book context resolved positions 81–120 without materially ambiguous classification; no outside or model-background clinical source was used.
+- Fresh batch QA passes `40/40` unique entries in exact deck order with one allowed primary each: Recall `29`, Recognize `0`, Act `11`, Apply `0`; attributes Warning `14`, Numeric `30`, Sequence `5`, Comparison `5`, Mnemonic `5`, Calculation `0`. Warning exactly preserves the 14 legacy Warning cards. Cumulative 1–120 totals are Recall `96`, Recognize `0`, Act `24`, Apply `0`; Warning `30`, Numeric `77`, Sequence `8`, Comparison `8`, Mnemonic `8`, Calculation `0`.
+- Exact Part-409/current payload parity passes for all `747` ordered records; `747/747` stable IDs remain unique; `747/747` PD Book anchors resolve; positions 1–80 metadata remains unchanged; two scripts parse cleanly; the registry has no learner-facing reference; storage identity is unchanged; and all bytes outside the registry match Part 409. Fresh isolated HTTP at `127.0.0.1:8898` returned `200` and byte-matched the current product. Evidence is under `/private/tmp/pd-phase-c-410/`.
+- `git diff --check` passes. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD SHA-256 is `e4506cd894ff31ebde711a9f9d1476286c5ae7d8d7d893114af4cd9171efba03`; PD Book SHA-256 remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase C has a validated, disconnected registry through positions 1–120 with exact content/storage parity. The learner continues to see the complete legacy Type UI; 627 cards remain before activation.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase C with positions 121–160 (`fc-ch34-varicella` through `fc-ch14-concussion-edu`) and stop rather than force any materially ambiguous classification.
+
+## Part 411 Recovery Addendum — PD Phase C Registry Positions 121–160 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. Classification used only each existing PD card and its same-subject Book anchor; no clinical wording, card identity/order, legacy Type, anchor, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase C retrieval-taxonomy registry is IN PROGRESS.** Positions 121–160, `fc-ch34-varicella` through `fc-ch14-concussion-edu`, are complete. The inactive registry now covers positions 1–160 and remains disconnected from the learner UI. Exactly 587 records remain; no taxonomy activation is authorized before complete validation.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: extends only the inactive stable-ID registry from 120 to 160 exact source-order records and updates its range comment; learner UI, filters, storage, scheduling, and content remain unchanged.
+- The private v3 master, this overlay, and the private handoff record the yielded checkpoint. `MN Design Canon Checklist.md` is unchanged because no reusable canon clarification was needed.
+
+Validation performed:
+- The active continuation already documents governing-order review of the three modular Study Tool Synthesis Guide v2 files. Whole-card review and same-subject Book context resolved positions 121–160 without materially ambiguous classification; no outside or model-background clinical source was used.
+- Fresh batch QA passes `40/40` unique entries in exact deck order with one allowed primary each: Recall `25`, Recognize `1`, Act `14`, Apply `0`; attributes Warning `16`, Numeric `25`, Sequence `2`, Comparison `11`, Mnemonic `0`, Calculation `0`. Warning exactly preserves the 16 legacy Warning cards. Cumulative 1–160 totals are Recall `121`, Recognize `1`, Act `38`, Apply `0`; Warning `46`, Numeric `102`, Sequence `10`, Comparison `19`, Mnemonic `8`, Calculation `0`.
+- Exact Part-410/current payload parity passes for all `747` ordered records; `747/747` stable IDs remain unique; `747/747` PD Book anchors resolve; positions 1–120 metadata remains unchanged; two scripts parse cleanly; the registry has no learner-facing reference; storage identity is unchanged; and all bytes outside the registry match Part 410. Fresh isolated HTTP at `127.0.0.1:8899` returned `200` and byte-matched the current product. Evidence is under `/private/tmp/pd-phase-c-411/`.
+- `git diff --check` passes. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD SHA-256 is `d21b80c22529724fc6faffbdb5159bbc4d97e488442a180a7c7cd98aac3778b0`; PD Book SHA-256 remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase C has a validated, disconnected registry through positions 1–160 with exact content/storage parity. The learner continues to see the complete legacy Type UI; 587 cards remain before activation.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase C with positions 161–200 (`fc-ch15-hearing-screen` through `fc-ch6-concrete-operations`) and stop rather than force any materially ambiguous classification.
+
+## Part 412 Recovery Addendum — PD Phase C Registry Positions 161–200 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. Classification used only each existing PD card and its same-subject Book anchor; no clinical wording, card identity/order, legacy Type, anchor, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase C retrieval-taxonomy registry is IN PROGRESS.** Positions 161–200, `fc-ch15-hearing-screen` through `fc-ch6-concrete-operations`, are complete. The inactive registry now covers positions 1–200 and remains disconnected from the learner UI. Exactly 547 records remain; no taxonomy activation is authorized before complete validation.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: extends only the inactive stable-ID registry from 160 to 200 exact source-order records and updates its range comment; learner UI, filters, storage, scheduling, and content remain unchanged.
+- The private v3 master, this overlay, and the private handoff record the yielded checkpoint. `MN Design Canon Checklist.md` is unchanged because no reusable canon clarification was needed.
+
+Validation performed:
+- The active continuation already documents governing-order review of the three modular Study Tool Synthesis Guide v2 files. Whole-card review and same-subject Book context resolved positions 161–200 without materially ambiguous classification; no outside or model-background clinical source was used.
+- Fresh batch QA passes `40/40` unique entries in exact deck order with one allowed primary each: Recall `30`, Recognize `3`, Act `7`, Apply `0`; attributes Warning `8`, Numeric `29`, Sequence `2`, Comparison `16`, Mnemonic `0`, Calculation `0`. Warning exactly preserves the eight legacy Warning cards. Cumulative 1–200 totals are Recall `151`, Recognize `4`, Act `45`, Apply `0`; Warning `54`, Numeric `131`, Sequence `12`, Comparison `35`, Mnemonic `8`, Calculation `0`.
+- Exact Part-411/current payload parity passes for all `747` ordered records; `747/747` stable IDs remain unique; `747/747` PD Book anchors resolve; positions 1–160 metadata remains unchanged; two scripts parse cleanly; the registry has no learner-facing reference; storage identity is unchanged; and all bytes outside the registry match Part 411. Fresh isolated HTTP at `127.0.0.1:8900` returned `200` and byte-matched the current product. Evidence is under `/private/tmp/pd-phase-c-412/`.
+- `git diff --check` passes. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD SHA-256 is `49c2325cbd35076f854f8c10b542a940d9e27ef967daba5a2ca36374b57229da`; PD Book SHA-256 remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase C has a validated, disconnected registry through positions 1–200 with exact content/storage parity. The learner continues to see the complete legacy Type UI; 547 cards remain before activation.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase C with positions 201–240 (`fc-ch6-industry` through `fc-ch16-o2-devices`) and stop rather than force any materially ambiguous classification.
+
+## Part 413 Recovery Addendum — PD Phase C Registry Positions 201–240 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. Classification used only each existing PD card and its same-subject Book anchor; no clinical wording, card identity/order, legacy Type, anchor, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase C retrieval-taxonomy registry is IN PROGRESS.** Positions 201–240, `fc-ch6-industry` through `fc-ch16-o2-devices`, are complete. The inactive registry now covers positions 1–240 and remains disconnected from the learner UI. Exactly 507 records remain; no taxonomy activation is authorized before complete validation.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: extends only the inactive stable-ID registry from 200 to 240 exact source-order records and updates its range comment; learner UI, filters, storage, scheduling, and content remain unchanged.
+- The private v3 master, this overlay, and the private handoff record the yielded checkpoint. `MN Design Canon Checklist.md` is unchanged because no reusable canon clarification was needed.
+
+Validation performed:
+- The active continuation already documents governing-order review of the three modular Study Tool Synthesis Guide v2 files. Whole-card review and same-subject Book context resolved positions 201–240 without materially ambiguous classification; no outside or model-background clinical source was used.
+- Fresh batch QA passes `40/40` unique entries in exact deck order with one allowed primary each: Recall `32`, Recognize `0`, Act `8`, Apply `0`; attributes Warning `13`, Numeric `21`, Sequence `4`, Comparison `15`, Mnemonic `3`, Calculation `0`. Warning exactly preserves the 13 legacy Warning cards. Cumulative 1–240 totals are Recall `183`, Recognize `4`, Act `53`, Apply `0`; Warning `67`, Numeric `152`, Sequence `16`, Comparison `50`, Mnemonic `11`, Calculation `0`.
+- Exact Part-412/current payload parity passes for all `747` ordered records; `747/747` stable IDs remain unique; `747/747` PD Book anchors resolve; positions 1–200 metadata remains unchanged; two scripts parse cleanly; the registry has no learner-facing reference; storage identity is unchanged; and all bytes outside the registry match Part 412. Fresh isolated HTTP at `127.0.0.1:8901` returned `200` and byte-matched the current product. Evidence is under `/private/tmp/pd-phase-c-413/`.
+- `git diff --check` passes. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD SHA-256 is `6efbc9c0c690c6124c7c28a0d1cda58e723e7d3908dad35a8401ef37d5a9f4d7`; PD Book SHA-256 remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase C has a validated, disconnected registry through positions 1–240 with exact content/storage parity. The learner continues to see the complete legacy Type UI; 507 cards remain before activation.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase C with positions 241–280 (`fc-ch16-o2-safety` through `fc-ch25-testicular-torsion`) and stop rather than force any materially ambiguous classification.
+
+## Part 414 Recovery Addendum — PD Phase C Registry Positions 241–280 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. Classification used only each existing PD card and its same-subject Book anchor; no clinical wording, card identity/order, legacy Type, anchor, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase C retrieval-taxonomy registry is IN PROGRESS.** Positions 241–280, `fc-ch16-o2-safety` through `fc-ch25-testicular-torsion`, are complete. The inactive registry now covers positions 1–280 and remains disconnected from the learner UI. Exactly 467 records remain; no taxonomy activation is authorized before complete validation.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: extends only the inactive stable-ID registry from 240 to 280 exact source-order records and updates its range comment; learner UI, filters, storage, scheduling, and content remain unchanged.
+- The private v3 master, this overlay, and the private handoff record the yielded checkpoint. `MN Design Canon Checklist.md` is unchanged because no reusable canon clarification was needed.
+
+Validation performed:
+- The active continuation already documents governing-order review of the three modular Study Tool Synthesis Guide v2 files. Whole-card review and same-subject Book context resolved positions 241–280 without materially ambiguous classification; no outside or model-background clinical source was used.
+- Fresh batch QA passes `40/40` unique entries in exact deck order with one allowed primary each: Recall `21`, Recognize `2`, Act `17`, Apply `0`; attributes Warning `18`, Numeric `28`, Sequence `4`, Comparison `22`, Mnemonic `3`, Calculation `0`. Warning exactly preserves the 18 legacy Warning cards. Cumulative 1–280 totals are Recall `204`, Recognize `6`, Act `70`, Apply `0`; Warning `85`, Numeric `180`, Sequence `20`, Comparison `72`, Mnemonic `14`, Calculation `0`.
+- Exact Part-413/current payload parity passes for all `747` ordered records; `747/747` stable IDs remain unique; `747/747` PD Book anchors resolve; positions 1–240 metadata remains unchanged; two scripts parse cleanly; the registry has no learner-facing reference; storage identity is unchanged; and all bytes outside the registry match Part 413. Fresh isolated HTTP at `127.0.0.1:8902` returned `200` and byte-matched the current product. Evidence is under `/private/tmp/pd-phase-c-414/`.
+- `git diff --check` passes. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD SHA-256 is `6ab65fb9ceb2c5199250cd77a57300fa3dd9051b4ac92ee4e2678855263b5ec3`; PD Book SHA-256 remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase C has a validated, disconnected registry through positions 1–280 with exact content/storage parity. The learner continues to see the complete legacy Type UI; 467 cards remain before activation.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase C with positions 281–320 (`fc-ch25-cryptorchidism` through `fc-ch35-live-contraindications`) and stop rather than force any materially ambiguous classification.
+
+## Part 415 Recovery Addendum — PD Phase C Registry Positions 281–320 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. Classification used only each existing PD card and its same-subject Book anchor; no clinical wording, card identity/order, legacy Type, anchor, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase C retrieval-taxonomy registry is IN PROGRESS.** Positions 281–320, `fc-ch25-cryptorchidism` through `fc-ch35-live-contraindications`, are complete. The inactive registry now covers positions 1–320 and remains disconnected from the learner UI. Exactly 427 records remain; no taxonomy activation is authorized before complete validation.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: extends only the inactive stable-ID registry from 280 to 320 exact source-order records and updates its range comment; learner UI, filters, storage, scheduling, and content remain unchanged.
+- The private v3 master, this overlay, and the private handoff record the yielded checkpoint. `MN Design Canon Checklist.md` is unchanged because no reusable canon clarification was needed.
+
+Validation performed:
+- The active continuation already documents governing-order review of the three modular Study Tool Synthesis Guide v2 files. Whole-card review and same-subject Book context resolved positions 281–320 without materially ambiguous classification; no outside or model-background clinical source was used.
+- Fresh batch QA passes `40/40` unique entries in exact deck order with one allowed primary each: Recall `22`, Recognize `1`, Act `16`, Apply `1`; attributes Warning `13`, Numeric `34`, Sequence `8`, Comparison `21`, Mnemonic `2`, Calculation `1`. Warning exactly preserves the 13 legacy Warning cards. Cumulative 1–320 totals are Recall `226`, Recognize `7`, Act `86`, Apply `1`; Warning `98`, Numeric `214`, Sequence `28`, Comparison `93`, Mnemonic `16`, Calculation `1`.
+- Exact Part-414/current payload parity passes for all `747` ordered records; `747/747` stable IDs remain unique; `747/747` PD Book anchors resolve; positions 1–280 metadata remains unchanged; two scripts parse cleanly; the registry has no learner-facing reference; storage identity is unchanged; and all bytes outside the registry match Part 414. Fresh isolated HTTP at `127.0.0.1:8903` returned `200` and byte-matched the current product. Evidence is under `/private/tmp/pd-phase-c-415/`.
+- `git diff --check` passes. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD SHA-256 is `c59565234d0a19a1d5a35e25a11cad3cd0c53ef800578b1272551027916b92f2`; PD Book SHA-256 remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase C has a validated, disconnected registry through positions 1–320 with exact content/storage parity. The learner continues to see the complete legacy Type UI; 427 cards remain before activation.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase C with positions 321–360 (`fc-ch35-not-contraindications` through `fc-ch44-munchausen`) and stop rather than force any materially ambiguous classification.
+
+## Part 416 Recovery Addendum — PD Phase C Registry Positions 321–360 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. Classification used only each existing PD card and its same-subject Book anchor; no clinical wording, card identity/order, legacy Type, anchor, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase C retrieval-taxonomy registry is IN PROGRESS.** Positions 321–360, `fc-ch35-not-contraindications` through `fc-ch44-munchausen`, are complete. The inactive registry now covers positions 1–360 and remains disconnected from the learner UI. Exactly 387 records remain; no taxonomy activation is authorized before complete validation.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: extends only the inactive stable-ID registry from 320 to 360 exact source-order records and updates its range comment; learner UI, filters, storage, scheduling, and content remain unchanged.
+- The private v3 master, this overlay, and the private handoff record the yielded checkpoint. `MN Design Canon Checklist.md` is unchanged because no reusable canon clarification was needed.
+
+Validation performed:
+- The active continuation already documents governing-order review of the three modular Study Tool Synthesis Guide v2 files. Whole-card review and same-subject Book context resolved positions 321–360 without materially ambiguous classification; no outside or model-background clinical source was used.
+- Fresh batch QA passes `40/40` unique entries in exact deck order with one allowed primary each: Recall `23`, Recognize `2`, Act `15`, Apply `0`; attributes Warning `16`, Numeric `30`, Sequence `9`, Comparison `27`, Mnemonic `3`, Calculation `0`. Warning exactly preserves the 16 legacy Warning cards. Cumulative 1–360 totals are Recall `249`, Recognize `9`, Act `101`, Apply `1`; Warning `114`, Numeric `244`, Sequence `37`, Comparison `120`, Mnemonic `19`, Calculation `1`.
+- Exact Part-415/current payload parity passes for all `747` ordered records; `747/747` stable IDs remain unique; `747/747` PD Book anchors resolve; positions 1–320 metadata remains unchanged; two scripts parse cleanly; the registry has no learner-facing reference; storage identity is unchanged; and all bytes outside the registry match Part 415. Fresh isolated HTTP at `127.0.0.1:8904` returned `200` and byte-matched the current product. Evidence is under `/private/tmp/pd-phase-c-416/`.
+- `git diff --check` passes. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD SHA-256 is `316310e7d5de0cce3a147fb47deb284d3755a7cbe170c48d24304125dd1bc11e`; PD Book SHA-256 remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase C has a validated, disconnected registry through positions 1–360 with exact content/storage parity. The learner continues to see the complete legacy Type UI; 387 cards remain before activation.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase C with positions 361–400 (`fc-ch44-refeeding-syndrome` through `fc-ch4-language-dev`) and stop rather than force any materially ambiguous classification.
+
+## Part 417 Recovery Addendum — PD Phase C Registry Positions 361–400 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. Classification used only each existing PD card and its same-subject Book anchor; no clinical wording, card identity/order, legacy Type, anchor, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase C retrieval-taxonomy registry is IN PROGRESS.** Positions 361–400, `fc-ch44-refeeding-syndrome` through `fc-ch4-language-dev`, are complete. The inactive registry now covers positions 1–400 and remains disconnected from the learner UI. Exactly 347 records remain; no taxonomy activation is authorized before complete validation.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: extends only the inactive stable-ID registry from 360 to 400 exact source-order records and updates its range comment; learner UI, filters, storage, scheduling, and content remain unchanged.
+- The private v3 master, this overlay, and the private handoff record the yielded checkpoint. `MN Design Canon Checklist.md` is unchanged because no reusable canon clarification was needed.
+
+Validation performed:
+- The active continuation already documents governing-order review of the three modular Study Tool Synthesis Guide v2 files. Whole-card review and same-subject Book context resolved positions 361–400 without materially ambiguous classification; no outside or model-background clinical source was used.
+- Fresh batch QA passes `40/40` unique entries in exact deck order with one allowed primary each: Recall `30`, Recognize `1`, Act `9`, Apply `0`; attributes Warning `6`, Numeric `21`, Sequence `10`, Comparison `19`, Mnemonic `0`, Calculation `0`. Warning exactly preserves the six legacy Warning cards. Cumulative 1–400 totals are Recall `279`, Recognize `10`, Act `110`, Apply `1`; Warning `120`, Numeric `265`, Sequence `47`, Comparison `139`, Mnemonic `19`, Calculation `1`.
+- Exact Part-416/current payload parity passes for all `747` ordered records; `747/747` stable IDs remain unique; `747/747` PD Book anchors resolve; positions 1–360 metadata remains unchanged; two scripts parse cleanly; the registry has no learner-facing reference; storage identity is unchanged; and all bytes outside the registry match Part 416. Fresh isolated HTTP at `127.0.0.1:8905` returned `200` and byte-matched the current product. Evidence is under `/private/tmp/pd-phase-c-417/`.
+- `git diff --check` passes. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD SHA-256 is `19b3db532dad3c14ea1b537c511d776265f8d805b403b9ff8f3cfdc483ec4f63`; PD Book SHA-256 remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase C has a validated, disconnected registry through positions 1–400 with exact content/storage parity. The learner continues to see the complete legacy Type UI; 347 cards remain before activation.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase C with positions 401–440 (`fc-ch4-immunization-toddler` through `fc-ch9-numeric-scale`) and stop rather than force any materially ambiguous classification.
+
+## Part 418 Recovery Addendum — PD Phase C Registry Positions 401–440 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. Classification used only each existing PD card and its same-subject Book anchor; no clinical wording, card identity/order, legacy Type, anchor, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase C retrieval-taxonomy registry is IN PROGRESS.** Positions 401–440, `fc-ch4-immunization-toddler` through `fc-ch9-numeric-scale`, are complete. The inactive registry now covers positions 1–440 and remains disconnected from the learner UI. Exactly 307 records remain; no taxonomy activation is authorized before complete validation.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: extends only the inactive stable-ID registry from 400 to 440 exact source-order records and updates its range comment; learner UI, filters, storage, scheduling, and content remain unchanged.
+- The private v3 master, this overlay, and the private handoff record the yielded checkpoint. `MN Design Canon Checklist.md` is unchanged because no reusable canon clarification was needed.
+
+Validation performed:
+- The active continuation already documents governing-order review of the three modular Study Tool Synthesis Guide v2 files. Whole-card review and same-subject Book context resolved positions 401–440 without materially ambiguous classification; no outside or model-background clinical source was used.
+- Fresh batch QA passes `40/40` unique entries in exact deck order with one allowed primary each: Recall `25`, Recognize `0`, Act `15`, Apply `0`; attributes Warning `8`, Numeric `24`, Sequence `12`, Comparison `15`, Mnemonic `1`, Calculation `0`. Warning exactly preserves the eight legacy Warning cards. Cumulative 1–440 totals are Recall `304`, Recognize `10`, Act `125`, Apply `1`; Warning `128`, Numeric `289`, Sequence `59`, Comparison `154`, Mnemonic `20`, Calculation `1`.
+- Exact Part-417/current payload parity passes for all `747` ordered records; `747/747` stable IDs remain unique; `747/747` PD Book anchors resolve; positions 1–400 metadata remains unchanged; two scripts parse cleanly; the registry has no learner-facing reference; storage identity is unchanged; and all bytes outside the registry match Part 417. Fresh isolated HTTP at `127.0.0.1:8906` returned `200` and byte-matched the current product. Evidence is under `/private/tmp/pd-phase-c-418/`.
+- `git diff --check` passes. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD SHA-256 is `106061d8aafe661e219b2cf9aae144ceb2b28d33266f614d6a9b0c8789b8c664`; PD Book SHA-256 remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase C has a validated, disconnected registry through positions 1–440 with exact content/storage parity. The learner continues to see the complete legacy Type UI; 307 cards remain before activation.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase C with positions 441–480 (`fc-ch9-pca` through `fc-ch13-postictal`) and stop rather than force any materially ambiguous classification.
+
+## Part 419 Recovery Addendum — PD Phase C Registry Positions 441–480 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. Classification used only each existing PD card and its same-subject Book anchor; no clinical wording, card identity/order, legacy Type, anchor, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase C retrieval-taxonomy registry is IN PROGRESS.** Positions 441–480, `fc-ch9-pca` through `fc-ch13-postictal`, are complete. The inactive registry now covers positions 1–480 and remains disconnected from the learner UI. Exactly 267 records remain; no taxonomy activation is authorized before complete validation.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: extends only the inactive stable-ID registry from 440 to 480 exact source-order records and updates its range comment; learner UI, filters, storage, scheduling, and content remain unchanged.
+- The private v3 master, this overlay, and the private handoff record the yielded checkpoint. `MN Design Canon Checklist.md` is unchanged because no reusable canon clarification was needed.
+
+Validation performed:
+- The active continuation already documents governing-order review of the three modular Study Tool Synthesis Guide v2 files. Whole-card review and same-subject Book context resolved positions 441–480 without materially ambiguous classification; no outside or model-background clinical source was used.
+- Fresh batch QA passes `40/40` unique entries in exact deck order with one allowed primary each: Recall `27`, Recognize `0`, Act `13`, Apply `0`; attributes Warning `13`, Numeric `8`, Sequence `4`, Comparison `12`, Mnemonic `1`, Calculation `0`. Warning exactly preserves the 13 legacy Warning cards. Cumulative 1–480 totals are Recall `331`, Recognize `10`, Act `138`, Apply `1`; Warning `141`, Numeric `297`, Sequence `63`, Comparison `166`, Mnemonic `21`, Calculation `1`.
+- Exact Part-418/current payload parity passes for all `747` ordered records; `747/747` stable IDs remain unique; `747/747` PD Book anchors resolve; positions 1–440 metadata remains unchanged; two scripts parse cleanly; the registry has no learner-facing reference; storage identity is unchanged; and all bytes outside the registry match Part 418. Fresh isolated HTTP at `127.0.0.1:8907` returned `200` and byte-matched the current product. Evidence is under `/private/tmp/pd-phase-c-419/`.
+- `git diff --check` passes. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD SHA-256 is `66ddca66ec86539e73808db0f1d0ec78f4b639e7c1c52e1a0f617ac0bd63e209`; PD Book SHA-256 remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase C has a validated, disconnected registry through positions 1–480 with exact content/storage parity. The learner continues to see the complete legacy Type UI; 267 cards remain before activation.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase C with positions 481–520 (`fc-ch13-ketogenic` through `fc-ch18-ics-teaching`) and stop rather than force any materially ambiguous classification.
+
+## Part 420 Recovery Addendum — PD Phase C Registry Positions 481–520 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. Classification used only each existing PD card and its same-subject Book anchor; no clinical wording, card identity/order, legacy Type, anchor, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase C retrieval-taxonomy registry is IN PROGRESS.** Positions 481–520, `fc-ch13-ketogenic` through `fc-ch18-ics-teaching`, are complete. The inactive registry now covers positions 1–520 and remains disconnected from the learner UI. Exactly 227 records remain; no taxonomy activation is authorized before complete validation.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: extends only the inactive stable-ID registry from 480 to 520 exact source-order records and updates its range comment; learner UI, filters, storage, scheduling, and content remain unchanged.
+- The private v3 master, this overlay, and the private handoff record the yielded checkpoint. `MN Design Canon Checklist.md` is unchanged because no reusable canon clarification was needed.
+
+Validation performed:
+- The active continuation already documents governing-order review of the three modular Study Tool Synthesis Guide v2 files. Whole-card review and same-subject Book context resolved positions 481–520 without materially ambiguous classification; no outside or model-background clinical source was used.
+- Fresh batch QA passes `40/40` unique entries in exact deck order with one allowed primary each: Recall `20`, Recognize `1`, Act `19`, Apply `0`; attributes Warning `14`, Numeric `22`, Sequence `13`, Comparison `19`, Mnemonic `1`, Calculation `0`. Warning exactly preserves the 14 legacy Warning cards. Cumulative 1–520 totals are Recall `351`, Recognize `11`, Act `157`, Apply `1`; Warning `155`, Numeric `319`, Sequence `76`, Comparison `185`, Mnemonic `22`, Calculation `1`.
+- Exact Part-419/current payload parity passes for all `747` ordered records; `747/747` stable IDs remain unique; `747/747` PD Book anchors resolve; positions 1–480 metadata remains unchanged; two scripts parse cleanly; the registry has no learner-facing reference; storage identity is unchanged; and all bytes outside the registry match Part 419. Fresh isolated HTTP at `127.0.0.1:8908` returned `200` and byte-matched the current product. Evidence is under `/private/tmp/pd-phase-c-420/`.
+- `git diff --check` passes. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD SHA-256 is `763fbc0dc24fa840264ed27835724ca57cf85c9a8863823be35ee6616dd8afae`; PD Book SHA-256 remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase C has a validated, disconnected registry through positions 1–520 with exact content/storage parity. The learner continues to see the complete legacy Type UI; 227 cards remain before activation.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase C with positions 521–560 (`fc-ch18-triggers` through `fc-ch22-iv-bolus`) and stop rather than force any materially ambiguous classification.
+
+## Part 421 Recovery Addendum — PD Phase C Registry Positions 521–560 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. Classification used only each existing PD card and its same-subject Book anchor; no clinical wording, card identity/order, legacy Type, anchor, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase C retrieval-taxonomy registry is IN PROGRESS.** Positions 521–560, `fc-ch18-triggers` through `fc-ch22-iv-bolus`, are complete. The inactive registry now covers positions 1–560 and remains disconnected from the learner UI. Exactly 187 records remain; no taxonomy activation is authorized before complete validation.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: extends only the inactive stable-ID registry from 520 to 560 exact source-order records and updates its range comment; learner UI, filters, storage, scheduling, and content remain unchanged.
+- The private v3 master, this overlay, and the private handoff record the yielded checkpoint. `MN Design Canon Checklist.md` is unchanged because no reusable canon clarification was needed.
+
+Validation performed:
+- The active continuation already documents governing-order review of the three modular Study Tool Synthesis Guide v2 files. Whole-card, same-subject Book, and prior-registry analogue review resolved positions 521–560 without materially ambiguous classification; no outside or model-background clinical source was used.
+- Fresh batch QA passes `40/40` unique entries in exact deck order with one allowed primary each: Recall `26`, Recognize `0`, Act `14`, Apply `0`; attributes Warning `14`, Numeric `10`, Sequence `11`, Comparison `16`, Mnemonic `3`, Calculation `0`. Warning exactly preserves the 14 legacy Warning cards. Cumulative 1–560 totals are Recall `377`, Recognize `11`, Act `171`, Apply `1`; Warning `169`, Numeric `329`, Sequence `87`, Comparison `201`, Mnemonic `25`, Calculation `1`.
+- Exact Part-420/current payload parity passes for all `747` ordered records; `747/747` stable IDs remain unique; `747/747` PD Book anchors resolve; positions 1–520 metadata remains unchanged; two scripts parse cleanly; the registry has no learner-facing reference; storage identity is unchanged; and all bytes outside the registry match Part 420. Fresh isolated HTTP at `127.0.0.1:8909` returned `200` and byte-matched the current product. Evidence is under `/private/tmp/pd-phase-c-421/`.
+- `git diff --check` passes. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD SHA-256 is `c033f57f679d4d216cd8fbdf4e4eb44a9969bc6c504262e385e709d16b30467e`; PD Book SHA-256 remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase C has a validated, disconnected registry through positions 1–560 with exact content/storage parity. The learner continues to see the complete legacy Type UI; 187 cards remain before activation.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase C with positions 561–600 (`fc-ch22-diet-refeeding` through `fc-ch27-greenstick`) and stop rather than force any materially ambiguous classification.
+
+## Part 422 Recovery Addendum — PD Phase C Registry Positions 561–600 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. Classification used only each existing PD card and its same-subject Book anchor; no clinical wording, card identity/order, legacy Type, anchor, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase C retrieval-taxonomy registry is IN PROGRESS.** Positions 561–600, `fc-ch22-diet-refeeding` through `fc-ch27-greenstick`, are complete. The inactive registry now covers positions 1–600 and remains disconnected from the learner UI. Exactly 147 records remain; no taxonomy activation is authorized before complete validation.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: extends only the inactive stable-ID registry from 560 to 600 exact source-order records and updates its range comment; learner UI, filters, storage, scheduling, and content remain unchanged.
+- The private v3 master, this overlay, and the private handoff record the yielded checkpoint. `MN Design Canon Checklist.md` is unchanged because no reusable canon clarification was needed.
+
+Validation performed:
+- The active continuation already documents governing-order review of the three modular Study Tool Synthesis Guide v2 files. Whole-card, same-subject Book, and prior-registry analogue review resolved positions 561–600 without materially ambiguous classification; no outside or model-background clinical source was used.
+- Fresh batch QA passes `40/40` unique entries in exact deck order with one allowed primary each: Recall `17`, Recognize `0`, Act `23`, Apply `0`; attributes Warning `13`, Numeric `19`, Sequence `16`, Comparison `17`, Mnemonic `1`, Calculation `0`. Warning exactly preserves the 13 legacy Warning cards. Cumulative 1–600 totals are Recall `394`, Recognize `11`, Act `194`, Apply `1`; Warning `182`, Numeric `348`, Sequence `103`, Comparison `218`, Mnemonic `26`, Calculation `1`.
+- Exact Part-421/current payload parity passes for all `747` ordered records; `747/747` stable IDs remain unique; `747/747` PD Book anchors resolve; positions 1–560 metadata remains unchanged; two scripts parse cleanly; the registry has no learner-facing reference; storage identity is unchanged; and all bytes outside the registry match Part 421. Fresh isolated HTTP at `127.0.0.1:8910` returned `200` and byte-matched the current product. Evidence is under `/private/tmp/pd-phase-c-422/`.
+- `git diff --check` passes. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD SHA-256 is `f7b4e9ed7530d637f927c0c6e0db2d0b50882a97a90ec0ae66917f6ced4b8e80`; PD Book SHA-256 remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase C has a validated, disconnected registry through positions 1–600 with exact content/storage parity. The learner continues to see the complete legacy Type UI; 147 cards remain before activation.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase C with positions 601–640 (`fc-ch27-compartment-syndrome` through `fc-ch31-contact-dermatitis`) and stop rather than force any materially ambiguous classification.
+
+## Part 423 Recovery Addendum — PD Phase C Registry Positions 601–640 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. Classification used only each existing PD card and its same-subject Book anchor; no clinical wording, card identity/order, legacy Type, anchor, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase C retrieval-taxonomy registry is IN PROGRESS.** Positions 601–640, `fc-ch27-compartment-syndrome` through `fc-ch31-contact-dermatitis`, are complete. The inactive registry now covers positions 1–640 and remains disconnected from the learner UI. Exactly 107 records remain; no taxonomy activation is authorized before complete validation.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: extends only the inactive stable-ID registry from 600 to 640 exact source-order records and updates its range comment; learner UI, filters, storage, scheduling, and content remain unchanged.
+- The private v3 master, this overlay, and the private handoff record the yielded checkpoint. `MN Design Canon Checklist.md` is unchanged because no reusable canon clarification was needed.
+
+Validation performed:
+- The active continuation already documents governing-order review of the three modular Study Tool Synthesis Guide v2 files. Whole-card, same-subject Book, and prior-registry analogue review resolved positions 601–640 without materially ambiguous classification; no outside or model-background clinical source was used.
+- Fresh batch QA passes `40/40` unique entries in exact deck order with one allowed primary each: Recall `14`, Recognize `1`, Act `25`, Apply `0`; attributes Warning `8`, Numeric `10`, Sequence `15`, Comparison `15`, Mnemonic `1`, Calculation `0`. Warning exactly preserves the eight legacy Warning cards. Cumulative 1–640 totals are Recall `408`, Recognize `12`, Act `219`, Apply `1`; Warning `190`, Numeric `358`, Sequence `118`, Comparison `233`, Mnemonic `27`, Calculation `1`.
+- Exact Part-422/current payload parity passes for all `747` ordered records; `747/747` stable IDs remain unique; `747/747` PD Book anchors resolve; positions 1–600 metadata remains unchanged; two scripts parse cleanly; the registry has no learner-facing reference; storage identity is unchanged; and all bytes outside the registry match Part 422. Fresh isolated HTTP at `127.0.0.1:8911` returned `200` and byte-matched the current product. Evidence is under `/private/tmp/pd-phase-c-423/`.
+- `git diff --check` passes. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD SHA-256 is `eed64536a48e275883f66ddfa95003dd22f645bf39bf396f42a8c0433bdfb2ec`; PD Book SHA-256 remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase C has a validated, disconnected registry through positions 1–640 with exact content/storage parity. The learner continues to see the complete legacy Type UI; 107 cards remain before activation.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase C with positions 641–680 (`fc-ch31-cradle-cap` through `fc-ch36-diphtheria`) and stop rather than force any materially ambiguous classification.
+
+## Part 424 Recovery Addendum — PD Phase C Registry Positions 641–680 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. Classification used only each existing PD card and its same-subject Book anchor; no clinical wording, card identity/order, legacy Type, anchor, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase C retrieval-taxonomy registry is IN PROGRESS.** Positions 641–680, `fc-ch31-cradle-cap` through `fc-ch36-diphtheria`, are complete. The inactive registry now covers positions 1–680 and remains disconnected from the learner UI. Exactly 67 records remain; no taxonomy activation is authorized before complete validation.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: extends only the inactive stable-ID registry from 640 to 680 exact source-order records and updates its range comment; learner UI, filters, storage, scheduling, and content remain unchanged.
+- The private v3 master, this overlay, and the private handoff record the yielded checkpoint. `MN Design Canon Checklist.md` is unchanged because no reusable canon clarification was needed.
+
+Validation performed:
+- The active continuation already documents governing-order review of the three modular Study Tool Synthesis Guide v2 files. Whole-card, same-subject Book, and prior-registry analogue review resolved positions 641–680 without materially ambiguous classification; no outside or model-background clinical source was used.
+- Fresh batch QA passes `40/40` unique entries in exact deck order with one allowed primary each: Recall `21`, Recognize `0`, Act `19`, Apply `0`; attributes Warning `9`, Numeric `18`, Sequence `18`, Comparison `14`, Mnemonic `2`, Calculation `0`. Warning exactly preserves the nine legacy Warning cards. Cumulative 1–680 totals are Recall `429`, Recognize `12`, Act `238`, Apply `1`; Warning `199`, Numeric `376`, Sequence `136`, Comparison `247`, Mnemonic `29`, Calculation `1`.
+- Exact Part-423/current payload parity passes for all `747` ordered records; `747/747` stable IDs remain unique; `747/747` PD Book anchors resolve; positions 1–640 metadata remains unchanged; two scripts parse cleanly; the registry has no learner-facing reference; storage identity is unchanged; and all bytes outside the registry match Part 423. Fresh isolated HTTP at `127.0.0.1:8912` returned `200` and byte-matched the current product. Evidence is under `/private/tmp/pd-phase-c-424/`.
+- `git diff --check` passes. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD SHA-256 is `d4d46afad70c14b94efb2c4de177b06fe7e57488b517bb0ddcb22a874537f263`; PD Book SHA-256 remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase C has a validated, disconnected registry through positions 1–680 with exact content/storage parity. The learner continues to see the complete legacy Type UI; 67 cards remain before activation.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase C with positions 681–720 (`fc-ch36-mononucleosis` through `fc-ch41-body-image-bone`) and stop rather than force any materially ambiguous classification.
+
+## Part 425 Recovery Addendum — PD Phase C Registry Positions 681–720 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. Classification used only each existing PD card and its same-subject Book anchor; no clinical wording, card identity/order, legacy Type, anchor, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase C retrieval-taxonomy registry is IN PROGRESS.** Positions 681–720, `fc-ch36-mononucleosis` through `fc-ch41-body-image-bone`, are complete. The inactive registry now covers positions 1–720 and remains disconnected from the learner UI. Exactly 27 records remain; no taxonomy activation is authorized before complete validation.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: extends only the inactive stable-ID registry from 680 to 720 exact source-order records and updates its range comment; learner UI, filters, storage, scheduling, and content remain unchanged.
+- The private v3 master, this overlay, and the private handoff record the yielded checkpoint. `MN Design Canon Checklist.md` is unchanged because no reusable canon clarification was needed.
+
+Validation performed:
+- The active continuation already documents governing-order review of the three modular Study Tool Synthesis Guide v2 files. Whole-card, same-subject Book, and prior-registry analogue review resolved positions 681–720 without materially ambiguous classification; no outside or model-background clinical source was used.
+- Fresh batch QA passes `40/40` unique entries in exact deck order with one allowed primary each: Recall `23`, Recognize `0`, Act `17`, Apply `0`; attributes Warning `9`, Numeric `9`, Sequence `2`, Comparison `4`, Mnemonic `0`, Calculation `0`. Warning exactly preserves the nine legacy Warning cards. Cumulative 1–720 totals are Recall `452`, Recognize `12`, Act `255`, Apply `1`; Warning `208`, Numeric `385`, Sequence `138`, Comparison `251`, Mnemonic `29`, Calculation `1`.
+- Exact Part-424/current payload parity passes for all `747` ordered records; `747/747` stable IDs remain unique; `747/747` PD Book anchors resolve; positions 1–680 metadata remains unchanged; two scripts parse cleanly; the registry has no learner-facing reference; storage identity is unchanged; and all bytes outside the registry match Part 424. Fresh isolated HTTP at `127.0.0.1:8913` returned `200` and byte-matched the current product. Evidence is under `/private/tmp/pd-phase-c-425/`.
+- `git diff --check` passes. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD SHA-256 is `cd10c70931e5e7e7cb50eb20fdff576041f5c2b90685215a707c1adb6b44790c`; PD Book SHA-256 remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase C has a validated, disconnected registry through positions 1–720 with exact content/storage parity. The learner continues to see the complete legacy Type UI; 27 cards remain before activation.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase C with the final 27 records, positions 721–747 (`fc-ch41-rhabdo-sites` through `fc-ch44-stimulant-monitoring`), and stop rather than force any materially ambiguous classification.
+
+## Part 426 Recovery Addendum — PD Phase C Retrieval-Taxonomy Registry Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. Classification used only each existing PD card and its same-subject Book anchor; no clinical wording, card identity/order, legacy Type, anchor, link, storage identity, learner schedule/history, or progress record changed.
+
+Current batch:
+- **PD phase C retrieval-taxonomy registry is COMPLETED with a fresh objective pass.** The final 27 records, positions 721–747 from `fc-ch41-rhabdo-sites` through `fc-ch44-stimulant-monitoring`, are complete. The validated registry covers all 747 source-order records exactly once and remains disconnected from the learner UI. Phase D activation and UI migration is next but was not started.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: extends only the disconnected stable-ID registry from 720 to all 747 exact source-order records and updates its comment to record complete validation awaiting Phase D activation; learner UI, filters, storage, scheduling, and content remain unchanged.
+- The private v3 master, this overlay, and the private handoff record the completed phase-C checkpoint. `MN Design Canon Checklist.md` is unchanged because no reusable canon clarification was needed.
+
+Validation performed:
+- The active continuation already documents governing-order review of the three modular Study Tool Synthesis Guide v2 files. Whole-card, same-subject Book, and prior-registry analogue review resolved positions 721–747 without materially ambiguous classification; no outside or model-background clinical source was used.
+- Fresh final-batch QA passes `27/27` unique entries in exact deck order with one allowed primary each: Recall `15`, Recognize `0`, Act `12`, Apply `0`; attributes Warning `11`, Numeric `5`, Sequence `8`, Comparison `5`, Mnemonic `0`, Calculation `0`. Warning exactly preserves the 11 legacy Warning cards.
+- The complete registry passes `747/747` unique IDs and exact source order with primary totals Recall `467`, Recognize `12`, Act `267`, Apply `1`; overlapping attributes Warning `219`, Numeric `390`, Sequence `146`, Comparison `256`, Mnemonic `29`, Calculation `1`. All 219 Warning flags exactly preserve the complete legacy Warning inventory.
+- Exact Part-425/current payload parity passes for all `747` ordered records; `747/747` PD Book anchors resolve; positions 1–720 metadata remains unchanged; two scripts parse cleanly; the registry has no learner-facing reference; storage identity is unchanged; and all bytes outside the registry match Part 425. Fresh isolated HTTP at `127.0.0.1:8914` returned `200` and byte-matched the current product. Evidence is under `/private/tmp/pd-phase-c-426/`.
+- `git diff --check` passes. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Current PD SHA-256 is `e7eb210fb65995498f89139051d3628f6d30bc347238a708a7deb7b0bffb8e34`; PD Book SHA-256 remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: `Build Guide Current Overlay.md`, `Elevated ATI MH Flashcards.html`, `Elevated ATI MN Flashcards.html`, `Elevated ATI PD Flashcards.html`, and `MN Design Canon Checklist.md`; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD phase C is objectively complete: all 747 cards have one validated primary retrieval target and the complete overlapping-attribute registry passes while remaining disconnected. The learner continues to see the unchanged legacy Type UI; Phase D has not begun.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should begin only PD phase D taxonomy activation and UI migration from the validated 747-card registry, preserving byte-compatible learner schedules/history and stopping for any migration or state risk.
+
+## Part 427 — PD Phase D Taxonomy Activation In Progress
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject; taxonomy metadata is activated by stable ID without changing clinical wording, legacy Type, stable identity/order, source anchors, links, or schedule/history records.
+
+Current batch:
+- **PD phase D is IN PROGRESS.** One cohesive activation pass now provides retrieval/attribute Review and Browse presentation, shared filters, sidebar retrieval quick filters, taxonomy-aware CSV tags, and compatible versioned filter migration. The learner UI is wholly migrated rather than mixed, but the complete phase-D fresh gate is still pending.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`, this overlay, the private master, and the private handoff. `MN Design Canon Checklist.md` is unchanged.
+
+Validation performed:
+- Static QA passes exact Part-426 parity for `747/747` ordered `id/ch/type/anchor/q/a` records, `747/747` unique deck and registry IDs in exact order, unchanged registry metadata, allowed taxonomy values, `747/747` resolving Book anchors, and two parse-clean scripts.
+- `atipd_fc_schedule`, `loadStarterDeck()`, and `rateCard()` are unchanged; taxonomy is hydrated only on read. The UI key is versioned to `atipd_fc_filters_v2`; compatible legacy search/unit/chapter/status values migrate and legacy Type choices are dropped.
+- Isolated runtime passed 747 loaded records, Review badges, exact primary counts Recall `467` and Recall-or-Act `734`, attribute counts Warning `219` and Warning-or-Numeric `500`, cross-group Recall-and-(Warning-or-Numeric) `312`, and identical 312-card Browse/Review handoff. A second fresh origin visibly migrated legacy unit/chapter while dropping legacy Type; console warnings/errors were empty.
+- The browser connection reset during the populated migration follow-up, so complete responsive pairs, fresh screenshots, print, theme/drawer/keyboard/CSV, and migration-reload evidence remain pending. Evidence is under `/private/tmp/pd-phase-d-427/`. HTTP returned `200`; `git diff --check` passes. PD SHA-256 is `c907bdc6690832503df2258966fd1d371a67f7a27dca9a758814ad1dbc6ebe96`; PD Book remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`.
+
+Automation status:
+- The Flashcards heartbeat remains **ACTIVE** at `e9f06fcce34393edcdcaa073b3099df155824509f4a007250e2a26c8fe0b7946`; all four protected automations remain **PAUSED** and byte-unchanged at their Part 426 hashes.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, and checklist; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD has one coherent learner-facing taxonomy activation with exact content and schedule-writing parity, and its main filter/Review/Browse paths pass. Phase D is not complete until the remaining fresh gate evidence passes.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should resume only PD phase D from SHA-256 `c907bdc6690832503df2258966fd1d371a67f7a27dca9a758814ad1dbc6ebe96`, run the remaining fresh gate without product edits unless a reproducible defect appears, and advance only after the complete phase-D gate passes.
+
+## Part 428 — PD Phase D Stopped for Learner-State Risk
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. Phase D is stopped and the Flashcards heartbeat is paused after fresh isolated runtime found a learner-scheduling failure. No clinical wording, identity/order, legacy Type, anchor, link, storage key, schedule/history record, or progress record changed.
+
+Current batch:
+- **PD phase D remains IN PROGRESS but is STOPPED at the learner-state gate.** Populated compatible-filter migration and taxonomy-filter paths pass; a stable first-Good-rating reproduction fails before schedule save. Phase D did not advance, and remaining responsive, screenshot, and print checks were not run after the stop condition.
+
+Files edited:
+- No product file changed in Part 428. PD remains byte-identical to Part 427 at SHA-256 `c907bdc6690832503df2258966fd1d371a67f7a27dca9a758814ad1dbc6ebe96`.
+- The private master, this overlay, and the private handoff record the stopped checkpoint. `MN Design Canon Checklist.md` is unchanged.
+
+Validation performed:
+- Fresh exact-product isolated state at `127.0.0.1:41729` used the product's own 747-card starter inventory and exact starter schedule shape. Compatible legacy unit `system-disorders` and chapter `12` migrated, legacy Type was dropped, and `17 of 747 cards match` persisted after reload.
+- All primary/secondary filters passed: Recall `467`, Recognize `12`, Act `267`, Apply `1`; Warning `219`, Numeric `390`, Sequence `146`, Comparison `256`, Mnemonic `29`, Calculation `1`. Recall-or-Act `734`, Warning-or-Numeric `500`, and Recall-and-(Warning-or-Numeric) `312` passed; Browse rendered the same 312 hydrated records and handed `fc-ch1-leadcause` to Review with matching Recall/Numeric badges.
+- **Stable defect:** PD `fc-ch1-leadcause`, `.flashcard [data-action="rate"][data-value="3"]`, `1280 x 720`, scale `1`. Exact starter records use `easeFactor`, `repetitions`, and interval `0`; `rateCard()` reads `ef` and `reps`, computes a non-finite interval, and throws `RangeError: Invalid time value` before save. Session count remains `0` and due remains `312`. Two measurements 300ms apart were identical; keyboard and visible-button Good paths reproduced the same stack. `loadStarterDeck()` and `rateCard()` are unchanged from Part 426, so this is a pre-existing schedule-schema incompatibility exposed by the required learner-state gate.
+- No product correction was made because learner-state risk is a stop-and-notify condition. Evidence is under `/private/tmp/pd-phase-d-428/`. HTTP `200`; branch/HEAD/origin/ahead-behind remained `main` / `77b9d5ac983469d850e7d4621d9758f94d01b7c5` / same / `0/0`; `git diff --check` passed before documentation.
+
+Automation status:
+- The Flashcards heartbeat is **PAUSED**, preserving all fields, at SHA-256 `8542c2d8114b5914a27637b21b98e30b9a41794206b5fd6b84c2b826ef463285`.
+- All four protected automations remain **PAUSED** and byte-unchanged: build-guide polish `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric templates `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and retrospective spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, or push occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, and checklist; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- PD taxonomy filtering and populated filter migration pass, but the established starter schedule and rating code are incompatible; a first Good rating throws before save. Phase D is stopped and the heartbeat is paused.
+
+Next Recommended Action:
+- The user must act: approve or decline one focused backward-compatible PD scheduling repair that preserves existing learner records, then explicitly resume the paused Flashcards heartbeat for the remaining phase-D gate.
+
+## Part 429 — PD Phase D Scheduling Repair and Objective Completion
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. The user approved one focused backward-compatible scheduling repair and continuation of the stopped phase-D gate. Clinical wording, stable identity/order, legacy Type, source anchors, links, storage identity, and learner history/progress identity remain preserved.
+
+Current batch:
+- **PD phase D taxonomy activation and UI migration is COMPLETED with a fresh objective pass.** The Part-428 first-rating failure is repaired; the complete activated taxonomy/UI, remaining responsive, learner-state, and print gate passes. PD phase E full fresh QA is next but was not started.
+
+Files edited:
+- `Elevated ATI PD Flashcards.html`: changes only `rateCard()` to read established `easeFactor`/`repetitions`, compatible `ef`/`reps`, mixed, and schema-missing records safely. Rated records preserve their existing field family; mixed records update both; no bulk schedule migration occurs.
+- The private v3 master was updated first. This overlay and the private handoff mirror the completed phase-D checkpoint. `MN Design Canon Checklist.md` is unchanged because existing learner-state preservation canon already governs the repair.
+
+Validation performed:
+- Exact Part-428/current comparison proves that only `rateCard()` changed. All `747` ordered card payloads and registry records are unchanged, unique, and in exact order; all `747/747` PD Book anchors resolve; two scripts parse. Totals remain Recall `467`, Recognize `12`, Act `267`, Apply `1`; Warning `219`, Numeric `390`, Sequence `146`, Comparison `256`, Mnemonic `29`, Calculation `1`.
+- Eight isolated schedule cases pass long-form and short-form Good/Hard/Easy plus mixed and schema-missing Good. Calculations remain finite; ISO history fields are valid; content/identity fields and each record's existing field family are preserved; only the rated record saves. Visible long/short/mixed rating and keyboard Space/Good pass without runtime errors.
+- Fresh full-deck filters pass every primary and attribute count, Recall-or-Act `734`, Warning-or-Numeric `500`, compatible legacy-filter migration, cross-group narrowing, units `198/499/50`, chapter/status paths, Browse `747`, exact Browse/Review stable-ID handoff, direct links, and taxonomy-aware CSV generation of `748` rows.
+- Twice-stable responsive checks pass at `2240 x 1000`, `1440 x 1000`, exact `901/900 x 1000`, `768 x 1000`, exact `601/600 x 1000`, and `390 x 844`: scale `1`, loaded fonts, exact breakpoints, zero horizontal overflow. Drawer scroll reset/focus/ARIA/inert/overlay/Escape/quick-filter behavior, themes, keyboard controls, and inspected wide/tablet/phone screenshots pass.
+- Twice-stable print media and a fresh one-page Letter PDF pass: the complete unrevealed answer and source are present; interactive chrome is absent; the inspected 144-DPI raster has no clipping or overlap. Evidence is under `/private/tmp/pd-phase-d-429/`.
+- Exact current/local/HTTP PD payloads byte-match at SHA-256 `bf1d6022410c637bb8de241186bff1d668e8f9abde65bfaaf1155280f3c72d80`; PD Book remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`. `git diff --check` passes. Branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`. Existing comparison remains `http://127.0.0.1:8882/mn-vs-mh-flashcards-review-402/mn-vs-mh-flashcards-review-402.html?v=mn-mh-flashcards-402`; no PD phase-F comparison was generated early.
+
+Automation status:
+- The Flashcards heartbeat is **ACTIVE** on its unchanged 20-minute cadence with failed-run-only notifications at `f146da00706130a548fad6433497a80581340ff2b75f4ba857c26566de94252b`.
+- All four protected automations remain **PAUSED** and byte-unchanged: build-guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, retrospective `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No stage, commit, push, merge, reset, revert, publish, or branch switch occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, and checklist; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- The approved PD scheduling repair is complete, established learner records rate safely without bulk migration, and PD phase D is objectively complete. Automated QA is not user visual approval.
+
+Next Recommended Action:
+- The user does not need to act; the active heartbeat should begin only PD phase E full static/runtime/responsive/learner-state QA on its next wakeup.
+
+## Part 430 — PD Phase E Full QA Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject. No clinical wording, stable card identity/order, legacy Type, source anchor, link, storage identity, learner schedule/history identity, or progress record changed.
+
+Current batch:
+- **PD phase E full static/runtime/responsive/learner-state QA is COMPLETED with a complete fresh objective pass.** No product correction was required. PD phase F fresh MN-left/PD-right two-pane user-review handoff is next but was not started; automated QA remains separate from user visual approval.
+
+Files edited:
+- No Flashcards product or checklist file changed in Part 430; PD remains byte-identical to Part 429. The private master was updated first; this overlay and the private handoff record the completed phase-E checkpoint. `MN Design Canon Checklist.md` is unchanged.
+
+Validation performed:
+- Fresh static QA passes two scripts, `747/747` ordered unique card and registry IDs, exact content/order, `747/747` resolving PD Book anchors, unchanged complete taxonomy totals, eight isolated schedule cases, and taxonomy-aware CSV `748` rows. Current and fresh Part-429 baseline copies byte-match.
+- Fresh isolated runtime at `127.0.0.1:41730` uses only `qa_pd430_*` storage. Compatible legacy UI filter migration passes while legacy Type drops. Every primary/attribute count passes: Recall `467`, Recognize `12`, Act `267`, Apply `1`; Warning `219`, Numeric `390`, Sequence `146`, Comparison `256`, Mnemonic `29`, Calculation `1`; unions/AND are `734`, `500`, and `312`. Units `198/499/50`, Chapter 1 `19`, search, status, Review/Browse `747`, the filtered `312`-record handoff, reveal/rating, long/short/mixed state persistence, CSV control, links, themes, keyboard, and accessibility state pass with empty warning/error logs.
+- Twice-stable `2240 x 1000`, `1440 x 1000`, exact `901/900 x 1000`, `768 x 1000`, exact `601/600 x 1000`, and `390 x 844` measurements pass at scale `1`, loaded fonts, exact breakpoints, and zero horizontal overflow. Drawer scroll reset/focus/ARIA/inert/overlay/Escape/quick-filter behavior and fresh wide/tablet/phone screenshot inspection pass.
+- Twice-stable print media and a fresh one-page Letter PDF pass with the complete unrevealed answer/source, no interactive controls, and no raster clipping or overlap. Evidence is under `/private/tmp/pd-phase-e-430/`.
+- Exact current/local/HTTP PD payloads remain `bf1d6022410c637bb8de241186bff1d668e8f9abde65bfaaf1155280f3c72d80`; PD Book remains `b3b25e12abc6e80c51ef5d71775b76462b63cd90faae3f8300b973c5031e7312`. `git diff --check` passes. Branch/HEAD/origin/ahead-behind remain `main` / `77b9d5ac983469d850e7d4621d9758f94d01b7c5` / same / `0/0`. Existing comparison remains `http://127.0.0.1:8882/mn-vs-mh-flashcards-review-402/mn-vs-mh-flashcards-review-402.html?v=mn-mh-flashcards-402`; no PD phase-F comparison was generated early.
+
+Automation status:
+- The Flashcards heartbeat remains **ACTIVE** at `f146da00706130a548fad6433497a80581340ff2b75f4ba857c26566de94252b` on its unchanged 20-minute cadence with failed-run-only notifications.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, retrospective `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No stage, commit, push, merge, reset, revert, publish, or branch switch occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, and checklist; preserved unrelated untracked `.DS_Store`, `.gitignore`, `AGENTS.md`, both Study Tool guide locations, `Teleprompter.html`, and `recovered-codex-screenshots/` remain untouched.
+
+TLDR:
+- PD phase E passes the complete fresh static/runtime/responsive/learner-state/print gate without a product edit. Automated consistency does not equal user visual approval.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should begin only PD phase F by generating a fresh MN-left/PD-right two-pane user-review handoff, then stop for representative user visual review without starting another subject.
+
+## Part 431 — PD Phase F Representative Review Handoff
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** PD remains the only active subject; this run creates only the representative review handoff and changes no clinical content, identity, anchor, link, storage, schedule, history, or progress record.
+
+Current batch:
+- **PD phase F is COMPLETED_PENDING_USER_VISUAL_REVIEW.** The fresh exact-current comparison is `http://127.0.0.1:8884/mn-vs-pd-flashcards-review-431/mn-vs-pd-flashcards-review-431.html?v=mn-pd-flashcards-431`. The queue stopped before Pharm.
+
+Files edited:
+- No product or checklist file changed. Exact MN and PD copies and the comparison exist only under `/private/tmp/mn-vs-pd-flashcards-review-431/`. The private master was updated first; this overlay and the private handoff mirror it.
+
+Validation performed:
+- Wrapper and both exact-current products return HTTP `200`; copy hashes exactly match repository MN `6026c760ca71135f93314bb46e5c59aeed460bfb7a4560afa75ee2bf99e732da` and PD `bf1d6022410c637bb8de241186bff1d668e8f9abde65bfaaf1155280f3c72d80`. Ready state is exact MN `492` / PD `747`.
+- Synchronized Review/Browse, filters, reveal, alignment, scroll sync, guides, and narrow navigation controls pass. The final handoff is clean Review state with overlays/filters/navigation closed, sync/guides off, answers unrevealed, and both panes top-aligned.
+- Twice-stable `2240x1000`, `1440x1000`, `901/900x1000`, `768x1000`, `601/600x1000`, and `390x844` measurements pass scale `1`, loaded fonts, exact `901/900` stacking, and zero overflow. Fresh wide/tablet/phone screenshots were inspected. Both standalone products have zero warning/error logs; only the read-only wrapper emits the known non-product iframe-reload `MutationObserver` signal. Evidence is under `/private/tmp/mn-vs-pd-flashcards-review-431/`.
+
+Automation status:
+- Flashcards heartbeat is **PAUSED** at `333dac77d489d1d85a96dfb84365e2b1020f014529a1fc56427be43e5c9562aa`, with its other fields preserved, pending user visual approval.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, retrospective `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No stage, commit, push, merge, reset, revert, publish, or branch switch occurred. `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, and checklist; preserved unrelated untracked files remain untouched. Part 431 adds no product modification.
+
+TLDR:
+- PD objective work is complete through phase E, and the exact-current representative comparison is ready. Automated consistency is not user visual approval.
+
+Next Recommended Action:
+- The user must act: review the live MN-left/PD-right comparison and either approve PD or identify the first visible mismatch; do not resume the Flashcards heartbeat or begin Pharm until that decision is recorded.
+
+## Part 432 — PD Representative Review Approved; Queue Released to Pharm
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** The user explicitly approved the Part-431 MN-left/PD-right comparison. PD phase F is visually approved; this does not recertify clinical content or expand source authority.
+
+Current batch:
+- **PD phases A–F are complete.** No Pharm work started in this checkpoint. The next heartbeat may begin only Pharm phase A preflight/inventory.
+
+Files edited:
+- No product, Book, or checklist file changed. The private master was updated first; this overlay and the private handoff record the approval and queue transition.
+
+Validation performed:
+- Approval resolves the exact Part-431 comparison URL and exact MN/PD hashes and counts (`492/747`) with no reported mismatch. Branch/HEAD/origin/ahead-behind remain `main` / `77b9d5ac983469d850e7d4621d9758f94d01b7c5` / same / `0/0`; the expected tracked modification set remains unchanged.
+
+Automation status:
+- Flashcards heartbeat is **ACTIVE** at `29c2244593acdb25666945ec4014141dcd9a872632a48f6a30f72d562e18b739`, preserving its prompt, 20-minute cadence, current-thread destination, and failed-runs-only notification policy.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, retrospective `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No stage, commit, push, merge, reset, revert, publish, or branch switch occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, and checklist; Part 432 adds no product modification.
+
+TLDR:
+- PD is closed through user visual approval, and the guarded queue is resumed with Pharm phase A next.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should acquire the exact-empty lock and begin only Pharm phase A preflight/inventory.
+
+## Part 433 — Pharm Phase A Stopped for Learner-State Risk
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm is the only active subject. No clinical wording, card identity/order, legacy Type, anchor, link, storage identity, schedule/history record, or progress record changed.
+
+Current batch:
+- **Pharm phase A is IN PROGRESS but STOPPED at the learner-state gate.** Static inventory passes; a stable first-Good-rating reproduction exposes an existing schedule-schema incompatibility. Phase B did not start.
+
+Files edited:
+- No Flashcards product, Book, or checklist file changed. Pharm Flashcards remains `9e0bd414cf6813373cb29e7bef351ff0bd5d56c958437ac479cb3fb9e3cb9d9a`; Pharm Book remains `b1011215c8cdd1c63f1d6bc5ae5dc7bf59453548816062dac6ac356c8af11f51`. The private master was updated first; this overlay and the private handoff mirror Part 433.
+
+Validation performed:
+- The three modular Study Tool Synthesis Guide v2 files were read completely in order. Evidence under `/private/tmp/pharm-phase-a-433/` passes `702/702` unique ordered `id/ch/type/anchor/q/a` records, two scripts, no duplicate static IDs, and `702/702` Pharm Book anchors. Counts are concept `316`, warning `346`, calc `7`, priority `33`; chapters `1–49`, seven unit controls, subject accent `#ea580c`, and `NUR 2460 · ATI` identity are present.
+- Review/Browse, starter load/reset, CSV, legacy filters, keyboard, themes, drawer, abbreviations, chapter hash, and storage tokens were inventoried. Both `📖 Open in book` and `Open in chapter ↗` resolve to each card's authorized Book anchor. No print rule exists in the current file; legacy drawer/filter migration shapes remain later conformance items.
+- **Stable defect:** Pharm `fc-ch1-p1`, `.flashcard [data-action="rate"][data-value="3"]`, `1280 x 720`, scale `1`. Starter records write `easeFactor`/`repetitions`; `rateCard()` reads `ef`/`reps`. First Good throws `RangeError: Invalid time value` before save; due remains `702`, session-rated remains `0`, and two measurements `300ms` apart are identical. No correction was attempted. Branch/HEAD/origin/ahead-behind remain `main` / `77b9d5ac983469d850e7d4621d9758f94d01b7c5` / same / `0/0`.
+
+Automation status:
+- Flashcards heartbeat is **PAUSED** at `09b33699a6f8befa65ebae473fd2b07ee908bb02f35a5c8f9dd7d13a71e7a1eb`, all other fields preserved.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, retrospective `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No stage, commit, push, merge, reset, revert, publish, or branch switch occurred. Local `main` and `origin/main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly five tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, and checklist; Pharm remains unmodified and preserved unrelated untracked files remain untouched.
+
+TLDR:
+- Pharm's static baseline and both Book-link features are intact, but its starter schedule and rating code use incompatible field names. Phase A is stopped and the heartbeat is paused without a Pharm product edit.
+
+Next Recommended Action:
+- The user must act: approve or decline one focused backward-compatible Pharm scheduling repair that preserves long-form, short-form, mixed, and schema-missing records without bulk migration, then explicitly resume the heartbeat for a fresh Pharm phase-A gate.
+
+## Part 434 — Retrospective Exact-Book-Jump Canon Applied to MN
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** The user's explicit retrospective request reopened only the audited missing Book-action path. Pharm phase A remains stopped and no queue phase advanced.
+
+Current batch:
+- **Retrospective exact-Book-jump correction is COMPLETED.** MH already had the dedicated control; MN now matches it. PD and Pharm already match, and AMS retains its existing equivalent exact-anchor `Open Book` control.
+
+Files edited:
+- `Elevated ATI MN Flashcards.html`: adds only shared `.flashcard-source-link` styling and the generated `📖 Open in book` link bound to `card.anchor`; the existing chapter link is preserved.
+- `MN Design Canon Checklist.md`: records the reusable exact-Book-jump canon. The private master was updated first; this overlay and the private handoff mirror Part 434. No Book or learner content/state changed.
+
+Validation performed:
+- Focused MN before/current comparison is exactly `20` CSS lines plus one generated link. Current MN is `5ce0cd67afa59a2153fd7435bad0ba9365c9d6fefc668e3804edc65b349fe3c2`; complete ordered card payload parity, two scripts, `492` unique IDs, `492/492` MN Book anchors, exact `card.anchor` binding, and existing chapter-link preservation pass.
+- Cross-subject exact-anchor audit passes MN `492/492`, MH `593/593`, PD `747/747`, Pharm `702/702`, and AMS `208/208`. None falls back to the Book root. Evidence is under `/private/tmp/mn-open-book-retrofit-434/`.
+- Checklist is `cdb801fe5f10bf2b3fa6efe9f044ae52f11fc5e205050f21e6a2ecd57d359d2a`. Stable IDs, card order, questions, answers, legacy Types, retrieval metadata, storage keys, schedules, histories, progress, and anchors remain unchanged.
+
+Automation status:
+- Flashcards heartbeat remains **PAUSED** at `09b33699a6f8befa65ebae473fd2b07ee908bb02f35a5c8f9dd7d13a71e7a1eb` for the separate Pharm learner-state blocker; all fields are preserved.
+- Protected automations remain **PAUSED** and byte-unchanged at their Part-433 hashes.
+
+Commit/push status:
+- No stage, commit, push, merge, reset, revert, publish, or branch switch occurred. `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- The same five tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, and checklist; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- The requested retrospective feature is complete. MN now has the dedicated exact-anchor Book action, MH already had it, and all five products have a verified exact-anchor Book control.
+
+Next Recommended Action:
+- The user must act only on the separate paused Pharm blocker: approve or decline the focused backward-compatible scheduling repair before the heartbeat resumes; no Book-link action is required unless a fresh visual comparison is desired.
+
+## Part 435 — Pharm Scheduling Compatibility Repair; Phase A Completed
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** The user explicitly approved the focused backward-compatible Pharm scheduler repair and heartbeat resumption. No clinical wording or source authority changed.
+
+Current batch:
+- **Pharm phase A is COMPLETED.** The Part-433 learner-state blocker is resolved and freshly re-gated. Pharm phase B is next and did not start in this checkpoint.
+
+Files edited:
+- `Elevated ATI Pharm Flashcards.html`: only `rateCard()` changed. It now safely reads long-form, short-form, mixed, and schema-missing schedule records; each rating preserves the existing field family, synchronizes mixed records, and gives schema-missing records the established long-form fields without bulk migration.
+- The private master was updated first; this overlay and the private handoff mirror Part 435. The checklist is unchanged. No Book, other product, learner content, storage key, card inventory, or anchor changed.
+
+Validation performed:
+- The full starter-deck literal is byte-identical, and the product is byte-identical outside `rateCard()`. The focused diff is `20` insertions / `8` deletions; two scripts parse cleanly and `git diff --check` passes. Pharm is `cef416a8294518f7978a1f1effce70daeac1df294eec3d4f579101737a03c276`; Pharm Book remains `b1011215c8cdd1c63f1d6bc5ae5dc7bf59453548816062dac6ac356c8af11f51`.
+- Eight compatibility cases pass: long Good/Hard/Easy, short Good/Hard/Easy, mixed Good, and schema-missing Good. Intervals and ISO timestamps are valid; field families, unrelated records, and all content/anchor fields are preserved.
+- Fresh inventory passes `702/702` unique ordered records and required fields, two scripts, no duplicate static IDs, `702/702` Pharm Book anchors, all `49` chapters, seven unit controls, exact accent/course identity, Book links, and feature/storage inventory.
+- Exact-current HTTP/UI testing at `1280 x 720` loads `702` starter cards and rates `fc-ch1-p1` Good without error: its long-form schema remains long-form, interval becomes `1`, repetitions becomes `1`, content remains exact, the deck stays `702`, the UI advances to `fc-ch1-p2`, and progress becomes `701` due / `1` rated. Two measurements `300ms` apart are identical, horizontal overflow is `0`, error arrays are empty, and the fresh screenshot was inspected. Evidence is under `/private/tmp/pharm-phase-a-repair-435/`.
+
+Automation status:
+- Flashcards heartbeat is **ACTIVE** at `6444499e7819cde424124b5502be599076294f010b930455f68802da8f24931b`, preserving prompt, 20-minute cadence, current-thread destination, and failed-runs-only notifications.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, retrospective `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No stage, commit, push, merge, reset, revert, publish, or branch switch occurred. `main` and `origin/main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, Pharm Flashcards, and checklist; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- The approved Pharm learner-state repair is complete, the real rating path passes without migrating learner records, Phase A is closed, and the guarded heartbeat is active again.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should acquire the exact-empty lock and begin only Pharm phase B existing-canon design parity.
+
+## Part 436 — Flashcards Heartbeat Cadence Lowered to 15 Minutes
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** The user explicitly shortened the Flashcards heartbeat interval. No subject phase or learner-content scope changed.
+
+Current batch:
+- **Automation cadence update only.** Pharm phase A remains complete; Pharm phase B remains next and did not start here.
+
+Files edited:
+- No product, Book, checklist, or learner artifact changed. The private master was updated first; this overlay and the private handoff record the cadence change.
+
+Validation performed:
+- The existing heartbeat was updated in place from every 20 minutes to every 15 minutes. Its prompt's ownership sentence now also says `Run every 15 minutes`. Id, kind, name, remaining prompt, active status, thread destination, and failed-runs-only notifications are preserved.
+- Branch/HEAD/origin/ahead-behind remain `main` / `77b9d5ac983469d850e7d4621d9758f94d01b7c5` / same / `0/0`; the expected tracked modification set remains unchanged.
+
+Automation status:
+- Flashcards heartbeat is **ACTIVE** every 15 minutes at `8eaf331d428c1acd45cdd406f0c963aadb7a19978098cafb5a9889232b52bc66`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, retrospective `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No stage, commit, push, merge, reset, revert, publish, or branch switch occurred. Local and remote `main` remain synchronized.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, Pharm Flashcards, and checklist; no product was added or removed.
+
+TLDR:
+- The active guarded heartbeat now runs every 15 minutes with all other protections preserved.
+
+Next Recommended Action:
+- The user does not need to act; the next 15-minute heartbeat should acquire the exact-empty lock and begin only Pharm phase B existing-canon design parity.
+
+## Part 437 — Pharm Phase B Accessible Drawer and Narrow Utility Correction
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm is the only active subject; this run applied one bounded existing-canon design correction without changing clinical wording, card identity/order, legacy Type, anchors, storage identity, learner schedule/history, or progress.
+
+Current batch:
+- **Pharm phase B is IN PROGRESS.** Its accessible 900px-and-below drawer and narrow utility correction is COMPLETED. Sidebar visual rhythm and print contract/completion gate remain pending and did not start.
+
+Files edited:
+- `Elevated ATI Pharm Flashcards.html`: adds the approved 14px utility positions, 40px hamburger, accessible drawer state and close/focus behaviors, hidden/inert closed state, scroll reset, and exact narrow main spacing.
+- The private master was updated first; this overlay and the private handoff mirror Part 437. Checklist and Books are unchanged.
+
+Validation performed:
+- Current Pharm is `9cdc98426dc2b2a33a77cf18e36aa7b7af23986b27fc487429783d271f04f84c`. Exact `702/702` ordered payload parity, unique IDs, required fields, scripts, original storage keys, Part-435 scheduler compatibility, and `702/702` Pharm Book anchors pass.
+- Fresh twice-stable exact-current HTTP/browser gates pass `2240`, `1440`, `901`, `900`, `768`, `601`, `600`, and `390` widths with zero overflow, console issues, or page errors. Drawer workflows pass at `900` and `390`, including search focus/list reset, synchronized icon/label/expanded state, hidden/inert closed state, Escape/overlay/quick-filter close, and focus restoration.
+- Fresh `1440` closed, `900` open, and `390` closed/open screenshots were rendered and visually inspected as unclipped and conformant. Evidence is under `/private/tmp/pharm-phase-b-437/`; automated evidence does not equal user visual approval.
+
+Automation status:
+- Flashcards heartbeat remains **ACTIVE** every 15 minutes at current SHA-256 `1f488ee9c5c6463a7140b30e4ffbe5c687572a143bfffe599c7127b8125344af`, preserving its other fields.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, retrospective `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, push, merge, reset, revert, publish, or branch switch occurred. Local and remote `main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, Pharm Flashcards, and checklist; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- Pharm's accessible narrow drawer and utility contract now pass fresh responsive/workflow evidence. Phase B remains in progress for sidebar rhythm and print/completion.
+
+Next Recommended Action:
+- The user does not need to act; the next 15-minute heartbeat should resume only Pharm phase B and apply one bounded sidebar visual-rhythm correction.
+
+## Part 438 — Pharm Phase B Sidebar Visual Rhythm Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remains the only active subject; one bounded approved-canon sidebar correction was applied without changing clinical wording, card records, legacy Type, anchors, storage identity, or learner state.
+
+Current batch:
+- **Pharm phase B remains IN PROGRESS.** Its sidebar header/theme/search/list/label/inset-row correction is COMPLETED. Print contract and the phase-B completion gate remain pending.
+
+Files edited:
+- `Elevated ATI Pharm Flashcards.html`: adds the approved sidebar line-height/single Back-to-Hub arrow, theme/search rhythm, `8px 0 24px` list, 6px scrollbar, `10px/800/0.12em` labels, inset `13px/600` rows, and shared active surface.
+- The private master was updated first; this overlay and the private handoff mirror Part 438. Checklist and Books are unchanged.
+
+Validation performed:
+- Current Pharm is `9acdfc4296cb986f75c29af696d8db0cd583a5a8ff4bbb4d5924e37d30747882`; Pharm Book remains `b1011215c8cdd1c63f1d6bc5ae5dc7bf59453548816062dac6ac356c8af11f51`. Exact `702/702` ordered payload parity, unique IDs, required fields, scripts, `30/30` document IDs, storage/theme keys, scheduler compatibility, and `702/702` Book anchors pass.
+- Fresh twice-stable HTTP/browser gates pass `2240`, `1440`, `901`, `900`, `768`, `601`, `600`, and `390` widths with zero overflow, console issues, or page errors. Every computed header/theme/search/input/list/label/row role passes.
+- Drawer workflows were repeated at `900` and `390`; state, focus, scroll reset, Escape/overlay/quick-filter close, and focus restoration pass. Fresh desktop, open-tablet, closed-phone, and open-phone screenshots were visually inspected as unclipped and conformant. Evidence is under `/private/tmp/pharm-phase-b-438/`; user visual approval remains separate.
+
+Automation status:
+- Flashcards heartbeat remains **ACTIVE** every 15 minutes at current SHA-256 `1f488ee9c5c6463a7140b30e4ffbe5c687572a143bfffe599c7127b8125344af`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, retrospective `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, push, merge, reset, revert, publish, or branch switch occurred. Local and remote `main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, Pharm Flashcards, and checklist; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- Pharm's approved sidebar rhythm now passes fresh responsive/workflow evidence while its drawer, content, anchors, and learner state remain intact. Phase B is open only for print/completion.
+
+Next Recommended Action:
+- The user does not need to act; the next 15-minute heartbeat should resume only Pharm phase B with one cohesive print correction, fresh PDF inspection, and the phase-B completion gate.
+
+## Part 439 — Pharm Phase B Print Contract and Completion Gate Passed
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remains the only active subject. One bounded existing-canon print correction completed Phase B without changing clinical wording, card identity/order, legacy Type, anchors, storage identity, or learner state.
+
+Current batch:
+- **Pharm phase B is COMPLETED.** The learner-complete, control-free Letter print contract now passes. Pharm phase C is next; no taxonomy registry or learner-facing activation began here.
+
+Files edited:
+- `Elevated ATI Pharm Flashcards.html`: adds only the approved print layout reset, study-control suppression, visible collapsed answer, and hero/card print cohesion.
+- The private master was updated first; this overlay and the private handoff mirror Part 439. Checklist and Books are unchanged.
+
+Validation performed:
+- Current Pharm is `a24dadd99491d1ea27fd14da782f01d8f70678873f45ce933fd396152207b15a`; Part-438 baseline was `9acdfc4296cb986f75c29af696d8db0cd583a5a8ff4bbb4d5924e37d30747882`; Pharm Book remains `b1011215c8cdd1c63f1d6bc5ae5dc7bf59453548816062dac6ac356c8af11f51`. Exact `702/702` payload/ID/anchor integrity, scripts, `30/30` document IDs, storage/theme keys, and scheduler compatibility pass.
+- Fresh twice-stable HTTP/browser gates pass all eight required viewports with zero overflow or errors; full desktop/narrow/sidebar geometry and both `900`/`390` drawer workflows remain conformant. Four responsive screenshots were inspected as unclipped.
+- Print media is twice stable: main resets, hero/card remain cohesive, the unrevealed `fc-ch1-p1` answer is visible, and navigation/study controls are absent. The fresh one-page Letter PDF is `612 x 792pt`; exact question/answer text extracts, and its 144-DPI raster has no clipping, overlap, or broken glyphs. Evidence is under `/private/tmp/pharm-phase-b-439/`; PDF SHA-256 is `788aae090078c661ca25c790df27e6b889bac505aa50a7a164f2ca699d242284`. User visual approval remains separate.
+
+Automation status:
+- Flashcards heartbeat remains **ACTIVE** every 15 minutes at current SHA-256 `1f488ee9c5c6463a7140b30e4ffbe5c687572a143bfffe599c7127b8125344af`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, retrospective `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, push, merge, reset, revert, publish, or branch switch occurred. Local and remote `main` remain synchronized at `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, Pharm Flashcards, and checklist; preserved unrelated untracked files remain untouched.
+
+TLDR:
+- Pharm phase B is objectively complete across responsive utilities/drawer, sidebar rhythm, and print, with content, anchors, storage, and learner state preserved. Taxonomy remains inactive.
+
+Next Recommended Action:
+- The user does not need to act; the next 15-minute heartbeat should begin only Pharm phase C positions 1–40 (`fc-ch1-p1` through `fc-ch20-p2`), keep the partial registry dormant, and stop rather than force ambiguity.
+
+## Part 440 — Pharm Phase C Preflight Yielded on Transient Automation State
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remains the only queued subject. Preflight conservatively yielded before classification; no card, taxonomy metadata, clinical wording, identity, anchor, storage, or learner state changed.
+
+Current batch:
+- **Pharm phase C did not start.** Positions 1–40 (`fc-ch1-p1` through `fc-ch20-p2`) remain unclassified and no Pharm registry exists. The heartbeat briefly presented PAUSED at the opening check and then returned to ACTIVE automatically without an agent automation update.
+
+Files edited:
+- No product, Book, checklist, or learner artifact changed. Pharm Flashcards remains `a24dadd99491d1ea27fd14da782f01d8f70678873f45ce933fd396152207b15a`; Pharm Book remains `b1011215c8cdd1c63f1d6bc5ae5dc7bf59453548816062dac6ac356c8af11f51`.
+- The private master was updated first; this overlay and the private handoff mirror the yielded checkpoint.
+
+Validation performed:
+- Branch/HEAD/origin/ahead-behind remain `main` / `77b9d5ac983469d850e7d4621d9758f94d01b7c5` / same / `0/0`; expected tracked modifications and preserved untracked files are unchanged. All five product hashes match Part 439.
+- Opening evidence captured PAUSED SHA-256 `9f4d4e28a229f5592b75aed8b09f57bcf10b0b156951eda37a2ba2c2dbb44bc2` at `2026-08-23T15:56:57Z`. Final verification captured automatic ACTIVE SHA-256 `cf63f3f3623f8c12911bf034a1941f38238619482f0d9db289716a24ed0ac0f7` at `2026-08-23T15:57:43Z`, with its 15-minute recurrence and other fields preserved. The agent did not update the automation.
+
+Automation status:
+- Flashcards heartbeat is **ACTIVE** every 15 minutes at `cf63f3f3623f8c12911bf034a1941f38238619482f0d9db289716a24ed0ac0f7`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, retrospective `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, push, merge, reset, revert, publish, branch switch, agent automation update, or registry activation occurred.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, Pharm Flashcards, and checklist; Part 440 adds no product modification.
+
+TLDR:
+- Pharm Phase C yielded before classification when the heartbeat briefly presented PAUSED; it automatically returned to ACTIVE and no card changed.
+
+Next Recommended Action:
+- The user does not need to act; the next 15-minute heartbeat should re-preflight and begin only Pharm positions 1–40, keeping the partial registry dormant and stopping for ambiguity.
+
+## Part 441 — Pharm Phase C Registry Positions 1–40 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remains the sole active subject. Only retrieval metadata describing the existing cards was added; clinical wording, identity, order, anchors, legacy Type, storage, and learner state are preserved.
+
+Current batch:
+- **Pharm phase C is IN PROGRESS.** Positions 1–40 (`fc-ch1-p1` through `fc-ch20-p2`) are complete in a dormant registry; `662` of `702` records remain. Primary totals: Recall `10`, Recognize `4`, Act `23`, Apply `3`. Attributes: Warning `15`, Numeric `37`, Sequence `12`, Comparison `16`, Mnemonic `2`, Calculation `2`. Warning parity is exact and no material ambiguity remained.
+
+Files edited:
+- Pharm Flashcards is now `c2aede730e6ec451a78c2a9a9918fcf498c66826ea4fbe8df02a7cf50f573808`. Removing only the registry restores exact prior hash `a24dadd99491d1ea27fd14da782f01d8f70678873f45ce933fd396152207b15a`.
+- Private master was updated first; this overlay and private handoff mirror the batch. Checklist and Books are unchanged.
+
+Validation performed:
+- Fresh checks pass `702/702` required/unique cards, `40/40` unique exact-order registry entries, allowed primary/attribute vocabularies, `702/702` Pharm Book anchors including the full batch, two parse-clean scripts, one declaration-only registry mention, exact outside-registry byte parity, and `git diff --check`.
+- Branch/HEAD/origin/ahead-behind remain `main` / `77b9d5ac983469d850e7d4621d9758f94d01b7c5` / same / `0/0`; expected tracked and preserved untracked sets remain intact.
+
+Automation status:
+- Flashcards heartbeat remains **ACTIVE** every 15 minutes at `cf63f3f3623f8c12911bf034a1941f38238619482f0d9db289716a24ed0ac0f7`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, retrospective `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, push, merge, reset, revert, publish, branch switch, automation update, or taxonomy activation occurred.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, Pharm Flashcards, and checklist; this run adds only the dormant first Pharm registry batch.
+
+TLDR:
+- Pharm positions 1–40 are classified and validated without changing the learner UI or any content/state record; `662` cards remain.
+
+Next Recommended Action:
+- The user does not need to act; next heartbeat should append only positions 41–80 (`fc-ch21-p1` through `fc-ch40-p2`) to the dormant registry and stop for ambiguity.
+
+## Part 442 — Pharm Phase C Registry Positions 41–80 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remains the sole active subject. The user resumed only this heartbeat; protected automations remain paused. Only descriptive retrieval metadata was added, preserving all content, identity, storage, and learner state.
+
+Current batch:
+- **Pharm phase C is IN PROGRESS.** Positions 41–80 (`fc-ch21-p1` through `fc-ch40-p2`) are complete; the dormant registry now covers `80/702` records and `622` remain. Batch totals: Recall `7`, Recognize `6`, Act `22`, Apply `5`; Warning `17`, Numeric `39`, Sequence `21`, Comparison `30`, Mnemonic `6`, Calculation `0`. Cumulative totals are Recall `17`, Recognize `10`, Act `45`, Apply `8`; Warning `32`, Numeric `76`, Sequence `33`, Comparison `46`, Mnemonic `8`, Calculation `2`. Warning parity is exact and no material ambiguity remained.
+
+Files edited:
+- Pharm Flashcards is now `83062c553f848e3ae8b9c1dd4bd7581563e2e96f9f79acfec5976801cfb17c59`. Removing only positions 41–80 restores exact Part 441 hash `c2aede730e6ec451a78c2a9a9918fcf498c66826ea4fbe8df02a7cf50f573808`; removing the full registry restores `a24dadd99491d1ea27fd14da782f01d8f70678873f45ce933fd396152207b15a`.
+- Private master was updated first; this overlay and private handoff mirror the batch. Checklist and Books are unchanged.
+
+Validation performed:
+- Fresh checks pass `702/702` required/unique cards, `80/80` unique exact-order registry entries, allowed primary/attribute vocabularies, `702/702` Pharm Book anchors including this `40/40` batch, two parse-clean scripts, one declaration-only registry mention, exact Part-441 and outside-registry byte parity, and `git diff --check`.
+- Branch/HEAD/origin/ahead-behind remain `main` / `77b9d5ac983469d850e7d4621d9758f94d01b7c5` / same / `0/0`; expected tracked and preserved untracked sets remain intact.
+
+Automation status:
+- Flashcards heartbeat is **ACTIVE** every 15 minutes after the user's explicit resume at `1d70b64444456c5812a71f93c97672c75ae32b3112e0002562a9a55764344bd2`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, retrospective `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, push, merge, reset, revert, publish, branch switch, automation update during this heartbeat, or taxonomy activation occurred.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, Pharm Flashcards, and checklist; this run adds only the dormant second Pharm registry batch.
+
+TLDR:
+- Pharm positions 1–80 are classified and validated without changing learner-visible behavior or any content/state record; `622` cards remain.
+
+Next Recommended Action:
+- The user does not need to act; next heartbeat should append only positions 81–120 (`fc-ch41-p1` through `fc-ch6-older-adult-pk-changes`) to the dormant registry and stop for ambiguity.
+
+## Part 443 — Pharm Phase C Registry Positions 81–120 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remains the sole active subject. Only descriptive retrieval metadata was added, preserving all content, identity, storage, and learner state.
+
+Current batch:
+- **Pharm phase C is IN PROGRESS.** Positions 81–120 (`fc-ch41-p1` through `fc-ch6-older-adult-pk-changes`) are complete; the dormant registry now covers `120/702` records and `582` remain. Batch totals: Recall `14`, Recognize `7`, Act `16`, Apply `3`; Warning `20`, Numeric `32`, Sequence `12`, Comparison `29`, Mnemonic `4`, Calculation `1`. Cumulative totals are Recall `31`, Recognize `17`, Act `61`, Apply `11`; Warning `52`, Numeric `108`, Sequence `45`, Comparison `75`, Mnemonic `12`, Calculation `3`. Warning parity is exact and no material ambiguity remained.
+
+Files edited:
+- Pharm Flashcards is now `5be7751ecebafc6f106d226e9ceda8c9d2960da299269fe0168b29dd88843468`. Removing only positions 81–120 restores exact Part 442 hash `83062c553f848e3ae8b9c1dd4bd7581563e2e96f9f79acfec5976801cfb17c59`; removing the full registry restores `a24dadd99491d1ea27fd14da782f01d8f70678873f45ce933fd396152207b15a`.
+- Private master was updated first; this overlay and private handoff mirror the batch. Checklist and Books are unchanged.
+
+Validation performed:
+- Fresh checks pass `702/702` required/unique cards, `120/120` unique exact-order registry entries, allowed primary/attribute vocabularies, `702/702` Pharm Book anchors including this `40/40` batch, two parse-clean scripts, one declaration-only registry mention, exact Part-442 and outside-registry byte parity, and `git diff --check`.
+- Branch/HEAD/origin/ahead-behind remain `main` / `77b9d5ac983469d850e7d4621d9758f94d01b7c5` / same / `0/0`; expected tracked and preserved untracked sets remain intact. The next range is positions 121–160, `fc-ch7-flumazenil` through `fc-ch19-mannitol-crystals`.
+
+Automation status:
+- Flashcards heartbeat is **ACTIVE** every 15 minutes at `4445f51ed63880523b2664eb3effca206168c62e66e744fc91d4208540cd430a`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, retrospective `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, push, merge, reset, revert, publish, branch switch, automation update, or taxonomy activation occurred.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, Pharm Flashcards, and checklist; this run adds only the dormant third Pharm registry batch.
+
+TLDR:
+- Pharm positions 1–120 are classified and validated without changing learner-visible behavior or any content/state record; `582` cards remain.
+
+Next Recommended Action:
+- The user does not need to act; next heartbeat should append only positions 121–160 (`fc-ch7-flumazenil` through `fc-ch19-mannitol-crystals`) to the dormant registry and stop for ambiguity.
+
+## Part 444 — Pharm Phase C Registry Positions 121–160 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remains the sole active subject. Only descriptive retrieval metadata was added, preserving all content, identity, storage, and learner state.
+
+Current batch:
+- **Pharm phase C is IN PROGRESS.** Positions 121–160 (`fc-ch7-flumazenil` through `fc-ch19-mannitol-crystals`) are complete; the dormant registry now covers `160/702` records and `542` remain. Batch totals: Recall `20`, Recognize `0`, Act `18`, Apply `2`; Warning `32`, Numeric `35`, Sequence `13`, Comparison `25`, Mnemonic `1`, Calculation `0`. Cumulative totals are Recall `51`, Recognize `17`, Act `79`, Apply `13`; Warning `84`, Numeric `143`, Sequence `58`, Comparison `100`, Mnemonic `13`, Calculation `3`. Warning parity is exact and no material ambiguity remained.
+
+Files edited:
+- Pharm Flashcards is now `87d4b87a79e8108ef2ec1faed0fd7288035ee829f9e1ffff3a226cd1bebcba08`. Removing only positions 121–160 restores exact Part 443 hash `5be7751ecebafc6f106d226e9ceda8c9d2960da299269fe0168b29dd88843468`; removing the full registry restores `a24dadd99491d1ea27fd14da782f01d8f70678873f45ce933fd396152207b15a`.
+- Private master was updated first; this overlay and private handoff mirror the batch. Checklist and Books are unchanged.
+
+Validation performed:
+- Fresh checks pass `702/702` required/unique cards, `160/160` unique exact-order registry entries, allowed primary/attribute vocabularies, `702/702` Pharm Book anchors including this `40/40` batch, two parse-clean scripts, one declaration-only registry mention, exact Part-443 and outside-registry byte parity, and `git diff --check`.
+- Branch/HEAD/origin/ahead-behind remain `main` / `77b9d5ac983469d850e7d4621d9758f94d01b7c5` / same / `0/0`; expected tracked and preserved untracked sets remain intact. The next range is positions 161–200, `fc-ch20-ace-pril-cough` through `fc-ch31-finasteride-pregnancy`.
+
+Automation status:
+- Flashcards heartbeat is **ACTIVE** every 15 minutes at `1a099852893baf0fe090316e708965c2e579e8aaac249dfa49a7f4786473ea4a`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, retrospective `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, push, merge, reset, revert, publish, branch switch, automation update, or taxonomy activation occurred.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, Pharm Flashcards, and checklist; this run adds only the dormant fourth Pharm registry batch.
+
+TLDR:
+- Pharm positions 1–160 are classified and validated without changing learner-visible behavior or any content/state record; `542` cards remain.
+
+Next Recommended Action:
+- The user does not need to act; next heartbeat should append only positions 161–200 (`fc-ch20-ace-pril-cough` through `fc-ch31-finasteride-pregnancy`) to the dormant registry and stop for ambiguity.
+
+## Part 445 — Pharm Phase C Registry Positions 161–200 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remains the sole active subject. Only descriptive retrieval metadata was added, preserving all content, identity, storage, and learner state.
+
+Current batch:
+- **Pharm phase C is IN PROGRESS.** Positions 161–200 (`fc-ch20-ace-pril-cough` through `fc-ch31-finasteride-pregnancy`) are complete; the dormant registry now covers `200/702` records and `502` remain. Batch totals: Recall `14`, Recognize `0`, Act `23`, Apply `3`; Warning `24`, Numeric `34`, Sequence `28`, Comparison `30`, Mnemonic `2`, Calculation `0`. Cumulative totals are Recall `65`, Recognize `17`, Act `102`, Apply `16`; Warning `108`, Numeric `177`, Sequence `86`, Comparison `130`, Mnemonic `15`, Calculation `3`. Warning parity is exact and no material ambiguity remained.
+
+Files edited:
+- Pharm Flashcards is now `83c04882f0a5b3d45392e79d7f52946bd2a075e90564c3884bc2ef6bb961501f`. Removing only positions 161–200 restores exact Part 444 hash `87d4b87a79e8108ef2ec1faed0fd7288035ee829f9e1ffff3a226cd1bebcba08`; removing the full registry restores `a24dadd99491d1ea27fd14da782f01d8f70678873f45ce933fd396152207b15a`.
+- Private master was updated first; this overlay and private handoff mirror the batch. Checklist and Books are unchanged.
+
+Validation performed:
+- Fresh checks pass `702/702` required/unique cards, `200/200` unique exact-order registry entries, allowed primary/attribute vocabularies, `702/702` Pharm Book anchors including this `40/40` batch, two parse-clean scripts, one declaration-only registry mention, exact Part-444 and outside-registry byte parity, and `git diff --check`.
+- Branch/HEAD/origin/ahead-behind remain `main` / `77b9d5ac983469d850e7d4621d9758f94d01b7c5` / same / `0/0`; expected tracked and preserved untracked sets remain intact. The next range is positions 201–240, `fc-ch31-pde5-nitrates` through `fc-ch43-pcn-ceph-cross-reactivity`.
+
+Automation status:
+- Flashcards heartbeat is **ACTIVE** every 15 minutes at `df6f72a7bb72326fee3cfdba00b114ac1c15ec61ef9ce084518c411383bbbee5`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, retrospective `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, push, merge, reset, revert, publish, branch switch, automation update, or taxonomy activation occurred.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, Pharm Flashcards, and checklist; this run adds only the dormant fifth Pharm registry batch.
+
+TLDR:
+- Pharm positions 1–200 are classified and validated without changing learner-visible behavior or any content/state record; `502` cards remain.
+
+Next Recommended Action:
+- The user does not need to act; next heartbeat should append only positions 201–240 (`fc-ch31-pde5-nitrates` through `fc-ch43-pcn-ceph-cross-reactivity`) to the dormant registry and stop for ambiguity.
+
+## Part 446 — Pharm Phase C Registry Positions 201–240 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remains the sole active subject. Only descriptive retrieval metadata was added, preserving all content, identity, storage, and learner state.
+
+Current batch:
+- **Pharm phase C is IN PROGRESS.** Positions 201–240 (`fc-ch31-pde5-nitrates` through `fc-ch43-pcn-ceph-cross-reactivity`) are complete; the dormant registry now covers `240/702` records and `462` remain. Batch totals: Recall `7`, Recognize `2`, Act `25`, Apply `6`; Warning `25`, Numeric `34`, Sequence `30`, Comparison `37`, Mnemonic `2`, Calculation `0`. Cumulative totals are Recall `72`, Recognize `19`, Act `127`, Apply `22`; Warning `133`, Numeric `211`, Sequence `116`, Comparison `167`, Mnemonic `17`, Calculation `3`. Warning parity is exact and no material ambiguity remained.
+
+Files edited:
+- Pharm Flashcards is now `bdf6d1b5641d86eaf8c69bba4cd4cab288f4a7c57d40e3f2d617f66c664df065`. Removing only positions 201–240 restores exact Part 445 hash `83c04882f0a5b3d45392e79d7f52946bd2a075e90564c3884bc2ef6bb961501f`; removing the full registry restores `a24dadd99491d1ea27fd14da782f01d8f70678873f45ce933fd396152207b15a`.
+- Private master was updated first; this overlay and private handoff mirror the batch. Checklist and Books are unchanged.
+
+Validation performed:
+- Fresh checks pass `702/702` required/unique cards, `240/240` unique exact-order registry entries, allowed primary/attribute vocabularies, `702/702` Pharm Book anchors including this `40/40` batch, two parse-clean scripts, one declaration-only registry mention, exact Part-445 and outside-registry byte parity, and `git diff --check`.
+- Branch/HEAD/origin/ahead-behind remain `main` / `77b9d5ac983469d850e7d4621d9758f94d01b7c5` / same / `0/0`; expected tracked and preserved untracked sets remain intact. The next range is positions 241–280, `fc-ch43-mrsa-vre-precautions` through `fc-ch2-error-priority`.
+
+Automation status:
+- Flashcards heartbeat is **ACTIVE** every 15 minutes at `df6f72a7bb72326fee3cfdba00b114ac1c15ec61ef9ce084518c411383bbbee5`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, retrospective `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, push, merge, reset, revert, publish, branch switch, automation update, or taxonomy activation occurred.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, Pharm Flashcards, and checklist; this run adds only the dormant sixth Pharm registry batch.
+
+TLDR:
+- Pharm positions 1–240 are classified and validated without changing learner-visible behavior or any content/state record; `462` cards remain.
+
+Next Recommended Action:
+- The user does not need to act; next heartbeat should append only positions 241–280 (`fc-ch43-mrsa-vre-precautions` through `fc-ch2-error-priority`) to the dormant registry and stop for ambiguity.
+
+## Part 447 — Pharm Phase C Registry Positions 241–280 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remains the sole active subject. Only descriptive retrieval metadata was added, preserving all content, identity, storage, and learner state.
+
+Current batch:
+- **Pharm phase C is IN PROGRESS.** Positions 241–280 (`fc-ch43-mrsa-vre-precautions` through `fc-ch2-error-priority`) are complete; the dormant registry now covers `280/702` records and `422` remain. Batch totals: Recall `19`, Recognize `0`, Act `17`, Apply `4`; Warning `23`, Numeric `27`, Sequence `19`, Comparison `32`, Mnemonic `2`, Calculation `0`. Cumulative totals are Recall `91`, Recognize `19`, Act `144`, Apply `26`; Warning `156`, Numeric `238`, Sequence `135`, Comparison `199`, Mnemonic `19`, Calculation `3`. Warning parity is exact and no material ambiguity remained.
+
+Files edited:
+- Pharm Flashcards is now `26ae3d67b41946deabb852b0c0d7562504b46e7d26399eab42560f986cead574`. Removing only positions 241–280 restores exact Part 446 hash `bdf6d1b5641d86eaf8c69bba4cd4cab288f4a7c57d40e3f2d617f66c664df065`; removing the full registry restores `a24dadd99491d1ea27fd14da782f01d8f70678873f45ce933fd396152207b15a`.
+- Private master was updated first; this overlay and private handoff mirror the batch. Checklist and Books are unchanged.
+
+Validation performed:
+- Fresh checks pass `702/702` required/unique cards, `280/280` unique exact-order registry entries, allowed primary/attribute vocabularies, `702/702` Pharm Book anchors including this `40/40` batch, two parse-clean scripts, one declaration-only registry mention, exact Part-446 and outside-registry byte parity, and `git diff --check`.
+- Branch/HEAD/origin/ahead-behind remain `main` / `77b9d5ac983469d850e7d4621d9758f94d01b7c5` / same / `0/0`; expected tracked and preserved untracked sets remain intact. The next range is positions 281–320, `fc-ch2-do-not-use` through `fc-ch5-black-box`.
+
+Automation status:
+- Flashcards heartbeat is **ACTIVE** every 15 minutes at `f32d41c4513941930fb2027f175c699876f148032b2e9a6f3fc1d6faf92e9481`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, retrospective `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, push, merge, reset, revert, publish, branch switch, automation update, or taxonomy activation occurred.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, Pharm Flashcards, and checklist; this run adds only the dormant seventh Pharm registry batch.
+
+TLDR:
+- Pharm positions 1–280 are classified and validated without changing learner-visible behavior or any content/state record; `422` cards remain.
+
+Next Recommended Action:
+- The user does not need to act; next heartbeat should append only positions 281–320 (`fc-ch2-do-not-use` through `fc-ch5-black-box`) to the dormant registry and stop for ambiguity.
+
+## Part 448 — Pharm Phase C Registry Positions 281–320 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remains the sole active subject. Only descriptive retrieval metadata was added, preserving all content, identity, storage, and learner state.
+
+Current batch:
+- **Pharm phase C is IN PROGRESS.** Positions 281–320 (`fc-ch2-do-not-use` through `fc-ch5-black-box`) are complete; the dormant registry now covers `320/702` records and `382` remain. Batch totals: Recall `30`, Recognize `0`, Act `6`, Apply `4`; Warning `19`, Numeric `18`, Sequence `12`, Comparison `23`, Mnemonic `1`, Calculation `4`. Cumulative totals are Recall `121`, Recognize `19`, Act `150`, Apply `30`; Warning `175`, Numeric `256`, Sequence `147`, Comparison `222`, Mnemonic `20`, Calculation `7`. Warning parity is exact and no material ambiguity remained.
+
+Files edited:
+- Pharm Flashcards is now `f7d68e9df898bdabb963fbf2459335e7c1203b38b936e85db53657708ec6a52c`. Removing only positions 281–320 restores exact Part 447 hash `26ae3d67b41946deabb852b0c0d7562504b46e7d26399eab42560f986cead574`; removing the full registry restores `a24dadd99491d1ea27fd14da782f01d8f70678873f45ce933fd396152207b15a`.
+- Private master was updated first; this overlay and private handoff mirror the batch. Checklist and Books are unchanged.
+
+Validation performed:
+- Fresh checks pass `702/702` required/unique cards, `320/320` unique exact-order registry entries, allowed primary/attribute vocabularies, `702/702` Pharm Book anchors including this `40/40` batch, two parse-clean scripts, one declaration-only registry mention, exact Part-447 and outside-registry byte parity, and `git diff --check`.
+- Branch/HEAD/origin/ahead-behind remain `main` / `77b9d5ac983469d850e7d4621d9758f94d01b7c5` / same / `0/0`; expected tracked and preserved untracked sets remain intact. The next range is positions 321–360, `fc-ch5-antidotes` through `fc-ch9-lithium-onset-bridge`.
+
+Automation status:
+- Flashcards heartbeat is **ACTIVE** every 15 minutes at `f32d41c4513941930fb2027f175c699876f148032b2e9a6f3fc1d6faf92e9481`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, retrospective `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, push, merge, reset, revert, publish, branch switch, automation update, or taxonomy activation occurred.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, Pharm Flashcards, and checklist; this run adds only the dormant eighth Pharm registry batch.
+
+TLDR:
+- Pharm positions 1–320 are classified and validated without changing learner-visible behavior or any content/state record; `382` cards remain.
+
+Next Recommended Action:
+- The user does not need to act; next heartbeat should append only positions 321–360 (`fc-ch5-antidotes` through `fc-ch9-lithium-onset-bridge`) to the dormant registry and stop for ambiguity.
+
+## Part 449 — Pharm Phase C Registry Positions 321–360 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remains the sole active subject. Only descriptive retrieval metadata was added, preserving all content, identity, storage, and learner state.
+
+Current batch:
+- **Pharm phase C is IN PROGRESS.** Positions 321–360 (`fc-ch5-antidotes` through `fc-ch9-lithium-onset-bridge`) are complete; the dormant registry now covers `360/702` records and `342` remain. Batch totals: Recall `35`, Recognize `1`, Act `3`, Apply `1`; Warning `19`, Numeric `16`, Sequence `2`, Comparison `23`, Mnemonic `0`, Calculation `0`. Cumulative totals are Recall `156`, Recognize `20`, Act `153`, Apply `31`; Warning `194`, Numeric `272`, Sequence `149`, Comparison `245`, Mnemonic `20`, Calculation `7`. Warning parity is exact and no material ambiguity remained.
+
+Files edited:
+- Pharm Flashcards is now `8042c1d8e234da286113f86b2c35e35772470e5dacdaa5ec8ef77ff98bd52035`. Removing only positions 321–360 restores exact Part 448 hash `f7d68e9df898bdabb963fbf2459335e7c1203b38b936e85db53657708ec6a52c`; removing the full registry restores `a24dadd99491d1ea27fd14da782f01d8f70678873f45ce933fd396152207b15a`.
+- Private master was updated first; this overlay and private handoff mirror the batch. Checklist and Books are unchanged.
+
+Validation performed:
+- Fresh checks pass `702/702` required/unique cards, `360/360` unique exact-order registry entries, allowed primary/attribute vocabularies, `702/702` Pharm Book anchors including this `40/40` batch, two parse-clean scripts, one declaration-only registry mention, exact Part-448 and outside-registry byte parity, and `git diff --check`.
+- Branch/HEAD/origin/ahead-behind remain `main` / `77b9d5ac983469d850e7d4621d9758f94d01b7c5` / same / `0/0`; expected tracked and preserved untracked sets remain intact. The next range is positions 361–400, `fc-ch9-lithium-teaching` through `fc-ch13-valproate-neuro`.
+
+Automation status:
+- Flashcards heartbeat is **ACTIVE** every 15 minutes at `f32d41c4513941930fb2027f175c699876f148032b2e9a6f3fc1d6faf92e9481`.
+- Protected automations remain **PAUSED** and byte-unchanged: build-guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, retrospective `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- No staging, commit, push, merge, reset, revert, publish, branch switch, automation update, or taxonomy activation occurred.
+
+GitHub Desktop should show:
+- Exactly six tracked modifications: overlay, MH Flashcards, MN Flashcards, PD Flashcards, Pharm Flashcards, and checklist; this run adds only the dormant ninth Pharm registry batch.
+
+TLDR:
+- Pharm positions 1–360 are classified and validated without changing learner-visible behavior or any content/state record; `342` cards remain.
+
+Next Recommended Action:
+- The user does not need to act; next heartbeat should append only positions 361–400 (`fc-ch9-lithium-teaching` through `fc-ch13-valproate-neuro`) to the dormant registry and stop for ambiguity.
+
+## Part 450 — Pharm Phase C Registry Positions 361–400 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remains the sole active subject; only descriptive metadata was added and learner content/state remain unchanged.
+
+Current batch:
+- **Pharm phase C is IN PROGRESS.** Positions 361–400 (`fc-ch9-lithium-teaching` through `fc-ch13-valproate-neuro`) are complete; the dormant registry covers `400/702` and `302` remain. Batch: Recall `21`, Recognize `1`, Act `18`, Apply `0`; Warning `18`, Numeric `15`, Sequence `8`, Comparison `18`, Mnemonic `0`, Calculation `0`. Cumulative: Recall `177`, Recognize `21`, Act `171`, Apply `31`; Warning `212`, Numeric `287`, Sequence `157`, Comparison `263`, Mnemonic `20`, Calculation `7`. Warning parity is exact; no material ambiguity remained.
+
+Files edited:
+- Pharm Flashcards is `e17e2c1219f0f7ab552ffc1de51003ae9dff64dc4614458089cc1a003bad8a04`; removing this batch restores Part 449 `8042c1d8e234da286113f86b2c35e35772470e5dacdaa5ec8ef77ff98bd52035`, and stripping the registry restores `a24dadd99491d1ea27fd14da782f01d8f70678873f45ce933fd396152207b15a`.
+- Private master was updated first; this overlay and handoff mirror the batch. Checklist and Books are unchanged.
+
+Validation performed:
+- Fresh QA passes `702/702` required/unique records and anchors, `400/400` unique exact-order registry entries, allowed ordered vocabularies, exact Warning parity, two parse-clean scripts, declaration-only isolation, byte-parity reconstruction, and `git diff --check`.
+- Branch/HEAD/origin/ahead-behind remain `main` / `77b9d5ac983469d850e7d4621d9758f94d01b7c5` / same / `0/0`; next is positions 401–440, `fc-ch13-dopamine-agonist` through `fc-ch17-tiotropium-lama`.
+
+Automation status:
+- Flashcards heartbeat is **ACTIVE** every 15 minutes at `f32d41c4513941930fb2027f175c699876f148032b2e9a6f3fc1d6faf92e9481`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, push, merge, reset, revert, publish, branch switch, automation update, or taxonomy activation occurred.
+
+GitHub Desktop should show:
+- Exactly the expected six tracked modifications; this run adds only the dormant tenth Pharm registry batch.
+
+TLDR:
+- Pharm positions 1–400 are classified and validated without learner-visible changes; `302` cards remain.
+
+Next Recommended Action:
+- The user does not need to act; next heartbeat should append only positions 401–440 (`fc-ch13-dopamine-agonist` through `fc-ch17-tiotropium-lama`) and stop for ambiguity.
+
+## Part 451 — Flashcards Heartbeat AFK Scope Expansion
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** User-authorized AFK throughput is expanded without changing source authority, content hold, learner-state protections, or review boundaries.
+
+Current batch:
+- Pharm phase C remains at `400/702`; next is positions 401–440 (`fc-ch13-dopamine-agonist` through `fc-ch17-tiotropium-lama`). No card changed in this contract update.
+- Each run may complete up to two independently validated work units for exactly one subject, with taxonomy sub-batches capped at 40 cards each and 80 cards total. A second unit starts only after the first is checkpointed; adjacent same-subject phase advancement still requires the full gate and cannot cross a stop/review boundary.
+
+Files edited:
+- No product, Book, checklist, or learner artifact changed. Private master was updated first; this overlay and handoff mirror the contract. Automation SHA-256 is `b6fb1961dfa240e74f5de2b46c299c86820c1731157d0945f437fb7cd85ffba2`.
+
+Validation performed:
+- The heartbeat is **ACTIVE** every 15 minutes with failed-runs-only notifications, a 25-minute soft cap, exclusive-lock overlap no-op, one-subject/two-unit ceiling, checkpoint-before-continuation rule, and 80-card maximum.
+- Branch/HEAD/origin/ahead-behind remain `main` / `77b9d5ac983469d850e7d4621d9758f94d01b7c5` / same / `0/0`; expected file sets and `git diff --check` remain intact.
+
+Automation status:
+- Flashcards heartbeat is **ACTIVE** at `b6fb1961dfa240e74f5de2b46c299c86820c1731157d0945f437fb7cd85ffba2`; all four protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, push, merge, reset, revert, publish, branch switch, or taxonomy activation occurred.
+
+GitHub Desktop should show:
+- The same six tracked modifications; only this already modified overlay gained scope documentation.
+
+TLDR:
+- The heartbeat can now perform up to two safe, independently validated same-subject units per lock acquisition.
+
+Next Recommended Action:
+- The user does not need to act; the heartbeat should resume Pharm at positions 401–440 and may continue one additional same-subject unit if safely checkpointed.
+
+## Part 452 — Pharm Phase C Registry Positions 401–440 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm is the sole subject; content and learner state remain unchanged.
+
+Current batch:
+- Positions 401–440 (`fc-ch13-dopamine-agonist` through `fc-ch17-tiotropium-lama`) are complete; coverage is `440/702`, with `262` remaining. Batch: Recall `28`, Recognize `0`, Act `12`, Apply `0`; Warning `18`, Numeric `12`, Sequence `7`, Comparison `16`, Mnemonic `0`, Calculation `0`. Cumulative: Recall `205`, Recognize `21`, Act `183`, Apply `31`; Warning `230`, Numeric `299`, Sequence `164`, Comparison `279`, Mnemonic `20`, Calculation `7`. Warning parity is exact.
+
+Files edited:
+- Pharm Flashcards is `4bf411e824bdaa4f6c511329ad9f087d7f6806b74b5f6efcf9f7eb7979bb245d`; prior `e17e2c1219f0f7ab552ffc1de51003ae9dff64dc4614458089cc1a003bad8a04` and base `a24dadd99491d1ea27fd14da782f01d8f70678873f45ce933fd396152207b15a` reconstruct exactly. Master was updated first; checklist and Books are unchanged.
+
+Validation performed:
+- `702/702` records/anchors, `440/440` registry entries, vocabularies, Warning parity, scripts, isolation, reconstruction, and `git diff --check` pass. Next: positions 441–480, `fc-ch18-codeine-antitussive` through `fc-ch22-beta-blocker-angina`.
+
+Automation status:
+- Heartbeat remains **ACTIVE** at `b6fb1961dfa240e74f5de2b46c299c86820c1731157d0945f437fb7cd85ffba2`; protected automations remain **PAUSED** and unchanged.
+
+Commit/push status:
+- No source-control or taxonomy activation action occurred.
+
+GitHub Desktop should show:
+- The expected six tracked modifications; only the dormant eleventh Pharm batch was added.
+
+TLDR:
+- Pharm positions 1–440 are validated; `262` remain.
+
+Next Recommended Action:
+- The user does not need to act; continue only positions 441–480 if safely classifiable.
+
+## Part 453 — Pharm Phase C Registry Positions 441–480 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remained the sole subject across two gated units; learner content/state are unchanged.
+
+Current batch:
+- Positions 441–480 (`fc-ch18-codeine-antitussive` through `fc-ch22-beta-blocker-angina`) are complete; coverage is `480/702`, remaining `222`. Batch: Recall `29`, Recognize `0`, Act `11`, Apply `0`; Warning `18`, Numeric `12`, Sequence `5`, Comparison `11`, Mnemonic `0`, Calculation `0`. Cumulative: Recall `234`, Recognize `21`, Act `194`, Apply `31`; Warning `248`, Numeric `311`, Sequence `169`, Comparison `290`, Mnemonic `20`, Calculation `7`.
+
+Files edited:
+- Pharm Flashcards is `bcdbc15bfd25deec6669ad7e02184088be2205196c9a078992f29c8df27c4a5d`; Part 452 `4bf411e824bdaa4f6c511329ad9f087d7f6806b74b5f6efcf9f7eb7979bb245d` and base `a24dadd99491d1ea27fd14da782f01d8f70678873f45ce933fd396152207b15a` reconstruct exactly. Master was updated first; Books/checklist unchanged.
+
+Validation performed:
+- `702/702` records/anchors, `480/480` registry entries, vocabularies, Warning parity, scripts, isolation, reconstruction, and diff checks pass. Next: positions 481–520, `fc-ch22-ccb-angina` through `fc-ch27-4hour`.
+
+Automation status:
+- Heartbeat remains **ACTIVE** at `b6fb1961dfa240e74f5de2b46c299c86820c1731157d0945f437fb7cd85ffba2`; protected automations remain **PAUSED**.
+
+Commit/push status:
+- No source-control or taxonomy activation action occurred.
+
+GitHub Desktop should show:
+- The expected six tracked modifications; this run added two dormant Pharm batches.
+
+TLDR:
+- Pharm is validated through position 480; `222` cards remain.
+
+Next Recommended Action:
+- The user does not need to act; next heartbeat should start at positions 481–520 and may complete one further gated Pharm unit.
+
+## Part 454 — Pharm Phase C Registry Positions 481–520 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remains the sole subject; content, identity, storage, schedules, history, and learner state are unchanged.
+
+Current batch:
+- Positions 481–520 (`fc-ch22-ccb-angina` through `fc-ch27-4hour`) are complete; coverage is `520/702`, remaining `182`. Batch: Recall `24`, Recognize `0`, Act `16`, Apply `0`; Warning `16`, Numeric `9`, Sequence `9`, Comparison `9`, Mnemonic `0`, Calculation `0`. Cumulative: Recall `258`, Recognize `21`, Act `210`, Apply `31`; Warning `264`, Numeric `320`, Sequence `178`, Comparison `299`, Mnemonic `20`, Calculation `7`.
+
+Files edited:
+- Pharm Flashcards is `0f3781d5457c16d40f5867d25add1e4943af8522d6b630fb19ab2c264d70a4b6`; Part 453 `bcdbc15bfd25deec6669ad7e02184088be2205196c9a078992f29c8df27c4a5d` and base `a24dadd99491d1ea27fd14da782f01d8f70678873f45ce933fd396152207b15a` reconstruct exactly. Master was updated first; Books/checklist unchanged.
+
+Validation performed:
+- `702/702` records/anchors, `520/520` registry entries, vocabularies, Warning parity, two scripts, declaration isolation, reconstruction, and diff checks pass. Next: positions 521–560, `fc-ch27-febrile` through `fc-ch32-oxytocin-uses`.
+
+Automation status:
+- Heartbeat remains **ACTIVE** every 15 minutes at `b6fb1961dfa240e74f5de2b46c299c86820c1731157d0945f437fb7cd85ffba2`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No source-control or taxonomy activation action occurred.
+
+GitHub Desktop should show:
+- The expected six tracked modifications; this unit added only the dormant Pharm registry batch and this overlay checkpoint.
+
+TLDR:
+- Pharm is validated through position 520; `182` cards remain.
+
+Next Recommended Action:
+- The user does not need to act; continue only positions 521–560 after this checkpoint is mirrored to the handoff.
+
+## Part 455 — Pharm Phase C Registry Positions 521–560 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remained the sole subject across two gated units; learner content/state are unchanged.
+
+Current batch:
+- Positions 521–560 (`fc-ch27-febrile` through `fc-ch32-oxytocin-uses`) are complete; coverage is `560/702`, remaining `142`. Batch: Recall `23`, Recognize `0`, Act `17`, Apply `0`; Warning `15`, Numeric `13`, Sequence `6`, Comparison `10`, Mnemonic `0`, Calculation `0`. Cumulative: Recall `281`, Recognize `21`, Act `227`, Apply `31`; Warning `279`, Numeric `333`, Sequence `184`, Comparison `309`, Mnemonic `20`, Calculation `7`.
+
+Files edited:
+- Pharm Flashcards is `10a571869357253ebdd8dab7c904e6b52ef2e656a00c02124d1558787ccc6af3`; Part 454 `0f3781d5457c16d40f5867d25add1e4943af8522d6b630fb19ab2c264d70a4b6` and base `a24dadd99491d1ea27fd14da782f01d8f70678873f45ce933fd396152207b15a` reconstruct exactly. Master was updated first; Books/checklist unchanged.
+
+Validation performed:
+- `702/702` records/anchors, `560/560` registry entries, vocabularies, Warning parity, scripts, declaration isolation, reconstruction, and diff checks pass. Next: positions 561–600, `fc-ch32-oxytocin-water` through `fc-ch37-tca-neuropathy`.
+
+Automation status:
+- Heartbeat remains **ACTIVE** every 15 minutes at `b6fb1961dfa240e74f5de2b46c299c86820c1731157d0945f437fb7cd85ffba2`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No source-control or taxonomy activation action occurred.
+
+GitHub Desktop should show:
+- The expected six tracked modifications; this run added two dormant Pharm batches and their overlay checkpoints.
+
+TLDR:
+- Pharm is validated through position 560; `142` cards remain.
+
+Next Recommended Action:
+- The user does not need to act; next heartbeat should start at positions 561–600 and may complete one further gated Pharm unit.
+
+## Part 456 — Pharm Phase C Registry Positions 561–600 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remains the sole subject; content, identity, storage, schedules, history, and learner state are unchanged.
+
+Current batch:
+- Positions 561–600 (`fc-ch32-oxytocin-water` through `fc-ch37-tca-neuropathy`) are complete; coverage is `600/702`, remaining `102`. Batch: Recall `26`, Recognize `0`, Act `14`, Apply `0`; Warning `22`, Numeric `13`, Sequence `5`, Comparison `15`, Mnemonic `0`, Calculation `0`. Cumulative: Recall `307`, Recognize `21`, Act `241`, Apply `31`; Warning `301`, Numeric `346`, Sequence `189`, Comparison `324`, Mnemonic `20`, Calculation `7`.
+
+Files edited:
+- Pharm Flashcards is `3447345787ec3dc2890d7b90d7b24e07e476759389f0b6f55df3c0d0d7c3519c`; Part 455 `10a571869357253ebdd8dab7c904e6b52ef2e656a00c02124d1558787ccc6af3` and base `a24dadd99491d1ea27fd14da782f01d8f70678873f45ce933fd396152207b15a` reconstruct exactly. Master was updated first; Books/checklist unchanged.
+
+Validation performed:
+- `702/702` records/anchors, `600/600` registry entries, vocabularies, Warning parity, two scripts, declaration isolation, reconstruction, and diff checks pass. Next: positions 601–640, `fc-ch37-corticosteroid` through `fc-ch42-nadir`.
+
+Automation status:
+- Heartbeat remains **ACTIVE** every 15 minutes at `b6fb1961dfa240e74f5de2b46c299c86820c1731157d0945f437fb7cd85ffba2`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No source-control or taxonomy activation action occurred.
+
+GitHub Desktop should show:
+- The expected six tracked modifications; this unit added only the dormant Pharm registry batch and this overlay checkpoint.
+
+TLDR:
+- Pharm is validated through position 600; `102` cards remain.
+
+Next Recommended Action:
+- The user does not need to act; continue only positions 601–640 after this checkpoint is mirrored to the handoff.
+
+## Part 457 — Pharm Phase C Registry Positions 601–640 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remained the sole subject across two gated units; learner content/state are unchanged.
+
+Current batch:
+- Positions 601–640 (`fc-ch37-corticosteroid` through `fc-ch42-nadir`) are complete; coverage is `640/702`, remaining `62`. Batch: Recall `29`, Recognize `0`, Act `11`, Apply `0`; Warning `16`, Numeric `20`, Sequence `7`, Comparison `12`, Mnemonic `0`, Calculation `0`. Cumulative: Recall `336`, Recognize `21`, Act `252`, Apply `31`; Warning `317`, Numeric `366`, Sequence `196`, Comparison `336`, Mnemonic `20`, Calculation `7`.
+
+Files edited:
+- Pharm Flashcards is `55940c8141415e4016ddd7d0fb8335d9ae467952ac4602a7339ce93a873a5d8c`; Part 456 `3447345787ec3dc2890d7b90d7b24e07e476759389f0b6f55df3c0d0d7c3519c` and base `a24dadd99491d1ea27fd14da782f01d8f70678873f45ce933fd396152207b15a` reconstruct exactly. Master was updated first; Books/checklist unchanged.
+
+Validation performed:
+- `702/702` records/anchors, `640/640` registry entries, vocabularies, Warning parity, scripts, declaration isolation, reconstruction, and diff checks pass. Next: positions 641–680, `fc-ch42-neutropenic-precautions` through `fc-ch47-isoniazid`.
+
+Automation status:
+- Heartbeat remains **ACTIVE** every 15 minutes at `b6fb1961dfa240e74f5de2b46c299c86820c1731157d0945f437fb7cd85ffba2`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No source-control or taxonomy activation action occurred.
+
+GitHub Desktop should show:
+- The expected six tracked modifications; this run added two dormant Pharm batches and their overlay checkpoints.
+
+TLDR:
+- Pharm is validated through position 640; `62` cards remain.
+
+Next Recommended Action:
+- The user does not need to act; next heartbeat should start at positions 641–680 and may finish the remaining 22-card registry unit after the first is gated.
+
+## Part 458 — Pharm Phase C Registry Positions 641–680 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remains the sole subject; content, identity, storage, schedules, history, and learner state are unchanged.
+
+Current batch:
+- Positions 641–680 (`fc-ch42-neutropenic-precautions` through `fc-ch47-isoniazid`) are complete; coverage is `680/702`, remaining `22`. Batch: Recall `22`, Recognize `0`, Act `18`, Apply `0`; Warning `18`, Numeric `19`, Sequence `6`, Comparison `10`, Mnemonic `0`, Calculation `0`. Cumulative: Recall `358`, Recognize `21`, Act `270`, Apply `31`; Warning `335`, Numeric `385`, Sequence `202`, Comparison `346`, Mnemonic `20`, Calculation `7`.
+
+Files edited:
+- Pharm Flashcards is `acf0856e2528ac559db8e37fce7e69c3bef556e33b13115b2e1bf043608bfdc6`; Part 457 `55940c8141415e4016ddd7d0fb8335d9ae467952ac4602a7339ce93a873a5d8c` and base `a24dadd99491d1ea27fd14da782f01d8f70678873f45ce933fd396152207b15a` reconstruct exactly. Master was updated first; Books/checklist unchanged.
+
+Validation performed:
+- `702/702` records/anchors, `680/680` registry entries, vocabularies, Warning parity, two scripts, declaration isolation, reconstruction, and diff checks pass. Final unit: positions 681–702, `fc-ch47-rifampin-orange` through `fc-ch49-saw-palmetto`.
+
+Automation status:
+- Heartbeat remains **ACTIVE** every 15 minutes at `b6fb1961dfa240e74f5de2b46c299c86820c1731157d0945f437fb7cd85ffba2`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No source-control or taxonomy activation action occurred.
+
+GitHub Desktop should show:
+- The expected six tracked modifications; this unit added only the dormant Pharm registry batch and this overlay checkpoint.
+
+TLDR:
+- Pharm is validated through position 680; `22` cards remain.
+
+Next Recommended Action:
+- The user does not need to act; complete positions 681–702 after this checkpoint is mirrored to the handoff.
+
+## Part 459 — Pharm Phase C Retrieval-Taxonomy Registry Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remained the sole subject across two gated units; the complete registry is dormant and learner content/state are unchanged.
+
+Current batch:
+- Final positions 681–702 (`fc-ch47-rifampin-orange` through `fc-ch49-saw-palmetto`) are complete. Batch: Recall `12`, Recognize `0`, Act `10`, Apply `0`; Warning `11`, Numeric `7`, Sequence `4`, Comparison `4`, Mnemonic `0`, Calculation `0`. Complete `702/702`: Recall `370`, Recognize `21`, Act `280`, Apply `31`; Warning `346`, Numeric `392`, Sequence `206`, Comparison `350`, Mnemonic `20`, Calculation `7`. **Pharm Phase C is COMPLETED.**
+
+Files edited:
+- Pharm Flashcards is `16eaed97a1c2e3c790b95b84a03e53e7d166e1c2171d034936223259b034c116`; Part 458 `acf0856e2528ac559db8e37fce7e69c3bef556e33b13115b2e1bf043608bfdc6` and base `a24dadd99491d1ea27fd14da782f01d8f70678873f45ce933fd396152207b15a` reconstruct exactly. Master was updated first; Books/checklist unchanged.
+
+Validation performed:
+- Complete gate passes `702/702` records, registry entries, and Pharm Book anchors; vocabularies, Warning parity, scripts, declaration isolation, exact reconstructions, and diff checks also pass. No taxonomy UI activation occurred.
+
+Automation status:
+- Heartbeat remains **ACTIVE** every 15 minutes at `b6fb1961dfa240e74f5de2b46c299c86820c1731157d0945f437fb7cd85ffba2`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No source-control or taxonomy activation action occurred.
+
+GitHub Desktop should show:
+- The expected six tracked modifications; this run added the final two dormant Pharm batches and their overlay checkpoints.
+
+TLDR:
+- Pharm Phase C is objectively complete; Phase D activation/UI migration is next.
+
+Next Recommended Action:
+- The user does not need to act; next heartbeat should begin only Pharm Phase D from the complete validated registry.
+
+## Part 460 — Pharm Phase D Static Taxonomy Activation Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remains the sole subject; content, identity, legacy types, schedules, history, and progress records are preserved.
+
+Current batch:
+- **Pharm Phase D is IN PROGRESS.** The complete registry is now hydrated by stable ID. Review, Browse, main/quick filters, labels, attribute pills, and CSV use Recall/Recognize/Act/Apply plus independent Warning/Numeric/Sequence/Comparison/Mnemonic/Calculation attributes. Fresh isolated runtime and migration evidence remains pending.
+
+Files edited:
+- Pharm Flashcards is `7303d3ce185c75d23f772ef1c1bf9df98b86207da2c936fb9398df358a223a42`; Part 459 was `16eaed97a1c2e3c790b95b84a03e53e7d166e1c2171d034936223259b034c116`. Filter state is versioned to `atipharm_fc_filters_v2`; compatible UI fields may migrate from `atipharm_fc_filters`, while `atipharm_fc_schedule` and its write schema remain unchanged. Master was updated first; Books/checklist unchanged.
+
+Validation performed:
+- Static gate passes `702/702` unique records, exact starter payload parity, `702/702` exact-order registry rows, all anchors, vocabularies, Warning parity, expected totals, two scripts, active hydration, no mixed legacy Type controls, preserved schedule writes, versioned filter markers, and diff checks. Deck payload hash is `2fb1809cabbfbcb4425012e769dd9f81d86d7f6a50ed18f071c3b37eec9c9fbf`; registry hash is `80da726309eb2385319c038e313d7dd682ad7c2dbd4ebd8674ce7f9b0b6e01bf`.
+
+Automation status:
+- Heartbeat remains **ACTIVE** every 15 minutes at `b6fb1961dfa240e74f5de2b46c299c86820c1731157d0945f437fb7cd85ffba2`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No source-control, Book, or learner-state mutation action occurred.
+
+GitHub Desktop should show:
+- The expected six tracked modifications; no product was added or removed.
+
+TLDR:
+- Pharm Phase D static activation passes; fresh isolated runtime and migration QA are next.
+
+Next Recommended Action:
+- The user does not need to act; continue only Pharm Phase D with isolated-storage runtime and compatible-filter migration testing.
+
+## Part 461 — Pharm Phase D Taxonomy Activation and UI Migration Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remained the sole subject across two gated work units; learner content and stable state remain preserved.
+
+Current batch:
+- **Pharm Phase D is COMPLETED.** Stable-ID hydration, retrieval/attribute UI, versioned compatible filter migration, Review/Browse handoff, CSV metadata, and unchanged schedule-schema writes pass fresh isolated runtime QA. Phase E has not started.
+
+Files edited:
+- Pharm Flashcards remains `7303d3ce185c75d23f772ef1c1bf9df98b86207da2c936fb9398df358a223a42`; Part 459 was `16eaed97a1c2e3c790b95b84a03e53e7d166e1c2171d034936223259b034c116`. Master was updated first; Books/checklist unchanged.
+
+Validation performed:
+- Fresh HTTP `200` isolated runtime passed with zero page/console errors. Compatible old filter fields migrated while legacy `types` did not; legacy filter bytes and `atipharm_fc_schedule` identity remained intact. Exact primary counts were `370/21/280/31`; secondary counts were `346/392/206/350/20/7`; tested OR unions were `391` and `555`, with cross-group AND `283`.
+- Review/Browse metadata, Browse-to-Review, CSV taxonomy tags, light theme, and an isolated Good rating passed; only schedule fields changed, and no derived taxonomy field entered the schedule. Fresh dark/light `1440×1000` screenshots were visually inspected with no mixed taxonomy, clipping, or horizontal overflow.
+
+Automation status:
+- Heartbeat remains **ACTIVE** every 15 minutes at `b6fb1961dfa240e74f5de2b46c299c86820c1731157d0945f437fb7cd85ffba2`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No source-control, Book, or real learner-state mutation action occurred.
+
+GitHub Desktop should show:
+- The expected six tracked modifications; no product was added or removed.
+
+TLDR:
+- Pharm Phase D is objectively complete; Phase E full gate is next.
+
+Next Recommended Action:
+- The user does not need to act; next heartbeat should begin only Pharm Phase E full static/runtime/responsive/learner-state QA with fresh artifacts.
+
+## Part 462 — Pharm Phase E Static Integrity Gate Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm is the sole subject; content, identity, anchors, order, legacy types, storage, schedules, history, and progress remain preserved.
+
+Current batch:
+- **Pharm Phase E is IN PROGRESS.** The fresh static integrity and learner-state schema unit passes. Full runtime, responsive, interaction, accessibility, link/CSV, theme, print/PDF, and representative visual evidence remains.
+
+Files edited:
+- Pharm Flashcards remains byte-unchanged at `7303d3ce185c75d23f772ef1c1bf9df98b86207da2c936fb9398df358a223a42`. Master was updated first; Books/checklist/products/learner data are unchanged.
+
+Validation performed:
+- Exact-file static QA passes `702/702` required unique records, source order, starter payload parity with `HEAD`, registry rows, and Pharm Book anchors; two scripts parse cleanly. Deck payload: `2fb1809cabbfbcb4425012e769dd9f81d86d7f6a50ed18f071c3b37eec9c9fbf`; registry: `80da726309eb2385319c038e313d7dd682ad7c2dbd4ebd8674ce7f9b0b6e01bf`.
+- Primary totals `370/21/280/31`, attributes `346/392/206/350/20/7`, allowed vocabularies, Warning parity, stable-ID hydration, shared Review/Browse/filter/CSV markers, responsive/drawer/keyboard/theme/print markers, and versioned filter migration pass.
+- The original `atipharm_fc_schedule` identity is unchanged. Starter/rating code persists no derived taxonomy fields; six long/short Hard/Good/Easy cases preserve card payload and modify only scheduling fields. Diff checks pass.
+
+Automation status:
+- Heartbeat remains **ACTIVE** every 15 minutes at `b6fb1961dfa240e74f5de2b46c299c86820c1731157d0945f437fb7cd85ffba2`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No source-control, Book, product, or learner-state mutation action occurred.
+
+GitHub Desktop should show:
+- The expected six tracked modifications; this unit changes only this overlay checkpoint.
+
+TLDR:
+- Pharm Phase E static integrity and schedule-schema QA is complete; its runtime/responsive/print gate remains.
+
+Next Recommended Action:
+- The user does not need to act; continue only Pharm Phase E with fresh isolated runtime, exact breakpoint pairs, accessibility, keyboard, link/CSV, theme, and print/PDF evidence.
+
+## Part 463 — Pharm Phase E Full QA Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remained the sole subject across two gated units; content, identity, anchors, order, legacy types, storage, schedules, history, and progress remain preserved.
+
+Current batch:
+- **Pharm Phase E is COMPLETED.** Full fresh static/runtime/responsive/learner-state/print QA passes after one cohesive existing-canon correction. Phase F did not begin because it is the next representative user-review boundary.
+
+Files edited:
+- Pharm Flashcards is `cc3668995899217b852f7e36b089617e0ea82077a8b383356f51c0f0df8abe25`; Part 462 was `7303d3ce185c75d23f772ef1c1bf9df98b86207da2c936fb9398df358a223a42`. The only product correction removes the stale tablet-only `17px` review-question override so exact `900px`, `768px`, and `601px` retain the approved `19px/1.4` role. Master was updated first; Books/checklist are unchanged.
+
+Validation performed:
+- Stable before evidence: Pharm `.flashcard-q`, `900×1000`, computed `17px`. After correction, twice-stable `900px`, `768px`, and `601px` measurements are DM Serif Display `19px/26.6px`.
+- Fresh `100%`-zoom isolated HTTP QA passed ten `200` responses, zero page/material console errors, and twice-identical measurements at `2240×1000`, `1440×1000`, `901/900×1000`, `768×1000`, `601/600×1000`, and `390×844`. Desktop/narrow layout contracts, exact utility offsets, corners, fonts, containment, and zero horizontal overflow pass.
+- Drawer hidden/inert/focus/icon/label/scroll-reset/Escape/overlay/quick-filter behavior, every retrieval and attribute filter plus unions `391/555/283`, Review/Browse/handoff, reveal/rating, keyboard controls, CSV `703` rows, exact Book/Hub HTTP links, dark/light themes, compatible filter migration, legacy-filter bytes, and schedule isolation pass.
+- Print controls are hidden, the answer is visible, overflow is zero, and the one-page Letter PDF is `105128` bytes. Fresh wide/tablet/phone/print images under `/private/tmp/pharm-phase-e-463c-20260823T195210Z` were visually inspected without clipping or mixed taxonomy. Static payload/anchor/script/schedule QA and diff checks rerun cleanly.
+
+Automation status:
+- Heartbeat remains **ACTIVE** every 15 minutes at `b6fb1961dfa240e74f5de2b46c299c86820c1731157d0945f437fb7cd85ffba2`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No source-control, Book, or real learner-state mutation action occurred.
+
+GitHub Desktop should show:
+- The expected six tracked modifications; this run adds one Pharm typography-line removal and the overlay checkpoints.
+
+TLDR:
+- Pharm Phase E is objectively complete across payload, taxonomy, behavior, breakpoints, learner state, accessibility, links, themes, and print. Automated QA is not user approval.
+
+Next Recommended Action:
+- The user does not need to act; next heartbeat may prepare only Pharm Phase F as a fresh MN-left/Pharm-right two-pane handoff, then must stop and notify for representative review.
+
+## Part 464 — Pharm Phase F Representative Two-Pane Handoff Ready
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm is the sole subject. Content, identity, anchors, order, legacy types, storage, schedules, history, and progress remain preserved.
+
+Current batch:
+- **Pharm Phase F is READY FOR USER VISUAL REVIEW.** Fresh exact-product comparison: [MN vs Pharm Flashcards Review 464](http://127.0.0.1:8898/mn-vs-pharm-flashcards-review-464/mn-vs-pharm-flashcards-review-464.html?v=mn-pharm-flashcards-464). It is open in the in-app browser. This is the user-review boundary; AMS has not started.
+
+Files edited:
+- MN remains `5ce0cd67afa59a2153fd7435bad0ba9365c9d6fefc668e3804edc65b349fe3c2`; Pharm remains `cc3668995899217b852f7e36b089617e0ea82077a8b383356f51c0f0df8abe25`. Phase F changed no product/checklist/Book file.
+- Exact copies, comparison shell, and QA live only under `/private/tmp/mn-vs-pharm-flashcards-review-464`; shell hash `2ae8b9655b5d2d54e9d212b1dacd0d40ce6dfed03e17b261b61a1538f5aef8dd`. Master was updated first.
+
+Validation performed:
+- Source/copy hashes match. Comparison HTTP `200`, fonts, `data-qa-ready=true`, exact `492/702` counts, `100%` zoom, equal `1120px` panes at `2240×1000`, two identical `350ms`-separated measurements, and zero page/frame overflow pass.
+- Coordinated Review/Browse, filter open/close, answer reveal, guides, keyboard vertical-guide adjustment, and exact Browse counts `492/702` pass with zero page/material console errors.
+- Fresh Review/filter/Browse screenshots were visually inspected without clipping, mixed taxonomy, shell obstruction, or identity loss.
+
+Automation status:
+- Flashcards heartbeat is **PAUSED** at the representative-review boundary with its non-status fields preserved; hash `dd544cb96b0014602aa217260b229a11f3292780804cfa61d5959061811589fe`. All four protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No source-control, Book, product, or learner-state mutation action occurred.
+
+GitHub Desktop should show:
+- The expected six tracked modifications; Phase F adds only this overlay checkpoint.
+
+TLDR:
+- Pharm's fresh two-pane comparison is ready; automated QA is complete, but user visual approval is required before AMS.
+
+Next Recommended Action:
+- The user must review the open [MN vs Pharm comparison](http://127.0.0.1:8898/mn-vs-pharm-flashcards-review-464/mn-vs-pharm-flashcards-review-464.html?v=mn-pharm-flashcards-464) and approve it or report exact differences; leave the automation paused meanwhile.
+
+## Part 465 — Pharm Phase F Metadata-Row Correction Ready for Re-review
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Pharm remains the sole subject at the Phase F review boundary; AMS has not started. Content, stable identity, anchors, order, legacy type, storage, schedules, history, and progress remain preserved.
+
+Current batch:
+- The user's exact Pharm defect is corrected: card `fc-ch4-p1` no longer pushes `due now` onto a separate row when all retrieval/attribute/chapter labels are present. **Pharm Phase F is READY FOR USER VISUAL RE-REVIEW** at [MN vs Pharm Flashcards Review 465](http://127.0.0.1:8898/mn-vs-pharm-flashcards-review-465/mn-vs-pharm-flashcards-review-465.html?v=mn-pharm-flashcards-465c).
+
+Files edited:
+- Pharm Flashcards is now `5e40cfaad69280f12118c4369b7239439650685e346fa28896c9faf1eaf52ca3`. Its review metadata uses a wrapping left label lane with an `8px` rhythm and a fixed upper-right due lane; no tag is hidden or reduced.
+- The checklist records this reusable metadata-row rule. Master was updated first; overlay and handoff mirror it. Books, other products, and learner data are unchanged. Fresh evidence is under `/private/tmp/mn-vs-pharm-flashcards-review-465`; shell hash `17ed27d1fc965ef2dd32b70eb193e00496c72ddc6eca315a18ddbaed832431eb`.
+
+Validation performed:
+- Stable before evidence at exact selector `.flashcard[data-card-id="fc-ch4-p1"] .flashcard-head`, `558 x 597`, placed `due now` `33.328125px` below the first tag. The corrected exact pane fits all six labels plus `due now` on one line, with due/first delta `-0.8203125px`, head height reduced from `52.296875px` to `24.1484375px`, zero overflow, and two identical `350ms`-separated measurements.
+- Fresh `visualViewport.scale=1` checks pass `2240 x 1000`, `1440 x 1000`, `901/900 x 1000`, `768 x 1000`, `601/600 x 1000`, and `390 x 844`. All preserve six labels, first-line due alignment, `19px/26.6px` question typography, exact drawer/padding breakpoints, zero overflow, and identical repeated measurements; at `390px` only the left label lane wraps.
+- Static QA passes exact `702` count/order/payload/IDs, registry parity, all Pharm Book anchors, two script parses, HTTP `200`, and storage-key parity. Deck/registry hashes remain `2fb1809cabbfbcb4425012e769dd9f81d86d7f6a50ed18f071c3b37eec9c9fbf` / `80da726309eb2385319c038e313d7dd682ad7c2dbd4ebd8674ce7f9b0b6e01bf` with unchanged taxonomy totals.
+- Focused runtime Review/reveal/Browse `702`/Review handoff/filter open-close passes. Fresh one-page Letter print is `105125` bytes and renders with complete metadata/answer and established print-only due hiding. The focused old/new product diff contains only this layout correction; `git diff --check` passes.
+
+Automation status:
+- Flashcards heartbeat remains **PAUSED** at hash `dd544cb96b0014602aa217260b229a11f3292780804cfa61d5959061811589fe`; protected automations remain **PAUSED** and byte-unchanged at their Part 464 hashes.
+
+Commit/push status:
+- No source-control, Book, other-product, or real learner-state mutation occurred.
+
+GitHub Desktop should show:
+- The expected six tracked modifications, with the focused Pharm metadata-row correction plus overlay/checklist documentation and no unexpected file.
+
+TLDR:
+- The tags stay visible and `due now` now stays in the upper-right metadata line across the exact comparison and required breakpoints; the corrected review is ready.
+
+Next Recommended Action:
+- The user must visually re-review the open [MN vs Pharm comparison](http://127.0.0.1:8898/mn-vs-pharm-flashcards-review-465/mn-vs-pharm-flashcards-review-465.html?v=mn-pharm-flashcards-465c) and approve it or report the next exact difference; keep the automation paused and do not start AMS until then.
+
+## Part 466 — Flashcards Shared-Feature Retrospective Propagation Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** One user-authorized shared-feature retrospective migration is complete; the queue returns to the Pharm Phase F visual-review boundary. AMS has not started, and no clinical content or learner identity/state changed.
+
+Current batch:
+- Two-lane Review metadata is implemented in every applicable Flashcards HTML: MN **Implemented**, MH **Implemented**, PD **Implemented**, Pharm **Implemented**, AMS **Not applicable** because its legacy grid has no canonical Review/Due interface. AMS must apply this canon when Phase D creates that interface.
+- Permanent rule: every future shared Flashcards feature requires an all-products applicability matrix and retrospective implementation/regression for every applicable previously completed file before queue advancement.
+- Fresh review: [Flashcards metadata-row retrospective review 466](http://127.0.0.1:8901/flashcards-retrospective-metadata-466/comparison-466/flashcards-retrospective-metadata-466.html?v=466-clean).
+
+Files edited:
+- Current hashes: MN `70d582ae6c3c192226152481ce4b38d68543967f318e1a2e28fe46d1f8bc2281`; MH `c2f390e136ad7af11173a00cf11e4705a14d76a8ae8e6917627c6edc76ae6457`; PD `7c1138db9579c009ba351758cd3851287b6f5cb4a823ff16f4474a6de87671f`; Pharm `5e40cfaad69280f12118c4369b7239439650685e346fa28896c9faf1eaf52ca3`; AMS unchanged `8eb1728ef107db8820c47c7933386652ddd0a37c0f3175c50a8d666464779f27`.
+- The checklist records the retrospective-propagation canon; the Flashcards automation records the matching matrix/exception/completion gate. Private master Part 466 was updated first. Evidence is under `/private/tmp/flashcards-retrospective-metadata-466`.
+
+Validation performed:
+- Static parity passes MN `492`, MH `593`, PD `747`, and Pharm `702` records/unique IDs/registry rows/Book anchors with exact order/payload/taxonomy/storage preservation and two parsed scripts per product.
+- Isolated runtime at `127.0.0.1:8901` passes `2240`, `1440`, exact `901/900`, `768`, exact `601/600`, and `390 x 844` for crowded five-, six-, and seven-label cards. All pairs are identical after `300ms`, due alignment is below `1px`, desktop/drawer switching and light mode pass, and overflow is zero.
+- Four-product comparison is ready and visually inspected. Direct exact-product loads have zero page warnings/errors; the only comparison diagnostic reproduces on a blank iframe control and is tool-side. Focused diffs and `git diff --check` pass.
+
+Automation status:
+- Flashcards heartbeat remains **PAUSED** with the permanent propagation rule at hash `1bf1c864cb16359552fd9fecabe791f621ac20a00f41b6b6b4c7543cbfd861b3`; its 15-minute schedule, target task, and notification policy are preserved. All protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, push, merge, reset, revert, publish, branch switch, Book edit, content population, or real learner-state mutation occurred.
+
+GitHub Desktop should show:
+- Exactly six expected tracked modifications: overlay, checklist, and MN/MH/PD/Pharm Flashcards. AMS and every other file remain unchanged.
+
+TLDR:
+- The due-row fix is now back-propagated everywhere it applies, and both canon and automation now prevent future forward-only shared-feature completion.
+
+Next Recommended Action:
+- The user must visually review the open [four-subject comparison](http://127.0.0.1:8901/flashcards-retrospective-metadata-466/comparison-466/flashcards-retrospective-metadata-466.html?v=466-clean) and approve it or report exact differences; keep the Flashcards automation paused and do not start AMS until that review is resolved.
+
+## Part 467 — Shared-Feature Review Approved; AMS Phase A Next
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** The user explicitly approved the Part 466 four-subject metadata-row comparison. Clinical-content population remains inactive.
+
+Current batch:
+- MN/MH/PD/Pharm shared-feature migration is **USER VISUALLY APPROVED**; Pharm Phase F is closed. The queue now points to **AMS Phase A preflight/inventory only**. AMS still carries the mandatory Phase D two-lane Review/Due activation gate.
+
+Files edited:
+- No product/checklist/Book/learner-state change occurred in this approval checkpoint. The private master was updated first; this overlay and the private handoff record the approval and queue transition.
+
+Validation performed:
+- Branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0` divergence, expected six tracked modifications, preserved unrelated files, and `git diff --check` pass. Part 466 product hashes and comparison evidence remain current.
+
+Automation status:
+- Flashcards heartbeat is **ACTIVE** every 15 minutes at hash `b62241a983c136d83ea00e8fbe8d809b4e83e692d6700cf6130583295bfd9ad3`, resuming with AMS Phase A only. All protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, push, merge, reset, revert, publish, branch switch, Book edit, AMS product edit, content population, or learner-state mutation occurred.
+
+GitHub Desktop should show:
+- The same six expected tracked modifications; AMS remains unchanged.
+
+TLDR:
+- The shared due-row design is approved, Pharm is complete, and the guarded automation is active again with AMS preflight next.
+
+Next Recommended Action:
+- The user does not need to act; allow the active Flashcards heartbeat to begin only AMS Phase A preflight/inventory at its next scheduled wakeup.
+
+## Part 468 — MN Reviewer Collection Prototype Ready
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** The AMS queue is temporarily suspended for the user's MN-only Reviewer Collection trial. No clinical wording, IDs, anchors, order, taxonomy, or course identity changed.
+
+Current batch:
+- MN now supports save/remove from Review and Browse, a third `Reviewer` tab, Review all, Review due, and the `C` shortcut. Membership remains separate from reveal, mastery, and scheduling. The prototype is ready at [MN Reviewer Collection prototype 468](http://127.0.0.1:8903/Elevated%20ATI%20MN%20Flashcards.html?v=mn-reviewer-collection-prototype-468b).
+- This is an MN prototype, not shared-feature approval. Retrospective propagation is deferred until the user accepts or revises this interaction; AMS Phase A remains the later queue-resumption point.
+
+Files edited:
+- MN Flashcards is `80d647516182fbf6b0140d4ee544e9f03cade365b9d18bdb7fa293bb01cdf976`. It adds a versioned `atimn_fc_collections_v1` stable-ID-only record; reset-deck intentionally preserves that record, and `atimn_fc_schedule` remains the existing schedule key.
+- A rating compatibility bridge preserves both existing schedule schemas in place: long-form `repetitions/easeFactor` and short-form `reps/ef`. Master Part 468 was updated first; this overlay and the private handoff mirror the review boundary. Checklist, Books, other products, and real learner data are unchanged.
+
+Validation performed:
+- Exact unchanged `492`-card payload hash, `492/492` unique IDs, `492/492` MN Book anchors, two script parses, prior storage-key preservation, and `git diff --check` pass.
+- Isolated runtime on `127.0.0.1:8903` passes Review/Browse add, Reviewer count/list, Review all/due, removal, reload, second-tab sync, and schedule/membership separation. A fresh post-correction tab has zero warnings/errors.
+- Twice-stable responsive checks pass `2240`, `1440`, exact `901/900`, `768`, exact `601/600`, and `390 x 844` with contained collection UI and zero horizontal overflow; wide/phone and dark/light states were visually inspected.
+
+Automation status:
+- Flashcards heartbeat is **PAUSED** at hash `be391c9ecaf99398ae983c738cbfa04a3670982d90ef11e15f854b6fd42d5261` during user trial. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, push, merge, reset, revert, publish, branch switch, Book edit, content population, destructive product action, or real learner-state mutation occurred.
+
+GitHub Desktop should show:
+- The same six expected tracked modifications; MN now includes the prototype/compatibility bridge and this overlay records Part 468. No unexpected tracked file joined the diff.
+
+TLDR:
+- The Reviewer Collection works in MN and is open for hands-on review; shared propagation waits for user approval.
+
+Next Recommended Action:
+- The user must try the open [MN Reviewer Collection prototype](http://127.0.0.1:8903/Elevated%20ATI%20MN%20Flashcards.html?v=mn-reviewer-collection-prototype-468b) and approve it or report exact changes; do not propagate or resume AMS first.
+
+## Part 469 — MN Focus Deck Terminology Ready
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** The user chose **Focus Deck**, with **Focus** as the compact tab label, for the MN-only feature trial. AMS remains suspended and no clinical content changed.
+
+Current batch:
+- All visible, shortcut, pressed-state, and accessibility language now uses `Focus` / `Focus Deck`. The existing versioned `atimn_fc_collections_v1` key and stable-ID-only payload remain; the new `focus` slot reads the prior prototype `reviewer` slot as a compatibility fallback so earlier test selections survive.
+- Trial: [MN Focus Deck prototype 469](http://127.0.0.1:8903/Elevated%20ATI%20MN%20Flashcards.html?v=mn-focus-deck-prototype-469). Shared retrospective propagation still waits for explicit user approval.
+
+Files edited:
+- MN Flashcards is `6e1bdc71b8d5f00623dc760cc6fadde027fd1e0916f3f9df38fb01e18a0f64d7`. Master Part 469 was updated first; this overlay and the private handoff mirror the terminology/review boundary. Checklist, Books, other products, and real learner data are unchanged.
+
+Validation performed:
+- Two script parses, byte-identical Part 468 STARTER_DECK payload, compatibility retention, reversible Review/Browse add/remove, Focus count, reload persistence, no user-facing `Reviewer` term, zero browser warnings/errors, and `git diff --check` pass.
+- Twice-stable checks pass `2240`, `1440`, exact `901/900`, `768`, exact `601/600`, and `390 x 844` with zero horizontal overflow. Wide and phone Focus states were visually inspected.
+
+Automation status:
+- Flashcards heartbeat remains **PAUSED** at `be391c9ecaf99398ae983c738cbfa04a3670982d90ef11e15f854b6fd42d5261`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- No staging, commit, push, merge, reset, revert, publish, branch switch, Book edit, content population, destructive product action, or real learner-state mutation occurred.
+
+GitHub Desktop should show:
+- The same six expected tracked modifications; MN now contains the Focus Deck refinement and this overlay records Part 469. No unexpected tracked change.
+
+TLDR:
+- The MN prototype is now **Focus Deck** / **Focus**, prior prototype selections remain compatible, and the revised interface passes focused QA.
+
+Next Recommended Action:
+- The user must try the open [MN Focus Deck prototype](http://127.0.0.1:8903/Elevated%20ATI%20MN%20Flashcards.html?v=mn-focus-deck-prototype-469) and approve it or report exact changes; do not propagate or resume AMS first.
+
+## Part 470 — MN Focus Deck Backup/Restore Implemented
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** The user's explicit instruction authorizes this MN Hub integration. It remains an MN feature trial; AMS and shared propagation stay paused.
+
+Current batch:
+- Hub JSON export/import now covers `atimn_fc_collections_v1`, canonical `atimn_fc_schedule`, and retained legacy `nur2460_fc_schedule`. An older backup containing only the legacy schedule is promoted into the canonical key during import. Reset-all includes Focus Deck; Flashcards' narrower Reset deck still preserves it.
+- Hub summary/cleanup remains on its legacy 122-card key. Canonical 492-card schedules are backed up and restored but never enter that incomplete cleanup, preventing learner-record loss.
+
+Files edited:
+- MN Hub is `085697a80f90e35dbfc48d013104a4d12e90da7df4ec5a1e0e597bb6e1fdf854`; MN Flashcards remains `6e1bdc71b8d5f00623dc760cc6fadde027fd1e0916f3f9df38fb01e18a0f64d7`. Master Part 470 was updated first; this overlay and handoff mirror the authorized Hub exception. Books, checklist, clinical content, and real learner data are unchanged.
+
+Validation performed:
+- Hub one-script and Flashcards two-script parses pass; focused diff and `git diff --check` pass. Isolated export visibly inventories the 232.4 KB canonical schedule and 88 B Focus Deck and reports backup downloaded with zero browser issues.
+- New-format import restores `Browse 1` plus `Focus 1`; legacy-only import promotes schedule progress and restores `Browse 1` with `Focus 0`. The preliminary canonical-cleanup risk was caught in isolated storage and removed from the final design before completion.
+- Twice-stable `1440 x 1000` and `390 x 844` storage-panel checks have zero horizontal overflow. Evidence: `/private/tmp/mn-focus-backup-470-Ej29gM`.
+
+Automation status:
+- Flashcards heartbeat remains **PAUSED** at `be391c9ecaf99398ae983c738cbfa04a3670982d90ef11e15f854b6fd42d5261`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- Exactly seven authorized tracked modifications: overlay, checklist, MN/MH/PD/Pharm Flashcards, and MN Hub. No unexpected tracked change.
+
+TLDR:
+- Focus Deck and the full current schedule now travel with MN JSON backups; older backups remain compatible and legacy Hub cleanup cannot touch canonical progress.
+
+Next Recommended Action:
+- The user must finish trying the open [MN Focus Deck prototype](http://127.0.0.1:8903/Elevated%20ATI%20MN%20Flashcards.html?v=mn-focus-deck-prototype-469) and approve it or report exact changes; do not propagate or resume AMS first.
+
+## Part 471 — MN Backup/Import User-Validated
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** The user manually confirmed import/export works. This validates Part 470 only; overall Focus Deck approval remains open.
+
+Current batch:
+- MN Focus membership/progress backup and restore is **USER HANDS-ON VALIDATED**. The separate one-card Skip issue remains unresolved and no correction is implemented in this checkpoint.
+
+Files edited:
+- No product/checklist/Book/automation/learner-state change. MN Hub remains `085697a80f90e35dbfc48d013104a4d12e90da7df4ec5a1e0e597bb6e1fdf854`; MN Flashcards remains `6e1bdc71b8d5f00623dc760cc6fadde027fd1e0916f3f9df38fb01e18a0f64d7`. Master Part 471 was updated first; this overlay and handoff mirror it.
+
+Validation performed:
+- User report: `Import and export works.` Part 470 automated/static evidence remains current and `git diff --check` passes.
+
+Automation status:
+- Flashcards heartbeat remains **PAUSED** at `be391c9ecaf99398ae983c738cbfa04a3670982d90ef11e15f854b6fd42d5261`; protected automations remain **PAUSED** and unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- The same seven authorized tracked modifications; no product change joined Part 471.
+
+TLDR:
+- Backup/import is user-validated; the Focus Deck trial remains open for the one-card Skip behavior.
+
+Next Recommended Action:
+- The user must authorize the recommended Skip queue correction or specify different expected behavior; keep propagation and AMS paused meanwhile.
+
+## Part 472 — MN Skip Repair + Session Shuffle Ready
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** MN-only Focus Deck interaction trial; propagation and AMS remain paused pending user approval.
+
+Current batch:
+- Browse and Focus list handoff now preserve the complete current filtered queue and selected-card position, so Skip advances normally. True one-card queues disable and explain Skip/Shuffle.
+- Shuffle randomizes only the temporary Review/Browse/Focus queue, persists across ratings inside that session, never changes canonical order/schedule/history/Focus membership, and is also available with `S`.
+- Trial: [MN Skip + Shuffle 472](http://127.0.0.1:8903/Elevated%20ATI%20MN%20Flashcards.html?v=mn-skip-shuffle-472).
+
+Files edited:
+- MN Flashcards is `97f662cd35b2ef5074ff3af5a8808e5002c30b3fa323065e3bc32e5862a5c4a4`; MN Hub remains `085697a80f90e35dbfc48d013104a4d12e90da7df4ec5a1e0e597bb6e1fdf854`. Master Part 472 was updated first; this overlay and handoff mirror it. Checklist and other products remain unchanged. QA root: `/private/tmp/mn-skip-shuffle-472-zTWVMD`.
+
+Validation performed:
+- Two scripts parse; exact `492/492` ID/payload/order/anchor/taxonomy preservation and all MN Book anchors pass. Isolated runtime passes due Skip/Shuffle/`S`, shuffled rating `492 → 491`, Browse item `5 of 492` handoff and advance, true `1 of 1` disabled controls, and Focus queue `2 → 1` with membership retained at `2`.
+- Twice-stable **8/8** required widths pass with zero horizontal overflow and contained footer controls. Wide/phone states were visually inspected; light/dark and print-control hiding pass; HTTP and `git diff --check` pass.
+
+Automation status:
+- Flashcards heartbeat remains **PAUSED** at `be391c9ecaf99398ae983c738cbfa04a3670982d90ef11e15f854b6fd42d5261`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, published, reset, reverted, populated, or destructively changed. Runtime QA used isolated storage only.
+
+GitHub Desktop should show:
+- The same seven authorized tracked modifications; this checkpoint adds only the MN Skip/Shuffle change and overlay continuation.
+
+TLDR:
+- Skip now uses the real Browse/Focus queue, one-card sessions explain their limit, and Shuffle safely randomizes only the current session.
+
+Next Recommended Action:
+- The user must try Skip and Shuffle in the open MN trial and approve the complete Focus Deck interaction or report exact changes; do not propagate or resume AMS first.
+
+## Part 473 — MN Restore Order Ready
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** MN-only feature trial; propagation and AMS remain paused.
+
+Current batch:
+- Shuffled Review, Browse, and Focus queues now expose **Restore order**. It restores the exact remaining pre-shuffle order, keeps the current card visible, omits cards rated since shuffling, and clears shuffled state. `Shift+S` restores; `S` shuffles.
+- Trial: [MN Restore Order 473](http://127.0.0.1:8903/Elevated%20ATI%20MN%20Flashcards.html?v=mn-restore-order-473).
+
+Files edited:
+- MN Flashcards is `1a632664655f0cad418141a2074502b40655538f017e84d1b3bf9893e46213b1`; MN Hub remains `085697a80f90e35dbfc48d013104a4d12e90da7df4ec5a1e0e597bb6e1fdf854`. Master Part 473 was updated first; overlay and handoff mirror it. QA root: `/private/tmp/mn-restore-order-473-R0mOaZ`.
+
+Validation performed:
+- Two scripts parse; exact `492/492` payload/ID/order/anchor preservation passes. Browse restored a post-rating queue to exact original relative order and next ID; due Review and `Shift+S` pass; Focus `2 → 1` restoration retains membership `2`.
+- All three shuffled footer controls pass **8/8** twice-stable required widths with zero overflow/containment failures. Wide/phone visual checks, HTTP, and `git diff --check` pass.
+
+Automation status:
+- Flashcards heartbeat and all protected automations remain **PAUSED** and unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- The same seven authorized tracked modifications; only MN Flashcards and this continuation changed for Part 473.
+
+TLDR:
+- Restore order is now the explicit unshuffle action and safely restores only the remaining session cards.
+
+Next Recommended Action:
+- The user must test Shuffle then Restore order in MN and approve the complete Focus Deck interaction or report changes; do not propagate or resume AMS first.
+
+## Part 474 — Restore Order User-Validated
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** User validation recorded; complete Focus Deck approval remains open.
+
+Current batch:
+- User report `Working. Thanks` records **Shuffle → Restore order** as hands-on validated. No product correction was requested or made.
+
+Files edited:
+- MN Flashcards remains `1a632664655f0cad418141a2074502b40655538f017e84d1b3bf9893e46213b1`; MN Hub remains `085697a80f90e35dbfc48d013104a4d12e90da7df4ec5a1e0e597bb6e1fdf854`. Master Part 474 was updated first; this overlay and handoff mirror it.
+
+Validation performed:
+- Manual user validation recorded. Part 473 evidence remains current and `git diff --check` passes.
+
+Automation status:
+- Flashcards heartbeat and protected automations remain **PAUSED** and unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- The same seven authorized tracked modifications; Part 474 is documentation-only.
+
+TLDR:
+- Restore Order works for the user; only complete Focus Deck approval remains open.
+
+Next Recommended Action:
+- The user must explicitly approve the complete MN Focus Deck feature or report remaining changes; do not propagate or resume AMS first.
+
+## Part 475 — Focus Deck Approved + Retrospective Propagation Ready for Review
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** The user explicitly approved the complete MN Focus Deck. Shared-feature retrospective propagation is authorized; clinical content and real learner data remain held.
+
+Current batch:
+- Applicability: MN approved reference; MH, PD, and Pharm implemented; AMS not applicable until its Phase D canonical Review/Browse/due surface exists, at which point Focus becomes a mandatory activation gate.
+- MH/PD/Pharm now match MN for stable-ID Focus membership, Review/Browse entry, Focus all/due review, whole-queue handoff, one-card explanations, session Shuffle, Restore order, Skip, `C`/`S`/`Shift+S`, schedule-independent membership, deck-reset preservation, and Hub JSON export/import/reset-all.
+
+Files edited:
+- Flashcards hashes: MN `1a632664655f0cad418141a2074502b40655538f017e84d1b3bf9893e46213b1`; MH `019c42c72ffceedd004753aeea5a7eb6912f6347c7f0d8aad743b952fd41ec02`; PD `c638df51f8adc7774229804ad75312a5b4278dd9de73b56dc592d173dd3daad4`; Pharm `f94b818ef967d30b8f824bb5c2a4cf15c62d3c558d51ea00f1936c9f2a5dd31e`.
+- Hub hashes: MN `085697a80f90e35dbfc48d013104a4d12e90da7df4ec5a1e0e597bb6e1fdf854`; MH `a4f360aeec0f66beec963a61053bc5fb230175df110a9dc5ba0a4f6d111a2ed0`; PD `f49cdd95b21f4ff15d87e9663b4608d32cf60cf687a6fbee8190c329a393b8aa`; Pharm `a237ee2dcb04e816c710c8086fbd9888158b811f039bec5e5faa84833240a799`.
+- Checklist records the reusable Focus contract. Master Part 475 was updated first; this overlay and the private handoff mirror it. QA root: `/private/tmp/flashcards-focus-propagation-475`.
+
+Validation performed:
+- Static gate is `pass: true`: exact retained card payload/order/taxonomy parity, MN `492`, MH `593`, PD `747`, Pharm `702`, unique IDs, all same-subject anchors, script parse, storage-key preservation, collision-free Focus keys, and byte-unchanged AMS.
+- Isolated MH/PD/Pharm runtime passes Focus add/list/review, Browse handoff, Shuffle, Restore, Skip, rating, membership retention, reload persistence, and Hub key/migration contracts. Review and Focus views pass all eight twice-stable required widths with zero overflow/containment failures. Fresh wide/phone states and a rendered Letter print PDF were inspected.
+- Interactive review: [Focus Deck retrospective review 475](http://127.0.0.1:8913/flashcards-focus-propagation-475.html?v=475g), with Focus list, Focus review, and Shuffled review modes.
+
+Automation status:
+- Flashcards heartbeat remains **PAUSED** at `be391c9ecaf99398ae983c738cbfa04a3670982d90ef11e15f854b6fd42d5261` until retrospective visual approval. All protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, published, reset, reverted, populated, or destructively changed. No Book or real learner data changed.
+
+GitHub Desktop should show:
+- Exactly ten authorized tracked modifications: overlay, checklist, four Flashcards, and four Hubs. Unrelated untracked files remain untouched.
+
+TLDR:
+- The user-approved Focus Deck is now in every currently applicable audited Flashcards product; AMS has a mandatory later activation gate.
+
+Next Recommended Action:
+- The user must inspect the open [four-subject Focus Deck comparison](http://127.0.0.1:8913/flashcards-focus-propagation-475.html?v=475g) in all three modes and approve parity or report an exact mismatch; keep the heartbeat paused and do not start AMS first.
+
+## Part 476 — Focus Retrospective Approved; AMS Phase A Next
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** User visual approval closes the Part 475 Focus Deck retrospective boundary.
+
+Current batch:
+- MN/MH/PD/Pharm Focus parity is **USER APPROVED**. AMS remains intentionally unchanged and receives the two-lane metadata plus complete Focus Deck contracts as mandatory Phase D activation gates.
+- Normal guarded queue resumes with **AMS Phase A preflight/inventory only**; no AMS product edit is authorized until that phase and its gates determine the next safe step.
+
+Files edited:
+- Documentation only in this checkpoint. Part 475 product and Hub hashes remain current; no Book, learner text, card record, storage, or real learner data changed. Master Part 476 was written first; this overlay and the private handoff agree.
+
+Validation performed:
+- User evidence: `Approved` with the Part 475 four-subject comparison open. Branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`, exact ten-file tracked set, unrelated untracked preservation, and exact-empty ownership all pass before resumption.
+
+Automation status:
+- Flashcards heartbeat is **ACTIVE** on its preserved 15-minute schedule at Part 476 configuration hash `16894685c40f4038500386a61a71d191e5516407f5c6b8c4ba2aa63d1331394f`; next ownership is AMS Phase A only. Protected automations remain **PAUSED** and unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- The same ten authorized tracked modifications. Part 476 is documentation-only.
+
+TLDR:
+- Focus Deck retrospective parity is approved; the queue can safely resume at AMS inventory.
+
+Next Recommended Action:
+- The user does not need to act; leave the reactivated Flashcards heartbeat guarded and let its next wakeup begin AMS Phase A preflight/inventory only.
+
+## Part 477 Recovery Addendum — AMS Phase A Stopped at Learner-State Gate
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** AMS Phase A recovered the exact legacy product and found a stable learner-state deletion risk. Phase A is **IN PROGRESS / STOPPED**; no AMS product edit or Phase B work began.
+
+Current batch:
+- Exact AMS Flashcards remains byte-identical to retained Part 466 at `8eb1728ef107db8820c47c7933386652ddd0a37c0f3175c50a8d666464779f27`: `208` DOM cards, `208` unique stable IDs, `208` unique `STARTER_DECK` IDs with equal membership but different order, `14` units, `47` populated chapters, and five populated legacy types. All `208/208` cards carry the required observable fields and all `208/208` Book links resolve in AMS Book `b1e5863cdc99c2207b77c8e88f6e62f998cb6f728cc002e8f8c4b7def7f636c8`.
+- Legacy UI is a static two-column Reveal/Open Book grid with search plus unit/chapter/type chips, theme, one `860px` breakpoint, and storage tokens `nur2460_theme`, `atiams_fc_schedule`, `atiams_fc_filters`. It has no Review/Browse/due/rating/CSV/sidebar/drawer/Focus/print contract; approved due-metadata and Focus Deck remain Phase D activation gates.
+
+Files edited:
+- Documentation only: private master Part 477 first, this overlay, and the private handoff. AMS Flashcards, AMS Book/Hub, learner text/state, checklist, stable IDs, anchors, content, and storage identities remain unchanged. Evidence root: `/private/tmp/ams-flashcards-phase-a-477`.
+
+Validation performed:
+- Static inventory passes current/snapshot byte parity, card/starter membership, uniqueness, required fields, same-subject anchors, script parse, identity/accent/links/storage inventory, and exact legacy-surface detection.
+- **Stable blocker:** at selector `#loadStarter` (`Hide all answers`; title `Hide all revealed answers`), card `fc-ams-ch21-rescue-vs-control`, `1440 x 1000`, zoom/scale `1`, isolated seeded `atiams_fc_schedule` is byte-preserved before click and becomes exactly `{}` after click because the handler writes an empty object to `FC_KEY`. Before/after measurements are independently identical at least `300ms` apart; filter/theme bytes stay unchanged; HTTP `200`, no overflow, no browser errors. Evidence: `/private/tmp/ams-flashcards-phase-a-477/runtime-state-gate-477.json`.
+- Close gate rechecks branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`, exact ten tracked modifications, unrelated untracked preservation, protected hashes, and `git diff --check`.
+
+Automation status:
+- Flashcards heartbeat is **PAUSED** at the AMS learner-state stop with synchronized configuration hash `7348a1b2d12ca8f5826fb866dc7afbec8cf93a0229ad712b86b28e5989028df9`; its recurrence and full recovery prompt are preserved. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, published, reset, reverted, populated, or destructively changed. QA used isolated storage only.
+
+GitHub Desktop should show:
+- The same ten authorized tracked modifications. AMS Flashcards has not joined the diff; preserve unrelated untracked files.
+
+TLDR:
+- AMS static inventory passes, but the answer-hiding button erases the complete schedule key, so the guarded queue is paused before Phase B.
+
+Next Recommended Action:
+- The user must authorize the narrow repair that removes only the schedule-clearing write from `#loadStarter`, then require a fresh complete AMS Phase A learner-state gate before Phase B.
+
+## Part 478 Recovery Addendum — AMS Phase A Complete; Phase B Next
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** User approval authorized the exact AMS learner-state repair. The repaired interaction passes fresh static and browser gates, AMS Phase A is **COMPLETED**, and Phase B existing-canon design parity is next.
+
+Current batch:
+- Only the `localStorage.setItem(FC_KEY, JSON.stringify({}))` line was removed from `#loadStarter`. `Hide all answers` still hides all answers and resets every Reveal label/ARIA state, while schedule/history, filter, theme, and progress storage remain untouched.
+- Current AMS Flashcards is `2bc83badaccf4cfa56184ea0dbcdacc7097e0e684da3405cce99371130af3bfc`; AMS Book remains `b1e5863cdc99c2207b77c8e88f6e62f998cb6f728cc002e8f8c4b7def7f636c8`. Preserve the Part 477 `208/208` card/starter inventory, stable IDs, equal membership with differing order, `14` units, `47` populated chapters, five populated legacy types, and `208/208` resolving Book anchors.
+
+Files edited:
+- AMS Flashcards joins the tracked set with exactly one deleted line. Master Part 478 was updated first; this overlay and private handoff agree. No Book, Hub, checklist, clinical wording, card payload, ID, anchor, order, key, real schedule/history, or learner data changed. Evidence root: `/private/tmp/ams-flashcards-phase-a-478`.
+
+Validation performed:
+- Static inventory passes `208/208` unique DOM IDs, `208/208` unique starter IDs, zero membership/required-field/anchor failures, one script parse, preserved identity/accent/links/storage, zero schedule writes, and a focused diff containing only the approved deletion.
+- Isolated `#loadStarter` runtime passes at `1440 x 1000` and `390 x 844`, both scale `1`: separate seeded stable-ID schedule/history bytes remain exact before/after; answers hide; Reveal text/ARIA reset; states are stable at least `300ms`; zero horizontal overflow; HTTP `200`; no browser errors. Evidence: `runtime-state-gate-478.json` and `runtime-phone-state-gate-478.json` under the evidence root.
+- Close gate rechecks branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`, exactly eleven authorized tracked modifications, unrelated untracked preservation, protected hashes, and `git diff --check`.
+
+Automation status:
+- Flashcards heartbeat is **ACTIVE** on its preserved 15-minute schedule at synchronized configuration hash `11a092c039c201fe33bc24f8aa58d9bf50d1c03dd36e98e00c07034abca0f14f`, with only AMS Phase B next. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, published, reset, reverted, populated, or destructively changed. QA storage was isolated.
+
+GitHub Desktop should show:
+- Exactly eleven authorized tracked modifications: overlay, checklist, five Flashcards, and four Focus-supporting Hubs. AMS Flashcards shows only the approved one-line deletion.
+
+TLDR:
+- AMS Hide all answers now preserves schedule/history and Phase A passes; Phase B is next.
+
+Next Recommended Action:
+- The user does not need to act; leave the guarded heartbeat active and let the next wakeup begin only AMS Phase B existing-canon design parity.
+
+## Part 479 Recovery Addendum — Reusable Night Shift Profile Active
+
+Current mode:
+- **NIGHT SHIFT DESIGN-SHELL / FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** The user approved the complete recommended Night Shift precedent. It is a temporary profile of the existing Flashcards heartbeat, not a second automation. AMS Phase B remains the primary lane; Fundamentals is the first shell subject and is secondary only.
+
+Current batch:
+- Primary work continues the exact guarded AMS queue. The Fundamentals shell lane may run only when the primary lane is objectively complete for that run, has no safe in-scope unit, or is waiting at a user-review boundary; it may never bypass a safety, continuity, learner-state, clinical-content, destructive-action, unexpected-change, missing-evidence, or subjective-canon stop.
+- Persistent shell order is exact: `Elevated ATI Fundamentals Book.html` → `Elevated ATI Fundamentals Hub.html` → `Elevated ATI Fundamentals Templates.html` → `Elevated ATI Fundamentals Flashcards.html`. One run owns one product only and at most two adjacent bounded phases. Each shell is constructed and fully gated under a fresh `/private/tmp` path first, then promoted byte-exactly as an unlinked repository draft. The global index remains untouched until explicit visual approval.
+- Shells contain zero clinical chapters, objectives, claims, cards, anchors, template examples, fake records, donor payloads, or inferred content. The Flashcards shell must be born with the complete current Review/Browse, two-lane metadata, Focus Deck, Skip, Shuffle, Restore order, keyboard, import/export/reset, accessibility, responsive, print, and learner-state contracts, but zero card records.
+- `I am back` is the reusable deactivation signal: safely yield/checkpoint the current bounded unit, report, disable the shell-secondary profile, and restore the ordinary guarded queue at its exact documented recovery point.
+
+Files edited:
+- Configuration checkpoint only: private master Part 479 first, this overlay, private handoff, and the reusable checklist. No Fundamentals product file or existing product/global-index/learner-state file changes in this checkpoint.
+
+Validation performed:
+- Activation preflight passes branch `main`; HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`; `0/0`; exact eleven authorized tracked modifications; AMS hash `2bc83badaccf4cfa56184ea0dbcdacc7097e0e684da3405cce99371130af3bfc`; unrelated untracked preservation; exact-empty ownership; protected automation hashes unchanged; and clean profile checks for one-product ownership, zero-content enforcement, temporary-first QA, honest links, recovery, and no publish/commit/global-index mutation.
+- No shell QA is claimed because no shell product was created during this configuration checkpoint.
+
+Automation status:
+- `ati-flashcards-canon-migration-heartbeat` is **ACTIVE** every 15 minutes at Night Shift configuration hash `e7c5015aa5c2cbdc60c2d66d645322a735b8bd484e50b13e48cb9ffab3848ac4`. AMS Phase B remains next; Fundamentals Book is only the first eligible secondary product. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- The same eleven authorized tracked modifications as Part 478. No Fundamentals shell joins the repository during this configuration checkpoint.
+
+TLDR:
+- Night Shift is active on the existing heartbeat: AMS first, then safely gated empty Fundamentals drafts in Book → Hub → Templates → Flashcards order.
+
+Next Recommended Action:
+- The user does not need to act; leave Night Shift active while away and say `I am back` to checkpoint and disable the shell-secondary profile.
+
+## Part 480 Recovery Addendum — AMS Phase B1 Passed; Phase B2 Next
+
+Current mode:
+- **NIGHT SHIFT DESIGN-SHELL / FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** AMS remains primary. Phase B is **IN_PROGRESS** with the bounded sidebar/narrow-utility B1 unit **COMPLETED**. No Fundamentals shell work was started.
+
+Current batch:
+- AMS now has the shared fixed `280px` desktop sidebar; Back to Hub; synchronized theme, search, unit, and legacy-type quick filters; an accessible drawer at `900px`; and the exact `600px` padding transition. The drawer resets scroll, focuses search, maintains hidden/inert/ARIA state, supports Escape/overlay/quick-filter close, and restores focus.
+- Preserve the `208/208` exact card and STARTER_DECK payloads, IDs, order, anchors, storage keys, schedule/history, Part 478 repair, and all learner wording. Taxonomy, Review/Browse, due/rating, CSV, and Focus UI remain unactivated. Resume only AMS Phase B2 main-surface visual/token hierarchy.
+
+Files edited:
+- `Elevated ATI AMS Flashcards.html` is now `22d921c4638a23fce3b2e9266ecd130acdb0ff77beee5f113877a6523e8259d5`; private master Part 480 was written first, then this overlay and the private handoff. Checklist, Books, Hubs, Fundamentals shells, global index, clinical content, card records, keys, and real learner state did not change. Evidence root: `/private/tmp/ams-flashcards-phase-b-sidebar-480`.
+
+Validation performed:
+- Static gate passes exact card-article/ID-order/STARTER_DECK parity, uniqueness, required fields, one script parse, preserved storage tokens, zero schedule writes, correct AMS Hub links, no global-index link, drawer/breakpoint/print-hide tokens, and clean `git diff --check`.
+- Fresh twice-stable isolated measurements at `2240`, `1440`, exact `901/900`, `768`, exact `601/600`, and `390` widths pass at scale `1` with zero overflow and HTTP `200`. Drawer focus/reset, hidden/inert/ARIA state, Escape, overlay, quick-filter close, focus restoration, synchronized search/filter results, and light/dark theme labels pass with no browser errors. Final wide and closed/open phone screenshots were freshly rendered and inspected. Full print/PDF remains reserved for the complete AMS gate.
+
+Automation status:
+- Flashcards heartbeat remains **ACTIVE** every 15 minutes with Night Shift enabled at synchronized configuration hash `c380c94b2bfff0a9f5a06d5551b9346a617309799dfa591516920a3d027e7987`. It preserves Part 480 and resumes only AMS Phase B2. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed. QA used isolated local state only.
+
+GitHub Desktop should show:
+- The same eleven authorized tracked filenames as Part 479. AMS contains the Part 478 repair plus this bounded sidebar/drawer delta; preserve all unrelated untracked files.
+
+TLDR:
+- AMS Phase B1 sidebar and responsive utility parity passed without changing card or learner-state identity; Phase B2 is next.
+
+Next Recommended Action:
+- The user does not need to act; leave Night Shift active and let the next heartbeat resume only AMS Phase B2 main-surface visual/token hierarchy.
+
+## Part 481 Recovery Addendum — AMS Phase B Complete; Phase C Next
+
+Current mode:
+- **NIGHT SHIFT DESIGN-SHELL / FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** AMS Phase B existing-canon design parity is **COMPLETED**. No Fundamentals shell work was started. Resume only AMS Phase C retrieval-taxonomy registry.
+
+Current batch:
+- B2 applies approved role hierarchy: `18px` hero, `32px/1.1` title, `12px` stats, `10px` filter/browse cards, `8px` controls, `19px/1.4` DM Serif questions, rounded `9px/700` legacy pills, structured answers, full-width reveal controls, visible filter labels, and two-column narrow stats.
+- The final gate found `#cardSearch` filtered `asthma` to five cards while `#sidebarSearchInput` stayed empty. Main-to-sidebar mirroring now completes the existing bidirectional search contract; final evidence passes `asthma/asthma` with five cards and `oxygen/oxygen` with twenty-seven.
+- Taxonomy, Review/Browse, due/rating, CSV, and Focus UI remain unactivated. Phase C is limited to contiguous stable-order registry batches under the existing maximum and ambiguity stops.
+
+Files edited:
+- `Elevated ATI AMS Flashcards.html` is now `a7abc4df184265a4c0c27efcf48cf76dc7e1b7f10df53b465bd7e96a2700793f`; private master Part 481 was written first, then this overlay and private handoff. Checklist, Books, Hubs, Fundamentals shells, global index, clinical content, card payload/identity, keys, and real learner state did not change. Evidence root: `/private/tmp/ams-flashcards-phase-b-main-481`.
+
+Validation performed:
+- Static gate passes exact `208/208` card-article/ID-order/STARTER_DECK parity, required fields, unique IDs, `208/208` resolving Book anchors, script parse, preserved keys, zero schedule writes, links, role/focus/filter/search contracts, and `git diff --check`.
+- Fresh twice-stable measurements pass `2240`, `1440`, exact `901/900`, `768`, exact `601/600`, and `390` widths at scale `1`, HTTP `200`, zero overflow, and exact computed role tokens. Reveal/answer and Hide all answers preserve seeded schedule bytes. Drawer hidden/inert/focus/Escape/quick-filter/restoration, all-card restore, both search directions, and dark/light state pass with no browser errors. Fresh wide and logical `390 x 844` phone top/card screenshots were rendered and inspected. Full print/PDF remains mandatory before AMS subject completion.
+
+Automation status:
+- Flashcards heartbeat remains **ACTIVE** every 15 minutes with Night Shift enabled at synchronized configuration hash `86bad7c8daa924d54499c13f79163c63d2dda786f4a03b272594494aa233085e`. It resumes only AMS Phase C. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed. QA used isolated localhost state only.
+
+GitHub Desktop should show:
+- The same eleven authorized tracked filenames as Part 480. AMS contains the Part 478 repair plus completed Phase B parity; preserve unrelated untracked files.
+
+TLDR:
+- AMS Phase B passed without card, anchor, or learner-state drift; the first Phase C taxonomy registry batch is next.
+
+Next Recommended Action:
+- The user does not need to act; leave Night Shift active and let the next heartbeat begin only the first AMS Phase C stable-order taxonomy registry batch.
+
+## Part 482 Recovery Addendum — AMS Registry Positions 1–40 Complete
+
+Current mode:
+- **NIGHT SHIFT DESIGN-SHELL / FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** AMS Phase C is **IN PROGRESS**. No Fundamentals shell was started.
+
+Current batch:
+- Dormant registry positions `1–40`, `fc-ams-ch21-rescue-vs-control` through `fc-ams-ch85-varicella-pregnancy`, are complete in exact STARTER_DECK order. Primary totals: Recall `12`, Recognize `6`, Act `21`, Apply `1`. Attributes: Warning `3`, Numeric `5`, Sequence `10`, Comparison `11`, Mnemonic `0`, Calculation `0`. Exact legacy-Warning parity passes; `168` cards remain. The modular Study Tool Synthesis Guide v2 files were read in required order before classification.
+- The registry identifier occurs only at its declaration; taxonomy, Review/Browse, due/rating, CSV, and Focus UI remain unactivated. Resume only positions `41–80`, `fc-ams-ch85-influenza-product` through `fc-ams-ch96-aldrete`.
+
+Files edited:
+- `Elevated ATI AMS Flashcards.html` is SHA-256 `0cb20af298a87a7709346c18f97d2b3af0f52fd603b0c0deb1a49d01a93418b4`. Removing the registry block reproduces Part 481 SHA-256 `a7abc4df184265a4c0c27efcf48cf76dc7e1b7f10df53b465bd7e96a2700793f`. Private master Part 482 was written first, then this overlay and private handoff. Checklist, Books, Hubs, shells, index, content, payload, keys, and real learner state did not change. Evidence root: `/private/tmp/ams-flashcards-phase-c-482`.
+
+Validation performed:
+- Fresh gate passes `208/208` articles/unique IDs, `208/208` unique STARTER_DECK IDs with exact membership, `208/208` AMS Book anchors, `40/40` unique exact-order registry entries, allowed primary/attribute vocabularies, canonical flag order, exact Warning parity, one parsed script, declaration-only isolation, stripped-registry byte parity, and `git diff --check`.
+- Branch/HEAD/origin/ahead-behind remain `main`, `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`; the expected eleven tracked modifications remain exact.
+
+Automation status:
+- Flashcards heartbeat remains **ACTIVE** every 15 minutes with Night Shift enabled and Part 482 recovery at configuration SHA-256 `7dd4e09734c98a6f5f0e324a30f4e21665b912d63aa786100074ad100c5690a2`. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- The same eleven authorized tracked filenames as Part 481. AMS now additionally contains only dormant registry positions `1–40`; preserve unrelated untracked files.
+
+TLDR:
+- AMS positions `1–40` passed fresh dormant-registry gates without content or learner-state drift; `168` remain.
+
+Next Recommended Action:
+- The user does not need to act; leave Night Shift active and let the next heartbeat continue only AMS positions `41–80`.
+
+## Part 483 Recovery Addendum — AMS Registry Positions 41–80 Complete
+
+Current mode:
+- **NIGHT SHIFT DESIGN-SHELL / FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** AMS Phase C is **IN PROGRESS**. This run completed its second bounded registry unit; no Fundamentals shell was started.
+
+Current batch:
+- Dormant registry positions `41–80`, `fc-ams-ch85-influenza-product` through `fc-ams-ch96-aldrete`, are complete. Batch primary totals: Recall `6`, Recognize `8`, Act `24`, Apply `2`; attributes: Warning `1`, Numeric `8`, Sequence `12`, Comparison `7`, Mnemonic `0`, Calculation `0`. Cumulative `1–80`: Recall `18`, Recognize `14`, Act `45`, Apply `3`; Warning `4`, Numeric `13`, Sequence `22`, Comparison `18`, Mnemonic `0`, Calculation `0`. Exact legacy-Warning parity passes; `128` cards remain.
+- The registry remains declaration-only and learner-invisible. Resume only positions `81–120`, `fc-ams-ch96-urine-output` through `fc-ams-ch28-shock-safety`; taxonomy, Review/Browse, due/rating, CSV, and Focus UI remain unactivated.
+
+Files edited:
+- `Elevated ATI AMS Flashcards.html` is SHA-256 `07d219d952d41d544449c3b05207e915db04883ca6ae94286768840cb349c314`; positions `1–40` remain metadata-equivalent to Part 482, and stripping the registry reproduces Part 481 SHA-256 `a7abc4df184265a4c0c27efcf48cf76dc7e1b7f10df53b465bd7e96a2700793f`. Private master Part 483 was written first, then this overlay and private handoff. Checklist, Books, Hubs, shells, index, content, payload, keys, and real learner state did not change. Evidence root: `/private/tmp/ams-flashcards-phase-c-483`.
+
+Validation performed:
+- Fresh gate passes all `208` articles/unique IDs, `208` unique STARTER_DECK IDs with exact membership, all `208` AMS Book anchors, all `80` unique exact-order registry entries, positions `1–40` parity, allowed canonical vocabularies and flag order, exact Warning parity, one parsed script, declaration-only isolation, stripped-registry byte parity, and `git diff --check`.
+- Branch/HEAD/origin/ahead-behind remain `main`, `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`; the expected eleven tracked modifications remain exact.
+
+Automation status:
+- Flashcards heartbeat remains **ACTIVE** every 15 minutes with Night Shift enabled and Part 483 recovery at configuration SHA-256 `d8baf2394af06e7c25bf4d47a36b142b1aab33008b5f2cb35f4ed2879a56cbc5`. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- The same eleven authorized tracked filenames as Part 482. AMS now contains dormant registry positions `1–80`; preserve unrelated untracked files.
+
+TLDR:
+- AMS positions `1–80` passed fresh dormant-registry gates without content or learner-state drift; `128` remain.
+
+Next Recommended Action:
+- The user does not need to act; leave Night Shift active and let the next heartbeat continue only AMS positions `81–120`.
+
+## Part 484 Recovery Addendum — AMS Registry Positions 81–120 Complete
+
+Current mode:
+- **NIGHT SHIFT DESIGN-SHELL / FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** AMS Phase C is **IN PROGRESS**. This is the first independently completed registry unit in the current run; no Fundamentals shell was started.
+
+Current batch:
+- Dormant registry positions `81–120`, `fc-ams-ch96-urine-output` through `fc-ams-ch28-shock-safety`, are complete. Batch primary totals: Recall `9`, Recognize `7`, Act `22`, Apply `2`; attributes: Warning `3`, Numeric `9`, Sequence `12`, Comparison `11`, Mnemonic `0`, Calculation `0`. Cumulative `1–120`: Recall `27`, Recognize `21`, Act `67`, Apply `5`; Warning `7`, Numeric `22`, Sequence `34`, Comparison `29`, Mnemonic `0`, Calculation `0`. Exact legacy-Warning parity passes; `88` cards remain.
+- The registry remains declaration-only and learner-invisible. Resume only positions `121–160`, `fc-ams-ch29-transcutaneous-pacing-first` through `fc-ams-ch37-obstructive-procedure-match`; taxonomy, Review/Browse, due/rating, CSV, and Focus UI remain unactivated.
+
+Files edited:
+- `Elevated ATI AMS Flashcards.html` is SHA-256 `d95ea420088d592012ac4aae407437fb86f80aed169b7d2727faee1a20b2d372`; removing this batch reconstructs exact Part 483 SHA-256 `07d219d952d41d544449c3b05207e915db04883ca6ae94286768840cb349c314`, preserving the evidence chain to Part 481. Private master Part 484 was written first, then this overlay and private handoff. Checklist, Books, Hubs, shells, index, content, payload, keys, and real learner state did not change. Evidence root: `/private/tmp/ams-flashcards-phase-c-484`.
+
+Validation performed:
+- Fresh gate passes all `208` articles/unique IDs, `208` unique STARTER_DECK IDs with exact membership, all `208` AMS Book anchors, all `120` unique exact-order registry entries, allowed canonical vocabularies and flag order, exact Warning parity, one parsed script, declaration-only isolation, exact Part 483 reconstruction, transitive pre-registry parity, and `git diff --check`.
+- Branch/HEAD/origin/ahead-behind remain `main`, `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`; the expected eleven tracked modifications remain exact.
+
+Automation status:
+- Flashcards heartbeat remains **ACTIVE** every 15 minutes with Night Shift enabled and Part 484 recovery at configuration SHA-256 `98d61b1d828177dd40506225e317190ecea81179363dc9d40351b8b524822210`. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- The same eleven authorized tracked filenames as Part 483. AMS now contains dormant registry positions `1–120`; preserve unrelated untracked files.
+
+TLDR:
+- AMS positions `1–120` passed fresh dormant-registry gates without content or learner-state drift; `88` remain.
+
+Next Recommended Action:
+- The user does not need to act; this expanded-scope run may continue only AMS positions `121–160`.
+
+## Part 485 Recovery Addendum — AMS Next-Range Conflict; Heartbeat Paused
+
+Current mode:
+- **PAUSED — NIGHT SHIFT DESIGN-SHELL / FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT.** Part 484 remains the last completed product checkpoint. No second registry unit or Fundamentals shell was started.
+
+Current batch:
+- The documented next batch says positions `121–160` end at `fc-ams-ch37-obstructive-procedure-match`, but fresh exact STARTER_DECK evaluation places that ID at position `156`. Exact position `160` is `fc-ams-ch20-pneumonia-culture`; the documented named span therefore contains `36`, not `40`, cards.
+- Phase C remains in progress at `120/208` validated dormant records, with `88` remaining. The conflict is not silently corrected and learner-visible UI remains unchanged.
+
+Files edited:
+- No product changed after Part 484; AMS remains SHA-256 `d95ea420088d592012ac4aae407437fb86f80aed169b7d2727faee1a20b2d372`. Private master Part 485 was written first, then this overlay and private handoff. Checklist, Books, Hubs, shells, index, content, state, and protected products are unchanged. Evidence root: `/private/tmp/ams-flashcards-phase-c-485`.
+
+Validation performed:
+- Fresh evidence confirms all `208` exact deck positions and specifically positions `121`, `156`, and `160`; Part 484 static evidence remains passing. Branch/HEAD/origin/ahead-behind and the expected tracked/untracked sets remain exact; focused `git diff --check` passes.
+
+Automation status:
+- Flashcards heartbeat is **PAUSED** with Night Shift and all other fields preserved at Part 485, configuration SHA-256 `14123f29f8db2e244e7ec0b195b9b03dcc00b0b2023a2e1db569b1629562b845`. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- The same eleven authorized tracked filenames as Part 484. AMS remains at dormant registry positions `1–120`; no second product delta exists.
+
+TLDR:
+- Work stopped safely because the documented position-160 endpoint is actually position `156`.
+
+Next Recommended Action:
+- The user must act: authorize positions `121–160` ending `fc-ams-ch20-pneumonia-culture`, or specify another exact endpoint before resuming the heartbeat.
+
+## Part 486 Recovery Addendum — User Returned; Night Shift Disabled
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — PAUSED.** The user returned and explicitly paused Night Shift. The Fundamentals shell-secondary profile is disabled; the ordinary Flashcards queue remains paused at exact Part 485 recovery.
+
+Current batch:
+- AMS completed Phase A and its one-line learner-state repair, Phase B existing-canon parity, and dormant Phase C positions `1–120`. Current cumulative taxonomy is Recall `27`, Recognize `21`, Act `67`, Apply `5`; Warning `7`, Numeric `22`, Sequence `34`, Comparison `29`, Mnemonic `0`, Calculation `0`. Exactly `88` records remain and learner-visible taxonomy/UI is not activated.
+- No Fundamentals shell was started. The only continuation blocker is the exact endpoint mismatch: documented `fc-ams-ch37-obstructive-procedure-match` is position `156`, while exact position `160` is `fc-ams-ch20-pneumonia-culture`.
+
+Files edited:
+- No product changed. AMS remains SHA-256 `d95ea420088d592012ac4aae407437fb86f80aed169b7d2727faee1a20b2d372`. Private master Part 486 was written first, then this overlay and private handoff. Books, Hubs, shells, checklist, index, content, keys, and learner state are unchanged.
+
+Validation performed:
+- Branch/HEAD/origin/ahead-behind remain `main`, `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, same, `0/0`; the expected eleven tracked and preserved untracked sets remain exact; AMS and AMS Book hashes match Part 485; `git diff --check` passes.
+- Part 484 product/static evidence and Part 485 range-conflict evidence remain valid and unchanged.
+
+Automation status:
+- Flashcards heartbeat is **PAUSED** every 15 minutes at configuration SHA-256 `94e2b464126ab4677ad29ddecb32a1a2cd4bc9acc03824b34ec0f80769ec0704`. Night Shift is disabled and its reusable shell precedent is inert. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- The same eleven authorized tracked filenames as Part 485. This return-mode checkpoint adds no product delta.
+
+TLDR:
+- Night Shift is off; no Fundamentals shell was created. AMS is safely paused at `120/208` taxonomy records with one endpoint mismatch awaiting direction.
+
+Next Recommended Action:
+- The user must act before ordinary automation resumes: approve positions `121–160` ending `fc-ams-ch20-pneumonia-culture`, or provide another explicit endpoint.
+
+## Part 487 Recovery Addendum — Corrected AMS Range Approved; Ordinary Heartbeat Resumed
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — ACTIVE.** The user approved the corrected AMS continuation boundary. Night Shift remains disabled and the Fundamentals shell-secondary profile remains inert. The ordinary guarded queue resumes only at AMS Phase C.
+
+Current batch:
+- The approved unit is exact STARTER_DECK positions `121–160`, `fc-ams-ch29-transcutaneous-pacing-first` through `fc-ams-ch20-pneumonia-culture`, exactly `40` cards. `fc-ams-ch37-obstructive-procedure-match` is position `156` within this range and is no longer treated as its endpoint.
+- This approval checkpoint changes no product or classification. AMS remains at validated dormant coverage `120/208`, with `88` records remaining and no learner-visible taxonomy/UI activation.
+
+Files edited:
+- No product changed. AMS remains SHA-256 `d95ea420088d592012ac4aae407437fb86f80aed169b7d2727faee1a20b2d372`. Private master Part 487 was written first, then this overlay and private handoff. The existing heartbeat definition alone is synchronized and reactivated; no second automation was created.
+
+Validation performed:
+- Fresh range evidence confirms the `208`-record deck and exact positions `121`, `156`, and `160`; the approved span is `40` records. Branch/HEAD/origin/ahead-behind, expected tracked/untracked sets, AMS/Book hashes, Part 484/485 evidence, and `git diff --check` remain exact.
+
+Automation status:
+- Flashcards heartbeat is **ACTIVE** every 15 minutes at synchronized configuration SHA-256 `b1993280467c76c8302cfcf8019dcdc8427daba7105198f2e7b01b5fd38d4a2b`. Its only next work is the approved AMS range. Night Shift remains disabled; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- Exactly the same eleven authorized tracked filenames as Part 486. This checkpoint adds no product delta.
+
+TLDR:
+- The AMS boundary conflict is resolved; the ordinary heartbeat is active from `120/208`, while Night Shift stays off.
+
+Next Recommended Action:
+- The user does not need to act; the next heartbeat should classify only exact AMS positions `121–160`, ending `fc-ams-ch20-pneumonia-culture`, stop for ambiguity, and keep Night Shift disabled.
+
+## Part 488 Recovery Addendum — AMS Registry Positions 121–160 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — ACTIVE.** Night Shift remains disabled. AMS Phase C remains **IN PROGRESS**.
+
+Current batch:
+- Exact STARTER_DECK positions `121–160`, `fc-ams-ch29-transcutaneous-pacing-first` through `fc-ams-ch20-pneumonia-culture`, are complete. Batch totals: Recall `9`, Recognize `8`, Act `20`, Apply `3`; Warning `1`, Numeric `6`, Sequence `17`, Comparison `13`, Mnemonic `0`, Calculation `0`. Cumulative `1–160`: Recall `36`, Recognize `29`, Act `87`, Apply `8`; Warning `8`, Numeric `28`, Sequence `51`, Comparison `42`, Mnemonic `0`, Calculation `0`. Exactly `48` cards remain; the registry stays declaration-only and learner-invisible.
+
+Files edited:
+- `Elevated ATI AMS Flashcards.html` is SHA-256 `aa325934ba7a3807b1317aa237dd1cc23c2517a6e891e549c57b20291d63c7bb`; removing the new batch reconstructs exact prior SHA-256 `d95ea420088d592012ac4aae407437fb86f80aed169b7d2727faee1a20b2d372`. Private master Part 488 was written first, then this overlay and private handoff. Checklist, Books, Hubs, shells, index, clinical content, records, keys, and learner state did not change. Evidence root: `/private/tmp/ams-flashcards-phase-c-488`.
+
+Validation performed:
+- Fresh static QA passes all `208` article/deck identities and AMS Book anchors, all `160` unique exact-order registry entries, canonical vocabularies and attribute order, exact legacy-Warning parity, one parse-clean script, declaration-only isolation, exact prior-file reconstruction, expected tracked/untracked sets, and `git diff --check`.
+
+Automation status:
+- Flashcards heartbeat remains **ACTIVE** every 15 minutes with Night Shift disabled and Part 488 recovery at configuration SHA-256 `4ae8fda4a973a5f8c09ceed239e03f18abef18966a2ebaf906f3d0fedf4d4a47`. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- The same eleven authorized tracked filenames as Part 487. AMS now contains dormant registry positions `1–160`; preserve unrelated untracked files.
+
+TLDR:
+- AMS positions `1–160` pass fresh dormant-registry gates without content or learner-state drift; `48` remain.
+
+Next Recommended Action:
+- The user does not need to act; continue only exact AMS positions `161–200`, ending `fc-ams-ch44-hyperkalemia-rescue`, and stop for material ambiguity.
+
+## Part 489 Recovery Addendum — AMS Registry Positions 161–200 Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — ACTIVE.** Night Shift remains disabled. AMS Phase C remains **IN PROGRESS**.
+
+Current batch:
+- Exact STARTER_DECK positions `161–200`, `fc-ams-ch20-older-adult-confusion` through `fc-ams-ch44-hyperkalemia-rescue`, are complete. Batch totals: Recall `15`, Recognize `9`, Act `16`, Apply `0`; Warning `7`, Numeric `10`, Sequence `10`, Comparison `8`, Mnemonic `0`, Calculation `0`. Cumulative `1–200`: Recall `51`, Recognize `38`, Act `103`, Apply `8`; Warning `15`, Numeric `38`, Sequence `61`, Comparison `50`, Mnemonic `0`, Calculation `0`. Exactly `8` cards remain; the registry stays declaration-only and learner-invisible.
+
+Files edited:
+- `Elevated ATI AMS Flashcards.html` is SHA-256 `3b304a7eb6bfb56ce8b7dd20f40d625b61501c79cd6e4559fb1f851693c0abc8`; removing the new batch reconstructs exact Part 488 SHA-256 `aa325934ba7a3807b1317aa237dd1cc23c2517a6e891e549c57b20291d63c7bb`. Private master Part 489 was written first, then this overlay and private handoff. Checklist, Books, Hubs, shells, index, content, records, keys, and learner state did not change. Evidence root: `/private/tmp/ams-flashcards-phase-c-489`.
+
+Validation performed:
+- Fresh static QA passes all `208` article/deck identities and AMS Book anchors, all `200` unique exact-order registry entries, canonical vocabularies and attribute order, exact legacy-Warning parity, one parse-clean script, declaration-only isolation, exact Part 488 reconstruction, expected tracked/untracked sets, and `git diff --check`.
+
+Automation status:
+- Flashcards heartbeat remains **ACTIVE** every 15 minutes with Night Shift disabled and Part 489 recovery at configuration SHA-256 `724f80d7ed2f15f2a7b0cd24e72aa961b20e375f0e9ef7d0e2293e1ab9700676`. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- The same eleven authorized tracked filenames as Part 488. AMS now contains dormant registry positions `1–200`; preserve unrelated untracked files.
+
+TLDR:
+- AMS positions `1–200` pass fresh dormant-registry gates without content or learner-state drift; only `8` remain.
+
+Next Recommended Action:
+- The user does not need to act; classify only exact AMS positions `201–208`, ending `fc-ams-ch52-med-safety`, then run the complete Phase C registry gate without activating learner UI.
+
+## Part 490 Recovery Addendum — AMS Phase C Complete Registry Gate Passed
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — ACTIVE.** Night Shift remains disabled. AMS Phase C is **COMPLETED**; Phase D activation/UI migration is next and has not begun.
+
+Current batch:
+- Final positions `201–208`, `fc-ams-ch46-colonoscopy-prep` through `fc-ams-ch52-med-safety`, are complete: Recall `2`, Recognize `1`, Act `5`, Apply `0`; Warning `0`, Numeric `1`, Sequence `3`, Comparison `2`, Mnemonic `0`, Calculation `0`. Complete `208/208` totals are Recall `53`, Recognize `39`, Act `108`, Apply `8`; Warning `15`, Numeric `39`, Sequence `64`, Comparison `52`, Mnemonic `0`, Calculation `0`. The registry remains declaration-only and learner-invisible.
+
+Files edited:
+- `Elevated ATI AMS Flashcards.html` is SHA-256 `3747bbdadbc8a9ac3df1788850b062927f5ddd14ca8ba584701958f490cfb4ab`; removing the final range reconstructs exact Part 489 SHA-256 `3b304a7eb6bfb56ce8b7dd20f40d625b61501c79cd6e4559fb1f851693c0abc8`. Private master Part 490 was written first, then this overlay and private handoff. Checklist, Books, Hubs, shells, index, content, records, keys, and learner state did not change. Evidence root: `/private/tmp/ams-flashcards-phase-c-490`.
+
+Validation performed:
+- The complete gate passes all `208` article/deck identities and AMS Book anchors, all `208` unique exact-STARTER-order registry entries, allowed vocabulary/flag order, exact legacy-Warning parity, one parse-clean script, declaration-only isolation, exact Part 489 reconstruction, known distinct article/deck source-order preservation with exact membership, expected tracked/untracked sets, and `git diff --check`.
+
+Automation status:
+- Flashcards heartbeat remains **ACTIVE** every 15 minutes with Night Shift disabled and Part 490 Phase D recovery at configuration SHA-256 `5eddc430b00ae6a11d5d96326a3eddbc158e1fbe7018aad1724ad2b77711b688`. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- The same eleven authorized tracked filenames as Part 489. AMS now contains the complete dormant registry; preserve unrelated untracked files.
+
+TLDR:
+- AMS Phase C is objectively complete at `208/208`; Phase D activation is next, with learner state still untouched.
+
+Next Recommended Action:
+- The user does not need to act; begin only AMS Phase D taxonomy activation and UI migration from the complete registry, preserving every existing learner-state identity and keeping Night Shift disabled.
+
+## Part 491 — AMS Focus Deck Deferred-Activation Prerequisite Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — ACTIVE.** Night Shift is disabled. The Part 475 deferred AMS Focus applicability gate was reopened only for its Hub-state prerequisite and is now complete.
+
+Current batch:
+- Applicability matrix: AMS Hub was applicable now for future Focus backup/import/reset-all; AMS Flashcards remains deferred to the cohesive Phase D learner-interface activation; MN/MH/PD/Pharm are already implemented; Fundamentals shell is inactive. The collision-free key is `atiams_fc_collections_v1`.
+
+Files edited:
+- `Elevated ATI AMS Hub.html` is SHA-256 `802e143f1585e3eefa47bc23ce9188c5def094918dc6c16d0e1ce20d9dca6f4f`; its only focused delta declares the AMS Focus key and adds it to `SYNC_KEYS`. AMS Flashcards remains byte-unchanged at `3747bbdadbc8a9ac3df1788850b062927f5ddd14ca8ba584701958f490cfb4ab`, with the complete registry still dormant. Private master, this overlay, and private handoff are synchronized; checklist is unchanged. Evidence: `/private/tmp/ams-focus-hub-prereq-491`.
+
+Validation performed:
+- Static QA passes one key/declaration/allowlist reference and one parse-clean Hub script. Fresh isolated `127.0.0.1` headless-Chrome QA proves exact Focus export/import bytes, reset-all removal, schedule reset, theme preservation, and zero browser errors. The diff is exactly two intended Hub lines; branch/remote remain exact; the authorized twelve-file tracked set and unrelated untracked set are preserved; `git diff --check` passes.
+
+Automation status:
+- Flashcards heartbeat remains **ACTIVE** every 15 minutes with Night Shift disabled and Part 491 AMS Phase D recovery at configuration SHA-256 `d7114764350068023145ba3fec727a97f8f2832fe6fee7f58639640f80723530`. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- Exactly twelve authorized tracked modifications: overlay; checklist; five Flashcards; and five subject Hubs. AMS Hub joins only for this completed Focus-state prerequisite. Preserve unrelated untracked files.
+
+TLDR:
+- The future AMS Focus Deck now has complete Hub backup/import/reset coverage before its Phase D learner UI is exposed; AMS Flashcards itself remains unchanged and dormant.
+
+Next Recommended Action:
+- The user does not need to act; resume only AMS Phase D Flashcards activation from the complete registry, preserve AMS Hub and all learner state, and keep Night Shift disabled.
+
+## Part 492 — AMS Phase D Canonical Model and Isolated Candidate
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — ACTIVE.** Night Shift is disabled. AMS Phase D is **IN PROGRESS**; no temporary candidate has been promoted, so the repository learner UI remains unchanged and dormant.
+
+Current batch:
+- An exact stable-ID canonical model now joins all `208` legacy articles, `208` STARTER-order IDs, and `208` validated registry entries while explicitly preserving both documented source orders. A temporary AMS activation candidate implements the approved Review/Browse/due/rating/CSV/two-lane/Focus/Skip/Shuffle/Restore/versioned-filter contracts and remains under `/private/tmp` for its complete gate.
+
+Files edited:
+- No repository product changed. AMS Flashcards remains `3747bbdadbc8a9ac3df1788850b062927f5ddd14ca8ba584701958f490cfb4ab`; AMS Hub remains `802e143f1585e3eefa47bc23ce9188c5def094918dc6c16d0e1ce20d9dca6f4f`. Temporary model is `4e745eef158dce8217134ba1d3c4401293362d8ce8a4638b6fd5983a610f3796`; candidate is `2672a039728632f18ce35d3f3cf2fb4cabcfcf5eea28ebc614cdc3b77b00bde2`. Evidence: `/private/tmp/ams-flashcards-phase-d-model-492`. Master, overlay, and handoff are synchronized; checklist unchanged.
+
+Validation performed:
+- Model QA passes exact `208/208/208` unique equal membership, both preserved orders, complete payload and Book anchors, and exact taxonomy totals. Candidate static QA passes `208/208` exact-order record/registry parity, payload/anchor parity, script parse, `28/28` static DOM IDs, required features/keys/links, and zero Pharm residue.
+- Fresh isolated runtime passes byte-exact schedule/Focus/legacy-filter preservation, compatible v2 migration, one-card disabled controls, separated due/tag lanes, CSV, nonoverwriting load to `208`, `208` Browse, two-card Focus add/list/review, Shuffle/Restore/Skip, rating without membership removal, two stable `390 x 844` measurements, zero overflow, closed-drawer accessibility state, and zero browser errors. Full widths, filters/unions, theme/drawer/keyboard, screenshots, print/PDF, state, HTTP, and promotion-diff gates remain pending.
+
+Automation status:
+- Heartbeat remains **ACTIVE** every 15 minutes at configuration SHA-256 `2690dca4bb40cfadddbb17b82844ba6c2ecfcec9dfe7285a821a41d5cb5ec382`, recovering at the isolated candidate full gate. Night Shift is disabled; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- Exactly the same twelve authorized tracked modifications as Part 491. Part 492 adds no product delta; preserve unrelated untracked files.
+
+TLDR:
+- AMS Phase D now has an exact, focused-QA-passing isolated candidate, but repository learners still see the unchanged dormant product until the full gate passes.
+
+Next Recommended Action:
+- The user does not need to act; rebuild and fully gate the exact candidate, then promote it to AMS Flashcards only if every required check passes.
+
+## Part 493 — AMS Phase D Full Gate Stopped for Shared Keyboard-Canon Conflict
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — PAUSED AT A SHARED-CANON CONFLICT.** Night Shift remains disabled; AMS Phase D remains **IN PROGRESS** and unpromoted.
+
+Current batch:
+- Exact Part 492 reconstruction and static QA pass. Fresh full-gate work passes all eight required widths, breakpoint pairs, stable zero-overflow/due-tag-lane evidence, accessible drawer workflows, screenshots, filters and OR unions, Review/Browse parity, compatible migration, theme, rating, CSV, links, and passive learner-state preservation before stopping at keyboard QA.
+- Exact blocker: an isolated three-card AMS Focus review at `1440 x 1000` did not respond to `S`. Cross-product scan proves advertised `C`, `S`, and `Shift+S` handlers exist only in MN: MN `1/1`; MH `0/0`; PD `0/0`; Pharm `0/0`; AMS candidate `0/0`. Applicability is MN Implemented; MH/PD/Pharm Applicable and missing; AMS Applicable at its deferred candidate; Hubs Not applicable.
+
+Files edited:
+- No repository product changed. AMS Flashcards remains `3747bbdadbc8a9ac3df1788850b062927f5ddd14ca8ba584701958f490cfb4ab`; AMS Hub remains `802e143f1585e3eefa47bc23ce9188c5def094918dc6c16d0e1ce20d9dca6f4f`; isolated candidate remains `2672a039728632f18ce35d3f3cf2fb4cabcfcf5eea28ebc614cdc3b77b00bde2`. Private master Part 493 was written first, then this overlay and private handoff. Checklist unchanged. Evidence: `/private/tmp/ams-flashcards-phase-d-fullgate-493`; failed gate `9b7eea19a57fc932d546ca3b84f674100bb3d74531f4e6c098971b136a042902`; shortcut audit `22feb1cc41ae4d366011ad3635ff19f033946b9ee2f892db2275b7aa50adab51`.
+
+Validation performed:
+- Fresh static/runtime evidence identifies the exact AMS selector/viewport failure and the shared source gap. Branch, HEAD/origin, ahead/behind, expected twelve tracked modifications, preserved unrelated untracked files, protected automation hashes, and `git diff --check` remain exact. No real learner state was read or mutated.
+
+Automation status:
+- Flashcards heartbeat is **PAUSED** at Part 493 under the shared-canon stop rule, configuration SHA-256 `7455bb440074033d983b3b9501f37617032575fea51072132bc5e17168792023`. Night Shift remains disabled. Resume only after user approval of a bounded MH/PD/Pharm plus AMS-candidate shortcut retrospective, then rerun focused cross-product QA and the complete AMS gate. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- Exactly the same twelve authorized tracked modifications as Part 492; Part 493 adds no repository product delta.
+
+TLDR:
+- AMS remains safely isolated. The full gate found that MH, PD, Pharm, and AMS advertise but do not implement the approved Focus/Shuffle keyboard shortcuts, so automation paused before any promotion or retrospective edit.
+
+Next Recommended Action:
+- The user must act by approving the bounded `C`/`S`/`Shift+S` retrospective repair across MH, PD, Pharm, and the AMS Phase D candidate.
+
+## Part 494 — Shared Flashcards Keyboard Shortcut Retrospective Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — PAUSED AFTER THE APPROVED BOUNDED REPAIR.** Night Shift remains disabled. The Part 493 conflict is resolved; AMS Phase D remains **IN PROGRESS** and unpromoted.
+
+Current batch:
+- The user approved only the missing `C`, `S`, and `Shift+S` handlers. The exact approved MN block is now in MH, PD, and Pharm, and the AMS candidate was freshly rebuilt from the repaired Pharm donor. MN remains the implemented reference; Hubs remain not applicable.
+
+Files edited:
+- Product files: `Elevated ATI MH Flashcards.html`, `Elevated ATI PD Flashcards.html`, `Elevated ATI Pharm Flashcards.html`, each only by the same handler block. AMS Flashcards remains `3747bbdadbc8a9ac3df1788850b062927f5ddd14ca8ba584701958f490cfb4ab`; AMS Hub remains `802e143f1585e3eefa47bc23ce9188c5def094918dc6c16d0e1ce20d9dca6f4f`; repaired isolated candidate is `ae6bf9bae8911eb76ee3fc8d5efefd9e0a4212c1c758a97064f226ea1f6b428d` and is not promoted. Private master Part 494 was written first, then this overlay and the private handoff. Checklist unchanged.
+
+Validation performed:
+- Focused byte reconstruction returns exact Part 493 hashes for MH/PD/Pharm when the new block is removed. New hashes are MH `73420a066327831c4ce6bd603500eab3d72247a1bdcb7a54c1f14eaa4889b0e2`, PD `20ddedd552671d7178a01521ee34314a4411d5d9c898cdc5cdcf7a364644da1d`, and Pharm `35e273e67b78447a8dbae4dab1384077a13a9f6e14e7f3d59455ec3a7ad56462`.
+- Fresh isolated HTTP `200` browser QA passes `S`, `Shift+S`, and two-way `C` membership on MH `593/593`, PD `747/747`, and Pharm `702/702`, with exact schedule bytes, preserved Focus schema/membership, parse-clean scripts, unique IDs, and zero browser issues.
+- Fresh AMS static and complete runtime gates pass `208/208`, all eight widths and breakpoint pairs, stable zero-overflow metadata lanes, drawer/accessibility, screenshots, filters/unions, Review/Browse parity, compatible migration, theme, rating, CSV, links, keyboard, Focus reset preservation, print/PDF `81270` bytes, HTTP `200`, zero console issues, and zero page errors. Evidence root `/private/tmp/ams-flashcards-shortcuts-494`; reports `62676de3cade33c1313c035964d5961f1ccb472592989295d44a0f9ed4e52411` and `22a3aa9ad30163f3b4d27de0094bd53b48b2caa48addc7c199dead539ce4250b`; print/PDF `4973f46afc29f39efc664f26b9a9a9ca9b9d2354e06cea9a782635a757ca51db`; all Part 494 render filenames are fresh and unique; `git diff --check` passes.
+
+Automation status:
+- Flashcards heartbeat remains **PAUSED** intentionally at Part 494, with Night Shift disabled, at configuration SHA-256 `d2b2dfdc2c9afacede99878a530c211b892555bdf7cbd805a80025a63f980635`. The repair is complete; the passing AMS candidate awaits an explicit promotion decision. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- The same twelve authorized tracked modifications, with only the approved keyboard handler block newly added to MH, PD, and Pharm in Part 494. Existing unrelated untracked files remain untouched; a new unrelated untracked `NUR2460-main/` directory appeared during the run and was not used or modified.
+
+TLDR:
+- The cross-product shortcut gap is fixed and fully validated. AMS still remains isolated, and automation remains paused.
+
+Next Recommended Action:
+- **The user must act by approving promotion of the already-passing AMS Phase D candidate into `Elevated ATI AMS Flashcards.html`; no other action is bundled.**
+
+## Part 495 — AMS Promotion and Repository Gate Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — PAUSED AT AMS PHASE F USER REVIEW.** Night Shift remains disabled. AMS Phases D and E are **COMPLETED**; user visual approval remains separate.
+
+Current batch:
+- The exact approved AMS candidate was promoted. Repository `git diff --check` exposed donor trailing spaces, so one whitespace-only normalization was applied and every static/runtime gate was rerun against the normalized repository file. No learner content, identity, state contract, taxonomy, or behavior changed.
+
+Files edited:
+- `Elevated ATI AMS Flashcards.html` is now SHA-256 `5206c65afdc726b4947ed596974ade3238e3d562433fb466030d534bd6eafb18`. AMS Hub remains unchanged at `802e143f1585e3eefa47bc23ce9188c5def094918dc6c16d0e1ce20d9dca6f4f`. Private master Part 495 was written first, then this overlay and the private handoff. Checklist unchanged.
+
+Validation performed:
+- Static repository QA passes `208/208` unique starter and exact-order taxonomy records, `28/28` unique DOM IDs, two scripts, legacy-order model parity, zero payload mismatches, zero missing Book anchors, and required token/storage/link coverage. Taxonomy remains Recall `53`, Recognize `39`, Act `108`, Apply `8`; Warning `15`, Numeric `39`, Sequence `64`, Comparison `52`, Mnemonic `0`, Calculation `0`.
+- Fresh exact-repository HTTP `200` QA passes all eight widths and exact breakpoint pairs, stable repeated measurements, zero overflow, metadata lanes, drawer/accessibility, inspected wide/phone dark/light screenshots, every filter and OR union, Review/Browse parity, migration, theme, rating, CSV, links, Focus, Skip/Shuffle/Restore, `C`/`S`/`Shift+S`, schedule/history preservation, deck-reset membership, and print/PDF `81270` bytes. Zero console issues/page errors; global `git diff --check` passes.
+- Evidence root `/private/tmp/ams-flashcards-promotion-495`; static report `d63a7d2608fb3966d5eb143e9a52ddb4b32d7af90d5aea42a87491a369e2852b`; full gate `537ffa00a1bfe60624c0e94cf9ad31f760655e2f9554725a0bf4a8f884782978`; print/PDF `3f45b6efdbba6597f3a42408b627abf4019a2f4edacf7e4219669e4d89ddf566`.
+
+Automation status:
+- Flashcards heartbeat remains **PAUSED** at the Phase F user-review boundary at configuration SHA-256 `36846d068bb2b6a4e8670a59e8eb0337344b0de5fe965d64088a7842646c1c30`; Night Shift remains disabled. Only a fresh MN-left/AMS-right comparison handoff is eligible next. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- The same twelve authorized tracked modifications. Part 495 newly changes only AMS Flashcards plus this overlay. Preserve all unrelated untracked files, including `NUR2460-main/`.
+
+TLDR:
+- AMS is promoted and objectively complete through Phase E; final visual review is still pending.
+
+Next Recommended Action:
+- **The user must act by approving preparation of the fresh MN-left/AMS-right two-pane comparison; no other work is bundled.**
+
+## Part 496 — AMS Phase F Two-Pane Review Handoff Ready
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — PAUSED AT AMS PHASE F USER REVIEW.** Night Shift remains disabled. AMS Phases D and E remain completed; Phase F visual approval is pending.
+
+Current batch:
+- The user approved preparation of one fresh read-only MN-left/AMS-right comparison. It is open in Review mode at `http://127.0.0.1:49621/mn-vs-ams-flashcards-review-496.html?v=mn-ams-flashcards-496-clean` on a fresh isolated local origin.
+
+Files edited:
+- No repository product changed. MN Flashcards remains `1a632664655f0cad418141a2074502b40655538f017e84d1b3bf9893e46213b1`; AMS Flashcards remains `5206c65afdc726b4947ed596974ade3238e3d562433fb466030d534bd6eafb18`; AMS Hub remains `802e143f1585e3eefa47bc23ce9188c5def094918dc6c16d0e1ce20d9dca6f4f`.
+- Temporary evidence root `/private/tmp/mn-vs-ams-flashcards-review-496`; wrapper `79aca9d5b66db4fa2468ce95ca89723a136f8c69a589c8a2583a46b7f19ad21b`; inspected screenshot `20710fde8927a2d8e46f013928c52fc96cd5ce8fd7a56a89bad4ad1b304a5ac9`. Private master Part 496 was updated first, then this overlay and the private handoff. Checklist unchanged.
+
+Validation performed:
+- Wrapper and both exact product copies return HTTP `200`; source hashes match the repository; the wrapper script parses with zero Pharm/Part-465 residue; `data-qa-ready="true"`; exact live counts are MN `492` and AMS `208`; synchronized Review → Browse → Review passes; options are closed for handoff; wrapper horizontal overflow is zero.
+- Expanded-frame inspection confirms both all-unit/all-card review states, subject identity, due metadata, current cards, links, and Review/Browse/Focus surfaces. `git diff --check` passes and branch/remote/status remain exact. Three no-URL `MutationObserver` messages were emitted by in-app iframe expansion, but no wrapper or product source contains that API and the prior exact-product Phase E gate remains zero-error.
+
+Automation status:
+- Flashcards heartbeat remains **PAUSED** at Part 496, Night Shift disabled, at configuration SHA-256 `d48a28d196e6442112464c9574e288b28fc2f5df1b7d4fa117627947f7dabd4c`. Resume only after the user's visual decision. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- The same twelve authorized tracked modifications as Part 495. Part 496 adds no product delta; preserve unrelated untracked files including `NUR2460-main/`.
+
+TLDR:
+- The exact current MN and AMS products are now open side by side for the final AMS visual review.
+
+Next Recommended Action:
+- **The user must act by reviewing both panes and either approving AMS Phase F or naming one exact visual issue; no additional automation work is authorized meanwhile.**
+
+## Part 497 — Shared Sidebar Unit-Label Matrix Complete
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — USER-DIRECTED SHARED-FEATURE RETROSPECTIVE IN PROGRESS.** Automation remains paused and Night Shift disabled.
+
+Current batch:
+- Approved sidebar grammar is `[subject-specific title] (Ch X–Y)` beneath the existing `Unit` heading, without a redundant `Unit N ·` prefix. Matrix: MN/MH/PD/Pharm Implemented; AMS Applicable with fourteen rows pending; future shells Deferred until their Flashcards unit sidebar exists; Hubs Not applicable.
+- AMS ranges are exact and source-preserved: `1–2`, `3–16`, `17–26`, `27–38`, `39–42`, `43–45`, `46–55`, `56–61`, `62–66`, `67–72`, `73–75`, `76–83`, `84–93`, `94–96`.
+
+Files edited:
+- Documentation/checklist only for this matrix unit; no product changed yet. Exact pre-implementation AMS remains `5206c65afdc726b4947ed596974ade3238e3d562433fb466030d534bd6eafb18`; MN/MH/PD/Pharm also remain at Part 496 hashes.
+
+Validation performed:
+- Fresh inventory proves MN/MH/PD/Pharm already comply and AMS alone uses the nonconforming `Unit N · title` pattern. AMS Flashcards chapter mapping and AMS Book unit membership agree exactly for chapters `1–96`.
+- Implementation scope is fourteen AMS sidebar text nodes only; preserve the `Unit` heading, `data-value` identities, main filters, payloads, scripts, storage, schedules/history, Focus membership, and behavior.
+
+Automation status:
+- Flashcards heartbeat remains **PAUSED** at Part 496 during this user-directed repair. Night Shift and protected automations remain **PAUSED** and unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- The same twelve authorized tracked modifications as Part 496; no new product delta yet. Preserve unrelated untracked files including `NUR2460-main/`.
+
+TLDR:
+- Four products already comply; only AMS needs the fourteen approved display-text updates.
+
+Next Recommended Action:
+- **The user does not need to act; implement and validate the AMS labels, then prepare the fresh comparison for re-review.**
+
+## Part 498 — Shared Sidebar Unit Labels Complete / AMS Re-review Ready
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — PAUSED AT AMS PHASE F USER RE-REVIEW.** Night Shift remains disabled. The sidebar label retrospective is objectively complete; visual approval remains pending.
+
+Current batch:
+- The shared unit-row grammar is complete across MN, MH, PD, Pharm, and AMS: retain `Unit`, show `[subject-specific title] (Ch X–Y)`, and omit redundant `Unit N ·`. MN/MH/PD/Pharm were already compliant and remain unchanged; AMS received fourteen display-only text replacements. Future Flashcards shells inherit an activation gate when a unit sidebar exists; Hubs are not applicable.
+- Fresh comparison with both drawers open: `http://127.0.0.1:49821/mn-vs-ams-flashcards-review-498.html?v=mn-ams-flashcards-498-clean`.
+
+Files edited:
+- `Elevated ATI AMS Flashcards.html` is now SHA-256 `53ef91eb91a5a64b19b5fb27c089e496dc258383496abfc93f55b5e1ca386c0d`; its only Part 496 delta is fourteen visible sidebar text nodes. `MN Design Canon Checklist.md` contains the reusable retrospective/prospective rule. Private master Part 498 was written first, then this overlay and the private handoff.
+- MN `1a632664655f0cad418141a2074502b40655538f017e84d1b3bf9893e46213b1`, MH `73420a066327831c4ce6bd603500eab3d72247a1bdcb7a54c1f14eaa4889b0e2`, PD `20ddedd552671d7178a01521ee34314a4411d5d9c898cdc5cdcf7a364644da1d`, Pharm `35e273e67b78447a8dbae4dab1384077a13a9f6e14e7f3d59455ec3a7ad56462`, and AMS Hub `802e143f1585e3eefa47bc23ce9188c5def094918dc6c16d0e1ce20d9dca6f4f` remain unchanged.
+
+Validation performed:
+- Cross-product formatting/internal-value QA passes all five products and exact fourteen-label-only AMS regression. Static QA passes `208/208` starter/taxonomy, `28/28` DOM IDs, scripts, payload/order/anchors, and required contracts.
+- Full runtime QA passes `2240/1440/901/900/768/601/600/390`, stable measurements, HTTP `200`, overflow, drawer/accessibility, themes, filters/unions, Review/Browse, rating, CSV, links, migration, schedule/history/Focus preservation, keyboard, Skip/Shuffle/Restore, reset, and `81271`-byte print/PDF with zero browser errors. Focused longest-label checks at `1440/900/390` prove readable wrapping, no overflow, and preserved `unit13` filtering.
+- Evidence root `/private/tmp/flashcards-sidebar-unit-labels-498`; cross-product report `155845ba273abe88ad7e925edfaac4d9e9943a21157234074691ec15d63c40c4`; static `a6a6c4a752214fa16164cfac28cb10cbcac85d7b805ed6afbce4f8fb11c93672`; full gate `c04b6523e5b19e3bf2a1cbaab1d1da3476c86baea9b069bc7c2afdac71c69aff`; long-label report `7cb437514593f0dcbd9b1fbd7f8244272a02aed608e2867914ef3195f7d89d4b`; PDF `74661b8c81688515a284748d92bdeb0dc52069c6dcf9e37cc6b23770c2720ae5`.
+- Comparison reaches `data-qa-ready="true"`, exact MN `492` / AMS `208`, Review mode, zero wrapper overflow, both drawers open, and options closed. Wrapper `2166c31ead32f7fe24c1f1aab8d3c30c46749d84c0a78d66f258efdc2d4e0209`; inspected screenshot `5c2c1e1c976d786b038a33e1ebb1b688207c111197de1252c114bef004701362`; `git diff --check` passes.
+
+Automation status:
+- Flashcards heartbeat remains **PAUSED** at Part 498 pending the user's visual decision at synchronized configuration SHA-256 `8affce1c5044f7c69d720d90b205193e9d4920456d429b0849be47e0899d6cab`; Night Shift remains disabled. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- The same twelve authorized tracked modifications. New Part 498 product change is limited to fourteen visible AMS sidebar text nodes, plus authorized overlay/checklist documentation. Preserve unrelated untracked files including `NUR2460-main/`.
+
+TLDR:
+- All current Flashcards now use the same sidebar unit-label grammar, the AMS display-only change passes fresh full QA, and the corrected comparison is open.
+
+Next Recommended Action:
+- **The user must act by reviewing the open Part 498 comparison and either approving the corrected AMS sidebar/Phase F or reporting one exact remaining visual issue; no additional queue work is authorized meanwhile.**
+
+## Part 499 — AMS Phase F User Approval Recorded
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — AMS PHASE F COMPLETED; PAUSED BEFORE FINAL CROSS-SUBJECT GATE.** Night Shift remains disabled.
+
+Current batch:
+- The user explicitly approved the corrected Part 498 MN-left/AMS-right comparison and reported no other current issues. AMS Phase F and the sidebar unit-label retrospective are closed. The next distinct queue item is the final cross-subject integrity gate; it has not started.
+
+Files edited:
+- Documentation only. Product hashes remain MN `1a632664655f0cad418141a2074502b40655538f017e84d1b3bf9893e46213b1`, MH `73420a066327831c4ce6bd603500eab3d72247a1bdcb7a54c1f14eaa4889b0e2`, PD `20ddedd552671d7178a01521ee34314a4411d5d9c898cdc5cdcf7a364644da1d`, Pharm `35e273e67b78447a8dbae4dab1384077a13a9f6e14e7f3d59455ec3a7ad56462`, AMS `53ef91eb91a5a64b19b5fb27c089e496dc258383496abfc93f55b5e1ca386c0d`, and AMS Hub `802e143f1585e3eefa47bc23ce9188c5def094918dc6c16d0e1ce20d9dca6f4f`.
+
+Validation performed:
+- Approval is bound to `http://127.0.0.1:49821/mn-vs-ams-flashcards-review-498.html?v=mn-ams-flashcards-498-clean`, wrapper `2166c31ead32f7fe24c1f1aab8d3c30c46749d84c0a78d66f258efdc2d4e0209`, and screenshot `5c2c1e1c976d786b038a33e1ebb1b688207c111197de1252c114bef004701362`. Part 498's full static/runtime/responsive/accessibility/state/print evidence remains unchanged and `git diff --check` passes.
+
+Automation status:
+- Flashcards heartbeat remains **PAUSED** at synchronized Part 499 configuration SHA-256 `bec2211ce19b4c59fa58819778107364abf68a13cdeec8ca61e18fb142a3fd33` while recovery advances to “final cross-subject gate pending explicit start approval.” Night Shift and protected automations remain **PAUSED** and unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- The same twelve authorized tracked modifications as Part 498. Part 499 adds documentation only; preserve unrelated untracked files including `NUR2460-main/`.
+
+TLDR:
+- AMS is user-approved. Only the separate final cross-subject integrity gate remains, and it has not started.
+
+Next Recommended Action:
+- **The user must act by approving the start of the final cross-subject Flashcards integrity gate; no other action is bundled.**
+
+## Part 500 — Final Gate Active / Static Inventory Passed
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — FINAL CROSS-SUBJECT GATE ACTIVE.** Night Shift and Fundamentals shell work remain disabled. The user's “Approve” starts the distinct final gate.
+
+Current batch:
+- The first bounded final-gate unit inventories the exact current MN, MH, PD, Pharm, and AMS products together. The fresh gate passes `2742/2742` records after one cohesive existing-canon MH correction.
+- MH cards `fc-ch27-palliative-hospice`, `fc-ch30-levels-of-observation`, and `fc-ch33-acute-stress-ptsd-timing` had the approved `numeric` and `comparison` attributes in the wrong array order. Their memberships and primary labels are unchanged; only the arrays now follow canonical attribute order.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html` is now SHA-256 `d49b0e04546cc0a12c84bc0ebbea0bd489af8ad8a1cf985b140b3213a6d6009f`, replacing Part 499 hash `73420a066327831c4ce6bd603500eab3d72247a1bdcb7a54c1f14eaa4889b0e2`; focused delta is exactly three metadata reorderings.
+- MN remains `1a632664655f0cad418141a2074502b40655538f017e84d1b3bf9893e46213b1`, PD `20ddedd552671d7178a01521ee34314a4411d5d9c898cdc5cdcf7a364644da1d`, Pharm `35e273e67b78447a8dbae4dab1384077a13a9f6e14e7f3d59455ec3a7ad56462`, and AMS `53ef91eb91a5a64b19b5fb27c089e496dc258383496abfc93f55b5e1ca386c0d`. Private master Part 500 was updated first, then this overlay and the private handoff. Checklist unchanged.
+
+Validation performed:
+- All five products pass exact counts/order, unique IDs, required fields, `2742/2742` same-subject anchors, allowed taxonomy and canonical attribute order, Warning parity, DOM-ID uniqueness, script parsing, Book/Hub links, required learner-surface tokens, unique schedule/Focus keys, Hub Focus integration, and sidebar unit-label grammar.
+- Combined primary totals are Recall `1615`, Recognize `132`, Act `908`, Apply `87`; attributes Warning `860`, Numeric `951`, Sequence `477`, Comparison `789`, Mnemonic `65`, Calculation `10`.
+- Evidence report `/private/tmp/flashcards-final-cross-subject-500/static-inventory-report-500.json` passes at SHA-256 `f8d3be3d127f4fc6732ef8ea65d6e40fb034fe42f9c6979e0f11d76e48c2b99d`; `git diff --check` passes.
+
+Automation status:
+- Flashcards heartbeat is **ACTIVE** at Part 500. Next exact unit: fresh MN runtime/responsive/accessibility/learner-state/print regression. Later subjects remain gated. Night Shift remains disabled. Configuration SHA-256: `b65b6e53d7f705d6184891e3ae54197356144d392e6aac090330c4036bc73827`.
+- Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- The same twelve authorized tracked files, with a new three-line MH metadata-order delta plus documentation. Preserve unrelated untracked files including `NUR2460-main/`.
+
+TLDR:
+- Final-gate static integrity passes across all five products after a state-neutral three-line MH metadata-order repair.
+
+Next Recommended Action:
+- **The user does not need to act; allow the active heartbeat to run the exact MN final-gate runtime unit.**
+
+## Part 501 — MN Final Runtime Pass / Print Contract Corrected
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — FINAL CROSS-SUBJECT GATE ACTIVE; MN UNIT COMPLETE.** Night Shift remains disabled.
+
+Current batch:
+- Fresh MN screen/runtime behavior passed, but stable `1440 x 1000` print evidence showed the sidebar, deck/filter/session/tab controls, `280px` main offset, and screen padding remained in print. One cohesive existing-canon correction adds the approved print-only reset/hide/answer-visible/break-guard rules.
+
+Files edited:
+- `Elevated ATI MN Flashcards.html` is now `c97701f68869c289c068d137fec6e00964fa370fe2f961235af84831bacdc8fc`; removing the one inserted print block reconstructs exact Part 500 hash `1a632664655f0cad418141a2074502b40655538f017e84d1b3bf9893e46213b1`.
+- No content, card/taxonomy record, ID, order, anchor, screen style, link, storage, schedule/history, filter, or Focus data changed. Private master Part 501 was updated first, then this overlay and the private handoff. Checklist unchanged.
+
+Validation performed:
+- Complete gate passes all eight widths and breakpoint pairs, stable measurements, scale `1`, zero overflow, responsive layout/drawer accessibility, themes, all filters/unions/status/unit/chapter/search, Review/Browse, reveal/rating, CSV/links, keyboard, Focus/Skip/Shuffle/Restore, migration, reset/state preservation, HTTP, and zero browser errors. Runtime report SHA-256 `d3f0ea61e953ace2d0debd0024ba52ad1e421e026e4793e0f3a112a5383e9104`.
+- Inspected wide/tablet/phone dark and phone light screenshots pass. Inspected one-page Letter PDF is readable, hides controls, resets main layout, forces the answer visible, and is `95101` bytes at SHA-256 `e9ecf44385a6c15c0da9a4557eab46515dd0c88b694a172c12d12931e6086f07`.
+- Fresh post-correction five-product static regression passes `2742/2742`; report SHA-256 `f1b8323250c2091d07a159340209b404146e4f252434c05bbf4846209cc756a1`. `git diff --check` passes.
+
+Automation status:
+- Flashcards heartbeat remains **ACTIVE** and advances only to MH runtime/responsive/accessibility/learner-state/print QA from SHA-256 `d49b0e04546cc0a12c84bc0ebbea0bd489af8ad8a1cf985b140b3213a6d6009f`. Night Shift remains disabled. Configuration SHA-256: `0fb9a13adcb6be473135da1136f9604d524e05e88c100468a8a35e192176ec7c`.
+- Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- Same twelve authorized tracked files; new Part 501 product delta is the MN print block. Preserve unrelated untracked files including `NUR2460-main/`.
+
+TLDR:
+- MN now passes the complete final runtime unit after a print-only canon repair; content and learner state remain untouched.
+
+Next Recommended Action:
+- **The user does not need to act; allow the active heartbeat to continue with MH's exact final runtime unit.**
+
+## Part 502 — MH Final Runtime Pass / Narrow Padding Corrected
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — FINAL GATE ACTIVE; MN AND MH UNITS COMPLETE.** Night Shift remains disabled.
+
+Current batch:
+- Stable exact `900/600` before evidence showed MH retained `18px` horizontal main padding at both widths. One existing-canon correction restores `24px` for `601–900px` and the explicit `16px` transition at `600px` and below.
+
+Files edited:
+- `Elevated ATI MH Flashcards.html` is now `8bb7005f6ced1b1c7cbf99ee652594f18e28412072fd8fce98de1db0e44f5bf4`; reversing the two responsive declarations reconstructs Part 501 `d49b0e04546cc0a12c84bc0ebbea0bd489af8ad8a1cf985b140b3213a6d6009f`.
+- No content, taxonomy, record, ID, anchor, order, link, typography, storage, schedule/history, filter, or Focus data changed. Private master Part 502 was updated first, then this overlay and the private handoff. Checklist unchanged.
+
+Validation performed:
+- Complete QA passes all eight widths/breakpoint pairs, stable measurements, scale `1`, exact padding transitions, zero overflow, drawer/accessibility, themes, filters/unions, due-aware Review/full Browse canonical records, reveal/rating, CSV/links, keyboard, Focus/Shuffle/Restore, migration/reset/state preservation, HTTP, and zero browser errors. Runtime report SHA-256 `21a11fc2211c06c88e691e8bd644ff155c36132d3aeb61f97b79d433f9b27796`.
+- Wide/tablet/phone dark and phone light screenshots were inspected. Inspected one-page Letter PDF is `85671` bytes at SHA-256 `0a3510b81adfea757308c9295bc49ae72c366e9db3ae03374b7dd29f15300054`.
+- Fresh five-product static regression passes `2742/2742`; report SHA-256 `9d60bc6628df8f2837f1550fc96e1bf15749fff00fee4de867781f1fee00a992`. `git diff --check` passes.
+
+Automation status:
+- Flashcards heartbeat remains **ACTIVE** and advances only to PD runtime/responsive/accessibility/learner-state/print QA from SHA-256 `20ddedd552671d7178a01521ee34314a4411d5d9c898cdc5cdcf7a364644da1d`. Night Shift remains disabled. Configuration SHA-256: `efc4013f421bc243a52a4788cdb72ffa4eb545ca6a622d19235daca0b7ea5355`.
+- Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- Same twelve authorized tracked files; Part 502 adds only MH's two narrow-padding declarations. Preserve unrelated untracked files including `NUR2460-main/`.
+
+TLDR:
+- MH now passes the complete final runtime gate after an exact responsive-padding repair; content and learner state remain untouched.
+
+Next Recommended Action:
+- **The user does not need to act; allow the active heartbeat to continue with PD's exact final runtime unit.**
+
+## Part 503 — PD Final Runtime Pass / No Product Edit
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — FINAL GATE ACTIVE; MN, MH, AND PD UNITS COMPLETE.** Night Shift remains disabled.
+
+Current batch:
+- The exact current PD Flashcards file completed the full final runtime/responsive/accessibility/learner-state/print regression without a proven defect or product correction.
+
+Files edited:
+- No product file changed. `Elevated ATI PD Flashcards.html` remains SHA-256 `20ddedd552671d7178a01521ee34314a4411d5d9c898cdc5cdcf7a364644da1d`.
+- Private master Part 503 was updated first, then this overlay and the private handoff. Checklist unchanged.
+
+Validation performed:
+- Complete QA passes all eight widths/breakpoint pairs, stable measurements, scale `1`, exact layout transitions, zero overflow, drawer/accessibility, themes, filters/unions, due-aware Review/full Browse canonical records, reveal/rating, CSV/links, keyboard, Focus/Shuffle/Restore, migration/reset/state preservation, HTTP, and zero browser errors. Runtime report SHA-256 `3aa35e64a3b7dc4006508b31b87e45df531d21c9d024ec48b28fb9e020f9981e`.
+- Wide/tablet/phone dark and phone light screenshots were inspected. The inspected one-page Letter PDF is `71399` bytes at SHA-256 `34165b38959ec9e36dfd363a75aaaec828cb4d6f788af1beb4bc157038814f92`.
+- Fresh five-product static regression passes `2742/2742`; report SHA-256 `9e78d05d03babf6e0fc78a69a13057661e80887ebdf6f6f88d942358eed7eaf8`. `git diff --check` passes.
+
+Automation status:
+- Flashcards heartbeat remains **ACTIVE** and advances only to Pharm runtime/responsive/accessibility/learner-state/print QA from SHA-256 `35e273e67b78447a8dbae4dab1384077a13a9f6e14e7f3d59455ec3a7ad56462`. Night Shift remains disabled. Configuration SHA-256: `804bb343282fe92e220e604a1f9dea9b2502eae06f0bac65aa600b92210d8113`.
+- Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- Same twelve authorized tracked files; Part 503 adds no product-file delta. Preserve unrelated untracked files including `NUR2460-main/`.
+
+TLDR:
+- PD passes its complete final runtime gate without a product correction; Pharm is next.
+
+Next Recommended Action:
+- **The user does not need to act; allow the active heartbeat to continue with Pharm's exact final runtime unit.**
+
+## Part 504 — Pharm Final Runtime Pass / No Product Edit
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — FINAL GATE ACTIVE; MN, MH, PD, AND PHARM UNITS COMPLETE.** Night Shift remains disabled.
+
+Current batch:
+- The exact current Pharm Flashcards file completed the full final runtime/responsive/accessibility/learner-state/print regression without a proven defect or product correction.
+
+Files edited:
+- No product file changed. `Elevated ATI Pharm Flashcards.html` remains SHA-256 `35e273e67b78447a8dbae4dab1384077a13a9f6e14e7f3d59455ec3a7ad56462`.
+- Private master Part 504 was updated first, then this overlay and the private handoff. Checklist unchanged.
+
+Validation performed:
+- Complete QA passes all eight widths/breakpoint pairs, stable measurements, scale `1`, exact layout transitions, zero overflow, drawer/accessibility, themes, filters/unions, due-aware Review/full Browse canonical records, reveal/rating, CSV/links, keyboard, Focus/Shuffle/Restore, migration/reset/state preservation, HTTP, and zero browser errors. Runtime report SHA-256 `6c7d0ab4819131610bbe23dba61895f69b9a744c6d44e06da8c90d03a92de8e5`.
+- Wide/tablet/phone dark and phone light screenshots were inspected. The inspected one-page Letter PDF is `105123` bytes at SHA-256 `8c7a5918f52d3a3358df67744bf6450bd20f3f7cf51d4ea9669c2653823f4000`.
+- Fresh five-product static regression passes `2742/2742`; report SHA-256 `9439807007d44586e35f67c331df9543bc3a16e0d6b52aed6db695d9bafcbe96`. `git diff --check` passes.
+
+Automation status:
+- Flashcards heartbeat remains **ACTIVE** and advances only to AMS runtime/responsive/accessibility/learner-state/print QA from SHA-256 `53ef91eb91a5a64b19b5fb27c089e496dc258383496abfc93f55b5e1ca386c0d`. Night Shift remains disabled. Configuration SHA-256: `9d50f9166ebdda1b6104bed007fd1e76d6feab19e9e340b631b3bd1f76d2c1d7`.
+- Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- Same twelve authorized tracked files; Part 504 adds no product-file delta. Preserve unrelated untracked files including `NUR2460-main/`.
+
+TLDR:
+- Pharm passes its complete final runtime gate without a product correction; AMS is next.
+
+Next Recommended Action:
+- **The user does not need to act; allow the active heartbeat to continue with AMS's exact final runtime unit.**
+
+## Part 505 — AMS Final Runtime Pass / No Product Edit
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — FINAL GATE ACTIVE; ALL FIVE SUBJECT RUNTIME UNITS COMPLETE.** Night Shift remains disabled.
+
+Current batch:
+- The exact current AMS Flashcards file completed the full final runtime/responsive/accessibility/learner-state/print regression without a proven defect or product correction.
+
+Files edited:
+- No product file changed. `Elevated ATI AMS Flashcards.html` remains SHA-256 `53ef91eb91a5a64b19b5fb27c089e496dc258383496abfc93f55b5e1ca386c0d`.
+- Private master Part 505 was updated first, then this overlay and the private handoff. Checklist unchanged.
+
+Validation performed:
+- Complete QA passes all eight widths/breakpoint pairs, stable measurements, scale `1`, exact layout transitions, zero overflow, drawer/accessibility, themes, filters/unions, due-aware Review/full Browse canonical records, reveal/rating, CSV/links, keyboard, Focus/Shuffle/Restore, migration/reset/state preservation, HTTP, and zero browser errors. Runtime report SHA-256 `cf67f214616a2189a09110e7adb6a2c1e11fe4766028329b4b26fd4b621dccf2`.
+- Wide/tablet/phone dark and phone light screenshots were inspected. The inspected one-page Letter PDF is `81271` bytes at SHA-256 `63fc8f421cf3a3226a10cfe1b47f53a014e33c45dabad45e0e52b6bc8daaa173`.
+- Fresh five-product static regression passes `2742/2742`; report SHA-256 `34304402e8f2400481c197d969e13420f70560e65a1c61c4801f02a5ba5c52c6`. `git diff --check` passes.
+
+Automation status:
+- Flashcards heartbeat remains **ACTIVE** and advances only to the final holistic cross-subject integrity/recovery/git-diff unit. Representative two-pane user review remains gated until that unit passes. Night Shift remains disabled. Configuration SHA-256: `7697b2299583fcb0ebf52c9a8a2699849536fcf5f5f18a2a4cf06d2d8dc532b6`.
+- Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- Same twelve authorized tracked files; Part 505 adds no product-file delta. Preserve unrelated untracked files including `NUR2460-main/`.
+
+TLDR:
+- AMS passes its complete final runtime gate without a product correction; all five subject runtime units are complete and the holistic integrity unit is next.
+
+Next Recommended Action:
+- **The user does not need to act; allow the active heartbeat to run the final holistic cross-subject integrity unit.**
+
+## Part 506 — Objective Final Gate Complete / User Review Pending
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — FINAL OBJECTIVE GATE COMPLETE; REPRESENTATIVE USER REVIEW PENDING.** Night Shift remains disabled. Automated QA does not equal user visual approval.
+
+Current batch:
+- Fresh holistic integrity reconciled all five exact current Flashcards products with their complete static/runtime/responsive/accessibility/learner-state/print evidence and source-control recovery state.
+- A fresh read-only launcher now presents MN-left comparisons against exact current MH, PD, Pharm, and AMS at `http://127.0.0.1:50621/final-flashcards-review-506.html?v=final-506-clean`. This is the required final user-review boundary.
+
+Files edited:
+- No product file changed. Current hashes remain MN `c97701f68869c289c068d137fec6e00964fa370fe2f961235af84831bacdc8fc`, MH `8bb7005f6ced1b1c7cbf99ee652594f18e28412072fd8fce98de1db0e44f5bf4`, PD `20ddedd552671d7178a01521ee34314a4411d5d9c898cdc5cdcf7a364644da1d`, Pharm `35e273e67b78447a8dbae4dab1384077a13a9f6e14e7f3d59455ec3a7ad56462`, and AMS `53ef91eb91a5a64b19b5fb27c089e496dc258383496abfc93f55b5e1ca386c0d`.
+- Private master Part 506 was updated first, then this overlay and the private handoff. Checklist unchanged. Review/QA files remain only in fresh `/private/tmp` roots.
+
+Validation performed:
+- Fresh static regression passes `2742/2742`; report SHA-256 `b79d4dfee7faa977e1cf0ae799841ead90af74f0926f8873ce97d9351880fbac`.
+- Holistic reconciliation passes product/evidence/document/automation/source-control hashes, all final runtime and Letter PDF contracts, branch/HEAD/origin/ahead-behind, exact tracked/untracked sets, lock, protected automations, and `git diff --check`; report SHA-256 `30a1e694f9f0ebb88eefdf46d93e3d7333548a1bdb299921b063171cffd1f8be`.
+- Final launcher SHA-256 `37adee5e3a0b5bf0a90ef6335073e222eb92e20b51d74b4eb4175921b8ddb3ca`; fresh exact product snapshots are byte-identical, all handoff URLs return HTTP `200`, all comparison scripts parse, the launcher was inspected, and MH `593`, PD `747`, Pharm `702`, and AMS `208` comparisons each reached exact MN `492` ready state. Handoff report SHA-256 `05b91ca338c0c4540e69b3ce018dddac99cd2edf61f801f6ff1d42b83799d8dd`.
+
+Automation status:
+- Flashcards heartbeat is **PAUSED** at Part 506 objective completion with the final review URL preserved. Night Shift remains disabled. Configuration SHA-256: `c74a85138721707e10dc302465ed6576e213198e80b97160c65f53e19abc8c65`.
+- Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- Same twelve authorized tracked files; Part 506 adds no product-file delta. Preserve unrelated untracked files including `NUR2460-main/`.
+
+TLDR:
+- The objective final Flashcards gate is complete across all five products. The heartbeat is paused with a fresh four-comparison launcher ready for the user's final visual review.
+
+Next Recommended Action:
+- **The user must act by reviewing `http://127.0.0.1:50621/final-flashcards-review-506.html?v=final-506-clean` and then approving it or naming one exact issue.**
+
+## Part 507 — Final Flashcards Review User Approved
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — FINAL CROSS-SUBJECT STANDARDIZATION USER VISUALLY APPROVED AND CLOSED.** Night Shift remains disabled; the completed heartbeat stays paused.
+
+Current batch:
+- The user completed the final MN-left review of exact current MH, PD, Pharm, and AMS and explicitly approved the reviewed state. This closes the Part 506 representative review boundary.
+- The reported AMS chapter-filter observation was investigated and accepted before approval: AMS contains 208 cards across 47 populated chapters, so its chapter filters omit the other 49 of the Book's 96 chapters rather than offering dead zero-result choices. This preserved coverage boundary predates the AMS design/taxonomy migration and is not a scrolling or rendering defect; completing those chapters requires separate source-authorized content population.
+
+Files edited:
+- No product, Hub, Book, Templates, Quick Review, Study Guide, learner-content, card, source-anchor, storage, or checklist file changed. Exact current Flashcards hashes remain MN `c97701f68869c289c068d137fec6e00964fa370fe2f961235af84831bacdc8fc`, MH `8bb7005f6ced1b1c7cbf99ee652594f18e28412072fd8fce98de1db0e44f5bf4`, PD `20ddedd552671d7178a01521ee34314a4411d5d9c898cdc5cdcf7a364644da1d`, Pharm `35e273e67b78447a8dbae4dab1384077a13a9f6e14e7f3d59455ec3a7ad56462`, and AMS `53ef91eb91a5a64b19b5fb27c089e496dc258383496abfc93f55b5e1ca386c0d`.
+- Private master Part 507 was updated first, then this overlay and the private handoff. The expired temporary review launcher was rebuilt read-only from byte-identical product snapshots; replacement launcher SHA-256 is `7caa85b79ad4f9523447fa418ece4fdec7370c919f5c76187d4eca12cf3a4581`.
+
+Validation performed:
+- Rechecked branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, the same twelve authorized tracked modifications, preserved unrelated untracked files, five exact product hashes, replacement snapshot parity, localhost availability, and `git diff --check`.
+- Live AMS inspection confirms 14 unit ranges, exactly 47 populated chapter filter values, and 208 canonical cards. Part 506 objective evidence remains authoritative: `2742/2742` static integrity plus all five runtime/responsive/accessibility/learner-state/print gates and holistic recovery/diff reconciliation passed.
+
+Automation status:
+- Flashcards heartbeat remains **PAUSED** at Part 507 final user approval. The normal queue is complete; Night Shift remains disabled; no new surface may start without a newer explicit instruction. Configuration SHA-256: `2a98678a08eafe7993c2dbaa11af7035d34fe8e00e205dbfe5e7f34eb1848c70`.
+- Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, published, reset, reverted, populated, or destructively changed.
+
+GitHub Desktop should show:
+- Same twelve authorized tracked files; Part 507 adds no product-file delta. Preserve all unrelated untracked files including `NUR2460-main/`.
+
+TLDR:
+- The five-subject Flashcards standardization is objectively passed and now user visually approved. The AMS missing chapter numbers reflect its preserved 47-chapter card coverage, not a filter defect. The workflow is closed and paused.
+
+Next Recommended Action:
+- **The user does not need to act; keep the completed Flashcards heartbeat paused and begin no new surface unless explicitly requested.**
+
+## Part 508 — Approved Flashcards Local Checkpoint
+
+Current mode:
+- **FLASHCARDS DESIGN-CANON / HOLD-CLINICAL-CONTENT — COMPLETE, USER APPROVED, LOCAL CHECKPOINT AUTHORIZED.** Night Shift remains disabled and the completed heartbeat remains paused.
+
+Current batch:
+- The user explicitly authorized the recommended local checkpoint. Create one commit containing exactly the 12 approved tracked files and exclude every unrelated untracked file. Do not push.
+
+Files edited:
+- No new product, clinical-content, card, learner-state, storage, Hub-behavior, or checklist change was made. Part 508 adds only source-control closure documentation to the private master first, this overlay, and the private handoff.
+
+Validation performed:
+- Pre-commit gate passes branch `main`, HEAD/origin `77b9d5ac983469d850e7d4621d9758f94d01b7c5`, `0/0`, exactly 12 tracked modifications, preserved untracked files, exact Part 507 product hashes, and `git diff --check`.
+- Post-commit gate must confirm exactly those 12 staged files, a clean tracked worktree, local `main` one commit ahead of `origin/main`, preserved untracked files, and no push.
+
+Automation status:
+- Flashcards heartbeat remains **PAUSED** at final completion. Night Shift and all protected automations remain paused.
+
+Commit/push status:
+- One local checkpoint commit uses message `Checkpoint approved Flashcards canon migration`. No push is authorized or performed.
+
+GitHub Desktop should show:
+- After completion, no tracked changes from the approved batch and local `main` one commit ahead of `origin/main`; unrelated untracked files remain untouched.
+
+TLDR:
+- The completed and approved Flashcards migration is preserved as one local checkpoint without pushing.
+
+Next Recommended Action:
+- **The user does not need to act; keep the verified local checkpoint unpushed and the completed heartbeat paused.**

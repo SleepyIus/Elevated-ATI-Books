@@ -745,10 +745,15 @@ a{color:inherit;text-decoration:none}
 (function(){
 
   // ===== Hub storage keys (single source of truth) =====
+  var FLASHCARD_SCHEDULE_KEY = 'atimn_fc_schedule';
+  var LEGACY_FLASHCARD_SCHEDULE_KEY = 'nur2460_fc_schedule';
+  var FOCUS_DECK_KEY = 'atimn_fc_collections_v1';
   var SYNC_KEYS = [
     'nur2460_atimn_progress',
     'nur2460_atimnTemplates_progress',
-    'nur2460_fc_schedule',
+    LEGACY_FLASHCARD_SCHEDULE_KEY,
+    FLASHCARD_SCHEDULE_KEY,
+    FOCUS_DECK_KEY,
     'nur2460_theme'
   ];
 
@@ -789,7 +794,7 @@ a{color:inherit;text-decoration:none}
   // ===== Reading progress (chapter book) =====
   var BOOK_KEY = 'nur2460_atimn_progress';
   var TPL_KEY  = 'nur2460_atimnTemplates_progress';
-  var FC_KEY   = 'nur2460_fc_schedule';
+  var FC_KEY   = LEGACY_FLASHCARD_SCHEDULE_KEY;
   // ===== Valid card IDs for this subject's deck (from STARTER_DECK) =====
   // Filters the shared schedule against stale entries left over from prior
   // subjects sharing the same localStorage key (e.g. PD orphans in nur2460_fc_schedule).
@@ -976,6 +981,16 @@ a{color:inherit;text-decoration:none}
             restored++;
           }
         });
+        if ((backup[FLASHCARD_SCHEDULE_KEY] === undefined || backup[FLASHCARD_SCHEDULE_KEY] === null) &&
+            backup[LEGACY_FLASHCARD_SCHEDULE_KEY] !== undefined && backup[LEGACY_FLASHCARD_SCHEDULE_KEY] !== null){
+          localStorage.setItem(
+            FLASHCARD_SCHEDULE_KEY,
+            typeof backup[LEGACY_FLASHCARD_SCHEDULE_KEY] === 'string'
+              ? backup[LEGACY_FLASHCARD_SCHEDULE_KEY]
+              : JSON.stringify(backup[LEGACY_FLASHCARD_SCHEDULE_KEY])
+          );
+          restored++;
+        }
         status.textContent = '✓ Restored ' + restored + ' key(s) from backup.';
         updateProgressUI();
         renderKeysList();
@@ -990,7 +1005,7 @@ a{color:inherit;text-decoration:none}
   // Reset all
   var resetBtn = document.getElementById('resetBtn');
   if (resetBtn) resetBtn.addEventListener('click', function(){
-    if (!confirm('Erase ALL local progress for NUR 2460 (chapter book, templates, flashcards, theme)? This cannot be undone.')) return;
+    if (!confirm('Erase ALL local progress for NUR 2460 (chapter book, templates, flashcards, Focus Deck, theme)? This cannot be undone.')) return;
     SYNC_KEYS.forEach(function(k){ try { localStorage.removeItem(k); } catch(e){} });
     status.textContent = '✓ All progress cleared.';
     // Reset theme to dark (default)

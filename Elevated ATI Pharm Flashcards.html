@@ -37,6 +37,11 @@
   --prompt-judgment:#e8a838; --prompt-judgment-bg:rgba(232,168,56,0.10);
   --prompt-principle:#a78bfa; --prompt-principle-bg:rgba(167,139,250,0.10);
   --prompt-priority:#e05c6a; --prompt-priority-bg:rgba(224,92,106,0.10);
+  --retrieval-recall:#84cc16;
+  --retrieval-recognize:#fbbf24;
+  --retrieval-act:#2dd4bf;
+  --retrieval-apply:#a78bfa;
+  --retrieval-tag-text:#111827;
 }
 
 /* === SIDEBAR LAYOUT (matches book/templates) === */
@@ -45,6 +50,7 @@
   width:280px; min-width:280px;
   background:var(--surface);
   border-right:1px solid var(--border);
+  line-height:1.6;
   display:flex; flex-direction:column;
   position:fixed; top:0; left:0; bottom:0;
   overflow:hidden; z-index:10;
@@ -52,7 +58,9 @@
 }
 .sidebar-overlay{
   display:none; position:fixed; inset:0;
-  background:rgba(0,0,0,0.5); z-index:9;
+  background:rgba(0,0,0,.4);
+  backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);
+  z-index:9; transition:opacity .25s;
 }
 .sidebar-overlay.show{display:block}
 .sidebar-header{
@@ -67,13 +75,18 @@
   letter-spacing:.03em; transition:color .15s;
 }
 .back-home:hover{color:var(--accent)}
+.back-home::before{content:'←';font-size:13px}
 .back-home-mobile{
-  display:none; position:fixed; top:14px; right:16px;
-  z-index:50; font-size:12px; font-weight:600;
+  display:none; position:fixed; top:14px; left:14px; z-index:51;
+  font-size:11px; font-weight:600;
   color:var(--text2); text-decoration:none;
-  padding:6px 10px; background:var(--surface);
-  border:1px solid var(--border); border-radius:6px;
+  letter-spacing:.03em; align-items:center; gap:5px;
+  padding:8px 14px; background:var(--surface);
+  border:1px solid var(--border); border-radius:8px;
+  transition:color .15s,border-color .15s;
 }
+.back-home-mobile:hover{color:var(--accent);border-color:var(--accent)}
+.back-home-mobile::before{content:'←';font-size:12px}
 .sb-course{
   font-size:10px; font-weight:600; letter-spacing:.18em;
   text-transform:uppercase; color:var(--accent); margin-bottom:4px;
@@ -92,37 +105,45 @@
   cursor:pointer; display:flex; align-items:center; gap:6px;
   width:100%; justify-content:center; transition:all .15s;
 }
-#themeToggle:hover{border-color:var(--accent); color:var(--accent)}
-.sidebar-search{padding:0 12px 12px}
+#themeToggle:hover{border-color:var(--accent); color:var(--text)}
+.sidebar-search{
+  position:relative;
+  padding:10px 16px;
+  border-bottom:1px solid var(--border);
+}
 #sidebarSearchInput{
   width:100%; background:var(--bg);
   border:1px solid var(--border); color:var(--text);
   padding:8px 10px; border-radius:6px;
   font-family:inherit; font-size:12px; outline:none;
-  box-sizing:border-box;
+  box-sizing:border-box; transition:border-color .15s;
 }
 #sidebarSearchInput:focus{border-color:var(--accent)}
+#sidebarSearchInput::placeholder{color:var(--text3)}
 .sidebar-list{
   flex:1; overflow-y:auto;
-  padding:8px 0;
+  padding:8px 0 24px;
   scrollbar-width:thin;
   scrollbar-color:var(--border) transparent;
 }
+.sidebar-list::-webkit-scrollbar{width:6px}
+.sidebar-list::-webkit-scrollbar-track{background:transparent}
+.sidebar-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
 .sb-nav-section{padding:6px 0; border-bottom:1px solid var(--border-soft, rgba(255,255,255,0.06))}
 .sb-nav-section:last-child{border-bottom:none}
 .sb-nav-label{
-  font-size:10px; font-weight:600; letter-spacing:.14em;
+  font-size:10px; font-weight:800; letter-spacing:.12em;
   text-transform:uppercase; color:var(--text3);
-  padding:8px 16px 6px;
+  padding:14px 16px 4px;
 }
 .sb-nav-item{
-  display:block; width:100%;
-  padding:7px 16px;
+  display:block; width:calc(100% - 16px);
+  padding:9px 10px; margin:0 8px 2px;
   background:transparent; border:none;
   color:var(--text2); text-align:left;
-  font-family:inherit; font-size:12.5px;
-  cursor:pointer; transition:all .12s;
-  border-left:2px solid transparent;
+  font:inherit; font-size:13px; font-weight:600;
+  cursor:pointer; transition:background .15s,color .15s;
+  border-radius:7px;
 }
 .sb-nav-item:hover{
   background:var(--surface2);
@@ -130,8 +151,8 @@
 }
 .sb-nav-item.active{
   color:var(--accent);
-  background:var(--accent-soft, rgba(45,212,191,0.12));
-  border-left-color:var(--accent);
+  background:var(--surface2);
+  font-weight:600;
 }
 
 .main-content{
@@ -142,20 +163,24 @@
 }
 
 .mobile-menu-toggle{
-  display:none; position:fixed; top:12px; left:12px;
-  z-index:50; width:38px; height:38px;
+  display:none; position:fixed; top:14px; right:14px; left:auto;
+  z-index:50; width:40px; height:40px;
   background:var(--surface); border:1px solid var(--border);
   border-radius:8px; color:var(--text);
   font-size:18px; cursor:pointer; padding:0;
+  align-items:center; justify-content:center;
 }
 
 @media (max-width:900px){
-  .sidebar{transform:translateX(-100%)}
+  .sidebar{transform:translateX(-100%); transition:transform .25s}
   .sidebar.open{transform:translateX(0)}
-  .main-content{margin-left:0; padding:64px 18px 60px}
-  .mobile-menu-toggle{display:flex; align-items:center; justify-content:center}
-  .back-home-mobile{display:inline-block}
+  .sidebar-header{padding-top:72px}
+  .sidebar-header .back-home{display:none}
+  .main-content{margin-left:0; padding:92px 24px 60px}
+  .mobile-menu-toggle{display:flex}
+  .back-home-mobile{display:flex}
 }
+@media (max-width:600px){.main-content{padding:92px 16px 60px}}
 
 [data-theme="light"]{
   --bg:#faf7f2;
@@ -175,6 +200,11 @@
   --prompt-judgment:#b87418; --prompt-judgment-bg:rgba(184,116,24,0.10);
   --prompt-principle:#7c3aed; --prompt-principle-bg:rgba(124,58,237,0.10);
   --prompt-priority:#c0384a; --prompt-priority-bg:rgba(192,56,74,0.10);
+  --retrieval-recall:#4d7c0f;
+  --retrieval-recognize:#a16207;
+  --retrieval-act:#0f766e;
+  --retrieval-apply:#6d28d9;
+  --retrieval-tag-text:#fff;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -256,27 +286,38 @@ button{font-family:'DM Sans',sans-serif}
   padding:28px 28px 24px;position:relative;
   border-left-width:5px;
 }
-.flashcard-content{border-left-color:var(--prompt-content)}
-.flashcard-judgment{border-left-color:var(--prompt-judgment)}
-.flashcard-principle{border-left-color:var(--prompt-principle)}
-.flashcard-priority{border-left-color:var(--prompt-priority)}
-.flashcard-head{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.flashcard-recall{border-left-color:var(--retrieval-recall)}
+.flashcard-recognize{border-left-color:var(--retrieval-recognize)}
+.flashcard-act{border-left-color:var(--retrieval-act)}
+.flashcard-apply{border-left-color:var(--retrieval-apply)}
+.flashcard-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:18px}
+.flashcard-labels{
+  display:flex;align-items:center;gap:8px;flex:1 1 auto;min-width:0;flex-wrap:wrap;
+}
 .flashcard-tag{
   display:inline-block;font-size:10px;font-weight:700;
   text-transform:uppercase;letter-spacing:0.12em;
-  padding:3px 9px;border-radius:5px;color:var(--bg);
+  padding:3px 9px;border-radius:5px;color:var(--retrieval-tag-text);
 }
-.flashcard-content .flashcard-tag{background:var(--prompt-content)}
-.flashcard-judgment .flashcard-tag{background:var(--prompt-judgment)}
-.flashcard-principle .flashcard-tag{background:var(--prompt-principle)}
-.flashcard-priority .flashcard-tag{background:var(--prompt-priority)}
+.flashcard-recall .flashcard-tag{background:var(--retrieval-recall)}
+.flashcard-recognize .flashcard-tag{background:var(--retrieval-recognize)}
+.flashcard-act .flashcard-tag{background:var(--retrieval-act)}
+.flashcard-apply .flashcard-tag{background:var(--retrieval-apply)}
+.flashcard-flag{
+  display:inline-block;font-size:9px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.09em;
+  padding:2px 7px;border:1px solid var(--border);border-radius:999px;
+  color:var(--text2);background:transparent;
+}
+.flashcard-flag-warning{border-color:var(--prompt-priority);color:var(--prompt-priority)}
+.flashcard-flag-calculation{border-color:var(--retrieval-apply);color:var(--retrieval-apply)}
 .flashcard-ch{
   font-size:11px;color:var(--text3);font-weight:600;
   background:var(--surface2);padding:3px 8px;border-radius:5px;
 }
 .flashcard-due{
   font-size:11px;color:var(--text2);
-  margin-left:auto;font-style:italic;
+  margin-left:auto;flex:0 0 auto;font-style:italic;line-height:22px;
 }
 .flashcard-q{
   font-family:'DM Serif Display',serif;font-weight:400;font-size:19px;line-height:1.4;
@@ -339,6 +380,8 @@ button{font-family:'DM Sans',sans-serif}
 .filter-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;font-weight:600}
 .browse-list{display:flex;flex-direction:column;gap:8px}
 .browse-item{
+  display:block;width:100%;font:inherit;color:inherit;text-align:left;
+  appearance:none;-webkit-appearance:none;
   padding:14px 16px;background:var(--surface);
   border:1px solid var(--border);border-radius:10px;
   border-left-width:4px;
@@ -350,10 +393,93 @@ button{font-family:'DM Sans',sans-serif}
 .browse-item-q{font-size:14px;color:var(--text);font-weight:500;line-height:1.4}
 .browse-item-due{font-size:11px;color:var(--text3);margin-left:auto}
 .browse-item-due.due-now{color:var(--prompt-priority);font-weight:600}
-.browse-content{border-left-color:var(--prompt-content)}
-.browse-judgment{border-left-color:var(--prompt-judgment)}
-.browse-principle{border-left-color:var(--prompt-principle)}
-.browse-priority{border-left-color:var(--prompt-priority)}
+.browse-recall{border-left-color:var(--retrieval-recall)}
+.browse-recognize{border-left-color:var(--retrieval-recognize)}
+.browse-act{border-left-color:var(--retrieval-act)}
+.browse-apply{border-left-color:var(--retrieval-apply)}
+.browse-recall .flashcard-tag{background:var(--retrieval-recall)}
+.browse-recognize .flashcard-tag{background:var(--retrieval-recognize)}
+.browse-act .flashcard-tag{background:var(--retrieval-act)}
+.browse-apply .flashcard-tag{background:var(--retrieval-apply)}
+
+/* FOCUS DECK + REVIEW QUEUE CONTROLS */
+.flashcard-footer-actions{
+  display:flex;align-items:center;justify-content:flex-end;gap:8px;
+  margin-left:auto;flex-wrap:wrap;
+}
+.flashcard-utilities{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  margin:10px 0 6px;
+}
+.flashcard-utilities .flashcard-source-link{margin:0}
+.collection-toggle{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  min-height:34px;padding:7px 11px;background:transparent;
+  border:1px solid var(--border);border-radius:8px;color:var(--text2);
+  font-size:12px;font-weight:600;line-height:1;cursor:pointer;
+  transition:background .15s,border-color .15s,color .15s,transform .15s;
+}
+.collection-toggle:hover,
+.collection-toggle[aria-pressed="true"]{
+  border-color:var(--accent);color:var(--accent);background:var(--accent-soft);
+}
+.collection-toggle-icon{font-size:16px;line-height:1}
+.flashcard-shuffle,.flashcard-restore,.flashcard-skip{
+  background:var(--surface2);border:1px solid var(--border);color:var(--text2);
+  font-size:12px;padding:6px 12px;border-radius:7px;cursor:pointer;
+}
+.flashcard-shuffle{color:var(--accent);border-color:var(--accent)}
+.flashcard-shuffle:not(:disabled):hover{color:var(--accent2);border-color:var(--accent2);background:var(--accent-soft)}
+.flashcard-restore:hover{color:var(--text);border-color:var(--text2)}
+.flashcard-skip:not(:disabled):hover{color:var(--text2);border-color:var(--text3)}
+.flashcard-shuffle:disabled,.flashcard-restore:disabled,.flashcard-skip:disabled{
+  cursor:not-allowed;opacity:.42;color:var(--text3);border-color:var(--border-soft);background:transparent;
+}
+.browse-item{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:10px;
+  padding:0;cursor:default;overflow:hidden;
+}
+.browse-item-open{
+  min-width:0;padding:14px 0 14px 16px;background:transparent;border:0;
+  color:inherit;font:inherit;text-align:left;cursor:pointer;
+}
+.browse-item .collection-toggle{
+  width:36px;height:36px;min-height:36px;padding:0;margin:11px 11px 0 0;
+}
+.collection-toolbar{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  margin-bottom:14px;padding:14px 16px;background:var(--surface);
+  border:1px solid var(--border);border-radius:10px;flex-wrap:wrap;
+}
+.collection-summary{min-width:180px;flex:1}
+.collection-summary strong{display:block;color:var(--text);font-size:14px}
+.collection-summary span{display:block;color:var(--text3);font-size:11px;margin-top:2px}
+.collection-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.collection-review-btn{
+  border:1px solid var(--accent);border-radius:8px;padding:8px 12px;
+  background:var(--accent);color:var(--bg);font-size:12px;font-weight:700;
+  cursor:pointer;
+}
+.collection-review-btn.collection-review-secondary{background:transparent;color:var(--accent)}
+.collection-review-btn:disabled{cursor:not-allowed;opacity:.45;transform:none}
+.collection-review-btn:not(:disabled):hover{background:var(--accent2);border-color:var(--accent2)}
+.collection-review-btn.collection-review-secondary:not(:disabled):hover{color:var(--bg)}
+.collection-filter-note{font-size:11px;color:var(--text3);margin:0 0 10px}
+.sr-only{
+  position:absolute!important;width:1px!important;height:1px!important;
+  padding:0!important;margin:-1px!important;overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;
+}
+@media (max-width:600px){
+  .tabs{gap:3px}
+  .tab{padding:9px 6px;font-size:12px}
+  .tab-count{margin-left:3px;padding:1px 5px}
+  .collection-actions{width:100%}
+  .collection-review-btn{flex:1}
+}
+@media print{
+  .collection-toggle,.collection-toolbar,.flashcard-footer-actions{display:none!important}
+}
 
 /* COMPLETION SCREEN */
 .completion{
@@ -572,6 +698,21 @@ button{font-family:'DM Sans',sans-serif}
   color: var(--text2);
 }
 .filter-result-count strong{ color: var(--text) }
+.filter-advanced{
+  margin:12px 0;border:1px solid var(--border);border-radius:8px;background:var(--bg);
+}
+.filter-advanced summary{
+  cursor:pointer;list-style:none;padding:10px 12px;color:var(--text2);
+  font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+}
+.filter-advanced summary::-webkit-details-marker{display:none}
+.filter-advanced summary::after{
+  content:'▾';float:right;color:var(--text3);transition:transform .15s;
+}
+.filter-advanced[open] summary::after{transform:rotate(180deg)}
+.filter-advanced[open] summary{border-bottom:1px solid var(--border)}
+.filter-advanced-body{padding:0 12px 12px}
+.filter-help{margin:7px 0 0;color:var(--text3);font-size:11px}
 @media (max-width: 600px){
   .filter-chip{ font-size: 12px; padding: 5px 10px }
   .filter-chips-numeric .filter-chip{ min-width: 28px }
@@ -789,7 +930,6 @@ button{font-family:'DM Sans',sans-serif}
     font-size: 12px !important;
   }
   .flashcard{ padding: 22px !important }
-  .flashcard-q{ font-size: 17px !important }
 }
 
 
@@ -807,12 +947,75 @@ button{font-family:'DM Sans',sans-serif}
         }
         .sb-version:hover{opacity:1}
         /* === END VERSION BADGE === */
+
+        /* === PRINT: study content only; collapsed screen state must not hide answers === */
+        @media print{
+          @page{size:Letter;margin:.5in}
+          html,body{
+            background:#fff!important;
+            color:#111827!important;
+            min-height:0!important;
+          }
+          body{
+            -webkit-print-color-adjust:exact;
+            print-color-adjust:exact;
+          }
+          .layout{display:block;min-height:0}
+          .sidebar,
+          .sidebar-overlay,
+          .mobile-menu-toggle,
+          .back-home-mobile,
+          .deck-actions,
+          .filter-panel,
+          .session-panel,
+          .deck-stats,
+          .tabs,
+          .flashcard-reveal,
+          .flashcard-rating,
+          .flashcard-footer,
+          .review-progress,
+          .footer,
+          .kbd-help-overlay{display:none!important}
+          .main-content{
+            width:100%!important;
+            max-width:none!important;
+            margin:0!important;
+            padding:0!important;
+          }
+          .hero{
+            margin:0 0 18px!important;
+            padding:18px 20px!important;
+            background:#fff!important;
+            border:1px solid #cbd5e1!important;
+            box-shadow:none!important;
+            break-inside:avoid;
+            page-break-inside:avoid;
+          }
+          .hero h1,
+          .hero-sub,
+          .flashcard-q,
+          .flashcard-a{color:#111827!important}
+          .card-stage{min-height:0!important}
+          .flashcard{
+            background:#fff!important;
+            border-color:#94a3b8!important;
+            box-shadow:none!important;
+            break-inside:avoid;
+            page-break-inside:avoid;
+          }
+          .flashcard-a{
+            display:block!important;
+            background:#f3f4f6!important;
+            border:1px solid #d1d5db!important;
+          }
+          .flashcard-due{display:none!important}
+        }
       </style>
 </head>
 <body>
 
 
-<button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Open menu">☰</button>
+<button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Open flashcard navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
 <a class="back-home-mobile" href="Elevated%20ATI%20Pharm%20Hub.html">Back to Hub</a>
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
@@ -820,7 +1023,7 @@ button{font-family:'DM Sans',sans-serif}
 
   <aside class="sidebar" id="sidebar" aria-label="Flashcards navigation">
     <div class="sidebar-header">
-      <a class="back-home" href="Elevated%20ATI%20Pharm%20Hub.html">← Back to Hub</a>
+      <a class="back-home" href="Elevated%20ATI%20Pharm%20Hub.html">Back to Hub</a>
       <div class="sb-course">NUR 2460 · ATI</div>
       <div class="sb-title">Flashcards</div>
       <div class="sb-sub">Spaced Repetition Review</div>
@@ -829,7 +1032,7 @@ button{font-family:'DM Sans',sans-serif}
     </div>
 
     <div class="sidebar-search">
-      <input id="sidebarSearchInput" type="text" placeholder="Search cards…" autocomplete="off">
+      <input id="sidebarSearchInput" type="search" placeholder="Search cards…" autocomplete="off" aria-label="Search flashcards">
     </div>
 
     <nav class="sidebar-list" aria-label="Quick filters">
@@ -844,10 +1047,11 @@ button{font-family:'DM Sans',sans-serif}
         <button class="sb-nav-item" type="button" data-quick-filter="unit" data-value="infection-other">Infection &amp; Other (Ch 43–49)</button>
       </div>
       <div class="sb-nav-section">
-        <div class="sb-nav-label">Type</div>
-        <button class="sb-nav-item" type="button" data-quick-filter="type-toggle" data-value="concept">Concept</button>
-        <button class="sb-nav-item" type="button" data-quick-filter="type-toggle" data-value="calc">Calculation</button>
-        <button class="sb-nav-item" type="button" data-quick-filter="type-toggle" data-value="warning">Warning</button>
+        <div class="sb-nav-label">Retrieval</div>
+        <button class="sb-nav-item" type="button" data-quick-filter="retrieval-toggle" data-value="recall">Recall</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="retrieval-toggle" data-value="recognize">Recognize</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="retrieval-toggle" data-value="act">Act</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="retrieval-toggle" data-value="apply">Apply</button>
       </div>
       <div class="sb-nav-section">
         <div class="sb-nav-label">Status</div>
@@ -955,17 +1159,31 @@ button{font-family:'DM Sans',sans-serif}
         </div>
       </div>
       <div class="filter-row">
-        <div class="filter-label">Type</div>
-        <div class="filter-chips" data-filter-group="type" data-multi="true">
-          <button class="filter-chip" data-value="concept" type="button">Concept</button>
-          <button class="filter-chip" data-value="calc" type="button">Calculation</button>
-          <button class="filter-chip" data-value="warning" type="button">Warning</button>
-          <button class="filter-chip" data-value="CONTENT" type="button">Content</button>
-          <button class="filter-chip" data-value="JUDGMENT" type="button">Judgment</button>
-          <button class="filter-chip" data-value="PRINCIPLE" type="button">Principle</button>
-          <button class="filter-chip" data-value="PRIORITY" type="button">Priority</button>
+        <div class="filter-label">Primary retrieval</div>
+        <div class="filter-chips" data-filter-group="retrieval" data-multi="true">
+          <button class="filter-chip" data-value="recall" type="button">Recall</button>
+          <button class="filter-chip" data-value="recognize" type="button">Recognize</button>
+          <button class="filter-chip" data-value="act" type="button">Act</button>
+          <button class="filter-chip" data-value="apply" type="button">Apply</button>
         </div>
       </div>
+      <details class="filter-advanced">
+        <summary>Advanced card attributes</summary>
+        <div class="filter-advanced-body">
+          <div class="filter-row">
+            <div class="filter-label">Secondary attributes</div>
+            <div class="filter-chips" data-filter-group="flag" data-multi="true">
+              <button class="filter-chip" data-value="warning" type="button">Warning</button>
+              <button class="filter-chip" data-value="numeric" type="button">Numeric</button>
+              <button class="filter-chip" data-value="sequence" type="button">Sequence</button>
+              <button class="filter-chip" data-value="comparison" type="button">Comparison</button>
+              <button class="filter-chip" data-value="mnemonic" type="button">Mnemonic</button>
+              <button class="filter-chip" data-value="calculation" type="button">Calculation</button>
+            </div>
+            <p class="filter-help">Warning preserves the prior alert designation; it is not a new source certification. Multiple selections match any chosen attribute.</p>
+          </div>
+        </div>
+      </details>
       <div class="filter-row">
         <div class="filter-label">Status</div>
         <div class="filter-chips" data-filter-group="status" data-multi="false">
@@ -1015,6 +1233,7 @@ button{font-family:'DM Sans',sans-serif}
   <div class="tabs">
     <button class="tab active" data-tab="review" type="button">Review <span class="tab-count" id="tabCountDue">0</span></button>
     <button class="tab" data-tab="browse" type="button">Browse <span class="tab-count" id="tabCountAll">0</span></button>
+    <button class="tab" data-tab="collection" type="button">Focus <span class="tab-count" id="tabCountCollection">0</span></button>
   </div>
 
   <div class="card-stage" id="stage"></div>
@@ -1060,11 +1279,14 @@ button{font-family:'DM Sans',sans-serif}
     'nur2460_fc_schedule',
     'nur2460_fc_filters',
     'atipharm_fc_filters',
+    'atipharm_fc_collections_v1',
     'nur2460_theme'
   ];
 
   var THEME_KEY = 'nur2460_theme';
   try{if(localStorage.getItem('nur2460_fc_schedule')!==null&&localStorage.getItem('atipharm_fc_schedule')===null){localStorage.setItem('atipharm_fc_schedule',localStorage.getItem('nur2460_fc_schedule'));}}catch(e){} var FC_KEY = 'atipharm_fc_schedule';
+  var COLLECTION_KEY = 'atipharm_fc_collections_v1';
+  var FOCUS_COLLECTION_ID = 'focus';
 
   // ===== Theme =====
   var themeBtn = document.getElementById('themeToggle');
@@ -1092,6 +1314,44 @@ button{font-family:'DM Sans',sans-serif}
   }
   function saveSchedule(s){
     try { localStorage.setItem(FC_KEY, JSON.stringify(s)); } catch(e){}
+  }
+
+  function emptyCollectionState(){
+    return { version: 1, collections: { focus: { name: 'Focus Deck', cardIds: [] } } };
+  }
+
+  function loadCollectionState(){
+    var fallback = emptyCollectionState();
+    try {
+      var raw = localStorage.getItem(COLLECTION_KEY);
+      if (!raw) return fallback;
+      var parsed = JSON.parse(raw);
+      var collections = parsed && parsed.version === 1 && parsed.collections;
+      var source = collections && (collections[FOCUS_COLLECTION_ID] || collections.reviewer);
+      if (!source || !Array.isArray(source.cardIds)) return fallback;
+      var seen = {};
+      fallback.collections[FOCUS_COLLECTION_ID].cardIds = source.cardIds.filter(function(id){
+        if (typeof id !== 'string' || !id || seen[id]) return false;
+        seen[id] = true;
+        return true;
+      });
+      return fallback;
+    } catch(e){ return fallback; }
+  }
+
+  function saveCollectionState(state){
+    try { localStorage.setItem(COLLECTION_KEY, JSON.stringify(state)); } catch(e){}
+  }
+  function getCollectionIds(){ return loadCollectionState().collections[FOCUS_COLLECTION_ID].cardIds.slice(); }
+  function isCollected(cardId){ return getCollectionIds().indexOf(cardId) !== -1; }
+  function toggleCollected(cardId){
+    var state = loadCollectionState();
+    var ids = state.collections[FOCUS_COLLECTION_ID].cardIds;
+    var index = ids.indexOf(cardId);
+    var added = index === -1;
+    if (added) ids.push(cardId); else ids.splice(index, 1);
+    saveCollectionState(state);
+    return added;
   }
 
   // === STARTER DECK (from book mid-read prompts) ===
@@ -1805,6 +2065,757 @@ button{font-family:'DM Sans',sans-serif}
   { id: 'fc-ch49-feverfew', ch: 'ch49', type: 'concept', anchor: 'ch49-overview', q: 'What is feverfew used for, and a bleeding-related caution?', a: 'Used for <strong>migraine prevention</strong>. It may <strong>increase bleeding risk</strong> with anticoagulants/antiplatelets; abrupt discontinuation can cause rebound headache.' },
   { id: 'fc-ch49-saw-palmetto', ch: 'ch49', type: 'concept', anchor: 'ch49-overview', q: 'What is saw palmetto commonly used for?', a: 'To relieve symptoms of <strong>benign prostatic hyperplasia (BPH)</strong>. It is not a substitute for evaluation; discuss with the provider since it can interact with hormone-related therapy.' }
 ];
+
+  // Retrieval-taxonomy registry complete: positions 1–702 of 702.
+  // Phase D hydrates this validated metadata by stable ID at read time.
+  var RETRIEVAL_TAXONOMY_REGISTRY = [
+    { id: 'fc-ch1-p1', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch1-p2', retrieval: 'apply', flags: ['numeric', 'calculation'] },
+    { id: 'fc-ch2-p1', retrieval: 'recall', flags: ['warning', 'numeric', 'sequence', 'mnemonic'] },
+    { id: 'fc-ch2-p2', retrieval: 'act', flags: ['sequence'] },
+    { id: 'fc-ch3-p1', retrieval: 'apply', flags: ['numeric', 'calculation'] },
+    { id: 'fc-ch3-p2', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch4-p1', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch4-p2', retrieval: 'recognize', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch5-p1', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch5-p2', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch6-p1', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch6-p2', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch7-p1', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch7-p2', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch8-p1', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch8-p2', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch9-p1', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch9-p2', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch10-p1', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch10-p2', retrieval: 'recognize', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch11-p1', retrieval: 'act', flags: ['numeric'] },
+    { id: 'fc-ch11-p2', retrieval: 'act', flags: ['numeric'] },
+    { id: 'fc-ch12-p1', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch12-p2', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch13-p1', retrieval: 'act', flags: ['comparison'] },
+    { id: 'fc-ch13-p2', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch14-p1', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch14-p2', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch15-p1', retrieval: 'recognize', flags: ['numeric'] },
+    { id: 'fc-ch15-p2', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch16-p1', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch16-p2', retrieval: 'act', flags: ['numeric'] },
+    { id: 'fc-ch17-p1', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch17-p2', retrieval: 'apply', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch18-p1', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch18-p2', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch19-p1', retrieval: 'act', flags: ['warning', 'numeric', 'mnemonic'] },
+    { id: 'fc-ch19-p2', retrieval: 'recognize', flags: ['comparison'] },
+    { id: 'fc-ch20-p1', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch20-p2', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch21-p1', retrieval: 'act', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch21-p2', retrieval: 'recognize', flags: [] },
+    { id: 'fc-ch22-p1', retrieval: 'apply', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch22-p2', retrieval: 'recognize', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch23-p1', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch23-p2', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'mnemonic'] },
+    { id: 'fc-ch24-p1', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch24-p2', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch25-p1', retrieval: 'recognize', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch25-p2', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch26-p1', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch26-p2', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch27-p1', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch27-p2', retrieval: 'recall', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch28-p1', retrieval: 'apply', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch28-p2', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch29-p1', retrieval: 'recognize', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch29-p2', retrieval: 'apply', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch30-p1', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch30-p2', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch31-p1', retrieval: 'act', flags: ['numeric', 'comparison', 'mnemonic'] },
+    { id: 'fc-ch31-p2', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch32-p1', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch32-p2', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch33-p1', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch33-p2', retrieval: 'apply', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch34-p1', retrieval: 'apply', flags: ['warning', 'numeric', 'sequence', 'comparison', 'mnemonic'] },
+    { id: 'fc-ch34-p2', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch35-p1', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch35-p2', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch36-p1', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch36-p2', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch37-p1', retrieval: 'recognize', flags: ['numeric', 'comparison', 'mnemonic'] },
+    { id: 'fc-ch37-p2', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch38-p1', retrieval: 'act', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch38-p2', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch39-p1', retrieval: 'recognize', flags: ['numeric', 'sequence', 'comparison', 'mnemonic'] },
+    { id: 'fc-ch39-p2', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'mnemonic'] },
+    { id: 'fc-ch40-p1', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch40-p2', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch41-p1', retrieval: 'recognize', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch41-p2', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch42-p1', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch42-p2', retrieval: 'recognize', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch43-p1', retrieval: 'recall', flags: ['sequence', 'comparison'] },
+    { id: 'fc-ch43-p2', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch44-p1', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch44-p2', retrieval: 'recognize', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch45-p1', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch45-p2', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch46-p1', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch46-p2', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch47-p1', retrieval: 'recall', flags: ['numeric', 'sequence', 'comparison', 'mnemonic'] },
+    { id: 'fc-ch47-p2', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison', 'mnemonic'] },
+    { id: 'fc-ch48-p1', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch48-p2', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch49-p1', retrieval: 'act', flags: ['warning', 'numeric', 'comparison', 'mnemonic'] },
+    { id: 'fc-ch49-p2', retrieval: 'act', flags: [] },
+    { id: 'fc-ch12-disulfiram-hidden-alcohol', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch12-naloxone-half-life', retrieval: 'act', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch12-mat-trio', retrieval: 'recognize', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch1-routes-bioavailability', retrieval: 'recognize', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch1-z-track', retrieval: 'apply', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch1-low-ti-drugs', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch2-high-alert-4', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch2-ismp-zeros', retrieval: 'apply', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch2-dea-schedules-quick', retrieval: 'recognize', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch3-microdrip-shortcut', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch3-pediatric-safe-dose', retrieval: 'apply', flags: ['numeric', 'sequence', 'calculation'] },
+    { id: 'fc-ch4-iv-tonicity', retrieval: 'recognize', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch4-infiltration-extravasation', retrieval: 'act', flags: ['warning', 'sequence', 'comparison'] },
+    { id: 'fc-ch4-air-embolism-position', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch5-anaphylaxis-first-line', retrieval: 'act', flags: ['warning', 'sequence', 'comparison'] },
+    { id: 'fc-ch5-biphasic-monitor', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch5-sjs-culprits', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch5-cyp450-inducers', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch5-cyp450-inhibitors-grapefruit', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch6-pediatric-never-meds', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch6-teratogens-classic', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch6-older-adult-pk-changes', retrieval: 'recall', flags: ['numeric', 'comparison', 'mnemonic'] },
+    { id: 'fc-ch7-flumazenil', retrieval: 'act', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch7-buspirone-vs-benzo', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch7-benzo-discontinuation', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch8-ssri-onset-bbw', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch8-maoi-tyramine', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch8-tca-overdose-triad', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch9-lithium-therapeutic-range', retrieval: 'apply', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch9-lithium-sodium-fluid', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch9-lithium-pretreatment-workup', retrieval: 'recall', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch9-lamotrigine-rash', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch10-eps-timeline', retrieval: 'recall', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch10-nms-triad-treatment', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch10-clozapine-cbc-monitoring', retrieval: 'recall', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch10-metabolic-syndrome', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch11-adhd-stimulant-teaching', retrieval: 'act', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch11-atomoxetine-non-stim', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch11-peds-ssri-bbw', retrieval: 'act', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch13-levodopa-protein', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch13-phenytoin-range', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch13-ach-inhibitors-ad', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch13-triptan-contraindications', retrieval: 'act', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch14-eye-drop-technique', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch14-prostaglandin-first-line', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch14-ear-drop-pinna', retrieval: 'recall', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch14-acetazolamide-sulfa', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch15-dantrolene-uses', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch15-baclofen-abrupt', retrieval: 'recall', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch15-bethanechol-atropine', retrieval: 'act', flags: ['warning', 'comparison', 'mnemonic'] },
+    { id: 'fc-ch16-zdrug-complex-behaviors', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch16-benzo-paradoxical', retrieval: 'act', flags: ['warning', 'sequence', 'comparison'] },
+    { id: 'fc-ch16-propofol-pris', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch17-ics-thrush-spacer', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch17-laba-never-solo', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch18-acetylcysteine-dual', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch18-oxymetazoline-rebound', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch18-peds-otc-cold', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch19-furosemide-electrolytes', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch19-furosemide-ototoxic', retrieval: 'act', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch19-spironolactone-hyperK', retrieval: 'apply', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch19-mannitol-crystals', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch20-ace-pril-cough', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch20-clonidine-rebound', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch20-prazosin-first-dose', retrieval: 'act', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch20-nitroprusside-cyanide', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch21-digoxin-range-toxicity', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch21-digoxin-apical-hold', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch21-digoxin-hypokalemia', retrieval: 'apply', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch21-entresto-ace-overlap', retrieval: 'recall', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch22-ntg-attack-protocol', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch22-ntg-pde5', retrieval: 'act', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch22-ntg-tolerance', retrieval: 'recall', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch23-amiodarone-toxicities', retrieval: 'recall', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch23-adenosine-administration', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch23-lidocaine-toxicity', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch23-torsades-magnesium', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch24-statin-rhabdo', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch24-statin-timing-grapefruit', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch24-bile-acid-spacing', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch25-heparin-monitoring-antidote', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch25-hit-recognition', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch25-warfarin-inr-targets', retrieval: 'apply', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch25-warfarin-vit-k-teaching', retrieval: 'act', flags: ['comparison', 'mnemonic'] },
+    { id: 'fc-ch25-tpa-contraindications', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch26-epoetin-hgb-target', retrieval: 'recall', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch26-filgrastim-bone-pain', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch26-romiplostim-itp', retrieval: 'recall', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch27-transfusion-verification', retrieval: 'apply', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch27-hemolytic-reaction', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch27-first-15-min', retrieval: 'recall', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch27-trali-vs-taco', retrieval: 'recall', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch28-ppi-long-term-aes', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch28-sucralfate-timing', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch28-h-pylori-triple', retrieval: 'recall', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch28-misoprostol-pregnancy', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch29-metoclopramide-td', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch29-ondansetron-qt', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch30-iron-administration', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch30-kcl-iv-rules', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch31-ocp-aches', retrieval: 'act', flags: ['numeric', 'comparison', 'mnemonic'] },
+    { id: 'fc-ch31-finasteride-pregnancy', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch31-pde5-nitrates', retrieval: 'act', flags: ['numeric'] },
+    { id: 'fc-ch32-oxytocin-tachysystole', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch32-mag-toxicity-antidote', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch32-methergine-htn', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch32-terbutaline-bbw', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch33-methotrexate-weekly-folate', retrieval: 'recall', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch33-tnf-tb-screen', retrieval: 'act', flags: ['warning', 'sequence', 'comparison'] },
+    { id: 'fc-ch33-allopurinol-timing', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch34-bisphosphonate-admin', retrieval: 'apply', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch34-calcium-type', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch34-denosumab-hypocalcemia', retrieval: 'act', flags: ['warning', 'sequence', 'comparison'] },
+    { id: 'fc-ch35-apap-max-hidden', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch35-apap-overdose-nac', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch35-asa-salicylism-reye', retrieval: 'recognize', flags: ['warning', 'sequence', 'comparison'] },
+    { id: 'fc-ch35-nsaid-interactions', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch36-sedation-precedes-rr', retrieval: 'recognize', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch36-fentanyl-patch-heat', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch36-pca-by-proxy', retrieval: 'act', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch37-gabapentin-renal', retrieval: 'recall', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch37-carbamazepine-trigeminal', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch37-capsaicin-gloves', retrieval: 'act', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch38-triptan-maoi-spacing', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch38-cluster-o2', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch39-insulin-onset-peak-duration', retrieval: 'recall', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch39-insulin-mixing-clear-cloudy', retrieval: 'apply', flags: ['warning', 'numeric', 'sequence', 'comparison', 'mnemonic'] },
+    { id: 'fc-ch39-rule-of-15', retrieval: 'apply', flags: ['numeric', 'sequence', 'comparison', 'mnemonic'] },
+    { id: 'fc-ch39-metformin-contrast', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch39-sick-day-rules', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch40-levothyroxine-admin', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch40-glucocorticoid-taper', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch40-vasopressin-hyponatremia', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch41-live-vaccine-contraindications', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch41-vaccine-spacing', retrieval: 'apply', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch41-egg-allergy-flu', retrieval: 'act', flags: ['comparison'] },
+    { id: 'fc-ch42-doxorubicin-cardio', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch42-vincristine-intrathecal', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch42-neutropenic-fever', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch43-cultures-before-first-dose', retrieval: 'apply', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch43-c-diff-treatment', retrieval: 'act', flags: ['warning', 'sequence', 'comparison'] },
+    { id: 'fc-ch43-pcn-ceph-cross-reactivity', retrieval: 'apply', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch43-mrsa-vre-precautions', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch44-vanc-red-man', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch44-vanc-trough', retrieval: 'recall', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch44-ceftriaxone-calcium', retrieval: 'act', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch44-oral-vanc-cdiff', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch45-tetracycline-dairy-kids', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch45-aminoglycoside-peaks-troughs', retrieval: 'recall', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch45-clindamycin-cdiff', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch46-tmp-smx-sulfa', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch46-nitrofurantoin-teaching', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch46-fq-tendon-rupture', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch47-ripe-mnemonic', retrieval: 'recall', flags: ['numeric', 'sequence', 'comparison', 'mnemonic'] },
+    { id: 'fc-ch47-rifampin-cyp-ocp', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch47-amphotericin-preload', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch47-metronidazole-alcohol', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch48-haart-adherence', retrieval: 'act', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch48-acyclovir-fluids', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch48-oseltamivir-48-hours', retrieval: 'apply', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch49-st-johns-wort-interactions', retrieval: 'apply', flags: ['warning', 'sequence', 'comparison'] },
+    { id: 'fc-ch49-pre-surgery-herbal-stop', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison', 'mnemonic'] },
+    { id: 'fc-ch1-first-pass', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch1-bioavailability', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch1-protein-binding', retrieval: 'apply', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch1-enteric-coated', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch1-agonist-antagonist', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch1-loading-dose', retrieval: 'recall', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch1-transdermal', retrieval: 'act', flags: ['sequence'] },
+    { id: 'fc-ch1-im-absorption', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch1-sl-buccal', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch1-rectal', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch1-bbb', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch1-cyp450', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch1-prodrugs', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch1-renal-excretion', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch1-breast-milk', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch2-three-checks', retrieval: 'apply', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch2-two-identifiers', retrieval: 'act', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch2-controlled-waste', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch2-verbal-order', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch2-error-priority', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch2-do-not-use', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch2-document-timing', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch2-independent-double-check', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch2-bcma', retrieval: 'recall', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch2-smart-pump', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch2-lasa', retrieval: 'recall', flags: ['warning', 'comparison', 'mnemonic'] },
+    { id: 'fc-ch2-tall-man', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch2-med-reconciliation', retrieval: 'recall', flags: ['sequence', 'comparison'] },
+    { id: 'fc-ch2-pregnancy-categories', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch3-gtt-min', retrieval: 'apply', flags: ['numeric', 'calculation'] },
+    { id: 'fc-ch3-ml-hr', retrieval: 'apply', flags: ['numeric', 'calculation'] },
+    { id: 'fc-ch3-kg-convert', retrieval: 'apply', flags: ['numeric', 'calculation'] },
+    { id: 'fc-ch3-furosemide-push', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch3-furosemide-ototox', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch3-furosemide-lytes', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch3-furosemide-onset', retrieval: 'recall', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch3-tablets', retrieval: 'apply', flags: ['numeric', 'calculation'] },
+    { id: 'fc-ch3-oral-syringe', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch3-safe-dose-hold', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch3-dimensional-analysis', retrieval: 'recall', flags: ['sequence'] },
+    { id: 'fc-ch3-ratio-proportion', retrieval: 'recall', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch3-peds-rounding', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch4-isotonic-uses', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch4-hypotonic-caution', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch4-hypertonic-monitor', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch4-colloids', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch4-central-line-indications', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch4-phlebitis', retrieval: 'act', flags: ['sequence', 'comparison'] },
+    { id: 'fc-ch4-taco', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch4-clabsi', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch4-catheter-embolism', retrieval: 'recall', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch4-peripheral-iv-gauge', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch4-iv-vein-selection', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch5-effect-types', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch5-hypersensitivity-types', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch5-anaphylaxis-recognition', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch5-anaphylaxis-sequence', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch5-toxic-levels', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch5-pk-vs-pd', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch5-black-box', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch5-antidotes', retrieval: 'recognize', flags: ['comparison'] },
+    { id: 'fc-ch5-teratogens-list', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch5-food-interactions', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch5-maoi-tyramine', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch6-beers', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch6-polypharmacy', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch6-peds-pk', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch6-pregnancy-categories', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch6-lactation', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch6-peds-im-site', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch6-older-renal', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch6-peds-admin', retrieval: 'act', flags: [] },
+    { id: 'fc-ch6-pharmacogenomics-basics', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch6-cyp2d6-codeine', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch7-alprazolam-schedule', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch7-ssri-first-line', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch7-ssri-examples', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch7-ssri-blackbox', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch7-ssri-discontinuation', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch7-snri-htn', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch7-beta-blocker-anxiety', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch7-hydroxyzine', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch7-prazosin-ptsd', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch7-tca-overdose', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch7-buspirone-onset', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch7-gabapentin-pregabalin', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch8-serotonin-syndrome', retrieval: 'recall', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch8-ssri-discontinuation', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch8-snri', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch8-ssri-adverse', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch8-maoi-washout', retrieval: 'recall', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch8-bupropion', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch8-trazodone', retrieval: 'act', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch8-mirtazapine', retrieval: 'apply', flags: [] },
+    { id: 'fc-ch8-tca-examples-uses', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch9-lithium-early-signs', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch9-lithium-interactions', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch9-valproate-monitor', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch9-carbamazepine', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch9-lithium-onset-bridge', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch9-lithium-teaching', retrieval: 'act', flags: ['numeric'] },
+    { id: 'fc-ch9-valproate-pregnancy', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch9-lamotrigine-titration', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch9-atypical-antipsychotics-bipolar', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch10-acute-dystonia', retrieval: 'act', flags: [] },
+    { id: 'fc-ch10-akathisia', retrieval: 'act', flags: ['comparison'] },
+    { id: 'fc-ch10-anticholinergic', retrieval: 'act', flags: [] },
+    { id: 'fc-ch10-depot', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch10-anhedonia-fga-sga', retrieval: 'recognize', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch10-orthostatic', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch10-dementia-bbw', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch10-agranulocytosis-signs', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch10-typical-vs-atypical-drugs', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch10-aripiprazole-mechanism', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch11-stimulant-growth', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch11-stimulant-cardiac', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch11-stimulant-schedule', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch11-atomoxetine-bbw', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch11-alpha2-agonists', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch11-risperidone-peds', retrieval: 'act', flags: [] },
+    { id: 'fc-ch11-stimulant-rebound', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch11-peds-ssri-monitoring', retrieval: 'act', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch11-peds-tca-desipramine', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch12-withdrawal-timeline', retrieval: 'recall', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch12-thiamine', retrieval: 'recall', flags: ['sequence', 'comparison'] },
+    { id: 'fc-ch12-disulfiram-severity', retrieval: 'recall', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch12-naltrexone-opioid-free', retrieval: 'recall', flags: ['warning', 'sequence', 'comparison'] },
+    { id: 'fc-ch12-methadone-cautions', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch12-nicotine-agents', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch12-clonidine-withdrawal', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch12-acamprosate', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch12-benzo-alcohol-withdrawal', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch12-naltrexone-alcohol', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch12-nrt-options', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch13-on-off', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch13-levodopa-pyridoxine', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch13-phenytoin-gingival', retrieval: 'act', flags: [] },
+    { id: 'fc-ch13-cholinergic-crisis', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch13-status-epilepticus', retrieval: 'act', flags: ['sequence'] },
+    { id: 'fc-ch13-valproate-neuro', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch13-dopamine-agonist', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch13-memantine', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch13-mao-b-inhibitor', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch13-anticholinergic-parkinsons', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch13-levetiracetam', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch14-timolol-systemic', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch14-punctal-occlusion', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch14-latanoprost-pigment', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch14-angle-closure', retrieval: 'act', flags: ['numeric'] },
+    { id: 'fc-ch14-multiple-drops', retrieval: 'recall', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch14-pilocarpine', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch14-ototoxic', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch14-eyedrop-contamination', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch14-brimonidine', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch15-nmb-no-sedation', retrieval: 'act', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch15-succinylcholine-hyperk', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch15-nmb-reversal', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch15-nmb-potentiators', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch15-tizanidine', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch15-oxybutynin', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch15-cyclobenzaprine', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch15-nmb-airway-priority', retrieval: 'act', flags: ['sequence'] },
+    { id: 'fc-ch15-mh-screening', retrieval: 'act', flags: ['warning', 'numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch16-benzo-cns-additive', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch16-benzo-taper', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch16-zdrug-timing', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch16-ramelteon', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch16-barbiturate-risk', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch16-benzo-elderly', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch16-flumazenil-seizure', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch16-benzo-pregnancy', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch17-saba-rescue', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch17-theophylline', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch17-ipratropium', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch17-ics-not-rescue', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch17-montelukast', retrieval: 'act', flags: ['comparison'] },
+    { id: 'fc-ch17-ics-rinse', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch17-beta2-systemic', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch17-cromolyn', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch17-tiotropium-lama', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch18-codeine-antitussive', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch18-guaifenesin', retrieval: 'act', flags: [] },
+    { id: 'fc-ch18-dextromethorphan', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch18-first-gen-antihistamine', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch18-second-gen-antihistamine', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch18-pseudoephedrine', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch18-antihistamine-uses', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch18-benzonatate', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch18-intranasal-corticosteroid', retrieval: 'act', flags: ['numeric'] },
+    { id: 'fc-ch19-loop-monitoring', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch19-loop-digoxin', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch19-thiazide-effects', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch19-thiazide-renal', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch19-spironolactone', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch19-mannitol', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch19-timing', retrieval: 'recall', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch19-orthostatic', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch19-triamterene-amiloride', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch20-ace-angioedema', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch20-ace-hyperk', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch20-arb', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch20-ccb-dihydro', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch20-ccb-nondihydro', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch20-beta-blocker', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch20-hydralazine', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch20-aliskiren', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch20-methyldopa-pregnancy', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch21-digoxin-fab', retrieval: 'act', flags: ['sequence'] },
+    { id: 'fc-ch21-digoxin-range', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch21-hf-pharmacotherapy', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch21-dopamine-dose', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch21-dobutamine', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch21-digoxin-toxicity-factors', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch21-digoxin-interactions', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch21-inotrope-monitoring', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch21-milrinone', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch22-ntg-storage', retrieval: 'act', flags: ['numeric'] },
+    { id: 'fc-ch22-ntg-headache', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch22-ranolazine', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch22-beta-blocker-angina', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch22-ccb-angina', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch22-ntg-iv', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch22-angina-types', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch22-ntg-sublingual-sequence', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch23-classes', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch23-amiodarone-monitoring', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch23-class2', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch23-class4', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch23-proarrhythmia', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch23-amiodarone-interactions', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch23-adenosine-effect', retrieval: 'act', flags: ['sequence'] },
+    { id: 'fc-ch23-magnesium-torsades', retrieval: 'act', flags: ['sequence'] },
+    { id: 'fc-ch23-procainamide-lupus', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch24-statin-liver', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch24-statin-pregnancy', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch24-ezetimibe', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch24-bile-acid', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch24-fibrates', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch24-niacin', retrieval: 'act', flags: ['numeric'] },
+    { id: 'fc-ch24-pcsk9', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch24-statin-ck', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch25-lmwh', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch25-warfarin-onset', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch25-antiplatelet', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch25-heparin-sc', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch25-fondaparinux', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch25-doac', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch25-thrombolytic-bleeding', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch25-aspirin-reye', retrieval: 'act', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch26-esa-bbw', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch26-esa-hgb-target', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch26-esa-iron', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch26-filgrastim-anc', retrieval: 'act', flags: [] },
+    { id: 'fc-ch26-filgrastim-bone', retrieval: 'act', flags: [] },
+    { id: 'fc-ch26-sargramostim', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch26-oprelvekin', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch26-esa-admin', retrieval: 'act', flags: [] },
+    { id: 'fc-ch27-saline-tubing', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch27-crossmatch', retrieval: 'act', flags: ['sequence'] },
+    { id: 'fc-ch27-4hour', retrieval: 'recall', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch27-febrile', retrieval: 'act', flags: ['comparison'] },
+    { id: 'fc-ch27-allergic', retrieval: 'act', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch27-hemolytic-actions', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch27-vitals', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch27-blood-products-indications', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch28-ppi-action', retrieval: 'act', flags: [] },
+    { id: 'fc-ch28-h2-blocker', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch28-antacids', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch28-sucralfate', retrieval: 'act', flags: ['numeric'] },
+    { id: 'fc-ch28-misoprostol', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch28-bismuth', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch28-ppi-dc', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch28-h-pylori-quad', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch29-antiemetic-classes', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch29-ondansetron-effects', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch29-metoclopramide', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch29-promethazine-iv', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch29-bulk-laxative', retrieval: 'act', flags: [] },
+    { id: 'fc-ch29-stimulant-laxative', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch29-osmotic-laxative', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch29-loperamide', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch29-mesalamine', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch30-iron-vit-c', retrieval: 'act', flags: ['comparison'] },
+    { id: 'fc-ch30-iron-toxicity', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch30-b12', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch30-folic-acid', retrieval: 'recall', flags: ['sequence'] },
+    { id: 'fc-ch30-potassium-foods', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch30-calcium-vitd', retrieval: 'act', flags: ['numeric'] },
+    { id: 'fc-ch30-magnesium-toxicity', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch30-iron-im-ztrack', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch30-fat-soluble-vitamin-tox', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch31-estrogen-vte', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch31-ocp-missed', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch31-ocp-interactions', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch31-progestin-only', retrieval: 'act', flags: ['numeric'] },
+    { id: 'fc-ch31-finasteride-bph', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch31-tamsulosin', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch31-testosterone', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch31-emergency-contraception', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch32-oxytocin-uses', retrieval: 'act', flags: [] },
+    { id: 'fc-ch32-oxytocin-water', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch32-mag-monitoring', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch32-carboprost', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch32-tocolytics', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch32-betamethasone', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch33-methotrexate-weekly', retrieval: 'act', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch33-dmard-onset', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch33-hydroxychloroquine', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch33-biologic-infection', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch33-colchicine', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch33-allopurinol', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch33-probenecid', retrieval: 'act', flags: [] },
+    { id: 'fc-ch33-acute-gout', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch34-bisphosphonate-esophagitis', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch34-onj', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch34-raloxifene', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch34-calcitonin', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch34-teriparatide', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch34-denosumab', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch34-atypical-femur', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch34-calcium-vitd-base', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch35-nsaid-gi', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch35-nsaid-renal-cv', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch35-aspirin-antiplatelet', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch35-celecoxib', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch35-apap-mechanism', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch35-ketorolac', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch35-nsaid-pregnancy', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch36-overdose-triad', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch36-naloxone-redose', retrieval: 'act', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch36-constipation', retrieval: 'act', flags: ['comparison'] },
+    { id: 'fc-ch36-tolerance-addiction', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch36-morphine-renal', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch36-agonist-antagonist', retrieval: 'recall', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch36-hold-rr', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch36-meperidine', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch37-definition', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch37-duloxetine', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch37-gabapentin-sedation', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch37-tca-neuropathy', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch37-corticosteroid', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch37-bone-pain', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch37-pregabalin-schedule', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch37-capsaicin', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch38-triptan-mechanism', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch38-triptan-overuse', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch38-prophylaxis', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch38-ergotamine', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch38-local-anesthetic', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch38-local-toxicity', retrieval: 'recall', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch38-nsaid-migraine', retrieval: 'act', flags: ['comparison'] },
+    { id: 'fc-ch38-cgrp', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch39-metformin-action', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch39-sulfonylurea', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch39-insulin-storage', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch39-glp1', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch39-dpp4', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch39-sglt2', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch39-glucagon', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch39-pioglitazone', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch40-levothyroxine-toxicity', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch40-levothyroxine-interactions', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch40-antithyroid-agranulocytosis', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch40-ptu-pregnancy', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch40-radioactive-iodine', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch40-glucocorticoid-effects', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch40-glucocorticoid-stress', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch40-desmopressin', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch40-fludrocortisone', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch41-active-vs-passive', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch41-live-vaccine-pregnancy', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch41-storage', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch41-mmr-varicella-spacing', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch41-site', retrieval: 'act', flags: ['comparison'] },
+    { id: 'fc-ch41-vaers', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch41-anaphylaxis-ready', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch41-passive-uses', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch41-tdap-pregnancy', retrieval: 'recall', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch42-safe-handling', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch42-nadir', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch42-neutropenic-precautions', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch42-antiemetic-prophylaxis', retrieval: 'act', flags: ['numeric', 'sequence'] },
+    { id: 'fc-ch42-mucositis', retrieval: 'act', flags: [] },
+    { id: 'fc-ch42-extravasation', retrieval: 'act', flags: ['sequence'] },
+    { id: 'fc-ch42-leucovorin', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch42-tumor-lysis', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch42-cyclophosphamide-cystitis', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch43-bactericidal-static', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch43-spectrum', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch43-resistance', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch43-superinfection', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch43-culture-timing', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch43-host-factors', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch43-prophylaxis', retrieval: 'act', flags: ['numeric', 'sequence', 'comparison'] },
+    { id: 'fc-ch43-allergy-vs-intolerance', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch44-beta-lactam-action', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch44-penicillin-allergy', retrieval: 'recall', flags: ['warning', 'comparison'] },
+    { id: 'fc-ch44-penicillin-types', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch44-carbapenems', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch44-cephalosporin-alcohol', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch44-vancomycin-toxicity', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch44-third-gen-cns', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch44-probenecid', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch45-aminoglycoside-toxicity', retrieval: 'act', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch45-tetracycline-teeth', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch45-tetracycline-photo', retrieval: 'act', flags: [] },
+    { id: 'fc-ch45-macrolide-qt', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch45-tetracycline-absorption', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch45-macrolide-uses', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch45-linezolid', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch45-clindamycin', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch46-tmp-smx-uses', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch46-sulfonamide-sjs', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch46-fluoroquinolone-bbw', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch46-fluoroquinolone-interactions', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch46-nitrofurantoin', retrieval: 'act', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch46-phenazopyridine', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch46-uti-hydration', retrieval: 'act', flags: [] },
+    { id: 'fc-ch46-uti-pregnancy', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch47-isoniazid', retrieval: 'recall', flags: ['warning', 'numeric'] },
+    { id: 'fc-ch47-rifampin-orange', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch47-ethambutol', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch47-pyrazinamide', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch47-tb-regimen', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch47-azoles', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch47-metronidazole', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch48-acyclovir-renal', retrieval: 'act', flags: ['warning', 'sequence'] },
+    { id: 'fc-ch48-art-classes', retrieval: 'recall', flags: ['comparison'] },
+    { id: 'fc-ch48-ganciclovir', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch48-oseltamivir', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch48-prep', retrieval: 'recall', flags: ['numeric'] },
+    { id: 'fc-ch48-art-monitoring', retrieval: 'recall', flags: ['numeric', 'comparison'] },
+    { id: 'fc-ch48-live-vaccine-hiv', retrieval: 'act', flags: ['warning', 'numeric', 'comparison'] },
+    { id: 'fc-ch48-adherence-resistance', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch49-ginkgo-garlic', retrieval: 'act', flags: ['warning', 'numeric', 'sequence'] },
+    { id: 'fc-ch49-echinacea', retrieval: 'act', flags: ['warning'] },
+    { id: 'fc-ch49-kava', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch49-ginseng', retrieval: 'recall', flags: ['warning'] },
+    { id: 'fc-ch49-disclosure', retrieval: 'act', flags: [] },
+    { id: 'fc-ch49-glucosamine', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch49-feverfew', retrieval: 'recall', flags: [] },
+    { id: 'fc-ch49-saw-palmetto', retrieval: 'recall', flags: [] }
+  ];
+
+  var STARTER_BY_ID = {};
+  STARTER_DECK.forEach(function(card){ STARTER_BY_ID[card.id] = card; });
+  var RETRIEVAL_BY_ID = {};
+  RETRIEVAL_TAXONOMY_REGISTRY.forEach(function(meta){ RETRIEVAL_BY_ID[meta.id] = meta; });
+
+  function hydrateCard(card){
+    var source = STARTER_BY_ID[card.id];
+    var meta = RETRIEVAL_BY_ID[card.id];
+    return Object.assign({}, card, {
+      legacyType: card.legacyType || card.type || (source && source.type) || 'concept',
+      retrieval: (meta && meta.retrieval) || card.retrieval || 'recall',
+      flags: meta ? meta.flags.slice() : (Array.isArray(card.flags) ? card.flags.slice() : [])
+    });
+  }
+
+  var RETRIEVAL_LABELS = {
+    recall: 'Recall',
+    recognize: 'Recognize',
+    act: 'Act',
+    apply: 'Apply'
+  };
+  var FLAG_LABELS = {
+    warning: 'Warning',
+    numeric: 'Numeric',
+    sequence: 'Sequence',
+    comparison: 'Comparison',
+    mnemonic: 'Mnemonic',
+    calculation: 'Calculation'
+  };
+
+  function getCollectedCards(dueOnly){
+    var schedule = loadSchedule();
+    var now = Date.now();
+    return getCollectionIds().map(function(cardId){
+      var stored = schedule[cardId];
+      if (!stored || !stored.nextReview) return null;
+      return hydrateCard(Object.assign({ id: cardId }, stored));
+    }).filter(function(card){
+      if (!card) return false;
+      return !dueOnly || new Date(card.nextReview).getTime() <= now;
+    });
+  }
+
   function loadStarterDeck(){
     var s = loadSchedule();
     var now = new Date().toISOString();
@@ -1829,17 +2840,29 @@ button{font-family:'DM Sans',sans-serif}
     var schedule = loadSchedule();
     var card = schedule[cardId];
     if (!card) return null;
+    var hasLongReps = typeof card.repetitions === 'number';
+    var hasShortReps = typeof card.reps === 'number';
+    var hasLongEf = typeof card.easeFactor === 'number';
+    var hasShortEf = typeof card.ef === 'number';
+    var reps = hasLongReps ? card.repetitions : (hasShortReps ? card.reps : 0);
+    var ef = hasLongEf ? card.easeFactor : (hasShortEf ? card.ef : 2.5);
+    var interval = typeof card.interval === 'number' ? card.interval : 0;
     if (rating >= 3){
-      if (card.reps === 0) card.interval = 1;
-      else if (card.reps === 1) card.interval = 6;
-      else card.interval = Math.round(card.interval * card.ef);
-      card.reps = (card.reps || 0) + 1;
+      if (reps === 0) interval = 1;
+      else if (reps === 1) interval = 6;
+      else interval = Math.round(interval * ef);
+      reps += 1;
     } else {
-      card.reps = 0;
-      card.interval = 1;
+      reps = 0;
+      interval = 1;
     }
-    card.ef = Math.max(1.3, (card.ef || 2.5) + 0.1 - (5 - rating) * (0.08 + (5 - rating) * 0.02));
-    card.nextReview = new Date(Date.now() + card.interval * 86400000).toISOString();
+    ef = Math.max(1.3, ef + 0.1 - (5 - rating) * (0.08 + (5 - rating) * 0.02));
+    card.interval = interval;
+    if (hasLongReps || !hasShortReps) card.repetitions = reps;
+    if (hasShortReps) card.reps = reps;
+    if (hasLongEf || !hasShortEf) card.easeFactor = ef;
+    if (hasShortEf) card.ef = ef;
+    card.nextReview = new Date(Date.now() + interval * 86400000).toISOString();
     card.lastRated = new Date().toISOString();
     schedule[cardId] = card;
     saveSchedule(schedule);
@@ -1849,7 +2872,10 @@ button{font-family:'DM Sans',sans-serif}
   // ===== State =====
   var currentTab = 'review';
   var reviewQueue = [];
+  var reviewQueueBaseline = [];
   var reviewIndex = 0;
+  var reviewMode = 'due';
+  var reviewQueueShuffled = false;
   var sessionRated = 0;
 
   function getDeck(){
@@ -1857,7 +2883,7 @@ button{font-family:'DM Sans',sans-serif}
     var cards = [];
     for (var k in schedule){
       if (schedule[k] && schedule[k].nextReview) {
-        var card = Object.assign({ id: k }, schedule[k]);
+        var card = hydrateCard(Object.assign({ id: k }, schedule[k]));
         cards.push(card);
       }
     }
@@ -1891,6 +2917,7 @@ button{font-family:'DM Sans',sans-serif}
     document.getElementById('statDone').className = 'deck-stat-value ' + (getReviewedToday() > 0 ? 'zero' : 'zero');
     document.getElementById('tabCountDue').textContent = due.length;
     document.getElementById('tabCountAll').textContent = filtered.length;
+    document.getElementById('tabCountCollection').textContent = getCollectionIds().length;
     if (typeof updateFilterCounters === 'function') updateFilterCounters();
   }
 
@@ -1909,21 +2936,72 @@ button{font-family:'DM Sans',sans-serif}
     return 'due in ' + days + ' days';
   }
 
+  function buildFlagBadges(card){
+    return (card.flags || []).map(function(flag){
+      var label = FLAG_LABELS[flag] || flag;
+      return '<span class="flashcard-flag flashcard-flag-' + escapeHtml(flag) + '">' + escapeHtml(label) + '</span>';
+    }).join('');
+  }
+
+  function buildCollectionButton(cardId, compact){
+    var collected = isCollected(cardId);
+    var label = collected ? 'Remove from Focus Deck' : 'Add to Focus Deck';
+    return '<button class="collection-toggle' + (compact ? ' collection-toggle-browse' : '') + '" type="button" ' +
+      'data-action="toggle-collection" data-card-id="' + escapeHtml(cardId) + '" ' +
+      'aria-pressed="' + String(collected) + '" aria-label="' + label + '" title="' + label + '">' +
+      '<span class="collection-toggle-icon" aria-hidden="true">' + (collected ? '★' : '☆') + '</span>' +
+      (compact ? '<span class="sr-only">' + label + '</span>' : '<span class="collection-toggle-label">' + (collected ? 'In Focus Deck' : 'Add to Focus Deck') + '</span>') +
+    '</button>';
+  }
+
+  function syncCollectionButtons(cardId){
+    var collected = isCollected(cardId);
+    var label = collected ? 'Remove from Focus Deck' : 'Add to Focus Deck';
+    document.querySelectorAll('[data-action="toggle-collection"]').forEach(function(button){
+      if (button.getAttribute('data-card-id') !== cardId) return;
+      button.setAttribute('aria-pressed', String(collected));
+      button.setAttribute('aria-label', label);
+      button.title = label;
+      var icon = button.querySelector('.collection-toggle-icon');
+      if (icon) icon.textContent = collected ? '★' : '☆';
+      var text = button.querySelector('.collection-toggle-label');
+      if (text) text.textContent = collected ? 'In Focus Deck' : 'Add to Focus Deck';
+      var hidden = button.querySelector('.sr-only');
+      if (hidden) hidden.textContent = label;
+    });
+    updateStats();
+  }
+
   function buildFlashcardHTML(card){
-    var typeKey = (card.type || 'content').toLowerCase();
+    var retrievalKey = (card.retrieval || 'recall').toLowerCase();
+    var retrievalLabel = RETRIEVAL_LABELS[retrievalKey] || 'Recall';
     var chLabel = (card.ch || 'ch?').toUpperCase().replace('CH','Ch ');
     var anchor = card.anchor || card.ch || 'ch1';
+    var hasMultipleCards = reviewQueue.length > 1;
+    var queueControlDisabled = hasMultipleCards ? '' : ' disabled aria-disabled="true"';
+    var queueLabel = reviewMode === 'collection-all'
+      ? 'in Focus Deck'
+      : (reviewMode === 'collection-due'
+        ? 'in Focus Deck and due'
+        : (reviewMode === 'browse' ? 'from Browse' : 'due today'));
+    if (reviewQueueShuffled) queueLabel += ' · shuffled';
     return '' +
-      '<div class="flashcard flashcard-' + typeKey + '" data-card-id="' + card.id + '">' +
+      '<div class="flashcard flashcard-' + retrievalKey + '" data-card-id="' + card.id + '">' +
         '<div class="flashcard-head">' +
-          '<span class="flashcard-tag">' + escapeHtml(card.type || 'CONTENT') + '</span>' +
-          '<span class="flashcard-ch">' + chLabel + '</span>' +
+          '<div class="flashcard-labels">' +
+            '<span class="flashcard-tag">' + escapeHtml(retrievalLabel) + '</span>' +
+            buildFlagBadges(card) +
+            '<span class="flashcard-ch">' + chLabel + '</span>' +
+          '</div>' +
           '<span class="flashcard-due">' + dueLabel(card) + '</span>' +
         '</div>' +
         '<div class="flashcard-q">' + (card.q || '(question not stored — re-rate in chapter book)') + '</div>' +
         '<button class="flashcard-reveal" type="button" data-action="reveal">Reveal answer<span class="kbd-hint">Space</span></button>' +
         '<div class="flashcard-a">' + (card.a || '(answer not stored)') + '</div>' +
-        '<a class="flashcard-source-link" href="Elevated%20ATI%20Pharm%20Book.html#' + (card.anchor || '') + '" target="_self">📖 Open in book</a>' +
+        '<div class="flashcard-utilities">' +
+          '<a class="flashcard-source-link" href="Elevated%20ATI%20Pharm%20Book.html#' + (card.anchor || '') + '" target="_self">📖 Open in book</a>' +
+          buildCollectionButton(card.id, false) +
+        '</div>' +
         '<div class="flashcard-rating">' +
           '<button class="flashcard-rate flashcard-rate-hard" type="button" data-action="rate" data-value="0">Hard<span class="flashcard-rate-small">+1 day</span><span class="kbd-hint">1</span></button>' +
           '<button class="flashcard-rate flashcard-rate-good" type="button" data-action="rate" data-value="3">Good<span class="flashcard-rate-small">extend</span><span class="kbd-hint">2</span></button>' +
@@ -1931,30 +3009,100 @@ button{font-family:'DM Sans',sans-serif}
         '</div>' +
         '<div class="flashcard-footer">' +
           '<a class="flashcard-open" href="Elevated%20ATI%20Pharm%20Book.html#' + anchor + '">Open in chapter ↗</a>' +
-          '<button class="flashcard-skip" type="button" data-action="skip">Skip →</button>' +
+          '<div class="flashcard-footer-actions">' +
+            '<button class="flashcard-shuffle" type="button" data-action="shuffle"' + queueControlDisabled +
+              ' title="' + (hasMultipleCards ? 'Randomize this review queue without changing card schedules' : 'Shuffle needs at least two cards') +
+              '" aria-label="Shuffle current review queue">⇄ Shuffle</button>' +
+            (reviewQueueShuffled
+              ? '<button class="flashcard-restore" type="button" data-action="restore-order" title="Restore the order used before this session was shuffled" aria-label="Restore pre-shuffle review order">Restore order</button>'
+              : '') +
+            '<button class="flashcard-skip" type="button" data-action="skip"' + queueControlDisabled +
+              ' title="' + (hasMultipleCards ? 'Skip to the next card in this review queue' : 'Skip is unavailable because this review has only one card') +
+              '" aria-label="Skip to next card">Skip →</button>' +
+          '</div>' +
         '</div>' +
       '</div>' +
-      '<div class="review-progress">Card ' + (reviewIndex + 1) + ' of ' + reviewQueue.length + ' due today · ' + sessionRated + ' rated this session</div>';
+      '<div class="review-progress" role="status" aria-live="polite">Card ' + (reviewIndex + 1) + ' of ' + reviewQueue.length + ' ' +
+        queueLabel +
+        ' · ' + sessionRated + ' rated this session</div>';
   }
 
-  function renderReview(){
+  function shuffleReviewQueue(){
+    if (reviewQueue.length < 2) return;
+    if (!reviewQueueShuffled) reviewQueueBaseline = reviewQueue.slice();
+    var currentId = reviewQueue[reviewIndex] && reviewQueue[reviewIndex].id;
+    var shuffled = reviewQueue.slice();
+    for (var i = shuffled.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = shuffled[i];
+      shuffled[i] = shuffled[j];
+      shuffled[j] = temp;
+    }
+    if (shuffled[0] && shuffled[0].id === currentId){
+      var differentIndex = shuffled.findIndex(function(card, index){
+        return index > 0 && card.id !== currentId;
+      });
+      if (differentIndex > 0){
+        var first = shuffled[0];
+        shuffled[0] = shuffled[differentIndex];
+        shuffled[differentIndex] = first;
+      }
+    }
+    reviewQueue = shuffled;
+    reviewIndex = 0;
+    reviewQueueShuffled = true;
+    renderReview();
+  }
+
+  function restoreReviewQueueOrder(){
+    if (!reviewQueueShuffled) return;
+    var currentId = reviewQueue[reviewIndex] && reviewQueue[reviewIndex].id;
+    var remainingIds = new Set(reviewQueue.map(function(card){ return card.id; }));
+    var baselineIds = new Set(reviewQueueBaseline.map(function(card){ return card.id; }));
+    var restored = reviewQueueBaseline.filter(function(card){ return remainingIds.has(card.id); });
+    reviewQueue.forEach(function(card){
+      if (!baselineIds.has(card.id)) restored.push(card);
+    });
+    reviewQueue = restored;
+    var restoredIndex = reviewQueue.findIndex(function(card){ return card.id === currentId; });
+    reviewIndex = restoredIndex >= 0 ? restoredIndex : 0;
+    reviewQueueShuffled = false;
+    reviewQueueBaseline = reviewQueue.slice();
+    renderReview();
+  }
+
+  function renderReview(queueOverride, modeOverride){
     var stage = document.getElementById('stage');
-    reviewQueue = getDueCards();
+    if (Array.isArray(queueOverride)){
+      reviewQueue = queueOverride.slice();
+      reviewQueueBaseline = reviewQueue.slice();
+      reviewQueueShuffled = false;
+      reviewMode = modeOverride || 'selected';
+    } else if (reviewMode === 'due' && !reviewQueueShuffled){
+      reviewQueue = getDueCards();
+      reviewQueueBaseline = reviewQueue.slice();
+    }
 
     if (reviewQueue.length === 0){
       var deck = getDeck();
-      var icon = deck.length === 0 ? '📚' : '✨';
-      var heading = deck.length === 0 ? 'No flashcards yet' : 'All caught up!';
-      var desc = deck.length === 0
+      var collectionSession = reviewMode === 'collection-all' || reviewMode === 'collection-due';
+      var icon = collectionSession ? '★' : (deck.length === 0 ? '📚' : '✨');
+      var heading = collectionSession ? 'Focus review complete' : (deck.length === 0 ? 'No flashcards yet' : 'All caught up!');
+      var desc = collectionSession
+        ? 'Your cards remain in Focus Deck. Ratings update their normal schedule without removing them from Focus Deck.'
+        : (deck.length === 0
         ? 'Open the chapter book and answer the mid-read prompts (Reveal → Hard / Good / Easy). Rated cards automatically appear here on their schedule.'
-        : 'You have ' + deck.length + ' card' + (deck.length === 1 ? '' : 's') + ' in your deck, but none are due yet. Come back later or browse the deck.';
+        : 'You have ' + deck.length + ' card' + (deck.length === 1 ? '' : 's') + ' in your deck, but none are due yet. Come back later or browse the deck.');
       stage.innerHTML =
         '<div class="empty-state">' +
           '<div class="empty-state-icon">' + icon + '</div>' +
           '<h2>' + heading + '</h2>' +
           '<p>' + desc + '</p>' +
-          (deck.length === 0 ? '<button class="load-starter-btn" type="button" data-action="load-starter">📥 Load starter deck (' + STARTER_DECK.length + ' cards)</button>' + '<a class="start-link" href="Elevated%20ATI%20Pharm%20Book.html">Open chapter book →</a>' : '') +
+          (collectionSession ? '<button class="start-link" type="button" data-action="return-collection">Back to Focus Deck</button>' :
+            (deck.length === 0 ? '<button class="load-starter-btn" type="button" data-action="load-starter">📥 Load starter deck (' + STARTER_DECK.length + ' cards)</button>' + '<a class="start-link" href="Elevated%20ATI%20Pharm%20Book.html">Open chapter book →</a>' : '')) +
         '</div>';
+      var returnButton = stage.querySelector('[data-action="return-collection"]');
+      if (returnButton) returnButton.addEventListener('click', function(){ setTab('collection'); });
       return;
     }
 
@@ -1976,18 +3124,84 @@ button{font-family:'DM Sans',sans-serif}
         rateCard(card.id, value);
         sessionRated++;
         updateStats();
-        // Advance to next due card (re-fetch queue)
-        reviewQueue = getDueCards();
-        if (reviewIndex >= reviewQueue.length) reviewIndex = reviewQueue.length - 1;
+        if (reviewMode === 'collection-all' || reviewMode === 'collection-due' || reviewMode === 'browse' || reviewQueueShuffled){
+          reviewQueue.splice(reviewIndex, 1);
+          if (reviewIndex >= reviewQueue.length) reviewIndex = 0;
+        } else {
+          // Advance to next due card (re-fetch queue)
+          reviewMode = 'due';
+          reviewQueue = getDueCards();
+          if (reviewIndex >= reviewQueue.length) reviewIndex = Math.max(0, reviewQueue.length - 1);
+        }
         renderReview();
-      } else if (act === 'skip'){
+      } else if (act === 'shuffle'){
+        shuffleReviewQueue();
+      } else if (act === 'restore-order'){
+        restoreReviewQueueOrder();
+      } else if (act === 'skip' && reviewQueue.length > 1){
         reviewIndex = (reviewIndex + 1) % reviewQueue.length;
         renderReview();
+      } else if (act === 'toggle-collection'){
+        toggleCollected(card.id);
+        syncCollectionButtons(card.id);
       }
     });
   }
 
-  var browseFilter = { ch: '', type: '', sort: 'due-asc' };
+  var browseFilter = { ch: '', retrieval: '', sort: 'due-asc' };
+
+  function buildBrowseItemHTML(card){
+    var retrievalKey = (card.retrieval || 'recall').toLowerCase();
+    var retrievalLabel = RETRIEVAL_LABELS[retrievalKey] || 'Recall';
+    var due = new Date(card.nextReview);
+    var ms = due - new Date();
+    var dueText = dueLabel(card);
+    var dueClass = ms <= 0 ? 'due-now' : '';
+    var chLabel = (card.ch || 'ch?').toUpperCase().replace('CH','Ch ');
+    return '' +
+      '<div class="browse-item browse-' + retrievalKey + '" data-card-id="' + escapeHtml(card.id) + '">' +
+        '<button class="browse-item-open" type="button" data-action="open-card" data-card-id="' + escapeHtml(card.id) + '">' +
+          '<div class="browse-item-head">' +
+            '<span class="flashcard-tag">' + escapeHtml(retrievalLabel) + '</span>' +
+            buildFlagBadges(card) +
+            '<span class="flashcard-ch">' + chLabel + '</span>' +
+            '<span class="browse-item-due ' + dueClass + '">' + dueText + '</span>' +
+          '</div>' +
+          '<div class="browse-item-q">' + (card.q || '(question not stored)') + '</div>' +
+        '</button>' +
+        buildCollectionButton(card.id, true) +
+      '</div>';
+  }
+
+  function openCardFromList(cardId, listQueue, listMode){
+    var schedule = loadSchedule();
+    var card = schedule[cardId];
+    if (!card) return;
+    var queue = Array.isArray(listQueue) && listQueue.length
+      ? listQueue.slice()
+      : [hydrateCard(Object.assign({ id: cardId }, card))];
+    var selectedIndex = queue.findIndex(function(item){ return item.id === cardId; });
+    reviewIndex = selectedIndex >= 0 ? selectedIndex : 0;
+    setTab('review', queue, listMode || 'selected');
+  }
+
+  function attachCardListHandlers(options){
+    options = options || {};
+    var stage = document.getElementById('stage');
+    stage.querySelectorAll('[data-action="open-card"]').forEach(function(button){
+      button.addEventListener('click', function(){
+        openCardFromList(button.getAttribute('data-card-id'), options.queue, options.mode);
+      });
+    });
+    stage.querySelectorAll('[data-action="toggle-collection"]').forEach(function(button){
+      button.addEventListener('click', function(){
+        var cardId = button.getAttribute('data-card-id');
+        toggleCollected(cardId);
+        syncCollectionButtons(cardId);
+        if (typeof options.onCollectionChange === 'function') options.onCollectionChange();
+      });
+    });
+  }
 
   function renderBrowse(){
     var stage = document.getElementById('stage');
@@ -2003,18 +3217,20 @@ button{font-family:'DM Sans',sans-serif}
       return;
     }
 
-    // Get unique chapters & types for filters
+    // Get unique chapters and primary retrieval types for filters
     var chs = [...new Set(deck.map(function(c){ return c.ch; }))].filter(Boolean).sort(function(a,b){
       var na = parseInt(a.replace('ch',''), 10);
       var nb = parseInt(b.replace('ch',''), 10);
       return na - nb;
     });
-    var types = [...new Set(deck.map(function(c){ return c.type; }))].filter(Boolean);
+    var retrievals = ['recall', 'recognize', 'act', 'apply'].filter(function(value){
+      return deck.some(function(card){ return card.retrieval === value; });
+    });
 
     // Filter
     var filtered = deck.filter(function(c){
       if (browseFilter.ch && c.ch !== browseFilter.ch) return false;
-      if (browseFilter.type && c.type !== browseFilter.type) return false;
+      if (browseFilter.retrieval && c.retrieval !== browseFilter.retrieval) return false;
       return true;
     });
 
@@ -2036,10 +3252,10 @@ button{font-family:'DM Sans',sans-serif}
             return '<option value="' + c + '"' + (browseFilter.ch === c ? ' selected' : '') + '>' + label + '</option>';
           }).join('') +
         '</select>' +
-        '<select class="filter-select" id="filterType">' +
-          '<option value="">All types</option>' +
-          types.map(function(t){
-            return '<option value="' + t + '"' + (browseFilter.type === t ? ' selected' : '') + '>' + t + '</option>';
+        '<select class="filter-select" id="filterRetrieval">' +
+          '<option value="">All retrieval types</option>' +
+          retrievals.map(function(value){
+            return '<option value="' + value + '"' + (browseFilter.retrieval === value ? ' selected' : '') + '>' + RETRIEVAL_LABELS[value] + '</option>';
           }).join('') +
         '</select>' +
         '<select class="filter-select" id="filterSort">' +
@@ -2049,59 +3265,106 @@ button{font-family:'DM Sans',sans-serif}
         '</select>' +
       '</div>';
 
-    var listHtml = '<div class="browse-list">' + filtered.map(function(card){
-      var typeKey = (card.type || 'content').toLowerCase();
-      var due = new Date(card.nextReview);
-      var ms = due - new Date();
-      var dueText = dueLabel(card);
-      var dueClass = ms <= 0 ? 'due-now' : '';
-      var chLabel = (card.ch || 'ch?').toUpperCase().replace('CH','Ch ');
-      return '' +
-        '<div class="browse-item browse-' + typeKey + '" data-card-id="' + card.id + '">' +
-          '<div class="browse-item-head">' +
-            '<span class="flashcard-tag">' + escapeHtml(card.type || 'CONTENT') + '</span>' +
-            '<span class="flashcard-ch">' + chLabel + '</span>' +
-            '<span class="browse-item-due ' + dueClass + '">' + dueText + '</span>' +
-          '</div>' +
-          '<div class="browse-item-q">' + (card.q || '(question not stored)') + '</div>' +
-        '</div>';
-    }).join('') + '</div>';
+    var listHtml = '<div class="browse-list">' + filtered.map(buildBrowseItemHTML).join('') + '</div>';
 
     stage.innerHTML = filtersHtml + listHtml;
 
     document.getElementById('filterCh').addEventListener('change', function(e){
       browseFilter.ch = e.target.value; renderBrowse();
     });
-    document.getElementById('filterType').addEventListener('change', function(e){
-      browseFilter.type = e.target.value; renderBrowse();
+    document.getElementById('filterRetrieval').addEventListener('change', function(e){
+      browseFilter.retrieval = e.target.value; renderBrowse();
     });
     document.getElementById('filterSort').addEventListener('change', function(e){
       browseFilter.sort = e.target.value; renderBrowse();
     });
 
-    // Click on browse item: switch to review tab and show that card
-    stage.querySelectorAll('.browse-item').forEach(function(el){
-      el.addEventListener('click', function(){
-        var cardId = el.getAttribute('data-card-id');
-        var schedule = loadSchedule();
-        var card = schedule[cardId];
-        if (!card) return;
-        // Build a synthetic queue of just this card
-        reviewQueue = [Object.assign({ id: cardId }, card)];
+    attachCardListHandlers({ queue: filtered, mode: 'browse' });
+  }
+
+  function renderCollection(){
+    var stage = document.getElementById('stage');
+    var savedIds = getCollectionIds();
+    var allCards = getCollectedCards(false);
+    var filteredCards = applyFilters(allCards);
+    var dueCards = filteredCards.filter(function(card){
+      return new Date(card.nextReview).getTime() <= Date.now();
+    });
+
+    if (savedIds.length === 0){
+      stage.innerHTML =
+        '<div class="empty-state">' +
+          '<div class="empty-state-icon">☆</div>' +
+          '<h2>Your Focus Deck is empty</h2>' +
+          '<p>Add cards while reviewing or browsing. Focus Deck membership is separate from due dates, ratings, and mastery.</p>' +
+          '<button class="start-link" type="button" data-action="browse-for-collection">Browse cards</button>' +
+        '</div>';
+      stage.querySelector('[data-action="browse-for-collection"]').addEventListener('click', function(){ setTab('browse'); });
+      return;
+    }
+
+    if (allCards.length === 0){
+      stage.innerHTML =
+        '<div class="empty-state">' +
+          '<div class="empty-state-icon">★</div>' +
+          '<h2>Your Focus Deck is preserved</h2>' +
+          '<p>' + savedIds.length + ' Focus Deck card ID' + (savedIds.length === 1 ? ' is' : 's are') + ' still stored. Load the starter deck to make the cards available again.</p>' +
+          '<button class="load-starter-btn" type="button" data-action="load-starter">📥 Load starter deck (' + STARTER_DECK.length + ' cards)</button>' +
+        '</div>';
+      return;
+    }
+
+    var toolbar =
+      '<div class="collection-toolbar">' +
+        '<div class="collection-summary">' +
+          '<strong>' + filteredCards.length + ' card' + (filteredCards.length === 1 ? '' : 's') + ' in Focus Deck</strong>' +
+          '<span>' + dueCards.length + ' due now · ratings keep using the normal schedule</span>' +
+        '</div>' +
+        '<div class="collection-actions">' +
+          '<button class="collection-review-btn" type="button" data-action="review-collection" data-scope="all"' + (filteredCards.length ? '' : ' disabled') + '>Review all</button>' +
+          '<button class="collection-review-btn collection-review-secondary" type="button" data-action="review-collection" data-scope="due"' + (dueCards.length ? '' : ' disabled') + '>Review due</button>' +
+        '</div>' +
+      '</div>' +
+      (filteredCards.length !== allCards.length ? '<p class="collection-filter-note">Showing the cards that match your active filters.</p>' : '');
+
+    var list = filteredCards.length
+      ? '<div class="browse-list">' + filteredCards.map(buildBrowseItemHTML).join('') + '</div>'
+      : '<div class="empty-state"><div class="empty-state-icon">🔍</div><h2>No Focus cards match</h2><p>Clear or adjust the active filters to see your Focus Deck.</p></div>';
+
+    stage.innerHTML = toolbar + list;
+    attachCardListHandlers({
+      queue: filteredCards,
+      mode: 'collection-all',
+      onCollectionChange: function(){ renderCollection(); }
+    });
+    stage.querySelectorAll('[data-action="review-collection"]').forEach(function(button){
+      button.addEventListener('click', function(){
+        var dueOnly = button.getAttribute('data-scope') === 'due';
+        var queue = dueOnly ? dueCards.slice() : filteredCards.slice();
         reviewIndex = 0;
-        setTab('review');
+        setTab('review', queue, dueOnly ? 'collection-due' : 'collection-all');
       });
     });
   }
 
   // ===== Tabs =====
-  function setTab(name){
+  function setTab(name, reviewOverride, modeOverride){
     currentTab = name;
     document.querySelectorAll('.tab').forEach(function(t){
       t.classList.toggle('active', t.getAttribute('data-tab') === name);
     });
-    if (name === 'review') renderReview();
-    else renderBrowse();
+    if (name === 'review'){
+      reviewQueueShuffled = false;
+      if (!Array.isArray(reviewOverride)) reviewMode = 'due';
+      renderReview(reviewOverride, modeOverride);
+    } else if (name === 'browse') renderBrowse();
+    else renderCollection();
+  }
+
+  function renderActiveTab(){
+    if (currentTab === 'review') renderReview();
+    else if (currentTab === 'browse') renderBrowse();
+    else renderCollection();
   }
 
   document.querySelectorAll('.tab').forEach(function(t){
@@ -2113,23 +3376,27 @@ button{font-family:'DM Sans',sans-serif}
     if (e.key && SYNC_KEYS.indexOf(e.key) === -1) return;
     updateStats();
     if (currentTab === 'review') renderReview();
-    else renderBrowse();
+    else if (currentTab === 'browse') renderBrowse();
+    else renderCollection();
   });
   document.addEventListener('visibilitychange', function(){
     if (!document.hidden){
       updateStats();
       if (currentTab === 'review') renderReview();
-      else renderBrowse();
+      else if (currentTab === 'browse') renderBrowse();
+      else renderCollection();
     }
   });
 
   // ===== FILTERS =====
-  var FILTER_STATE_KEY = 'atipharm_fc_filters';
+  var FILTER_STATE_KEY = 'atipharm_fc_filters_v2';
+  var LEGACY_FILTER_STATE_KEY = 'atipharm_fc_filters';
   var filterState = {
     search: '',
     unit: 'all',
     chapters: [],   // array of chapter numbers as strings
-    types: [],      // array: ['concept', 'calc', 'warning']
+    retrievals: [], // array: ['recall', 'recognize', 'act', 'apply']
+    flags: [],      // secondary attributes; OR within this group
     status: 'all'   // 'all' | 'new' | 'learning' | 'mature' | 'due'
   };
   
@@ -2138,7 +3405,22 @@ button{font-family:'DM Sans',sans-serif}
       var raw = localStorage.getItem(FILTER_STATE_KEY);
       if (raw) {
         var parsed = JSON.parse(raw);
-        filterState = Object.assign(filterState, parsed);
+        filterState = Object.assign(filterState, parsed, {
+          chapters: Array.isArray(parsed.chapters) ? parsed.chapters : [],
+          retrievals: Array.isArray(parsed.retrievals) ? parsed.retrievals : [],
+          flags: Array.isArray(parsed.flags) ? parsed.flags : []
+        });
+      } else {
+        // Preserve compatible search/unit/chapter/status choices from the old Type UI.
+        var legacyRaw = localStorage.getItem(LEGACY_FILTER_STATE_KEY);
+        if (legacyRaw){
+          var legacy = JSON.parse(legacyRaw);
+          filterState.search = legacy.search || '';
+          filterState.unit = legacy.unit || 'all';
+          filterState.chapters = Array.isArray(legacy.chapters) ? legacy.chapters : [];
+          filterState.status = legacy.status || 'all';
+          saveFilterState();
+        }
       }
     } catch(e){}
   }
@@ -2186,14 +3468,20 @@ button{font-family:'DM Sans',sans-serif}
       if (filterState.chapters.length > 0){
         if (filterState.chapters.indexOf(chNum) === -1) return false;
       }
-      // Types (multi)
-      if (filterState.types.length > 0){
-        var t = (c.type || 'concept').toLowerCase();
-        if (filterState.types.indexOf(t) === -1) return false;
+      // Primary retrieval types (multi; OR within the group)
+      if (filterState.retrievals.length > 0){
+        var retrieval = (c.retrieval || 'recall').toLowerCase();
+        if (filterState.retrievals.indexOf(retrieval) === -1) return false;
+      }
+      // Secondary attributes (multi; OR within the group)
+      if (filterState.flags.length > 0){
+        var cardFlags = Array.isArray(c.flags) ? c.flags : [];
+        var hasSelectedFlag = filterState.flags.some(function(flag){ return cardFlags.indexOf(flag) !== -1; });
+        if (!hasSelectedFlag) return false;
       }
       // Status
       if (filterState.status !== 'all'){
-        var reps = c.repetitions || 0;
+        var reps = typeof c.repetitions === 'number' ? c.repetitions : (c.reps || 0);
         var lastRated = c.lastRated;
         if (filterState.status === 'new' && lastRated) return false;
         if (filterState.status === 'learning' && reps >= 3) return false;
@@ -2212,7 +3500,8 @@ button{font-family:'DM Sans',sans-serif}
     if (filterState.search) n++;
     if (filterState.unit !== 'all') n++;
     if (filterState.chapters.length > 0) n++;
-    if (filterState.types.length > 0) n++;
+    if (filterState.retrievals.length > 0) n++;
+    if (filterState.flags.length > 0) n++;
     if (filterState.status !== 'all') n++;
     return n;
   }
@@ -2228,8 +3517,10 @@ button{font-family:'DM Sans',sans-serif}
         if (groupName === 'unit') active = (filterState.unit === val);
         else if (groupName === 'status') active = (filterState.status === val);
         else if (groupName === 'chapter') active = filterState.chapters.indexOf(val) !== -1;
-        else if (groupName === 'type') active = filterState.types.indexOf(val) !== -1;
+        else if (groupName === 'retrieval') active = filterState.retrievals.indexOf(val) !== -1;
+        else if (groupName === 'flag') active = filterState.flags.indexOf(val) !== -1;
         chip.classList.toggle('active', active);
+        chip.setAttribute('aria-pressed', String(active));
       });
     });
     var searchInput = document.getElementById('filterSearch');
@@ -2282,7 +3573,8 @@ button{font-family:'DM Sans',sans-serif}
             // Multi select — toggle
             var arr;
             if (groupName === 'chapter') arr = filterState.chapters;
-            else if (groupName === 'type') arr = filterState.types;
+            else if (groupName === 'retrieval') arr = filterState.retrievals;
+            else if (groupName === 'flag') arr = filterState.flags;
             else arr = [];
             var idx = arr.indexOf(val);
             if (idx === -1) arr.push(val);
@@ -2291,8 +3583,7 @@ button{font-family:'DM Sans',sans-serif}
           saveFilterState();
           applyFilterStateToUI();
           reviewIndex = 0;
-          renderReview();
-          renderBrowse();
+          renderActiveTab();
           updateStats();
         });
       });
@@ -2308,8 +3599,7 @@ button{font-family:'DM Sans',sans-serif}
           saveFilterState();
           updateFilterCounters();
           reviewIndex = 0;
-          renderReview();
-          renderBrowse();
+          renderActiveTab();
           updateStats();
         }, 200);
       });
@@ -2318,12 +3608,11 @@ button{font-family:'DM Sans',sans-serif}
     var clearBtn = document.getElementById('filterClear');
     if (clearBtn){
       clearBtn.addEventListener('click', function(){
-        filterState = { search: '', unit: 'all', chapters: [], types: [], status: 'all' };
+        filterState = { search: '', unit: 'all', chapters: [], retrievals: [], flags: [], status: 'all' };
         saveFilterState();
         applyFilterStateToUI();
         reviewIndex = 0;
-        renderReview();
-        renderBrowse();
+        renderActiveTab();
         updateStats();
       });
     }
@@ -2358,9 +3647,10 @@ button{font-family:'DM Sans',sans-serif}
     }
     var resetBtn = e.target.closest('[data-action="reset-deck"]');
     if (resetBtn){
-      if (confirm('Reset deck? This will remove ALL cards and progress. This cannot be undone.')){
+      if (confirm('Reset deck? This will remove ALL cards and progress. Your Focus Deck will be preserved. This cannot be undone.')){
         try { localStorage.removeItem(FC_KEY); } catch(err){}
         try { localStorage.removeItem(FILTER_STATE_KEY); } catch(err){}
+        try { localStorage.removeItem(LEGACY_FILTER_STATE_KEY); } catch(err){}
         window.location.reload();
       }
       return;
@@ -2496,6 +3786,21 @@ button{font-family:'DM Sans',sans-serif}
         if (btn){ e.preventDefault(); btn.click(); return; }
       }
     }
+
+    if (currentTab === 'review' && card && key === 'c' && !e.metaKey && !e.ctrlKey && !e.altKey){
+      var collectionButton = card.querySelector('[data-action="toggle-collection"]');
+      if (collectionButton){ e.preventDefault(); collectionButton.click(); return; }
+    }
+
+    if (currentTab === 'review' && card && key === 's' && !e.metaKey && !e.ctrlKey && !e.altKey){
+      if (e.shiftKey){
+        var restoreButton = card.querySelector('[data-action="restore-order"]');
+        if (restoreButton){ e.preventDefault(); restoreButton.click(); return; }
+      } else {
+        var shuffleButton = card.querySelector('[data-action="shuffle"]');
+        if (shuffleButton && !shuffleButton.disabled){ e.preventDefault(); shuffleButton.click(); return; }
+      }
+    }
     
     if (currentTab === 'review'){
       if (e.key === 'ArrowRight' || key === 'n'){
@@ -2587,15 +3892,13 @@ button{font-family:'DM Sans',sans-serif}
         banner.remove();
         applyFilterStateToUI();
         if (typeof reviewIndex !== 'undefined') reviewIndex = 0;
-        if (typeof renderReview === 'function') renderReview();
-        if (typeof renderBrowse === 'function') renderBrowse();
+        if (typeof renderActiveTab === 'function') renderActiveTab();
         if (typeof updateStats === 'function') updateStats();
       });
       // Apply UI/render now
       applyFilterStateToUI();
       if (typeof reviewIndex !== 'undefined') reviewIndex = 0;
-      if (typeof renderReview === 'function') renderReview();
-      if (typeof renderBrowse === 'function') renderBrowse();
+      if (typeof renderActiveTab === 'function') renderActiveTab();
       if (typeof updateStats === 'function') updateStats();
     }
   }
@@ -2628,7 +3931,7 @@ button{font-family:'DM Sans',sans-serif}
     if (deck.length === 0){
       // Use starter deck if user hasn't loaded yet
       deck = STARTER_DECK.map(function(c){
-        return { id: c.id, q: c.q, a: c.a, ch: c.ch, type: c.type, anchor: c.anchor };
+        return hydrateCard({ id: c.id, q: c.q, a: c.a, ch: c.ch, type: c.type, anchor: c.anchor });
       });
     }
     if (deck.length === 0){
@@ -2640,7 +3943,7 @@ button{font-family:'DM Sans',sans-serif}
     deck.forEach(function(c){
       var front = escapeCsvField(c.q || '');
       var back = escapeCsvField(c.a || '');
-      var tags = (c.ch ? c.ch + ' ' : '') + (c.type || 'concept');
+      var tags = [c.ch || '', c.retrieval || 'recall'].concat(c.flags || []).filter(Boolean).join(' ');
       lines.push(front + ',' + back + ',' + escapeCsvField(tags));
     });
     var csv = lines.join('\n');
@@ -2669,18 +3972,48 @@ button{font-family:'DM Sans',sans-serif}
   var sidebar = document.getElementById('sidebar');
   var sidebarOverlay = document.getElementById('sidebarOverlay');
   var mobileToggle = document.getElementById('mobileMenuToggle');
-  if (mobileToggle){
+  var sidebarSearch = document.getElementById('sidebarSearchInput');
+  var sidebarList = sidebar ? sidebar.querySelector('.sidebar-list') : null;
+  function setSidebarPanelOpen(open, moveFocus, restoreFocus){
+    var responsive = window.innerWidth <= 900;
+    if (sidebar){
+      sidebar.classList.toggle('open', open);
+      if (responsive && !open){
+        sidebar.setAttribute('aria-hidden', 'true');
+        sidebar.setAttribute('inert', '');
+      } else {
+        sidebar.removeAttribute('aria-hidden');
+        sidebar.removeAttribute('inert');
+      }
+    }
+    if (sidebarOverlay) sidebarOverlay.classList.toggle('show', open);
+    if (mobileToggle){
+      mobileToggle.textContent = open ? '×' : '☰';
+      mobileToggle.setAttribute('aria-label', open ? 'Close flashcard navigation' : 'Open flashcard navigation');
+      mobileToggle.setAttribute('aria-expanded', String(open));
+    }
+    if (open && sidebarList) sidebarList.scrollTop = 0;
+    if (open && moveFocus && sidebarSearch) sidebarSearch.focus();
+    if (!open && restoreFocus && responsive && mobileToggle) mobileToggle.focus();
+  }
+  function closeSidebarPanel(restoreFocus){
+    setSidebarPanelOpen(false, false, restoreFocus === true);
+  }
+  if (mobileToggle && sidebar){
     mobileToggle.addEventListener('click', function(){
-      if (sidebar) sidebar.classList.add('open');
-      if (sidebarOverlay) sidebarOverlay.classList.add('show');
+      var willOpen = !sidebar.classList.contains('open');
+      setSidebarPanelOpen(willOpen, willOpen, !willOpen);
     });
   }
-  if (sidebarOverlay){
-    sidebarOverlay.addEventListener('click', function(){
-      if (sidebar) sidebar.classList.remove('open');
-      sidebarOverlay.classList.remove('show');
-    });
-  }
+  if (sidebarOverlay) sidebarOverlay.addEventListener('click', function(){ closeSidebarPanel(true); });
+  window.addEventListener('resize', function(){
+    if (window.innerWidth > 900) setSidebarPanelOpen(false, false, false);
+    else setSidebarPanelOpen(sidebar && sidebar.classList.contains('open'), false, false);
+  });
+  document.addEventListener('keydown', function(event){
+    if (event.key === 'Escape' && sidebar && sidebar.classList.contains('open')) closeSidebarPanel(true);
+  });
+  setSidebarPanelOpen(false, false, false);
   
   // Sidebar quick-filter buttons (mirror the in-panel filter chips)
   document.addEventListener('click', function(e){
@@ -2693,23 +4026,21 @@ button{font-family:'DM Sans',sans-serif}
       filterState.unit = value;
     } else if (group === 'status'){
       filterState.status = value;
-    } else if (group === 'type-toggle'){
-      var idx = filterState.types.indexOf(value);
-      if (idx === -1) filterState.types.push(value);
-      else filterState.types.splice(idx, 1);
+    } else if (group === 'retrieval-toggle'){
+      var idx = filterState.retrievals.indexOf(value);
+      if (idx === -1) filterState.retrievals.push(value);
+      else filterState.retrievals.splice(idx, 1);
     }
     saveFilterState();
     applyFilterStateToUI();
     if (typeof reviewIndex !== 'undefined') reviewIndex = 0;
-    if (typeof renderReview === 'function') renderReview();
-    if (typeof renderBrowse === 'function') renderBrowse();
+    if (typeof renderActiveTab === 'function') renderActiveTab();
     if (typeof updateStats === 'function') updateStats();
     updateSidebarActiveStates();
     
     // Close sidebar on mobile after selection
     if (window.innerWidth <= 900){
-      if (sidebar) sidebar.classList.remove('open');
-      if (sidebarOverlay) sidebarOverlay.classList.remove('show');
+      closeSidebarPanel(true);
     }
   });
   
@@ -2720,13 +4051,13 @@ button{font-family:'DM Sans',sans-serif}
       var active = false;
       if (group === 'unit') active = (filterState.unit === value);
       else if (group === 'status') active = (filterState.status === value);
-      else if (group === 'type-toggle') active = filterState.types.indexOf(value) !== -1;
+      else if (group === 'retrieval-toggle') active = filterState.retrievals.indexOf(value) !== -1;
       btn.classList.toggle('active', active);
+      btn.setAttribute('aria-pressed', String(active));
     });
   }
   
   // Sidebar search - mirror to main filter search
-  var sidebarSearch = document.getElementById('sidebarSearchInput');
   if (sidebarSearch){
     var sidebarSearchTimer;
     sidebarSearch.addEventListener('input', function(){
@@ -2735,8 +4066,7 @@ button{font-family:'DM Sans',sans-serif}
         filterState.search = sidebarSearch.value;
         saveFilterState();
         if (typeof reviewIndex !== 'undefined') reviewIndex = 0;
-        if (typeof renderReview === 'function') renderReview();
-        if (typeof renderBrowse === 'function') renderBrowse();
+        if (typeof renderActiveTab === 'function') renderActiveTab();
         if (typeof updateStats === 'function') updateStats();
         // Also sync the in-panel search input
         var mainSearch = document.getElementById('filterSearch');
@@ -3144,6 +4474,18 @@ button{font-family:'DM Sans',sans-serif}
     <div class="kbd-help-row">
       <span>Previous card</span>
       <div class="kbd-help-keys"><span class="kbd-help-key">←</span><span class="kbd-help-key">P</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Shuffle current review queue</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">S</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Restore pre-shuffle order</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">Shift</span><span class="kbd-help-key">S</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Add / remove from Focus Deck</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">C</span></div>
     </div>
     <div class="kbd-help-row">
       <span>Toggle filter panel</span>
