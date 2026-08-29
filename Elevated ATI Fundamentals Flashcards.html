@@ -1,0 +1,2635 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     ELEVATED ATI SUITE · FUNDAMENTALS FLASHCARDS · v0.1.0
+     File:       Elevated ATI Fundamentals Flashcards.html
+     Build date: 2026-08-26
+     Status:     Draft shell · no content population
+     Content authority: false · zero cards
+     ============================================================ -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<meta name="elevated-publication-status" content="draft">
+<meta name="elevated-content-authorized" content="false">
+  <meta name="theme-color" content="#7c3aed">
+<title>Elevated · ATI Fundamentals Flashcards · Draft Shell</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital,wght@0,400;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f1117;
+  --surface:#181c27;
+  --surface2:#1e2336;
+  --surface3:#242a40;
+  --border:#2a3050;
+  --border-soft:rgba(255,255,255,0.06);
+  --accent:#8b5cf6;
+  --accent2:#7c3aed;
+  --accent-soft:rgba(139,92,246,0.14);
+  --text:#e8eaf2;
+  --text2:#8b92b8;
+  --text3:#555e85;
+  --shadow:0 8px 24px rgba(0,0,0,0.3);
+  --prompt-content:#fb923c; --prompt-content-bg:rgba(251,146,60,0.08);
+  --prompt-judgment:#e8a838; --prompt-judgment-bg:rgba(232,168,56,0.10);
+  --prompt-principle:#a78bfa; --prompt-principle-bg:rgba(167,139,250,0.10);
+  --prompt-priority:#e05c6a; --prompt-priority-bg:rgba(224,92,106,0.10);
+  --retrieval-recall:#84cc16;
+  --retrieval-recognize:#fbbf24;
+  --retrieval-act:#2dd4bf;
+  --retrieval-apply:#a78bfa;
+  --retrieval-tag-text:#111827;
+}
+
+/* === SIDEBAR LAYOUT (matches book/templates) === */
+.layout{display:flex; min-height:100vh}
+.sidebar{
+  width:280px; min-width:280px;
+  background:var(--surface);
+  border-right:1px solid var(--border);
+  line-height:1.6;
+  display:flex; flex-direction:column;
+  position:fixed; top:0; left:0; bottom:0;
+  overflow:hidden; z-index:10;
+  transition:transform 0.25s, background 0.2s;
+}
+.sidebar-overlay{
+  display:none; position:fixed; inset:0;
+  background:rgba(0,0,0,.4);
+  backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);
+  z-index:9; transition:opacity .25s;
+}
+.sidebar-overlay.show{display:block}
+.sidebar-header{
+  padding:18px 16px 14px;
+  border-bottom:1px solid var(--border);
+  flex-shrink:0;
+}
+.back-home{
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:11px; font-weight:600; color:var(--text3);
+  text-decoration:none; padding:5px 0 12px;
+  letter-spacing:.03em; transition:color .15s;
+}
+.back-home:hover{color:var(--accent)}
+.back-home::before{content:'←';font-size:13px}
+.back-home-mobile{
+  display:none; position:fixed; top:14px; left:14px; z-index:51;
+  font-size:11px; font-weight:600;
+  color:var(--text2); text-decoration:none;
+  letter-spacing:.03em; align-items:center; gap:5px;
+  padding:8px 14px; background:var(--surface);
+  border:1px solid var(--border); border-radius:8px;
+  transition:color .15s,border-color .15s;
+}
+.back-home-mobile:hover{color:var(--accent);border-color:var(--accent)}
+.back-home-mobile::before{content:'←';font-size:12px}
+.sb-course{
+  font-size:10px; font-weight:600; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:4px;
+}
+.sb-title{
+  font-family:'DM Serif Display',serif;
+  font-size:22px; font-weight:400; line-height:1.1;
+  color:var(--text); margin-bottom:2px;
+}
+.sb-sub{font-size:11px; color:var(--text3)}
+#themeToggle{
+  margin-top:12px; background:transparent;
+  border:1px solid var(--border); color:var(--text2);
+  padding:6px 10px; border-radius:6px;
+  font-family:inherit; font-size:11px; font-weight:600;
+  cursor:pointer; display:flex; align-items:center; gap:6px;
+  width:100%; justify-content:center; transition:all .15s;
+}
+#themeToggle:hover{border-color:var(--accent); color:var(--text)}
+.sidebar-search{
+  position:relative;
+  padding:10px 16px;
+  border-bottom:1px solid var(--border);
+}
+#sidebarSearchInput{
+  width:100%; background:var(--bg);
+  border:1px solid var(--border); color:var(--text);
+  padding:8px 10px; border-radius:6px;
+  font-family:inherit; font-size:12px; outline:none;
+  box-sizing:border-box; transition:border-color .15s;
+}
+#sidebarSearchInput:focus{border-color:var(--accent)}
+#sidebarSearchInput::placeholder{color:var(--text3)}
+.sidebar-list{
+  flex:1; overflow-y:auto;
+  padding:8px 0 24px;
+  scrollbar-width:thin;
+  scrollbar-color:var(--border) transparent;
+}
+.sidebar-list::-webkit-scrollbar{width:6px}
+.sidebar-list::-webkit-scrollbar-track{background:transparent}
+.sidebar-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+.sb-nav-section{padding:6px 0; border-bottom:1px solid var(--border-soft, rgba(255,255,255,0.06))}
+.sb-nav-section:last-child{border-bottom:none}
+.sb-nav-label{
+  font-size:10px; font-weight:800; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--text3);
+  padding:14px 16px 4px;
+}
+.sb-nav-item{
+  display:block; width:calc(100% - 16px);
+  padding:9px 10px; margin:0 8px 2px;
+  background:transparent; border:none;
+  color:var(--text2); text-align:left;
+  font:inherit; font-size:13px; font-weight:600;
+  cursor:pointer; transition:background .15s,color .15s;
+  border-radius:7px;
+}
+.sb-nav-item:hover{
+  background:var(--surface2);
+  color:var(--text);
+}
+.sb-nav-item.active{
+  color:var(--accent);
+  background:var(--surface2);
+  font-weight:600;
+}
+
+.main-content{
+  margin-left:280px;
+  flex:1; min-width:0;
+  padding:36px 32px 80px;
+  max-width:820px;
+}
+
+.mobile-menu-toggle{
+  display:none; position:fixed; top:14px; right:14px; left:auto;
+  z-index:50; width:40px; height:40px;
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:8px; color:var(--text);
+  font-size:18px; cursor:pointer; padding:0;
+  align-items:center; justify-content:center;
+}
+
+@media (max-width:900px){
+  .sidebar{transform:translateX(-100%); transition:transform .25s}
+  .sidebar.open{transform:translateX(0)}
+  .sidebar-header{padding-top:72px}
+  .sidebar-header .back-home{display:none}
+  .main-content{margin-left:0; padding:92px 24px 60px}
+  .mobile-menu-toggle{display:flex}
+  .back-home-mobile{display:flex}
+}
+@media (max-width:600px){.main-content{padding:92px 16px 60px}}
+
+[data-theme="light"]{
+  --bg:#faf7f2;
+  --surface:#f4f0e8;
+  --surface2:#ece6d8;
+  --surface3:#e3dccc;
+  --border:#d6ccb8;
+  --border-soft:rgba(0,0,0,0.07);
+  --accent:#8b5cf6;
+  --accent2:#7c3aed;
+  --accent-soft:rgba(139,92,246,0.10);
+  --text:#1e1c18;
+  --text2:#5a5448;
+  --text3:#9e9080;
+  --shadow:0 8px 24px rgba(0,0,0,0.10);
+  --prompt-content:#ea580c; --prompt-content-bg:rgba(234,88,12,0.08);
+  --prompt-judgment:#b87418; --prompt-judgment-bg:rgba(184,116,24,0.10);
+  --prompt-principle:#7c3aed; --prompt-principle-bg:rgba(124,58,237,0.10);
+  --prompt-priority:#c0384a; --prompt-priority-bg:rgba(192,56,74,0.10);
+  --retrieval-recall:#4d7c0f;
+  --retrieval-recognize:#a16207;
+  --retrieval-act:#0f766e;
+  --retrieval-apply:#6d28d9;
+  --retrieval-tag-text:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:'DM Sans',sans-serif;font-weight:400;
+  font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  transition:background 0.25s,color 0.25s;
+  min-height:100vh;
+}
+a{color:inherit;text-decoration:none}
+button{font-family:'DM Sans',sans-serif}
+
+
+@media(max-width:720px){}
+
+
+
+
+
+
+
+
+
+
+/* HERO */
+.hero{padding:28px 24px;background:linear-gradient(135deg,var(--surface) 0%,var(--surface2) 100%);
+  border:1px solid var(--border);border-radius:18px;margin-bottom:20px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:0;right:0;bottom:0;width:40%;
+  background:radial-gradient(circle at top right,var(--accent-soft) 0%,transparent 70%);pointer-events:none}
+.hero h1{position:relative;font-family:'DM Serif Display',serif;font-weight:400;font-size:32px;line-height:1.1;margin:0 0 6px}
+.hero h1 em{font-style:italic;color:var(--accent2)}
+.hero-sub{position:relative;font-size:14px;color:var(--text2);margin:0}
+
+/* DECK STATS */
+.deck-stats{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+.deck-stat{
+  flex:1;min-width:120px;padding:14px 16px;background:var(--surface);
+  border:1px solid var(--border);border-radius:12px;
+}
+.deck-stat-value{font-family:'DM Serif Display',serif;font-size:28px;line-height:1;color:var(--accent2)}
+.deck-stat-value.due{color:var(--prompt-priority)}
+.deck-stat-value.zero{color:var(--text3)}
+.deck-stat-label{font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;font-weight:500}
+
+/* TABS */
+.tabs{display:flex;gap:6px;background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:4px;margin-bottom:18px}
+.tab{
+  flex:1;background:transparent;border:none;color:var(--text2);
+  font-size:13px;font-weight:600;padding:9px 16px;border-radius:8px;cursor:pointer;
+  transition:all .15s ease;
+}
+.tab.active{background:var(--surface2);color:var(--text)}
+.tab:hover:not(.active){color:var(--text)}
+.tab-count{display:inline-block;margin-left:6px;font-size:11px;background:var(--accent);color:var(--bg);padding:1px 7px;border-radius:9px;font-weight:700}
+.tab.active .tab-count{background:var(--accent2);color:var(--bg)}
+
+/* CARD AREA */
+.card-stage{min-height:380px}
+.empty-state{
+  text-align:center;padding:60px 30px;background:var(--surface);
+  border:1px dashed var(--border);border-radius:16px;
+}
+.empty-state-icon{font-size:48px;margin-bottom:14px;opacity:0.5}
+.empty-state h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:22px;margin:0 0 8px}
+.empty-state p{color:var(--text2);font-size:14px;margin:0 0 20px;max-width:420px;margin-left:auto;margin-right:auto}
+.empty-state .start-link{
+  display:inline-block;padding:10px 18px;background:var(--accent);color:var(--bg);
+  border-radius:10px;font-weight:600;font-size:14px;
+}
+.empty-state .start-link:hover{background:var(--accent2)}
+
+/* FLASHCARD */
+.flashcard{
+  background:var(--surface);border:1px solid var(--border);border-radius:16px;
+  padding:28px 28px 24px;position:relative;
+  border-left-width:5px;
+}
+.flashcard-recall{border-left-color:var(--retrieval-recall)}
+.flashcard-recognize{border-left-color:var(--retrieval-recognize)}
+.flashcard-act{border-left-color:var(--retrieval-act)}
+.flashcard-apply{border-left-color:var(--retrieval-apply)}
+.flashcard-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:18px}
+.flashcard-labels{
+  display:flex;align-items:center;gap:8px;flex:1 1 auto;min-width:0;flex-wrap:wrap;
+}
+.flashcard-tag{
+  display:inline-block;font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.12em;
+  padding:3px 9px;border-radius:5px;color:var(--retrieval-tag-text);
+}
+.flashcard-recall .flashcard-tag{background:var(--retrieval-recall)}
+.flashcard-recognize .flashcard-tag{background:var(--retrieval-recognize)}
+.flashcard-act .flashcard-tag{background:var(--retrieval-act)}
+.flashcard-apply .flashcard-tag{background:var(--retrieval-apply)}
+.flashcard-flag{
+  display:inline-block;font-size:9px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.09em;
+  padding:2px 7px;border:1px solid var(--border);border-radius:999px;
+  color:var(--text2);background:transparent;
+}
+.flashcard-flag-warning{border-color:var(--prompt-priority);color:var(--prompt-priority)}
+.flashcard-flag-calculation{border-color:var(--retrieval-apply);color:var(--retrieval-apply)}
+.flashcard-ch{
+  font-size:11px;color:var(--text3);font-weight:600;
+  background:var(--surface2);padding:3px 8px;border-radius:5px;
+}
+.flashcard-due{
+  font-size:11px;color:var(--text2);
+  margin-left:auto;flex:0 0 auto;font-style:italic;line-height:22px;
+}
+.flashcard-q{
+  font-family:'DM Serif Display',serif;font-weight:400;font-size:19px;line-height:1.4;
+  color:var(--text);margin:0 0 18px;
+}
+.flashcard-reveal{
+  background:var(--accent);color:var(--bg);
+  border:none;font-weight:600;font-size:14px;
+  padding:11px 22px;border-radius:10px;cursor:pointer;
+  transition:all .15s ease;
+  width:100%;
+}
+.flashcard-reveal:hover{background:var(--accent2)}
+.flashcard-a{
+  display:none;margin:8px 0 16px;padding:16px 18px;
+  background:var(--surface2);border-radius:10px;
+  font-size:15px;color:var(--text);line-height:1.6;
+}
+.flashcard.revealed .flashcard-a{display:block}
+.flashcard.revealed .flashcard-reveal{display:none}
+.flashcard-rating{display:none;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap}
+.flashcard.revealed .flashcard-rating{display:flex}
+.flashcard-rate{
+  flex:1;min-width:80px;background:var(--surface2);
+  border:2px solid var(--border);color:var(--text);
+  font-weight:600;font-size:13px;
+  padding:11px 12px;border-radius:10px;cursor:pointer;
+  transition:all .15s ease;
+}
+.flashcard-rate-hard:hover{border-color:var(--prompt-priority);background:var(--prompt-priority-bg);color:var(--prompt-priority)}
+.flashcard-rate-good:hover{border-color:var(--prompt-judgment);background:var(--prompt-judgment-bg);color:var(--prompt-judgment)}
+.flashcard-rate-easy:hover{border-color:var(--prompt-content);background:var(--prompt-content-bg);color:var(--prompt-content)}
+.flashcard-rate-small{display:block;font-size:10px;font-weight:500;color:var(--text3);margin-top:3px;text-transform:uppercase;letter-spacing:0.08em}
+.flashcard-footer{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:14px;padding-top:14px;border-top:1px solid var(--border-soft);
+  gap:10px;flex-wrap:wrap;
+}
+.flashcard-open{font-size:12px;color:var(--accent);font-weight:600}
+.flashcard-open:hover{color:var(--accent2)}
+.flashcard-skip{
+  background:transparent;border:1px solid var(--border-soft);color:var(--text3);
+  font-size:12px;padding:6px 12px;border-radius:7px;cursor:pointer;
+}
+.flashcard-skip:hover{color:var(--text2);border-color:var(--text3)}
+.review-progress{
+  margin-top:18px;text-align:center;font-size:12px;color:var(--text3);
+  font-variant-numeric:tabular-nums;
+}
+
+/* BROWSE LIST */
+.browse-filters{
+  display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;align-items:center;
+}
+.filter-select{
+  background:var(--surface);border:1px solid var(--border);color:var(--text);
+  font-family:'DM Sans',sans-serif;font-size:12px;
+  padding:6px 10px;border-radius:7px;
+}
+.filter-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;font-weight:600}
+.browse-list{display:flex;flex-direction:column;gap:8px}
+.browse-item{
+  display:block;width:100%;font:inherit;color:inherit;text-align:left;
+  appearance:none;-webkit-appearance:none;
+  padding:14px 16px;background:var(--surface);
+  border:1px solid var(--border);border-radius:10px;
+  border-left-width:4px;
+  cursor:pointer;
+  transition:all .15s ease;
+}
+.browse-item:hover{border-color:var(--accent);transform:translateY(-1px)}
+.browse-item-head{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.browse-item-q{font-size:14px;color:var(--text);font-weight:500;line-height:1.4}
+.browse-item-due{font-size:11px;color:var(--text3);margin-left:auto}
+.browse-item-due.due-now{color:var(--prompt-priority);font-weight:600}
+.browse-recall{border-left-color:var(--retrieval-recall)}
+.browse-recognize{border-left-color:var(--retrieval-recognize)}
+.browse-act{border-left-color:var(--retrieval-act)}
+.browse-apply{border-left-color:var(--retrieval-apply)}
+.browse-recall .flashcard-tag{background:var(--retrieval-recall)}
+.browse-recognize .flashcard-tag{background:var(--retrieval-recognize)}
+.browse-act .flashcard-tag{background:var(--retrieval-act)}
+.browse-apply .flashcard-tag{background:var(--retrieval-apply)}
+
+/* FOCUS DECK + REVIEW QUEUE CONTROLS */
+.flashcard-footer-actions{
+  display:flex;align-items:center;justify-content:flex-end;gap:8px;
+  margin-left:auto;flex-wrap:wrap;
+}
+.flashcard-utilities{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  margin:10px 0 6px;
+}
+.flashcard-utilities .flashcard-source-link{margin:0}
+.collection-toggle{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  min-height:34px;padding:7px 11px;background:transparent;
+  border:1px solid var(--border);border-radius:8px;color:var(--text2);
+  font-size:12px;font-weight:600;line-height:1;cursor:pointer;
+  transition:background .15s,border-color .15s,color .15s,transform .15s;
+}
+.collection-toggle:hover,
+.collection-toggle[aria-pressed="true"]{
+  border-color:var(--accent);color:var(--accent);background:var(--accent-soft);
+}
+.collection-toggle-icon{font-size:16px;line-height:1}
+.flashcard-shuffle,.flashcard-restore,.flashcard-skip{
+  background:var(--surface2);border:1px solid var(--border);color:var(--text2);
+  font-size:12px;padding:6px 12px;border-radius:7px;cursor:pointer;
+}
+.flashcard-shuffle{color:var(--accent);border-color:var(--accent)}
+.flashcard-shuffle:not(:disabled):hover{color:var(--accent2);border-color:var(--accent2);background:var(--accent-soft)}
+.flashcard-restore:hover{color:var(--text);border-color:var(--text2)}
+.flashcard-skip:not(:disabled):hover{color:var(--text2);border-color:var(--text3)}
+.flashcard-shuffle:disabled,.flashcard-restore:disabled,.flashcard-skip:disabled{
+  cursor:not-allowed;opacity:.42;color:var(--text3);border-color:var(--border-soft);background:transparent;
+}
+.browse-item{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:10px;
+  padding:0;cursor:default;overflow:hidden;
+}
+.browse-item-open{
+  min-width:0;padding:14px 0 14px 16px;background:transparent;border:0;
+  color:inherit;font:inherit;text-align:left;cursor:pointer;
+}
+.browse-item .collection-toggle{
+  width:36px;height:36px;min-height:36px;padding:0;margin:11px 11px 0 0;
+}
+.collection-toolbar{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  margin-bottom:14px;padding:14px 16px;background:var(--surface);
+  border:1px solid var(--border);border-radius:10px;flex-wrap:wrap;
+}
+.collection-summary{min-width:180px;flex:1}
+.collection-summary strong{display:block;color:var(--text);font-size:14px}
+.collection-summary span{display:block;color:var(--text3);font-size:11px;margin-top:2px}
+.collection-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.collection-review-btn{
+  border:1px solid var(--accent);border-radius:8px;padding:8px 12px;
+  background:var(--accent);color:var(--bg);font-size:12px;font-weight:700;
+  cursor:pointer;
+}
+.collection-review-btn.collection-review-secondary{background:transparent;color:var(--accent)}
+.collection-review-btn:disabled{cursor:not-allowed;opacity:.45;transform:none}
+.collection-review-btn:not(:disabled):hover{background:var(--accent2);border-color:var(--accent2)}
+.collection-review-btn.collection-review-secondary:not(:disabled):hover{color:var(--bg)}
+.collection-filter-note{font-size:11px;color:var(--text3);margin:0 0 10px}
+.sr-only{
+  position:absolute!important;width:1px!important;height:1px!important;
+  padding:0!important;margin:-1px!important;overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;
+}
+@media (max-width:600px){
+  .tabs{gap:3px}
+  .tab{padding:9px 6px;font-size:12px}
+  .tab-count{margin-left:3px;padding:1px 5px}
+  .collection-actions{width:100%}
+  .collection-review-btn{flex:1}
+}
+@media print{
+  .collection-toggle,.collection-toolbar,.flashcard-footer-actions{display:none!important}
+}
+
+/* COMPLETION SCREEN */
+.completion{
+  text-align:center;padding:50px 30px;
+  background:var(--accent-soft);border:1px solid var(--accent);
+  border-radius:16px;
+}
+.completion-icon{font-size:48px;margin-bottom:14px}
+.completion h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:24px;margin:0 0 8px;color:var(--accent2)}
+.completion p{color:var(--text);font-size:14px;margin:0 0 14px}
+.completion-back{font-size:13px;color:var(--accent);font-weight:600}
+
+/* FOOTER */
+.footer{text-align:center;padding-top:24px;margin-top:36px;
+  border-top:1px solid var(--border-soft);font-size:12px;color:var(--text3)}
+.footer p{margin:4px 0}
+
+.load-starter-btn{
+  display: block;
+  margin: 18px auto;
+  padding: 14px 28px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.load-starter-btn:hover{
+  background: var(--accent2);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+
+.deck-actions{
+  display: flex;
+  gap: 10px;
+  margin: 0 0 20px;
+  flex-wrap: wrap;
+}
+.deck-action-btn{
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 18px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.deck-action-btn:hover{
+  background: var(--accent2);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.deck-action-btn.deck-action-secondary{
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text2);
+}
+.deck-action-btn.deck-action-secondary:hover{
+  background: var(--surface2);
+  color: var(--text);
+  border-color: var(--text2);
+}
+@media (max-width: 600px){
+  .deck-action-btn{
+    min-width: 100%;
+    font-size: 13px;
+  }
+}
+
+
+/* === FLASHCARD FILTERS === */
+.filter-panel{
+  margin: 0 0 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.filter-toggle{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+}
+.filter-toggle:hover{ background: var(--surface2) }
+.filter-toggle .filter-chevron{
+  margin-left: auto;
+  transition: transform 0.15s;
+  color: var(--text2);
+}
+.filter-toggle[aria-expanded="true"] .filter-chevron{ transform: rotate(180deg) }
+.filter-active-count{
+  background: var(--accent);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  min-width: 20px;
+  text-align: center;
+}
+.filter-active-count:empty{ display: none }
+.filter-body{
+  padding: 14px 16px 16px;
+  border-top: 1px solid var(--border);
+}
+.filter-row{ margin: 12px 0 }
+.filter-row:first-child{ margin-top: 0 }
+.filter-label{
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text2);
+  margin: 0 0 8px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.filter-search{
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.filter-search:focus{
+  outline: none;
+  border-color: var(--accent);
+}
+.filter-search::placeholder{ color: var(--text3) }
+.filter-chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.filter-chip{
+  padding: 6px 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--text2);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.12s;
+  font-family: inherit;
+}
+.filter-chip:hover{
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.filter-chip.active{
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+.filter-chip.active:hover{
+  background: var(--accent2);
+  border-color: var(--accent2);
+  color: white;
+}
+.filter-chips-numeric .filter-chip{
+  min-width: 34px;
+  text-align: center;
+  padding: 6px 8px;
+}
+.filter-actions{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.filter-clear-btn{
+  padding: 6px 12px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text2);
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.filter-clear-btn:hover{
+  border-color: #ef4444;
+  color: #ef4444;
+}
+.filter-result-count{
+  font-size: 12px;
+  color: var(--text2);
+}
+.filter-result-count strong{ color: var(--text) }
+.filter-advanced{
+  margin:12px 0;border:1px solid var(--border);border-radius:8px;background:var(--bg);
+}
+.filter-advanced summary{
+  cursor:pointer;list-style:none;padding:10px 12px;color:var(--text2);
+  font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+}
+.filter-advanced summary::-webkit-details-marker{display:none}
+.filter-advanced summary::after{
+  content:'▾';float:right;color:var(--text3);transition:transform .15s;
+}
+.filter-advanced[open] summary::after{transform:rotate(180deg)}
+.filter-advanced[open] summary{border-bottom:1px solid var(--border)}
+.filter-advanced-body{padding:0 12px 12px}
+.filter-help{margin:7px 0 0;color:var(--text3);font-size:11px}
+@media (max-width: 600px){
+  .filter-chip{ font-size: 12px; padding: 5px 10px }
+  .filter-chips-numeric .filter-chip{ min-width: 28px }
+}
+
+
+/* === KEYBOARD HINTS + SESSION TIMER === */
+.kbd-hint{
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  background: rgba(0,0,0,0.15);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 4px;
+  font-size: 10px;
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  color: inherit;
+  opacity: 0.7;
+  vertical-align: middle;
+  line-height: 1.4;
+}
+[data-theme="light"] .kbd-hint{
+  background: rgba(255,255,255,0.5);
+  border-color: rgba(0,0,0,0.15);
+}
+.flashcard-reveal .kbd-hint,
+.flashcard-rate .kbd-hint{
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.25);
+  color: white;
+}
+
+/* Session timer panel */
+.session-panel{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+.session-stat{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text2);
+}
+.session-stat strong{
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+.session-stat-icon{
+  font-size: 14px;
+  opacity: 0.8;
+}
+.session-help-btn{
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  color: var(--text2);
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.session-help-btn:hover{
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Keyboard help overlay */
+.kbd-help-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+.kbd-help-overlay.show{ display: flex }
+.kbd-help-panel{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 26px;
+  max-width: 460px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.kbd-help-panel h2{
+  margin: 0 0 6px;
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--text);
+}
+.kbd-help-sub{
+  font-size: 13px;
+  color: var(--text2);
+  margin: 0 0 18px;
+}
+.kbd-help-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text);
+}
+.kbd-help-row:last-child{ border-bottom: none }
+.kbd-help-keys{
+  display: flex;
+  gap: 4px;
+}
+.kbd-help-key{
+  display: inline-block;
+  padding: 3px 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-size: 11px;
+  color: var(--text);
+  min-width: 14px;
+  text-align: center;
+}
+.kbd-help-close{
+  margin: 18px 0 0;
+  padding: 10px 20px;
+  width: 100%;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+}
+@media (max-width: 600px){
+  .session-panel{ font-size: 12px; padding: 8px 12px }
+  .kbd-hint{ display: none }  /* hide on mobile - no keyboard */
+}
+
+
+/* Cross-tool linking banner */
+.cross-tool-banner{
+  position: sticky; top: 0; z-index: 100;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: white;
+  font-size: 13px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display:flex; align-items:center; justify-content:center; gap:12px;
+}
+.cross-tool-banner strong{font-weight:600}
+.cross-tool-clear{
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family:inherit;
+}
+.cross-tool-clear:hover{ background:rgba(255,255,255,0.3) }
+
+
+.flashcard-source-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  margin: 10px 0 6px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text2);
+  font-size: 12px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+.flashcard-source-link:hover{
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+
+/* === BATCH 4: TABLET POLISH === */
+@media (max-width: 900px) and (min-width: 601px){
+  .deck-stats{
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  .filter-chips-numeric .filter-chip{
+    min-width: 30px !important;
+    padding: 5px 7px !important;
+  }
+  .session-panel{
+    gap: 8px !important;
+    font-size: 12px !important;
+  }
+  .flashcard{ padding: 22px !important }
+}
+
+
+        /* Mobile: prevent long body text from overflowing/clipping in narrow viewports */
+        body {
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+        }
+
+        /* === VERSION BADGE === */
+        .sb-version{
+          font-size:10px;color:var(--text3,#888);
+          opacity:0.65;letter-spacing:0.03em;margin-top:6px;
+          font-variant-numeric:tabular-nums;
+        }
+        .sb-version:hover{opacity:1}
+        /* === END VERSION BADGE === */
+
+        /* === PRINT: study content only; collapsed screen state must not hide answers === */
+        @media print{
+          @page{size:Letter;margin:.5in}
+          html,body{
+            background:#fff!important;
+            color:#111827!important;
+            min-height:0!important;
+          }
+          body{
+            -webkit-print-color-adjust:exact;
+            print-color-adjust:exact;
+          }
+          .layout{display:block;min-height:0}
+          .sidebar,
+          .sidebar-overlay,
+          .mobile-menu-toggle,
+          .back-home-mobile,
+          .deck-actions,
+          .filter-panel,
+          .session-panel,
+          .deck-stats,
+          .tabs,
+          .flashcard-reveal,
+          .flashcard-rating,
+          .flashcard-footer,
+          .review-progress,
+          .footer,
+          .kbd-help-overlay{display:none!important}
+          .main-content{
+            width:100%!important;
+            max-width:none!important;
+            margin:0!important;
+            padding:0!important;
+          }
+          .hero{
+            margin:0 0 18px!important;
+            padding:18px 20px!important;
+            background:#fff!important;
+            border:1px solid #cbd5e1!important;
+            box-shadow:none!important;
+            break-inside:avoid;
+            page-break-inside:avoid;
+          }
+          .hero h1,
+          .hero-sub,
+          .flashcard-q,
+          .flashcard-a{color:#111827!important}
+          .card-stage{min-height:0!important}
+          .flashcard{
+            background:#fff!important;
+            border-color:#94a3b8!important;
+            box-shadow:none!important;
+            break-inside:avoid;
+            page-break-inside:avoid;
+          }
+          .flashcard-a{
+            display:block!important;
+            background:#f3f4f6!important;
+            border:1px solid #d1d5db!important;
+          }
+          .flashcard-due{display:none!important}
+          .empty-state{
+            background:#fff!important;
+            color:#111827!important;
+            border-color:#94a3b8!important;
+            break-inside:avoid;
+            page-break-inside:avoid;
+          }
+          .empty-state h2,
+          .empty-state p{color:#111827!important}
+          .empty-state .start-link{display:none!important}
+        }
+      </style>
+</head>
+<body>
+
+
+<button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Open flashcard navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
+<a class="back-home-mobile" href="Elevated%20ATI%20Fundamentals%20Hub.html">Back to Hub</a>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="layout">
+
+  <aside class="sidebar" id="sidebar" aria-label="Flashcards navigation">
+    <div class="sidebar-header">
+      <a class="back-home" href="Elevated%20ATI%20Fundamentals%20Hub.html">Back to Hub</a>
+      <div class="sb-course">ATI Fundamentals</div>
+      <div class="sb-title">Flashcards</div>
+      <div class="sb-sub">Spaced Repetition Review</div>
+      <div class="sb-version" title="Draft shell v0.1.0 · built 2026-08-26">v0.1.0 · 2026-08-26</div>
+      <button id="themeToggle" type="button"><span id="themeIcon">☀️</span> <span id="themeLabel">Light Mode</span></button>
+    </div>
+
+    <div class="sidebar-search">
+      <input id="sidebarSearchInput" type="search" placeholder="Search cards…" autocomplete="off" aria-label="Search flashcards">
+    </div>
+
+    <nav class="sidebar-list" aria-label="Quick filters">
+      <div class="sb-nav-section">
+        <div class="sb-nav-label">Content</div>
+        <button class="sb-nav-item" type="button" disabled aria-disabled="true">No units yet</button>
+      </div>
+      <div class="sb-nav-section">
+        <div class="sb-nav-label">Retrieval</div>
+        <button class="sb-nav-item" type="button" data-quick-filter="retrieval-toggle" data-value="recall">Recall</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="retrieval-toggle" data-value="recognize">Recognize</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="retrieval-toggle" data-value="act">Act</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="retrieval-toggle" data-value="apply">Apply</button>
+      </div>
+      <div class="sb-nav-section">
+        <div class="sb-nav-label">Status</div>
+        <button class="sb-nav-item" type="button" data-quick-filter="status" data-value="all">All cards</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="status" data-value="new">New</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="status" data-value="learning">Learning</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="status" data-value="mature">Mature</button>
+        <button class="sb-nav-item" type="button" data-quick-filter="status" data-value="due">Due now</button>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+<section class="hero">
+    <h1>Spaced <em>Repetition</em></h1>
+    <p class="hero-sub">A zero-card draft shell for Review, Browse, Focus Deck, and SM-2 scheduling. Card content remains absent until an exact source and allowed scope are approved.</p>
+  </section>
+
+    <div class="deck-actions">
+    <button class="deck-action-btn" type="button" disabled aria-disabled="true" title="No card content has been authorized for this draft.">
+      📥 <span>No starter deck yet</span>
+    </button>
+        <button class="deck-action-btn deck-action-secondary" type="button" data-action="export-csv" disabled aria-disabled="true" title="CSV export becomes available when authorized cards exist.">
+      📤 <span>Export to CSV</span>
+    </button>
+    <button class="deck-action-btn deck-action-secondary" type="button" data-action="reset-deck" title="Clear all cards and progress.">
+      🗑️ <span>Reset deck</span>
+    </button>
+  </div>
+
+  <div class="filter-panel" id="filterPanel">
+    <button class="filter-toggle" type="button" id="filterToggle" aria-expanded="false">
+      <span>🔍 Filters</span>
+      <span class="filter-active-count" id="filterActiveCount"></span>
+      <span class="filter-chevron">▾</span>
+    </button>
+    <div class="filter-body" id="filterBody" hidden>
+      <div class="filter-row">
+        <input type="text" class="filter-search" id="filterSearch" placeholder="Search question text…" aria-label="Search flashcards">
+      </div>
+      <div class="filter-row">
+        <div class="filter-label">Content availability</div>
+        <div class="filter-chips"><button class="filter-chip" type="button" disabled aria-disabled="true">No units or chapters yet</button></div>
+      </div>
+      <div class="filter-row">
+        <div class="filter-label">Primary retrieval</div>
+        <div class="filter-chips" data-filter-group="retrieval" data-multi="true">
+          <button class="filter-chip" data-value="recall" type="button">Recall</button>
+          <button class="filter-chip" data-value="recognize" type="button">Recognize</button>
+          <button class="filter-chip" data-value="act" type="button">Act</button>
+          <button class="filter-chip" data-value="apply" type="button">Apply</button>
+        </div>
+      </div>
+      <details class="filter-advanced">
+        <summary>Advanced card attributes</summary>
+        <div class="filter-advanced-body">
+          <div class="filter-row">
+            <div class="filter-label">Secondary attributes</div>
+            <div class="filter-chips" data-filter-group="flag" data-multi="true">
+              <button class="filter-chip" data-value="warning" type="button">Warning</button>
+              <button class="filter-chip" data-value="numeric" type="button">Numeric</button>
+              <button class="filter-chip" data-value="sequence" type="button">Sequence</button>
+              <button class="filter-chip" data-value="comparison" type="button">Comparison</button>
+              <button class="filter-chip" data-value="mnemonic" type="button">Mnemonic</button>
+              <button class="filter-chip" data-value="calculation" type="button">Calculation</button>
+            </div>
+            <p class="filter-help">Warning remains a metadata lane, not a source certification. Multiple selections match any chosen attribute.</p>
+          </div>
+        </div>
+      </details>
+      <div class="filter-row">
+        <div class="filter-label">Status</div>
+        <div class="filter-chips" data-filter-group="status" data-multi="false">
+          <button class="filter-chip active" data-value="all" type="button">All</button>
+          <button class="filter-chip" data-value="new" type="button">New (never rated)</button>
+          <button class="filter-chip" data-value="learning" type="button">Learning (reps &lt; 3)</button>
+          <button class="filter-chip" data-value="mature" type="button">Mature (reps ≥ 3)</button>
+          <button class="filter-chip" data-value="due" type="button">Due now</button>
+        </div>
+      </div>
+      <div class="filter-row filter-actions">
+        <button class="filter-clear-btn" type="button" id="filterClear" hidden>Clear all filters</button>
+        <span class="filter-result-count" id="filterResultCount"></span>
+      </div>
+    </div>
+  </div>
+<div class="session-panel" id="sessionPanel">
+    <div class="session-stat" title="Time elapsed in this study session">
+      <span class="session-stat-icon">⏱</span>
+      <span><strong id="sessionTime">0:00</strong></span>
+    </div>
+    <div class="session-stat" title="Cards reviewed this session">
+      <span class="session-stat-icon">📊</span>
+      <span><strong id="sessionReviewed">0</strong> reviewed</span>
+    </div>
+    <div class="session-stat" title="Average seconds per card">
+      <span class="session-stat-icon">⚡</span>
+      <span><strong id="sessionAvg">—</strong>/card</span>
+    </div>
+    <button class="session-help-btn" type="button" id="kbdHelpBtn" title="Keyboard shortcuts (press ? anytime)">⌨ Shortcuts</button>
+  </div>
+  <div class="deck-stats">
+    <div class="deck-stat">
+      <div class="deck-stat-value due" id="statDue">0</div>
+      <div class="deck-stat-label">Due now</div>
+    </div>
+    <div class="deck-stat">
+      <div class="deck-stat-value" id="statDeck">0</div>
+      <div class="deck-stat-label">In deck</div>
+    </div>
+    <div class="deck-stat">
+      <div class="deck-stat-value zero" id="statDone">0</div>
+      <div class="deck-stat-label">Reviewed today</div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="review" type="button">Review <span class="tab-count" id="tabCountDue">0</span></button>
+    <button class="tab" data-tab="browse" type="button">Browse <span class="tab-count" id="tabCountAll">0</span></button>
+    <button class="tab" data-tab="collection" type="button">Focus <span class="tab-count" id="tabCountCollection">0</span></button>
+  </div>
+
+  <div class="card-stage" id="stage"></div>
+
+  <footer class="footer">
+    <p>Elevated · Fundamentals Flashcards · Draft shell</p>
+    <p>Zero cards · content population is not authorized.</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+
+  // ===== Fundamentals zero-content shell and subject-local state contracts =====
+  var SHELL_META = Object.freeze({
+    contentAuthorized: false,
+    publicationStatus: 'draft',
+    recordCount: 0
+  });
+  var SYNC_KEYS = Object.freeze([
+    'nur2460_theme',
+    'atifundamentals_fc_schedule',
+    'atifundamentals_fc_filters_v2',
+    'atifundamentals_fc_collections_v1'
+  ]);
+
+  var THEME_KEY = 'nur2460_theme';
+  var FC_KEY = 'atifundamentals_fc_schedule';
+  var COLLECTION_KEY = 'atifundamentals_fc_collections_v1';
+  var FOCUS_COLLECTION_ID = 'focus';
+
+  // ===== Theme =====
+  var themeBtn = document.getElementById('themeToggle');
+  var themeIcon = document.getElementById('themeIcon');
+  function applyThemeUI(){
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (themeIcon) themeIcon.textContent = isLight ? '🌙' : '☀️';
+  }
+  try {
+    if (localStorage.getItem(THEME_KEY) === 'light') document.documentElement.setAttribute('data-theme','light');
+  } catch(e){}
+  applyThemeUI();
+  themeBtn.addEventListener('click', function(){
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (isLight) document.documentElement.removeAttribute('data-theme');
+    else document.documentElement.setAttribute('data-theme','light');
+    try { localStorage.setItem(THEME_KEY, isLight ? 'dark' : 'light'); } catch(e){}
+    applyThemeUI();
+  });
+
+  // ===== Storage =====
+  function loadSchedule(){
+    try { var raw = localStorage.getItem(FC_KEY); return raw ? JSON.parse(raw) : {}; }
+    catch(e){ return {}; }
+  }
+  function saveSchedule(s){
+    try { localStorage.setItem(FC_KEY, JSON.stringify(s)); } catch(e){}
+  }
+
+  function emptyCollectionState(){
+    return { version: 1, collections: { focus: { name: 'Focus Deck', cardIds: [] } } };
+  }
+
+  function loadCollectionState(){
+    var fallback = emptyCollectionState();
+    try {
+      var raw = localStorage.getItem(COLLECTION_KEY);
+      if (!raw) return fallback;
+      var parsed = JSON.parse(raw);
+      var collections = parsed && parsed.version === 1 && parsed.collections;
+      var source = collections && (collections[FOCUS_COLLECTION_ID] || collections.reviewer);
+      if (!source || !Array.isArray(source.cardIds)) return fallback;
+      var seen = {};
+      fallback.collections[FOCUS_COLLECTION_ID].cardIds = source.cardIds.filter(function(id){
+        if (typeof id !== 'string' || !id || seen[id]) return false;
+        seen[id] = true;
+        return true;
+      });
+      return fallback;
+    } catch(e){ return fallback; }
+  }
+
+  function saveCollectionState(state){
+    try { localStorage.setItem(COLLECTION_KEY, JSON.stringify(state)); } catch(e){}
+  }
+  function getCollectionIds(){ return loadCollectionState().collections[FOCUS_COLLECTION_ID].cardIds.slice(); }
+  function isCollected(cardId){ return getCollectionIds().indexOf(cardId) !== -1; }
+  function toggleCollected(cardId){
+    var state = loadCollectionState();
+    var ids = state.collections[FOCUS_COLLECTION_ID].cardIds;
+    var index = ids.indexOf(cardId);
+    var added = index === -1;
+    if (added) ids.push(cardId); else ids.splice(index, 1);
+    saveCollectionState(state);
+    return added;
+  }
+
+  // === Frozen zero-content registries ===
+  var STARTER_DECK = Object.freeze([]);
+  var RETRIEVAL_TAXONOMY_REGISTRY = Object.freeze([]);
+
+  var STARTER_BY_ID = {};
+  STARTER_DECK.forEach(function(card){ STARTER_BY_ID[card.id] = card; });
+  var RETRIEVAL_BY_ID = {};
+  RETRIEVAL_TAXONOMY_REGISTRY.forEach(function(meta){ RETRIEVAL_BY_ID[meta.id] = meta; });
+
+  function hydrateCard(card){
+    var source = STARTER_BY_ID[card.id] || {};
+    var meta = RETRIEVAL_BY_ID[card.id];
+    return Object.assign({}, source, card, {
+      legacyType: card.legacyType || card.type || source.legacyType || source.type || 'concept',
+      retrieval: (meta && meta.retrieval) || card.retrieval || 'recall',
+      flags: meta ? meta.flags.slice() : (Array.isArray(card.flags) ? card.flags.slice() : [])
+    });
+  }
+
+  var RETRIEVAL_LABELS = {
+    recall: 'Recall',
+    recognize: 'Recognize',
+    act: 'Act',
+    apply: 'Apply'
+  };
+  var FLAG_LABELS = {
+    warning: 'Warning',
+    numeric: 'Numeric',
+    sequence: 'Sequence',
+    comparison: 'Comparison',
+    mnemonic: 'Mnemonic',
+    calculation: 'Calculation'
+  };
+
+  function getCollectedCards(dueOnly){
+    var schedule = loadSchedule();
+    var now = Date.now();
+    return getCollectionIds().map(function(cardId){
+      var stored = schedule[cardId];
+      if (!stored || !stored.nextReview) return null;
+      return hydrateCard(Object.assign({ id: cardId }, stored));
+    }).filter(function(card){
+      if (!card) return false;
+      return !dueOnly || new Date(card.nextReview).getTime() <= now;
+    });
+  }
+
+  function loadStarterDeck(){
+    var s = loadSchedule();
+    var now = new Date().toISOString();
+    var added = 0;
+    STARTER_DECK.forEach(function(c){
+      if (!s[c.id]) {
+        s[c.id] = {
+          q: c.q, a: c.a, ch: c.ch, type: c.type, anchor: c.anchor,
+          easeFactor: 2.5, interval: 0, repetitions: 0,
+          nextReview: now, lastRated: null
+        };
+        added++;
+      }
+    });
+    saveSchedule(s);
+    return added;
+  }
+
+
+  // ===== SM-2 =====
+  function rateCard(cardId, rating){
+    var schedule = loadSchedule();
+    var card = schedule[cardId];
+    if (!card) return null;
+    var hasLongReps = typeof card.repetitions === 'number';
+    var hasShortReps = typeof card.reps === 'number';
+    var hasLongEf = typeof card.easeFactor === 'number';
+    var hasShortEf = typeof card.ef === 'number';
+    var reps = hasLongReps ? card.repetitions : (hasShortReps ? card.reps : 0);
+    var ef = hasLongEf ? card.easeFactor : (hasShortEf ? card.ef : 2.5);
+    var interval = typeof card.interval === 'number' ? card.interval : 0;
+    if (rating >= 3){
+      if (reps === 0) interval = 1;
+      else if (reps === 1) interval = 6;
+      else interval = Math.round(interval * ef);
+      reps += 1;
+    } else {
+      reps = 0;
+      interval = 1;
+    }
+    ef = Math.max(1.3, ef + 0.1 - (5 - rating) * (0.08 + (5 - rating) * 0.02));
+    card.interval = interval;
+    if (hasLongReps || !hasShortReps) card.repetitions = reps;
+    if (hasShortReps) card.reps = reps;
+    if (hasLongEf || !hasShortEf) card.easeFactor = ef;
+    if (hasShortEf) card.ef = ef;
+    card.nextReview = new Date(Date.now() + interval * 86400000).toISOString();
+    card.lastRated = new Date().toISOString();
+    schedule[cardId] = card;
+    saveSchedule(schedule);
+    return card;
+  }
+
+  // ===== State =====
+  var currentTab = 'review';
+  var reviewQueue = [];
+  var reviewQueueBaseline = [];
+  var reviewIndex = 0;
+  var reviewMode = 'due';
+  var reviewQueueShuffled = false;
+  var sessionRated = 0;
+
+  function getDeck(){
+    var schedule = loadSchedule();
+    var cards = [];
+    for (var k in schedule){
+      if (schedule[k] && schedule[k].nextReview) {
+        var card = hydrateCard(Object.assign({ id: k }, schedule[k]));
+        cards.push(card);
+      }
+    }
+    return cards;
+  }
+
+  function getDueCards(){
+    var now = Date.now();
+    var due = getDeck().filter(function(c){
+      return new Date(c.nextReview).getTime() <= now;
+    });
+    return applyFilters(due);
+  }
+
+  function getReviewedToday(){
+    var todayStart = new Date(); todayStart.setHours(0,0,0,0);
+    return getDeck().filter(function(c){
+      return c.lastRated && new Date(c.lastRated).getTime() >= todayStart.getTime();
+    }).length;
+  }
+
+  function updateStats(){
+    var deck = getDeck();
+    var filtered = applyFilters(deck);
+    var due = getDueCards();
+    document.getElementById('statDue').textContent = due.length;
+    document.getElementById('statDue').className = 'deck-stat-value ' + (due.length > 0 ? 'due' : 'zero');
+    document.getElementById('statDeck').textContent = filtered.length;
+    document.getElementById('statDeck').className = 'deck-stat-value ' + (filtered.length > 0 ? '' : 'zero');
+    document.getElementById('statDone').textContent = getReviewedToday();
+    document.getElementById('statDone').className = 'deck-stat-value ' + (getReviewedToday() > 0 ? 'zero' : 'zero');
+    document.getElementById('tabCountDue').textContent = due.length;
+    document.getElementById('tabCountAll').textContent = filtered.length;
+    document.getElementById('tabCountCollection').textContent = getCollectionIds().length;
+    if (typeof updateFilterCounters === 'function') updateFilterCounters();
+  }
+
+  // ===== Render =====
+  function escapeHtml(s){
+    if (!s) return '';
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function dueLabel(card){
+    var ms = new Date(card.nextReview) - new Date();
+    if (ms <= 0) return 'due now';
+    var days = Math.ceil(ms / 86400000);
+    if (days === 0) return 'due today';
+    if (days === 1) return 'due tomorrow';
+    return 'due in ' + days + ' days';
+  }
+
+  function buildFlagBadges(card){
+    return (card.flags || []).map(function(flag){
+      var label = FLAG_LABELS[flag] || flag;
+      return '<span class="flashcard-flag flashcard-flag-' + escapeHtml(flag) + '">' + escapeHtml(label) + '</span>';
+    }).join('');
+  }
+
+  function buildCollectionButton(cardId, compact){
+    var collected = isCollected(cardId);
+    var label = collected ? 'Remove from Focus Deck' : 'Add to Focus Deck';
+    return '<button class="collection-toggle' + (compact ? ' collection-toggle-browse' : '') + '" type="button" ' +
+      'data-action="toggle-collection" data-card-id="' + escapeHtml(cardId) + '" ' +
+      'aria-pressed="' + String(collected) + '" aria-label="' + label + '" title="' + label + '">' +
+      '<span class="collection-toggle-icon" aria-hidden="true">' + (collected ? '★' : '☆') + '</span>' +
+      (compact ? '<span class="sr-only">' + label + '</span>' : '<span class="collection-toggle-label">' + (collected ? 'In Focus Deck' : 'Add to Focus Deck') + '</span>') +
+    '</button>';
+  }
+
+  function syncCollectionButtons(cardId){
+    var collected = isCollected(cardId);
+    var label = collected ? 'Remove from Focus Deck' : 'Add to Focus Deck';
+    document.querySelectorAll('[data-action="toggle-collection"]').forEach(function(button){
+      if (button.getAttribute('data-card-id') !== cardId) return;
+      button.setAttribute('aria-pressed', String(collected));
+      button.setAttribute('aria-label', label);
+      button.title = label;
+      var icon = button.querySelector('.collection-toggle-icon');
+      if (icon) icon.textContent = collected ? '★' : '☆';
+      var text = button.querySelector('.collection-toggle-label');
+      if (text) text.textContent = collected ? 'In Focus Deck' : 'Add to Focus Deck';
+      var hidden = button.querySelector('.sr-only');
+      if (hidden) hidden.textContent = label;
+    });
+    updateStats();
+  }
+
+  function buildFlashcardHTML(card){
+    var retrievalKey = (card.retrieval || 'recall').toLowerCase();
+    var retrievalLabel = RETRIEVAL_LABELS[retrievalKey] || 'Recall';
+    var chLabel = (card.ch || 'ch?').toUpperCase().replace('CH','Ch ');
+    var anchor = card.anchor || card.ch || '';
+    var hasMultipleCards = reviewQueue.length > 1;
+    var queueControlDisabled = hasMultipleCards ? '' : ' disabled aria-disabled="true"';
+    var queueLabel = reviewMode === 'collection-all'
+      ? 'in Focus Deck'
+      : (reviewMode === 'collection-due'
+        ? 'in Focus Deck and due'
+        : (reviewMode === 'browse' ? 'from Browse' : 'due today'));
+    if (reviewQueueShuffled) queueLabel += ' · shuffled';
+    return '' +
+      '<div class="flashcard flashcard-' + retrievalKey + '" data-card-id="' + card.id + '">' +
+        '<div class="flashcard-head">' +
+          '<div class="flashcard-labels">' +
+            '<span class="flashcard-tag">' + escapeHtml(retrievalLabel) + '</span>' +
+            buildFlagBadges(card) +
+            '<span class="flashcard-ch">' + chLabel + '</span>' +
+          '</div>' +
+          '<span class="flashcard-due">' + dueLabel(card) + '</span>' +
+        '</div>' +
+        '<div class="flashcard-q">' + (card.q || '(question not stored — re-rate in chapter book)') + '</div>' +
+        '<button class="flashcard-reveal" type="button" data-action="reveal">Reveal answer<span class="kbd-hint">Space</span></button>' +
+        '<div class="flashcard-a">' + (card.a || '(answer not stored)') + '</div>' +
+        '<div class="flashcard-utilities">' +
+          '<a class="flashcard-source-link" href="Elevated%20ATI%20Fundamentals%20Book.html#' + (card.anchor || '') + '" target="_self">📖 Open in book</a>' +
+          buildCollectionButton(card.id, false) +
+        '</div>' +
+        '<div class="flashcard-rating">' +
+          '<button class="flashcard-rate flashcard-rate-hard" type="button" data-action="rate" data-value="0">Hard<span class="flashcard-rate-small">+1 day</span><span class="kbd-hint">1</span></button>' +
+          '<button class="flashcard-rate flashcard-rate-good" type="button" data-action="rate" data-value="3">Good<span class="flashcard-rate-small">extend</span><span class="kbd-hint">2</span></button>' +
+          '<button class="flashcard-rate flashcard-rate-easy" type="button" data-action="rate" data-value="5">Easy<span class="flashcard-rate-small">boost</span><span class="kbd-hint">3</span></button>' +
+        '</div>' +
+        '<div class="flashcard-footer">' +
+          '<a class="flashcard-open" href="Elevated%20ATI%20Fundamentals%20Book.html#' + anchor + '">Open in chapter ↗</a>' +
+          '<div class="flashcard-footer-actions">' +
+            '<button class="flashcard-shuffle" type="button" data-action="shuffle"' + queueControlDisabled +
+              ' title="' + (hasMultipleCards ? 'Randomize this review queue without changing card schedules' : 'Shuffle needs at least two cards') +
+              '" aria-label="Shuffle current review queue">⇄ Shuffle</button>' +
+            (reviewQueueShuffled
+              ? '<button class="flashcard-restore" type="button" data-action="restore-order" title="Restore the order used before this session was shuffled" aria-label="Restore pre-shuffle review order">Restore order</button>'
+              : '') +
+            '<button class="flashcard-skip" type="button" data-action="skip"' + queueControlDisabled +
+              ' title="' + (hasMultipleCards ? 'Skip to the next card in this review queue' : 'Skip is unavailable because this review has only one card') +
+              '" aria-label="Skip to next card">Skip →</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="review-progress" role="status" aria-live="polite">Card ' + (reviewIndex + 1) + ' of ' + reviewQueue.length + ' ' +
+        queueLabel +
+        ' · ' + sessionRated + ' rated this session</div>';
+  }
+
+  function shuffleReviewQueue(){
+    if (reviewQueue.length < 2) return;
+    if (!reviewQueueShuffled) reviewQueueBaseline = reviewQueue.slice();
+    var currentId = reviewQueue[reviewIndex] && reviewQueue[reviewIndex].id;
+    var shuffled = reviewQueue.slice();
+    for (var i = shuffled.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = shuffled[i];
+      shuffled[i] = shuffled[j];
+      shuffled[j] = temp;
+    }
+    if (shuffled[0] && shuffled[0].id === currentId){
+      var differentIndex = shuffled.findIndex(function(card, index){
+        return index > 0 && card.id !== currentId;
+      });
+      if (differentIndex > 0){
+        var first = shuffled[0];
+        shuffled[0] = shuffled[differentIndex];
+        shuffled[differentIndex] = first;
+      }
+    }
+    reviewQueue = shuffled;
+    reviewIndex = 0;
+    reviewQueueShuffled = true;
+    renderReview();
+  }
+
+  function restoreReviewQueueOrder(){
+    if (!reviewQueueShuffled) return;
+    var currentId = reviewQueue[reviewIndex] && reviewQueue[reviewIndex].id;
+    var remainingIds = new Set(reviewQueue.map(function(card){ return card.id; }));
+    var baselineIds = new Set(reviewQueueBaseline.map(function(card){ return card.id; }));
+    var restored = reviewQueueBaseline.filter(function(card){ return remainingIds.has(card.id); });
+    reviewQueue.forEach(function(card){
+      if (!baselineIds.has(card.id)) restored.push(card);
+    });
+    reviewQueue = restored;
+    var restoredIndex = reviewQueue.findIndex(function(card){ return card.id === currentId; });
+    reviewIndex = restoredIndex >= 0 ? restoredIndex : 0;
+    reviewQueueShuffled = false;
+    reviewQueueBaseline = reviewQueue.slice();
+    renderReview();
+  }
+
+  function renderReview(queueOverride, modeOverride){
+    var stage = document.getElementById('stage');
+    if (Array.isArray(queueOverride)){
+      reviewQueue = queueOverride.slice();
+      reviewQueueBaseline = reviewQueue.slice();
+      reviewQueueShuffled = false;
+      reviewMode = modeOverride || 'selected';
+    } else if (reviewMode === 'due' && !reviewQueueShuffled){
+      reviewQueue = getDueCards();
+      reviewQueueBaseline = reviewQueue.slice();
+    }
+
+    if (reviewQueue.length === 0){
+      var deck = getDeck();
+      var collectionSession = reviewMode === 'collection-all' || reviewMode === 'collection-due';
+      var icon = collectionSession ? '★' : (deck.length === 0 ? '📚' : '✨');
+      var heading = collectionSession ? 'Focus review complete' : (deck.length === 0 ? 'No flashcards yet' : 'All caught up!');
+      var desc = collectionSession
+        ? 'Your cards remain in Focus Deck. Ratings update their normal schedule without removing them from Focus Deck.'
+        : (deck.length === 0
+        ? 'No flashcard content has been authorized for this draft. Review, Browse, Focus Deck, scheduling, and filters are ready for a future source-controlled deck.'
+        : 'You have ' + deck.length + ' card' + (deck.length === 1 ? '' : 's') + ' in your deck, but none are due yet. Come back later or browse the deck.');
+      stage.innerHTML =
+        '<div class="empty-state">' +
+          '<div class="empty-state-icon">' + icon + '</div>' +
+          '<h2>' + heading + '</h2>' +
+          '<p>' + desc + '</p>' +
+          (collectionSession ? '<button class="start-link" type="button" data-action="return-collection">Back to Focus Deck</button>' :
+            (deck.length === 0 ? '<a class="start-link" href="Elevated%20ATI%20Fundamentals%20Book.html">Open Fundamentals Book →</a>' : '')) +
+        '</div>';
+      var returnButton = stage.querySelector('[data-action="return-collection"]');
+      if (returnButton) returnButton.addEventListener('click', function(){ setTab('collection'); });
+      return;
+    }
+
+    // Wrap reviewIndex if out of bounds (e.g., after rate the queue may shrink)
+    if (reviewIndex >= reviewQueue.length) reviewIndex = 0;
+
+    var card = reviewQueue[reviewIndex];
+    stage.innerHTML = buildFlashcardHTML(card);
+
+    var fc = stage.querySelector('.flashcard');
+    fc.addEventListener('click', function(e){
+      var action = e.target.closest('[data-action]');
+      if (!action) return;
+      var act = action.getAttribute('data-action');
+      if (act === 'reveal'){
+        fc.classList.add('revealed');
+      } else if (act === 'rate'){
+        var value = parseInt(action.getAttribute('data-value'), 10);
+        rateCard(card.id, value);
+        sessionRated++;
+        updateStats();
+        if (reviewMode === 'collection-all' || reviewMode === 'collection-due' || reviewMode === 'browse' || reviewQueueShuffled){
+          reviewQueue.splice(reviewIndex, 1);
+          if (reviewIndex >= reviewQueue.length) reviewIndex = 0;
+        } else {
+          // Advance to next due card (re-fetch queue)
+          reviewMode = 'due';
+          reviewQueue = getDueCards();
+          if (reviewIndex >= reviewQueue.length) reviewIndex = Math.max(0, reviewQueue.length - 1);
+        }
+        renderReview();
+      } else if (act === 'shuffle'){
+        shuffleReviewQueue();
+      } else if (act === 'restore-order'){
+        restoreReviewQueueOrder();
+      } else if (act === 'skip' && reviewQueue.length > 1){
+        reviewIndex = (reviewIndex + 1) % reviewQueue.length;
+        renderReview();
+      } else if (act === 'toggle-collection'){
+        toggleCollected(card.id);
+        syncCollectionButtons(card.id);
+      }
+    });
+  }
+
+  var browseFilter = { ch: '', retrieval: '', sort: 'due-asc' };
+
+  function buildBrowseItemHTML(card){
+    var retrievalKey = (card.retrieval || 'recall').toLowerCase();
+    var retrievalLabel = RETRIEVAL_LABELS[retrievalKey] || 'Recall';
+    var due = new Date(card.nextReview);
+    var ms = due - new Date();
+    var dueText = dueLabel(card);
+    var dueClass = ms <= 0 ? 'due-now' : '';
+    var chLabel = (card.ch || 'ch?').toUpperCase().replace('CH','Ch ');
+    return '' +
+      '<div class="browse-item browse-' + retrievalKey + '" data-card-id="' + escapeHtml(card.id) + '">' +
+        '<button class="browse-item-open" type="button" data-action="open-card" data-card-id="' + escapeHtml(card.id) + '">' +
+          '<div class="browse-item-head">' +
+            '<span class="flashcard-tag">' + escapeHtml(retrievalLabel) + '</span>' +
+            buildFlagBadges(card) +
+            '<span class="flashcard-ch">' + chLabel + '</span>' +
+            '<span class="browse-item-due ' + dueClass + '">' + dueText + '</span>' +
+          '</div>' +
+          '<div class="browse-item-q">' + (card.q || '(question not stored)') + '</div>' +
+        '</button>' +
+        buildCollectionButton(card.id, true) +
+      '</div>';
+  }
+
+  function openCardFromList(cardId, listQueue, listMode){
+    var schedule = loadSchedule();
+    var card = schedule[cardId];
+    if (!card) return;
+    var queue = Array.isArray(listQueue) && listQueue.length
+      ? listQueue.slice()
+      : [hydrateCard(Object.assign({ id: cardId }, card))];
+    var selectedIndex = queue.findIndex(function(item){ return item.id === cardId; });
+    reviewIndex = selectedIndex >= 0 ? selectedIndex : 0;
+    setTab('review', queue, listMode || 'selected');
+  }
+
+  function attachCardListHandlers(options){
+    options = options || {};
+    var stage = document.getElementById('stage');
+    stage.querySelectorAll('[data-action="open-card"]').forEach(function(button){
+      button.addEventListener('click', function(){
+        openCardFromList(button.getAttribute('data-card-id'), options.queue, options.mode);
+      });
+    });
+    stage.querySelectorAll('[data-action="toggle-collection"]').forEach(function(button){
+      button.addEventListener('click', function(){
+        var cardId = button.getAttribute('data-card-id');
+        toggleCollected(cardId);
+        syncCollectionButtons(cardId);
+        if (typeof options.onCollectionChange === 'function') options.onCollectionChange();
+      });
+    });
+  }
+
+  function renderBrowse(){
+    var stage = document.getElementById('stage');
+    var deck = applyFilters(getDeck());
+    if (deck.length === 0){
+      stage.innerHTML =
+        '<div class="empty-state">' +
+          '<div class="empty-state-icon">📚</div>' +
+          '<h2>No flashcards yet</h2>' +
+          '<p>No flashcard content has been authorized for this draft. Browse will use the same canonical records as Review once a source-controlled deck exists.</p>' +
+          '<a class="start-link" href="Elevated%20ATI%20Fundamentals%20Book.html">Open Fundamentals Book →</a>' +
+        '</div>';
+      return;
+    }
+
+    // Get unique chapters and primary retrieval types for filters
+    var chs = [...new Set(deck.map(function(c){ return c.ch; }))].filter(Boolean).sort(function(a,b){
+      var na = parseInt(a.replace('ch',''), 10);
+      var nb = parseInt(b.replace('ch',''), 10);
+      return na - nb;
+    });
+    var retrievals = ['recall', 'recognize', 'act', 'apply'].filter(function(value){
+      return deck.some(function(card){ return card.retrieval === value; });
+    });
+
+    // Filter
+    var filtered = deck.filter(function(c){
+      if (browseFilter.ch && c.ch !== browseFilter.ch) return false;
+      if (browseFilter.retrieval && c.retrieval !== browseFilter.retrieval) return false;
+      return true;
+    });
+
+    // Sort
+    filtered.sort(function(a,b){
+      if (browseFilter.sort === 'due-asc') return new Date(a.nextReview) - new Date(b.nextReview);
+      if (browseFilter.sort === 'due-desc') return new Date(b.nextReview) - new Date(a.nextReview);
+      if (browseFilter.sort === 'ch-asc') return (a.ch || '').localeCompare(b.ch || '', 'en', {numeric:true});
+      return 0;
+    });
+
+    var filtersHtml =
+      '<div class="browse-filters">' +
+        '<span class="filter-label">Filter:</span>' +
+        '<select class="filter-select" id="filterCh">' +
+          '<option value="">All chapters</option>' +
+          chs.map(function(c){
+            var label = c.toUpperCase().replace('CH','Ch ');
+            return '<option value="' + c + '"' + (browseFilter.ch === c ? ' selected' : '') + '>' + label + '</option>';
+          }).join('') +
+        '</select>' +
+        '<select class="filter-select" id="filterRetrieval">' +
+          '<option value="">All retrieval types</option>' +
+          retrievals.map(function(value){
+            return '<option value="' + value + '"' + (browseFilter.retrieval === value ? ' selected' : '') + '>' + RETRIEVAL_LABELS[value] + '</option>';
+          }).join('') +
+        '</select>' +
+        '<select class="filter-select" id="filterSort">' +
+          '<option value="due-asc"' + (browseFilter.sort === 'due-asc' ? ' selected' : '') + '>Due first</option>' +
+          '<option value="due-desc"' + (browseFilter.sort === 'due-desc' ? ' selected' : '') + '>Furthest due</option>' +
+          '<option value="ch-asc"' + (browseFilter.sort === 'ch-asc' ? ' selected' : '') + '>Chapter order</option>' +
+        '</select>' +
+      '</div>';
+
+    var listHtml = '<div class="browse-list">' + filtered.map(buildBrowseItemHTML).join('') + '</div>';
+
+    stage.innerHTML = filtersHtml + listHtml;
+
+    document.getElementById('filterCh').addEventListener('change', function(e){
+      browseFilter.ch = e.target.value; renderBrowse();
+    });
+    document.getElementById('filterRetrieval').addEventListener('change', function(e){
+      browseFilter.retrieval = e.target.value; renderBrowse();
+    });
+    document.getElementById('filterSort').addEventListener('change', function(e){
+      browseFilter.sort = e.target.value; renderBrowse();
+    });
+
+    attachCardListHandlers({ queue: filtered, mode: 'browse' });
+  }
+
+  function renderCollection(){
+    var stage = document.getElementById('stage');
+    var savedIds = getCollectionIds();
+    var allCards = getCollectedCards(false);
+    var filteredCards = applyFilters(allCards);
+    var dueCards = filteredCards.filter(function(card){
+      return new Date(card.nextReview).getTime() <= Date.now();
+    });
+
+    if (savedIds.length === 0){
+      stage.innerHTML =
+        '<div class="empty-state">' +
+          '<div class="empty-state-icon">☆</div>' +
+          '<h2>Your Focus Deck is empty</h2>' +
+          '<p>Add cards while reviewing or browsing. Focus Deck membership is separate from due dates, ratings, and mastery.</p>' +
+          '<button class="start-link" type="button" data-action="browse-for-collection">Browse cards</button>' +
+        '</div>';
+      stage.querySelector('[data-action="browse-for-collection"]').addEventListener('click', function(){ setTab('browse'); });
+      return;
+    }
+
+    if (allCards.length === 0){
+      stage.innerHTML =
+        '<div class="empty-state">' +
+          '<div class="empty-state-icon">★</div>' +
+          '<h2>Your Focus Deck is preserved</h2>' +
+          '<p>' + savedIds.length + ' Focus Deck card ID' + (savedIds.length === 1 ? ' is' : 's are') + ' still stored. Membership remains preserved until an authorized deck provides matching records.</p>' +
+        '</div>';
+      return;
+    }
+
+    var toolbar =
+      '<div class="collection-toolbar">' +
+        '<div class="collection-summary">' +
+          '<strong>' + filteredCards.length + ' card' + (filteredCards.length === 1 ? '' : 's') + ' in Focus Deck</strong>' +
+          '<span>' + dueCards.length + ' due now · ratings keep using the normal schedule</span>' +
+        '</div>' +
+        '<div class="collection-actions">' +
+          '<button class="collection-review-btn" type="button" data-action="review-collection" data-scope="all"' + (filteredCards.length ? '' : ' disabled') + '>Review all</button>' +
+          '<button class="collection-review-btn collection-review-secondary" type="button" data-action="review-collection" data-scope="due"' + (dueCards.length ? '' : ' disabled') + '>Review due</button>' +
+        '</div>' +
+      '</div>' +
+      (filteredCards.length !== allCards.length ? '<p class="collection-filter-note">Showing the cards that match your active filters.</p>' : '');
+
+    var list = filteredCards.length
+      ? '<div class="browse-list">' + filteredCards.map(buildBrowseItemHTML).join('') + '</div>'
+      : '<div class="empty-state"><div class="empty-state-icon">🔍</div><h2>No Focus cards match</h2><p>Clear or adjust the active filters to see your Focus Deck.</p></div>';
+
+    stage.innerHTML = toolbar + list;
+    attachCardListHandlers({
+      queue: filteredCards,
+      mode: 'collection-all',
+      onCollectionChange: function(){ renderCollection(); }
+    });
+    stage.querySelectorAll('[data-action="review-collection"]').forEach(function(button){
+      button.addEventListener('click', function(){
+        var dueOnly = button.getAttribute('data-scope') === 'due';
+        var queue = dueOnly ? dueCards.slice() : filteredCards.slice();
+        reviewIndex = 0;
+        setTab('review', queue, dueOnly ? 'collection-due' : 'collection-all');
+      });
+    });
+  }
+
+  // ===== Tabs =====
+  function setTab(name, reviewOverride, modeOverride){
+    currentTab = name;
+    document.querySelectorAll('.tab').forEach(function(t){
+      t.classList.toggle('active', t.getAttribute('data-tab') === name);
+    });
+    if (name === 'review'){
+      reviewQueueShuffled = false;
+      if (!Array.isArray(reviewOverride)) reviewMode = 'due';
+      renderReview(reviewOverride, modeOverride);
+    } else if (name === 'browse') renderBrowse();
+    else renderCollection();
+  }
+
+  function renderActiveTab(){
+    if (currentTab === 'review') renderReview();
+    else if (currentTab === 'browse') renderBrowse();
+    else renderCollection();
+  }
+
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click', function(){ setTab(t.getAttribute('data-tab')); });
+  });
+
+  // ===== Cross-tab sync =====
+  window.addEventListener('storage', function(e){
+    if (e.key && SYNC_KEYS.indexOf(e.key) === -1) return;
+    updateStats();
+    if (currentTab === 'review') renderReview();
+    else if (currentTab === 'browse') renderBrowse();
+    else renderCollection();
+  });
+  document.addEventListener('visibilitychange', function(){
+    if (!document.hidden){
+      updateStats();
+      if (currentTab === 'review') renderReview();
+      else if (currentTab === 'browse') renderBrowse();
+      else renderCollection();
+    }
+  });
+
+  // ===== FILTERS =====
+  var FILTER_STATE_KEY = 'atifundamentals_fc_filters_v2';
+  var LEGACY_FILTER_STATE_KEY = '';
+  var filterState = {
+    search: '',
+    unit: 'all',
+    chapters: [],   // array of chapter numbers as strings
+    retrievals: [], // array: ['recall', 'recognize', 'act', 'apply']
+    flags: [],      // secondary attributes; OR within this group
+    status: 'all'   // 'all' | 'new' | 'learning' | 'mature' | 'due'
+  };
+
+  function loadFilterState(){
+    try {
+      var raw = localStorage.getItem(FILTER_STATE_KEY);
+      if (raw) {
+        var parsed = JSON.parse(raw);
+        filterState = Object.assign(filterState, parsed, {
+          chapters: Array.isArray(parsed.chapters) ? parsed.chapters : [],
+          retrievals: Array.isArray(parsed.retrievals) ? parsed.retrievals : [],
+          flags: Array.isArray(parsed.flags) ? parsed.flags : []
+        });
+      }
+    } catch(e){}
+  }
+  function saveFilterState(){
+    try { localStorage.setItem(FILTER_STATE_KEY, JSON.stringify(filterState)); } catch(e){}
+  }
+
+  // Unit mappings remain absent until source-authorized content population.
+  function chapterUnit(){ return 'other'; }
+
+  // Strip HTML for search matching
+  function stripHTML(s){
+    if (!s) return '';
+    var d = document.createElement('div');
+    d.innerHTML = s;
+    return (d.textContent || d.innerText || '').toLowerCase();
+  }
+
+  // Apply filters to a deck array
+  function applyFilters(cards){
+    var q = (filterState.search || '').toLowerCase().trim();
+    var now = Date.now();
+    return cards.filter(function(c){
+      // Search
+      if (q) {
+        var hay = stripHTML((c.q || '') + ' ' + (c.a || ''));
+        if (hay.indexOf(q) === -1) return false;
+      }
+      // Chapter number (strip 'ch' prefix)
+      var chNum = (c.ch || '').replace(/^ch/i, '');
+      // Unit
+      if (filterState.unit !== 'all'){
+        if (chapterUnit(chNum) !== filterState.unit) return false;
+      }
+      // Chapters (multi)
+      if (filterState.chapters.length > 0){
+        if (filterState.chapters.indexOf(chNum) === -1) return false;
+      }
+      // Primary retrieval types (multi; OR within the group)
+      if (filterState.retrievals.length > 0){
+        var retrieval = (c.retrieval || 'recall').toLowerCase();
+        if (filterState.retrievals.indexOf(retrieval) === -1) return false;
+      }
+      // Secondary attributes (multi; OR within the group)
+      if (filterState.flags.length > 0){
+        var cardFlags = Array.isArray(c.flags) ? c.flags : [];
+        var hasSelectedFlag = filterState.flags.some(function(flag){ return cardFlags.indexOf(flag) !== -1; });
+        if (!hasSelectedFlag) return false;
+      }
+      // Status
+      if (filterState.status !== 'all'){
+        var reps = typeof c.repetitions === 'number' ? c.repetitions : (c.reps || 0);
+        var lastRated = c.lastRated;
+        if (filterState.status === 'new' && lastRated) return false;
+        if (filterState.status === 'learning' && reps >= 3) return false;
+        if (filterState.status === 'mature' && reps < 3) return false;
+        if (filterState.status === 'due'){
+          if (new Date(c.nextReview).getTime() > now) return false;
+        }
+      }
+      return true;
+    });
+  }
+
+  // Count active filters
+  function countActiveFilters(){
+    var n = 0;
+    if (filterState.search) n++;
+    if (filterState.unit !== 'all') n++;
+    if (filterState.chapters.length > 0) n++;
+    if (filterState.retrievals.length > 0) n++;
+    if (filterState.flags.length > 0) n++;
+    if (filterState.status !== 'all') n++;
+    return n;
+  }
+
+  // Apply filter state to UI chips
+  function applyFilterStateToUI(){
+    document.querySelectorAll('.filter-chips').forEach(function(group){
+      var groupName = group.getAttribute('data-filter-group');
+      var multi = group.getAttribute('data-multi') === 'true';
+      group.querySelectorAll('.filter-chip').forEach(function(chip){
+        var val = chip.getAttribute('data-value');
+        var active = false;
+        if (groupName === 'unit') active = (filterState.unit === val);
+        else if (groupName === 'status') active = (filterState.status === val);
+        else if (groupName === 'chapter') active = filterState.chapters.indexOf(val) !== -1;
+        else if (groupName === 'retrieval') active = filterState.retrievals.indexOf(val) !== -1;
+        else if (groupName === 'flag') active = filterState.flags.indexOf(val) !== -1;
+        chip.classList.toggle('active', active);
+        chip.setAttribute('aria-pressed', String(active));
+      });
+    });
+    var searchInput = document.getElementById('filterSearch');
+    if (searchInput) searchInput.value = filterState.search;
+    updateFilterCounters();
+  }
+
+  function updateFilterCounters(){
+    var count = countActiveFilters();
+    var countEl = document.getElementById('filterActiveCount');
+    if (countEl) countEl.textContent = count > 0 ? count : '';
+
+    var clearBtn = document.getElementById('filterClear');
+    if (clearBtn) clearBtn.hidden = (count === 0);
+
+    var resultEl = document.getElementById('filterResultCount');
+    if (resultEl) {
+      var filtered = applyFilters(getDeck()).length;
+      var total = getDeck().length;
+      if (count > 0) {
+        resultEl.innerHTML = '<strong>' + filtered + '</strong> of <strong>' + total + '</strong> cards match';
+      } else {
+        resultEl.innerHTML = '<strong>' + total + '</strong> total cards';
+      }
+    }
+  }
+
+  // Filter chip click handler
+  function initFilterHandlers(){
+    var toggle = document.getElementById('filterToggle');
+    var body = document.getElementById('filterBody');
+    if (toggle && body){
+      toggle.addEventListener('click', function(){
+        var expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        body.hidden = expanded;
+      });
+    }
+
+    document.querySelectorAll('.filter-chips').forEach(function(group){
+      var groupName = group.getAttribute('data-filter-group');
+      var multi = group.getAttribute('data-multi') === 'true';
+      group.querySelectorAll('.filter-chip').forEach(function(chip){
+        chip.addEventListener('click', function(){
+          var val = chip.getAttribute('data-value');
+          if (!multi){
+            // Single select — set value
+            filterState[groupName] = val;
+          } else {
+            // Multi select — toggle
+            var arr;
+            if (groupName === 'chapter') arr = filterState.chapters;
+            else if (groupName === 'retrieval') arr = filterState.retrievals;
+            else if (groupName === 'flag') arr = filterState.flags;
+            else arr = [];
+            var idx = arr.indexOf(val);
+            if (idx === -1) arr.push(val);
+            else arr.splice(idx, 1);
+          }
+          saveFilterState();
+          applyFilterStateToUI();
+          reviewIndex = 0;
+          renderActiveTab();
+          updateStats();
+        });
+      });
+    });
+
+    var searchInput = document.getElementById('filterSearch');
+    if (searchInput){
+      var searchTimer;
+      searchInput.addEventListener('input', function(){
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(function(){
+          filterState.search = searchInput.value;
+          saveFilterState();
+          updateFilterCounters();
+          reviewIndex = 0;
+          renderActiveTab();
+          updateStats();
+        }, 200);
+      });
+    }
+
+    var clearBtn = document.getElementById('filterClear');
+    if (clearBtn){
+      clearBtn.addEventListener('click', function(){
+        filterState = { search: '', unit: 'all', chapters: [], retrievals: [], flags: [], status: 'all' };
+        saveFilterState();
+        applyFilterStateToUI();
+        reviewIndex = 0;
+        renderActiveTab();
+        updateStats();
+      });
+    }
+  }
+
+  // Init filters on load
+  loadFilterState();
+
+  // ===== Init =====
+  initFilterHandlers();
+  applyFilterStateToUI();
+  updateStats();
+  setTab('review');
+
+
+
+
+
+
+  // ===== Action button handlers (load starter / reset) =====
+  document.addEventListener('click', function(e){
+    var loadBtn = e.target.closest('[data-action="load-starter"]');
+    if (loadBtn){
+      var added = loadStarterDeck();
+      if (added > 0){
+        alert('Added ' + added + ' starter cards to your deck!');
+        window.location.reload();
+      } else {
+        alert('All starter cards are already in your deck.');
+      }
+      return;
+    }
+    var resetBtn = e.target.closest('[data-action="reset-deck"]');
+    if (resetBtn){
+      if (confirm('Reset deck? This will remove ALL cards and progress. Your Focus Deck will be preserved. This cannot be undone.')){
+        try { localStorage.removeItem(FC_KEY); } catch(err){}
+        try { localStorage.removeItem(FILTER_STATE_KEY); } catch(err){}
+        if (LEGACY_FILTER_STATE_KEY) { try { localStorage.removeItem(LEGACY_FILTER_STATE_KEY); } catch(err){} }
+        window.location.reload();
+      }
+      return;
+    }
+  });
+
+  // ===== Auto-sync starter-deck count in UI =====
+  // Prevents the hardcoded count in HTML from going stale when STARTER_DECK grows.
+  // Updates both visible button text and tooltip on every page load.
+  function updateStarterCount(){
+    var count = STARTER_DECK.length;
+    document.querySelectorAll('[data-action="load-starter"]').forEach(function(btn){
+      var span = btn.querySelector('span');
+      if (span && /Load \d+ starter cards/.test(span.textContent)){
+        span.textContent = 'Load ' + count + ' starter cards';
+      }
+      if (btn.title && /Add the \d+ starter cards/.test(btn.title)){
+        btn.title = 'Add the ' + count + ' starter cards (curated from the book) to your review deck.';
+      }
+    });
+  }
+  updateStarterCount();
+
+
+  // ===== SESSION TIMER =====
+  var sessionStartTime = Date.now();
+  var sessionActiveTime = 0;
+  var sessionLastActive = Date.now();
+  var sessionTimerInterval = null;
+
+  function formatSessionTime(ms){
+    var s = Math.floor(ms / 1000);
+    var m = Math.floor(s / 60);
+    s = s % 60;
+    return m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  function updateSessionDisplay(){
+    var now = Date.now();
+    if (!document.hidden){
+      sessionActiveTime += (now - sessionLastActive);
+    }
+    sessionLastActive = now;
+
+    var timeEl = document.getElementById('sessionTime');
+    var reviewedEl = document.getElementById('sessionReviewed');
+    var avgEl = document.getElementById('sessionAvg');
+    if (timeEl) timeEl.textContent = formatSessionTime(sessionActiveTime);
+    if (reviewedEl) reviewedEl.textContent = sessionRated || 0;
+    if (avgEl){
+      if (sessionRated > 0){
+        var avgMs = sessionActiveTime / sessionRated;
+        avgEl.textContent = Math.round(avgMs / 1000) + 's';
+      } else {
+        avgEl.textContent = '—';
+      }
+    }
+  }
+
+  function startSessionTimer(){
+    if (sessionTimerInterval) return;
+    sessionLastActive = Date.now();
+    sessionTimerInterval = setInterval(updateSessionDisplay, 1000);
+  }
+
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden){
+      var now = Date.now();
+      sessionActiveTime += (now - sessionLastActive);
+    }
+    sessionLastActive = Date.now();
+  });
+
+  // ===== KEYBOARD SHORTCUTS =====
+  function isTypingInInput(){
+    var el = document.activeElement;
+    if (!el) return false;
+    var tag = (el.tagName || '').toUpperCase();
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return true;
+    if (el.isContentEditable) return true;
+    return false;
+  }
+
+  function showKbdHelp(){
+    var o = document.getElementById('kbdHelpOverlay');
+    if (o) o.classList.add('show');
+  }
+  function hideKbdHelp(){
+    var o = document.getElementById('kbdHelpOverlay');
+    if (o) o.classList.remove('show');
+  }
+
+  document.addEventListener('keydown', function(e){
+    var overlay = document.getElementById('kbdHelpOverlay');
+    var overlayOpen = overlay && overlay.classList.contains('show');
+
+    if (e.key === 'Escape' && overlayOpen){ e.preventDefault(); hideKbdHelp(); return; }
+    if (e.key === '?' || (e.shiftKey && e.key === '/')){
+      e.preventDefault();
+      if (overlayOpen) hideKbdHelp(); else showKbdHelp();
+      return;
+    }
+
+    if (overlayOpen) return;
+    if (isTypingInInput()){
+      if (e.key === 'Escape'){ document.activeElement.blur(); e.preventDefault(); }
+      return;
+    }
+
+    var stage = document.getElementById('stage');
+    var card = stage ? stage.querySelector('.flashcard') : null;
+    var revealed = card && card.classList.contains('revealed');
+    var key = e.key.toLowerCase();
+
+    if (e.key === ' ' || e.key === 'Enter'){
+      if (currentTab !== 'review') return;
+      if (!card) return;
+      if (!revealed){
+        e.preventDefault();
+        card.classList.add('revealed');
+      } else {
+        e.preventDefault();
+        var goodBtn = card.querySelector('[data-action="rate"][data-value="3"]');
+        if (goodBtn) goodBtn.click();
+      }
+      return;
+    }
+
+    if (currentTab === 'review' && card && revealed){
+      var ratingMap = { '1': 0, 'h': 0, '2': 3, 'g': 3, '3': 5, 'e': 5 };
+      if (key in ratingMap){
+        var btn = card.querySelector('[data-action="rate"][data-value="' + ratingMap[key] + '"]');
+        if (btn){ e.preventDefault(); btn.click(); return; }
+      }
+    }
+
+    if (currentTab === 'review' && card && key === 'c' && !e.metaKey && !e.ctrlKey && !e.altKey){
+      var collectionButton = card.querySelector('[data-action="toggle-collection"]');
+      if (collectionButton){ e.preventDefault(); collectionButton.click(); return; }
+    }
+
+    if (currentTab === 'review' && card && key === 's' && !e.metaKey && !e.ctrlKey && !e.altKey){
+      if (e.shiftKey){
+        var restoreButton = card.querySelector('[data-action="restore-order"]');
+        if (restoreButton){ e.preventDefault(); restoreButton.click(); return; }
+      } else {
+        var shuffleButton = card.querySelector('[data-action="shuffle"]');
+        if (shuffleButton && !shuffleButton.disabled){ e.preventDefault(); shuffleButton.click(); return; }
+      }
+    }
+
+    if (currentTab === 'review'){
+      if (e.key === 'ArrowRight' || key === 'n'){
+        e.preventDefault();
+        if (reviewQueue.length > 0){
+          reviewIndex = (reviewIndex + 1) % reviewQueue.length;
+          renderReview();
+        }
+        return;
+      }
+      if (e.key === 'ArrowLeft' || key === 'p'){
+        e.preventDefault();
+        if (reviewQueue.length > 0){
+          reviewIndex = (reviewIndex - 1 + reviewQueue.length) % reviewQueue.length;
+          renderReview();
+        }
+        return;
+      }
+    }
+
+    if (key === 'f' && !e.metaKey && !e.ctrlKey && !e.altKey){
+      e.preventDefault();
+      var toggle = document.getElementById('filterToggle');
+      if (toggle) toggle.click();
+      return;
+    }
+
+    if (e.key === '/'){
+      e.preventDefault();
+      var search = document.getElementById('filterSearch');
+      if (search){
+        var body = document.getElementById('filterBody');
+        if (body && body.hidden){
+          var toggle = document.getElementById('filterToggle');
+          if (toggle) toggle.click();
+        }
+        search.focus();
+        search.select();
+      }
+      return;
+    }
+  });
+
+  var helpBtn = document.getElementById('kbdHelpBtn');
+  if (helpBtn) helpBtn.addEventListener('click', showKbdHelp);
+  // Wrap in DOMContentLoaded since kbdHelpClose and kbdHelpOverlay are defined AFTER
+  // this script tag in the HTML, so they don't exist at IIFE execution time
+  function _attachKbdHelpCloseListeners(){
+    var helpClose = document.getElementById('kbdHelpClose');
+    if (helpClose) helpClose.addEventListener('click', hideKbdHelp);
+    var helpOverlay = document.getElementById('kbdHelpOverlay');
+    if (helpOverlay) helpOverlay.addEventListener('click', function(e){
+      if (e.target === helpOverlay) hideKbdHelp();
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', _attachKbdHelpCloseListeners);
+  } else {
+    _attachKbdHelpCloseListeners();
+  }
+
+  startSessionTimer();
+  updateSessionDisplay();
+
+
+  // ===== BATCH 2: URL hash → filter (cross-tool linking) =====
+  function applyUrlHashFilter(){
+    var hash = window.location.hash || '';
+    if (!hash) return;
+    var m = hash.match(/ch=(\d+)/i);
+    if (m){
+      var chNum = m[1];
+      // Override chapter filter to just this chapter
+      filterState.chapters = [chNum];
+      filterState.unit = 'all';   // clear unit filter
+      filterState.status = 'all'; // clear status filter
+      saveFilterState();
+      // Show a small banner indicating the filter is active
+      var banner = document.createElement('div');
+      banner.className = 'cross-tool-banner';
+      banner.innerHTML = '🃏 Showing flashcards for <strong>Chapter ' + chNum + '</strong> · ' +
+                         '<button class="cross-tool-clear" type="button">Show all cards</button>';
+      var firstChild = document.body.firstChild;
+      document.body.insertBefore(banner, firstChild);
+      banner.querySelector('.cross-tool-clear').addEventListener('click', function(){
+        filterState.chapters = [];
+        saveFilterState();
+        window.location.hash = '';
+        banner.remove();
+        applyFilterStateToUI();
+        if (typeof reviewIndex !== 'undefined') reviewIndex = 0;
+        if (typeof renderActiveTab === 'function') renderActiveTab();
+        if (typeof updateStats === 'function') updateStats();
+      });
+      // Apply UI/render now
+      applyFilterStateToUI();
+      if (typeof reviewIndex !== 'undefined') reviewIndex = 0;
+      if (typeof renderActiveTab === 'function') renderActiveTab();
+      if (typeof updateStats === 'function') updateStats();
+    }
+  }
+
+  applyUrlHashFilter();
+
+  // ===== BATCH 4: CSV EXPORT (Anki-compatible) =====
+  function escapeCsvField(s){
+    if (s == null) return '';
+    s = String(s);
+    // Replace HTML tags with plain text representation
+    s = s.replace(/<br\s*\/?>/gi, ' / ');
+    s = s.replace(/<\/?[^>]+>/g, '');
+    // Decode common HTML entities
+    s = s.replace(/&amp;/g, '&')
+         .replace(/&lt;/g, '<')
+         .replace(/&gt;/g, '>')
+         .replace(/&quot;/g, '"')
+         .replace(/&#39;/g, "'")
+         .replace(/&nbsp;/g, ' ');
+    // CSV-escape: wrap in quotes if contains comma, quote, or newline; double inner quotes
+    if (/[",\n\r]/.test(s)){
+      s = '"' + s.replace(/"/g, '""') + '"';
+    }
+    return s;
+  }
+
+  function exportDeckCsv(){
+    var deck = getDeck();
+    if (deck.length === 0){
+      // Use starter deck if user hasn't loaded yet
+      deck = STARTER_DECK.map(function(c){
+        return hydrateCard({ id: c.id, q: c.q, a: c.a, ch: c.ch, type: c.type, anchor: c.anchor });
+      });
+    }
+    if (deck.length === 0){
+      alert('No cards to export.');
+      return;
+    }
+    // Anki-compatible CSV: Front, Back, Tags
+    var lines = ['Front,Back,Tags'];
+    deck.forEach(function(c){
+      var front = escapeCsvField(c.q || '');
+      var back = escapeCsvField(c.a || '');
+      var tags = [c.ch || '', c.retrieval || 'recall'].concat(c.flags || []).filter(Boolean).join(' ');
+      lines.push(front + ',' + back + ',' + escapeCsvField(tags));
+    });
+    var csv = lines.join('\n');
+
+    // Create download
+    var blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'ATI_Fundamentals_flashcards_' + new Date().toISOString().slice(0,10) + '.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+  }
+
+  // Wire export button into the existing click handler
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('[data-action="export-csv"]');
+    if (!btn) return;
+    exportDeckCsv();
+  });
+
+
+  // ===== LAYOUT: mobile sidebar toggle + sidebar quick-filter integration =====
+  var sidebar = document.getElementById('sidebar');
+  var sidebarOverlay = document.getElementById('sidebarOverlay');
+  var mobileToggle = document.getElementById('mobileMenuToggle');
+  var sidebarSearch = document.getElementById('sidebarSearchInput');
+  var sidebarList = sidebar ? sidebar.querySelector('.sidebar-list') : null;
+  function setSidebarPanelOpen(open, moveFocus, restoreFocus){
+    var responsive = window.innerWidth <= 900;
+    if (sidebar){
+      sidebar.classList.toggle('open', open);
+      if (responsive && !open){
+        sidebar.setAttribute('aria-hidden', 'true');
+        sidebar.setAttribute('inert', '');
+      } else {
+        sidebar.removeAttribute('aria-hidden');
+        sidebar.removeAttribute('inert');
+      }
+    }
+    if (sidebarOverlay) sidebarOverlay.classList.toggle('show', open);
+    if (mobileToggle){
+      mobileToggle.textContent = open ? '×' : '☰';
+      mobileToggle.setAttribute('aria-label', open ? 'Close flashcard navigation' : 'Open flashcard navigation');
+      mobileToggle.setAttribute('aria-expanded', String(open));
+    }
+    if (open && sidebarList) sidebarList.scrollTop = 0;
+    if (open && moveFocus && sidebarSearch) sidebarSearch.focus();
+    if (!open && restoreFocus && responsive && mobileToggle) mobileToggle.focus();
+  }
+  function closeSidebarPanel(restoreFocus){
+    setSidebarPanelOpen(false, false, restoreFocus === true);
+  }
+  if (mobileToggle && sidebar){
+    mobileToggle.addEventListener('click', function(){
+      var willOpen = !sidebar.classList.contains('open');
+      setSidebarPanelOpen(willOpen, willOpen, !willOpen);
+    });
+  }
+  if (sidebarOverlay) sidebarOverlay.addEventListener('click', function(){ closeSidebarPanel(true); });
+  window.addEventListener('resize', function(){
+    if (window.innerWidth > 900) setSidebarPanelOpen(false, false, false);
+    else setSidebarPanelOpen(sidebar && sidebar.classList.contains('open'), false, false);
+  });
+  document.addEventListener('keydown', function(event){
+    if (event.key === 'Escape' && sidebar && sidebar.classList.contains('open')) closeSidebarPanel(true);
+  });
+  setSidebarPanelOpen(false, false, false);
+
+  // Sidebar quick-filter buttons (mirror the in-panel filter chips)
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('[data-quick-filter]');
+    if (!btn) return;
+    var group = btn.getAttribute('data-quick-filter');
+    var value = btn.getAttribute('data-value');
+
+    if (group === 'unit'){
+      filterState.unit = value;
+    } else if (group === 'status'){
+      filterState.status = value;
+    } else if (group === 'retrieval-toggle'){
+      var idx = filterState.retrievals.indexOf(value);
+      if (idx === -1) filterState.retrievals.push(value);
+      else filterState.retrievals.splice(idx, 1);
+    }
+    saveFilterState();
+    applyFilterStateToUI();
+    if (typeof reviewIndex !== 'undefined') reviewIndex = 0;
+    if (typeof renderActiveTab === 'function') renderActiveTab();
+    if (typeof updateStats === 'function') updateStats();
+    updateSidebarActiveStates();
+
+    // Close sidebar on mobile after selection
+    if (window.innerWidth <= 900){
+      closeSidebarPanel(true);
+    }
+  });
+
+  function updateSidebarActiveStates(){
+    document.querySelectorAll('[data-quick-filter]').forEach(function(btn){
+      var group = btn.getAttribute('data-quick-filter');
+      var value = btn.getAttribute('data-value');
+      var active = false;
+      if (group === 'unit') active = (filterState.unit === value);
+      else if (group === 'status') active = (filterState.status === value);
+      else if (group === 'retrieval-toggle') active = filterState.retrievals.indexOf(value) !== -1;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-pressed', String(active));
+    });
+  }
+
+  // Sidebar search - mirror to main filter search
+  if (sidebarSearch){
+    var sidebarSearchTimer;
+    sidebarSearch.addEventListener('input', function(){
+      clearTimeout(sidebarSearchTimer);
+      sidebarSearchTimer = setTimeout(function(){
+        filterState.search = sidebarSearch.value;
+        saveFilterState();
+        if (typeof reviewIndex !== 'undefined') reviewIndex = 0;
+        if (typeof renderActiveTab === 'function') renderActiveTab();
+        if (typeof updateStats === 'function') updateStats();
+        // Also sync the in-panel search input
+        var mainSearch = document.getElementById('filterSearch');
+        if (mainSearch) mainSearch.value = sidebarSearch.value;
+      }, 200);
+    });
+  }
+
+  // Initial sync
+  updateSidebarActiveStates();
+
+  })();
+
+
+</script>
+
+  </main><!-- /main-content -->
+</div><!-- /layout -->
+
+
+<div class="kbd-help-overlay" id="kbdHelpOverlay">
+  <div class="kbd-help-panel">
+    <h2>Keyboard shortcuts</h2>
+    <p class="kbd-help-sub">Speed up reviews with the keyboard</p>
+    <div class="kbd-help-row">
+      <span>Reveal answer</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">Space</span><span class="kbd-help-key">↵</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Rate Hard</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">1</span><span class="kbd-help-key">H</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Rate Good</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">2</span><span class="kbd-help-key">G</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Rate Easy</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">3</span><span class="kbd-help-key">E</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Skip / next card</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">→</span><span class="kbd-help-key">N</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Previous card</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">←</span><span class="kbd-help-key">P</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Shuffle current review queue</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">S</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Restore pre-shuffle order</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">Shift</span><span class="kbd-help-key">S</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Add / remove from Focus Deck</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">C</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Toggle filter panel</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">F</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Focus search</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">/</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Show this help</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">?</span></div>
+    </div>
+    <div class="kbd-help-row">
+      <span>Close help / overlay</span>
+      <div class="kbd-help-keys"><span class="kbd-help-key">Esc</span></div>
+    </div>
+    <button class="kbd-help-close" type="button" id="kbdHelpClose">Got it</button>
+  </div>
+</div>
+
+</body>
+</html>

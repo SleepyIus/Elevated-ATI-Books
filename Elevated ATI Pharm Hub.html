@@ -513,11 +513,11 @@ a{color:inherit;text-decoration:none}
       <button class="pickup-dismiss" id="pickupDismiss" type="button" title="Hide this panel">×</button>
     </div>
     <div class="pickup-cards">
-      <a class="pickup-card" id="pickupBook" href="#" hidden>
+      <a class="pickup-card" id="pickupBook" href="Elevated%20ATI%20Pharm%20Book.html">
         <div class="pickup-icon">📖</div>
         <div class="pickup-text">
-          <div class="pickup-label">Continue reading</div>
-          <div class="pickup-value" id="pickupBookValue">—</div>
+          <div class="pickup-label">Chapter book</div>
+          <div class="pickup-value" id="pickupBookValue">No reading progress yet</div>
         </div>
       </a>
       <a class="pickup-card" id="pickupFc" href="#" hidden style="pointer-events:none">
@@ -527,11 +527,11 @@ a{color:inherit;text-decoration:none}
           <div class="pickup-value" id="pickupFcValue">—</div>
         </div>
       </a>
-      <a class="pickup-card" id="pickupTpl" href="#" hidden>
+      <a class="pickup-card" id="pickupTpl" href="Elevated%20ATI%20Pharm%20Templates.html">
         <div class="pickup-icon">📋</div>
         <div class="pickup-text">
-          <div class="pickup-label">Last template</div>
-          <div class="pickup-value" id="pickupTplValue">—</div>
+          <div class="pickup-label">Templates</div>
+          <div class="pickup-value" id="pickupTplValue">No template progress yet</div>
         </div>
       </a>
     </div>
@@ -1192,11 +1192,15 @@ a{color:inherit;text-decoration:none}
     // Book card
     var bookCard = document.getElementById('pickupBook');
     var bookValue = document.getElementById('pickupBookValue');
+    var bookLabel = bookCard && bookCard.querySelector('.pickup-label');
+    if (bookCard) { bookCard.href = 'Elevated%20ATI%20Pharm%20Book.html'; bookCard.hidden = false; }
+    if (bookLabel) bookLabel.textContent = 'Chapter book';
+    if (bookValue) bookValue.textContent = 'No reading progress yet';
+    hasAny = true;
     if (lastCh && lastCh.id && lastCh.name){
       bookCard.href = 'Elevated%20ATI%20Pharm%20Book.html#' + lastCh.id;
+      if (bookLabel) bookLabel.textContent = 'Continue reading';
       bookValue.textContent = 'Ch ' + (lastCh.id.replace('ch','')) + ': ' + lastCh.name;
-      bookCard.hidden = false;
-      hasAny = true;
     }
     
     // Flashcards card  
@@ -1220,11 +1224,15 @@ a{color:inherit;text-decoration:none}
     // Template card
     var tplCard = document.getElementById('pickupTpl');
     var tplValue = document.getElementById('pickupTplValue');
+    var tplLabel = tplCard && tplCard.querySelector('.pickup-label');
+    if (tplCard) { tplCard.href = 'Elevated%20ATI%20Pharm%20Templates.html'; tplCard.hidden = false; }
+    if (tplLabel) tplLabel.textContent = 'Templates';
+    if (tplValue) tplValue.textContent = 'No template progress yet';
+    hasAny = true;
     if (lastTpl && lastTpl.id && lastTpl.name){
       tplCard.href = 'Elevated%20ATI%20Pharm%20Templates.html#' + lastTpl.id;
+      if (tplLabel) tplLabel.textContent = 'Last template';
       tplValue.textContent = lastTpl.name;
-      tplCard.hidden = false;
-      hasAny = true;
     }
     
     panel.hidden = !hasAny;

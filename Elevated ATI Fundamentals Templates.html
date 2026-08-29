@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     ELEVATED ATI SUITE · FUNDAMENTALS TEMPLATES SHELL
+     Version:    0.1.0
+     Build date: 2026-08-26
+     Status:     Unlinked draft · design shell only
+     Content:    0 templates · 0 clinical records
+     ============================================================ -->
+<html lang="en" data-content-status="empty">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#8b5cf6">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Source-neutral Fundamentals Active Learning Templates shell for the Elevated ATI suite.">
+<title>Elevated · ATI Fundamentals Templates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital,wght@0,400;1,400&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f1117;--surface:#181c27;--surface2:#1e2336;--surface3:#242a40;
+  --border:#2a3050;--border-soft:rgba(255,255,255,.06);
+  --accent:#8b5cf6;--accent2:#a78bfa;--accent-soft:rgba(139,92,246,.14);
+  --text:#f3f4f6;--text2:#a7adc4;--text3:#68708f;
+  --shadow:0 18px 50px rgba(0,0,0,.28)
+}
+[data-theme="light"]{
+  --bg:#f5f3ff;--surface:#fff;--surface2:#f0edff;--surface3:#e8e2ff;
+  --border:#d9d1f5;--border-soft:rgba(47,35,83,.08);
+  --accent:#6d28d9;--accent2:#7c3aed;--accent-soft:rgba(109,40,217,.10);
+  --text:#181427;--text2:#5f5873;--text3:#89829b;--shadow:0 16px 40px rgba(54,34,94,.12)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+button,input{font-family:inherit}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid color-mix(in srgb,var(--accent) 50%,transparent);outline-offset:3px}
+.skip-link{position:fixed;left:12px;top:-80px;z-index:100;padding:9px 12px;border-radius:8px;background:var(--accent);color:#fff;font-size:12px;font-weight:800;transition:top .15s}
+.skip-link:focus{top:12px}
+.template-layout{display:flex;max-width:none;min-height:100vh;padding:0}
+.template-main{flex:1;min-width:0;max-width:1100px;margin-left:280px;padding:48px 56px 80px}
+.template-sidebar{position:fixed;inset:0 auto 0 0;z-index:10;display:flex;flex-direction:column;width:280px;min-width:280px;overflow:hidden;background:var(--surface);border-right:1px solid var(--border)}
+.sidebar-header{flex-shrink:0;padding:18px 16px 14px;border-bottom:1px solid var(--border)}
+.back-home{display:inline-flex;align-items:center;gap:6px;padding:5px 0 12px;color:var(--text3);font-size:11px;font-weight:600;letter-spacing:.03em;transition:color .15s}
+.back-home::before,.back-home-mobile::before{content:'←';font-size:13px}
+.back-home:hover{color:var(--accent)}
+.sb-course{margin-bottom:4px;color:var(--accent);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+.sb-title{margin-bottom:2px;color:var(--text);font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;line-height:1.1}
+.sb-sub{color:var(--text3);font-size:11px}
+.sb-version{margin-top:6px;color:var(--text3);font-size:10px;letter-spacing:.03em;font-variant-numeric:tabular-nums;opacity:.65}
+.sidebar-theme-toggle{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;margin-top:12px;padding:6px 10px;border:1px solid var(--border);border-radius:6px;background:transparent;color:var(--text2);font-size:11px;font-weight:600;cursor:pointer;transition:all .15s}
+.sidebar-theme-toggle:hover{border-color:var(--accent);color:var(--text)}
+.sidebar-progress-wrap{flex-shrink:0;padding:12px 16px;border-bottom:1px solid var(--border)}
+.sidebar-progress{height:4px;margin-bottom:6px;overflow:hidden;border-radius:2px;background:var(--surface2)}
+.sidebar-progress-fill{width:0;height:100%;border-radius:2px;background:var(--accent)}
+.sidebar-progress-text{color:var(--text3);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.sidebar-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.legend-item{display:flex;align-items:center;gap:5px;color:var(--text3);font-size:10px;font-weight:500}
+.legend-dot{width:8px;height:8px;flex-shrink:0;border:1px solid transparent;border-radius:50%}
+.legend-dot.reviewed{border-color:var(--accent);background:var(--accent-soft)}
+.legend-dot.checked{background:var(--accent)}
+.sidebar-search{position:relative;flex-shrink:0;padding:10px 16px;border-bottom:1px solid var(--border)}
+#tplSidebarSearch{width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);font-size:12px;outline:0;transition:border-color .15s}
+#tplSidebarSearch:focus{border-color:var(--accent)}
+#tplSidebarSearch::placeholder{color:var(--text3)}
+.sidebar-list{flex:1;overflow-y:auto;padding:8px 0 24px;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+.sidebar-list::-webkit-scrollbar{width:6px}.sidebar-list::-webkit-scrollbar-track{background:transparent}.sidebar-list::-webkit-scrollbar-thumb{border-radius:3px;background:var(--border)}
+.sidebar-section-label{padding:14px 16px 4px;color:var(--text3);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.sidebar-empty{margin:5px 8px 0;padding:10px;border:1px dashed var(--border);border-radius:7px;color:var(--text3);font-size:12px}
+.sidebar-toggle{display:none;position:fixed;right:14px;top:14px;z-index:50;width:40px;height:40px;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text);font-size:18px;cursor:pointer}
+.back-home-mobile{display:none;position:fixed;left:14px;top:14px;z-index:51;align-items:center;gap:5px;padding:8px 14px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text2);font-size:11px;font-weight:600;letter-spacing:.03em;transition:color .15s,border-color .15s}
+.back-home-mobile:hover{border-color:var(--accent);color:var(--accent)}
+.sidebar-overlay{display:none;position:fixed;inset:0;z-index:9;background:rgba(0,0,0,.4);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.sidebar-overlay.show{display:block}
+.hero{margin-bottom:18px;padding:36px 0 20px}
+.eyebrow{margin-bottom:8px;color:var(--accent);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.hero h1{margin:0 0 10px;font-family:'DM Serif Display',serif;font-size:44px;font-weight:400;letter-spacing:0;line-height:1.05}
+.hero h1 em{color:var(--accent2);font-weight:400}
+.hero p{min-height:125px;max-width:760px;margin:0;color:var(--text2);font-size:15px;line-height:25px}
+.compare-btn{display:inline-flex;align-items:center;gap:8px;margin:22px 0 16px;padding:10px 20px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text2);font-size:13px;font-weight:600}
+.compare-btn:disabled,.reset-btn:disabled{cursor:not-allowed;color:var(--text3)}
+.section-divider{margin:18px 0 14px;padding-bottom:14px;border-bottom:1px solid var(--border);color:var(--text3);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.template-toolbar{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:end;margin-bottom:18px;padding:14px;border:1px solid var(--border);border-radius:12px;background:var(--surface)}
+.toolbar-search label,.toolbar-group-label{display:block;margin-bottom:8px;color:var(--text3);font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.toolbar-search input{width:100%;padding:11px 13px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-size:14px;outline:0}
+.toolbar-search input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.toolbar-search input::placeholder{color:var(--text3)}
+.button-row{display:flex;gap:6px;flex-wrap:wrap}
+.view-mode-btn,.status-chip{padding:8px 11px;border:1px solid var(--border);border-radius:8px;background:var(--surface2);color:var(--text2);font-size:12px;font-weight:700;cursor:pointer}
+.view-mode-btn.active,.status-chip.active{border-color:var(--accent);background:var(--accent-soft);color:var(--accent2)}
+.result-count{display:block;margin:-6px 0 12px;color:var(--text3);font-size:11px;font-weight:700;text-align:right}
+.empty-panel{padding:24px;border:1px solid var(--border);border-radius:14px;background:var(--surface)}
+.empty-card{padding:34px 24px;border:2px dashed var(--border);border-radius:12px;text-align:center}
+.empty-kicker{margin-bottom:7px;color:var(--accent);font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.empty-card h2{margin:0 0 8px;font-family:'DM Serif Display',serif;font-size:27px;font-weight:400}
+.empty-card p{max-width:620px;margin:0 auto;color:var(--text2);font-size:14px}
+.empty-count{display:inline-flex;margin-top:16px;padding:4px 9px;border:1px solid var(--border);border-radius:999px;background:var(--surface2);color:var(--text3);font-size:11px;font-weight:800}
+.exam-reset{display:flex;justify-content:flex-end;margin-top:18px}
+.reset-btn{padding:9px 13px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text2);font-size:12px;font-weight:700}
+.page-footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text3);font-size:11px}
+.page-footer p{margin:3px 0}.page-footer a{color:var(--accent);font-weight:700}
+@media(max-width:900px){
+  .template-sidebar{display:flex;transform:translateX(-100%);transition:transform .25s ease}
+  .template-sidebar.open{transform:translateX(0)}
+  .sidebar-toggle,.back-home-mobile{display:flex}
+  .template-sidebar .sidebar-header{padding-top:72px}
+  .template-sidebar .back-home{display:none}
+  .template-main{max-width:none;margin-left:0;padding:92px 24px 60px}
+  .hero h1{font-size:44px;line-height:1.05}
+  .template-toolbar{grid-template-columns:1fr}
+  .result-count{text-align:left}
+}
+@media(max-width:600px){
+  .template-main{padding:92px 16px 56px}
+  .hero{padding-top:26px}.hero h1{font-size:36px}.hero p{min-height:0}
+  .empty-panel{padding:14px}.empty-card{padding:28px 16px}
+}
+@media print{
+  @page{size:Letter;margin:.45in}
+  body{background:#fff;color:#111;font-size:10.5pt}
+  .skip-link,.template-sidebar,.sidebar-toggle,.back-home-mobile,.sidebar-overlay,.template-toolbar,.compare-btn,.exam-reset,.page-footer{display:none!important}
+  .template-main{max-width:none;margin:0;padding:0}
+  .hero{padding:0 0 18px;margin:0}.hero h1{font-size:30px}.hero p{min-height:0;color:#333;font-size:11pt}
+  .section-divider{margin-top:10px}.empty-panel,.empty-card{break-inside:avoid;background:#fff;color:#111}
+  .empty-card p{color:#444}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#mainContent">Skip to main content</a>
+<a class="back-home-mobile" href="Elevated%20ATI%20Fundamentals%20Hub.html" title="Back to Fundamentals Hub">Back to Hub</a>
+<button class="sidebar-toggle" id="tplSidebarToggle" type="button" aria-label="Open template navigation" aria-controls="sidebar" aria-expanded="false">☰</button>
+<div class="sidebar-overlay" id="tplSidebarOverlay" aria-hidden="true"></div>
+
+<div class="template-layout">
+  <aside class="template-sidebar" id="sidebar" aria-label="Fundamentals template navigation">
+    <div class="sidebar-header">
+      <a class="back-home" href="Elevated%20ATI%20Fundamentals%20Hub.html" title="Back to Fundamentals Hub">Back to Hub</a>
+      <div class="sb-course">ATI Fundamentals</div>
+      <div class="sb-title">Active Learning Templates</div>
+      <div class="sb-sub">Fundamentals · source pending</div>
+      <div class="sb-version" title="Draft shell v0.1.0 · built 2026-08-26">v0.1.0 · 2026-08-26</div>
+      <button class="sidebar-theme-toggle" id="themeToggleSidebar" type="button" aria-label="Toggle theme"><span class="theme-icon" aria-hidden="true">☀️</span><span class="theme-label">Light Mode</span></button>
+    </div>
+    <div class="sidebar-progress-wrap">
+      <div class="sidebar-progress" aria-hidden="true"><div class="sidebar-progress-fill" id="tplSidebarProgress" style="width:0%"></div></div>
+      <div class="sidebar-progress-text" id="tplSidebarProgressText">0 of 0 checked</div>
+      <div class="sidebar-legend" aria-label="Progress legend">
+        <span class="legend-item"><span class="legend-dot reviewed" aria-hidden="true"></span>Reviewed</span>
+        <span class="legend-item"><span class="legend-dot checked" aria-hidden="true"></span>Checked</span>
+      </div>
+    </div>
+    <div class="sidebar-search">
+      <input id="tplSidebarSearch" type="search" placeholder="Search templates…" autocomplete="off" aria-label="Search templates" aria-controls="templateEmptyState">
+    </div>
+    <nav class="sidebar-list" id="tplSidebarList" aria-label="Template types">
+      <div class="sidebar-section-label">Template Types</div>
+      <div class="sidebar-empty">No template types available</div>
+    </nav>
+  </aside>
+
+  <main class="template-main" id="mainContent" tabindex="-1">
+    <section class="hero" aria-labelledby="pageTitle">
+      <div class="eyebrow">Fundamentals Active Learning Templates</div>
+      <h1 id="pageTitle">Fundamentals <em>Templates</em></h1>
+      <p>The Active Learning Templates workspace is ready for source-authorized study records. Template content remains intentionally absent until the exact source, edition, and allowed scope are approved.</p>
+      <button class="compare-btn" id="masterPrintBtn" type="button" disabled title="No templates are available to print">🖨️ Print Templates</button>
+    </section>
+
+    <div class="section-divider">Templates</div>
+    <section class="template-toolbar" aria-label="Template controls">
+      <div class="toolbar-search">
+        <label for="tplSearch">Search templates</label>
+        <input id="tplSearch" type="search" placeholder="Search Fundamentals templates" autocomplete="off" aria-controls="templateEmptyState">
+      </div>
+      <div>
+        <span class="toolbar-group-label">View</span>
+        <div class="button-row" role="group" aria-label="Template view">
+          <button class="view-mode-btn active" type="button" data-view-mode="filled" aria-pressed="true">Filled</button>
+          <button class="view-mode-btn" type="button" data-view-mode="blank" aria-pressed="false">Blank</button>
+        </div>
+      </div>
+      <div>
+        <span class="toolbar-group-label">Status</span>
+        <div class="button-row" role="group" aria-label="Template status">
+          <button class="status-chip active" type="button" data-status-filter="all" aria-pressed="true">All</button>
+          <button class="status-chip" type="button" data-status-filter="reviewed" aria-pressed="false">Reviewed</button>
+          <button class="status-chip" type="button" data-status-filter="checked" aria-pressed="false">Checked</button>
+        </div>
+      </div>
+    </section>
+    <output class="result-count" id="tplResultCount" aria-live="polite">0 templates</output>
+
+    <section class="empty-panel" id="templateEmptyState" aria-labelledby="emptyTitle">
+      <div class="empty-card">
+        <div class="empty-kicker">Content registry empty</div>
+        <h2 id="emptyTitle">Templates not yet populated</h2>
+        <p>The first real template will appear only after source authorization and content population begin.</p>
+        <span class="empty-count">0 templates</span>
+      </div>
+    </section>
+
+    <div class="exam-reset"><button class="reset-btn" id="tplResetProgress" type="button" disabled title="No template progress exists">Reset All Progress</button></div>
+    <footer class="page-footer">
+      <p>Elevated ATI Fundamentals · Active Learning Templates draft shell</p>
+      <p>Source and content population pending · <a href="Elevated%20ATI%20Fundamentals%20Hub.html">Back to hub</a></p>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var TEMPLATE_RECORDS = Object.freeze([]);
+  var STATE_KEYS = Object.freeze({
+    theme:'nur2460_theme',
+    progress:'atifundamentals_templates_progress_v1',
+    filters:'atifundamentals_templates_filters_v1',
+    lastTemplate:'atifundamentals_last_template_v1'
+  });
+  window.ELEVATED_ATI_SHELL = Object.freeze({
+    subject:'Fundamentals',artifact:'Templates',version:'0.1.0',publicationStatus:'draft',
+    contentAuthorized:false,recordCount:TEMPLATE_RECORDS.length,stateKeys:STATE_KEYS
+  });
+  document.body.setAttribute('data-record-count',String(TEMPLATE_RECORDS.length));
+
+  var root=document.documentElement;
+  var themeButtons=Array.prototype.slice.call(document.querySelectorAll('#themeToggleSidebar'));
+  function read(key){try{return localStorage.getItem(key);}catch(error){return null;}}
+  function write(key,value){try{localStorage.setItem(key,value);}catch(error){}}
+  if(read(STATE_KEYS.theme)==='light') root.setAttribute('data-theme','light');
+  function syncTheme(){
+    var light=root.getAttribute('data-theme')==='light';
+    themeButtons.forEach(function(button){
+      var icon=button.querySelector('.theme-icon');var label=button.querySelector('.theme-label');
+      if(icon)icon.textContent=light?'🌙':'☀️';if(label)label.textContent=light?'Dark Mode':'Light Mode';
+    });
+  }
+  themeButtons.forEach(function(button){button.addEventListener('click',function(){
+    var light=root.getAttribute('data-theme')==='light';
+    if(light)root.removeAttribute('data-theme');else root.setAttribute('data-theme','light');
+    write(STATE_KEYS.theme,light?'dark':'light');syncTheme();
+  });});
+  syncTheme();
+
+  var defaultFilters={version:1,search:'',mode:'filled',status:'all'};
+  function loadFilters(){
+    var raw=read(STATE_KEYS.filters);if(!raw)return Object.assign({},defaultFilters);
+    try{
+      var parsed=JSON.parse(raw);if(!parsed||parsed.version!==1)return Object.assign({},defaultFilters);
+      return {version:1,search:typeof parsed.search==='string'?parsed.search:'',mode:parsed.mode==='blank'?'blank':'filled',status:['all','reviewed','checked'].indexOf(parsed.status)>-1?parsed.status:'all'};
+    }catch(error){return Object.assign({},defaultFilters);}
+  }
+  var filters=loadFilters();
+  var mainSearch=document.getElementById('tplSearch');
+  var sidebarSearch=document.getElementById('tplSidebarSearch');
+  var resultCount=document.getElementById('tplResultCount');
+  function saveFilters(){write(STATE_KEYS.filters,JSON.stringify(filters));}
+  function applyFilters(){
+    mainSearch.value=filters.search;sidebarSearch.value=filters.search;
+    document.querySelectorAll('[data-view-mode]').forEach(function(button){var active=button.getAttribute('data-view-mode')===filters.mode;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));});
+    document.querySelectorAll('[data-status-filter]').forEach(function(button){var active=button.getAttribute('data-status-filter')===filters.status;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));});
+    resultCount.textContent='0 templates';
+  }
+  function updateSearch(value){filters.search=value;applyFilters();saveFilters();}
+  mainSearch.addEventListener('input',function(){updateSearch(mainSearch.value);});
+  sidebarSearch.addEventListener('input',function(){updateSearch(sidebarSearch.value);});
+  document.querySelectorAll('[data-view-mode]').forEach(function(button){button.addEventListener('click',function(){filters.mode=button.getAttribute('data-view-mode');applyFilters();saveFilters();});});
+  document.querySelectorAll('[data-status-filter]').forEach(function(button){button.addEventListener('click',function(){filters.status=button.getAttribute('data-status-filter');applyFilters();saveFilters();});});
+  applyFilters();
+
+  var sidebar=document.getElementById('sidebar');
+  var sidebarToggle=document.getElementById('tplSidebarToggle');
+  var overlay=document.getElementById('tplSidebarOverlay');
+  var sidebarList=document.getElementById('tplSidebarList');
+  function responsive(){return window.innerWidth<=900;}
+  function setSidebarOpen(open,moveFocus,restoreFocus){
+    open=Boolean(open&&responsive());sidebar.classList.toggle('open',open);overlay.classList.toggle('show',open);overlay.setAttribute('aria-hidden',String(!open));
+    sidebarToggle.textContent=open?'×':'☰';sidebarToggle.setAttribute('aria-label',open?'Close template navigation':'Open template navigation');sidebarToggle.setAttribute('aria-expanded',String(open));
+    if(responsive()&&!open){sidebar.setAttribute('aria-hidden','true');sidebar.setAttribute('inert','');}else{sidebar.setAttribute('aria-hidden','false');sidebar.removeAttribute('inert');}
+    if(open){sidebarList.scrollTop=0;if(moveFocus)sidebarSearch.focus();}else if(restoreFocus&&responsive())sidebarToggle.focus();
+  }
+  sidebarToggle.addEventListener('click',function(){setSidebarOpen(sidebarToggle.getAttribute('aria-expanded')!=='true',true,true);});
+  overlay.addEventListener('click',function(){setSidebarOpen(false,false,true);});
+  document.addEventListener('keydown',function(event){if(event.key==='Escape'&&sidebarToggle.getAttribute('aria-expanded')==='true')setSidebarOpen(false,false,true);});
+  window.addEventListener('resize',function(){setSidebarOpen(false,false,false);});
+  setSidebarOpen(false,false,false);
+})();
+</script>
+</body>
+</html>

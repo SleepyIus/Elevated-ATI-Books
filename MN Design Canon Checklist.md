@@ -65,7 +65,7 @@ Recovery rule: the private `Elevated_ATI_Build_Guide_v3.md` Part 49 is self-cont
   - HOLD-CONTENT implication: do not add or enrich ATI educational content while building shells.
 
 - [ ] Define each book as four coordinated shells.
-  - Hub shell: topbar, hero, four stat cards, pickup panel, review queue status, primary tools, unit map, template-type navigation, storage controls, and subject accent identity.
+  - Hub shell: topbar, hero, four stat cards, pickup panel, review queue status, primary tools, unit map, template-type navigation, storage controls, and subject accent identity. The pickup panel remains a required shared structural role in a zero-content shell: when no learner history exists, show honest Book, Templates, and Flashcards placeholder destinations rather than omitting the panel, inventing progress, or exposing a fake starter deck. Session-only dismissal may hide it temporarily; later real content/state may replace only the placeholder values without changing the role or learner-state identity.
   - Book shell: chapter navigation, modal study workspace, TL;DR-first flow, tabs, next/previous chapter movement, template bridges, practice area, bookmarks/highlights/notes, print, and progress memory.
   - Templates shell: MN-approved navigation sidebar, search, progress strip, template-type accordions, official A1-A15 geometry, filled/blank mode, print, previous/next within type, source jumps, and book-specific accent.
   - Template source-line canon: keep source/chapter text visually separate from the `Open chapter` link; the link should sit on its own line, and internal labels such as `ALS in book` should not appear in the learner-facing source line.
@@ -108,6 +108,7 @@ Recovery rule: the private `Elevated_ATI_Build_Guide_v3.md` Part 49 is self-cont
   - Night Shift automation canon: Night Shift is an explicitly activated temporary profile of the existing guarded heartbeat, never a competing automation. The current migration queue remains primary; shell work is secondary only after a safe no-work or user-review boundary and may never bypass a safety, continuity, learner-state, clinical-content, destructive-action, unexpected-change, missing-evidence, or subjective-canon stop. One run owns one product and at most two adjacent bounded phases. Construct and fully gate under a fresh `/private/tmp` path, then promote the exact passing result as an unlinked repository draft. The ordered shell dependency is Book → Hub → Templates → Flashcards; global-index linkage, publication, content population, commit, and push remain separately gated. New shells contain zero clinical records or inferred content and are born with every applicable approved shared feature. `I am back` safely checkpoints, reports, disables the shell-secondary profile, and restores the exact ordinary queue recovery point.
   - Flashcards full-gate canon: rebuild fresh isolated-storage payloads from exact product files under `/private/tmp`, use only `127.0.0.1`, normalize browser zoom to `100%`, and require two identical measurements at least `250ms` apart. Validate `2240 x 1000`, `1440 x 1000`, `768 x 1000`, `390 x 844`, and exact `901/900` plus `601/600` breakpoint pairs. Scan all records for required fields, exact count/order/payload parity, unique IDs, same-subject anchor resolution, script/runtime integrity, Review/Browse, reveal/rating, every primary/secondary filter and union, CSV, source links, keyboard controls, themes, drawer behavior, print, accessibility state, horizontal overflow, storage-key preservation, versioned filter migration, HTTP, focused diffs, and `git diff --check`. QA artifacts remain temporary; no stage, commit, push, publish, branch switch, learner-data deletion, or content population is authorized.
   - Placeholder/new-husk canon: existing subjects must be measured and preserved rather than replaced. A new subject requires explicit identity, edition, accent, four collision-free paths, isolated storage, `placeholderOnly=true`, and no donor payload. Construct one authorized surface per batch in Book, Hub, Templates, then Flashcards order; use only defined non-educational empty states, keep unavailable links disabled, and never infer content-population permission from a completed shell.
+  - Product-identity authority canon: only an exact ATI review book supplied by the user may authorize a product identity, subject, edition, or source scope. An ATI catalog/store listing, general web page, model memory, inferred family gap, or externally discovered product name is never construction authority, even when it is published or sold by ATI. Do not create a shell, Hub, Templates, Flashcards, Quick Review, source record, or index entry from external identity research. If the exact user-supplied review book is absent or its intended product mapping is unclear, stop and ask the user.
   - Empty-box/content-population canon: only a current explicit user instruction may activate one bounded content batch for one subject and one surface. Every learner-facing content unit in the focused diff requires an exact private same-subject provenance location and destination route; inference, model memory, web material, donor content, and broad topic similarity cannot close a source gap. Required official boxes remain visible and machine-flagged when source support is absent. Default caps are two Book chapters, three Template cards, or twelve Flashcards, with Hub synchronization handled separately; authorization expires at close, blocker, or cap and returns the project to HOLD-CONTENT.
   - Deterministic build-pipeline canon: each work order selects one lane and owns one subject, one surface, one primary file, and one bounded objective. New/recreated placeholder suites use validated manifest, Book, Templates, Flashcards, then Hub; existing repairs start directly with the named surface. Every batch follows authority/mode, work order, preflight, baseline, temporary preparation, focused implementation, static QA, rendered/behavior QA, focused diff, continuity, approval gate, and handoff. Objective QA never becomes user visual approval or permission for another surface, content batch, commit, or push.
   - Objective QA canon: define a complete requirement-backed matrix before editing; every required row must be `PASS` or justified `NOT_APPLICABLE`, with zero `FAIL` or `BLOCKED` rows. Use structured parsing, complete payload/ID/count/order/link checks, isolated storage, keyboard/accessibility checks, and rendered QA at `1440 x 1000`, `768 x 1000`, and `390 x 844` plus exact breakpoints. Clipping requires more than 1px objective overflow and two identical readings at least 250ms apart; screenshots are supplemental and remain under `/private/tmp`. An unchanged out-of-scope mismatch may remain documented in a focused pass, but full surface/suite conformance and user visual approval require their own explicit gates.
@@ -180,6 +181,7 @@ Recovery rule: the private `Elevated_ATI_Build_Guide_v3.md` Part 49 is self-cont
 
 ## Recovery Documentation Canon
 
+- [x] Every fresh visual comparison handoff uses one consistent temporary comparison harness with explicit reference/target pane labels, equal fixed panes, responsive and exact-width presets, synchronized-scroll control, landmark visibility control, both-pane theme control, a both-pane reset, an accessible collapsible focus mode, and paired synchronized draggable guides over the pane content. `Vertical guides` places one 1px teal line in each pane at the same normalized horizontal position; dragging either line moves both left/right together. `Horizontal guides` places one 1px teal line in each pane at the same normalized vertical position; dragging either line moves both up/down together. Both pairs are independently removable, remember their positions while hidden, and return to 50% through `Center guides`. Each guide is a keyboard-focusable slider with accurate orientation/value semantics, direction-appropriate arrow keys in 1% steps (`Shift` for 5%), and bounded `Home`/`End` positions. Guides may never resize, stack, or replace the fixed panes. At narrow widths the comparison stacks safely while retaining paired synchronized guide positions without page overflow. Guide visibility/positions, product width, landmarks, synchronized scrolling, and iframe sources survive Focus entry/exit; toggling or centering guides may never recreate the iframes or mutate product/learner state. `Reset both panes` restores scroll and any renderable review-only surface that a copied product has session-dismissed, such as a pickup panel with at least one visible card, by changing only the temporary iframe DOM; it may not clear or write localStorage/sessionStorage, recreate an iframe, alter a product file, or mutate learner state. Default viewport coordinates use rows `A–H` and columns `1–4`; issue reports should name the pane plus coordinate and a short role/selector, for example `Right C3 — hero bottom`. Landmark labels default to compact absolute overlays at the inside edges of each product pane: they reserve no top track or side rail, their on/off toggle is geometry-invariant, and the supporting grid remains low contrast. Focus mode collapses the title/options/full pane-label chrome into a compact bar while keeping both pane identities, current guide/width/landmark/sync status, and an always-visible exit control; `Escape` exits and restores focus to the invoking control. Entering or leaving Focus mode may change available canvas height but may not recreate the iframes, reset comparison settings, change product width, or mutate product/learner state. Coordinate, grid, and guide overlays are review-only, removable, and may not change product geometry, persisted state, or product files. Build each harness from exact current product copies under a unique `/private/tmp` evidence root with fresh cache keys and a 127.0.0.1 URL; comparison chrome is review tooling only and never ships as product UI.
 - [ ] Keep each design run to one focused book/template defect or one documentation batch.
 - [ ] For clipping QA, require the exact book/family/card ID, stable selector, viewport, current payload parity, and more than 1px of measured overflow or a matching out-of-container bounding box before editing. Inspect each visible collapsed accordion header, but exclude its intentionally hidden body along with inactive tabs, intentional scrolling, deliberate line clamps, closed off-canvas elements, and comparison chrome.
 - [ ] Normalize browser zoom to 100%, wait for fonts/assets and settled layout, then require two identical measurements at least 250ms apart. Do not edit from unstable measurements.
@@ -1017,3 +1019,160 @@ Current review: `http://127.0.0.1:51822/state-review-518.html?v=state-review-518
 - [ ] Push/publication requires a separate later instruction.
 
 **Next Recommendation:** Create and verify the local checkpoint commit, then keep it unpushed.
+
+## Part 548 Reusable Gate — Hub Pickup Zero-Progress States
+
+- [x] Every Hub with an existing same-family Book and Templates surface keeps those destinations visible in `Pick up where you left off` even when valid last-location state is absent.
+- [x] The honest fallback terms are `Chapter book` / `No reading progress yet` and `Templates` / `No template progress yet`; a valid stored location restores the existing resume label, value, and anchored destination without rewriting that state.
+- [x] Flashcards pickup wording and due/starter behavior remain subject-specific and unchanged by this feature.
+- [x] Pickup dismissal remains session-only under the existing subject-local key. The feature introduces no new persistent key and does not alter backup/import/reset membership or learner bytes.
+- [x] Community Health, Leadership, and Nutrition are currently Not applicable because no Hub exists; this pickup contract is a mandatory activation gate when each Hub is created.
+- [x] MN, MH, PD, Pharm, and AMS implementation plus fresh shared-feature static/runtime/responsive/accessibility/state/diff QA.
+- [x] Combined user visual approval — included in the Part 565 statement, “i approve everything.”
+
+Current review: `http://127.0.0.1:54849/shared-hub-pickup-review-548.html?v=shared-pickup-548-review-c`.
+
+**Approval:** The Part 548 shared pickup feature is user visually approved under Part 565. No further review is required until it changes.
+
+## Part 549 Reusable Gate — Comparison Screenshot Annotation
+
+- [x] Review-only comparison launchers may include one independent screenshot annotation box per pane. Boxes are overlays owned by the comparison wrapper and never by the compared products.
+- [x] Each box uses a visible labeled drag handle, a visible resize handle, a transparent red outline, and bounded normalized geometry so pane-width changes do not move it outside its pane.
+- [x] Keyboard parity is required: arrow keys move or resize one percent, `Shift` uses five percent, and `Home` restores that box. Visibility and reset controls remain separate, with honest `aria-pressed` state.
+- [x] Boxes retain independent geometry through target changes and Focus mode; hiding them does not discard geometry. Comparison reset must not write product storage or learner state.
+- [x] Part 549 passes parse/ID/source-copy checks, independent movement/resizing, hide/show/reset, 390px containment, wide/phone overflow inspection, target/Focus retention, and zero wrapper errors.
+- [x] User interaction approval of both physical drag and resize controls — included in the Part 565 statement, “i approve everything.”
+
+Current review: `http://127.0.0.1:54949/shared-hub-pickup-review-549.html?v=red-boxes-549-a`.
+
+**Approval:** The Part 549 comparison annotation controls are user approved under Part 565. No further review is required until they change.
+
+## Part 550 Reusable Gate — Independent Comparison-Box Selection
+
+- [x] A two-pane comparison annotation may expose exactly four mutually exclusive visibility modes: `Both`, `Left only`, `Right only`, and `Hide`.
+- [x] Exactly one mode exposes `aria-pressed=true`; the mode changes visibility only and never discards either box's independent normalized geometry.
+- [x] Selection persists through target switching, pane-width changes, and Focus mode without product-storage or learner-state access.
+- [x] Part 550 passes all four visibility states, geometry retention, 1440px/390px overflow inspection, target/Focus persistence, source-copy integrity, and zero wrapper errors.
+- [x] User interaction approval of the single-box selector — included in the Part 565 statement, “i approve everything.”
+
+Current review: `http://127.0.0.1:55050/shared-hub-pickup-review-550.html?v=box-selection-550-a`.
+
+**Approval:** The Part 550 single-box selector is user approved under Part 565. No further review is required until it changes.
+
+## Part 555 Reusable Gate — Hub Primary-Tool Role Parity
+
+- [x] Zero-content Hub primary-tool cards retain every shared metadata role present in the approved populated Hub pattern; they do not drop a role merely because its value is unavailable.
+- [x] Honest empty values use `0` when the measured inventory is exactly zero and `—` when a derived value is undefined without populated records, such as pages per chapter with zero chapters.
+- [x] Shared action terminology remains artifact-accurate and content-independent: `Open chapter book`, `Open templates`, and `Open flashcards`. Do not add `shell` to the visible action merely because the destination is an empty draft.
+- [x] Metadata and action typography retain the populated reference roles: DM Sans `12px` metadata and DM Sans `13px/600` action text; card headings remain DM Serif Display `24px/1.2/400`.
+- [x] Part 555 static and eight-width runtime QA proves three roles per Fundamentals card, exact CTA and typography parity with MN, honest zero/undefined values, zero overflow, and no learner-state or clinical-content changes.
+- [x] User visual approval of the corrected Fundamentals primary-tool cards — included in the Part 565 statement, “i approve everything.”
+
+Current review: `http://127.0.0.1:55556/fundamentals-hub-primary-tools-review-555.html?v=primary-tools-555-a`.
+
+**Approval:** The Part 555 Fundamentals primary-tool cards are user visually approved under Part 565. No further review is required until they change.
+
+## Part 556 Reusable Gate — Minimalist Comparison Chrome
+
+- [x] Comparison launchers open in Focus mode by default when advanced controls would otherwise materially reduce the comparison viewport.
+- [x] Default Focus chrome is one `36px` strip containing concise left/right identities, essential status, and `Exit focus`; the two panes begin immediately below at `y=36`.
+- [x] `Exit focus` restores the comparison header while the advanced options remain collapsed. The user explicitly expands options only when width, target, sync, landmark, guide, theme/reset, or annotation controls are needed.
+- [x] Collapsing chrome never removes functionality or state: synchronized draggable guides, compact landmarks, scroll mode, pane widths, target selection, Focus recovery, and independent red-box modes retain their values.
+- [x] Part 556 wide and phone QA passes twice-stable geometry, zero horizontal overflow, zero page-reported wrapper errors, accessible exit/expand/re-enter behavior, exact current source copies, and storage neutrality.
+- [x] User approval of the minimalist default chrome — included in the Part 565 statement, “i approve everything.”
+
+Current review: `http://127.0.0.1:55656/fundamentals-hub-primary-tools-review-556.html?v=minimal-556-a`.
+
+**Approval:** The Part 556 minimalist comparison chrome is user approved under Part 565. No further review is required until it changes.
+
+## Part 557 Reusable Gate — Fixed Reference Orientation
+
+- [x] Every MN-reference comparison fixes MN on the left and places the active subject or candidate on the right. The reference and target may never be reversed merely because the candidate initiated the review.
+- [x] Left/right focus-bar labels, pane labels, iframe titles, guide labels, red-box labels, and example coordinates must follow their physical pane positions.
+- [x] A focused one-reference/one-target handoff omits the subject selector. If a multi-target launcher is genuinely required, switching affects only the right pane; the MN left reference remains immutable.
+- [x] Minimalist Focus behavior remains unchanged: a `36px` default strip, collapsed advanced options, synchronized draggable guides, compact landmarks, scroll/width/theme/reset controls, and independent annotation-box modes.
+- [x] Part 557 static and browser QA proves exact MN-left/Fundamentals-right sources and labels, no subject switching, stable wide/phone geometry, loaded pane fonts, zero pane/outer overflow, zero page-reported errors, storage neutrality, and HTTP 200.
+- [x] User approval of the restored fixed-reference orientation — included in the Part 565 statement, “i approve everything.”
+
+Current review: `http://127.0.0.1:55757/mn-vs-fundamentals-hub-review-557.html?v=mn-left-557-a`.
+
+**Approval:** The Part 557 MN-left fixed-reference orientation is user approved under Part 565. No further review is required until it changes.
+
+## Part 558 Reusable Gate — Honest Hub Planned-Additions Role
+
+- [x] A Hub retains the shared `Planned additions` future-card between its current inventory/tools and `Sync & Storage`; a zero-content shell does not omit the role merely because population has not begun.
+- [x] A zero-content Hub replaces donor roadmap text with honest subject-local activation states. It may name only source-authorized population of surfaces that already exist; it may not copy obsolete donor-subject plans or imply content is present.
+- [x] The role retains the approved future-card geometry and typography: dashed role border, `20px 22px` padding, `12px` corner radius, `36px` bottom spacing, DM Sans `13px/600` uppercase heading, and DM Sans `12px` pills with `5px 11px` padding and `6px` corners.
+- [x] Adding this role does not modify content registries, counts, links, storage identities, backup/import/reset membership, learner state, or clinical wording.
+- [x] Part 558 static and eight-width runtime QA proves exact card order/text/style, empty-registry and state/link parity, loaded fonts, dark/light behavior, accessibility, zero overflow/errors, HTTP 200, and MN-left comparison integrity.
+- [x] User visual approval of the restored Fundamentals Planned additions card — included in the Part 565 statement, “i approve everything.”
+
+Current review: `http://127.0.0.1:55959/mn-vs-fundamentals-hub-review-558.html?v=planned-additions-558-a`.
+
+**Approval:** The Part 558 Planned additions parity is user approved under Part 565. No further review is required until it changes.
+
+## Part 560 Reusable Gate — Zero-Content Layout-Role Parity
+
+- [x] A zero-content shell retains the populated reference's layout role instead of inventing a different large empty-state hierarchy. If the approved populated section uses compact rows, the empty shell also uses that compact row geometry.
+- [x] A row-based zero-content section contains one honest disabled non-link status row until authorized records exist. Neutral values may say `not yet populated` and `0 examples`; they may not copy donor taxonomy names, page codes, counts, examples, or records.
+- [x] Row geometry and shared typography remain identical to the approved role: `14px 18px` padding, `14px` gap, `10px` corner radius, shared border/background, `11px/600` marker, `14px/500` name, and `13px` count. Pending opacity, a neutral marker, and italic zero count may distinguish the honest inactive state.
+- [x] Layout-role parity does not activate content or navigation and does not change registries, links, state identities, backup/import/reset membership, learner bytes, or clinical wording.
+- [x] Part 560 focused static and eight-width runtime QA proves exact MN-row role parity, honest zero-state semantics, responsive two-to-one-column behavior, dark/light and print-role preservation, zero overflow/errors, HTTP 200, storage neutrality, and MN-left comparison integrity.
+- [x] User visual approval of the Fundamentals compact Template-types row — included in the Part 565 statement, “i approve everything.”
+
+Current review: `http://127.0.0.1:56363/mn-vs-fundamentals-hub-review-560.html?v=types-560-a`.
+
+**Approval:** The Part 560 compact Template-types row is user approved under Part 565. No further review is required until it changes.
+
+## Part 561 Reusable Gate — Empty Unit-Grid Role Parity
+
+- [x] A zero-content Hub retains the populated reference's unit-card grid geometry rather than substituting a different large empty-state panel.
+- [x] Empty visual slots are presentation scaffolding only: they are non-links, carry no `data-unit` or persisted identity, never enter the unit registry, and expose explicit status labels that no unit or chapter is populated.
+- [x] Placeholder copy remains neutral and non-clinical: `Unit —`, `Not yet populated`, `No chapter range`, and `0 / 0 read`. Donor unit names, numbering, chapter ranges, progress totals, anchors, and records may not be copied.
+- [x] The unit role retains the approved geometry and typography: four columns above `720px`, two at and below `720px`, `12px` grid gap, `16px 16px 18px` card padding, `12px` corners, `10px/600` unit label, DM Serif Display `18px/400` heading, `12px` range, and `11px` progress text.
+- [x] Visual scaffolding does not alter product counts, registries, links, storage identities, backup/import/reset membership, learner bytes, or content authorization.
+- [x] Part 561 focused static and eight-width runtime QA proves exact MN unit-card role parity, four honest non-record visual slots, responsive behavior, dark/light and print-role preservation, zero overflow, product-console cleanliness, HTTP 200, and MN-left comparison integrity.
+- [x] User visual approval of the Fundamentals unit-card grid — included in the Part 565 statement, “i approve everything.”
+
+Current review: `http://127.0.0.1:56565/mn-vs-fundamentals-hub-review-561.html?v=units-561-a`.
+
+**Approval:** The Part 561 unit-card parity is user approved under Part 565. No further review is required until it changes.
+
+## Part 562 Reusable Gate — Bottom/Footer Geometry Parity
+
+- [x] Compare bottom structures only with both panes at their true maximum scroll; proportional scroll alone is not proof of semantic alignment when content lengths differ.
+- [x] Sync & Storage ends directly at the footer in the MN screen role: screen storage-to-footer gap is `0px`.
+- [x] When a previously rejected visible divider must remain absent, preserve MN's `1px` footer box geometry with a transparent border rather than adding padding, content, or a visible rule.
+- [x] Match footer second-line typography to MN: `11px`, `0.55` opacity, `8px` top margin, and `0.03em` letter spacing.
+- [x] Whole-document height may differ honestly when one artifact is populated and the other is an exact-zero shell; do not fake content or pad intermediate sections to force equal scroll heights.
+- [x] Part 562 focused static/runtime QA proves equal `78.95px` footer boxes, zero gaps, `0.21px` maximum-scroll alignment variance, phone no-overflow behavior, empty registry/state preservation, and no visible divider.
+- [x] Fresh user visual approval of the Fundamentals bottom/footer parity — user confirmed, “It is now synced,” in Part 563.
+
+Current review: `http://127.0.0.1:56666/mn-vs-fundamentals-hub-review-562.html?v=footer-562-b`.
+
+**Approval:** Part 562 bottom/footer parity is objectively passed and user visually approved. No further action is required for this gate.
+
+## Part 564 Reusable Gate — Source-Owned Synchronized Scrolling
+
+- [x] Exactly one pane owns each wheel, touch, scrollbar/pointer, or scrolling-key burst; the other pane is the follower until the short ownership window expires or real interaction transfers ownership.
+- [x] Follower updates are normalized by each document's scrollable range, coalesced to one requestAnimationFrame, and clamp exactly to the top and bottom edges.
+- [x] Expected programmatic follower echoes are ignored within a small pixel tolerance, and non-owner feedback events cannot claim the source during an active burst.
+- [x] Isolated comparison copies override product `scroll-behavior:smooth` with comparison-local `scroll-behavior:auto !important`; source product files remain byte-unchanged.
+- [x] Reset and review-surface restoration suspend synchronization so setup changes cannot accidentally create a new scroll owner.
+- [x] Part 564 runtime QA passes rapid bidirectional bursts, sync off/on, top/bottom edges, pointer takeover, the `390px` preset, zero outer overflow/errors, and HTTP 200. Worst observed normalized ratio delta is `0.00011`, with zero stalls and reversals.
+- [x] User approval that source-owned synchronization no longer feels sticky — included in the Part 565 statement, “i approve everything.”
+
+Current review: `http://127.0.0.1:56767/mn-vs-fundamentals-hub-review-564.html?v=smooth-sync-564-c`.
+
+**Approval:** The Part 564 source-owned synchronized scrolling is user approved under Part 565. No further review is required until it changes.
+
+## Part 565 Consolidated Approval Gate
+
+- [x] The complete zero-content Fundamentals Book/Hub/Templates/Flashcards family is user visually approved at its current hashes.
+- [x] Community Health, Leadership, and Nutrition zero-content Book shells are user visually approved at their current hashes.
+- [x] Shared MN/MH/PD/Pharm/AMS Hub pickup-panel propagation is user visually approved at current hashes.
+- [x] Fundamentals Hub corrections through v0.1.14, including typography, spacing, pickup, primary tools, planned additions, compact template rows, empty unit-grid roles, Sync & Storage, and footer geometry, are user visually approved.
+- [x] Reusable comparison behavior through Part 564 is user approved: MN fixed left, minimal Focus chrome, compact landmarks, synchronized draggable guides, independent red boxes, pane presets, and source-owned synchronized scrolling.
+- [x] Approval changes no product bytes and grants no content, new-product, commit, push, global-link, or publication authority.
+
+**Approval:** The accumulated review set through Part 564 is objectively passed and user visually approved by the Part 565 statement, “i approve everything.” No further visual-review action is required until a new scoped change is made.

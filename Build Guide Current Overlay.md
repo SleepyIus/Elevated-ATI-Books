@@ -7388,3 +7388,1502 @@ TLDR:
 
 Next Recommended Action:
 - **The user does not need to act during checkpoint creation; verify the local commit and do not push or publish it.**
+
+## Part 522 — Fundamentals Family Started / Book Shell Review Gate
+
+Current mode:
+- **FUNDAMENTALS PRODUCT-FAMILY DESIGN SHELL / HOLD-CLINICAL-CONTENT — BOOK SHELL OBJECTIVELY PASSED; USER REVIEW PENDING.** Prior product-family work remains complete/live. Night Shift and all automations remain paused.
+
+Current batch:
+- Start the approved empty-shell queue in exact order: Book → Hub → Templates → Flashcards. Create only `Elevated ATI Fundamentals Book.html` in this unit and stop at its visual-review boundary.
+- Source contract is intentionally empty: no clinical source, edition, chapter, objective, or population scope is assigned; existing products are pattern references only and have `content_authority: false`; outside knowledge/web are disabled; publication status is `draft`.
+
+Files edited:
+- New unlinked draft `Elevated ATI Fundamentals Book.html`, this overlay, private master first, and private handoff. Checklist is unchanged because existing shell/navigation/state canon is implemented without a new shared decision.
+- No existing product, global index, learner record/value, or clinical content changed.
+
+Validation performed:
+- Exact Book SHA-256 `d64e9dc76922b11f00a41183b5cd6ae6bf6e5d3f5f4f8eacc8a03d111f48de4e`, `23606` bytes, byte-identical across isolated candidate, repository product, and fresh HTTP `200` response. Evidence root `/private/tmp/fundamentals-book-shell-522`.
+- Static QA passes one script, `16/16` unique IDs, exact empty frozen chapter registry, `contentAuthorized: false`, `noindex,nofollow`, zero clinical/card/template/placeholder records, and collision-free subject-local learner-state keys.
+- Browser QA passes `2240/1440/901/900/768/601/600/390`, two stable readings, scale `1`, zero overflow/errors, approved desktop/sidebar and mobile-rail geometry, accessible drawer/inert/focus restoration, search empty state, Deep/Brief, dark/light, empty Bookmarks and Notes & highlights dialogs, and print-only hidden chrome/reset layout/full detail.
+- Review URL: `http://127.0.0.1:52222/Elevated%20ATI%20Fundamentals%20Book.html?v=repo-fundamentals-book-522`.
+
+Automation status:
+- Flashcards heartbeat, Night Shift, and all protected automations remain **PAUSED** and unchanged. No automation was activated or created.
+
+Commit/push status:
+- Nothing staged, committed, pushed, merged, linked, or published. The Fundamentals Book is an untracked local draft.
+
+GitHub Desktop should show:
+- New untracked `Elevated ATI Fundamentals Book.html` and this modified overlay, plus preserved unrelated untracked files.
+
+TLDR:
+- The new Fundamentals family now has its first genuine product: a uniform, source-neutral, zero-content Book shell. Hub, Templates, and Flashcards remain unstarted.
+
+Next Recommended Action:
+- **The user must visually review and approve the Fundamentals Book shell or name one exact issue; do not begin the Hub yet.**
+
+## Part 523 — Fundamentals Book Pattern-Parity Correction
+
+Current mode:
+- **FUNDAMENTALS PRODUCT-FAMILY DESIGN SHELL / HOLD-CLINICAL-CONTENT — BOOK SHELL CORRECTED; USER REVIEW PENDING.** The user's report that the Part 522 shell did not match the other Books supersedes that visual candidate. Hub, Templates, and Flashcards remain unstarted.
+
+Current batch:
+- Remove the custom dashboard landing page and tool-only sidebar rows. Implement the exact current Book hierarchy: fixed sidebar header/search/chapter navigation, subject eyebrow/title/description, Bookmarks, disabled honest `Print Chapters`, `Reading Progress`, an empty Book-surface progress state, and the fixed `Notes` control.
+- Keep the Fundamentals accent and exact zero-content/source-neutral boundary. No source, edition, unit, chapter, objective, claim, anchor, fake record, donor payload, or learner data is introduced.
+
+Files edited:
+- Corrected unlinked `Elevated ATI Fundamentals Book.html`; private master first; this overlay; private handoff. Checklist unchanged because this is existing-canon conformance.
+- No existing product, global index, storage value, or learner data changed.
+
+Validation performed:
+- Exact corrected SHA-256 `90054b5ca45fb2e36563e5b73dcb2c100bb71f25fa9e1a0f0192d5857bc6dbd7`, `20035` bytes, exact HTTP `200` parity. Evidence root `/private/tmp/fundamentals-book-shell-523`; static report SHA-256 `1ed812c80604198bf80839aefb77db089f9918c9a8f79860b8e38f2189e6c99e`; runtime report SHA-256 `cfd150f1cd4d91318adfda0a1d1fbdd6829bd14246a6354fc575978f91692760`.
+- Static gate passes one script, `19/19` unique IDs, exact empty frozen chapter registry, `contentAuthorized: false`, noindex draft, zero chapter anchors/records/articles/card registries, and preserved state identity.
+- Direct 1440 MN comparison passes exact shared style/placement for 17 of 18 measured Book roles. The sole intentional exception keeps approved DM Sans on Fundamentals Notes while the legacy embedded MN control reports Arial; placement, fixed pill geometry, and terminology match.
+- Runtime passes `2240/1440/901/900/768/601/600/390`, paired stable readings, scale `1`, zero overflow/errors, exact responsive spacing and mobile control placement, accessible inert drawer/focus restoration, search, Bookmarks, Notes, dark/light, and exact learner-state sentinel preservation.
+- Inspected wide/tablet/phone dark/light evidence passes. Print hides chrome, resets main layout, preserves the empty reading state, and renders as one clean Letter page; PDF SHA-256 `525c1397e90d556b83fe936d5315979267aab8ea8540be8f4a081c7d0846b56b`.
+- Review: `http://127.0.0.1:52222/Elevated%20ATI%20Fundamentals%20Book.html?v=fundamentals-book-pattern-523`.
+
+Automation status:
+- Flashcards heartbeat, Night Shift, and all protected automations remain **PAUSED** and unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published. The corrected Book remains an untracked local draft.
+
+GitHub Desktop should show:
+- New untracked `Elevated ATI Fundamentals Book.html` plus this modified overlay, alongside preserved unrelated untracked files.
+
+TLDR:
+- The custom dashboard mismatch is gone. The Fundamentals Book now follows the approved Book structure, terminology, typography, spacing, control placement, sidebar design, responsive drawer, empty annotation roles, and print contract while remaining truly empty.
+
+Next Recommended Action:
+- **The user must refresh and visually approve the corrected Fundamentals Book or name one exact issue; do not begin the Hub yet.**
+
+## Part 524 — Fundamentals Book Exact Role Alignment
+
+Current mode:
+- **FUNDAMENTALS PRODUCT-FAMILY DESIGN SHELL / HOLD-CLINICAL-CONTENT — BOOK SHELL RE-ALIGNED; USER REVIEW PENDING.** Content population remains paused. Hub, Templates, and Flashcards remain unstarted.
+
+Current batch:
+- Correct the user's two-pane mismatch without adding content: align the non-clinical hero description height, unavailable-control visual weight, Reading Progress boundary, and empty collapsed progress-card geometry with the exact current MN Book roles.
+
+Files edited:
+- Updated unlinked `Elevated ATI Fundamentals Book.html` to draft `v0.1.1`; private master first; this overlay; private handoff. Checklist unchanged. ATI source support used: none; design-only change.
+- No existing product, global index, storage value, or real learner data changed.
+
+Validation performed:
+- Exact Book SHA-256 `b32a010767d5deaa77a12dc0754a14321751d66f8f985f04d4f5a1331b4d4f05`, `19899` bytes, exact HTTP `200` parity. Evidence root `/private/tmp/fundamentals-book-shell-524`; static report SHA-256 `51de067c91692e95b7a5322476a9813830b7c108ca9c9345c8c6f3770742a5d8`; runtime report SHA-256 `a9387ee0186719cd47472fff5c20bc9ae65df23121c971dcc9ab554083b8ba57`.
+- One parse-clean script, `19/19` unique IDs, frozen zero-chapter registry, zero chapter/article/anchor/card records, source-neutral draft metadata, and unchanged state identities pass.
+- `2240/1440/901/900/768/601/600/390` pass stable duplicate measurements, zero overflow, exact responsive spacing and mobile-control placement, accessible drawer/focus, search, themes, Bookmarks, Notes, and disabled Print.
+- Equal-width MN comparison now has exact zero geometry delta for the main column, course/title/description stack, Bookmarks, Print Chapters, Reading Progress divider, and collapsed progress card. Violet accent, zero-content terminology, and canonical DM Sans on Fundamentals controls are intentional subject/canon differences.
+- Fresh one-page Letter PDF is clean and unclipped at SHA-256 `375606db93f5d8c8a546b65a8553bc5a4ac4f844151313a156b0974d0a5f17e4`. Focused diff preserves all learner-state keys/behavior, and `git diff --check` passes.
+- Review: `http://127.0.0.1:52424/mn-vs-fundamentals-book-524.html?v=mn-fundamentals-book-524-aligned`.
+
+Automation status:
+- Flashcards heartbeat, Night Shift, and all protected automations remain **PAUSED** and unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published. Fundamentals Book remains an untracked local draft.
+
+GitHub Desktop should show:
+- New untracked `Elevated ATI Fundamentals Book.html` plus this modified overlay, alongside preserved unrelated untracked files.
+
+TLDR:
+- The screenshot mismatch is corrected: MN and Fundamentals now share the same hero-control and progress-card vertical rhythm while Fundamentals remains a genuine zero-content shell.
+
+Next Recommended Action:
+- **The user must review the refreshed MN-left/Fundamentals-right comparison and approve it or name one exact issue; do not begin the Hub yet.**
+
+## Part 525 — Fundamentals Book Approved / Hub Shell Review Gate
+
+Current mode:
+- **FUNDAMENTALS PRODUCT-FAMILY DESIGN SHELL / HOLD-CLINICAL-CONTENT — BOOK USER APPROVED; HUB OBJECTIVELY PASSED; HUB USER REVIEW PENDING.** The user's “Okay it all looks okay” approves exact Part 524 Book SHA-256 `b32a010767d5deaa77a12dc0754a14321751d66f8f985f04d4f5a1331b4d4f05`. Templates and Flashcards remain unstarted.
+
+Current batch:
+- Create only the next ordered zero-content product, `Elevated ATI Fundamentals Hub.html`, using existing Hubs as design/interaction/state references with no content authority. Keep the product unlinked, noindex, local-only, and content-empty.
+
+Files edited:
+- New unlinked draft `Elevated ATI Fundamentals Hub.html` at `v0.1.0`; private master first; this overlay; private handoff. Checklist unchanged because no new shared canon was introduced.
+- No existing product, global index, storage value, learner data, or clinical content changed.
+
+Validation performed:
+- Exact Hub SHA-256 `6eba56867dedacce22eeb724905d26939843690af0d9cba2018896358de1134f`, `24527` bytes, HTTP `200`. Evidence `/private/tmp/fundamentals-hub-shell-525`; static report `8b44af439c9f6d51d2e920061886d4b4adc7b8a5001d80752c5c15b25b0047da`; runtime report `0d4a75865a1903a964a8a42e3c0ca0a4598b3054be82c662db05db34be42813f`; clean two-page Letter PDF `8ec043d859a8e2c7d0ef789b77d84d4d858ca8594e16b02ec9361e24d80000b4`.
+- One parse-clean script, `15/15` unique IDs, four frozen empty registries, four zero stats, source-neutral draft metadata, zero clinical records/anchors, no global-index link, one active same-family Book link, and honest disabled Templates/Flashcards pass.
+- `2240/1440/901/900/768/601/600/390` pass duplicate stable measurements, scale `1`, zero overflow/errors, shared Hub typography/placement/terminology/corner roles, inspected wide/tablet/phone screenshots, dark/light, accessible controls, and clean print.
+- Isolated learner-state tests pass exact no-init mutation, export/import byte equality, wrong-subject rejection, scoped reset, theme preservation, unrelated-key preservation, and all collision-free Fundamentals Book plus reserved Templates/Flashcards/Focus keys.
+- Comparison: `http://127.0.0.1:52524/mn-vs-fundamentals-hub-525.html?v=mn-fundamentals-hub-525-clean`.
+
+Automation status:
+- Flashcards heartbeat, Night Shift, and all protected automations remain **PAUSED** and unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published. Book and Hub remain untracked local drafts.
+
+GitHub Desktop should show:
+- New untracked Fundamentals Book and Hub plus this modified overlay; preserve all unrelated untracked files.
+
+TLDR:
+- The Book is user approved. The matching, empty, state-safe Hub is objectively passed and ready for one visual review; Templates and Flashcards have not started.
+
+Next Recommended Action:
+- **The user must review the Hub comparison and approve it or name one exact issue; do not begin Templates until approval.**
+
+## Part 526 — Night Shift Skeleton Automation Activated
+
+Current mode:
+- **NIGHT SHIFT ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — ACTIVE.** The user's explicit overnight request defers, but does not grant, inter-product visual approval. Fundamentals Hub review remains pending while objective shell work may continue.
+
+Current batch:
+- Reuse existing heartbeat id `ati-flashcards-canon-migration-heartbeat`, rename it visibly to `ATI Night Shift Skeleton Heartbeat`, and activate it every 15 minutes on this task with failed-runs-only notifications.
+- Exact queue: Fundamentals Book Back-to-Hub link integration → Fundamentals Templates shell → Fundamentals Flashcards shell → Fundamentals Hub family-link/integrity/review-launcher pass → Community Health Book shell → Leadership Book shell → Nutrition Book shell.
+- Community Health, Leadership, and Nutrition authorization is Book-only. No clinical content, sources, Hubs, Templates, Flashcards, Quick Reviews, index links, commits, pushes, or publication.
+
+Files edited:
+- Configuration/continuity only: private master first, heartbeat configuration, this overlay, and private handoff. No product changed during activation.
+
+Validation performed:
+- Branch `main`; HEAD/origin `dd473bf8e8a737e7dc25aec9e1aec2ec49dd52f7`; `0/0`; exact Fundamentals Book `b32a010767d5deaa77a12dc0754a14321751d66f8f985f04d4f5a1331b4d4f05`; exact Fundamentals Hub `6eba56867dedacce22eeb724905d26939843690af0d9cba2018896358de1134f`; expected worktree and unrelated untracked files preserved.
+- Night Shift contract enforces one product per run, up to two adjacent phases, exclusive lock, temporary-first candidates, exact empty registries/counts, honest links, collision-free state, full static/runtime/responsive/accessibility/print QA, deferred-not-assumed visual review, and final combined launcher.
+
+Automation status:
+- `ATI Night Shift Skeleton Heartbeat` is **ACTIVE** every 15 minutes on this task. Configuration SHA-256 `c7fa0e243dd3588a2a631b39cb5c5452a5da56a312eaffdd67fe53b6ae0b4083`.
+- Protected automations remain **PAUSED** and byte-unchanged: Build Guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`; clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`; Pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`; spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published. Night Shift has no external-action authority.
+
+GitHub Desktop should show:
+- Modified overlay plus untracked Fundamentals Book and Hub before the first Night Shift product run; later only independently passed ordered shells may join. Preserve unrelated untracked files.
+
+TLDR:
+- Night Shift is active and will finish the empty Fundamentals family, then build Community Health, Leadership, and Nutrition Book shells for morning review, with no content or publication.
+
+Next Recommended Action:
+- **The user does not need to act before sleeping; say `I am back` on return so Night Shift checkpoints, pauses, and presents the accumulated review set.**
+
+## Part 527 — Fundamentals Book Hub-Link Integration Complete
+
+Current mode:
+- **NIGHT SHIFT ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — ACTIVE; BOOK INTEGRATION OBJECTIVELY COMPLETE; USER REVIEW DEFERRED.**
+
+Current batch:
+- Complete only the Fundamentals Book desktop/mobile Back to Hub integration now that the exact Fundamentals Hub exists. Advance next only to the zero-content Fundamentals Templates shell.
+
+Files edited:
+- Updated untracked `Elevated ATI Fundamentals Book.html` to draft `v0.1.2`; private master first; this overlay; private handoff. Hub, checklist, existing products, learner data, and global index unchanged.
+
+Validation performed:
+- Exact passing/repository Book SHA-256 `6b1516733e603eb0037c1fe4e0f24c8a8ca541ef12856f36b6332077e7b9c62f`; exact Hub unchanged at `6eba56867dedacce22eeb724905d26939843690af0d9cba2018896358de1134f`. Evidence `/private/tmp/fundamentals-book-hub-link-527`.
+- Static report `7c824c9d48978364afd12f0a1450b10e220303a8822234424c6f0bc6a3bd61ba` passes exact two same-family Hub anchors, one parse-clean script, `19/19` unique IDs, empty registry/count, noindex draft metadata, and all preserved state identities.
+- Clean runtime report `70df7a5f37ac389e8fb9e109b69c4c22249f3e497298bf096d238e0c398527ba` passes HTTP/navigation, `2240/1440/901/900/768/601/600/390`, stabilized scale-1 measurements, zero overflow/errors, desktop/mobile placement, accessible drawer/focus, and exact state preservation before/after navigation.
+- Inspected wide/tablet/phone screenshots preserve approved Book geometry. Inspected one-page Letter PDF SHA-256 `1c9465fb4a66f439f1e30f6e9ce2ed0663f36d1c2f902e968c1e0a9eaf33683a` is clean. Exact candidate promotion and `git diff --check` pass.
+
+Automation status:
+- `ATI Night Shift Skeleton Heartbeat` remains **ACTIVE** every 15 minutes with synchronized Part 527 configuration SHA-256 `4bd935d39286a3f9fa29ff7878ddc8a3897bda13223f678e3de3e479fc9809d6` and next product Fundamentals Templates. Protected automations remain **PAUSED** and byte-unchanged at Build Guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, Pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay; untracked Fundamentals Book and Hub; preserved unrelated untracked files.
+
+TLDR:
+- Fundamentals Book now reaches its exact Hub from desktop and mobile without content or state changes. Night Shift advances to the empty Templates shell.
+
+Next Recommended Action:
+- **The user does not need to act; continue with only `Elevated ATI Fundamentals Templates.html` on the next wake.**
+
+## Part 528 — Fundamentals zero-content Templates shell objective completion (2026-08-26)
+
+Current mode:
+- **NIGHT SHIFT ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — ACTIVE; FUNDAMENTALS TEMPLATES OBJECTIVELY COMPLETE; USER REVIEW PENDING.**
+
+Current batch:
+- Completed only `Elevated ATI Fundamentals Templates.html` as an unlinked, `noindex,nofollow`, exact-zero-content draft. Next is only `Elevated ATI Fundamentals Flashcards.html`; Fundamentals Book/Hub and every existing product remain unchanged.
+
+Files edited:
+- Added untracked `Elevated ATI Fundamentals Templates.html` at `v0.1.0`; private master first; this overlay; private handoff. Checklist unchanged because no new canon was introduced.
+
+Validation performed:
+- Exact passing/repository Templates SHA-256 `d9abff919d746f61ac56a920781359d2f077d2cbca67f1314b792bc85d1f02e8`; evidence `/private/tmp/fundamentals-templates-shell-528`.
+- Static report `e17df13411b2f4cbdc706f427634a74298b0cf9eabbc179d6a0c5af47f2e7807` passes zero frozen registry/counts, `16/16` unique IDs, one script, no clinical/source/template records, noindex draft metadata, exact state keys and Hub links, and honest disabled empty actions.
+- Runtime report `5d3aa7205a0e04f378e88a48ec3ede040ac8916a2712e06396ed6b6fa6074f36` passes HTTP/navigation, `2240/1440/901/900/768/601/600/390`, stabilized scale-1 measurements, zero overflow/errors, desktop/mobile placement, drawer/accessibility/focus, dark/light, filter persistence/migration, exact state preservation, clean defaults, and reference geometry. Inspected screenshots pass; inspected one-page Letter PDF SHA-256 `2f46e0b8f6bf425df60d5969f1d3c957f9e32886f7cefa2c3ceff262e55c0b9b` is clean. Candidate equality and `git diff --check` pass.
+
+Automation status:
+- `ATI Night Shift Skeleton Heartbeat` remains **ACTIVE** every 15 minutes with synchronized Part 528 configuration SHA-256 `a676888b724539f1de3d323cbe0b90b869f95e50c3adb2675172a358e2209be0`; next product Fundamentals Flashcards. Protected automations remain **PAUSED** and byte-unchanged at Build Guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, Pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay; untracked Fundamentals Book, Hub, and Templates; preserved unrelated untracked files.
+
+TLDR:
+- Fundamentals Templates now matches the approved Templates pattern as a state-safe zero-content draft. User visual review remains pending; Night Shift advances to the empty Flashcards shell.
+
+Next Recommended Action:
+- **The user does not need to act; continue with only `Elevated ATI Fundamentals Flashcards.html` on the next wake.**
+
+## Part 529 — Fundamentals zero-card Flashcards shell objective completion (2026-08-26)
+
+Current mode:
+- **NIGHT SHIFT ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — ACTIVE; FUNDAMENTALS FLASHCARDS OBJECTIVELY COMPLETE; USER REVIEW PENDING.**
+
+Current batch:
+- Completed only `Elevated ATI Fundamentals Flashcards.html` as an unlinked, `noindex,nofollow`, exact-zero-card draft with the approved Review/Browse/Focus and learner-state contracts. Next is only the exact Fundamentals Hub integration/family gate; Book, Templates, Hub, and existing products remain unchanged this run.
+
+Files edited:
+- Added untracked `Elevated ATI Fundamentals Flashcards.html` at `v0.1.0`; private master first; this overlay; private handoff. Checklist unchanged because no new canon was introduced.
+
+Validation performed:
+- Exact passing candidate/repository/repository-HTTP Flashcards SHA-256 `5955f3c838ddc832bd61ccd79cc59323f9ece4cd5b3a79e2cb52418d9acb3c80`; evidence `/private/tmp/fundamentals-flashcards-shell-529`.
+- Static report `1a066389dbd1b00300a1c4b8623dfc93f9302fcfe2917e118c411b3edeb92ecb` passes frozen zero starter/taxonomy registries, zero meta, draft/noindex, `28/28` unique IDs, one script, exact Hub/Book links and four state identities, Hub key ownership, retrieval/attribute lanes, honest disabled actions, and no donor/clinical/index content.
+- Runtime report `04640653ea77b9fa267b2cf67888e9cbbd0da787a2f1c8dbe4b05adfe9f6521f` passes HTTP/navigation, `2240/1440/901/900/768/601/600/390`, stabilized scale-1 measurements, zero overflow/errors, responsive placement, drawer/accessibility/focus, Review/Browse/Focus, filters, keyboard, themes, exact hydration/state preservation/reset scope, and clean defaults. Inspected screenshots pass. One proven print-only empty-state readability correction was applied; the inspected one-page Letter PDF SHA-256 `2e8e52e90f9ce0e717bcebc9ad1909ed2b898cae3b3d7738321bc000cb25d26f` is clean. Candidate equality and `git diff --check` pass.
+
+Automation status:
+- `ATI Night Shift Skeleton Heartbeat` remains **ACTIVE** every 15 minutes with synchronized Part 529 configuration SHA-256 `22ebab6491f48a895ea8121a80eac89e4b1e269b0c590fdb6fad1c1bf82a969e`; next product Fundamentals Hub family integration. Protected automations remain **PAUSED** and byte-unchanged at Build Guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, Pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay; untracked Fundamentals Book, Hub, Templates, and Flashcards; preserved unrelated untracked files.
+
+TLDR:
+- Fundamentals Flashcards now matches the approved Flashcards pattern as a state-safe zero-card draft. User visual review remains pending; Night Shift advances only to final Fundamentals Hub/family integration.
+
+Next Recommended Action:
+- **The user does not need to act; continue with only `Elevated ATI Fundamentals Hub.html` for the family-integration gate on the next wake.**
+
+## Part 530 — Fundamentals family integration and holistic objective gate complete (2026-08-26)
+
+Current mode:
+- **NIGHT SHIFT ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — ACTIVE; FUNDAMENTALS FAMILY OBJECTIVELY COMPLETE; USER VISUAL REVIEW PENDING.**
+
+Current batch:
+- Completed only the Fundamentals Hub destination activation and holistic Book/Hub/Templates/Flashcards family gate. The next exact product is only `Elevated ATI Community Health Book.html`.
+
+Files edited:
+- Updated untracked `Elevated ATI Fundamentals Hub.html` to `v0.1.1`; private master first; this overlay; private handoff. Book, Templates, Flashcards, checklist, existing products, learner data, and global index remain unchanged.
+
+Validation performed:
+- Exact current hashes: Book `6b1516733e603eb0037c1fe4e0f24c8a8ca541ef12856f36b6332077e7b9c62f`; Hub `3b617ab79e6782db4dadb76af410b6ea28a68a3ee69e22bc48aa0e5ffc677a17`; Templates `d9abff919d746f61ac56a920781359d2f077d2cbca67f1314b792bc85d1f02e8`; Flashcards `5955f3c838ddc832bd61ccd79cc59323f9ece4cd5b3a79e2cb52418d9acb3c80`. Evidence `/private/tmp/fundamentals-family-integration-530`.
+- Static report `5577cff1f6100bd701ff88f6c5079cec50658f5a9eaf95845e10b37ee120d458` passes exact zero frozen registries/counts, one script and unique IDs per product, reciprocal family links, noindex/content boundary, no global-index link, and Hub ownership of every child state key.
+- Runtime report `2ed6bd4d50dd5f48c11c0a5231ae7dde8ce93323be510946ec33d5a5e2babaa6` passes Hub `2240/1440/901/900/768/601/600/390`, stable scale-1 geometry, zero overflow/errors, dark/light, accessibility, every product HTTP, wide/phone family regression, and exact export/import/reset/state preservation for all 14 managed keys.
+- Inspected wide/tablet/phone screenshots and fresh Letter PDFs pass. PDF hashes: Book `0a6aab06c1a2075b67d7986892b468acc7816d5f349670991fc606e00a51a4af`; Hub `b851ab4cc44d29fc75b1092a9f4d1432af4bb3c726e84d4eeb0d8e847351f3ee`; Templates `a433b6d0f89d7bec63b591a65a7d32a7fd753d1806de348a2391a1b69fca031d`; Flashcards `e566cd28df80b372af753229343e4433cd707a8d9ed363cd1fa4b47939af49de`. Exact candidate promotion and `git diff --check` pass.
+- Combined local review: `http://127.0.0.1:53030/fundamentals-family-review-530.html?v=fundamentals-family-530-clean`; wrapper `f5859173cc8a4a362e2706dc27f5cb6f3e3a1adfd15a8655a5e2e68edb141246`. User visual review remains pending.
+
+Automation status:
+- `ATI Night Shift Skeleton Heartbeat` remains **ACTIVE** every 15 minutes at synchronized Part 530 configuration SHA-256 `b350e6e9e339a7e3245e9a04a5389bc3b3a7a991e2495f5567694bd430761ca9`; next recovery product is Community Health Book. Protected automations remain **PAUSED** and byte-unchanged at Build Guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, Pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay; untracked Fundamentals Book, Hub, Templates, and Flashcards; preserved unrelated untracked files.
+
+TLDR:
+- The complete zero-content Fundamentals family is now objectively integrated, state-safe, responsive, accessible, and print-clean. It remains local-only and awaits user visual review.
+
+Next Recommended Action:
+- **The user does not need to act; continue with only `Elevated ATI Community Health Book.html` on the next wake.**
+
+## Part 531 — Community Health zero-content Book shell objective completion (2026-08-26)
+
+Current mode:
+- **NIGHT SHIFT ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — ACTIVE; COMMUNITY HEALTH BOOK OBJECTIVELY COMPLETE; USER VISUAL REVIEW PENDING.**
+
+Current batch:
+- Completed only `Elevated ATI Community Health Book.html` as an unlinked/noindex exact-zero-content draft from the approved Book pattern. Its provisional teal accent is pending user visual approval; the nonexistent Hub dependency remains disabled. Next is only Leadership Book.
+
+Files edited:
+- Added untracked Community Health Book `v0.1.0`; private master first; this overlay; private handoff. Checklist, existing products, learner data, clinical records, and global index unchanged.
+
+Validation performed:
+- Exact passing/repository/HTTP SHA-256 `91d6c3e35f8dedd29ef1f8d1326beeee8c6ed32de64800750a6fd1167056d9f2`; evidence `/private/tmp/community-health-book-shell-531`.
+- Static report `eadd412b3062d96b643fcbab2d7387d738c8b77cfbc2e20b89cf5aa39f4e138b` passes frozen zero chapters/count, draft/noindex/content boundary, `19/19` unique IDs, one script, exact eight keys, disabled Back to Hub, no index/Hub links, no donor identity, and deterministic approved-pattern parity except exact subject/accent/dependency/state/version roles.
+- Runtime report `796f8b43afb67b80de50239ec2867f46fbd37ec8cbf3f05b449649ee4b5417ab` passes HTTP, `2240/1440/901/900/768/601/600/390`, stable scale-1 measurements, zero overflow/errors, exact pattern geometry, responsive placement/breakpoints, drawer/accessibility/search/focus, themes/dialogs, disabled Print, and exact isolated state preservation. Inspected screenshots and one-page Letter PDF `cc7fa60bfb7f42dbb58e42e9cf1d573382a68a693af5987a1bfd111b6e75b076` pass. Candidate equality and `git diff --check` pass.
+- Review: `http://127.0.0.1:53131/fundamentals-vs-community-health-book-531.html?v=community-health-book-531-clean`; wrapper `fdc15ebb2f976cc814134b2ee96a022be3086f2065dffd28aebe1d3349b5c289`; review report `9a12a44beee65ee2f84ca821153901cffb1a45e8a417dc176db83fef5285bed8`.
+
+Automation status:
+- Night Shift remains **ACTIVE** every 15 minutes at synchronized Part 531 configuration SHA-256 `ee88ed217884d1c8ce52b14ce0b61b2cdae287bbf86d60e3d2065640b67bfc75`; next recovery product Leadership Book. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay; untracked Fundamentals family plus Community Health Book; unrelated untracked files preserved.
+
+TLDR:
+- Community Health Book now matches the approved Book pattern as a local, state-safe zero-content draft and awaits review of its provisional teal identity.
+
+Next Recommended Action:
+- **The user does not need to act; continue with only `Elevated ATI Leadership Book.html` on the next wake.**
+## Part 532 — Leadership zero-content Book shell objective completion (2026-08-26)
+
+Current mode:
+- **NIGHT SHIFT ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — ACTIVE; LEADERSHIP BOOK OBJECTIVELY COMPLETE; USER VISUAL REVIEW PENDING.**
+
+Current batch:
+- Completed only `Elevated ATI Leadership Book.html` as an unlinked/noindex exact-zero-content draft from the approved Book pattern. Its provisional burgundy accent is pending user visual approval; the nonexistent Hub dependency remains disabled. Next is only Nutrition Book.
+
+Files edited:
+- Added untracked Leadership Book `v0.1.0`; private master first; this overlay; private handoff. Checklist, existing products, learner data, clinical records, and global index unchanged.
+
+Validation performed:
+- Exact passing/repository/HTTP SHA-256 `67144b58082c679d10d8f738cee71925084bbdefdfa99ffeb249bacda0967601`; evidence `/private/tmp/leadership-book-shell-532`.
+- Static report `65be9a120a4e36d45cd15cbf4f4832e7f85ca117902f4adee58b5f7470dbd4f0` passes frozen zero chapters/count, draft/noindex/content boundary, `19/19` unique IDs, one script, exact eight state keys, disabled Back to Hub, no Hub/index links, and deterministic approved-pattern parity except exact subject/accent/dependency/state/version roles.
+- Runtime report `ca0c21fb4165382bdf7ecc3f07c06eef0de9aaa31cc5aafb701ef8d0216ebbfa` passes HTTP, `2240/1440/901/900/768/601/600/390`, stable scale-1 measurements, zero overflow/errors, exact pattern geometry, responsive breakpoints, drawer/accessibility/search/focus, themes/dialogs, disabled Print, and exact isolated state preservation. Inspected screenshots and one-page Letter PDF `d9168130989f636ee37de8b9c591899056ba0f82e0692b66d46c8360a5edb7b7` pass. Candidate equality and `git diff --check` pass.
+- Review: `http://127.0.0.1:53232/fundamentals-vs-leadership-book-532.html?v=leadership-book-532-clean`; wrapper `84731e8f790f2aa5ac144f5bb1a3bd83f5cd3676a0625fe31de637efb3f8fbfd`; review report `d9cc077538cb9b2c41aa559896cc73c98caed7c7325e0cb5e985534a007fafb9`.
+
+Automation status:
+- Night Shift remains **ACTIVE** every 15 minutes at synchronized Part 532 configuration SHA-256 `9c712bce559126363c36d4c3c173c502954d1e2e12a2e091367480b72b3f9efe`; next and final queued product is Nutrition Book. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay; untracked Fundamentals family, Community Health Book, and Leadership Book; unrelated untracked files preserved.
+
+TLDR:
+- Leadership Book is objectively passed as a local zero-content shell; visual approval remains pending. Nutrition Book is next.
+
+Next Recommended Action:
+- **The user does not need to act; continue with only `Elevated ATI Nutrition Book.html` on the next wake.**
+## Part 533 — Night Shift zero-content shell queue objectively complete (2026-08-26)
+
+Current mode:
+- **NIGHT SHIFT ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — OBJECTIVELY COMPLETE; AUTOMATION PAUSED; USER VISUAL REVIEW PENDING.**
+
+Current batch:
+- Completed only `Elevated ATI Nutrition Book.html` as an unlinked/noindex exact-zero-content Book draft with a provisional amber accent and disabled nonexistent Hub. The entire authorized queue is complete; no next product is authorized.
+
+Files edited:
+- Added untracked Nutrition Book `v0.1.0`; private master first; this overlay; private handoff. Checklist, existing products, learner data, clinical/source records, and global index unchanged.
+
+Validation performed:
+- Exact Nutrition passing/repository/HTTP SHA-256 `d03eeff44af8fb9f9c1ea3d67719ecb55e713a9ec905944e671c7a2103e8ee7d`; evidence `/private/tmp/nutrition-book-shell-533`.
+- Static report `d15983e4bf68f79e7aca64ec4681d9953f472d4feb345aefd0848d8273adae44` passes zero/draft/content boundaries, `19/19` unique IDs, one script, exact eight keys, disabled Back to Hub, no Hub/index links, and deterministic approved-pattern parity except exact subject/accent/dependency/state/version roles.
+- Runtime report `2e562d36cdc5df392980914a416ecdc4d69435818b92feb42d08f9868e14870c` passes HTTP, `2240/1440/901/900/768/601/600/390`, stable scale-1 geometry, zero overflow/errors, responsive/accessibility/theme/dialog/print behavior, and exact isolated state preservation. Inspected screenshots and one-page Letter PDF `361e691bcf894fcaff394346ca897a5390b64eaa2b6ce0f281f70fb62240315c` pass. Candidate equality and `git diff --check` pass.
+- Nutrition comparison: `http://127.0.0.1:53333/fundamentals-vs-nutrition-book-533.html?v=nutrition-book-533-clean`; wrapper `515317b87297ce3ca5da8aaf8deb5c7e9013d80cb158d282e384730472fc8b68`.
+- Final seven-tab review: `http://127.0.0.1:53334/night-shift-shell-review-533.html?v=night-shift-shell-review-533-clean`; launcher `5b95b2cfe7e7dd9434cc62b18649475e3ec008fb95aabd27f090fc5eacc4d775`; QA report `25487924de316eaf78aa5e59a227f803bca44416aec330b6eb81339230ca31d0`. Wide/phone launcher screenshots were inspected.
+- Exact final draft hashes: Fundamentals Book `6b1516733e603eb0037c1fe4e0f24c8a8ca541ef12856f36b6332077e7b9c62f`; Hub `3b617ab79e6782db4dadb76af410b6ea28a68a3ee69e22bc48aa0e5ffc677a17`; Templates `d9abff919d746f61ac56a920781359d2f077d2cbca67f1314b792bc85d1f02e8`; Flashcards `5955f3c838ddc832bd61ccd79cc59323f9ece4cd5b3a79e2cb52418d9acb3c80`; Community Health `91d6c3e35f8dedd29ef1f8d1326beeee8c6ed32de64800750a6fd1167056d9f2`; Leadership `67144b58082c679d10d8f738cee71925084bbdefdfa99ffeb249bacda0967601`; Nutrition `d03eeff44af8fb9f9c1ea3d67719ecb55e713a9ec905944e671c7a2103e8ee7d`.
+
+Automation status:
+- Night Shift is **PAUSED** at final queue completion with synchronized Part 533 configuration SHA-256 `e6d1008a81c8485db0f12794b87a9e8a22982107e1f01abbd1f96cf48d5fb91a`; all protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay; seven authorized untracked drafts; unrelated untracked files preserved.
+
+TLDR:
+- All seven authorized zero-content shells are objectively complete and local-only. The automation is paused for user review; content population remains inactive.
+
+Next Recommended Action:
+- **The user must act when they return: open the combined review launcher and approve the seven-shell set or identify exact visual changes.**
+## Part 534 — Seven-shell Night Shift set user approved (2026-08-26)
+
+Current mode:
+- **ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — OBJECTIVELY COMPLETE AND USER VISUALLY APPROVED; AUTOMATION PAUSED.** The user reviewed the Part 533 seven-tab launcher and explicitly replied, “Approved.”
+
+Current batch:
+- Record visual approval of the exact current Fundamentals Book/Hub/Templates/Flashcards and Community Health, Leadership, and Nutrition Book shells. No product changed; content population and publication remain inactive.
+
+Files edited:
+- Continuity documentation only: private master first, this overlay, private handoff, and paused heartbeat checkpoint. Checklist and all seven products remain byte-unchanged.
+
+Validation performed:
+- Reconfirmed `main`, HEAD/origin `dd473bf8e8a737e7dc25aec9e1aec2ec49dd52f7`, `0/0`, expected worktree, `git diff --check`, and HTTP `200` for `http://127.0.0.1:53334/night-shift-shell-review-533.html?v=night-shift-shell-review-533-clean`.
+- User-approved product hashes remain: Fundamentals Book `6b1516733e603eb0037c1fe4e0f24c8a8ca541ef12856f36b6332077e7b9c62f`; Hub `3b617ab79e6782db4dadb76af410b6ea28a68a3ee69e22bc48aa0e5ffc677a17`; Templates `d9abff919d746f61ac56a920781359d2f077d2cbca67f1314b792bc85d1f02e8`; Flashcards `5955f3c838ddc832bd61ccd79cc59323f9ece4cd5b3a79e2cb52418d9acb3c80`; Community Health `91d6c3e35f8dedd29ef1f8d1326beeee8c6ed32de64800750a6fd1167056d9f2`; Leadership `67144b58082c679d10d8f738cee71925084bbdefdfa99ffeb249bacda0967601`; Nutrition `d03eeff44af8fb9f9c1ea3d67719ecb55e713a9ec905944e671c7a2103e8ee7d`.
+- Approval is visual/design approval of empty shells, not clinical-content approval.
+
+Automation status:
+- Night Shift remains **PAUSED** at synchronized Part 534 configuration SHA-256 `8ed6c57a704e1d9f893323066158df04811cb71257228e5454073d6f917b23cd`; all protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay; the same seven authorized untracked, now user-approved zero-content drafts; unrelated untracked files preserved.
+
+TLDR:
+- All seven empty shells are objectively passed and explicitly user approved. They remain local-only and uncommitted.
+
+Next Recommended Action:
+- **The user must act: authorize a source-control checkpoint commit for the seven approved shells and overlay, without pushing or publishing unless separately requested.**
+
+## Part 535 — Fundamentals Hub narrow-spacing correction (2026-08-26)
+
+Current mode:
+- **ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — PAUSED AT FOCUSED USER RE-REVIEW.** The user identified a nonuniform Hub topbar-to-hero gap in the narrow comparison state.
+
+Current batch:
+- Corrected only `Elevated ATI Fundamentals Hub.html`: desktop already matched MN at `36px`; removal of the Fundamentals-only `24px` narrow override preserves the MN `36px` rhythm at `600px` and below. The other six approved shells remain byte-unchanged.
+
+Files edited:
+- Updated untracked Fundamentals Hub to `v0.1.2` with synchronized header/footer/runtime version metadata; private master first, this overlay, private handoff, and paused heartbeat continuity. Checklist unchanged.
+
+Validation performed:
+- Exact candidate/repository Hub SHA-256 `571004455473e84e063cd930b999d8e470d225bbcde03bc64f72bc127ff14dbf`; evidence `/private/tmp/fundamentals-hub-spacing-535`; focused QA report `246f996e5697bcc614e76de510809dfbfe9e8c18736cf8fc7225df4689b2978e`.
+- Focused static/runtime/visual checks pass `15/15` unique IDs, zero frozen registries/counts, draft/noindex/content boundaries, version parity, unchanged state/link contracts, desktop and narrow `36px` gaps, zero overflow, dark/light, disabled Home, three active family links, HTTP, exact `390px` visual inspection, unchanged print-hidden topbar contract, candidate equality, and `git diff --check`.
+- Re-review: `http://127.0.0.1:53535/mn-vs-fundamentals-hub-spacing-535.html?v=spacing-535-current`; wrapper `a6956953422fc4f34159523800e827ede167df192689fac6a1a8207a7e81aef0`.
+
+Automation status:
+- Night Shift remains **PAUSED** at synchronized Part 535 configuration SHA-256 `0d0612c0067b45ac2db3ea5bb23c137aae753f79c0288da5469e5d3026b90168`; all protected automations remain **PAUSED** and byte-unchanged. Part 534 approval remains valid for the six byte-unchanged shells; only Fundamentals Hub `v0.1.2` awaits focused re-review.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay; seven authorized untracked zero-content drafts, with only Fundamentals Hub changed in Part 535; unrelated untracked files preserved.
+
+TLDR:
+- The narrow-width spacing mismatch is corrected without content, link, registry, or learner-state changes. One focused Hub re-review is now required.
+
+Next Recommended Action:
+- **The user must act: review the corrected Fundamentals Hub comparison and approve it or identify another exact issue; do not commit or push yet.**
+
+## Part 536 — Fundamentals Hub narrow box-sizing alignment (2026-08-26)
+
+Current mode:
+- **ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — PAUSED AT FOCUSED USER RE-REVIEW.** The user identified the remaining hero-height/stat-row misalignment in Part 535.
+
+Current batch:
+- Corrected only Fundamentals Hub: removed its narrow-only `15px` hero-description override so it retains the MN `16px` typography and natural card geometry. No fixed height, clipping, or zero-state wording change; six other approved shells remain byte-unchanged.
+
+Files edited:
+- Fundamentals Hub is now `v0.1.3`; private master first, this overlay, private handoff, and paused heartbeat continuity. Checklist unchanged.
+
+Validation performed:
+- Exact candidate/repository Hub SHA-256 `aff5e9b9cb43738ff4c94957c09b05f5afbf4a7e29038b20293f991df7813750`; evidence `/private/tmp/fundamentals-hub-box-sizing-536`; focused QA report `8d3685da7d4e763cb96a7f1a5d6be7b64d473e5b0ae233bad9226c10ba6e00a4`.
+- Static/runtime/visual checks pass unique IDs, exact zero registries, draft/noindex/content boundaries, unchanged state/link contracts, 16px role typography, version parity, HTTP, byte-exact promotion, `git diff --check`, and aligned hero/stat rows at the reported `557px` pane width without overflow or clipping.
+- Re-review: `http://127.0.0.1:53636/mn-vs-fundamentals-hub-536.html?v=box-sizing-536-current-final`; wrapper `0aa19ef28525b964a3bf25ca7dd31ab277c9ddde472893d64657d712ad851306`.
+
+Automation status:
+- Night Shift remains **PAUSED** at synchronized Part 536 configuration SHA-256 `fc57060b433b012283fae1caabfadcf061d82dd00a9e1c12c7f027a5e70bb5a7`; all protected automations remain **PAUSED** and byte-unchanged. Six shell approvals remain valid; only Fundamentals Hub `v0.1.3` awaits focused re-review.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay; seven authorized untracked zero-content drafts, with only Fundamentals Hub changed in Part 536; unrelated untracked files preserved.
+
+TLDR:
+- The remaining mismatch was the Fundamentals-only 15px mobile description. It now matches MN at 16px, aligning the reported comparison naturally.
+
+Next Recommended Action:
+- **The user must act: review and approve the Part 536 comparison or identify one exact remaining issue; do not commit or push yet.**
+
+## Part 537 — Fundamentals Hub top-navigation size and typography alignment (2026-08-26)
+
+Current mode:
+- **ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — PAUSED AT FOCUSED USER RE-REVIEW.** The user identified that the top navigation card still differed in sizing and typography in the old Part 535 page.
+
+Current batch:
+- Corrected only Fundamentals Hub: removed its narrow-only topbar padding, brand, badge, and theme-control reductions and aligned the remaining Home/badge/theme typography details to the current MN Hub role. No fixed height, wording, content, state, link, index, or publication change; six other approved shells remain byte-unchanged.
+
+Files edited:
+- Fundamentals Hub is now `v0.1.4`; private master first, this overlay, private handoff, and paused heartbeat continuity. Checklist unchanged.
+
+Validation performed:
+- Exact candidate/repository Hub SHA-256 `3e4dd34715318f814c01fcf0765717f7057b4360864b2bdcda5e7f00e9ec46cc`; evidence `/private/tmp/fundamentals-hub-topbar-537`; focused QA report `657e1a65840ae399cbca1eb5cdf3cb59ab59e5f0b71598ea48814c25252dcd6a`.
+- Static/runtime checks pass `15/15` unique IDs, one parse-clean script, zero registries/counts, draft/noindex/content boundaries, unchanged `14` state keys and `8` hrefs, version parity, theme toggle, HTTP, exact promotion, and `git diff --check`.
+- At the exact reported `557px` pane, two stable measurements prove identical MN/Fundamentals topbar width `525px`, height `66.5px`, `14px 18px` padding, `14px` radius, DM Serif Display `18px/400` brand, `36px` DM Sans `13px/700` badge, and `36.5px` DM Sans `13px/400` theme control. Zero horizontal overflow also passes at `557px` and exact `390px`; direct runtime errors are zero.
+- Re-review: `http://127.0.0.1:53737/mn-vs-fundamentals-hub-537.html?v=topbar-537-current-final`; wrapper `40870abfecb0fd2eec6cbd3235a605f8b7c5d9230f50ad63e2894935fb57c0b8`.
+
+Automation status:
+- Night Shift remains **PAUSED** at synchronized Part 537 configuration SHA-256 `2828f232ca7d70801abbb7b7d6781baca0e76f182067b7b0e150314cf4039ab4`; protected automations remain **PAUSED** and byte-unchanged. Six shell approvals remain valid; only Fundamentals Hub `v0.1.4` awaits focused re-review.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay; seven authorized untracked zero-content drafts, with only Fundamentals Hub changed in Part 537; unrelated untracked files preserved.
+
+TLDR:
+- The top navigation card now matches MN’s box geometry and typography exactly at the reported pane width.
+
+Next Recommended Action:
+- **The user must act: review and approve the Part 537 comparison or identify one exact remaining issue; do not commit or push yet.**
+
+## Part 538 — Fundamentals Hub complete visible-typography alignment (2026-08-26)
+
+Current mode:
+- **ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — PAUSED AT FOCUSED USER RE-REVIEW.** Fresh inspection of Part 537 proved one remaining typography mismatch.
+
+Current batch:
+- Corrected only Fundamentals Hub: changed the hero eyebrow from weight `700` to MN’s `600`. Subject accent color and wording remain intentionally subject-specific; no other style, box, content, state, link, index, or publication change occurred.
+
+Files edited:
+- Fundamentals Hub is now `v0.1.5`; private master first, this overlay, private handoff, and paused heartbeat continuity. Checklist unchanged.
+
+Validation performed:
+- Exact candidate/repository Hub SHA-256 `8f8c1c5ec651f99fd232719aebb1c67500d747f60aaf3d074753cb1ddd02372a`; evidence `/private/tmp/fundamentals-hub-typography-538`; focused QA report `957d0768a1a3feedc8da08856b7838b2e2f4c27b52c0fabaecd7110693a36729`.
+- Static checks pass unique IDs, one parse-clean script, zero/draft/content boundaries, unchanged `14` state keys and `8` hrefs, version parity, HTTP, exact promotion, and `git diff --check`.
+- Two stable computed-style measurements at the reported `557px` pane prove exact MN/Fundamentals parity, ignoring intentional accent color, for all nine visible roles: topbar brand, Home, theme, eyebrow, title, italic emphasis, description, statistic value, and statistic label. Direct runtime errors and horizontal overflow are zero.
+- Re-review: `http://127.0.0.1:53838/mn-vs-fundamentals-hub-538.html?v=typography-538-current-final`; wrapper `3af4740a66147e112c50bb71f862d44896aeee901a5f0efcc39ec15f859daec0`.
+
+Automation status:
+- Night Shift remains **PAUSED** at synchronized Part 538 configuration SHA-256 `6aa203031123cefe8b1b048fe912d566f8b7756426141724c257c446f9e027dc`; protected automations remain **PAUSED** and byte-unchanged. Six shell approvals remain valid; only Fundamentals Hub `v0.1.5` awaits focused re-review.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay; seven authorized untracked zero-content drafts, with only Fundamentals Hub changed in Part 538; unrelated untracked files preserved.
+
+TLDR:
+- The last verified typography mismatch is corrected; all measured visible typography roles now match MN except intentional accent color and wording.
+
+Next Recommended Action:
+- **The user must act: review and approve the Part 538 comparison or identify one exact remaining issue; do not commit or push yet.**
+
+## Part 539 — Fundamentals Hub responsive vertical-flow correction (2026-08-26)
+
+Current mode:
+- **ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — PAUSED AT FOCUSED USER RE-REVIEW.** The narrow comparison retained a content-driven vertical hero/stat-row drift after the spacing and typography roles were aligned.
+
+Current batch:
+- Shortened only the nonclinical Fundamentals zero-state hero description so it wraps closer to MN at narrow widths. No font, size, margin, padding, fixed height, clipping, clinical/source claim, state identity, or link changed.
+
+Files edited:
+- Fundamentals Hub `v0.1.6`, SHA-256 `1665fed3e4b550e15fdb8594b0befb5354ca64076742dccb0d67e62bcaeb8741`; private master first, this overlay, private handoff, and paused heartbeat continuity. Checklist unchanged.
+
+Validation performed:
+- Evidence `/private/tmp/fundamentals-hub-vertical-539`; report SHA-256 `0eb3d333c2abba612c06724081b5398a8de28d5daa7ff6a98e0123ee10ccf1d6`; wrapper SHA-256 `bbe59036b43e2e973eae6c625146c3f8dcee49ee8330fd759e648b6d35837a5d`.
+- Static/runtime checks pass unique IDs, script parse, exact zero registries/counts, draft/noindex/content boundaries, unchanged `14` state keys and `8` hrefs, version parity, HTTP, exact promotion, focused diff, and `git diff --check`.
+- Fresh `420px` and phone visual inspection passes without clipping or overflow. The reported narrow flow delta falls from `33.039px` to `7.445px`; remaining natural sub-line variance comes from different subject wording under identical typography and spacing rules.
+- Review: `http://127.0.0.1:53940/mn-vs-fundamentals-hub-539.html?v=vertical-539-current-final-b`.
+
+Automation status:
+- Night Shift remains **PAUSED** at focused review, synchronized Part 539 configuration SHA-256 `1adb06e4c1eb81b7a3ca55b1d45777acfef772c3d2b2b125b999b9c15e5246c4`; protected automations remain **PAUSED** and byte-unchanged. Six prior shell approvals remain valid; Fundamentals Hub `v0.1.6` awaits re-review.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay; seven authorized untracked zero-content drafts, with only Fundamentals Hub changed in Part 539; unrelated untracked files preserved.
+
+TLDR:
+- The residual vertical mismatch was content wrapping, not spacing CSS. The zero-state copy is now more compact and the visible drift is substantially reduced without compromising the design system or learner state.
+
+Next Recommended Action:
+- **The user must act: review the fresh Part 539 comparison and approve it or identify one exact remaining issue; do not commit or push yet.**
+
+## Part 540 — Reusable marked comparison-review harness (2026-08-26)
+
+Current mode:
+- **ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — PAUSED AT FOCUSED USER REVIEW.** Every future visual comparison now uses a consistent marked review harness.
+
+Current batch:
+- Built a temporary exact-copy MN/Fundamentals Hub comparison with explicit pane labels, Responsive/557/420/390 width presets, synchronized-scroll control, marker toggle, both-pane theme control, reset control, and `A–H` by `1–4` viewport coordinates.
+- Issue reports use pane + coordinate + short role/selector, for example `Right C3 — hero bottom`. Marker/grid chrome is removable, `aria-hidden`, pointer-transparent, and cannot change product geometry or learner state.
+
+Files edited:
+- No product changed. Added temporary Part 540 evidence under `/private/tmp`; updated `MN Design Canon Checklist.md`, the private master first, this overlay, private handoff, and paused automation continuity.
+
+Validation performed:
+- Fresh comparison: `http://127.0.0.1:54040/mn-vs-fundamentals-hub-540.html?v=marked-comparison-540-a`; wrapper SHA-256 `77bc39ab0780b1bf5c7c1a76d3114e58d8b75f41190c6dea498b9f2b1afc9809`.
+- QA report `/private/tmp/comparison-review-tool-540/comparison-review-tool-qa-540.json`, SHA-256 `bd20d095b7efc0a6bc97c9afdc71c2f8ff1519ee618d1a293fa23e7d69488c99`.
+- Passes seven unique IDs, one parse-clean script, exact product-copy parity, all controls, `16` row/`8` column markers, accessible/non-interactive marker semantics, HTTP `200`, fresh in-app visual inspection, interaction checks, and `git diff --check`.
+- Exact product copies remain MN Hub `caf8d967a0d159ad9a674ed5f1ea1c105328250bf6c0c79e420f64f0a7f329ed` and Fundamentals Hub `1665fed3e4b550e15fdb8594b0befb5354ca64076742dccb0d67e62bcaeb8741`.
+
+Automation status:
+- Night Shift remains **PAUSED** at focused user review, synchronized Part 540 configuration SHA-256 `9325d3a4782b1c4ab2f74b4b4affcae0b4ad23845615da1006e076ed6c66a77e`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay and checklist; seven authorized untracked zero-content drafts remain; no Part 540 product edit; unrelated untracked files preserved.
+
+TLDR:
+- Comparison pages now include consistent controls and coordinate markers, so the user can report a problem precisely as `Left/Right + letter + number`.
+
+Next Recommended Action:
+- **The user must act: review the Part 540 marked comparison and approve the marker/control design or identify one exact adjustment; do not commit or push yet.**
+
+## Part 541 — Compact zero-space comparison landmarks (2026-08-26)
+
+Current mode:
+- **ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — PAUSED AT FOCUSED USER REVIEW.** Part 540's layout-consuming marker tracks have been replaced in response to the user's feedback.
+
+Current batch:
+- `A–H` and `1–4` are now compact badges overlaid inside the pane edges. They reserve no top row or side rail, remain pointer-transparent/`aria-hidden`, and can be hidden without moving or resizing either product. The supporting grid is lower contrast.
+
+Files edited:
+- No product changed. Added temporary Part 541 evidence; refined the checklist's reusable comparison canon; private master first, this overlay, private handoff, and paused automation continuity updated.
+
+Validation performed:
+- Review: `http://127.0.0.1:54141/mn-vs-fundamentals-hub-541.html?v=compact-landmarks-541-a`; wrapper SHA-256 `27a587023f3077a5204d6fd8c84ab746b806f83a9706becdfb4ba4ad17eb6831`; QA report SHA-256 `a51a786e9bc16129c80f2109118e00a5fa3313daaaec494b031e1f70c9cefbe6`.
+- Seven unique IDs, one script, exact product-copy parity, compact absolute landmarks, no dedicated marker tracks, HTTP `200`, fresh visual inspection, 390/Responsive/420 controls, and `git diff --check` pass.
+- Same-viewport measurement shows `28px` more vertical product canvas. Landmark on/off states retain exactly the same `418 × 517.40625px` iframe rectangle.
+
+Automation status:
+- Night Shift remains **PAUSED** at focused user review, synchronized Part 541 SHA-256 `c49e62732848d2c0e91e459452eb4dfa35c107728dcc922d24e26b1d23fd0e4e`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay and checklist; seven authorized untracked zero-content drafts; no Part 541 product edit; unrelated untracked files preserved.
+
+TLDR:
+- Coordinates now sit unobtrusively on the pane edges instead of consuming comparison space.
+
+Next Recommended Action:
+- **The user must act: review the Part 541 compact-landmark comparison and approve it or identify one exact adjustment; do not commit or push yet.**
+
+## Part 542 — Accessible collapsible comparison focus mode (2026-08-26)
+
+Current mode:
+- **ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — PAUSED AT FOCUSED USER REVIEW.** The comparison tool now has the user's requested collapsible mode.
+
+Current batch:
+- Added `Focus mode`, which collapses the title, options, and large pane-label rows into one `36px` review bar. The bar retains both pane identities, current width/landmark/sync status, and an `Exit focus` control. `Escape` also exits and restores focus.
+
+Files edited:
+- No product changed. Added temporary Part 542 evidence; extended the checklist's reusable comparison canon; private master first, this overlay, private handoff, and paused automation continuity updated.
+
+Validation performed:
+- Review: `http://127.0.0.1:54242/mn-vs-fundamentals-hub-542.html?v=collapsible-542-a`; wrapper SHA-256 `ab25651cf87fd1ea580622095b6a738e44f9c4b62132d91a0489be3d8f7cba53`; QA report SHA-256 `7d5cb83dc100e24baa35f4724ef8ecb6fe11145b12590fb76c2dec00438f5715`.
+- Eleven unique IDs, one parse-clean script, exact product-copy parity, fresh cache keys, focus controls/rules, HTTP `200`, normal/focused visual inspection, and `git diff --check` pass.
+- Focus mode increases each iframe from `418 × 517.40625px` to `418 × 711px`, reclaiming `193.59375px` vertically. Width and iframe sources remain unchanged; button/Escape exits restore the exact baseline rectangle and invoking focus. Width, landmarks, and sync settings survive collapse/restore.
+
+Automation status:
+- Night Shift remains **PAUSED** at focused user review, synchronized Part 542 SHA-256 `2343bcd37e96c9b59c729843399538ad16ab190bff343d5fca28c2f6fd19504a`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay and checklist; seven authorized untracked zero-content drafts; no Part 542 product edit; unrelated untracked files preserved.
+
+TLDR:
+- The comparison can now collapse into a safe thin focus bar, maximizing review space without losing context or settings.
+
+Next Recommended Action:
+- **The user must act: try Part 542 `Focus mode`, then approve it or identify one exact adjustment; do not commit or push yet.**
+
+## Part 543 — Horizontal and vertical comparison layouts (2026-08-26)
+
+Current mode:
+- **ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — PAUSED AT FOCUSED USER REVIEW.** The comparison harness alone changed to restore explicit horizontal and vertical layouts.
+
+Current batch:
+- `Horizontal` keeps the default side-by-side review. `Vertical` stacks full review-height panes with local labels and page scrolling. The selected layout persists through Focus mode together with width, landmarks, synchronized scrolling, and unchanged iframe sources.
+
+Files edited:
+- No product changed. Added temporary Part 543 evidence; extended the checklist's reusable comparison canon; private master first, this overlay, private handoff, and paused automation continuity updated.
+
+Validation performed:
+- Review: `http://127.0.0.1:54343/mn-vs-fundamentals-hub-543.html?v=multi-layout-543-b`; wrapper SHA-256 `f7eb537feb12b4615aeaa489e46da025746cfc6d0837f8517e2c4aa72c3d6082`; QA report SHA-256 `3c45561a30c85cd60399c8d9b1e62a17b3eae6216632df0e1964c9e0225c595c`.
+- Eleven unique IDs, one parse-clean script, accessible layout controls, exact product-copy parity, fresh cache keys, HTTP `200`, fresh visual inspection, and `git diff --check` pass.
+- Horizontal normal, Vertical normal, Vertical Focus, and Horizontal Focus pass with full review-height panes; the selected 420px width, landmarks, sync state, and exact iframe URLs remain stable throughout.
+- Product hashes remain MN Hub `caf8d967a0d159ad9a674ed5f1ea1c105328250bf6c0c79e420f64f0a7f329ed` and Fundamentals Hub `1665fed3e4b550e15fdb8594b0befb5354ca64076742dccb0d67e62bcaeb8741`.
+
+Automation status:
+- Night Shift remains **PAUSED** at focused user review, synchronized Part 543 SHA-256 `4335e411fbb4dce7e88033d9fce00d10c9312b67ae588b82000f3cbdd3c20c22`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay and checklist; seven authorized untracked zero-content drafts; no Part 543 product edit; unrelated untracked files preserved.
+
+TLDR:
+- The comparison now supports both side-by-side and stacked review, including Focus mode, without resetting the review state.
+
+Next Recommended Action:
+- **The user must act: test Horizontal, Vertical, and Focus mode in Part 543, then approve them or identify one exact adjustment; do not commit or push yet.**
+
+## Part 544 — Corrected draggable vertical/horizontal comparison dividers (2026-08-26)
+
+Current mode:
+- **ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — PAUSED AT FOCUSED USER REVIEW.** Part 543's static-layout interpretation is superseded by the user's clarified request for a movable comparison line.
+
+Current batch:
+- Added a true draggable splitter: `Vertical line` resizes side-by-side panes left/right; `Horizontal line` resizes stacked panes up/down. Pointer, keyboard, bounds, center reset, ARIA, Focus preservation, and narrow-screen stacking are included.
+
+Files edited:
+- No product changed. Added temporary Part 544 evidence; corrected the checklist's reusable comparison canon; private master first, this overlay, private handoff, and paused automation continuity updated.
+
+Validation performed:
+- Review: `http://127.0.0.1:54444/mn-vs-fundamentals-hub-544.html?v=draggable-divider-544-b`; wrapper SHA-256 `6da2ceeaf2dbe49dbef031c996c5a493524eeb480e454bfbcf1f7ef872ad09ca`; QA report SHA-256 `a00be944a5bf1cde705d54dad1e6f0571c3551572df424d6d8327c93693547c4`.
+- Both separator orientations pass centered geometry, pointer dragging, directional arrow resizing, bounded value semantics, visible focus, drag release, and centering. Focus preserves the line's 52-percent test position and exact iframe URLs.
+- At `390 × 844`, the wrapper and pane container remain exactly 390px wide with no horizontal overflow; the separator safely becomes horizontal. Fourteen unique IDs, parse-clean wrapper runtime, zero wrapper errors, HTTP `200`, fresh screenshots, and `git diff --check` pass.
+- Product hashes remain MN Hub `caf8d967a0d159ad9a674ed5f1ea1c105328250bf6c0c79e420f64f0a7f329ed` and Fundamentals Hub `1665fed3e4b550e15fdb8594b0befb5354ca64076742dccb0d67e62bcaeb8741`.
+
+Automation status:
+- Night Shift remains **PAUSED** at focused user review, synchronized Part 544 SHA-256 `c490c6738ee7d7495d1c7e00903af5e08e171e69e89cc60e3b566fc9edf9e494`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay and checklist; seven authorized untracked zero-content drafts; no Part 544 product edit; unrelated untracked files preserved.
+
+TLDR:
+- The comparison now contains the movable vertical and horizontal lines the user intended.
+
+Next Recommended Action:
+- **The user must act: drag the Part 544 `Vertical line` and `Horizontal line`, then approve them or identify one exact adjustment; do not commit or push yet.**
+
+## Part 545 — Recovered synchronized vertical/horizontal guide overlays (2026-08-26)
+
+Current mode:
+- **ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — PAUSED AT FOCUSED USER REVIEW.** Part 544's splitter interpretation is superseded.
+
+Current batch:
+- Restored fixed equal panes with paired synchronized 1px vertical and horizontal guide overlays. Dragging either pane's guide moves its matching guide to the same normalized position in the other pane. Independent visibility toggles, Center guides, keyboard/Shift/Home/End support, ARIA sliders, and Focus-state preservation are included.
+
+Files edited:
+- No product changed. Added temporary Part 545 evidence; replaced the checklist's splitter canon with the recovered paired-guide canon; private master first, this overlay, private handoff, and paused automation continuity updated.
+
+Validation performed:
+- Review: `http://127.0.0.1:54545/mn-vs-fundamentals-hub-545.html?v=synchronized-guides-545-f`; wrapper SHA-256 `bca8cb377b23ef3a8bcaf0b001aa7da19fca5e2bed3c3bcdc1ae05875e442a44`; QA SHA-256 `a7cf92193c9557681760990828c2aced2d92bee730c86e339278cea14943b064`.
+- Four guide sliders pass pointer pairing (`35/35`, `65/65`), 1%/5% keyboard pairing, Home/End, center reset, independent hide/restore with geometry invariance, Focus/source preservation, wrapper runtime capture `0`, exact 390px product presets, zero page horizontal overflow, HTTP `200`, and `git diff --check`.
+- Product hashes remain MN Hub `caf8d967a0d159ad9a674ed5f1ea1c105328250bf6c0c79e420f64f0a7f329ed` and Fundamentals Hub `1665fed3e4b550e15fdb8594b0befb5354ca64076742dccb0d67e62bcaeb8741`.
+
+Automation status:
+- Night Shift remains **PAUSED** at focused user review, synchronized Part 545 SHA-256 `5f8bef7f46daff2cbe5c6cf3cd5eb55becbda3546e0dced8557921cb090c6338`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay and checklist; seven authorized untracked zero-content drafts; no Part 545 product edit; unrelated untracked files preserved.
+
+TLDR:
+- The comparison now matches the recovered method: fixed equal panes with paired draggable vertical and horizontal guide lines, not pane-resizing dividers.
+
+Next Recommended Action:
+- **The user must act: drag either teal vertical line and either teal horizontal line in Part 545, then approve the corrected method or identify one exact adjustment; do not commit or push yet.**
+
+## Part 546 — Required zero-content Hub pickup placeholders (2026-08-27)
+
+Current mode:
+- **ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — PAUSED AT FOCUSED USER REVIEW.** One Fundamentals Hub structural correction is complete; content population remains unauthorized.
+
+Current batch:
+- Restored `Pick up where you left off` between the four stat cards and review queue with three honest zero-content destinations: Book `No reading progress yet`, Flashcards `No cards or review history yet`, and Templates `No template progress yet`.
+- The panel links only to exact existing Fundamentals shells, uses session-only dismissal, and introduces no starter deck, fake progress/history, persistent learner-state value, or content record. The checklist now requires this role in future zero-content Hub shells.
+
+Files edited:
+- Updated untracked `Elevated ATI Fundamentals Hub.html` to `v0.1.7`; updated `MN Design Canon Checklist.md`; private master first, this overlay, private handoff, and paused automation continuity updated.
+- No existing MN/MH/PD/Pharm/AMS product, global index, clinical content/source, registry, learner value, or publication state changed.
+
+Validation performed:
+- Exact repository/candidate Hub SHA-256 `ac39f79dba4ece950019351c272e90ae3bcbc4608fd8d9bcd70677f5ded84736`; exact candidate promotion parity passes. Evidence `/private/tmp/fundamentals-hub-pickup-546`; QA SHA-256 `93863481c2886bf74c75e8ab629c608483e18ce46eaa840fbb1febf31bcaad2a`; wrapper SHA-256 `02794858f240b8daa220d2bee2de86cedb5a25c4c7198e916291459ad325d8b6`.
+- One parse-clean script, `21/21` unique IDs, exact zero frozen registries/counts, draft/noindex/content boundaries, one panel, three exact cards/hrefs, session-only dismissal, HTTP `200` for all destinations, themes, isolated dismiss/reload, responsive 3 / 2+1 / 1 columns, zero horizontal overflow, four comparison guides, zero wrapper errors, and `git diff --check` pass.
+- Review: `http://127.0.0.1:54647/mn-vs-fundamentals-hub-546.html?v=pickup-placeholder-546-review-a`.
+
+Automation status:
+- Night Shift remains **PAUSED** at Part 546 user review, synchronized SHA-256 `dc61599e77592a5d05f0430c3c36746cbce20564839632b2f409e116a5641fb5`. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, globally linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay and checklist; seven authorized untracked zero-content drafts, with only Fundamentals Hub changed in Part 546; unrelated untracked files including `output/` and `tmp/` preserved.
+
+TLDR:
+- The missing Hub resume feature is restored with honest zero-content Book, Flashcards, and Templates placeholders and no learner-state or clinical-content risk.
+
+Next Recommended Action:
+- **The user must act: review the Part 546 pickup panel and approve it or identify one exact issue; do not commit or push yet.**
+
+## Part 547 — Pickup responsive parity and comparison-state correction (2026-08-27)
+
+Current mode:
+- **ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — PAUSED AT FOCUSED USER REVIEW.** The two defects identified from the user's Part 546 screenshot are corrected.
+
+Current batch:
+- Fundamentals pickup cards now match MN's responsive transitions: auto-fit above `900px`, two columns at `601–900px`, and one column at `600px` and below.
+- The temporary comparison now restores renderable session-dismissed pickup panels on initialization and `Reset both panes` through copied iframe DOM only. It does not clear/write storage, recreate iframes, or mutate product/learner state.
+- MN's one authorized fallback card versus Fundamentals' three honest zero-content placeholders remains an intentional content-state difference, not a design mismatch.
+
+Files edited:
+- Updated untracked `Elevated ATI Fundamentals Hub.html` to `v0.1.8`; refined comparison-reset canon in `MN Design Canon Checklist.md`; private master first, this overlay, private handoff, and paused automation continuity updated.
+- No existing MN/MH/PD/Pharm/AMS product, clinical/source record, global index, registry, learner value, or publication target changed.
+
+Validation performed:
+- Exact promoted Hub SHA-256 `917f0a1a8d7df57bd98c3d26f0436559b5b2e52c68f5a8fc7acbbf02af83ddab`; candidate parity passes. Evidence `/private/tmp/fundamentals-hub-pickup-parity-547`; QA SHA-256 `49d2bfd7e2c26ee4d2fbfc4124423c7c1f352f5d992540494538f875e5ce7e42`; wrapper SHA-256 `a9b54bc89d8a6ef11de70f31b15fa117365ea39b557ceceb06d783026059f665`.
+- Static QA passes one product script, `21/21` unique IDs, four empty frozen registries/counts, unchanged learner-state identities/payload, exact focused CSS/version diff, storage-neutral comparison, HTTP `200`, and `git diff --check`.
+- Stabilized scale-1 QA passes `2240/1440/901/900/768/601/600/390`, duplicate readings, zero overflow, exact pickup row transitions `1/1/1/2/2/2/3/3`, and inspected `601px`/`600px` screenshots.
+- The fresh 557px comparison opens both pickup panels despite prior MN dismissal, retains four synchronized guides and zero wrapper errors. Inspected two-page Letter PDF SHA-256 `f6004dbba473e2099331d6a8f9be6f45874c518481dc8a282efa06d49632c5c4` is clean.
+- Review: `http://127.0.0.1:54748/mn-vs-fundamentals-hub-547.html?v=pickup-parity-547-review-a`.
+
+Automation status:
+- Night Shift remains **PAUSED** at Part 547 user review, synchronized SHA-256 `14dd3d2f2455d4d98d8b43c27bbb999e2bf3cee74cf359b884fbb5b374bcf3ce`. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, globally linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay and checklist; seven authorized untracked zero-content drafts, with only Fundamentals Hub changed in Part 547; unrelated untracked files including `output/` and `tmp/` preserved.
+
+TLDR:
+- The pickup panel now matches MN responsively, and the comparison no longer hides MN because of carried session dismissal state.
+
+Next Recommended Action:
+- **The user must act: review the Part 547 comparison and approve the corrected pickup parity or identify one exact remaining issue; do not commit or push yet.**
+
+## Part 548A — Shared Hub Pickup Placeholder Retrospective Matrix
+
+Current mode:
+- **SHARED HUB FEATURE RETROSPECTIVE / HOLD-CLINICAL-CONTENT — IN PROGRESS.** The user authorized the Fundamentals Book/Templates zero-progress pickup design for retrospective propagation.
+
+Current batch:
+- Applicability before implementation: MN, MH, PD, Pharm, and AMS Hubs are **Applicable / pending**; Fundamentals Hub is **Implemented** at `v0.1.8`; Community Health, Leadership, and Nutrition are **Not applicable** because their Hubs do not exist. Each missing Hub carries a mandatory activation gate.
+- The migration will add only honest Book and Templates fallbacks when valid last-location state is absent. Existing history, Flashcards behavior, links, storage keys, backup/import/reset, and session dismissal remain exact.
+
+Files edited:
+- Private master first, this overlay, private handoff, checklist canon, and paused automation continuity. Product implementation has not begun.
+
+Validation performed:
+- Fresh lock/source-control/continuity/hash preflight and exact per-Hub pickup/state inventory pass.
+
+Automation status:
+- Night Shift remains **PAUSED**; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, globally linked, or published.
+
+GitHub Desktop should show:
+- No product change yet; modified overlay/checklist and the authorized untracked shell set remain.
+
+TLDR:
+- Five Hubs require the new zero-progress Book/Templates fallback; Fundamentals already has it; three future Hubs are activation-gated.
+
+Next Recommended Action:
+- **The user does not need to act: complete the five-Hub implementation and fresh retrospective gate, then present one combined review; do not commit or push.**
+
+## Part 548 — Shared Hub Pickup Placeholder Retrospective Complete
+
+Current mode:
+- **SHARED HUB FEATURE RETROSPECTIVE / HOLD-CLINICAL-CONTENT — OBJECTIVELY COMPLETE; PAUSED AT USER VISUAL REVIEW.**
+
+Current batch:
+- MN, MH, PD, Pharm, and AMS now expose honest Book/Templates zero-progress pickup cards while preserving every valid returning-user branch and subject-specific Flashcards behavior. Fundamentals remains implemented and byte-unchanged.
+- Final matrix: MN/MH/PD/Pharm/AMS/Fundamentals — **Implemented**; Community Health/Leadership/Nutrition — **Not applicable, Hub absent**, with mandatory activation gates.
+
+Files edited:
+- Five existing Hubs, this overlay, checklist, private master first, private handoff, and paused automation continuity. No Book/Templates/Flashcards product or content record changed.
+
+Validation performed:
+- Exact Hub SHA-256: MN `95e9d1c5452194faa5628e7f59196af2ea43771bdf6a61115bf8f51ca44a26ca`; MH `c04248a187d468b7e7aa73c6d2ec983dfccc483f575927e56f821d496b307c97`; PD `e965f741d1c1a88175b6b6cf6179b3d2dc2e6366adb8a8f8fcb6e7dde3f945f9`; Pharm `7e8d86a586cb269757189bbba98d2b6a92d17324f4ed325931b17423b0b6dd3c`; AMS `99d6d8e71337ca1dae98bec6355ead0d276dc0ff899298726b6fe3adb59bff4e`; Fundamentals unchanged `917f0a1a8d7df57bd98c3d26f0436559b5b2e52c68f5a8fc7acbbf02af83ddab`.
+- Evidence `/private/tmp/hub-pickup-placeholder-retrospective-548`; static `48a45e6895c2eb66a56cd38bbf22bfd0530529a3f01e6eb3d0b1142043a2b7e9`; runtime `1360b90dc8db4c8a65fe1199042077a62743f4ac957fc4e180d3e1d10c5c0406`; review `1831a0c29855c5fe84e8d6fe05ba237b4a4ec8a0ae1035f2727d76fe38f76880`; wrapper `8bca2894cd3d0aed033c172ad8707c1bb40f65f616cb1dbed1cc6ca06e380ebe`.
+- Six-Hub clean/returning/dismiss/theme/state tests pass; exact storage bytes remain stable. Twice-stable `2240/1440/901/900/768/601/600/390` measurements pass scale 1, zero overflow, and `1/1/1/2/2/2/3/3` pickup rows. Wide/tablet/phone screenshots and all `19` pages of six Letter PDFs were inspected clean. HTTP, links, wrapper controls, guides, target switching, Focus, copied hashes, and `git diff --check` pass.
+- Review: `http://127.0.0.1:54849/shared-hub-pickup-review-548.html?v=shared-pickup-548-review-c`.
+
+Automation status:
+- Night Shift remains **PAUSED** at Part 548 review; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, globally linked, or published.
+
+GitHub Desktop should show:
+- Modified overlay, checklist, and five Hubs; seven authorized untracked shells; unrelated untracked files preserved.
+
+TLDR:
+- The Book/Templates zero-progress pickup experience is now uniform across every current Hub and objectively passes.
+
+Next Recommended Action:
+- **The user must act: review the Part 548 launcher across all five target buttons and approve or identify one exact mismatch; do not commit or push yet.**
+
+## Part 549 — Comparison Screenshot Annotation Boxes
+
+Current mode:
+- **COMPARISON-TOOL SUPPORT / HOLD-CLINICAL-CONTENT — OBJECTIVELY COMPLETE; PAUSED AT USER REVIEW.**
+
+Current batch:
+- The temporary comparison now provides one independent red outline box per pane. Each box is draggable by its labeled handle, resizable from its lower-right handle, bounded to its pane, keyboard-operable, and normalized across pane widths.
+- `Red boxes` hides/shows both annotations without losing geometry; `Reset red boxes` restores both defaults. Target switching, Focus mode, guide controls, landmarks, product storage, and learner state remain independent.
+
+Files edited:
+- Temporary comparison/evidence under `/private/tmp/comparison-red-boxes-549`; private master first, this overlay, checklist, private handoff, and paused automation continuity. No product file changed.
+
+Validation performed:
+- Wrapper SHA-256 `2dbbf6def44a17eebbeccefbb80b8b924894230042df81fc6b3525e59e053185`; report SHA-256 `be4f4abc5bed2897cf1669c7e95b7157c335f523ca7f5900c62fd36d53b482c5`.
+- Parse, `19/19` unique IDs, two independent drag/resize pairs, storage neutrality, copied-Hub parity, keyboard move/resize, hide/show/reset, 390px containment, target/Focus retention, `1440x1000` and `390x844` zero overflow, inspected screenshots, zero wrapper errors, HTTP, and `git diff --check` pass.
+- Review: `http://127.0.0.1:54949/shared-hub-pickup-review-549.html?v=red-boxes-549-a`.
+
+Automation status:
+- Night Shift remains **PAUSED** at Part 549 review, synchronized SHA-256 `a3333f020d1f5bff3595d1952ab6d0b6840effaf535b5d3975592b0728f9fe65`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, globally linked, or published.
+
+GitHub Desktop should show:
+- The Part 548 product diff only: overlay, checklist, five Hubs, and seven authorized untracked shells. No product joins the diff in Part 549.
+
+TLDR:
+- Each comparison side now has its own screenshot-ready red box that can be moved, resized, hidden, and reset.
+
+Next Recommended Action:
+- **The user must act: test both red boxes in Part 549 and approve them or identify one exact interaction issue; do not commit or push yet.**
+
+## Part 550 — Independent Red-Box Selection
+
+Current mode:
+- **COMPARISON-TOOL SUPPORT / HOLD-CLINICAL-CONTENT — OBJECTIVELY COMPLETE; PAUSED AT USER REVIEW.**
+
+Current batch:
+- Added mutually exclusive `Both`, `Left only`, `Right only`, and `Hide` red-box modes to the temporary comparison. One mode is pressed at a time.
+- Mode changes affect visibility only. Each box keeps its independent normalized geometry through mode changes, target switching, pane widths, and Focus mode.
+
+Files edited:
+- Temporary comparison/evidence `/private/tmp/comparison-box-selection-550`; private master first, this overlay, checklist, private handoff, and paused automation continuity. No product file changed.
+
+Validation performed:
+- Wrapper SHA-256 `b5070e24b1fead4f60311b5ac8367d1336f018d251dd0b80de88f652b62ef09f`; report SHA-256 `4a1c32b0287ba85e1d2fbf8c88636da1b39979e248db3956049d8402dfae6b73`.
+- Parse, `18/18` unique IDs, two boxes/four modes, exactly one pressed state, exact mode visibility, geometry retention, target/Focus persistence, 1440/390 zero overflow, inspected screenshots, storage neutrality, copied-Hub parity, zero wrapper errors, HTTP, and `git diff --check` pass.
+- Review: `http://127.0.0.1:55050/shared-hub-pickup-review-550.html?v=box-selection-550-a`.
+
+Automation status:
+- Night Shift remains **PAUSED** at Part 550 review, synchronized SHA-256 `2bb0b639cce39a7f0543a3d45a7ad1c769b5e614d39a3d0a71420a3918fc4d8b`; protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, globally linked, or published.
+
+GitHub Desktop should show:
+- The Part 548 product diff only; no product joins the diff in Part 550.
+
+TLDR:
+- Either red box can now be shown by itself, with Both and Hide options retained.
+
+Next Recommended Action:
+- **The user must act: test `Left only` and `Right only` in Part 550 and approve the selector or report one exact issue; do not commit or push yet.**
+
+## Part 551 — AFK Zero-Content Book Queue Reactivation
+
+Current mode:
+- **NIGHT SHIFT ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — ACTIVE.** The latest user instruction reactivates the existing heartbeat for safe AFK work. Part 550 remains objectively passed but not user-approved.
+
+Current batch:
+- All nine official RN Content Mastery review-module subjects already have current Books or approved zero-content Book shells in the repository.
+- Next exact product: `Elevated ATI Comprehensive NCLEX-RN Review Book.html`, a separate official ATI Book identity. Build only an unlinked `noindex,nofollow`, exact-zero-content shell from the approved Book pattern. Product-name verification is identity-only; `content_authority` remains false, and source/edition/unit/chapter/objective/content registries remain empty.
+- After its objective pass, inventory again. Create no additional product unless its exact ATI Book identity is documented and non-subjective; otherwise checkpoint and pause.
+
+Files edited:
+- Activation continuity only: private master first, this overlay, private handoff, and heartbeat configuration. No product file changed in Part 551; checklist unchanged.
+
+Validation performed:
+- Branch `main`; HEAD/origin `dd473bf8e8a737e7dc25aec9e1aec2ec49dd52f7`; `0/0`; expected worktree and seven authorized untracked shells preserved.
+- Current official ATI catalog reconciles the complete nine-subject RN module set and separately identifies the Comprehensive NCLEX-RN Review Book. Exclusive lock acquired.
+
+Automation status:
+- `ATI Night Shift Skeleton Heartbeat` is **ACTIVE** every 15 minutes with one-product runs, temporary-first construction, full objective gates, failed-runs-only notifications, and automatic pause at the next identity/user-review boundary. Exact configuration SHA-256 is `eede1856eeb5c2009add373630f1cc58433a98a667beba9f584bbd42c05c5822`. Protected automations remain **PAUSED** and byte-unchanged at Build Guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, Pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- Nothing staged, committed, pushed, globally linked, or published.
+
+GitHub Desktop should show:
+- The Part 548 product diff plus this overlay/checklist and the seven authorized untracked shells; the new Book joins only after a passing isolated candidate is promoted.
+
+TLDR:
+- AFK Night Shift resumes with one safe next product: a zero-content Comprehensive NCLEX-RN Review Book shell. Additional products require an exact noninvented identity.
+
+Next Recommended Action:
+- **The user does not need to act: leave Codex and the computer running while the heartbeat performs the guarded zero-content Book build and pauses safely when no further exact Book is needed.**
+
+## Part 552 — Comprehensive Review Book Phases A–B
+
+Current mode:
+- **NIGHT SHIFT ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — ACTIVE; PREFLIGHT AND ISOLATED CONSTRUCTION COMPLETE.** No repository promotion occurred.
+
+Current batch:
+- Constructed only `/private/tmp/comprehensive-nclex-book-shell-552/Elevated ATI Comprehensive NCLEX-RN Review Book.html` from the approved Fundamentals Book pattern.
+- The exact-zero-content candidate uses the authorized Comprehensive NCLEX-RN Review identity, provisional established-suite blue accent, disabled nonexistent Hub dependency, and collision-free `aticomprehensive_nclex_rn_*` state keys. Source, edition, units, chapters, objectives, claims, questions, worksheets, and records remain absent.
+
+Files edited:
+- Temporary candidate/QA, private master first, this overlay, private handoff, and automation recovery. No repository product or checklist edit in Part 552.
+
+Validation performed:
+- Candidate SHA-256 `fade5739e32df0a04d0df6ae694402449fa0eeeb77272fc590df1bf4bfd65ec5`; static report `585e141b68372fd9f68f84e994b61c7e658dcb37805d4a2df52a4af879930ebd`; QA script `46a765609bf3464c1c321c6844d4445fb500b90ce0d50ab32fae798d6d93e2cf`.
+- Static gate passes empty/frozen registry, zero count, no content authority, noindex, one parse-clean script, `19/19` IDs, honest disabled Hub controls, no global link, eight exact state keys, no pattern identity leak, and exact allowlisted pattern diff. Phase C runtime/print/comparison and promotion remain pending.
+
+Automation status:
+- Night Shift remains **ACTIVE** and advances only to Comprehensive Review Book Phase C. Exact configuration SHA-256 is `f66818ca582e9b9fe2aa073eabcbfd2857f662005b7e392f45747e2c2f68fc53`; protected automations remain **PAUSED** and byte-unchanged at Build Guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, Pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- Nothing staged, committed, pushed, globally linked, or published.
+
+GitHub Desktop should show:
+- No new Book; the exact Part 551 repository state remains while the candidate stays under `/private/tmp`.
+
+TLDR:
+- The zero-content Comprehensive Review Book candidate is built and statically clean; full browser/state/print QA is the next gate.
+
+Next Recommended Action:
+- **The user does not need to act: the next heartbeat should validate and promote only this exact candidate if the complete Phase C gate passes.**
+
+## Part 553 — Comprehensive Review Book complete; queue paused
+
+Current mode:
+- **NIGHT SHIFT ZERO-CONTENT PRODUCT-SHELL / HOLD-CLINICAL-CONTENT — OBJECTIVE QUEUE COMPLETE; USER REVIEW PENDING.**
+
+Current batch:
+- Promoted only `Elevated ATI Comprehensive NCLEX-RN Review Book.html` from the exact passing Part 552 candidate. Exact SHA-256 `fade5739e32df0a04d0df6ae694402449fa0eeeb77272fc590df1bf4bfd65ec5`.
+- The shell remains local-only, unlinked, `noindex,nofollow`, `contentAuthorized:false`, exact-zero-content, and pending user review of its provisional suite-blue identity. No edition/source/unit/chapter/objective/content was added.
+- Rebuilt ATI identity inventory: all nine RN module Books plus the separate Comprehensive Review Book are now represented. No additional exact nonduplicate ATI Book is needed, so no further product begins.
+
+Files edited:
+- Added `Elevated ATI Comprehensive NCLEX-RN Review Book.html`; updated private master first, this overlay, private handoff, and heartbeat recovery. Checklist unchanged.
+
+Validation performed:
+- Static report `585e141b68372fd9f68f84e994b61c7e658dcb37805d4a2df52a4af879930ebd`; runtime report `3c31597b551ce1170f512f42e5119485397e3fb3ee38d6ef015c40a926922b84`; inspected Letter PDF `b974078a9b0b6021633cea09f027dfe777bd06d66c13333a4f9b1a9e4133e040`.
+- Fresh eight-width runtime/accessibility/state/interaction/print gate passes at `2240/1440/901/900/768/601/600/390`, scale 1, stabilized geometry, zero overflow/errors, correct responsive rail/drawer/padding roles, dark/light, Bookmarks, Notes/highlights, honest disabled dependency/print state, isolated-state byte preservation, HTTP 200, and candidate/repository/HTTP byte parity.
+- Fresh comparison wrapper `1d3f0e776661e0001774b051d887344052c82a596ff1fe8290601f8c8bf567f0`; review report `0afe757d3f3bcd7f1090c2c6e7380164fcee980bdd8567d73c93362f44f32614`; review QA `fcb31cf0d8f2cdf08a1bc3a4b98b5932c98fef3a67aabdb845442357161cc6b6`.
+- Review: `http://127.0.0.1:55252/fundamentals-vs-comprehensive-nclex-book-553.html?v=comprehensive-nclex-book-553-review-a`.
+- Branch `main`; HEAD/origin `dd473bf8e8a737e7dc25aec9e1aec2ec49dd52f7`; `0/0`; expected worktree preserved; `git diff --check` clean.
+
+Automation status:
+- Night Shift heartbeat is **PAUSED** at objective queue completion/user-review boundary; exact configuration SHA-256 `8095d2184061796da1b6a30ba5d6fde8b6fc0acabbee994b97fa5376af1b24f6`. Protected automations remain **PAUSED** and byte-unchanged at Build Guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, Pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- Nothing staged, committed, pushed, globally linked, or published.
+
+GitHub Desktop should show:
+- Existing Part 548 tracked diff plus eight authorized zero-content untracked shells, including the new Comprehensive Review Book; unrelated untracked files untouched.
+
+TLDR:
+- The new Comprehensive Review Book shell is objectively complete, and the AFK Book queue safely stops because no further exact ATI Book is needed.
+
+Next Recommended Action:
+- **The user must act when available: review the Part 553 comparison and approve the Comprehensive Review Book shell or identify one exact visual issue; do not commit or push yet.**
+
+## Part 554 — Comprehensive Review removed; source boundary corrected
+
+Current mode:
+- **USER-PROVIDED ATI REVIEW BOOKS ONLY / HOLD-CLINICAL-CONTENT — PAUSED FOR FUNDAMENTALS LANDING-PAGE REVIEW.** Only exact ATI review books supplied by the user authorize product identity or source scope. External catalog/store/web identities, model memory, and inferred ATI titles are forbidden as construction authority.
+
+Current batch:
+- Removed `Elevated ATI Comprehensive NCLEX-RN Review Book.html` from the workspace and stopped its temporary Part 553 comparison.
+- Parts 551–553 are historical only and superseded as current authority. Do not resume their Comprehensive Review queue, evidence, URL, or recommendation.
+- No other product changed. Resume only the live Fundamentals Hub/landing-page review when the user directs.
+
+Files edited:
+- Removed the unauthorized untracked Comprehensive Review shell. Exact bytes and temporary evidence are recoverable outside the repository at `/private/tmp/removed-comprehensive-nclex-rn-review-554`.
+- Updated private master first, this overlay, private handoff, checklist, and paused heartbeat recovery. No learner or clinical content changed.
+
+Validation performed:
+- Unauthorized filename absent from repository/status; Part 553 server stopped; stale URL retired.
+- Branch `main`; HEAD/origin `dd473bf8e8a737e7dc25aec9e1aec2ec49dd52f7`; `0/0`; expected Part 548 diff and seven authorized zero-content shells preserved; `git diff --check` passes.
+- Current landing-page review: `http://127.0.0.1:55050/shared-hub-pickup-review-550.html?v=box-selection-550-a`.
+
+Automation status:
+- Night Shift heartbeat remains **PAUSED** with corrected user-supplied-only product authority; exact configuration SHA-256 `b7fdd48209444f865c572f3c5af16ad7a1a96fa92c03734b932cd49f12fda490`. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, globally linked, or published; the removed shell was never published.
+
+GitHub Desktop should show:
+- Existing Part 548 tracked diff plus seven authorized untracked shells. The Comprehensive Review Book must not appear.
+
+TLDR:
+- The unauthorized Comprehensive Review shell and comparison are removed; only user-supplied ATI review books may drive future products.
+
+Next Recommended Action:
+- **The user must act when ready: resume only the Fundamentals landing-page review from Part 550; do not create another product, commit, or push.**
+
+## Part 555 — Fundamentals Hub primary-tool element parity
+
+Current mode:
+- **USER-PROVIDED ATI REVIEW BOOKS ONLY / HOLD-CLINICAL-CONTENT — FUNDAMENTALS LANDING-PAGE REVIEW ACTIVE.**
+
+Current batch:
+- Corrected `Elevated ATI Fundamentals Hub.html` to v0.1.9 so all three primary cards retain the same metadata roles and action terminology as MN.
+- Book: `0 units`, `0 chapters`, `— pp avg / ch`, `Open chapter book`. Templates: `0 types`, `0 examples`, `0 pending`, `Open templates`. Flashcards: `0 in deck`, `0 due now`, `SM-2 algorithm`, `Open flashcards`.
+- No content, registry, record, link target, storage identity, learner state, or product identity changed.
+
+Files edited:
+- `Elevated ATI Fundamentals Hub.html`; private master first; this overlay; private handoff; checklist; paused heartbeat recovery.
+
+Validation performed:
+- Product SHA-256 `b8260e7b40d55619a7e92b1afce2fe81efb689bfd04ecda060bd276f16bc2745`.
+- Static report SHA-256 `e49348d4bb9593f4271a55932bc290987bdaeb15526e829cc6af85426109998a`; runtime report SHA-256 `c0ccdef31bf06a04dc5761d8beb5680b2c450ea43c8ec4efadb8cd5d37bb9563`.
+- Fresh stabilized `2240/1440/901/900/768/601/600/390` QA passes loaded fonts, exact MN typography/element-role parity, zero horizontal overflow, dark/light restoration, storage accessibility state, Fundamentals family HTTP 200, zero product console errors, parse/ID/zero-registry integrity, and `git diff --check`.
+- Evidence: `/private/tmp/fundamentals-hub-primary-tools-parity-555`.
+- Review: `http://127.0.0.1:55556/fundamentals-hub-primary-tools-review-555.html?v=primary-tools-555-a`.
+
+Automation status:
+- Night Shift remains **PAUSED** at this user-review boundary; exact configuration SHA-256 `739f2e402494603ee26c48d14ab3aa3312cfde274a3c752c2256e5f3d4e9d6f2`. Protected automations remain **PAUSED** and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, globally linked, or published.
+
+GitHub Desktop should show:
+- Existing Part 548 tracked changes plus seven authorized untracked shells. Fundamentals Hub contains the Part 555 correction; no Comprehensive Review Book appears.
+
+TLDR:
+- Fundamentals now uses the same three primary-card metadata roles, CTA terms, and typography as MN, with honest empty-state values.
+
+Next Recommended Action:
+- **The user must act: review Part 555 and approve the corrected elements or identify one exact remaining mismatch; do not commit or push yet.**
+
+## Part 556 — Minimalist comparison chrome
+
+Current mode:
+- **USER-PROVIDED ATI REVIEW BOOKS ONLY / HOLD-CLINICAL-CONTENT — COMPARISON-ONLY REVIEW.**
+
+Current batch:
+- Restored the earlier collapsible Focus pattern to the Fundamentals-vs-MN comparison. It opens with one `36px` strip and full-height panes; `Exit focus` restores a concise header while options remain collapsed until opened.
+- All width, target, sync, landmark, guide, theme/reset, Focus, and red-box controls remain available. No product or learner state changed.
+
+Files edited:
+- Temporary Part 556 wrapper/evidence only; private master first, this overlay, handoff, checklist, and paused heartbeat recovery.
+
+Validation performed:
+- Wrapper `c76f4afb8bd941f410becf7dad09a09944f37e99c4b4f2b8ae2d848ad5ea8b92`; static report `47e47f8a519ba4cf8869c7f4f67bb33c098687f221c67de6635788b4b6059ab6`; runtime report `29f40611488fc449b277966df24fc8e5c9299036e356ebe39d15bb70b6a796df`.
+- `1440x1000` and `390x844` stabilize twice with a `36px` strip, panes at `y=36`, zero overflow, zero page-reported comparison errors, collapsed-option recovery, and retained advanced controls.
+- Review: `http://127.0.0.1:55656/fundamentals-hub-primary-tools-review-556.html?v=minimal-556-a`.
+
+Automation status:
+- Night Shift remains **PAUSED** at the Part 556 user-review boundary; exact configuration SHA-256 `2e6543ee95ed0135a126d9041272b512da95a5935e70461bbd350424e010f22d`.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- No product change for Part 556; exact Part 555 worktree remains.
+
+TLDR:
+- The comparison opens in the earlier minimalist Focus layout and uses nearly the full screen for the two panes.
+
+Next Recommended Action:
+- **The user must act: review Part 556 and approve the compact chrome or identify one exact remaining issue; do not commit or push yet.**
+
+## Part 557 — MN-left comparison orientation
+
+Current mode:
+- **USER-PROVIDED ATI REVIEW BOOKS ONLY / HOLD-CLINICAL-CONTENT — COMPARISON-ONLY REVIEW.**
+
+Current batch:
+- Corrected the minimalist wrapper so MN is fixed on the left as the approved reference and Fundamentals v0.1.9 is fixed on the right as the review target.
+- Removed the subject switcher from this focused pair. The Fundamentals product is unchanged because the remaining dislike has not yet been identified at an exact element or coordinate.
+
+Files edited:
+- Temporary Part 557 wrapper/evidence; private master first; this overlay; private handoff; checklist; paused heartbeat recovery. No product or learner state changed.
+
+Validation performed:
+- Wrapper `78bfc3d8d136cf233c4655718fe5f020fa3549646bdc4af8aa945aed7c45bb94`; static report `fa47eab78ad62d91fffa01245d5b9dc3876a4bcfe7432c1c14429f1afdda83af`; runtime report `07a9249abaa32f3dd4a26072aedfacf6b06b3167198f19df725029edf6ccf024`.
+- Fresh static and wide/phone browser QA proves exact MN-left/Fundamentals-right sources, no target switching, a `36px` default Focus strip, collapsed advanced options, retained comparison tools, loaded pane fonts, zero pane/outer overflow, zero page-reported errors, and HTTP 200.
+- Review: `http://127.0.0.1:55757/mn-vs-fundamentals-hub-review-557.html?v=mn-left-557-a`.
+
+Automation status:
+- Night Shift remains **PAUSED** at the Part 557 user-review boundary; no product or content queue is active. Exact configuration SHA-256 `8f61086e8fa143cf2d1a49c22d35b9d4dd09d974707f9dfd80ec52f17d81bb56`. Protected automations remain paused and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- No product change for Part 557; the Part 555 product state remains.
+
+TLDR:
+- MN is back on the left permanently, Fundamentals is on the right, and the focused review no longer allows the reference to be switched.
+
+Next Recommended Action:
+- **The user must act: review Part 557 and mark the first exact Fundamentals element to revise with the right red box or a landmark coordinate; do not commit or push yet.**
+
+## Part 558 — Fundamentals Hub planned-additions parity
+
+Current mode:
+- **USER-PROVIDED ATI REVIEW BOOKS ONLY / HOLD-CLINICAL-CONTENT — FUNDAMENTALS LANDING-PAGE REVIEW ACTIVE.**
+
+Current batch:
+- Corrected `Elevated ATI Fundamentals Hub.html` to v0.1.10 by restoring the shared `Planned additions` card immediately before `Sync & Storage`.
+- Its exact honest items are `Source-authorized chapter and unit population`, `Source-authorized worked-template population`, and `Source-authorized flashcard deck population`. No MN subject-specific roadmap item was copied.
+- No content, registry, count, link target, state key, learner byte, or product identity changed.
+
+Files edited:
+- `Elevated ATI Fundamentals Hub.html`; private master first; this overlay; private handoff; checklist; paused heartbeat recovery.
+
+Validation performed:
+- Product SHA-256 `249c7ff7c8961a52314586f33cdb3ad0adb7d3b01595f65a1f21a8b120f0717c`.
+- Static report `b41174425235d6bddf30838437f0aa7e1470777dc6a73d515d827dd90c514d08`; runtime report `a80ed4bedfb7156c2cb9997a2e45095d07af422e8fe1bdf9c2ec9da1234dc8a4`; wrapper `bef7399bd53b18bd7e9bd3febbde59d1530dd3b0ca46caad7b7241f663326d73`.
+- Fresh static and stabilized `2240/1440/901/900/768/601/600/390` runtime QA passes exact panel order/content, shared typography/spacing, parse/ID/zero-registry integrity, byte-identical links and learner-state identities, dark/light, storage accessibility, zero overflow/errors, family HTTP 200, inspected wide/phone screenshots, MN-left comparison integrity, and `git diff --check`.
+- Evidence: `/private/tmp/fundamentals-hub-planned-additions-558`. Review: `http://127.0.0.1:55959/mn-vs-fundamentals-hub-review-558.html?v=planned-additions-558-a`.
+- No PDF is claimed; proportional print-role preservation is statically verified.
+
+Automation status:
+- Night Shift remains **PAUSED** at Part 558; no product or content queue is active. Exact configuration SHA-256 `c07d4e0940586f398ff656e82d754ba1c62e9e6db6683f57728e3baf08449d24`. Protected automations remain paused and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Existing Part 548 tracked changes plus seven authorized untracked shells. Fundamentals Hub contains the Part 558 correction; no Comprehensive Review Book appears.
+
+TLDR:
+- Fundamentals now includes the missing shared Planned additions card with honest zero-content activation wording.
+
+Next Recommended Action:
+- **The user must act: review Part 558 and approve the restored Planned additions panel or identify one exact remaining mismatch; do not commit or push yet.**
+
+## Part 559 — Fundamentals Hub footer-divider removal
+
+Current mode:
+- **USER-PROVIDED ATI REVIEW BOOKS ONLY / HOLD-CLINICAL-CONTENT — FUNDAMENTALS LANDING-PAGE REVIEW ACTIVE.**
+
+Current batch:
+- Corrected `Elevated ATI Fundamentals Hub.html` to v0.1.11 by removing only the `1px` footer top border below `Sync & Storage` identified by the user.
+- The `36px` separation and `28px` footer padding remain unchanged. Planned additions, links, state identities, registries, counts, storage behavior, and wording are byte-preserved.
+
+Files edited:
+- `Elevated ATI Fundamentals Hub.html`; private master first; this overlay; private handoff; paused heartbeat recovery. No checklist change is warranted for this product-specific visual correction.
+
+Validation performed:
+- Product SHA-256 `fc803cb97e657d35b4bfabfbab43cb93b0d4d71923c1f843f577f66842fa75d7`.
+- Static report `01fe6e45908b5592d8bc18db70ab28ace125c59e015cebf4ac3626dee2634b3a`; runtime report `6020e11ac1ebc0f9d457dc399d1faa45d6640d9e6248627990bf96d5e9d83dbf`; wrapper `e9a6ea4fd0afd393960df19a550d73f2d0d011c6b70c874698e960aa7b7af236`.
+- Fresh static and stabilized `2240/1440/901/900/768/601/600/390` runtime QA passes focused diff integrity, zero footer border in dark/light, preserved footer geometry, unique IDs, exact zero registries, byte-identical links/state identities, storage accessibility, zero overflow/errors, HTTP 200, inspected wide/phone screenshots, MN-left comparison integrity, and `git diff --check`.
+- Evidence: `/private/tmp/fundamentals-hub-footer-divider-559`. Review: `http://127.0.0.1:56161/mn-vs-fundamentals-hub-review-559.html?v=divider-559-a`.
+
+Automation status:
+- Night Shift remains **PAUSED** at Part 559; no product or content queue is active. Exact configuration SHA-256 `5e8f599efb3924b48d9f92725c5d2020b55a57adb3342bab66c7f642e2073c8f`. Protected automations remain paused and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Existing Part 548 tracked changes plus seven authorized untracked shells. Fundamentals Hub contains the Part 559 correction; no Comprehensive Review Book appears.
+
+TLDR:
+- The extra line below Fundamentals Sync & Storage is removed, with spacing and state contracts preserved.
+
+Next Recommended Action:
+- **The user must act: review Part 559 and approve the divider removal or identify one exact remaining mismatch; do not commit or push yet.**
+
+## Part 560 — Fundamentals Template-types row parity
+
+Current mode:
+- **USER-PROVIDED ATI REVIEW BOOKS ONLY / HOLD-CLINICAL-CONTENT — FUNDAMENTALS LANDING-PAGE REVIEW ACTIVE.**
+
+Current batch:
+- `Elevated ATI Fundamentals Hub.html` v0.1.12 now uses MN's compact Template-types row role instead of a separate large empty-state card.
+- The sole shell row is a disabled non-link status with `—`, `Template types not yet populated`, and `0 examples`; no MN taxonomy, page code, count, example, or record was copied.
+- The Units empty state spans the grid; Planned additions, Sync & Storage, the footer correction, links, state identities, and empty registries remain unchanged.
+
+Files edited:
+- `Elevated ATI Fundamentals Hub.html`; private master first; this overlay; private handoff; checklist; paused heartbeat recovery.
+
+Validation performed:
+- Product SHA-256 `dcec936364bd9ec205f70c7b6f94473d8ee15ab79a4e02b2c0783cc2babb9442` with exact candidate/repository parity.
+- Static report `50e96287cdf2aafb67f75ead3ef053d7e957384d9f1b50931ad7e36573e93d2a`; runtime report `3abf1bd9ee9a2b2f9caf464b7ac1721f7312c48ca9753dee97fad8bec454a948`; wrapper `88557c485ffd8a2182ebbbc524f20807289d55bf13174e8e73a14068c2f59822`.
+- Focused static and stabilized `2240/1440/901/900/768/601/600/390` runtime QA passes exact row-role geometry/typography parity, honest zero-state semantics, unique IDs, empty registries, state/link parity, dark/light, storage accessibility, responsive columns, zero overflow/errors, HTTP 200, screenshot inspection, MN-left comparison integrity, and `git diff --check`.
+- Evidence: `/private/tmp/fundamentals-hub-template-types-parity-560`. Review: `http://127.0.0.1:56363/mn-vs-fundamentals-hub-review-560.html?v=types-560-a`.
+- No PDF is claimed; print-role preservation is statically verified. Automated QA remains distinct from user visual approval.
+
+Automation status:
+- Night Shift remains **PAUSED** at Part 560; no product or content queue is active. Exact configuration SHA-256 `4fecbbc31660548900b001f550daed869c4300addeb99ba23441420828f427da`. Protected automations remain paused and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Existing Part 548 tracked changes plus seven authorized untracked shells. Fundamentals Hub contains the Part 560 correction; no Comprehensive Review Book appears.
+
+TLDR:
+- Fundamentals now keeps MN's compact Template-types row layout with honest zero-content values.
+
+Next Recommended Action:
+- **The user must act: review Part 560 and approve the compact Template-types row or identify one exact remaining mismatch; do not commit or push yet.**
+
+## Part 561 — Fundamentals unit-card parity
+
+Current mode:
+- **USER-PROVIDED ATI REVIEW BOOKS ONLY / HOLD-CLINICAL-CONTENT — FUNDAMENTALS LANDING-PAGE REVIEW ACTIVE.**
+
+Current batch:
+- `Elevated ATI Fundamentals Hub.html` v0.1.13 replaces its different large Units empty-state card with MN's four-card unit-grid role.
+- The four visible cards are non-link visual placeholders only: `Unit —`, `Not yet populated`, `No chapter range`, `0 / 0 read`. The unit registry and product counts remain zero; no donor unit identity, range, record, or progress value was copied.
+- The compact Template-types row, Planned additions, Sync & Storage, footer correction, links, state identities, and empty registries remain unchanged.
+
+Files edited:
+- `Elevated ATI Fundamentals Hub.html`; private master first; this overlay; private handoff; checklist; paused heartbeat recovery.
+
+Validation performed:
+- Product SHA-256 `4c98f5df0983935aa871ff70fe9b343175c22bf5a160a14219d6d04f01e0065f` with exact candidate/repository parity.
+- Static report `e8b3f9b8df38974236d1763877562766b9ea21eb1a847e74fa184d36b0c6450f`; runtime report `fda11a6b38c1af0ce7359ca824ba7a6241ac986469560d57c4eb93f01a3cfcff`; wrapper `83ad785c0f69a0ffbe81f64bc0ee63f555d2078914c438944a6b8dcd398b795c`.
+- Focused static and stabilized `2240/1440/901/900/768/601/600/390` runtime QA passes exact MN unit-card geometry/typography parity, honest non-record semantics, empty registries, state/link parity, dark/light, storage accessibility, responsive columns, zero overflow, product console, HTTP 200, screenshot inspection, MN-left comparison integrity, and `git diff --check`.
+- Evidence: `/private/tmp/fundamentals-hub-unit-card-parity-561`. Review: `http://127.0.0.1:56565/mn-vs-fundamentals-hub-review-561.html?v=units-561-a`.
+- No PDF is claimed; print-role preservation is statically verified. Automated QA remains distinct from user visual approval.
+
+Automation status:
+- Night Shift remains **PAUSED** at Part 561; no product or content queue is active. Exact configuration SHA-256 `c84440e59d3981e94cb598b05220b5f87d1417b332a8ea3d85a7a6d99298bebf`. Protected automations remain paused and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Existing Part 548 tracked changes plus seven authorized untracked shells. Fundamentals Hub contains the Part 561 correction; no Comprehensive Review Book appears.
+
+TLDR:
+- Fundamentals now uses MN's unit-card grid with four honest zero-content visual slots.
+
+Next Recommended Action:
+- **The user must act: review Part 561 and approve the unit-card parity or identify one exact remaining mismatch; do not commit or push yet.**
+
+## Part 562 — Fundamentals bottom/footer parity
+
+Current mode:
+- **USER-PROVIDED ATI REVIEW BOOKS ONLY / HOLD-CLINICAL-CONTENT — FUNDAMENTALS LANDING-PAGE REVIEW ACTIVE.**
+
+Current batch:
+- Fundamentals Hub v0.1.14 removes the `36px` screen gap between Sync & Storage and the footer.
+- MN footer typography and box height are retained with an invisible `1px` geometry border; the rejected visible divider remains absent.
+- Content-population height differences remain honest and unchanged.
+
+Files edited:
+- `Elevated ATI Fundamentals Hub.html`; private master first; this overlay; private handoff; checklist; paused heartbeat recovery.
+
+Validation performed:
+- Product SHA-256 `76262ad1de97d1e45d57512f35cc1a99cbc807d241710f0f551500e02c3cf4fe`; wrapper `88cbabbced9d8a1e272ecbec0f347ede77595e11692128ba0adb0795d000fd0a`.
+- Parse-clean product script, empty/frozen registries, `contentAuthorized:false`, v0.1.14 markers, zero footer gap, no visible divider, HTTP 200, and `git diff --check` pass.
+- At `557px`, both footers measure `78.95px`, both storage-to-footer gaps are `0px`, and their maximum-scroll Sync & Storage tops differ by only `0.21px`. The `390px` preset has zero horizontal overflow and zero footer gap.
+- Evidence `/private/tmp/fundamentals-hub-footer-parity-562`. Review `http://127.0.0.1:56666/mn-vs-fundamentals-hub-review-562.html?v=footer-562-b`.
+
+Automation status:
+- Night Shift remains **PAUSED** at Part 562; exact configuration SHA-256 `04f736593ef0d12fb8b1a8f665ee791a3b643e6ac495265fa3fa27b43b91f521`. No product or content queue is active. Protected automations remain paused and byte-unchanged.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Existing Part 548 tracked changes plus seven authorized untracked shells. Fundamentals Hub contains the Part 562 correction; no Comprehensive Review Book appears.
+
+TLDR:
+- The bottom alignment is corrected without adding content or restoring the footer line.
+
+Next Recommended Action:
+- **The user must act: review Part 562 at the true bottom and approve it or identify one exact remaining mismatch; do not commit or push yet.**
+
+## Part 563 — Part 562 visual approval recorded
+
+Current mode:
+- **MANUAL REVIEW CHECKPOINT — NIGHT SHIFT PAUSED.**
+
+Current batch:
+- The user reviewed Part 562 and stated, “It is now synced.” Fundamentals bottom/footer parity is user visually approved.
+- No product bytes changed; Fundamentals Hub remains v0.1.14 at SHA-256 `76262ad1de97d1e45d57512f35cc1a99cbc807d241710f0f551500e02c3cf4fe`.
+
+Files edited:
+- Private master first; this overlay; private handoff; checklist; paused heartbeat recovery. No product file changed.
+
+Validation performed:
+- Reconfirmed source-control continuity and unchanged expected worktree. Part 562 evidence remains authoritative.
+
+Automation status:
+- Night Shift remains **PAUSED** with exact configuration SHA-256 `fe80e1ea87f72975a96ba61ddfbdc43e094fc0ab8e8b10f91f1982e332c9316e`; no new product or content queue is active.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- The same expected Part 548 tracked changes plus seven authorized untracked shells.
+
+TLDR:
+- Part 562 is objectively passed and user visually approved.
+
+Next Recommended Action:
+- **The user does not need to act on Part 562 again; choose the next scoped review or explicitly authorize a commit/push when ready.**
+
+## Part 564 — Smooth source-owned comparison scroll
+
+Current mode:
+- **MANUAL COMPARISON-TOOL IMPROVEMENT — NIGHT SHIFT PAUSED; NO PRODUCT CONTENT CHANGE.**
+
+Current batch:
+- The temporary MN-left/Fundamentals-right comparison wrapper now assigns one active source pane per wheel, touch, pointer, or keyboard scroll burst; requestAnimationFrame-coalesced normalized follower writes replace the old reciprocal loop.
+- Expected follower echoes are suppressed, source ownership transfers on real interaction, and comparison-local `scroll-behavior:auto !important` neutralizes delayed product smooth scrolling without changing product bytes.
+
+Files edited:
+- Temporary wrapper/evidence under `/private/tmp/comparison-scroll-sync-564`; private master first; this overlay; private handoff; checklist; paused heartbeat recovery. No product file changed.
+
+Validation performed:
+- Wrapper `627b56eb69c7d617caf7aef5d7a28255976b9396a6448676f979416895761b87`; static report `b044eb789c659ebf6e63791b72a04386abd01189013ac0049037a365f3b94ede`; runtime report `590253e21e30afc0d6d2b77e48708515aed513c8e9211685effa1e7aaee888d0`.
+- Rapid left-to-right and right-to-left bursts pass at `45ms` intervals with no stalls/reversals and at most `0.00011` normalized ratio delta. Sync off/on, exact edges, pointer takeover, `390px`, zero outer overflow/errors, and all three HTTP responses pass.
+- Final state is `557px`, Focus mode, sync on, both panes at top, computed comparison scroll behavior `auto`. Review `http://127.0.0.1:56767/mn-vs-fundamentals-hub-review-564.html?v=smooth-sync-564-c`.
+- Fundamentals Hub is unchanged at v0.1.14 SHA-256 `76262ad1de97d1e45d57512f35cc1a99cbc807d241710f0f551500e02c3cf4fe`.
+
+Automation status:
+- Night Shift remains **PAUSED** at Part 564 with exact configuration SHA-256 `fd1d08b28924e939001f60e7816669fdb863979d9cf0decea280b54527a520cf`; no product/content queue is active. Protected automations remain **PAUSED** and byte-unchanged at Build Guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, Pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- The same expected Part 548 tracked changes and seven authorized untracked shells; no Part 564 product diff and no Comprehensive Review Book.
+
+TLDR:
+- The comparison follower now moves immediately with the actively controlled pane and delayed reciprocal feedback is blocked.
+
+Next Recommended Action:
+- **The user must act: drag-scroll either pane in Part 564 and confirm that synchronized scrolling now feels smooth; do not commit or push yet.**
+
+## Part 565 — Accumulated review set approved
+
+Current mode:
+- **USER-APPROVED DESIGN CHECKPOINT — NIGHT SHIFT PAUSED; NO CLINICAL CONTENT AUTHORIZED.**
+
+Current batch:
+- User statement “i approve everything” approves the accumulated review set through Part 564: the Fundamentals zero-content family, Community Health/Leadership/Nutrition Book shells, shared MN/MH/PD/Pharm/AMS Hub pickup propagation, Fundamentals Hub v0.1.14 parity, and reusable comparison features including source-owned synchronized scrolling.
+- Approval does not authorize content population, new product identities, staging, commits, pushes, global links, or publication. No product bytes changed.
+
+Files edited:
+- Private master first; this overlay; private handoff; checklist; paused heartbeat recovery. No product or temporary wrapper file changed.
+
+Validation performed:
+- Reconfirmed `main`, HEAD/origin `dd473bf8e8a737e7dc25aec9e1aec2ec49dd52f7`, `0/0`, expected worktree, exact current artifact hashes, and absence of the unauthorized Comprehensive Review Book.
+- Approved Fundamentals hashes: Book `6b1516733e603eb0037c1fe4e0f24c8a8ca541ef12856f36b6332077e7b9c62f`; Hub `76262ad1de97d1e45d57512f35cc1a99cbc807d241710f0f551500e02c3cf4fe`; Templates `d9abff919d746f61ac56a920781359d2f077d2cbca67f1314b792bc85d1f02e8`; Flashcards `5955f3c838ddc832bd61ccd79cc59323f9ece4cd5b3a79e2cb52418d9acb3c80`.
+- Approved Book-shell hashes: Community Health `91d6c3e35f8dedd29ef1f8d1326beeee8c6ed32de64800750a6fd1167056d9f2`; Leadership `67144b58082c679d10d8f738cee71925084bbdefdfa99ffeb249bacda0967601`; Nutrition `d03eeff44af8fb9f9c1ea3d67719ecb55e713a9ec905944e671c7a2103e8ee7d`.
+- Approved Part 564 wrapper `627b56eb69c7d617caf7aef5d7a28255976b9396a6448676f979416895761b87`; static/runtime evidence remains current.
+
+Automation status:
+- Night Shift remains **PAUSED** at Part 565 with exact configuration SHA-256 `f65d125d33e71a7e8d8cd69ac961f111585d6b7df7a62965bdd0e52f9dad4a16`; no product/content queue is active. Protected automations remain **PAUSED** and byte-unchanged at Build Guide `0231daeff2bf816ce8b868164c1e0583f9de5fd8c8ff8b7d2d8a7f6ba1af557d`, clipping QA `d1053275a201ac9d8f075f63b3de3deaff85f2e224a6bcd6e5709540d3f2f269`, Pediatric `98dd5857a519caf832b3005f7327214ab32adcfb2775480e36509e35c76f9fff`, and spacing `e5e4a6e66b28bb2d162b9604f0fe1e080aedf7dda4f463e5a7606029bb554d39`.
+
+Commit/push status:
+- Nothing staged, committed, pushed, linked, or published.
+
+GitHub Desktop should show:
+- Existing expected tracked changes plus seven approved untracked shells; no Part 565 product diff and no Comprehensive Review Book.
+
+TLDR:
+- All current design, shell, Hub-parity, and comparison-tool work presented in this task is user approved.
+
+Next Recommended Action:
+- **The user does not need to act on visual review again; wait for a new explicit instruction before committing, pushing, populating content, or starting another ATI book.**
+
+## Part 566 — Local checkpoint commit authorized
+
+Current mode:
+- **LOCAL CHECKPOINT COMMIT AUTHORIZED — PUSH/PUBLICATION NOT AUTHORIZED.**
+
+Current batch:
+- User instruction “make the local checkpoint commit” authorizes one exact local commit of the approved five shared-Hub updates, seven zero-content shells, and two repository continuity documents.
+- Unrelated untracked files are excluded. No product bytes changed after Part 565 approval.
+
+Files edited:
+- Private master first; this overlay; private handoff; paused heartbeat recovery. No new product or checklist edit is introduced by commit mechanics.
+
+Validation performed:
+- Precommit `main` continuity passes at HEAD/origin `dd473bf8e8a737e7dc25aec9e1aec2ec49dd52f7`, `0/0`; `git diff --check` passes; expected scope only; unauthorized Comprehensive Review Book absent.
+- Exact commit scope is the five modified MN/MH/PD/Pharm/AMS Hubs, seven approved Fundamentals/Community Health/Leadership/Nutrition shells, this overlay, and `MN Design Canon Checklist.md`.
+
+Automation status:
+- Night Shift remains **PAUSED**; no product/content queue is active. Protected automations remain paused and byte-unchanged.
+
+Commit/push status:
+- One local checkpoint commit is authorized. No push, merge, global link, publication, or content population is authorized.
+
+GitHub Desktop should show:
+- After completion, one local commit ahead of `origin/main`; unrelated untracked files remain unstaged and untouched. The exact resulting commit hash is recorded in private continuity after creation.
+
+TLDR:
+- Commit exactly the approved work locally and keep it unpushed.
+
+Next Recommended Action:
+- **The user does not need to act while the authorized local commit is created and verified; do not push it.**
